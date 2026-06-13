@@ -56,37 +56,41 @@ Can de novo designed intrinsically disordered peptides inspired by lithium-bindi
 
 ---
 
-# Selected Candidate Library
+# First-Round Candidate Library
 
-Current first-round peptide library:
+Current first-round Li+/Na+ selectivity library:
 
-## LiD3-1
+| Rank | Name | Protein / peptide sequence | Main design logic | Prediction |
+| --- | --- | --- | --- | --- |
+| 1 | LiD3-1 | GPGDPGSGPGDPGSGPGDP | Uses the best literature motif GPGDP, repeated 3x, with Gly/Ser flexibility | Best first candidate |
+| 2 | LiND-1 | GPGNPGSGPGDPGSGPGNP | Combines original LBP GPGNP + improved GPGDP | Balanced affinity/selectivity |
+| 3 | IDP-Li-1 | SGDSGPGDPGDSG | IDP-like flexible acidic shell around GPGDP | Good Li+ binding, moderate selectivity |
+| 4 | IDP-Li-2 | GDSGSGPGDPGSGDS | More symmetric disordered binding pocket | Good screening candidate |
+| 5 | LowCharge-Li | GPGDPGSGNPGSGDP | Lower negative charge to avoid nonspecific Na+/Ca2+ binding | Better selectivity risk-control |
+| 6 | LiD2-IDP | GPGDPGSDGSGPGDP | Two GPGDP motifs plus IDP acidic spacer | Strong but not overcharged |
+| 7 | StrongBind-Li | GPGDPGSDGPGDPGSD | Higher Asp density for stronger Li+ capture | High affinity, lower selectivity risk |
+| 8 | SoftCage-Li | GSGDPGNGDPGSG | Short flexible oxygen-rich Li+ cage | Small, cheap, easy to test |
+| 9 | IDP-Rich-Li | DSGDSGPGDPGDSGS | More IDP-like, many carboxylate/Ser donors | Strong binding, may bind other metals |
+| 10 | Control-Negative | GPGAPGSGPGAPGSGPGAP | Literature-related weak/neutral control | Should bind Li+ weaker |
 
-GPGDPGSGPGDPGSGPGDP
+Strongest recommended starting subset:
 
-## LiND-1
+- LiD3-1
+- LiND-1
+- IDP-Li-1
+- LowCharge-Li
+- Control-Negative
 
-GPGNPGSGPGDPGSGPGNP
-
-## LowCharge-Li
-
-GPGDPGSGNPGSGDP
-
-## IDP-Li-1
-
-SGDSGPGDPGDSG
-
-## IDP-Li-2
-
-GDSGSGPGDPGSGDS
-
-## Control-Negative
-
-GPGAPGSGPGAPGSGPGAP
-
-These sequences constitute the primary screening set.
+These sequences constitute the primary first-round screening set.
 
 Previous discarded sequences are not part of the current project.
+
+Core design idea:
+
+- GPGDP/GPGNP provides Li+-binding precedent.
+- Gly/Ser/Pro provides IDP-like flexibility.
+- Asp/Glu provides oxygen donors.
+- Net charge is limited to reduce nonspecific Na+/Ca2+ binding.
 
 ---
 
@@ -230,6 +234,15 @@ The primary challenge is Li⁺ vs Na⁺ separation.
 
 LiSPER/
 
+├── analysis/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── docs/
+│   └── Literature Review/
+│       ├── IDP/
+│       └── LBP/
+├── inbox/
 ├── literature/
 ├── sequences/
 ├── esmfold/
@@ -240,8 +253,23 @@ LiSPER/
 ├── plasmids/
 ├── wetlab/
 ├── figures/
+├── protocols/
+├── scripts/
 ├── manuscript/
 └── README.md
+
+---
+
+# Current Repository Starting Points
+
+- Candidate library: `sequences/candidates.fasta` and `sequences/candidates.tsv`
+- Repository guide: `docs/repository_guide.md`
+- Candidate design rationale: `docs/candidate_design_rationale.md`
+- Literature PDFs: `docs/Literature Review/IDP` and `docs/Literature Review/LBP`
+- File drop zone for unsorted materials: `inbox/`
+- Folder-level notes: each major folder contains a short `README.md`
+
+Use the candidate IDs consistently across computational and experimental records, especially when comparing paired LiCl and NaCl systems.
 
 ---
 
