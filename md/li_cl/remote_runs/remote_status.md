@@ -31,6 +31,7 @@ Queued next stage:
 - The script waits for remote PID 3204, which is the NaCl add-two queue, before starting.
 - Queue PID file: `/root/LiSPER_remote/LiSPER_LiCl/remote_runs/licl_production_cluster_20ns.pid`.
 - Latest observed queue process: PID 3883.
+- Latest synced production/clustering log is still empty, meaning this stage has not started yet and is still waiting behind the NaCl add-two queue.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
 - Representative structure output: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.

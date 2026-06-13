@@ -25,7 +25,10 @@ Running:
 - Local launch observed PID `1609`; child process `python3 /root/LiSPER_remote/run_lisper_nacl_minimize.py` started successfully.
 - Minimization completed successfully for all 8 ready NaCl systems.
 - `IDP-Li-1`, `IDP-Li-2`, and `SoftCage-Li` each required one overlapping TIP3 water removal before successful minimization.
-- Step4.1 equilibration has started for the first 8-system batch; latest observed active system was `IDP-Li-1`.
+- Step4.1 equilibration is running for the first 8-system batch; latest observed active system was `SoftCage-Li`.
+- Current local snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/md/na_cl/remote_runs/current_remote_snapshot.md`.
+- Completed equilibration logs have been synced for `LiND-1`, `IDP-Li-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP`.
+- `SoftCage-Li` equilibration log was synced while still in progress.
 - Uploaded revised NaCl LiD3-1 and StrongBind-Li systems to the remote.
 - Updated remote `ready_gromacs_systems.tsv` now contains all 10 NaCl systems.
 - Queued `/root/LiSPER_remote/queue_nacl_add2.py` with `WAIT_FOR_PID=1609`.
