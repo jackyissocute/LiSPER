@@ -1,0 +1,11 @@
+download_archive_original_order	candidate_id	safe_upload_name	organized_archive	notes
+charmm-gui.tgz	Control-Negative	controlnegative.pdb	Control-Negative_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (1).tgz	IDP-Li-1	idpli1.pdb	IDP-Li-1_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (2).tgz	IDP-Li-2	idpli2.pdb	IDP-Li-2_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (3).tgz	IDP-Rich-Li	idprichli.pdb	IDP-Rich-Li_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (4).tgz	LiD2-IDP	lid2idp.pdb	LiD2-IDP_LiCl_charmm_gui.tgz	original_batch
+charmm-gui.tgz	LiD3-1	lid31.pdb	LiD3-1_LiCl_charmm_gui.tgz	revised_2026-06-13; old split-chain export preserved in raw_archives/replaced/
+charmm-gui (6).tgz	LiND-1	lind1.pdb	LiND-1_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (7).tgz	LowCharge-Li	lowchargeli.pdb	LowCharge-Li_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (8).tgz	SoftCage-Li	softcageli.pdb	SoftCage-Li_LiCl_charmm_gui.tgz	original_batch
+charmm-gui (9).tgz	StrongBind-Li	strongbindli.pdb	StrongBind-Li_LiCl_charmm_gui.tgz	original_batch

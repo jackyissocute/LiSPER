@@ -10,3 +10,8 @@ Suggested layout:
 - `clustering/`: structural clustering outputs
 
 Keep Li+ and Na+ simulations separate so free-energy estimates remain directly comparable.
+
+Current organized MD handoff folders:
+
+- `li_cl/`: LiCl minimization/equilibration setup, remote scripts, and synced results.
+- `na_cl/`: NaCl setup and remote GROMACS handoff.

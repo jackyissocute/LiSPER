@@ -1,0 +1,11 @@
+candidate_id	condition	status	gromacs_dir	SOD_molecules	CLA_molecules	TIP3_molecules	total_atoms_step3_input_gro	box_nm
+LiD3-1	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/LiD3-1/gromacs	68	65	22625	68209	9.80000,9.23953,8.00167,0.00000,0.00000,-3.26667,0.00000,-3.26667,-4.61976
+LiND-1	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/LiND-1/gromacs	66	65	22637	68247	9.80000,9.23953,8.00167,0.00000,0.00000,-3.26667,0.00000,-3.26667,-4.61976
+IDP-Li-1	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/IDP-Li-1/gromacs	35	32	11421	34465	7.80000,7.35391,6.36867,0.00000,0.00000,-2.60000,0.00000,-2.60000,-3.67696
+IDP-Li-2	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/IDP-Li-2/gromacs	45	42	14721	44403	8.50000,8.01388,6.94022,0.00000,0.00000,-2.83333,0.00000,-2.83333,-4.00694
+LowCharge-Li	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/LowCharge-Li/gromacs	44	42	14714	44389	8.50000,8.01388,6.94022,0.00000,0.00000,-2.83333,0.00000,-2.83333,-4.00694
+LiD2-IDP	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/LiD2-IDP/gromacs	45	42	14723	44415	8.50000,8.01388,6.94022,0.00000,0.00000,-2.83333,0.00000,-2.83333,-4.00694
+StrongBind-Li	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/StrongBind-Li/gromacs	52	48	16946	51109	8.90000,8.39100,7.26682,0.00000,0.00000,-2.96667,0.00000,-2.96667,-4.19550
+SoftCage-Li	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/SoftCage-Li/gromacs	36	34	11841	35726	7.90000,7.44819,6.45032,0.00000,0.00000,-2.63333,0.00000,-2.63333,-3.72410
+IDP-Rich-Li	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/IDP-Rich-Li/gromacs	46	42	14727	44427	8.50000,8.01388,6.94022,0.00000,0.00000,-2.83333,0.00000,-2.83333,-4.00694
+Control-Negative	NaCl	ready_for_gromacs	charmm-gui/na_cl/systems/Control-Negative/gromacs	65	65	22629	68212	9.80000,9.23953,8.00167,0.00000,0.00000,-3.26667,0.00000,-3.26667,-4.61976

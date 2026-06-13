@@ -12,13 +12,15 @@ Can de novo designed intrinsically disordered peptides inspired by lithium-bindi
 2. `esmfold/`
    Structure prediction outputs from candidate sequences.
 
-   CHARMM-GUI-ready PDB files are in `esmfold/pdb/`, with the upload checklist in `esmfold/charmm_gui_upload_list.md`.
+   CHARMM-GUI-safe upload PDB files are in `esmfold/charmm_gui_pdb/`, with the upload checklist in `esmfold/charmm_gui_upload_list.md`.
 
 3. `charmm-gui/`
    System preparation for separate LiCl and NaCl simulations.
 
 4. `md/`
    Equilibration, production runs, and structural clustering.
+
+   The transition from production MD to umbrella sampling is documented in `docs/md_to_pmf_workflow.md`.
 
 5. `umbrella/`
    Umbrella sampling setup and trajectories.
@@ -33,8 +35,8 @@ Can de novo designed intrinsically disordered peptides inspired by lithium-bindi
 
 - `inbox/`: temporary drop zone for files that need sorting or review
 - `literature/`: papers and notes
-- `docs/Literature Review/IDP`: intrinsically disordered protein literature PDFs
-- `docs/Literature Review/LBP`: lithium-binding peptide/protein literature PDFs
+- `literature/Literature Review/IDP`: intrinsically disordered protein literature PDFs
+- `literature/Literature Review/LBP`: lithium-binding peptide/protein literature PDFs
 - `data/`: raw and processed datasets
 - `analysis/`: notebooks and exploratory analysis
 - `protocols/`: repeatable computational and experimental methods
