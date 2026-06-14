@@ -1,7 +1,7 @@
 Remote AutoDL/SeeTACloud status
 
 Host: connect.westb.seetacloud.com
-Port: 34462
+Port: 37049
 Remote root: /root/LiSPER_remote
 Remote LiCl workdir: /root/LiSPER_remote/LiSPER_LiCl
 GROMACS env: conda activate lisper-gmx
@@ -16,7 +16,9 @@ Completed:
 - Replaced the earlier split-chain LiD3-1 CHARMM-GUI setup with the revised one-chain setup.
 
 Running:
-- No active GROMACS processes were found at the latest sync.
+- LiCl production/clustering queue is active.
+- Active GROMACS job: `LiD3-1` 20 ns production MD.
+- Latest observed process: Python driver PID `3883`; active `gmx mdrun` PID `6827`.
 
 Latest synced results:
 - All 10 LiCl systems minimized successfully.
@@ -33,8 +35,9 @@ Queued next stage:
 - Latest observed process: PID 3883.
 - LiCl production/clustering has started. Active GROMACS job is `LiD3-1` 20 ns production.
 - Current local production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/md/li_cl/remote_runs/current_production_snapshot.md`.
-- Latest synced `LiD3-1` production progress: 2,100,000 / 10,000,000 steps, 4.2 ns / 20 ns, 21.00%.
-- Latest synced health markers: temperature about 297 K, constraint RMSD about 3e-6, no fatal markers found.
+- Latest synced `LiD3-1` production progress: 3,335,000 / 10,000,000 steps, 6.67 ns / 20 ns, 33.35%.
+- Latest synced health markers: temperature about 298 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 3e-6, no fatal markers found.
+- The `cluster_20ns/` folder has been created for `LiD3-1` but is still empty because production has not finished yet.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
 - Representative structure output: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.
