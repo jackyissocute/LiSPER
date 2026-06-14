@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="360" viewBox="0 0 1400 360" role="img" aria-labelledby="title desc">
+  <title id="title">LiSPER project banner</title>
+  <desc id="desc">A scientific banner showing lithium ions, flexible peptide chains, battery recycling, direct lithium extraction, and computational design.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071827"/>
+      <stop offset="0.52" stop-color="#0e2b3d"/>
+      <stop offset="1" stop-color="#102f24"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="360" rx="28" fill="url(#bg)"/>
+  <path d="M0 285 C220 225 325 310 530 246 C755 176 920 232 1110 168 C1230 128 1325 112 1400 92 L1400 360 L0 360 Z" fill="#0f3a3a" opacity="0.38"/>
+  <path d="M0 82 C200 120 340 36 535 78 C750 125 870 50 1045 76 C1210 100 1290 140 1400 118" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.34"/>
+  <path d="M0 122 C170 155 315 105 470 128 C640 154 770 178 950 132 C1135 86 1265 118 1400 154" fill="none" stroke="#34d399" stroke-width="2" opacity="0.28"/>
+
+  <g transform="translate(90 76)">
+    <text x="0" y="0" fill="#e5f4ff" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="2">LiSPER</text>
+    <text x="4" y="48" fill="#b8d8e8" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="500">Lithium-Selective Peptide Engineering and Recovery</text>
+    <text x="4" y="92" fill="#d1fae5" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Computational design -> peptide validation -> Bio-DLE translation</text>
+  </g>
+
+  <g transform="translate(98 225)" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">
+    <rect x="0" y="0" width="170" height="42" rx="21" fill="#0f766e" opacity="0.95"/>
+    <text x="85" y="27" fill="#ecfeff" text-anchor="middle">Li+ selectivity</text>
+    <rect x="188" y="0" width="170" height="42" rx="21" fill="#1d4ed8" opacity="0.88"/>
+    <text x="273" y="27" fill="#eff6ff" text-anchor="middle">IDP peptides</text>
+    <rect x="376" y="0" width="205" height="42" rx="21" fill="#047857" opacity="0.88"/>
+    <text x="479" y="27" fill="#ecfdf5" text-anchor="middle">battery recycling</text>
+  </g>
+
+  <g transform="translate(650 74)" opacity="0.97">
+    <rect x="0" y="0" width="545" height="182" rx="26" fill="#08111f" opacity="0.46" stroke="#38bdf8" stroke-width="1.4"/>
+    <path d="M42 96 C92 25 168 36 218 88 C279 151 350 151 405 74 C435 34 470 37 505 69" fill="none" stroke="url(#teal)" stroke-width="11" stroke-linecap="round" filter="url(#softGlow)"/>
+    <path d="M42 96 C92 25 168 36 218 88 C279 151 350 151 405 74 C435 34 470 37 505 69" fill="none" stroke="#ecfeff" stroke-width="2.6" stroke-linecap="round" opacity="0.72"/>
+    <g font-family="Inter, Arial, sans-serif" font-weight="800" text-anchor="middle">
+      <circle cx="39" cy="103" r="30" fill="#e0f2fe" stroke="#38bdf8" stroke-width="3"/>
+      <text x="39" y="110" font-size="18" fill="#075985">Li+</text>
+      <circle cx="231" cy="91" r="23" fill="#d1fae5" stroke="#34d399" stroke-width="3"/>
+      <text x="231" y="98" font-size="16" fill="#065f46">Li+</text>
+      <circle cx="506" cy="70" r="30" fill="#e0f2fe" stroke="#38bdf8" stroke-width="3"/>
+      <text x="506" y="77" font-size="18" fill="#075985">Li+</text>
+      <circle cx="333" cy="142" r="26" fill="#ffedd5" stroke="#fb923c" stroke-width="3"/>
+      <text x="333" y="149" font-size="17" fill="#9a3412">Na+</text>
+    </g>
+    <text x="272" y="164" fill="#d1fae5" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">flexible peptide ensemble + ion-selective capture</text>
+  </g>
+
+  <g transform="translate(735 275)" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="760" text-anchor="middle">
+    <rect x="0" y="0" width="96" height="44" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="48" y="28" fill="#e2e8f0">battery</text>
+    <path d="M108 22 L146 22" stroke="#67e8f9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M139 15 L147 22 L139 29" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="158" y="0" width="96" height="44" rx="10" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+    <text x="206" y="28" fill="#ecfdf5">peptide</text>
+    <path d="M266 22 L304 22" stroke="#67e8f9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M297 15 L305 22 L297 29" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="316" y="0" width="96" height="44" rx="10" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+    <text x="364" y="28" fill="#eff6ff">Bio-DLE</text>
+  </g>
+</svg>

@@ -8,7 +8,7 @@ Reusable computational and experimental protocols.
 |---|---|
 | ESMFold prediction | To formalize |
 | CHARMM-GUI setup checklist | To formalize |
-| GROMACS minimization/equilibration | In progress via `../../01_computational_discovery/md/remote_runs` scripts |
+| GROMACS minimization/equilibration | In progress via `../../01_computational_discovery/md/li_cl/remote_runs` and `../../01_computational_discovery/md/na_cl/remote_runs` scripts |
 | Production MD + clustering | In progress |
 | Umbrella sampling | Future |
 | Li+ binding assay | Future |

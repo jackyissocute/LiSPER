@@ -1,318 +1,234 @@
-# LiSPER
+<p align="center">
+  <img src="06_shared/assets/lisper_banner.svg" alt="LiSPER banner showing lithium ions, flexible peptides, battery recycling, direct lithium extraction, and computational design" width="100%">
+</p>
 
-## Lithium-Selective Peptide Engineering and Recovery
+<h1 align="center">LiSPER</h1>
 
-**Engineering selective lithium-recognition peptides through computational design, experimental validation, and industrial translation.**
+<p align="center">
+  <strong>Lithium-Selective Peptide Engineering and Recovery</strong>
+</p>
 
-LiSPER is a research and technology-development program for designing **de novo lithium-selective peptides** and translating them into a future protein-based Direct Lithium Extraction platform.
+<p align="center">
+  A computational-to-experimental program for designing lithium-selective peptides and translating them toward bio-inspired Direct Lithium Extraction (Bio-DLE).
+</p>
+
+<p align="center">
+  <img alt="Program status" src="https://img.shields.io/badge/status-active%20computational%20discovery-2563eb">
+  <img alt="Project type" src="https://img.shields.io/badge/project-peptide%20ion%20selectivity-0f766e">
+  <img alt="Simulation" src="https://img.shields.io/badge/MD-GROMACS%20%7C%20CHARMM36m-7c3aed">
+  <img alt="Translation goal" src="https://img.shields.io/badge/vision-Bio--DLE-ea580c">
+</p>
+
+---
+
+## 📋 Project overview
+
+**LiSPER** is a scientific research and technology-development project for engineering short peptide systems that preferentially recognize lithium over sodium in aqueous environments.
+
+The project combines **lithium-binding peptide inspiration**, **intrinsically disordered peptide principles**, and **computational protein engineering** to discover candidate Li+/Na+ selective peptide materials. The long-term aim is a deployable peptide-enabled lithium capture platform for battery recycling and Direct Lithium Extraction.
+
+| What LiSPER is | Why it matters | Current focus |
+|---|---|---|
+| Lithium-selective peptide library | Li+/Na+ separation is central to lithium recovery | MD, clustering, PMF ranking |
+| Computational discovery engine | Prioritizes candidates before wet-lab cost | LiCl vs NaCl free-energy comparison |
+| Experimental validation program | Converts predictions into measurable assays | His6-SUMO peptide expression strategy |
+| Bio-DLE translation roadmap | Connects molecular recognition to process design | Immobilized peptide capture concepts |
+
+## 🎯 Scientific thesis
+
+> **Flexible peptide motifs with oxygen-donor residues can form lithium coordination environments that differ measurably from sodium coordination under aqueous conditions.**
+
+LiSPER does not only ask whether a peptide can bind Li+. It asks whether a peptide can prefer Li+ over Na+, and whether that preference can be carried from molecular simulation into experimental and eventually material formats.
 
 ```mermaid
 flowchart LR
-    A["Computational Discovery"] --> B["Experimental Validation"]
-    B --> C["Industrial Translation"]
+    accTitle: LiSPER Scientific Thesis
+    accDescr: The diagram shows how motif inspiration, IDP-like flexibility, and oxygen-donor residues combine into LiSPER peptides that are evaluated for Li over Na selectivity.
 
-    A --> A1["Peptide design<br/>MD simulation<br/>PMF ranking"]
-    B --> B1["His6-SUMO-LiSPER<br/>binding assays<br/>surface display"]
-    C --> C1["immobilized peptide media<br/>packed-bed capture<br/>Bio-DLE process"]
+    lithium_motifs[💡 Lithium-binding motifs] --> candidates[🧪 LiSPER peptides]
+    idp_principles[🔄 IDP-like flexibility] --> candidates
+    oxygen_donors[⚙️ Asp and Ser donors] --> candidates
+    candidates --> ensembles[📊 Conformational ensembles]
+    ensembles --> li_states[✅ Li+ coordination states]
+    ensembles --> na_states[🔍 Na+ comparison states]
+    li_states --> selectivity[🎯 Li+/Na+ selectivity]
+    na_states --> selectivity
 
-    classDef phase fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,color:#0c4a6e
-    classDef detail fill:#f8fafc,stroke:#64748b,stroke-width:1px,color:#0f172a
-    class A,B,C phase
-    class A1,B1,C1 detail
+    classDef idea fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+    classDef peptide fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef result fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+
+    class lithium_motifs,idp_principles,oxygen_donors idea
+    class candidates,ensembles,li_states,na_states peptide
+    class selectivity result
 ```
 
----
+## 🧭 Program roadmap
 
-## Project Vision
-
-Current lithium recovery technologies face persistent challenges in **selectivity, cost, energy use, chemical intensity, and sustainability**, especially when Li+ must be separated from chemically similar or highly abundant ions such as Na+.
-
-LiSPER aims to develop short lithium-recognition peptides inspired by:
-
-| Inspiration | Role in LiSPER |
-|---|---|
-| Lithium-binding peptide motifs | Provide motif-level precedent for Li+-associated peptide behavior. |
-| Intrinsically disordered peptide principles | Enable flexible conformational sampling and adaptive ion coordination. |
-| Computational protein engineering | Enables rapid design, simulation, ranking, and experimental prioritization. |
-
-The ultimate goal is a **protein-based Direct Lithium Extraction platform**, or **Bio-DLE**, in which engineered LiSPER peptides selectively capture lithium from battery-recycling or lithium-processing streams and feed conventional lithium carbonate production.
-
----
-
-## Project Roadmap
+LiSPER is organized as a three-stage program: discover the molecular principle, validate it experimentally, then translate the best peptide systems into capture materials.
 
 ```mermaid
-flowchart TD
-    A["Phase I: Computational Discovery"] --> B["Phase II: Experimental Validation"]
-    B --> C["Phase III: Industrial Translation"]
+flowchart LR
+    accTitle: LiSPER Three-Phase Roadmap
+    accDescr: Three major phases move from computational discovery through experimental validation and into industrial translation.
 
-    subgraph P1["Phase I: Computational Discovery"]
-        A1["Sequence Design"] --> A2["ESMFold Structure Prediction"]
-        A2 --> A3["CHARMM-GUI System Building"]
-        A3 --> A4["GROMACS Equilibration"]
-        A4 --> A5["Production MD"]
-        A5 --> A6["Structural Clustering"]
-        A6 --> A7["Representative Structures"]
-        A7 --> A8["Umbrella Sampling"]
-        A8 --> A9["PMF Analysis"]
-        A9 --> A10["Delta G(Li+) and Delta G(Na+)"]
-        A10 --> A11["Li/Na Selectivity Ranking"]
-    end
+    phase_one[🔍 Phase I<br/>Computational discovery<br/>sequence design, MD, clustering, PMF] --> phase_two[🧪 Phase II<br/>Experimental validation<br/>expression, purification, binding assays]
+    phase_two --> phase_three[📦 Phase III<br/>Industrial translation<br/>immobilization, beads, resin, column]
 
-    subgraph P2["Phase II: Experimental Validation"]
-        B1["Construct Design"] --> B2["His6-SUMO-LiSPER Plasmids"]
-        B2 --> B3["E. coli Expression"]
-        B3 --> B4["Protein Purification"]
-        B4 --> B5["SUMO Cleavage"]
-        B5 --> B6["Native Peptide Recovery"]
-        B6 --> B7["Li+/Na+ Binding Assays"]
-        B7 --> B8["Selectivity Validation"]
+    phase_one --> rank[📊 Li+/Na+ selectivity ranking]
+    rank --> shortlist[🎯 wet-lab candidate subset]
+    shortlist --> phase_two
+    phase_two --> validated[✅ validated LiSPER peptides]
+    validated --> phase_three
 
-        B9["Surface Display System"] --> B10["Display LiSPER on Cell Surface"]
-        B10 --> B11["Whole-Cell Li Capture Assays"]
-        B11 --> B12["Li/Na Selectivity Assessment"]
-    end
-
-    subgraph P3["Phase III: Industrial Translation"]
-        C1["Best LiSPER Candidate"] --> C2["Immobilization Strategy"]
-        C2 --> C3["Magnetic Bead Prototype"]
-        C3 --> C4["Resin-Based Capture Media"]
-        C4 --> C5["Packed-Bed Column Development"]
-        C5 --> C6["Synthetic Raffinate Testing"]
-        C6 --> C7["Pilot Process Evaluation"]
-        C7 --> C8["Patent Development"]
-    end
-
-    A11 --> B1
-    A11 --> B9
-    B8 --> C1
-    B12 --> C1
-
-    classDef computational fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
+    classDef computational fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
     classDef experimental fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
     classDef industrial fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
-    class A,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11 computational
-    class B,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12 experimental
-    class C,C1,C2,C3,C4,C5,C6,C7,C8 industrial
+    class phase_one,rank computational
+    class phase_two,shortlist,validated experimental
+    class phase_three industrial
 ```
 
-### Phase I: Computational Discovery
+| Phase | Goal | Status | Near-term gate |
+|---|---|---|---|
+| **I. Computational discovery** | Rank LiSPER candidates by Li+/Na+ selectivity | Active | Finish production MD, clustering, umbrella sampling, PMF |
+| **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Express and purify His6-SUMO-LiSPER candidates |
+| **III. Industrial translation** | Convert validated peptides into capture media | Concept stage | Select immobilization and column prototype strategy |
 
-**Goal:** identify the most promising LiSPER candidates computationally.
+## 📊 Project dashboard
 
-**Current status:** active.
+| Workstream | Progress | Evidence in repository | Next decision |
+|---|---:|---|---|
+| **Candidate design** | `complete` | 10-peptide first-round library | Keep library stable through first PMF round |
+| **ESMFold structures** | `complete` | Predicted PDB, PAE, plots | Use as starting structures only |
+| **CHARMM-GUI systems** | `complete` | 10 LiCl and 10 NaCl systems | Preserve QC manifests |
+| **GROMACS equilibration** | `complete` | LiCl and NaCl equilibration summaries | Continue production queue |
+| **Production MD + clustering** | `active` | 20 ns LiCl/NaCl queues | Select representative structures |
+| **Umbrella sampling + PMF** | `planned` | Workflow documented | Launch after clustering |
+| **Wet-lab validation** | `preparing` | His6-SUMO plasmid route | Begin expression/purification |
+| **Bio-DLE translation** | `concept` | Deployment architecture notes | Prototype immobilized format |
 
-Phase I uses ensemble-aware molecular simulation to avoid overinterpreting a single folded model. The intended comparison is:
+```text
+Computational discovery  [########--]  active
+Wet-lab validation       [##--------]  preparing
+Industrial translation   [#---------]  concept
+```
 
-`Delta Delta G = Delta G(Li+) - Delta G(Na+)`
+## 🧪 Candidate library
 
-More negative values indicate stronger predicted lithium preference.
+The first-round LiSPER library is intentionally small: enough sequence diversity to test the design logic, but compact enough for simulation and wet-lab follow-through.
 
-### Phase II: Experimental Validation
+| Rank | Candidate | Sequence | Design role | First subset |
+|---:|---|---|---|:---:|
+| 1 | **LiD3-1** | `GPGDPGSGPGDPGSGPGDP` | Repeated GPGDP motif | Yes |
+| 2 | **LiND-1** | `GPGNPGSGPGDPGSGPGNP` | Hybrid GPGNP/GPGDP motif | Yes |
+| 3 | **IDP-Li-1** | `SGDSGPGDPGDSG` | Flexible acidic shell | Yes |
+| 4 | **IDP-Li-2** | `GDSGSGPGDPGSGDS` | Symmetric disordered pocket | No |
+| 5 | **LowCharge-Li** | `GPGDPGSGNPGSGDP` | Lower-charge risk control | Yes |
+| 6 | **LiD2-IDP** | `GPGDPGSDGSGPGDP` | Dual motif with acidic spacer | No |
+| 7 | **StrongBind-Li** | `GPGDPGSDGPGDPGSD` | Higher Asp-density binder | No |
+| 8 | **SoftCage-Li** | `GSGDPGNGDPGSG` | Short oxygen-rich cage | No |
+| 9 | **IDP-Rich-Li** | `DSGDSGPGDPGDSGS` | Highly disordered acidic design | No |
+| 10 | **Control-Negative** | `GPGAPGSGPGAPGSGPGAP` | Weak/neutral control | Yes |
 
-**Goal:** experimentally validate computational predictions.
+## ⚙️ Computational workflow
 
-**Expected outcome:** publication-quality biological evidence showing whether designed LiSPER peptides exhibit measurable Li+/Na+ selectivity.
+The computational pipeline is ensemble-aware because these peptides are short, flexible, and IDP-like. A single ESMFold structure is treated as a starting model, not as the final biological state.
 
-Phase II includes two complementary validation routes:
+```mermaid
+flowchart TD
+    accTitle: Computational Discovery Pipeline
+    accDescr: The computational workflow moves from candidate sequences through structure prediction, CHARMM-GUI setup, LiCl and NaCl molecular dynamics, clustering, umbrella sampling, and final selectivity ranking.
 
-1. **Purified peptide route:** His6-SUMO-LiSPER expression, purification, SUMO cleavage, native peptide recovery, and binding assays.
-2. **Surface-display route:** cellular display of LiSPER peptides followed by whole-cell capture and selectivity assays.
+    sequences[📋 Candidate sequences] --> esmfold[🔍 ESMFold structures]
+    esmfold --> charmm[⚙️ CHARMM-GUI systems]
+    charmm --> licl[🧪 LiCl MD system]
+    charmm --> nacl[🧪 NaCl MD system]
+    licl --> md_li[📊 20 ns production MD]
+    nacl --> md_na[📊 20 ns production MD]
+    md_li --> cluster_li[🔍 Li+ structural clustering]
+    md_na --> cluster_na[🔍 Na+ structural clustering]
+    cluster_li --> rep_li[🎯 Li+ representative structure]
+    cluster_na --> rep_na[🎯 Na+ representative structure]
+    rep_li --> pmf_li[⚙️ Li+ umbrella sampling]
+    rep_na --> pmf_na[⚙️ Na+ umbrella sampling]
+    pmf_li --> ranking[✅ Delta Delta G selectivity ranking]
+    pmf_na --> ranking
 
-### Phase III: Industrial Translation
+    classDef input fill:#f3f4f6,stroke:#6b7280,stroke-width:2px,color:#1f2937
+    classDef simulation fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+    classDef analysis fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef result fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
 
-**Goal:** transform LiSPER from a peptide into a deployable lithium-capture technology.
+    class sequences,esmfold,charmm input
+    class licl,nacl,md_li,md_na,pmf_li,pmf_na simulation
+    class cluster_li,cluster_na,rep_li,rep_na analysis
+    class ranking result
+```
 
-Phase III evaluates immobilized peptides, magnetic bead prototypes, resin capture media, packed-bed columns, synthetic raffinate testing, and patentable process architecture.
+<details>
+<summary><strong>Why structural clustering is central</strong></summary>
+
+LiSPER peptides are expected to sample many conformations during production MD. Structural clustering asks which conformations occur most often, then selects representative structures from populated states. This prevents umbrella sampling from starting from an arbitrary rare frame and makes the downstream PMF comparison more defensible.
+
+</details>
 
 ---
 
-## Scientific Hypothesis
+## 🔬 Experimental validation
 
-> **Hybridization of lithium-binding motifs and intrinsically disordered peptide properties can generate peptides with measurable lithium selectivity over sodium in aqueous solution.**
+Phase II is designed to convert computational rankings into measurable biological evidence.
+
+| Route | What it tests | Planned readout |
+|---|---|---|
+| **Purified peptide** | Intrinsic LiSPER binding behavior | Li+ binding, Na+ competition, selectivity trend |
+| **His6-SUMO fusion** | Expressible peptide production route | Soluble expression, purification, cleavage |
+| **Surface display** | LiSPER as biological capture interface | Whole-cell Li capture and Na competition |
+
+The first experimental subset is `LiD3-1`, `LiND-1`, `IDP-Li-1`, `LowCharge-Li`, and `Control-Negative`.
+
+## 🏭 Industrial outlook
+
+The long-term deployment concept is an immobilized peptide capture process rather than a free peptide in solution.
 
 ```mermaid
 flowchart LR
-    A["Lithium-binding motifs<br/>GPGNP / GPGDP"] --> D["LiSPER candidate peptides"]
-    B["IDP-like flexibility<br/>Gly / Ser / Pro-rich sequence space"] --> D
-    C["Oxygen donor residues<br/>Asp / Glu coordination sites"] --> D
-    D --> E["Conformational ensemble"]
-    E --> F["Li+ coordination states"]
-    E --> G["Na+ coordination states"]
-    F --> H["Measured Li/Na selectivity"]
-    G --> H
+    accTitle: Bio-DLE Translation Path
+    accDescr: The industrial translation path starts with validated LiSPER peptides and moves toward immobilized formats, column operation, lithium elution, and lithium recovery.
 
-    classDef idea fill:#fef3c7,stroke:#d97706,color:#78350f
-    classDef peptide fill:#ede9fe,stroke:#7c3aed,color:#3b0764
-    classDef result fill:#dcfce7,stroke:#16a34a,color:#14532d
-    class A,B,C idea
-    class D,E,F,G peptide
-    class H result
+    peptide[🧪 Validated LiSPER peptide] --> immobilization[⚙️ Immobilization chemistry]
+    immobilization --> beads[📦 Magnetic bead prototype]
+    beads --> resin[📦 Resin capture media]
+    resin --> column[⚙️ Packed-bed column]
+    column --> elution[🔄 Li+ elution]
+    elution --> recovery[✅ Lithium recovery process]
+
+    classDef experimental fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef industrial fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
+    classDef result fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+
+    class peptide experimental
+    class immobilization,beads,resin,column,elution industrial
+    class recovery result
 ```
 
-The goal is not simply strong Li+ binding. The goal is **selective Li+ recognition over Na+** under aqueous conditions relevant to lithium recovery.
+**Vision:** LiSPER peptides -> Li+/Na+ selectivity -> experimental validation -> immobilized peptide systems -> peptide-enabled Direct Lithium Extraction.
 
----
+## 📍 Repository navigation
 
-## Current Candidate Library
+The repository is organized by program phase rather than by file type.
 
-| Candidate | Sequence family | Status | MD complete? | Umbrella sampling complete? | Wet-lab complete? |
-|---|---|---|---:|---:|---:|
-| LiD3-1 | Repeated GPGDP motif | Primary computational and wet-lab candidate | In progress | No | No |
-| LiND-1 | Mixed GPGNP/GPGDP motif | Primary computational and wet-lab candidate | In progress | No | No |
-| IDP-Li-1 | IDP-like acidic shell | Primary computational and wet-lab candidate | In progress | No | No |
-| IDP-Li-2 | Symmetric disordered pocket | Screening candidate | In progress | No | No |
-| LiD2-IDP | Dual GPGDP with acidic spacer | Screening candidate | In progress | No | No |
-| StrongBind-Li | Higher Asp-density design | Screening candidate | In progress | No | No |
-| SoftCage-Li | Short oxygen-rich flexible cage | Screening candidate | In progress | No | No |
-| IDP-Rich-Li | Strongly disordered acidic design | Screening candidate | In progress | No | No |
-| LowCharge-Li | Reduced-charge motif design | Primary computational and wet-lab candidate | In progress | No | No |
-| Control-Negative | Neutral motif-related control | Negative control | In progress | No | No |
-
-Recommended starting wet-lab subset:
-
-`LiD3-1`, `LiND-1`, `IDP-Li-1`, `LowCharge-Li`, `Control-Negative`
-
----
-
-## Computational Workflow
-
-```mermaid
-flowchart TD
-    A["Candidate sequences"] --> B["ESMFold prediction"]
-    B --> C["CHARMM-GUI setup"]
-    C --> D1["LiCl system"]
-    C --> D2["NaCl system"]
-    D1 --> E1["Minimization and equilibration"]
-    D2 --> E2["Minimization and equilibration"]
-    E1 --> F1["Production MD"]
-    E2 --> F2["Production MD"]
-    F1 --> G1["Structural clustering"]
-    F2 --> G2["Structural clustering"]
-    G1 --> H1["Representative Li+ structures"]
-    G2 --> H2["Representative Na+ structures"]
-    H1 --> I1["Li+ umbrella sampling"]
-    H2 --> I2["Na+ umbrella sampling"]
-    I1 --> J1["PMF and Delta G(Li+)"]
-    I2 --> J2["PMF and Delta G(Na+)"]
-    J1 --> K["Li/Na selectivity ranking"]
-    J2 --> K
-```
-
-Why clustering matters: LiSPER peptides are flexible and IDP-like. A random trajectory frame may represent a rare state. Clustering identifies populated conformational families, making umbrella sampling and PMF comparison more meaningful.
-
-### Simulation Choices
-
-| Decision | Current value | Rationale |
-|---|---|---|
-| Force field | CHARMM36m | Compatible with peptide and IDP-oriented CHARMM workflows. |
-| Water model | TIP3P | Standard CHARMM-GUI setup for these systems. |
-| Ion systems | Separate LiCl and NaCl systems | Enables clean Li+ vs Na+ free-energy comparison. |
-| First production length | 20 ns | Provides an initial ensemble for clustering and representative-state selection. |
-| Mixed-ion systems | Later validation round | Reserved for competition assays after single-ion behavior is understood. |
-
----
-
-## Experimental Validation Strategy
-
-```mermaid
-flowchart TD
-    A["Computational ranking"] --> B["Construct design"]
-    B --> C["His6-SUMO-LiSPER plasmids"]
-    C --> D["E. coli expression"]
-    D --> E["Protein purification"]
-    E --> F["SUMO cleavage"]
-    F --> G["Native peptide recovery"]
-    G --> H["Li+ binding assay"]
-    H --> I["Na+ competition assay"]
-    I --> J["Li/Na selectivity validation"]
-
-    A --> K["Surface-display construct"]
-    K --> L["Cell-surface LiSPER display"]
-    L --> M["Whole-cell Li capture"]
-    M --> N["Displayed-peptide selectivity"]
-    N --> J
-```
-
-The purified-peptide track tests the intrinsic binding behavior of LiSPER candidates. The surface-display track tests whether LiSPER can function as a biological capture interface.
-
----
-
-## Industrial Translation Concept
-
-```mermaid
-flowchart TD
-    A["Spent LIB or Li+/Na+ process stream"] --> B["Upstream impurity removal"]
-    B --> C["Li+/Na+ raffinate"]
-    C --> D["LiSPER capture step"]
-    D --> E["Na-rich effluent"]
-    D --> F["Li+ elution"]
-    F --> G["Concentrated Li+ stream"]
-    G --> H["Na2CO3 precipitation"]
-    H --> I["Li2CO3 product"]
-
-    D --> J["Possible formats:<br/>immobilized peptide resin<br/>magnetic beads<br/>inactivated display cells<br/>packed-bed column"]
-```
-
-Current literature assessments in this repository favor **purified immobilized LiSPER peptide in a packed-bed adsorption column** as the most realistic industrial endpoint, with inactivated surface-display biomass and magnetic bead systems as useful bridge technologies.
-
----
-
-## Repository Structure
-
-```text
-LiSPER/
-├── 01_computational_discovery/
-│   ├── sequences/      # Candidate peptide sequences and metadata
-│   ├── esmfold/        # Structure prediction inputs, outputs, PAE, plots, and PDBs
-│   ├── charmm-gui/     # CHARMM-GUI system-builder outputs
-│   ├── md/             # GROMACS equilibration, production, logs, and clustering
-│   ├── umbrella/       # Umbrella sampling setup and windows
-│   ├── pmf/            # Potential of mean force analysis outputs
-│   ├── analysis/       # Analysis notebooks, scripts, and interpretation
-│   └── data/           # Raw and processed computational data
-├── 02_experimental_validation/
-│   ├── plasmids/       # His6-SUMO-LiSPER plasmid design and vendor-ready records
-│   ├── wetlab/         # Expression, purification, assay, and validation planning
-│   └── protocols/      # Experimental protocols and operating notes
-├── 03_industrial_translation/
-│   ├── surface_display_host_selection/
-│   └── deployment_architecture/
-├── 04_literature/      # Foundational protein-design literature
-├── 05_manuscript/      # Manuscript drafts and figures
-├── 06_shared/          # Shared docs, scripts, and inbox
-└── archive/            # Superseded or non-current materials preserved safely
-```
-
-| Folder | Purpose |
+| Directory | Purpose |
 |---|---|
-| `01_computational_discovery/` | Sequence design, structure prediction, CHARMM-GUI setup, MD, umbrella sampling, PMF, data, and analysis. |
-| `02_experimental_validation/` | Plasmid design, His6-SUMO-LiSPER wet-lab planning, protocols, expression, purification, and assay work. |
-| `03_industrial_translation/` | Surface-display host selection, immobilized peptide strategy, deployment architecture, and Bio-DLE process studies. |
-| `04_literature/` | Foundational protein-design literature and source material. |
-| `05_manuscript/` | Manuscript drafts, figures, and publication planning. |
-| `06_shared/` | Shared documentation, reusable scripts, and temporary inbox. |
-| `archive/` | Superseded designs and preserved legacy materials that should not be used as current protocols. |
+| [`01_computational_discovery/`](01_computational_discovery/) | Candidate sequences, ESMFold structures, CHARMM-GUI systems, MD, umbrella sampling, PMF, and analysis |
+| [`02_experimental_validation/`](02_experimental_validation/) | Plasmids, wet-lab planning, expression/purification strategy, and assay protocols |
+| [`03_industrial_translation/`](03_industrial_translation/) | Surface-display host selection, immobilized capture formats, and deployment architecture |
+| [`04_literature/`](04_literature/) | Background literature for lithium-binding peptides, IDPs, ion selectivity, and DLE |
+| [`05_manuscript/`](05_manuscript/) | Manuscript drafts, figures, and publication planning |
+| [`06_shared/`](06_shared/) | Shared docs, reusable scripts, temporary inbox, and visual assets |
+| [`archive/`](archive/) | Superseded designs and preserved legacy materials |
 
----
-
-## Current Status
-
-```text
-Computational Discovery:  ████████░░ 80%
-Experimental Validation:  ██░░░░░░░░ 20%
-Industrial Translation:   ░░░░░░░░░░ 0%
-```
-
-| Program area | Status | Near-term gate |
-|---|---|---|
-| Computational Discovery | Active | Complete clustering, representative structure selection, umbrella sampling, and PMF ranking. |
-| Experimental Validation | In preparation | Express and purify His6-SUMO-LiSPER candidates; establish Li+/Na+ binding assays. |
-| Industrial Translation | Literature and concept stage | Convert validated peptides into immobilized capture formats and column concepts. |
-
----
-
-## Key Documents
+## 🔗 Key project documents
 
 - [Repository guide](06_shared/docs/repository_guide.md)
 - [Candidate design rationale](06_shared/docs/candidate_design_rationale.md)
@@ -323,62 +239,20 @@ Industrial Translation:   ░░░░░░░░░░ 0%
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
 - [Repository reorganization report](06_shared/docs/repository_reorganization_report.md)
 
----
+## 📈 Research vision
 
-## Long-Term Impact
+LiSPER is meant to become more than a peptide list. It is a staged research program for discovering whether selective ion recognition can be engineered into compact, experimentally tractable peptide materials.
 
-LiSPER is designed as a platform technology for selective ion recognition and sustainable resource recovery.
+If successful, the platform could support:
 
-Potential applications include:
-
-- **Direct Lithium Extraction (DLE):** selective lithium capture from complex aqueous streams.
-- **Battery Recycling:** late-stage lithium polishing after transition-metal removal.
-- **Lithium Purification:** improved Li+/Na+ separation before lithium carbonate production.
-- **Resource Recovery:** bio-inspired recovery of critical minerals from waste streams.
-- **Selective Ion Separation:** generalizable peptide-engineering principles for difficult ion separations.
-
-```mermaid
-mindmap
-  root((LiSPER Impact))
-    Direct Lithium Extraction
-      Bio-DLE
-      Lower chemical intensity
-    Battery Recycling
-      Spent LIB streams
-      Lithium polishing
-    Lithium Purification
-      Li/Na selectivity
-      Li2CO3 feed preparation
-    Resource Recovery
-      Critical minerals
-      Circular economy
-    Selective Ion Separation
-      Peptide engineering
-      Bio-inspired materials
-```
+- selective Li+/Na+ separation in battery-recycling streams
+- peptide-based polishing after upstream transition-metal removal
+- immobilized Bio-DLE media for lithium-bearing aqueous streams
+- broader design principles for peptide-enabled ion separations
 
 ---
 
-## Team
-
-### LiSPER Team
-
-**Lithium-Selective Peptide Engineering and Recovery**
-
-**Mission:** designing the next generation of bio-inspired lithium capture technologies.
-
-LiSPER is built for collaboration across computational protein design, molecular simulation, biochemistry, synthetic biology, hydrometallurgy, and technology translation. The repository is intended to support researchers, student team members, faculty advisors, DKU Innovation & Entrepreneurship reviewers, potential investors, and future collaborators.
-
----
-
-## Working Principle
-
-For LiSPER, the scientifically careful path is:
-
-`ESMFold -> CHARMM-GUI -> equilibration -> production MD -> clustering -> representative structures -> umbrella sampling -> PMF -> selectivity`
-
-The project should avoid the shortcut:
-
-`ESMFold -> umbrella sampling`
-
-because flexible peptides require ensemble-aware structure selection before free-energy calculations.
+<p align="center">
+  <strong>LiSPER asks a simple hard question:</strong><br>
+  Can engineered peptide ensembles make lithium recovery more selective, biological, and modular?
+</p>
