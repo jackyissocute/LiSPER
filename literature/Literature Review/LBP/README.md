@@ -1,11 +1,14 @@
 # LBP Literature
 
-This folder stores PDFs and notes about lithium-binding peptides/proteins and lithium recovery systems.
+Papers about lithium-binding peptides, surface display, and lithium recovery.
 
-Relevance to LiSPER:
+## Relevance to LiSPER
 
-- GPGNP is the original lithium-binding peptide inspiration.
-- GPGDP is treated as the improved lithium-binding motif in this first-round design.
-- Surface-display and recovery papers help connect peptide recognition to practical lithium capture.
+| Literature Element | Project Use |
+|---|---|
+| GPGNP motif | Original lithium-binding peptide inspiration |
+| GPGDP motif | Treated as improved motif precedent |
+| Surface display studies | Connects peptide binding to practical recovery |
+| Recovery assays | Guides eventual wet-lab validation |
 
-The LiSPER library uses these motifs as precedent, but the project goal is de novo Li+/Na+ selective peptide engineering rather than rediscovery of existing lithium-binding systems.
+LiSPER uses these motifs as starting inspiration, then tests whether de novo IDP-like architectures can improve Li+/Na+ selectivity.

@@ -1,15 +1,26 @@
 # Wet Lab
 
-Store experimental protocols, assay plans, expression records, purification notes, and binding or competition assay results here.
+Experimental planning and results for expression, purification, and Li+/Na+ selectivity assays.
 
-The experimental workflow is:
+## Experimental Workflow
 
-1. Candidate selection
-2. Gene design
-3. Codon optimization
-4. Plasmid construction
-5. E. coli expression
-6. Protein purification
-7. Li+ binding assay
-8. Na+ competition assay
-9. Li+/Na+ selectivity measurement
+```mermaid
+flowchart TD
+    A["Candidate selection"] --> B["Gene design"]
+    B --> C["Codon optimization"]
+    C --> D["Plasmid construction"]
+    D --> E["E. coli expression"]
+    E --> F["Protein purification"]
+    F --> G["Li+ binding assay"]
+    G --> H["Na+ competition assay"]
+    H --> I["Li+/Na+ selectivity"]
+```
+
+## Records to Keep
+
+| Record | Folder Use |
+|---|---|
+| Expression conditions | Compare constructs and induction conditions |
+| Purification notes | Track yield and purity |
+| Binding assay data | Validate computational predictions |
+| Na+ competition data | Measure selectivity directly |

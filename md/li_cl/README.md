@@ -1,18 +1,33 @@
-# LiCl Molecular Dynamics Handoff
+# LiCl Molecular Dynamics
 
-This folder tracks LiCl systems that passed CHARMM-GUI QC and are ready for GROMACS minimization/equilibration.
+Remote GROMACS workflow and synced results for peptide + LiCl systems.
 
-Ready-system index:
+## Status
 
-- `ready_gromacs_systems.tsv`
+| Stage | Status |
+|---|---|
+| CHARMM-GUI QC | 10/10 ready |
+| Minimization | 10/10 complete |
+| Equilibration | 10/10 complete |
+| 20 ns production | Running |
+| Structural clustering | Queued after each production run |
 
-Source QC:
+## Key Files
 
-- `../../charmm-gui/li_cl/metadata/qc_manifest.tsv`
+| File / Folder | Purpose |
+|---|---|
+| `ready_gromacs_systems.tsv` | Systems passed from CHARMM-GUI QC |
+| `remote_runs/` | Remote scripts, logs, and status snapshots |
+| `remote_results/` | Synced GROMACS outputs |
+| `remote_runs/current_production_snapshot.md` | Active production progress |
+| `remote_runs/remote_status.md` | Current remote status |
 
-Current status:
+## Handoff Logic
 
-- 10 LiCl systems are ready for GROMACS.
-- `LiD3-1` has been updated with the revised one-chain CHARMM-GUI setup and is included in `ready_gromacs_systems.tsv`.
-
-The ready GROMACS folders remain in `../../charmm-gui/li_cl/systems/<candidate>/gromacs/` to avoid duplicating large setup files.
+```mermaid
+flowchart LR
+    A["Equilibrated LiCl systems"] --> B["20 ns production"]
+    B --> C["gmx cluster"]
+    C --> D["representative_top_cluster.pdb"]
+    D --> E["Li+ umbrella sampling"]
+```

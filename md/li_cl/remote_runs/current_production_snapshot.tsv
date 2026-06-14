@@ -1,0 +1,2 @@
+candidate_id	condition	stage	status	last_step	last_time_ps	progress_percent	temperature_K	pressure_bar	constraint_rmsd	fatal_markers_found
+LiD3-1	LiCl	production_20ns	running	2100000	4200.00000	21.00	2.97286e+02	7.03153e+01	2.98894e-06	false

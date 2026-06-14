@@ -1,0 +1,9 @@
+candidate_id	status	run_dir
+LiND-1	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/LiND-1/gromacs/run_eq
+IDP-Li-1	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/IDP-Li-1/gromacs/run_eq
+IDP-Li-2	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/IDP-Li-2/gromacs/run_eq
+LowCharge-Li	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/LowCharge-Li/gromacs/run_eq
+LiD2-IDP	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/LiD2-IDP/gromacs/run_eq
+SoftCage-Li	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/SoftCage-Li/gromacs/run_eq
+IDP-Rich-Li	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/IDP-Rich-Li/gromacs/run_eq
+Control-Negative	equilibrated	/root/LiSPER_remote/LiSPER_NaCl/systems/Control-Negative/gromacs/run_eq

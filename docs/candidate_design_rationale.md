@@ -4,6 +4,14 @@ LiSPER's first-round library tests whether lithium-binding peptide motifs can be
 
 ## Three Inspirations
 
+```mermaid
+flowchart LR
+    A["LBP literature"] --> D["LiSPER peptide library"]
+    B["IDP behavior"] --> D
+    C["Controlled oxygen-donor chemistry"] --> D
+    D --> E["Paired Li+ / Na+ simulation"]
+```
+
 1. Lithium-binding peptide precedent
 
    The LBP literature motivates the use of GPGNP and GPGDP motifs as lithium-recognition elements.
@@ -50,3 +58,12 @@ The main metric is:
 Delta Delta G = Delta G(Li+) - Delta G(Na+)
 
 More negative Delta Delta G values indicate stronger lithium preference.
+
+## Interpretation Map
+
+| Observation | Possible Meaning |
+|---|---|
+| Strong Li+ PMF, weak Na+ PMF | Desired lithium selectivity |
+| Strong Li+ and strong Na+ PMFs | Nonspecific ion binding risk |
+| Weak Li+ and weak Na+ PMFs | Poor binder or useful negative-control behavior |
+| Low top-cluster population | Highly disordered ensemble; may require multiple representatives |

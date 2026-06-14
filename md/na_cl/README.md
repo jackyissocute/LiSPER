@@ -1,19 +1,33 @@
-# NaCl Molecular Dynamics Handoff
+# NaCl Molecular Dynamics
 
-This folder tracks NaCl systems that passed CHARMM-GUI QC and are ready for GROMACS minimization/equilibration.
+Remote GROMACS workflow and synced results for peptide + NaCl systems.
 
-Ready-system index:
+## Status
 
-- `ready_gromacs_systems.tsv`
+| Stage | Status |
+|---|---|
+| CHARMM-GUI QC | 10/10 ready |
+| Minimization | 10/10 complete |
+| Equilibration | 10/10 complete |
+| 20 ns production | Queued after LiCl production/clustering |
+| Structural clustering | Queued after NaCl production runs |
 
-Source QC:
+## Key Files
 
-- `../../charmm-gui/na_cl/metadata/qc_manifest.tsv`
+| File / Folder | Purpose |
+|---|---|
+| `ready_gromacs_systems.tsv` | Systems passed from CHARMM-GUI QC |
+| `remote_runs/` | Remote scripts, logs, and status snapshots |
+| `remote_results/` | Synced GROMACS outputs |
+| `remote_runs/current_remote_snapshot.md` | Completed minimization/equilibration status |
+| `remote_runs/remote_status.md` | Current remote status |
 
-Current status:
+## Handoff Logic
 
-- 10 NaCl systems are ready for GROMACS.
-- The first 8 ready systems were already launched on the remote.
-- `LiD3-1` and `StrongBind-Li` have been updated with revised GROMACS-ready CHARMM-GUI exports and are queued to run after the active 8-system NaCl batch finishes.
-
-The ready GROMACS folders remain in `../../charmm-gui/na_cl/systems/<candidate>/gromacs/` to avoid duplicating setup files.
+```mermaid
+flowchart LR
+    A["Equilibrated NaCl systems"] --> B["20 ns production"]
+    B --> C["gmx cluster"]
+    C --> D["representative_top_cluster.pdb"]
+    D --> E["Na+ umbrella sampling"]
+```

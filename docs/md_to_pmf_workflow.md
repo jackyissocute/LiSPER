@@ -1,51 +1,52 @@
 # MD to PMF Workflow
 
-LiSPER peptides are short, Gly/Ser/Pro-rich, and intentionally flexible. For these systems, umbrella sampling should not start directly from a single ESMFold structure or a random MD frame.
+LiSPER peptides are short, Gly/Ser/Pro-rich, and intentionally flexible. Umbrella sampling should therefore start from production-MD representative structures, not directly from ESMFold or a random trajectory frame.
 
-## Correct Order
+## Correct Path
 
-1. ESMFold structure prediction
-2. CHARMM-GUI system setup
-3. Energy minimization
-4. Equilibration
-5. 20 ns production MD
-6. Structural clustering
-7. Representative structure selection
-8. Umbrella sampling
-9. PMF calculation
-10. Delta G for Li+ and Na+
-11. Delta Delta G selectivity comparison
+```mermaid
+flowchart TD
+    A["ESMFold"] --> B["CHARMM-GUI"]
+    B --> C["Minimization"]
+    C --> D["Equilibration"]
+    D --> E["20 ns production MD"]
+    E --> F["Structural clustering"]
+    F --> G["Representative structures"]
+    G --> H["Umbrella sampling"]
+    H --> I["PMF"]
+    I --> J["Delta G(Li+) and Delta G(Na+)"]
+    J --> K["Delta Delta G selectivity"]
+```
 
 ## Why Clustering Is Required
 
-During production MD, each peptide samples an ensemble of conformations. A 20 ns trajectory may contain thousands of useful saved frames. For IDP-like peptides, those frames may represent multiple recurrent shapes rather than one stable fold.
+During production MD, each peptide samples an ensemble of conformations. For IDP-like peptides, those frames can represent multiple recurrent shapes rather than one stable fold.
 
-Structural clustering asks which conformations occur most often. A representative structure from the most populated cluster is more statistically meaningful than a random frame.
+| Shortcut | Risk |
+|---|---|
+| ESMFold -> umbrella sampling | Uses one predicted conformation without ensemble evidence |
+| Random production frame -> umbrella sampling | May pick a rare 1% state |
+| Cluster representative -> umbrella sampling | Starts from a statistically meaningful state |
 
 ## Current Remote Implementation
 
-The remote production/clustering runner:
+| Step | Implementation |
+|---|---|
+| Production length | 20 ns |
+| Frame output | Every 10 ps |
+| Clustering tool | `gmx cluster` |
+| Clustering group | `SOLU` peptide group |
+| Method | GROMOS |
+| Default cutoff | 0.20 nm peptide RMSD |
+| Representative output | `cluster_20ns/representative_top_cluster.pdb` |
+| Summary output | `production_clustering_summary.tsv` |
 
-- starts from completed step4.1 equilibration
-- creates a 20 ns production MDP from CHARMM-GUI `step5_production.mdp`
-- saves compressed trajectory frames every 10 ps
-- clusters the production trajectory with `gmx cluster`
-- uses the peptide group `SOLU` for RMSD clustering
-- writes the top-cluster representative to `cluster_20ns/representative_top_cluster.pdb`
-- writes top-cluster population metrics to `production_clustering_summary.tsv`
-
-Current default clustering cutoff:
-
-- 0.20 nm peptide RMSD
-
-The cutoff may be tuned after inspecting cluster populations. Very low top-cluster population is not a failure; for LiSPER it is evidence of strong conformational disorder and should be recorded as part of the selectivity interpretation.
+Low top-cluster population is not automatically bad. For LiSPER, it may be important evidence that the peptide is strongly disordered.
 
 ## PMF Entry Point
 
-Umbrella sampling should start from representative structures, not raw ESMFold predictions. For the first pass, use the representative structure of the largest cluster for each peptide and ion condition.
+For the first PMF pass, use the representative structure from the largest production-MD cluster for each peptide and ion condition.
 
-After Li+ and Na+ PMFs are computed:
-
-Delta Delta G = Delta G(Li+) - Delta G(Na+)
+`Delta Delta G = Delta G(Li+) - Delta G(Na+)`
 
 More negative Delta Delta G indicates stronger Li+ preference.

@@ -1,56 +1,46 @@
 # ESMFold
 
-Store ESMFold structure-prediction inputs and outputs here.
+This folder stores structure-prediction outputs used as starting conformations for CHARMM-GUI.
 
-Current layout:
+```mermaid
+flowchart LR
+    A["candidates.fasta"] --> B["ESMFold"]
+    B --> C["raw zip downloads"]
+    C --> D["validated PDBs"]
+    D --> E["CHARMM-GUI-safe filenames"]
+```
 
-- `inputs/`: sequence files used for ESMFold prediction.
-- `raw_zips/`: original downloaded ESMFold zip files.
-- `runs/`: canonical extracted ESMFold run folder for each candidate.
-- `pdb/`: flat set of CHARMM-GUI-ready PDB files, one per candidate.
-- `charmm_gui_pdb/`: upload-safe PDB copies with lowercase alphanumeric filenames.
-- `pae/`: flat set of predicted aligned error matrices.
-- `plots/`: flat set of ESMFold confidence plots.
-- `manifest.tsv`: sequence validation and file-location manifest.
+## Layout
 
-Each predicted structure should remain traceable to a candidate ID in `../sequences/candidates.tsv`.
+| Path | Contents |
+|---|---|
+| `raw_zips/` | Original downloaded ESMFold zip files |
+| `runs/` | Canonical extracted run folder for each candidate |
+| `pdb/` | Flat PDB collection by candidate |
+| `charmm_gui_pdb/` | Upload-safe lowercase alphanumeric PDB names |
+| `pae/` | Predicted aligned error matrices |
+| `plots/` | ESMFold confidence plots |
+| `manifest.tsv` | Sequence/file validation manifest |
 
 ## CHARMM-GUI Handoff
 
-Upload the PDB files from `charmm_gui_pdb/` to CHARMM-GUI Solution Builder.
+Upload from `charmm_gui_pdb/`, not from arbitrary downloaded filenames. These files avoid hyphens, spaces, underscores, and mixed capitalization.
 
-These copies avoid hyphens, underscores, spaces, and mixed capitalization in filenames. The mapping back to project candidate IDs is stored in `charmm_gui_pdb/filename_mapping.tsv`.
-
-Recommended first subset:
-
-- `charmm_gui_pdb/lid31.pdb`
-- `charmm_gui_pdb/lind1.pdb`
-- `charmm_gui_pdb/idpli1.pdb`
-- `charmm_gui_pdb/lowchargeli.pdb`
-- `charmm_gui_pdb/controlnegative.pdb`
-
-Complete first-round set:
-
-- `charmm_gui_pdb/lid31.pdb`
-- `charmm_gui_pdb/lind1.pdb`
-- `charmm_gui_pdb/idpli1.pdb`
-- `charmm_gui_pdb/idpli2.pdb`
-- `charmm_gui_pdb/lowchargeli.pdb`
-- `charmm_gui_pdb/lid2idp.pdb`
-- `charmm_gui_pdb/strongbindli.pdb`
-- `charmm_gui_pdb/softcageli.pdb`
-- `charmm_gui_pdb/idprichli.pdb`
-- `charmm_gui_pdb/controlnegative.pdb`
-
-For first-round free-energy comparison, create separate downstream systems for each candidate:
-
-- peptide + LiCl
-- peptide + NaCl
-
-Do not use mixed Li+/Na+ systems for first-round umbrella sampling.
+| Candidate | Upload File |
+|---|---|
+| LiD3-1 | `lid31.pdb` |
+| LiND-1 | `lind1.pdb` |
+| IDP-Li-1 | `idpli1.pdb` |
+| IDP-Li-2 | `idpli2.pdb` |
+| LowCharge-Li | `lowchargeli.pdb` |
+| LiD2-IDP | `lid2idp.pdb` |
+| StrongBind-Li | `strongbindli.pdb` |
+| SoftCage-Li | `softcageli.pdb` |
+| IDP-Rich-Li | `idprichli.pdb` |
+| Control-Negative | `controlnegative.pdb` |
 
 ## Validation Notes
 
-All 10 original ESMFold zip files were decompressed into 10 canonical run folders. All PDB files in `pdb/` were checked against `../sequences/candidates.tsv`; each PDB sequence matched the expected candidate sequence.
+All 10 ESMFold outputs were decompressed into canonical run folders, and each PDB sequence matched `../sequences/candidates.tsv`.
 
-The `ptm` value in ESMFold filenames is low for these short, flexible peptides and should not be interpreted as a final design score. Use the structures as starting conformations for simulation, then evaluate Li+/Na+ selectivity through paired MD, umbrella sampling, PMF, and Delta Delta G analysis.
+Low pTM is expected for short flexible peptides and should not be interpreted as a final design score. These structures are starting points; selectivity is evaluated through MD, clustering, umbrella sampling, PMF, and Delta Delta G.

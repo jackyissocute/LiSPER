@@ -1,12 +1,17 @@
 # Protocols
 
-Store reusable computational and experimental protocols here.
+Reusable computational and experimental protocols.
 
-Examples:
+## Suggested Protocols
 
-- ESMFold prediction protocol
-- CHARMM-GUI setup checklist
-- MD equilibration protocol
-- umbrella sampling protocol
-- Li+ binding assay protocol
-- Na+ competition assay protocol
+| Protocol | Status |
+|---|---|
+| ESMFold prediction | To formalize |
+| CHARMM-GUI setup checklist | To formalize |
+| GROMACS minimization/equilibration | In progress via `md/remote_runs` scripts |
+| Production MD + clustering | In progress |
+| Umbrella sampling | Future |
+| Li+ binding assay | Future |
+| Na+ competition assay | Future |
+
+Protocols should be step-by-step and reproducible, with software versions and key parameters recorded.

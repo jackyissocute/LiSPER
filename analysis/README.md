@@ -1,10 +1,23 @@
 # Analysis
 
-Store notebooks, scripts outputs, intermediate analysis tables, and exploratory calculations here.
+Working area for notebooks, exploratory calculations, intermediate tables, and result interpretation.
 
-This is the working area for comparing candidate behavior across:
+## Analysis Flow
 
-- ESMFold structural predictions
-- MD structural ensembles
-- umbrella sampling convergence
-- PMF-derived Li+/Na+ selectivity
+```mermaid
+flowchart LR
+    A["MD trajectories"] --> B["Clustering summaries"]
+    B --> C["Representative structures"]
+    C --> D["Umbrella/PMF outputs"]
+    D --> E["Li+/Na+ selectivity ranking"]
+```
+
+## Expected Contents
+
+| Type | Example |
+|---|---|
+| Notebooks | trajectory inspection, PMF convergence, ranking plots |
+| Intermediate tables | cluster populations, RMSD/RMSF, contact summaries |
+| Exploratory scripts | one-off analysis before promotion to `../scripts/` |
+
+Promote repeatable analysis code to `../scripts/` once the workflow stabilizes.

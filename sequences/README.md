@@ -1,20 +1,33 @@
 # Sequences
 
-This folder contains designed peptide sequences and sequence metadata.
+This folder defines the first-round LiSPER peptide library.
 
-Current first-round library:
+## Files
 
-- `candidates.fasta`: FASTA input for structure prediction and downstream modeling.
-- `candidates.tsv`: ranked sequence metadata with design logic, prediction, and recommended-start flag.
+| File / Folder | Purpose |
+|---|---|
+| `candidates.tsv` | Ranked candidate metadata, design logic, and recommended-start flag |
+| `candidates.fasta` | FASTA input for structure prediction |
+| `candidates/` | Individual sequence records |
 
-The complete first-round library contains 10 designed peptides. The recommended initial subset is:
+## Library Overview
 
-- `LiD3-1`
-- `LiND-1`
-- `IDP-Li-1`
-- `LowCharge-Li`
-- `Control-Negative`
+```mermaid
+flowchart LR
+    A["LBP motifs: GPGNP / GPGDP"] --> D["LiSPER candidates"]
+    B["IDP-like flexibility"] --> D
+    C["Limited acidic oxygen donors"] --> D
+    D --> E["Li+ vs Na+ computational screen"]
+```
 
-The core design logic is to combine GPGDP/GPGNP lithium-binding precedent with Gly/Ser/Pro-driven flexibility and oxygen donor residues, while limiting charge to reduce nonspecific Na+/Ca2+ binding risk.
+## Recommended Starting Subset
 
-Keep previous discarded sequences out of the primary library unless they are being analyzed for historical comparison.
+| Candidate | Why It Matters |
+|---|---|
+| `LiD3-1` | Strongest motif-repeat candidate |
+| `LiND-1` | Balances original and improved LBP motifs |
+| `IDP-Li-1` | Compact IDP-like acidic shell |
+| `LowCharge-Li` | Selectivity risk-control design |
+| `Control-Negative` | Weak/neutral binding control |
+
+Discarded historical sequences should remain outside the primary library unless explicitly used for comparison.

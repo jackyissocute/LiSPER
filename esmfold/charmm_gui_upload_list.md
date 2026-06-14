@@ -4,6 +4,15 @@ Use the PDB files in `charmm_gui_pdb/` for CHARMM-GUI Solution Builder.
 
 These filenames are lowercase and alphanumeric-only, avoiding hyphens, underscores, spaces, and mixed capitalization.
 
+```mermaid
+flowchart LR
+    A["ESMFold PDB"] --> B["Normalize filename + chain"]
+    B --> C["CHARMM-GUI-safe PDB"]
+    C --> D["Solution Builder"]
+    D --> E["LiCl export"]
+    D --> F["NaCl export"]
+```
+
 ## Recommended Starting Subset
 
 | Rank | Candidate | PDB |
@@ -33,11 +42,15 @@ These filenames are lowercase and alphanumeric-only, avoiding hyphens, underscor
 
 For each candidate, prepare two separate systems:
 
-- peptide + LiCl
-- peptide + NaCl
+| System | Cation | Anion | Purpose |
+|---|---|---|---|
+| peptide + LiCl | Li+ | Cl- | Lithium free-energy branch |
+| peptide + NaCl | Na+ | Cl- | Sodium comparison branch |
 
 Use the project defaults from the root README:
 
-- water model: TIP3P
-- force field: CHARMM36m
-- box: cubic with 20 A padding
+| Setting | Value |
+|---|---|
+| Water model | TIP3P |
+| Force field | CHARMM36m |
+| Box | Cubic with 20 A padding |

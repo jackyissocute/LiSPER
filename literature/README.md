@@ -1,15 +1,23 @@
 # Literature
 
-Store papers, notes, and citation metadata related to:
+Papers and source material supporting LiSPER design logic.
 
-- lithium-binding peptide motifs such as GPGNP and GPGDP
-- intrinsically disordered peptide design
-- Li+/Na+ selectivity and ion recognition
-- lithium recovery from battery recycling streams
+## Collections
 
-The current PDF collection is stored under `Literature Review/`:
+| Folder | Focus |
+|---|---|
+| `Literature Review/IDP/` | Intrinsically disordered proteins and flexible metal-binding regions |
+| `Literature Review/LBP/` | Lithium-binding peptides, surface display, and lithium recovery |
 
-- `Literature Review/IDP/`: intrinsically disordered protein background
-- `Literature Review/LBP/`: lithium-binding peptide/protein background
+## How Literature Feeds the Project
 
-This `literature/` folder can be used later for citation exports, reading notes, annotated summaries, or structured bibliography files.
+```mermaid
+flowchart LR
+    A["LBP literature"] --> C["GPGNP/GPGDP motifs"]
+    B["IDP literature"] --> D["Flexible peptide architecture"]
+    C --> E["Candidate design"]
+    D --> E
+    E --> F["Simulation hypotheses"]
+```
+
+Use this folder for PDFs, citation exports, reading notes, and evidence tables.

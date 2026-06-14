@@ -1,14 +1,27 @@
 # Umbrella Sampling
 
-Store umbrella sampling setup, window definitions, run inputs, and trajectories here.
+Future folder for pulling/umbrella windows, run inputs, trajectories, and convergence checks.
 
-Each candidate should eventually have parallel Li+ and Na+ umbrella sampling calculations so selectivity can be evaluated from comparable PMFs.
+## Entry Requirement
 
-Recommended metadata for each umbrella campaign:
+Umbrella sampling should start from representative structures selected after production-MD clustering.
 
-- candidate ID
-- ion condition
-- reaction coordinate definition
-- window centers and force constants
-- starting representative structure
-- simulation length per window
+```mermaid
+flowchart LR
+    A["Production trajectory"] --> B["Structural clustering"]
+    B --> C["Representative structure"]
+    C --> D["Reaction coordinate setup"]
+    D --> E["Umbrella windows"]
+```
+
+## Recommended Metadata
+
+| Field | Why It Matters |
+|---|---|
+| Candidate ID | Links umbrella result to design |
+| Ion condition | LiCl or NaCl comparison branch |
+| Representative structure path | Ensures reproducible starting state |
+| Reaction coordinate | Defines ion-peptide separation metric |
+| Window centers | PMF coverage |
+| Force constants | Bias strength |
+| Sampling length | Convergence interpretation |

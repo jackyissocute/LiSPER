@@ -1,9 +1,21 @@
 # Plasmids
 
-Store gene design, codon optimization, plasmid maps, cloning plans, and construct records here.
+Vector maps, construct planning, codon optimization records, and cloning notes.
 
-This folder should connect computational candidate IDs to wet-lab construct IDs once designs move into expression.
+## Current Vector Map
 
-## Vector Maps
+| File | Purpose |
+|---|---|
+| `vector_maps/pET28a_plus.dna` | Uploaded pET28a(+) map for future expression design |
 
-- `vector_maps/pET28a_plus.dna`: uploaded pET28a(+) plasmid/vector map for future cloning design.
+## Construct Flow
+
+```mermaid
+flowchart LR
+    A["Selected peptide"] --> B["Gene design"]
+    B --> C["Codon optimization"]
+    C --> D["pET28a(+) cloning"]
+    D --> E["Expression construct"]
+```
+
+This folder should eventually connect computational candidate IDs to wet-lab construct IDs.

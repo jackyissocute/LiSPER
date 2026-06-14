@@ -1,17 +1,32 @@
 # Molecular Dynamics
 
-Store molecular dynamics equilibration and production runs here.
+This folder tracks GROMACS work after CHARMM-GUI: minimization, equilibration, production MD, structural clustering, and handoff to umbrella sampling.
 
-Suggested layout:
+```mermaid
+flowchart TD
+    A["CHARMM-GUI GROMACS inputs"] --> B["Energy minimization"]
+    B --> C["Step4.1 equilibration"]
+    C --> D["20 ns production MD"]
+    D --> E["Structural clustering"]
+    E --> F["Representative structures"]
+    F --> G["Umbrella sampling setup"]
+```
 
-- `systems/`: organized system folders from CHARMM-GUI
-- `equilibration/`: equilibration runs
-- `production/`: production trajectories
-- `clustering/`: structural clustering outputs
+## Conditions
 
-Keep Li+ and Na+ simulations separate so free-energy estimates remain directly comparable.
+| Condition | Folder | Current State |
+|---|---|---|
+| LiCl | `li_cl/` | Equilibrated; 20 ns production/clustering running on remote |
+| NaCl | `na_cl/` | Minimized and equilibrated for all 10 systems; production/clustering queued |
 
-Current organized MD handoff folders:
+## What Belongs Here
 
-- `li_cl/`: LiCl minimization/equilibration setup, remote scripts, and synced results.
-- `na_cl/`: NaCl setup and remote GROMACS handoff.
+| Sub-area | Purpose |
+|---|---|
+| `remote_runs/` | Remote scripts, logs, summaries, and status snapshots |
+| `remote_results/` | Synced GROMACS outputs from completed or monitored stages |
+| `ready_gromacs_systems.tsv` | Candidate/system index passed from CHARMM-GUI QC |
+
+Keep Li+ and Na+ simulations separate until PMF comparison. This keeps Delta G(Li+) and Delta G(Na+) directly comparable.
+
+Detailed workflow note: `../docs/md_to_pmf_workflow.md`.

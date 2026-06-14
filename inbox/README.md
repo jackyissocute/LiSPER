@@ -1,23 +1,24 @@
 # Inbox
 
-Temporary drop zone for files that need to be inspected, classified, summarized, or moved into the correct project folder.
+Temporary drop zone for files that need classification.
 
-Use this folder when you have a new file but are not sure where it belongs yet.
+```mermaid
+flowchart LR
+    A["Downloaded file"] --> B["inbox/"]
+    B --> C["Inspect"]
+    C --> D["Move to permanent folder"]
+    D --> E["Update README or manifest"]
+```
 
-Examples:
+## Put Here
 
-- newly downloaded papers
-- screenshots or figures
-- raw assay or simulation files
-- protocol drafts
-- sequence notes
-- manuscript notes
-- files to ask Codex about
+| File Type | Final Destination Usually |
+|---|---|
+| New papers | `literature/` |
+| CHARMM-GUI archives | `charmm-gui/<condition>/` |
+| ESMFold downloads | `esmfold/` |
+| Plasmid/vector files | `plasmids/` |
+| Screenshots | `figures/` or condition metadata |
+| One-off notes | `docs/`, `protocols/`, or `manuscript/` |
 
-Suggested workflow:
-
-1. Put the file in `inbox/`.
-2. Ask: "Please process the inbox."
-3. Codex will inspect the file, decide where it belongs, summarize the reasoning, and move or copy it into the appropriate repository folder.
-
-This folder should stay mostly empty after processing. Permanent project files should live in the relevant folder, not here.
+This folder should usually be empty after processing.

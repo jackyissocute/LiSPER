@@ -1,5 +1,14 @@
 # Figures
 
-Store generated figures, schematics, plots, and final manuscript-ready image exports here.
+Generated plots, schematics, visual summaries, and manuscript-ready exports.
 
-Prefer keeping editable source files together with exported images when possible.
+## Figure Types
+
+| Type | Example |
+|---|---|
+| Workflow schematics | LiSPER computational/experimental overview |
+| MD plots | RMSD, RMSF, cluster populations |
+| PMF plots | Li+ and Na+ PMF curves |
+| Summary visuals | Delta Delta G ranking charts |
+
+Keep editable source files together with exported images when practical.

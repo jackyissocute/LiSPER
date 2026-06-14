@@ -1,5 +1,15 @@
 # Scripts
 
-Store reusable scripts for sequence preparation, data conversion, analysis, plotting, and report generation.
+Reusable project scripts for preparation, conversion, analysis, plotting, and reporting.
 
-Keep one-off exploratory commands in `../analysis/`; promote them here once they become repeatable project tools.
+## Promotion Rule
+
+```mermaid
+flowchart LR
+    A["One-off command"] --> B["analysis/"]
+    B --> C["Repeated twice"]
+    C --> D["scripts/"]
+    D --> E["Documented protocol"]
+```
+
+Keep scripts small, named by task, and parameterized enough to reuse across candidates and ion conditions.

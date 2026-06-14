@@ -1,10 +1,14 @@
 # IDP Literature
 
-This folder stores PDFs and notes about intrinsically disordered proteins and disordered metal-binding regions.
+Papers about intrinsically disordered proteins and flexible metal-binding regions.
 
-Relevance to LiSPER:
+## Relevance to LiSPER
 
-- IDPs provide flexible conformational ensembles.
-- Gly/Ser-rich regions can support disorder and local adaptability.
-- Acidic residues can provide oxygen donors for ion coordination.
-- Metal-binding IDP examples can help judge whether designs may become too nonspecific.
+| Concept | Connection |
+|---|---|
+| Conformational ensembles | LiSPER peptides may not have one stable structure |
+| Gly/Ser-rich flexibility | Supports disorder and local adaptability |
+| Acidic oxygen donors | May help ion coordination |
+| Nonspecific metal binding | Helps evaluate selectivity risk |
+
+These papers are most useful when interpreting production-MD clustering and deciding whether a peptide behaves as an IDP-like ensemble.

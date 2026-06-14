@@ -1,40 +1,34 @@
 # NaCl CHARMM-GUI Systems
 
-This folder contains CHARMM-GUI Solution Builder outputs for first-round peptide + NaCl systems.
+CHARMM-GUI Solution Builder outputs for peptide + NaCl systems.
+
+## QC Status
+
+| Metric | Status |
+|---|---|
+| Candidates present | 10/10 |
+| Sequence matches | 10/10 |
+| Single protein molecule topology | 10/10 |
+| Na+ ion present as `SOD` | 10/10 |
+| Cl- ion present as `CLA` | 10/10 |
+| GROMACS files present | 10/10 |
 
 ## Layout
 
-- `raw_archives/`: original downloaded CHARMM-GUI `.tgz` files, renamed by candidate.
-- `systems/`: extracted CHARMM-GUI output folders, one per candidate.
-- `metadata/archive_mapping.tsv`: maps download names and input order to candidate IDs.
-- `metadata/qc_manifest.tsv`: sequence, ion, topology, and GROMACS-readiness checks.
-- `metadata/input_order_charmm_gui_na.png`: screenshot documenting the upload order.
+| Path | Purpose |
+|---|---|
+| `raw_archives/` | Original CHARMM-GUI `.tgz` files |
+| `systems/` | Extracted CHARMM-GUI systems |
+| `metadata/archive_mapping.tsv` | Download-to-candidate mapping |
+| `metadata/qc_manifest.tsv` | QC table for sequence, topology, ions, and files |
+| `metadata/input_order_charmm_gui_na.png` | Upload-order screenshot |
 
-## QC Summary
+## Provenance Note
 
-Ready for GROMACS:
+The first NaCl exports for LiD3-1 and StrongBind-Li lacked the `gromacs/` folder. Those incomplete versions are preserved under `systems/replaced/` and `raw_archives/replaced/`. The canonical folders contain revised GROMACS-ready exports.
 
-- LiD3-1
-- LiND-1
-- IDP-Li-1
-- IDP-Li-2
-- LowCharge-Li
-- LiD2-IDP
-- StrongBind-Li
-- SoftCage-Li
-- IDP-Rich-Li
-- Control-Negative
+## Handoff
 
-All 10 first-round NaCl systems now pass the current GROMACS-readiness checks.
+GROMACS-ready paths are listed in:
 
-Note: the first NaCl exports for LiD3-1 and StrongBind-Li did not include the `gromacs/` input-generator folder. Those incomplete versions have been preserved under `systems/replaced/` and `raw_archives/replaced/`; the canonical folders now contain revised GROMACS-ready exports.
-
-## Ready Criteria
-
-A system is marked `ready_for_gromacs` when:
-
-- final peptide sequence matches `../../sequences/candidates.tsv`
-- `topol.top` contains exactly one protein molecule
-- Na+ is present as `SOD`
-- Cl- is present as `CLA`
-- required GROMACS files are present
+`../../md/na_cl/ready_gromacs_systems.tsv`

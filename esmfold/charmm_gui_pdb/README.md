@@ -1,30 +1,28 @@
 # CHARMM-GUI-Safe PDB Copies
 
-Use these files for CHARMM-GUI upload.
+Upload these PDB files to CHARMM-GUI.
 
-Filename rule used here:
+## Filename Rules
 
-- lowercase letters only
-- numbers allowed
-- no hyphens
-- no underscores
-- no spaces
-- `.pdb` extension
+| Rule | Applied |
+|---|---|
+| lowercase letters | yes |
+| numbers allowed | yes |
+| hyphens | no |
+| underscores | no |
+| spaces | no |
+| extension | `.pdb` |
 
-These files are normalized copies of the corresponding PDB files in `../pdb/`. The original coordinates are retained, while the upload copies use CHARMM-GUI-friendly formatting:
+## Formatting Normalization
 
-- nonstandard ESMFold header lines removed
-- one chain ID, `A`
-- sequential residue numbering
-- standard residue atom ordering with backbone atoms first
-- explicit `TER` and `END` records
+| Edit | Reason |
+|---|---|
+| Remove nonstandard ESMFold headers | CHARMM-GUI compatibility |
+| One chain ID, `A` | Prevent accidental split-chain systems |
+| Sequential residue numbering | Cleaner topology generation |
+| Backbone atoms first | Standard protein formatting |
+| Explicit `TER` and `END` | PDB completeness |
 
-Use `filename_mapping.tsv` to map each upload-safe filename back to the project candidate ID.
+Use `filename_mapping.tsv` to map upload-safe filenames back to project candidate IDs.
 
-Recommended first uploads:
-
-- `lid31.pdb`
-- `lind1.pdb`
-- `idpli1.pdb`
-- `lowchargeli.pdb`
-- `controlnegative.pdb`
+Recommended first uploads: `lid31.pdb`, `lind1.pdb`, `idpli1.pdb`, `lowchargeli.pdb`, `controlnegative.pdb`.

@@ -1,288 +1,179 @@
 # LiSPER
 
-## Lithium Selective Protein Engineering and Recovery
+**Lithium Selective Protein Engineering and Recovery**
 
-### Project Title
+**Project title:** Engineering lithium recognition through de novo design of intrinsically disordered peptides inspired by lithium-binding motifs.
 
-**Engineering Lithium Recognition through De Novo Design of Intrinsically Disordered Peptides Inspired by Lithium-Binding Motifs**
+LiSPER is a computational and experimental protein-engineering project focused on one central question:
 
----
+> Can short, IDP-like peptides be designed to prefer Li+ over Na+ in aqueous solution?
 
-# Project Vision
-
-LiSPER is a computational and experimental protein engineering project aimed at designing novel lithium-selective peptides capable of preferentially recognizing and binding Li⁺ over Na⁺ in aqueous environments.
-
-The long-term application is sustainable lithium recovery from lithium-ion battery recycling streams.
-
-The scientific objective is to establish whether intrinsically disordered peptide architectures inspired by known lithium-binding motifs can achieve measurable Li⁺/Na⁺ selectivity.
+The long-term motivation is sustainable lithium recovery from battery-recycling streams, where Li+/Na+ separation is a key challenge after upstream removal of transition metals.
 
 ---
 
-# Scientific Hypothesis
+## Project Snapshot
 
-Two independent observations motivate this project:
+| Area | Current State |
+|---|---|
+| Candidate library | 10 first-round peptides designed and documented |
+| Structure prediction | ESMFold outputs organized and validated |
+| CHARMM-GUI setup | 10 LiCl systems and 10 NaCl systems ready |
+| Equilibration MD | LiCl complete; NaCl complete |
+| Production MD | 20 ns LiCl production/clustering is running on remote |
+| Next scientific gate | Structural clustering and representative structures |
+| Final comparison | Delta Delta G = Delta G(Li+) - Delta G(Na+) |
 
-## 1. Lithium-Binding Peptide (LBP) Literature
-
-Previous studies reported short lithium-binding peptide motifs including:
-
-GPGNP
-
-and improved variants such as:
-
-GPGDP
-
-These motifs demonstrated lithium-binding capability and lithium recovery potential.
+More negative Delta Delta G values indicate stronger lithium preference.
 
 ---
 
-## 2. Intrinsically Disordered Proteins (IDPs)
+## Scientific Logic
 
-Intrinsically disordered proteins do not possess a single stable structure.
+LiSPER combines three design ideas:
 
-Instead, they exist as dynamic structural ensembles capable of adapting to molecular binding events.
+| Design Element | Role in the Hypothesis |
+|---|---|
+| GPGNP / GPGDP motifs | Literature precedent for lithium-binding peptide behavior |
+| Gly / Ser / Pro-rich composition | Flexibility and IDP-like conformational sampling |
+| Asp/Glu oxygen donors | Potential ion-coordination sites, while limiting total charge |
 
-The project hypothesis is that:
-
-- lithium-binding motifs provide Li⁺ recognition
-- intrinsic disorder provides conformational flexibility
-- combining both may improve lithium selectivity
-
----
-
-# Core Research Question
-
-Can de novo designed intrinsically disordered peptides inspired by lithium-binding motifs selectively bind Li⁺ over Na⁺ in aqueous solution?
+The goal is **not** merely strong Li+ binding. The goal is **selective Li+ binding over Na+**.
 
 ---
 
-# First-Round Candidate Library
+## First-Round Candidate Library
 
-Current first-round Li+/Na+ selectivity library:
+| Rank | Candidate | Sequence | Design Intent | Starting Priority |
+|---:|---|---|---|---|
+| 1 | LiD3-1 | GPGDPGSGPGDPGSGPGDP | Repeated GPGDP motif with Gly/Ser flexibility | Primary |
+| 2 | LiND-1 | GPGNPGSGPGDPGSGPGNP | Combines GPGNP and GPGDP motifs | Primary |
+| 3 | IDP-Li-1 | SGDSGPGDPGDSG | Flexible acidic shell around GPGDP | Primary |
+| 4 | IDP-Li-2 | GDSGSGPGDPGSGDS | Symmetric disordered binding pocket | Screen |
+| 5 | LowCharge-Li | GPGDPGSGNPGSGDP | Reduced charge to control nonspecific binding | Primary |
+| 6 | LiD2-IDP | GPGDPGSDGSGPGDP | Two GPGDP motifs with acidic spacer | Screen |
+| 7 | StrongBind-Li | GPGDPGSDGPGDPGSD | Higher Asp density for stronger capture | Screen |
+| 8 | SoftCage-Li | GSGDPGNGDPGSG | Short oxygen-rich flexible cage | Screen |
+| 9 | IDP-Rich-Li | DSGDSGPGDPGDSGS | Strongly disordered acidic design | Screen |
+| 10 | Control-Negative | GPGAPGSGPGAPGSGPGAP | Neutral motif-related control | Control |
 
-| Rank | Name | Protein / peptide sequence | Main design logic | Prediction |
-| --- | --- | --- | --- | --- |
-| 1 | LiD3-1 | GPGDPGSGPGDPGSGPGDP | Uses the best literature motif GPGDP, repeated 3x, with Gly/Ser flexibility | Best first candidate |
-| 2 | LiND-1 | GPGNPGSGPGDPGSGPGNP | Combines original LBP GPGNP + improved GPGDP | Balanced affinity/selectivity |
-| 3 | IDP-Li-1 | SGDSGPGDPGDSG | IDP-like flexible acidic shell around GPGDP | Good Li+ binding, moderate selectivity |
-| 4 | IDP-Li-2 | GDSGSGPGDPGSGDS | More symmetric disordered binding pocket | Good screening candidate |
-| 5 | LowCharge-Li | GPGDPGSGNPGSGDP | Lower negative charge to avoid nonspecific Na+/Ca2+ binding | Better selectivity risk-control |
-| 6 | LiD2-IDP | GPGDPGSDGSGPGDP | Two GPGDP motifs plus IDP acidic spacer | Strong but not overcharged |
-| 7 | StrongBind-Li | GPGDPGSDGPGDPGSD | Higher Asp density for stronger Li+ capture | High affinity, lower selectivity risk |
-| 8 | SoftCage-Li | GSGDPGNGDPGSG | Short flexible oxygen-rich Li+ cage | Small, cheap, easy to test |
-| 9 | IDP-Rich-Li | DSGDSGPGDPGDSGS | More IDP-like, many carboxylate/Ser donors | Strong binding, may bind other metals |
-| 10 | Control-Negative | GPGAPGSGPGAPGSGPGAP | Literature-related weak/neutral control | Should bind Li+ weaker |
+Recommended starting subset:
 
-Strongest recommended starting subset:
-
-- LiD3-1
-- LiND-1
-- IDP-Li-1
-- LowCharge-Li
-- Control-Negative
-
-These sequences constitute the primary first-round screening set.
-
-Previous discarded sequences are not part of the current project.
-
-Core design idea:
-
-- GPGDP/GPGNP provides Li+-binding precedent.
-- Gly/Ser/Pro provides IDP-like flexibility.
-- Asp/Glu provides oxygen donors.
-- Net charge is limited to reduce nonspecific Na+/Ca2+ binding.
+`LiD3-1`, `LiND-1`, `IDP-Li-1`, `LowCharge-Li`, `Control-Negative`
 
 ---
 
-# Computational Strategy
+## Computational Workflow
 
-The objective is NOT merely strong lithium binding.
+```mermaid
+flowchart TD
+    A["Candidate sequences"] --> B["ESMFold prediction"]
+    B --> C["CHARMM-GUI setup"]
+    C --> D1["LiCl system"]
+    C --> D2["NaCl system"]
+    D1 --> E1["Minimization + equilibration"]
+    D2 --> E2["Minimization + equilibration"]
+    E1 --> F1["20 ns production MD"]
+    E2 --> F2["20 ns production MD"]
+    F1 --> G1["Structural clustering"]
+    F2 --> G2["Structural clustering"]
+    G1 --> H1["Representative Li+ structure"]
+    G2 --> H2["Representative Na+ structure"]
+    H1 --> I1["Li+ umbrella sampling"]
+    H2 --> I2["Na+ umbrella sampling"]
+    I1 --> J1["PMF and Delta G(Li+)"]
+    I2 --> J2["PMF and Delta G(Na+)"]
+    J1 --> K["Delta Delta G selectivity"]
+    J2 --> K
+```
 
-The objective is:
-
-Li⁺ selectivity over Na⁺.
-
-Therefore every candidate must be evaluated against BOTH ions.
-
----
-
-# Computational Workflow
-
-Sequence
-↓
-ESMFold
-↓
-CHARMM-GUI
-↓
-Molecular Dynamics Equilibration
-↓
-Structural Clustering
-↓
-Representative Structures
-↓
-Umbrella Sampling
-↓
-PMF
-↓
-ΔG(Li⁺)
-ΔG(Na⁺)
-↓
-ΔΔG Selectivity
-
-where:
-
-ΔΔG = ΔG(Li⁺) - ΔG(Na⁺)
-
-More negative values indicate stronger lithium preference.
+Why clustering matters: these are flexible, IDP-like peptides. A random trajectory frame may represent a rare state. Clustering identifies the most populated conformations, making umbrella sampling more statistically meaningful.
 
 ---
 
-# Important Simulation Decisions
+## Simulation Choices
 
-## Water Model
-
-TIP3P
-
-## Force Field
-
-CHARMM36m
-
-## Simulation Box
-
-Cubic
-
-20 Å padding
-
-## Ions
-
-Use separate systems:
-
-Protein + LiCl
-
-Protein + NaCl
-
-DO NOT perform first-round umbrella sampling using mixed Li⁺/Na⁺ systems.
-
-Mixed systems are reserved for later validation.
+| Decision | Value | Reason |
+|---|---|---|
+| Force field | CHARMM36m | Protein/IDP-compatible CHARMM workflow |
+| Water model | TIP3P | CHARMM-GUI default for this setup |
+| Ion systems | Separate LiCl and NaCl | Clean Li+ vs Na+ free-energy comparison |
+| First production length | 20 ns | Enough to begin conformational clustering |
+| Mixed-ion systems | Not first round | Reserved for later competition validation |
 
 ---
 
-# Why Separate Li⁺ and Na⁺ Simulations?
+## Experimental Translation
 
-The project seeks a rigorous free-energy comparison.
+```mermaid
+flowchart TD
+    A["Computational ranking"] --> B["Gene design"]
+    B --> C["Codon optimization"]
+    C --> D["pET28a(+) cloning plan"]
+    D --> E["E. coli expression"]
+    E --> F["Protein purification"]
+    F --> G["Li+ binding assay"]
+    G --> H["Na+ competition assay"]
+    H --> I["Li+/Na+ selectivity measurement"]
+```
 
-Separate systems provide:
-
-- cleaner PMF calculations
-- cleaner ΔG estimates
-- direct Li⁺/Na⁺ comparison
-- easier interpretation
-
-Mixed-ion competition simulations may be performed after top candidates are identified.
-
----
-
-# Experimental Workflow
-
-Candidate Selection
-↓
-Gene Design
-↓
-Codon Optimization
-↓
-Plasmid Construction
-↓
-E. coli Expression
-↓
-Protein Purification
-↓
-Li⁺ Binding Assay
-↓
-Na⁺ Competition Assay
-↓
-Li⁺/Na⁺ Selectivity Measurement
+The computational and experimental branches meet at candidate prioritization: peptides with favorable Li+/Na+ selectivity and interpretable conformational behavior become wet-lab targets.
 
 ---
 
-# Intended Application
+## Battery-Recycling Context
 
-Battery Recycling Process:
+```mermaid
+flowchart LR
+    A["Spent battery material"] --> B["Hydrometallurgical processing"]
+    B --> C["Co/Ni/Mn removal upstream"]
+    C --> D["Li+ and Na+ aqueous stream"]
+    D --> E["LiSPER peptide material"]
+    E --> F["Selective Li+ capture"]
+    F --> G["Elution"]
+    G --> H["Li2CO3 production"]
+```
 
-Spent Battery
-↓
-Hydrometallurgical Processing
-↓
-Removal of Co/Ni/Mn
-↓
-Li⁺ + Na⁺ Solution
-↓
-LiSPER Protein
-↓
-Selective Li⁺ Capture
-↓
-Elution
-↓
-Li₂CO₃ Production
-
-The project does NOT currently focus on Co²⁺, Ni²⁺, or Mn²⁺ selectivity because these ions are expected to be removed upstream.
-
-The primary challenge is Li⁺ vs Na⁺ separation.
+LiSPER currently focuses on Li+ vs Na+ separation. Co2+, Ni2+, and Mn2+ are treated as upstream-removal species rather than first-round selectivity targets.
 
 ---
 
-# Repository Structure
+## Repository Map
 
-LiSPER/
-
-├── analysis/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── docs/
-│   └── Literature Review/
-│       ├── IDP/
-│       └── LBP/
-├── inbox/
-├── literature/
-├── sequences/
-├── esmfold/
-├── charmm-gui/
-├── md/
-├── umbrella/
-├── pmf/
-├── plasmids/
-├── wetlab/
-├── figures/
-├── protocols/
-├── scripts/
-├── manuscript/
-└── README.md
+| Folder | Purpose |
+|---|---|
+| `sequences/` | Candidate sequences and metadata |
+| `esmfold/` | Structure predictions and CHARMM-GUI-safe PDBs |
+| `charmm-gui/` | LiCl and NaCl system-builder outputs |
+| `md/` | GROMACS scripts, remote logs, equilibration, production, clustering |
+| `umbrella/` | Future umbrella windows and pulling setups |
+| `pmf/` | Future PMF and Delta G analysis |
+| `literature/` | IDP and lithium-binding peptide papers |
+| `plasmids/` | Vector maps and cloning design records |
+| `wetlab/` | Expression, purification, and assay planning |
+| `docs/` | Design rationale, workflow notes, repository guide |
+| `inbox/` | Temporary drop zone for unsorted files |
 
 ---
 
-# Current Repository Starting Points
+## Key Documents
 
-- Candidate library: `sequences/candidates.fasta` and `sequences/candidates.tsv`
-- Repository guide: `docs/repository_guide.md`
-- Candidate design rationale: `docs/candidate_design_rationale.md`
-- Literature PDFs: `docs/Literature Review/IDP` and `docs/Literature Review/LBP`
-- File drop zone for unsorted materials: `inbox/`
-- Folder-level notes: each major folder contains a short `README.md`
-
-Use the candidate IDs consistently across computational and experimental records, especially when comparing paired LiCl and NaCl systems.
+- [Repository guide](docs/repository_guide.md)
+- [Candidate design rationale](docs/candidate_design_rationale.md)
+- [MD to PMF workflow](docs/md_to_pmf_workflow.md)
+- [LiCl MD status](md/li_cl/remote_runs/remote_status.md)
+- [NaCl MD status](md/na_cl/remote_runs/remote_status.md)
 
 ---
 
-# Project Philosophy
+## Current Working Principle
 
-This project is a de novo protein engineering effort.
+For LiSPER, the correct path is:
 
-The goal is not to rediscover existing lithium-binding proteins.
+`ESMFold -> CHARMM-GUI -> equilibration -> production MD -> clustering -> representative structures -> umbrella sampling -> PMF -> selectivity`
 
-The goal is to create and validate a new class of lithium-selective intrinsically disordered peptides through computational design and experimental verification.
+The project should avoid the shortcut:
 
----
+`ESMFold -> umbrella sampling`
 
-Project: LiSPER
-
-Lithium Selective Protein Engineering and Recovery
+because flexible peptides require ensemble-aware structure selection.

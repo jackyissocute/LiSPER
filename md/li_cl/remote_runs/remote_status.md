@@ -30,8 +30,11 @@ Queued next stage:
 - `/root/LiSPER_remote/run_lisper_production_cluster.py` is queued for all 10 LiCl systems.
 - The script waits for remote PID 3204, which is the NaCl add-two queue, before starting.
 - Queue PID file: `/root/LiSPER_remote/LiSPER_LiCl/remote_runs/licl_production_cluster_20ns.pid`.
-- Latest observed queue process: PID 3883.
-- Latest synced production/clustering log is still empty, meaning this stage has not started yet and is still waiting behind the NaCl add-two queue.
+- Latest observed process: PID 3883.
+- LiCl production/clustering has started. Active GROMACS job is `LiD3-1` 20 ns production.
+- Current local production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/md/li_cl/remote_runs/current_production_snapshot.md`.
+- Latest synced `LiD3-1` production progress: 2,100,000 / 10,000,000 steps, 4.2 ns / 20 ns, 21.00%.
+- Latest synced health markers: temperature about 297 K, constraint RMSD about 3e-6, no fatal markers found.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
 - Representative structure output: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.

@@ -25,17 +25,16 @@ Running:
 - Local launch observed PID `1609`; child process `python3 /root/LiSPER_remote/run_lisper_nacl_minimize.py` started successfully.
 - Minimization completed successfully for all 8 ready NaCl systems.
 - `IDP-Li-1`, `IDP-Li-2`, and `SoftCage-Li` each required one overlapping TIP3 water removal before successful minimization.
-- Step4.1 equilibration is running for the first 8-system batch; latest observed active system was `SoftCage-Li`.
+- Step4.1 equilibration completed for all 10 NaCl systems.
 - Current local snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/md/na_cl/remote_runs/current_remote_snapshot.md`.
-- Completed equilibration logs have been synced for `LiND-1`, `IDP-Li-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP`.
-- `SoftCage-Li` equilibration log was synced while still in progress.
+- Completed equilibration logs/results have been synced for all 10 NaCl systems.
 - Uploaded revised NaCl LiD3-1 and StrongBind-Li systems to the remote.
 - Updated remote `ready_gromacs_systems.tsv` now contains all 10 NaCl systems.
 - Queued `/root/LiSPER_remote/queue_nacl_add2.py` with `WAIT_FOR_PID=1609`.
 - Add-two queue PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_add2_queue.pid`.
-- Latest observed add-two queue process: PID `3205`, waiting for the current 8-system batch to finish.
+- Add-two queue completed for `LiD3-1` and `StrongBind-Li`.
 - Queued `/root/LiSPER_remote/run_lisper_production_cluster.py` for all 10 NaCl systems with `WAIT_FOR_PID=3882`, so it starts after LiCl production/clustering.
 - Production/clustering queue PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_production_cluster_20ns.pid`.
-- Latest observed NaCl production/clustering queue PID: `3936`.
+- Latest observed NaCl production/clustering queue process: PID `3937`, waiting for LiCl production/clustering to finish.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
