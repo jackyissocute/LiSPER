@@ -1,14 +1,19 @@
 <p align="center">
-  <img src="06_shared/assets/lisper_banner.svg" alt="LiSPER banner showing lithium ions, flexible peptides, battery recycling, direct lithium extraction, and computational design" width="100%">
+  <img src="assets/branding/banners/Dark_Banner.png" alt="LiSPER banner showing lithium-selective peptide engineering, Li+ coordination, Na+ exclusion, peptide design, and sustainable recovery" width="100%">
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/logos/Dark_Icon_Brand.png">
+    <source media="(prefers-color-scheme: light)" srcset="assets/branding/logos/Bright_Icon_Brand.png">
+    <img src="assets/branding/logos/Bright_Icon_Brand.png" alt="LiSPER project logo" width="180">
+  </picture>
 </p>
 
 <h1 align="center">LiSPER</h1>
 
 <p align="center">
-  <strong>Lithium-Selective Peptide Engineering and Recovery</strong>
-</p>
-
-<p align="center">
+  <strong>Lithium-Selective Peptide Engineering and Recovery</strong><br>
   A computational-to-experimental program for designing lithium-selective peptides and translating them toward bio-inspired Direct Lithium Extraction (Bio-DLE).
 </p>
 
@@ -226,6 +231,7 @@ The repository is organized by program phase rather than by file type.
 | [`04_literature/`](04_literature/) | Background literature for lithium-binding peptides, IDPs, ion selectivity, and DLE |
 | [`05_manuscript/`](05_manuscript/) | Manuscript drafts, figures, and publication planning |
 | [`06_shared/`](06_shared/) | Shared docs, reusable scripts, temporary inbox, and visual assets |
+| [`assets/`](assets/) | Official LiSPER branding assets for README and project presentation |
 | [`archive/`](archive/) | Superseded designs and preserved legacy materials |
 
 ## 🔗 Key project documents
@@ -238,6 +244,7 @@ The repository is organized by program phase rather than by file type.
 - [Surface-display host selection report](03_industrial_translation/surface_display_host_selection/reports/final_host_selection_report.md)
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
 - [Repository reorganization report](06_shared/docs/repository_reorganization_report.md)
+- [Branding assets](assets/branding/README.md)
 
 ## 📈 Research vision
 
