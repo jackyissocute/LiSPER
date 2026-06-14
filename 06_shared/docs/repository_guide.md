@@ -21,8 +21,8 @@ flowchart TD
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | Plasmids, wet-lab planning, expression, purification, binding assays, and protocols |
-| `03_industrial_translation/` | Surface-display host selection, immobilized peptide architecture, packed-bed and Bio-DLE studies |
+| `02_experimental_validation/` | Plasmids, wet-lab planning, expression, purification, surface-display validation, binding assays, and protocols |
+| `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_literature/` | Foundational protein-design literature |
 | `05_manuscript/` | Manuscript drafts and figures |
 | `06_shared/` | Cross-project docs, scripts, and temporary inbox |

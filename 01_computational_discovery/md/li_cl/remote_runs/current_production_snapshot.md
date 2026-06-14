@@ -1,16 +1,16 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-14 19:48 CST.
+Synced from remote logs on 2026-06-14 22:03 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
-| LiD3-1 | production_20ns | running | 6355000 | 12710.00000 | 63.55% | 2.95817e+02 | 7.77719e+01 | 2.81087e-06 | false |
+| LiD3-1 | production_20ns | running | 7235000 | 14470.00000 | 72.35% | 2.98860e+02 | -9.39621e+01 | 5.07506e-06 | false |
 
 ## QC Interpretation
 
 - Active remote job: `LiD3-1` LiCl 20 ns production MD.
-- Current progress: 12.71 ns of 20 ns complete.
-- Temperature is stable near 296 K.
+- Current progress: 14.47 ns of 20 ns complete.
+- Temperature is stable near 299 K.
 - Constraint RMSD remains small, consistent with a numerically healthy constrained run.
 - No fatal-error markers were found in the synced production log.
 - The `cluster_20ns/` folder exists but is still empty, which is expected before production finishes.
@@ -18,11 +18,11 @@ Synced from remote logs on 2026-06-14 19:48 CST.
 
 ## Runtime Estimate
 
-The active `LiD3-1` production run has reached 6.355 million of 10 million steps after about 16.0 hours of `gmx mdrun` wall time.
+The active `LiD3-1` production run has reached 7.235 million of 10 million steps after about 18.3 hours of `gmx mdrun` wall time.
 
 | Scope | Estimate |
 |---|---:|
-| `LiD3-1` production remaining | about 9-10 hours |
+| `LiD3-1` production remaining | about 6-7 hours |
 | All remaining LiCl production/clustering, if sequential at current speed | about 10 days |
 | NaCl production/clustering after LiCl, if sequential at current speed | about 10 additional days |
 

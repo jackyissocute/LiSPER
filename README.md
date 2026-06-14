@@ -218,8 +218,8 @@ The repository is organized by program phase rather than by file type.
 | Directory | Purpose |
 |---|---|
 | [`01_computational_discovery/`](01_computational_discovery/) | Candidate sequences, ESMFold structures, CHARMM-GUI systems, MD, umbrella sampling, PMF, and analysis |
-| [`02_experimental_validation/`](02_experimental_validation/) | Plasmids, wet-lab planning, expression/purification strategy, and assay protocols |
-| [`03_industrial_translation/`](03_industrial_translation/) | Surface-display host selection, immobilized capture formats, and deployment architecture |
+| [`02_experimental_validation/`](02_experimental_validation/) | Plasmids, wet-lab planning, purified-peptide validation, surface-display validation, and assay protocols |
+| [`03_industrial_translation/`](03_industrial_translation/) | Immobilized capture formats, packed-bed process design, and deployment architecture |
 | [`04_literature/`](04_literature/) | Background literature for lithium-binding peptides, IDPs, ion selectivity, and DLE |
 | [`05_manuscript/`](05_manuscript/) | Manuscript drafts, figures, and publication planning |
 | [`06_shared/`](06_shared/) | Shared docs, reusable scripts, temporary inbox, and visual assets |
@@ -233,7 +233,7 @@ The repository is organized by program phase rather than by file type.
 - [MD to PMF workflow](06_shared/docs/md_to_pmf_workflow.md)
 - [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
 - [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)
-- [Surface-display host selection report](03_industrial_translation/surface_display_host_selection/reports/final_host_selection_report.md)
+- [Surface-display host selection report](02_experimental_validation/surface_display_host_selection/reports/final_host_selection_report.md)
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
 - [Repository reorganization report](06_shared/docs/repository_reorganization_report.md)
 - [Branding assets](assets/branding/README.md)

@@ -9,7 +9,7 @@ Remote GROMACS workflow and synced results for peptide + LiCl systems.
 | CHARMM-GUI QC | 10/10 ready |
 | Minimization | 10/10 complete |
 | Equilibration | 10/10 complete |
-| 20 ns production | Running: `LiD3-1` at 12.71 ns / 20 ns |
+| 20 ns production | Running: `LiD3-1` at 14.47 ns / 20 ns |
 | Structural clustering | Waiting for first production run to finish |
 
 Latest QC snapshot: [remote_runs/current_production_snapshot.md](remote_runs/current_production_snapshot.md).
