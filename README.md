@@ -262,37 +262,37 @@ Current literature assessments in this repository favor **purified immobilized L
 
 ```text
 LiSPER/
-├── analysis/          # Analysis notebooks, scripts, and derived interpretation
-├── charmm-gui/        # CHARMM-GUI system-builder outputs for LiCl and NaCl systems
-├── data/              # Raw and processed data
-├── docs/              # Design rationale and workflow documentation
-├── esmfold/           # Structure prediction inputs, outputs, PAE, plots, and PDBs
-├── figures/           # Figures for reports, manuscripts, and presentations
-├── literature/        # Literature reviews and technology assessments
-├── manuscript/        # Publication drafts and manuscript assets
-├── md/                # GROMACS equilibration, production, logs, and clustering work
-├── plasmids/          # His6-SUMO-LiSPER plasmid design and vendor-ready records
-├── pmf/               # Potential of mean force analysis outputs
-├── protocols/         # Experimental and computational protocols
-├── scripts/           # Utility scripts for design, setup, and analysis
-├── sequences/         # Candidate peptide sequences and metadata
-├── umbrella/          # Umbrella sampling setup and windows
-└── wetlab/            # Expression, purification, assay, and validation planning
+├── 01_computational_discovery/
+│   ├── sequences/      # Candidate peptide sequences and metadata
+│   ├── esmfold/        # Structure prediction inputs, outputs, PAE, plots, and PDBs
+│   ├── charmm-gui/     # CHARMM-GUI system-builder outputs
+│   ├── md/             # GROMACS equilibration, production, logs, and clustering
+│   ├── umbrella/       # Umbrella sampling setup and windows
+│   ├── pmf/            # Potential of mean force analysis outputs
+│   ├── analysis/       # Analysis notebooks, scripts, and interpretation
+│   └── data/           # Raw and processed computational data
+├── 02_experimental_validation/
+│   ├── plasmids/       # His6-SUMO-LiSPER plasmid design and vendor-ready records
+│   ├── wetlab/         # Expression, purification, assay, and validation planning
+│   └── protocols/      # Experimental protocols and operating notes
+├── 03_industrial_translation/
+│   ├── surface_display_host_selection/
+│   └── deployment_architecture/
+├── 04_literature/      # Foundational protein-design literature
+├── 05_manuscript/      # Manuscript drafts and figures
+├── 06_shared/          # Shared docs, scripts, and inbox
+└── archive/            # Superseded or non-current materials preserved safely
 ```
 
 | Folder | Purpose |
 |---|---|
-| `analysis/` | Downstream analysis, summary calculations, and interpretation. |
-| `charmm-gui/` | System-builder outputs for solvated LiCl and NaCl peptide simulations. |
-| `esmfold/` | Structure prediction pipeline outputs and CHARMM-GUI-ready PDBs. |
-| `md/` | GROMACS simulation scripts, remote run logs, equilibration, production, and clustering. |
-| `umbrella/` | Umbrella sampling setups for ion-peptide separation coordinates. |
-| `pmf/` | PMF analysis and Delta G comparison for Li+ and Na+. |
-| `plasmids/` | His6-SUMO-LiSPER plasmid designs, vector maps, and vendor-ready files. |
-| `wetlab/` | Experimental planning for expression, purification, cleavage, and binding assays. |
-| `literature/` | Literature-driven assessments for protein design, host selection, and deployment architecture. |
-| `protocols/` | Reproducible protocols for computational and experimental workflows. |
-| `manuscript/` | Manuscript drafts, figures, and publication planning. |
+| `01_computational_discovery/` | Sequence design, structure prediction, CHARMM-GUI setup, MD, umbrella sampling, PMF, data, and analysis. |
+| `02_experimental_validation/` | Plasmid design, His6-SUMO-LiSPER wet-lab planning, protocols, expression, purification, and assay work. |
+| `03_industrial_translation/` | Surface-display host selection, immobilized peptide strategy, deployment architecture, and Bio-DLE process studies. |
+| `04_literature/` | Foundational protein-design literature and source material. |
+| `05_manuscript/` | Manuscript drafts, figures, and publication planning. |
+| `06_shared/` | Shared documentation, reusable scripts, and temporary inbox. |
+| `archive/` | Superseded designs and preserved legacy materials that should not be used as current protocols. |
 
 ---
 
@@ -314,13 +314,14 @@ Industrial Translation:   ░░░░░░░░░░ 0%
 
 ## Key Documents
 
-- [Repository guide](docs/repository_guide.md)
-- [Candidate design rationale](docs/candidate_design_rationale.md)
-- [MD to PMF workflow](docs/md_to_pmf_workflow.md)
-- [LiCl MD status](md/li_cl/remote_runs/remote_status.md)
-- [NaCl MD status](md/na_cl/remote_runs/remote_status.md)
-- [Surface-display host selection report](literature/surface_display_host_selection/reports/final_host_selection_report.md)
-- [Deployment architecture report](literature/deployment_architecture/reports/final_deployment_architecture_report.md)
+- [Repository guide](06_shared/docs/repository_guide.md)
+- [Candidate design rationale](06_shared/docs/candidate_design_rationale.md)
+- [MD to PMF workflow](06_shared/docs/md_to_pmf_workflow.md)
+- [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
+- [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)
+- [Surface-display host selection report](03_industrial_translation/surface_display_host_selection/reports/final_host_selection_report.md)
+- [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
+- [Repository reorganization report](06_shared/docs/repository_reorganization_report.md)
 
 ---
 
