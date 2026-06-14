@@ -2,14 +2,6 @@
   <img src="assets/branding/banners/Dark_Banner.png" alt="LiSPER banner showing lithium-selective peptide engineering, Li+ coordination, Na+ exclusion, peptide design, and sustainable recovery" width="100%">
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/branding/logos/Dark_Icon_Brand.png">
-    <source media="(prefers-color-scheme: light)" srcset="assets/branding/logos/Bright_Icon_Brand.png">
-    <img src="assets/branding/logos/Bright_Icon_Brand.png" alt="LiSPER project logo" width="180">
-  </picture>
-</p>
-
 <h1 align="center">LiSPER</h1>
 
 <p align="center">
