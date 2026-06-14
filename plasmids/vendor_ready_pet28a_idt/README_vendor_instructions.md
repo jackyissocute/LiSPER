@@ -10,6 +10,7 @@ Please synthesize the listed codon-optimized inserts and clone each one into pET
 - `plasmid_qc_report.csv`: per-construct translation, frame, stop-codon, and restriction-site QC.
 - `plasmid_qc_report.md`: compact human-readable QC summary.
 - `genbank/*.gb`: annotated circular GenBank plasmid maps for each construct.
+- `snapgene_dna/*.dna`: SnapGene DNA copies of the same plasmid maps.
 
 ## Cloning Design
 

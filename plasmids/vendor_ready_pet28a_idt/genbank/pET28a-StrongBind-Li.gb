@@ -4,10 +4,18 @@ DEFINITION  pET28a-StrongBind-Li: IDT-optimized StrongBind-Li in pET-28a(+)
 ACCESSION   pET28a-StrongBind-Li
 VERSION     pET28a-StrongBind-Li
 KEYWORDS    .
-SOURCE      .
-  ORGANISM  .
-            .
+SOURCE      Escherichia coli BL21(DE3)
+  ORGANISM  Escherichia coli BL21(DE3)
+            Bacteria; Pseudomonadota; Gammaproteobacteria;
+            Enterobacterales; Enterobacteriaceae; Escherichia.
+COMMENT     Bacterial transformation strain: BL21(DE3).
 FEATURES             Location/Qualifiers
+     source          1..5380
+                     /organism="Escherichia coli"
+                     /mol_type="other DNA"
+                     /strain="BL21(DE3)"
+                     /plasmid="pET28a-StrongBind-Li"
+                     /note="Bacterial transformation strain: BL21(DE3)"
      terminator      complement(26..73)
                      /label="T7 terminator"
      promoter        706..783

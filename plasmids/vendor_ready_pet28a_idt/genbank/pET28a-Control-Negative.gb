@@ -4,10 +4,18 @@ DEFINITION  pET28a-Control-Negative: IDT-optimized Control-Negative in
 ACCESSION   pET28a-Control-Negative
 VERSION     pET28a-Control-Negative
 KEYWORDS    .
-SOURCE      .
-  ORGANISM  .
-            .
+SOURCE      Escherichia coli BL21(DE3)
+  ORGANISM  Escherichia coli BL21(DE3)
+            Bacteria; Pseudomonadota; Gammaproteobacteria;
+            Enterobacterales; Enterobacteriaceae; Escherichia.
+COMMENT     Bacterial transformation strain: BL21(DE3).
 FEATURES             Location/Qualifiers
+     source          1..5389
+                     /organism="Escherichia coli"
+                     /mol_type="other DNA"
+                     /strain="BL21(DE3)"
+                     /plasmid="pET28a-Control-Negative"
+                     /note="Bacterial transformation strain: BL21(DE3)"
      terminator      complement(26..73)
                      /label="T7 terminator"
      promoter        715..792

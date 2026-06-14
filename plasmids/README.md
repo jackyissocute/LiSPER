@@ -7,6 +7,8 @@ Vector maps, construct planning, codon optimization records, and cloning notes.
 | File | Purpose |
 |---|---|
 | `vector_maps/pET28a_plus.dna` | Uploaded pET28a(+) map for future expression design |
+| `vendor_ready_pet28a_idt/genbank/` | Text-source GenBank maps for the 10 LiSPER constructs |
+| `vendor_ready_pet28a_idt/snapgene_dna/` | SnapGene `.dna` copies for visual inspection and editing |
 
 ## Construct Flow
 

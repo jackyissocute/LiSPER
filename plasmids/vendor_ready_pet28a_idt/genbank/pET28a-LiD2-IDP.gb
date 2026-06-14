@@ -4,10 +4,18 @@ DEFINITION  pET28a-LiD2-IDP: IDT-optimized LiD2-IDP in pET-28a(+) N-terminal
 ACCESSION   pET28a-LiD2-IDP
 VERSION     pET28a-LiD2-IDP
 KEYWORDS    .
-SOURCE      .
-  ORGANISM  .
-            .
+SOURCE      Escherichia coli BL21(DE3)
+  ORGANISM  Escherichia coli BL21(DE3)
+            Bacteria; Pseudomonadota; Gammaproteobacteria;
+            Enterobacterales; Enterobacteriaceae; Escherichia.
+COMMENT     Bacterial transformation strain: BL21(DE3).
 FEATURES             Location/Qualifiers
+     source          1..5377
+                     /organism="Escherichia coli"
+                     /mol_type="other DNA"
+                     /strain="BL21(DE3)"
+                     /plasmid="pET28a-LiD2-IDP"
+                     /note="Bacterial transformation strain: BL21(DE3)"
      terminator      complement(26..73)
                      /label="T7 terminator"
      promoter        703..780

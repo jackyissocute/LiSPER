@@ -35,9 +35,10 @@ Queued next stage:
 - Latest observed process: PID 3883.
 - LiCl production/clustering has started. Active GROMACS job is `LiD3-1` 20 ns production.
 - Current local production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/md/li_cl/remote_runs/current_production_snapshot.md`.
-- Latest synced `LiD3-1` production progress: 3,335,000 / 10,000,000 steps, 6.67 ns / 20 ns, 33.35%.
-- Latest synced health markers: temperature about 298 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 3e-6, no fatal markers found.
+- Latest synced `LiD3-1` production progress: 3,915,000 / 10,000,000 steps, 7.83 ns / 20 ns, 39.15%.
+- Latest synced health markers: temperature about 297 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 2.5e-6, no fatal markers found.
 - The `cluster_20ns/` folder has been created for `LiD3-1` but is still empty because production has not finished yet.
+- Runtime estimate from the current CPU-only rate: about 15 hours remain for `LiD3-1` production; the full sequential LiCl production/clustering queue is roughly 10 days from this checkpoint, with NaCl queued behind it.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
 - Representative structure output: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.
