@@ -124,14 +124,50 @@ The computational and experimental branches meet at candidate prioritization: pe
 ## Battery-Recycling Context
 
 ```mermaid
-flowchart LR
-    A["Spent battery material"] --> B["Hydrometallurgical processing"]
-    B --> C["Co/Ni/Mn removal upstream"]
-    C --> D["Li+ and Na+ aqueous stream"]
-    D --> E["LiSPER peptide material"]
-    E --> F["Selective Li+ capture"]
-    F --> G["Elution"]
-    G --> H["Li2CO3 production"]
+flowchart TB
+    accTitle: Battery Recycling Context
+    accDescr: Battery-recycling workflow showing upstream transition-metal removal followed by the LiSPER peptide capture step for Li+ versus Na+ separation
+
+    spent_material([Spent battery material])
+
+    subgraph upstream_processing ["Upstream battery-recycling stream"]
+        hydro_processing["Hydrometallurgical processing"]
+        transition_metal_removal["Remove Co2+, Ni2+, and Mn2+"]
+        mixed_alkali_stream["Aqueous stream enriched in Li+ and Na+"]
+    end
+
+    subgraph lisper_module ["LiSPER selectivity module"]
+        peptide_material["LiSPER peptide material"]
+        selective_capture["Selective Li+ capture"]
+        sodium_rejection["Na+ remains mostly in solution"]
+    end
+
+    subgraph product_recovery ["Product recovery"]
+        elution["Elute captured Li+"]
+        lithium_product([Li2CO3 production])
+    end
+
+    spent_material --> hydro_processing
+    hydro_processing --> transition_metal_removal
+    transition_metal_removal --> mixed_alkali_stream
+    mixed_alkali_stream --> peptide_material
+    peptide_material --> selective_capture
+    selective_capture --> elution
+    mixed_alkali_stream -.-> sodium_rejection
+    sodium_rejection -.-> selective_capture
+    elution --> lithium_product
+
+    classDef feed fill:#f3f4f6,stroke:#6b7280,stroke-width:2px,color:#1f2937
+    classDef upstream fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+    classDef lisper fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef product fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef caution fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
+
+    class spent_material feed
+    class hydro_processing,transition_metal_removal,mixed_alkali_stream upstream
+    class peptide_material,selective_capture lisper
+    class sodium_rejection caution
+    class elution,lithium_product product
 ```
 
 LiSPER currently focuses on Li+ vs Na+ separation. Co2+, Ni2+, and Mn2+ are treated as upstream-removal species rather than first-round selectivity targets.
