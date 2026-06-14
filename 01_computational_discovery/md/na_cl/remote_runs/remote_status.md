@@ -35,6 +35,6 @@ Running:
 - Add-two queue completed for `LiD3-1` and `StrongBind-Li`.
 - Queued `/root/LiSPER_remote/run_lisper_production_cluster.py` for all 10 NaCl systems with `WAIT_FOR_PID=3882`, so it starts after LiCl production/clustering.
 - Production/clustering queue PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_production_cluster_20ns.pid`.
-- Latest observed NaCl production/clustering queue process: PID `3937`, waiting for LiCl production/clustering to finish.
+- Latest observed NaCl production/clustering queue process: PID `3937`, still waiting for LiCl production/clustering to finish as of 2026-06-14 19:48 CST.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
