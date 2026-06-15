@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-15 14:20 CST
+Last checked: 2026-06-15 16:21 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -9,7 +9,7 @@ Remote LiCl workdir: /root/LiSPER_remote/LiSPER_LiCl
 GROMACS env: conda activate lisper-gmx
 GROMACS version: 2026.0-conda_forge
 GPU note: GROMACS reports OpenCL support, but GPU detection failed because no valid OpenCL driver was found in the container. Current runs are CPU-only.
-Disk status: 30G total, 5.3G used, 25G available, 18% used.
+Disk status: 30G total, 5.4G used, 25G available, 18% used.
 
 Completed:
 - Uploaded all 10 QC-passed LiCl GROMACS systems.
@@ -25,8 +25,8 @@ Running:
 - Python driver PID: 3883.
 - Active GROMACS job: `IDP-Li-1` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 46626.
-- Latest synced `IDP-Li-1` production progress: 6,985,000 / 10,000,000 steps, 13.97 ns / 20 ns, 69.85%.
-- Latest synced `IDP-Li-1` health markers: temperature about 297 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 1.7e-6, no fatal markers found.
+- Latest synced `IDP-Li-1` production progress: 8,380,000 / 10,000,000 steps, 16.76 ns / 20 ns, 83.80%.
+- Latest synced `IDP-Li-1` health markers: temperature about 294 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 1.9e-6, no fatal markers found.
 
 Current blockers:
 - `LiD3-1` production completed, but structural clustering failed at `gmx trjconv`.
