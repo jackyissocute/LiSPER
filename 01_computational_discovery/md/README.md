@@ -23,6 +23,7 @@ flowchart TD
 
 | Sub-area | Purpose |
 |---|---|
+| `remote_orchestration/` | Python and shell scripts copied from the AutoDL machine; records how GROMACS jobs were launched, repaired, queued, and summarized |
 | `remote_runs/` | Remote scripts, logs, summaries, and status snapshots |
 | `remote_results/` | Synced GROMACS outputs from completed or monitored stages |
 | `ready_gromacs_systems.tsv` | Candidate/system index passed from CHARMM-GUI QC |
