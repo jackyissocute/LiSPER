@@ -1,6 +1,6 @@
 # NaCl Remote GROMACS Status
 
-Last checked: 2026-06-15 16:21 CST
+Last checked: 2026-06-15 20:26 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -25,7 +25,7 @@ Running:
 - Launched remote NaCl batch on 2026-06-14.
 - Batch PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_batch.pid`.
 - Batch log: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_batch.log`.
-- Local launch observed PID `1609`; child process `python3 /root/LiSPER_remote/run_lisper_nacl_minimize.py` started successfully.
+- Historical launch observed PID `1609`; this originally used a NaCl-specific minimization script. Current orchestration has been consolidated to shared `run_lisper_minimize.py` with `LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_NaCl`.
 - Minimization completed successfully for all 8 ready NaCl systems.
 - `IDP-Li-1`, `IDP-Li-2`, and `SoftCage-Li` each required one overlapping TIP3 water removal before successful minimization.
 - Step4.1 equilibration completed for all 10 NaCl systems.
@@ -38,8 +38,8 @@ Running:
 - Add-two queue completed for `LiD3-1` and `StrongBind-Li`.
 - Queued `/root/LiSPER_remote/run_lisper_production_cluster.py` for all 10 NaCl systems with `WAIT_FOR_PID=3882`, so it starts after LiCl production/clustering.
 - Production/clustering queue PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_production_cluster_20ns.pid`.
-- Latest observed NaCl production/clustering queue process: PID `3937`, still waiting for LiCl production/clustering to finish as of 2026-06-15 16:21 CST.
-- LiCl production/clustering is currently running active `IDP-Li-1` production at 16.76 ns / 20 ns; NaCl has not started production yet.
+- Latest observed NaCl production/clustering queue process: PID `3937`, still waiting for LiCl production/clustering to finish as of 2026-06-15 20:26 CST.
+- LiCl production/clustering is currently running active `StrongBind-Li` production at 1.82 ns / 20 ns; NaCl has not started production yet.
 - No NaCl production or clustering outputs are expected until the LiCl queue exits.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.

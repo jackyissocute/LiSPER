@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
-cd /root/LiSPER_remote
-exec python3 /root/LiSPER_remote/run_lisper_equilibrate.py > /root/LiSPER_remote/equilibration_batch.nohup.log 2>&1
+set -euo pipefail
+
+REMOTE_ROOT="${LISPER_REMOTE_ROOT:-/root/LiSPER_remote}"
+LISPER_WORKDIR="${LISPER_WORKDIR:-${REMOTE_ROOT}/LiSPER_LiCl}"
+
+cd "${REMOTE_ROOT}"
+exec env LISPER_WORKDIR="${LISPER_WORKDIR}" \
+  python3 "${REMOTE_ROOT}/run_lisper_equilibrate.py" \
+  > "${LISPER_WORKDIR}/remote_runs/equilibration_batch.nohup.log" 2>&1

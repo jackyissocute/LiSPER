@@ -41,4 +41,6 @@ flowchart TD
 
 Keep Li+ and Na+ simulations separate until PMF comparison. This keeps Delta G(Li+) and Delta G(Na+) directly comparable.
 
+Remote upload/download path map: `remote_orchestration/SYNC_PATHS.md`.
+
 Detailed workflow note: `../../06_project_operations/docs/md_to_pmf_workflow.md`.

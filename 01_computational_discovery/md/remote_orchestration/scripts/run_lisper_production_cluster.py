@@ -67,7 +67,9 @@ def topology_for(gromacs_dir):
         return topologies[-1]
     cleaned = gromacs_dir / "run_min" / "topol_cleaned.top"
     if cleaned.exists():
-        return cleaned
+        production_topology = gromacs_dir / "topol_cleaned_for_prod.top"
+        shutil.copy2(cleaned, production_topology)
+        return production_topology
     return gromacs_dir / "topol.top"
 
 
@@ -169,13 +171,35 @@ def run_production_and_cluster(candidate):
             "production_finished_at": finished,
         }
 
-    nojump_xtc = cluster_dir / "production_20ns_centered.xtc"
+    ref_solu = cluster_dir / "final_solu_reference.gro"
+    centered_solu = cluster_dir / "production_20ns_solu_centered.xtc"
     code, _ = run_shell(
-        f"{GMX_ENV} && printf 'SOLU\\nSYSTEM\\n' | "
-        f"gmx trjconv -s {tpr} -f {prod_dir / 'step5_production_20ns.xtc'} "
-        f"-o {nojump_xtc} -n {index} -pbc mol -center",
+        f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
+        f"gmx trjconv -s {tpr} -f {prod_dir / 'step5_production_20ns.gro'} "
+        f"-o {ref_solu} -n {index}",
         cwd=gromacs_dir,
-        log=cluster_dir / "trjconv_center.log",
+        log=cluster_dir / "make_solu_reference.log",
+        stdin="0\n",
+    )
+    if code != 0:
+        wall, ns_per_day, hour_per_ns, finished = parse_performance(prod_log)
+        return {
+            "candidate_id": candidate,
+            "production_status": "produced",
+            "cluster_status": "reference_failed",
+            "production_wall_s": wall,
+            "production_ns_per_day": ns_per_day,
+            "production_hour_per_ns": hour_per_ns,
+            "production_finished_at": finished,
+        }
+
+    code, _ = run_shell(
+        f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
+        f"gmx trjconv -s {tpr} -f {prod_dir / 'step5_production_20ns.xtc'} "
+        f"-o {centered_solu} -n {index} -pbc mol -center",
+        cwd=gromacs_dir,
+        log=cluster_dir / "trjconv_solu_center.log",
+        stdin="0\n0\n",
     )
     if code != 0:
         wall, ns_per_day, hour_per_ns, finished = parse_performance(prod_log)
@@ -190,8 +214,8 @@ def run_production_and_cluster(candidate):
         }
 
     code, _ = run_shell(
-        f"{GMX_ENV} && printf 'SOLU\\nSOLU\\n' | "
-        f"gmx cluster -s {tpr} -f {nojump_xtc} -n {index} "
+        f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
+        f"gmx cluster -s {ref_solu} -f {centered_solu} "
         f"-method gromos -cutoff {CLUSTER_CUTOFF_NM} "
         f"-o {cluster_dir / 'clusters.xpm'} "
         f"-g {cluster_dir / 'cluster.log'} "
@@ -200,6 +224,7 @@ def run_production_and_cluster(candidate):
         f"-sz {cluster_dir / 'cluster_size.xvg'}",
         cwd=gromacs_dir,
         log=cluster_dir / "gmx_cluster.stdout.log",
+        stdin="0\n0\n",
     )
     cluster_status = "clustered" if code == 0 else "cluster_failed"
     top_cluster, top_size, top_population = parse_cluster_population(cluster_dir / "cluster_size.xvg")

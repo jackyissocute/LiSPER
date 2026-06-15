@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-15 16:21 CST
+Last checked: 2026-06-15 20:26 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -23,22 +23,28 @@ Completed:
 Running:
 - LiCl production/clustering queue is active.
 - Python driver PID: 3883.
-- Active GROMACS job: `IDP-Li-1` 20 ns production MD.
-- Latest observed `gmx mdrun` PID: 46626.
-- Latest synced `IDP-Li-1` production progress: 8,380,000 / 10,000,000 steps, 16.76 ns / 20 ns, 83.80%.
-- Latest synced `IDP-Li-1` health markers: temperature about 294 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 1.9e-6, no fatal markers found.
+- Active GROMACS job: `StrongBind-Li` 20 ns production MD.
+- Latest observed `gmx mdrun` PID: 67257.
+- Latest synced `StrongBind-Li` production progress: 910,000 / 10,000,000 steps, 1.82 ns / 20 ns, 9.10%.
+- Latest synced `StrongBind-Li` health markers: temperature about 299 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 3.3e-6, no fatal markers found.
 
 Current blockers:
-- `LiD3-1` production completed, but structural clustering failed at `gmx trjconv`.
-- `LiD3-1` `trjconv` failure: selected `SYSTEM` index contains atom index 68234 while the trajectory contains 68233 atoms. This blocks `cluster_20ns/representative_top_cluster.pdb`.
+- Original full-system clustering failed for `LiD3-1` and `IDP-Li-1` at `gmx trjconv`.
+- The `trjconv` failure pattern is an index/trajectory mismatch caused by selecting full `SYSTEM` output when the trajectory has one fewer atom than the original index.
+- Repaired peptide-only clustering completed for `LiD3-1` and `IDP-Li-1`; both now have `cluster_20ns_repair/representative_top_cluster.pdb`.
 - `LiND-1` production setup failed at `gmx grompp` because `toppar/forcefield.itp` was not found.
-- No LiCl representative structure is available yet; umbrella sampling should wait.
+- `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` also failed production setup at `gmx grompp` because `toppar/forcefield.itp` was not found.
+- `LiD3-1` and `IDP-Li-1` top-cluster populations are low, so umbrella sampling should use these representatives carefully and may benefit from additional-cluster comparison.
 
 Latest synced results:
 - All 10 LiCl minimization summaries and outputs are synced under `remote_results/systems/<candidate>/gromacs/run_min/`.
 - All 10 LiCl equilibration summaries and outputs are synced under `remote_results/systems/<candidate>/gromacs/run_eq/`.
 - Completed LiD3-1 production small outputs synced under `remote_results/systems/LiD3-1/gromacs/run_prod_20ns/`.
 - LiD3-1 clustering diagnostic synced at `remote_results/systems/LiD3-1/gromacs/cluster_20ns/trjconv_center.log`.
+- Repaired LiD3-1 representative structure synced at `remote_results/systems/LiD3-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb`.
+- Completed IDP-Li-1 production small outputs synced under `remote_results/systems/IDP-Li-1/gromacs/run_prod_20ns/`.
+- Repaired IDP-Li-1 representative structure synced at `remote_results/systems/IDP-Li-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb`.
+- Repaired clustering summary synced at `clustering_repair_summary.tsv`.
 - LiND-1 production setup diagnostic synced at `remote_results/systems/LiND-1/gromacs/run_prod_20ns/step5_production_20ns.grompp.log`.
 - Current queue summary synced at `production_clustering_summary.tsv`.
 - Current production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/01_computational_discovery/md/li_cl/remote_runs/current_production_snapshot.md`.
@@ -50,6 +56,6 @@ Queued next stage:
 - Representative structure target: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.
 
 Recommended next intervention:
-- Do not interrupt the active `IDP-Li-1` production run.
-- After CPU load is free or during a deliberate maintenance window, repair LiD3-1 clustering by using a trajectory conversion/index selection that only requires valid peptide atoms, then rerun `gmx cluster`.
-- Repair LiND-1 production setup by ensuring the production working context can resolve `toppar/forcefield.itp`, then rerun `grompp` and production for LiND-1.
+- Do not interrupt the active `StrongBind-Li` production run.
+- Repair the production setup path logic before rerunning skipped candidates whose `grompp` failed on `toppar/forcefield.itp`.
+- For umbrella sampling, inspect whether the low top-cluster populations for `LiD3-1` and `IDP-Li-1` justify including additional cluster representatives rather than only the largest cluster.

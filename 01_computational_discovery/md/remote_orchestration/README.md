@@ -22,6 +22,8 @@ This is intentional:
 
 This keeps the repository closer to a real computational project: code is reusable, results are condition-specific, and remote execution history remains easy to audit.
 
+For upload/download paths, use [`SYNC_PATHS.md`](SYNC_PATHS.md). It maps the active remote workdirs to the reorganized local repository folders.
+
 ## Execution Model
 
 The remote workflow is controlled by lightweight Python orchestration scripts. These scripts do not replace GROMACS. Instead, they:
@@ -69,9 +71,10 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_NaCl \
 | `scripts/run_lisper_minimize.py` | Shared LiCl/NaCl minimization driver. Reads `ready_gromacs_systems.tsv`, repairs overlapping TIP3 waters when possible, runs `gmx grompp` and `gmx mdrun`, and writes minimization summaries. Uses `LISPER_WORKDIR`. |
 | `scripts/run_lisper_equilibrate.py` | Shared LiCl/NaCl equilibration driver. Builds `SOLU`, `SOLV`, and `SYSTEM` index groups, runs step4.1 equilibration, and writes equilibration summaries. Uses `LISPER_WORKDIR`. |
 | `scripts/run_lisper_production_cluster.py` | Shared LiCl/NaCl 20 ns production and clustering driver. Uses `LISPER_WORKDIR`, runs production MD, then attempts trajectory centering and `gmx cluster`. |
-| `scripts/queue_nacl_add2.py` | Handles the late-added revised NaCl `LiD3-1` and `StrongBind-Li` systems, then merges their summaries back into the full NaCl queue. |
-| `scripts/run_lid31_pipeline.py` | Earlier focused LiD3-1 repair/minimization/equilibration pipeline used during the revised one-chain LiD3-1 setup. |
-| `scripts/start_equilibration.sh` | Small shell launcher for the LiCl equilibration script. |
+| `scripts/repair_completed_clustering.py` | Repaired peptide-only clustering driver for completed trajectories whose full-system `trjconv` handoff failed. Writes to `cluster_20ns_repair/` without overwriting original failed diagnostics. |
+| `scripts/queue_nacl_add2.py` | Handles the late-added revised NaCl `LiD3-1` and `StrongBind-Li` systems, then merges their summaries back into the full NaCl queue. Uses shared minimization/equilibration scripts through `LISPER_WORKDIR`. |
+| `scripts/run_lid31_pipeline.py` | Earlier focused LiD3-1 repair/minimization/equilibration pipeline used during the revised one-chain LiD3-1 setup. Uses `LISPER_WORKDIR` and `LISPER_CANDIDATE`. |
+| `scripts/start_equilibration.sh` | Small shell launcher for the equilibration script. Uses `LISPER_REMOTE_ROOT` and `LISPER_WORKDIR`. |
 
 ## Current Caveats
 
@@ -86,10 +89,10 @@ For local reuse, continue migrating hard-coded paths into command-line arguments
 
 The current production/clustering script exposed two useful lessons:
 
-- `LiD3-1` production finished cleanly, but clustering failed because the full `SYSTEM` index did not match the trajectory atom count by one atom.
+- `LiD3-1` and `IDP-Li-1` production finished cleanly, but full-system clustering failed because the `SYSTEM` index did not match the trajectory atom count by one atom.
 - `LiND-1` production setup failed because the production working context could not resolve `toppar/forcefield.itp`.
 
-Those issues are post-processing/setup issues, not evidence that the completed LiD3-1 MD trajectory is unusable.
+Those issues are post-processing/setup issues, not evidence that the completed MD trajectories are unusable. The repaired peptide-only clustering path successfully generated representative structures for `LiD3-1` and `IDP-Li-1`.
 
 ## Scientific Handoff
 
@@ -118,4 +121,4 @@ flowchart TD
     representative --> umbrella
 ```
 
-The next code improvement should be a safer clustering repair script that builds a trajectory-compatible peptide-only index before running `gmx trjconv` and `gmx cluster`.
+The next code improvement should be folding the peptide-only clustering logic back into the main production/clustering driver and fixing the topology include path issue before rerunning skipped candidates.

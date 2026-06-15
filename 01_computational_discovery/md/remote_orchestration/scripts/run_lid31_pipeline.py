@@ -7,9 +7,9 @@ import shutil
 import subprocess
 import time
 
-ROOT = Path("/root/LiSPER_remote/LiSPER_LiCl")
+ROOT = Path(os.environ.get("LISPER_WORKDIR", "/root/LiSPER_remote/LiSPER_LiCl"))
 GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
-CANDIDATE = "LiD3-1"
+CANDIDATE = os.environ.get("LISPER_CANDIDATE", "LiD3-1")
 NTHREAD = 16
 MAX_REPAIRS = 8
 WAIT_FOR_PID = os.environ.get("WAIT_FOR_PID", "").strip()

@@ -1,0 +1,3 @@
+candidate_id	repair_status	detail
+LiD3-1	clustered	/root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb
+IDP-Li-1	clustered	/root/LiSPER_remote/LiSPER_LiCl/systems/IDP-Li-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb

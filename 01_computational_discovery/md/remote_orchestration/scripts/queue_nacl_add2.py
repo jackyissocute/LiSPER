@@ -5,7 +5,8 @@ import shutil
 import subprocess
 import time
 
-ROOT = Path("/root/LiSPER_remote/LiSPER_NaCl")
+REMOTE_ROOT = Path(os.environ.get("LISPER_REMOTE_ROOT", "/root/LiSPER_remote"))
+ROOT = Path(os.environ.get("LISPER_WORKDIR", str(REMOTE_ROOT / "LiSPER_NaCl")))
 WAIT_FOR_PID = os.environ.get("WAIT_FOR_PID", "").strip()
 ADD_CANDIDATES = ["LiD3-1", "StrongBind-Li"]
 
@@ -92,13 +93,13 @@ def main():
     write_tsv(ready_path, fields, add_ready)
 
     run(
-        "python3 /root/LiSPER_remote/run_lisper_nacl_minimize.py",
+        f"env LISPER_WORKDIR={ROOT} python3 {REMOTE_ROOT / 'run_lisper_minimize.py'}",
         remote_runs / "nacl_add2_minimize.stdout.log",
     )
     shutil.copy2(min_summary, remote_runs / "minimization_summary_add2.tsv")
 
     run(
-        "python3 /root/LiSPER_remote/run_lisper_nacl_equilibrate.py",
+        f"env LISPER_WORKDIR={ROOT} python3 {REMOTE_ROOT / 'run_lisper_equilibrate.py'}",
         remote_runs / "nacl_add2_equilibrate.stdout.log",
     )
     shutil.copy2(eq_summary, remote_runs / "equilibration_summary_add2.tsv")
