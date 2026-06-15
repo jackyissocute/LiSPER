@@ -1,6 +1,6 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-15 20:26 CST.
+Synced from remote logs on 2026-06-15 23:27 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
@@ -12,8 +12,10 @@ Synced from remote logs on 2026-06-15 20:26 CST.
 | IDP-Li-2 | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
 | LowCharge-Li | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
 | LiD2-IDP | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
-| StrongBind-Li | production_20ns | running | 910000 | 1820.00000 | 9.10% | 2.98966e+02 | 7.73441e+01 | 3.30142e-06 | false |
-| NaCl queue | production_20ns | waiting behind LiCl queue | - | - | - | - | - | - | false |
+| StrongBind-Li | production_20ns | running | 2405000 | 4810.00000 | 24.05% | near 300 K | fluctuating as expected | small | false |
+| LiCl old parent driver | production_20ns handoff | frozen intentionally | PID 3883 | - | stopped before old post-processing | - | - | - | false |
+| LiCl fixed recovery watcher | post-StrongBind repair/requeue | waiting | PID 72831 | - | will run after StrongBind mdrun exits | - | - | - | false |
+| NaCl queue | production_20ns | waiting behind LiCl queue with patched script | PID 72320 | - | - | - | - | - | false |
 
 ## QC Interpretation
 
@@ -24,7 +26,9 @@ Synced from remote logs on 2026-06-15 20:26 CST.
 - Repaired representative structures now exist for `LiD3-1` and `IDP-Li-1` under `cluster_20ns_repair/representative_top_cluster.pdb`.
 - Top-cluster populations are low: `LiD3-1` 314/2001 frames (15.69%) and `IDP-Li-1` 140/2001 frames (7.00%). This is consistent with strong conformational heterogeneity and supports treating these peptides as flexible/IDP-like systems.
 - `LiND-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` did not start production. Their production `gmx grompp` failed because `toppar/forcefield.itp` was not found from the production working context.
-- The queue has moved on to `StrongBind-Li`, which is currently running 20 ns LiCl production. Its latest synced production state is 1.82 ns / 20 ns, temperature near 299 K, small constraint RMSD, and no fatal markers.
+- The queue has moved on to `StrongBind-Li`, which is currently running 20 ns LiCl production. Its latest synced production state is 4.81 ns / 20 ns, temperature near 300 K, pressure fluctuating as expected for NPT, small constraint RMSD, and no fatal markers.
+- The old LiCl parent Python driver is intentionally frozen so it cannot advance into the previously identified outdated clustering/topology logic after the valid `StrongBind-Li` production finishes.
+- A fixed watcher is waiting for the active `StrongBind-Li` `mdrun` to exit. It will then stop the frozen old driver and run repaired peptide-only clustering plus corrected topology-path requeue for skipped candidates.
 
 ## Synced Small Artifacts
 
@@ -47,7 +51,7 @@ The active `StrongBind-Li` production run has reached 0.910 million of 10 millio
 
 | Scope | Estimate |
 |---|---:|
-| `StrongBind-Li` production remaining | roughly 18-20 hours if the current rate holds |
+| `StrongBind-Li` production remaining | roughly 13-16 hours if the current rate holds |
 | LiD3-1 clustering repair | complete |
 | IDP-Li-1 clustering repair | complete |
 | LiND-1 production repair | short setup repair, then full 20 ns production |

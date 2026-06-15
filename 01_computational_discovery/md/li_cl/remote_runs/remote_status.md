@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-15 20:26 CST
+Last checked: 2026-06-15 23:27 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -9,7 +9,7 @@ Remote LiCl workdir: /root/LiSPER_remote/LiSPER_LiCl
 GROMACS env: conda activate lisper-gmx
 GROMACS version: 2026.0-conda_forge
 GPU note: GROMACS reports OpenCL support, but GPU detection failed because no valid OpenCL driver was found in the container. Current runs are CPU-only.
-Disk status: 30G total, 5.4G used, 25G available, 18% used.
+Disk status: 30G total, 5.5G used, 25G available, 19% used.
 
 Completed:
 - Uploaded all 10 QC-passed LiCl GROMACS systems.
@@ -21,12 +21,13 @@ Completed:
 - Completed 20 ns LiCl production for LiD3-1.
 
 Running:
-- LiCl production/clustering queue is active.
-- Python driver PID: 3883.
+- `StrongBind-Li` production MD is active and healthy.
+- Original LiCl Python driver PID `3883` is intentionally frozen so it cannot continue into the outdated full-system clustering/topology path after the active production finishes.
 - Active GROMACS job: `StrongBind-Li` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 67257.
-- Latest synced `StrongBind-Li` production progress: 910,000 / 10,000,000 steps, 1.82 ns / 20 ns, 9.10%.
-- Latest synced `StrongBind-Li` health markers: temperature about 299 K, pressure fluctuating as expected for a small NPT system, constraint RMSD about 3.3e-6, no fatal markers found.
+- Latest synced `StrongBind-Li` production progress: 2,405,000 / 10,000,000 steps, 4.81 ns / 20 ns, 24.05%.
+- Latest synced `StrongBind-Li` health markers: temperature near 300 K, pressure fluctuating as expected for a small NPT system, small constraint RMSD, no fatal markers found.
+- Fixed post-StrongBind recovery watcher PID: 72831. It waits for the current `mdrun` to finish, then runs repaired peptide-only clustering and corrected topology-path requeue for skipped candidates.
 
 Current blockers:
 - Original full-system clustering failed for `LiD3-1` and `IDP-Li-1` at `gmx trjconv`.
@@ -50,12 +51,15 @@ Latest synced results:
 - Current production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/01_computational_discovery/md/li_cl/remote_runs/current_production_snapshot.md`.
 
 Queued next stage:
-- The current LiCl production/clustering script continues sequentially through candidates.
+- The active `StrongBind-Li` production should continue uninterrupted.
+- After `StrongBind-Li` finishes, the fixed recovery watcher takes over instead of allowing the old frozen parent driver to continue.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
 - Representative structure target: `cluster_20ns/representative_top_cluster.pdb` under each candidate GROMACS folder.
 
 Recommended next intervention:
 - Do not interrupt the active `StrongBind-Li` production run.
-- Repair the production setup path logic before rerunning skipped candidates whose `grompp` failed on `toppar/forcefield.itp`.
+- Keep the old parent driver frozen; do not resume it.
+- Let the fixed watcher run after `StrongBind-Li` completes.
+- The production setup path logic has been patched before rerunning skipped candidates whose `grompp` failed on `toppar/forcefield.itp`.
 - For umbrella sampling, inspect whether the low top-cluster populations for `LiD3-1` and `IDP-Li-1` justify including additional cluster representatives rather than only the largest cluster.
