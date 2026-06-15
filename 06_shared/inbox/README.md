@@ -17,8 +17,9 @@ flowchart LR
 | New papers | `04_literature/` or a study folder under `03_industrial_translation/` |
 | CHARMM-GUI archives | `01_computational_discovery/charmm-gui/<condition>/` |
 | ESMFold downloads | `01_computational_discovery/esmfold/` |
-| Plasmid/vector files | `02_experimental_validation/plasmids/` |
+| Track A plasmid/vector files | `02_experimental_validation/track_A_purified_peptide/plasmids/` |
+| Track B plasmid/vector files | `02_experimental_validation/track_B_surface_display/plasmids/` |
 | Screenshots | `05_manuscript/figures/` or condition metadata |
-| One-off notes | `06_shared/docs/`, `02_experimental_validation/protocols/`, or `05_manuscript/manuscript/` |
+| One-off notes | `06_shared/docs/`, the relevant track `protocols/`, or `05_manuscript/manuscript/` |
 
 This folder should usually be empty after processing.

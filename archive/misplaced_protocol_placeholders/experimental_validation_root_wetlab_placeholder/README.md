@@ -25,6 +25,7 @@ flowchart TD
 | Folder | Purpose |
 |---|---|
 | `surface_display_assays/` | Whole-cell Li+/Na+ binding and selectivity assay design for future eCPX surface-display constructs. |
+| `../validation_framework/` | Overall Track A/Track B validation logic and complete protocol documents. |
 
 ## Records to Keep
 

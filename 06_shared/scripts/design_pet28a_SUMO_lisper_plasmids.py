@@ -16,8 +16,8 @@ from snapgene_reader import snapgene_file_to_dict
 
 ROOT = Path(__file__).resolve().parents[2]
 CANDIDATES_TSV = ROOT / "01_computational_discovery" / "sequences" / "candidates.tsv"
-VECTOR_DNA = ROOT / "02_experimental_validation" / "plasmids" / "vector_maps" / "pET28a_plus.dna"
-OUTDIR = ROOT / "02_experimental_validation" / "plasmids" / "vendor_ready_SUMO"
+VECTOR_DNA = ROOT / "02_experimental_validation" / "track_A_purified_peptide" / "plasmids" / "vector_maps" / "pET28a_plus.dna"
+OUTDIR = ROOT / "02_experimental_validation" / "track_A_purified_peptide" / "plasmids" / "vendor_ready_SUMO"
 GB_DIR = OUTDIR / "genbank"
 INSERT_DIR = OUTDIR / "insert_sequences"
 SNAPGENE_DIR = OUTDIR / "snapgene_dna"

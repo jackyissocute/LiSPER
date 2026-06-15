@@ -1,6 +1,6 @@
 # LiSPER Whole-Cell Li+/Na+ Binding and Selectivity Assay Plan
 
-Repository note: the requested deliverable path was `wetlab/surface_display_assays/`. In the reorganized LiSPER repository, the equivalent active location is `02_experimental_validation/wetlab/surface_display_assays/`.
+Repository note: the originally requested deliverable path was `wetlab/surface_display_assays/`. In the current LiSPER repository, the equivalent active location is `02_experimental_validation/track_B_surface_display/assays/surface_display_assays/`.
 
 ## Goal
 
@@ -309,4 +309,3 @@ Failure modes:
 - strong supernatant depletion but weak pellet recovery: precipitation, tube loss, or separation artifact.
 - good binding only in live cells: possible active transport/metabolic artifact rather than surface capture.
 - good display but no Li selectivity: peptide not functional in eCPX context or tag/linker interferes.
-

@@ -12,8 +12,10 @@ flowchart TD
     D --> E["01_computational_discovery/umbrella/"]
     E --> F["01_computational_discovery/pmf/"]
     F --> G["candidate ranking"]
-    G --> H["02_experimental_validation/plasmids/ + wetlab/"]
-    H --> I["03_industrial_translation/"]
+    G --> H["02_experimental_validation/track_A_purified_peptide/"]
+    G --> I["02_experimental_validation/track_B_surface_display/"]
+    H --> J["03_industrial_translation/"]
+    I --> J
 ```
 
 ## Folder Roles
@@ -21,7 +23,7 @@ flowchart TD
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | Plasmids, wet-lab planning, expression, purification, surface-display validation, binding assays, and protocols |
+| `02_experimental_validation/` | Two parallel validation tracks: purified peptide molecular recognition and surface-display biological deployment |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_literature/` | Foundational protein-design literature |
 | `05_manuscript/` | Manuscript drafts and figures |

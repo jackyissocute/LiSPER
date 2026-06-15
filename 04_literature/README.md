@@ -13,7 +13,7 @@ Technology-translation literature reviews now live with their applied program st
 
 | Folder | Focus |
 |---|---|
-| `../02_experimental_validation/surface_display_host_selection/` | Surface-display hosts and display platforms for a parallel validation track |
+| `../02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/` | Surface-display hosts and display platforms for a parallel validation track |
 | `../03_industrial_translation/deployment_architecture/` | Immobilized peptide deployment and process architecture |
 
 ## How Literature Feeds the Project

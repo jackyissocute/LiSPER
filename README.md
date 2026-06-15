@@ -233,7 +233,7 @@ The repository is organized by program phase rather than by file type.
 - [MD to PMF workflow](06_shared/docs/md_to_pmf_workflow.md)
 - [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
 - [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)
-- [Surface-display host selection report](02_experimental_validation/surface_display_host_selection/reports/final_host_selection_report.md)
+- [Surface-display host selection report](02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/reports/final_host_selection_report.md)
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
 - [Repository reorganization report](06_shared/docs/repository_reorganization_report.md)
 - [Branding assets](assets/branding/README.md)

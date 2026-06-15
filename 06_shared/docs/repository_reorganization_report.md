@@ -26,10 +26,10 @@ The new structure groups files by program stage while preserving the internal wo
 | `pmf/` | `01_computational_discovery/pmf/` | PMF/selectivity analysis belongs to discovery. |
 | `analysis/` | `01_computational_discovery/analysis/` | Computational interpretation belongs to discovery. |
 | `data/` | `01_computational_discovery/data/` | Current data are discovery-stage computational data. |
-| `plasmids/` | `02_experimental_validation/plasmids/` | Plasmids support wet-lab validation. |
-| `wetlab/` | `02_experimental_validation/wetlab/` | Wet-lab planning belongs to validation. |
-| `protocols/` | `02_experimental_validation/protocols/` | Current protocols are primarily experimental/validation-facing. |
-| `literature/surface_display_host_selection/` | `02_experimental_validation/surface_display_host_selection/` | Surface display is a parallel wet-lab validation route for proving LiSPER Li+/Na+ selectivity on a biological interface. |
+| `plasmids/` | `02_experimental_validation/track_A_purified_peptide/plasmids/` | Existing His6-SUMO plasmids support Track A purified peptide validation. |
+| `wetlab/surface_display_assays/` | `02_experimental_validation/track_B_surface_display/assays/surface_display_assays/` | Whole-cell Li+/Na+ assays support Track B surface-display validation. |
+| `literature/surface_display_host_selection/` | `02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/` | Surface-display host/display research supports Track B. |
+| `protocols/` | `archive/misplaced_protocol_placeholders/experimental_validation_protocols_root_placeholder/` | The old root validation protocols folder was a generic placeholder and partly computational, so it was archived after track-specific protocols were created. |
 | `literature/deployment_architecture/` | `03_industrial_translation/deployment_architecture/` | Deployment architecture is an industrial translation study. |
 | `literature/protein_design/` | `04_literature/protein_design/` | Foundational design literature remains a literature collection. |
 | `manuscript/` | `05_manuscript/manuscript/` | Manuscript preparation gets its own stage area. |

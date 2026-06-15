@@ -1,6 +1,6 @@
 # Source Metadata
 
-This ledger records every source used in the assessment. Local files are stored in `02_experimental_validation/surface_display_host_selection/literature/` when an accessible PDF was available.
+This ledger records every source used in the assessment. Local files are stored in `02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/literature/` when an accessible PDF was available.
 
 | ID | Source | Type | Local file | Key relevance |
 |---|---|---:|---|---|
