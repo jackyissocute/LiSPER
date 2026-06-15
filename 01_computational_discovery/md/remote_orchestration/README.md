@@ -94,15 +94,28 @@ Those issues are post-processing/setup issues, not evidence that the completed L
 ## Scientific Handoff
 
 ```mermaid
-flowchart LR
-    A["CHARMM-GUI systems"] --> B["Python orchestration"]
-    B --> C["gmx grompp"]
-    C --> D["gmx mdrun"]
-    D --> E["20 ns trajectory"]
-    E --> F["trajectory centering"]
-    F --> G["gmx cluster"]
-    G --> H["representative_top_cluster.pdb"]
-    H --> I["umbrella sampling setup"]
+flowchart TD
+    accTitle: Remote MD Orchestration
+    accDescr: Remote orchestration prepares GROMACS runs, executes production MD, centers trajectories, clusters structures, and exports representative PDB files.
+
+    systems["CHARMM-GUI<br/>systems"]
+    orchestration["Python<br/>orchestration"]
+    grompp["gmx<br/>grompp"]
+    mdrun["gmx<br/>mdrun"]
+    trajectory["20 ns<br/>trajectory"]
+    centering["Trajectory<br/>centering"]
+    clustering["gmx<br/>cluster"]
+    representative["Top-cluster<br/>PDB"]
+    umbrella["Umbrella<br/>setup"]
+
+    systems --> orchestration
+    orchestration --> grompp
+    grompp --> mdrun
+    mdrun --> trajectory
+    trajectory --> centering
+    centering --> clustering
+    clustering --> representative
+    representative --> umbrella
 ```
 
 The next code improvement should be a safer clustering repair script that builds a trajectory-compatible peptide-only index before running `gmx trjconv` and `gmx cluster`.

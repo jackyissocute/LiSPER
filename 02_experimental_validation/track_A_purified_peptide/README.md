@@ -8,17 +8,25 @@ This track uses the current His6-SUMO-LiSPER plasmids to express soluble fusion 
 
 ```mermaid
 flowchart TD
-    A["Vendor His6-SUMO-LiSPER plasmid"] --> B["Transformation"]
-    B --> C["Colony confirmation and overnight culture"]
-    C --> D["Expression test"]
-    D --> E["Expression optimization"]
-    E --> F["Harvest and lysis"]
-    F --> G["Ni-NTA purification"]
-    G --> H["Buffer exchange and SUMO cleavage"]
-    H --> I["Native peptide recovery"]
-    I --> J["Peptide QC and storage"]
-    J --> K["Li+/Na+ binding assays"]
-    K --> L["Molecular selectivity evidence"]
+    accTitle: Track A Bench Workflow
+    accDescr: Track A starts with His6-SUMO-LiSPER plasmids and proceeds through expression, purification, cleavage, peptide recovery, QC, and Li over Na binding assays.
+
+    plasmid["His6-SUMO<br/>plasmid"]
+    transformation["Transformation"]
+    expression["Expression<br/>test"]
+    purification["Ni-NTA<br/>purification"]
+    cleavage["SUMO<br/>cleavage"]
+    recovery["Native peptide<br/>recovery"]
+    assay["Li/Na<br/>binding assay"]
+    evidence["Molecular<br/>evidence"]
+
+    plasmid --> transformation
+    transformation --> expression
+    expression --> purification
+    purification --> cleavage
+    cleavage --> recovery
+    recovery --> assay
+    assay --> evidence
 ```
 
 ## Contents

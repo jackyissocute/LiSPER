@@ -13,11 +13,20 @@ This folder defines the first-round LiSPER peptide library.
 ## Library Overview
 
 ```mermaid
-flowchart LR
-    A["LBP motifs: GPGNP / GPGDP"] --> D["LiSPER candidates"]
-    B["IDP-like flexibility"] --> D
-    C["Limited acidic oxygen donors"] --> D
-    D --> E["Li+ vs Na+ computational screen"]
+flowchart TD
+    accTitle: Candidate Design Inputs
+    accDescr: LiSPER candidate sequences combine lithium-binding motif precedent, IDP-like flexibility, and limited acidic oxygen donors before Li versus Na screening.
+
+    lbp["LBP motifs<br/>GPGNP / GPGDP"]
+    idp["IDP-like<br/>flexibility"]
+    donors["Limited acidic<br/>oxygen donors"]
+    candidates["LiSPER<br/>candidates"]
+    screen["Li+ vs Na+<br/>screen"]
+
+    lbp --> candidates
+    idp --> candidates
+    donors --> candidates
+    candidates --> screen
 ```
 
 ## Recommended Starting Subset

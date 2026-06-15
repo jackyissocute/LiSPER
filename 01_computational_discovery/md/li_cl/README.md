@@ -34,11 +34,20 @@ Latest QC snapshot: [remote_runs/current_production_snapshot.md](remote_runs/cur
 ## Handoff Logic
 
 ```mermaid
-flowchart LR
-    A["Equilibrated LiCl systems"] --> B["20 ns production"]
-    B --> C["gmx cluster"]
-    C --> D["representative_top_cluster.pdb"]
-    D --> E["Li+ umbrella sampling"]
+flowchart TD
+    accTitle: LiCl MD Path
+    accDescr: Equilibrated LiCl systems proceed through production MD, clustering, representative-structure selection, and Li umbrella sampling.
+
+    equilibrated["Equilibrated<br/>LiCl systems"]
+    production["20 ns<br/>production"]
+    clustering["gmx<br/>cluster"]
+    representative["Top-cluster<br/>PDB"]
+    umbrella["Li+ umbrella<br/>sampling"]
+
+    equilibrated --> production
+    production --> clustering
+    clustering --> representative
+    representative --> umbrella
 ```
 
 Current gate: `D` has not been reached for any LiCl candidate yet.

@@ -3,11 +3,20 @@
 This folder stores structure-prediction outputs used as starting conformations for CHARMM-GUI.
 
 ```mermaid
-flowchart LR
-    A["candidates.fasta"] --> B["ESMFold"]
-    B --> C["raw zip downloads"]
-    C --> D["validated PDBs"]
-    D --> E["CHARMM-GUI-safe filenames"]
+flowchart TD
+    accTitle: ESMFold Preparation Flow
+    accDescr: Candidate sequences are folded with ESMFold, validated as PDB files, and renamed for reliable CHARMM-GUI upload.
+
+    fasta["candidates.fasta"]
+    esmfold["ESMFold"]
+    raw_zip["Raw zip<br/>downloads"]
+    pdbs["Validated<br/>PDBs"]
+    upload_names["CHARMM-GUI<br/>safe names"]
+
+    fasta --> esmfold
+    esmfold --> raw_zip
+    raw_zip --> pdbs
+    pdbs --> upload_names
 ```
 
 ## Layout

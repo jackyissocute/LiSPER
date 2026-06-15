@@ -25,9 +25,18 @@ Remote GROMACS workflow and synced results for peptide + NaCl systems.
 ## Handoff Logic
 
 ```mermaid
-flowchart LR
-    A["Equilibrated NaCl systems"] --> B["20 ns production"]
-    B --> C["gmx cluster"]
-    C --> D["representative_top_cluster.pdb"]
-    D --> E["Na+ umbrella sampling"]
+flowchart TD
+    accTitle: NaCl MD Path
+    accDescr: Equilibrated NaCl systems proceed through production MD, clustering, representative-structure selection, and Na umbrella sampling.
+
+    equilibrated["Equilibrated<br/>NaCl systems"]
+    production["20 ns<br/>production"]
+    clustering["gmx<br/>cluster"]
+    representative["Top-cluster<br/>PDB"]
+    umbrella["Na+ umbrella<br/>sampling"]
+
+    equilibrated --> production
+    production --> clustering
+    clustering --> representative
+    representative --> umbrella
 ```

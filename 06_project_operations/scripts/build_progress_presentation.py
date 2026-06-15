@@ -14,7 +14,7 @@ from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "05_manuscript" / "LiSPER_Progress_Report.pptx"
+OUT = ROOT / "05_outputs_and_communication" / "LiSPER_Progress_Report.pptx"
 BANNER = ROOT / "assets" / "branding" / "banners" / "Dark_Banner.png"
 
 # LiSPER palette — deep navy + electric cyan (matches README branding)

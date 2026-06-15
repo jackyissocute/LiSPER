@@ -19,10 +19,20 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | convergence plots | Check whether PMFs are reliable |
 
 ```mermaid
-flowchart LR
-    A["Li+ umbrella sampling"] --> C["Delta G(Li+)"]
-    B["Na+ umbrella sampling"] --> D["Delta G(Na+)"]
-    C --> E["Delta Delta G"]
-    D --> E
-    E --> F["Candidate ranking"]
+flowchart TD
+    accTitle: PMF Ranking Logic
+    accDescr: PMF analysis compares Li and Na umbrella-sampling free energies to compute selectivity and rank candidate peptides.
+
+    li_umbrella["Li+ umbrella<br/>sampling"]
+    na_umbrella["Na+ umbrella<br/>sampling"]
+    li_delta_g["Delta G<br/>Li+"]
+    na_delta_g["Delta G<br/>Na+"]
+    selectivity["Delta Delta G<br/>selectivity"]
+    ranking["Candidate<br/>ranking"]
+
+    li_umbrella --> li_delta_g
+    na_umbrella --> na_delta_g
+    li_delta_g --> selectivity
+    na_delta_g --> selectivity
+    selectivity --> ranking
 ```

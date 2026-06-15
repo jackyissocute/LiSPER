@@ -2,6 +2,8 @@
 
 Generated plots, schematics, visual summaries, and manuscript-ready exports.
 
+This folder is for figures that communicate results or project logic. Raw data behind the figures should remain in the relevant research folder.
+
 ## Figure Types
 
 | Type | Example |

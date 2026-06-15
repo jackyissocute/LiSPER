@@ -4,12 +4,23 @@ This folder tracks GROMACS work after CHARMM-GUI: minimization, equilibration, p
 
 ```mermaid
 flowchart TD
-    A["CHARMM-GUI GROMACS inputs"] --> B["Energy minimization"]
-    B --> C["Step4.1 equilibration"]
-    C --> D["20 ns production MD"]
-    D --> E["Structural clustering"]
-    E --> F["Representative structures"]
-    F --> G["Umbrella sampling setup"]
+    accTitle: Molecular Dynamics Workflow
+    accDescr: GROMACS inputs from CHARMM-GUI are minimized, equilibrated, run through production MD, clustered, and prepared for umbrella sampling.
+
+    inputs["CHARMM-GUI<br/>GROMACS inputs"]
+    minimization["Energy<br/>minimization"]
+    equilibration["Step4.1<br/>equilibration"]
+    production["20 ns<br/>production MD"]
+    clustering["Structural<br/>clustering"]
+    representatives["Representative<br/>structures"]
+    umbrella_setup["Umbrella<br/>setup"]
+
+    inputs --> minimization
+    minimization --> equilibration
+    equilibration --> production
+    production --> clustering
+    clustering --> representatives
+    representatives --> umbrella_setup
 ```
 
 ## Conditions
@@ -30,4 +41,4 @@ flowchart TD
 
 Keep Li+ and Na+ simulations separate until PMF comparison. This keeps Delta G(Li+) and Delta G(Na+) directly comparable.
 
-Detailed workflow note: `../../06_shared/docs/md_to_pmf_workflow.md`.
+Detailed workflow note: `../../06_project_operations/docs/md_to_pmf_workflow.md`.

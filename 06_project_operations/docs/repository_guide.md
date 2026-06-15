@@ -18,6 +18,27 @@ flowchart TD
     I --> J
 ```
 
+## Organizational Model
+
+LiSPER has three active research phases and three support layers.
+
+```mermaid
+flowchart LR
+    A["Research pipeline<br/>01-03"] --> B["Computational discovery"]
+    A --> C["Experimental validation"]
+    A --> D["Industrial translation"]
+    E["Support layers<br/>04-06"] --> F["Reference library"]
+    E --> G["Outputs and communication"]
+    E --> H["Project operations"]
+```
+
+Use this rule when placing new files:
+
+- `01-03` are for doing the science.
+- `04_reference_library/` is for external evidence.
+- `05_outputs_and_communication/` is for communicating the science.
+- `06_project_operations/` is for keeping the project usable.
+
 ## Folder Roles
 
 | Folder | Role |
@@ -25,9 +46,10 @@ flowchart TD
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
 | `02_experimental_validation/` | Two parallel validation tracks: purified peptide molecular recognition and surface-display biological deployment |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
-| `04_literature/` | Foundational protein-design literature |
-| `05_manuscript/` | Manuscript drafts and figures |
-| `06_shared/` | Cross-project docs, scripts, and temporary inbox |
+| `04_reference_library/` | External sources, literature PDFs, citation exports, evidence notes, and source metadata |
+| `05_outputs_and_communication/` | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing outputs |
+| `06_project_operations/` | Cross-project guides, reusable scripts, decision records, and temporary inbox |
+| `assets/` | Branding assets and reusable non-data media |
 | `archive/` | Superseded or non-current materials preserved for history |
 
 ## Naming Convention
@@ -59,7 +81,7 @@ flowchart LR
     D --> E["README/status update"]
 ```
 
-The inbox now lives at `06_shared/inbox/` and should stay mostly empty after processing. Permanent project files should live in the relevant stage folder.
+The inbox now lives at `06_project_operations/inbox/` and should stay mostly empty after processing. Permanent project files should live in the relevant stage folder.
 
 ## Design Logic
 

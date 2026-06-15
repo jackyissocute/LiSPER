@@ -4,23 +4,33 @@ LiSPER experimental validation is organized around **two complementary tracks** 
 
 ```mermaid
 flowchart TD
-    A["Computational Discovery<br/>ESMFold + MD + PMF"] --> B["Track A<br/>Purified Peptide Validation"]
-    A --> C["Track B<br/>Surface Display Validation"]
-    B --> D["Molecular-recognition evidence"]
-    C --> E["Biological-deployment evidence"]
-    D --> F["Unified LiSPER validation story"]
-    E --> F
-    F --> G["Future immobilized peptide validation"]
-    G --> H["Bio-DLE technology development"]
+    accTitle: Experimental Validation Tracks
+    accDescr: Experimental validation splits computationally ranked LiSPER candidates into purified-peptide and surface-display tracks before recombining the evidence.
+
+    discovery["Computational<br/>discovery"]
+    track_a["Track A<br/>purified peptide"]
+    track_b["Track B<br/>surface display"]
+    molecular["Molecular<br/>recognition"]
+    biological["Biological<br/>deployment"]
+    validation["Unified<br/>validation story"]
+    translation["Future<br/>immobilized format"]
+
+    discovery --> track_a
+    discovery --> track_b
+    track_a --> molecular
+    track_b --> biological
+    molecular --> validation
+    biological --> validation
+    validation --> translation
 
     classDef comp fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
     classDef trackA fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
     classDef trackB fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
     classDef future fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
-    class A comp
-    class B,D trackA
-    class C,E trackB
-    class F,G,H future
+    class discovery comp
+    class track_a,molecular trackA
+    class track_b,biological trackB
+    class validation,translation future
 ```
 
 ## Core Principle
@@ -251,4 +261,3 @@ Immobilized peptide evidence will test process translation.
 ```
 
 The combined evidence is stronger than any single route because it separates mechanism from deployment while still connecting both to the long-term Bio-DLE vision.
-

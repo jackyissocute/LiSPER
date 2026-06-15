@@ -3,13 +3,23 @@
 This folder stores CHARMM-GUI Solution Builder outputs for the paired LiSPER ion systems.
 
 ```mermaid
-flowchart LR
-    A["ESMFold PDB"] --> B["CHARMM-GUI Solution Builder"]
-    B --> C["LiCl system"]
-    B --> D["NaCl system"]
-    C --> E["GROMACS inputs"]
-    D --> E
-    E --> F["Remote MD"]
+flowchart TD
+    accTitle: CHARMM-GUI System Setup
+    accDescr: ESMFold peptide structures are prepared in CHARMM-GUI as parallel LiCl and NaCl GROMACS systems for remote molecular dynamics.
+
+    pdb["ESMFold<br/>PDB"]
+    builder["CHARMM-GUI<br/>Solution Builder"]
+    li_system["LiCl<br/>system"]
+    na_system["NaCl<br/>system"]
+    inputs["GROMACS<br/>inputs"]
+    remote_md["Remote<br/>MD"]
+
+    pdb --> builder
+    builder --> li_system
+    builder --> na_system
+    li_system --> inputs
+    na_system --> inputs
+    inputs --> remote_md
 ```
 
 ## Organized Conditions

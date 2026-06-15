@@ -3,13 +3,24 @@
 This stage contains the in silico LiSPER discovery workflow: candidate sequences, structure prediction, CHARMM-GUI system construction, GROMACS simulations, umbrella sampling, PMF analysis, data, and analysis outputs.
 
 ```mermaid
-flowchart LR
-    A["sequences/"] --> B["esmfold/"]
-    B --> C["charmm-gui/"]
-    C --> D["md/"]
-    D --> E["umbrella/"]
-    E --> F["pmf/"]
-    F --> G["analysis/"]
+flowchart TD
+    accTitle: Computational Discovery Folders
+    accDescr: The computational discovery folder moves from candidate sequences through structure prediction, system setup, molecular dynamics, umbrella sampling, PMF analysis, and final interpretation.
+
+    sequences["sequences/"]
+    esmfold["esmfold/"]
+    charmm_gui["charmm-gui/"]
+    md["md/"]
+    umbrella["umbrella/"]
+    pmf["pmf/"]
+    analysis["analysis/"]
+
+    sequences --> esmfold
+    esmfold --> charmm_gui
+    charmm_gui --> md
+    md --> umbrella
+    umbrella --> pmf
+    pmf --> analysis
 ```
 
 ## Contents
@@ -24,4 +35,3 @@ flowchart LR
 | `pmf/` | PMF and Delta G analysis. |
 | `analysis/` | Cross-stage computational interpretation and ranking work. |
 | `data/` | Raw and processed computational data not tied to one workflow folder. |
-
