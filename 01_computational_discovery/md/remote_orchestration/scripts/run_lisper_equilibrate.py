@@ -1,9 +1,10 @@
 from pathlib import Path
 import csv
+import os
 import shutil
 import subprocess
 
-ROOT = Path("/root/LiSPER_remote/LiSPER_LiCl")
+ROOT = Path(os.environ.get("LISPER_WORKDIR", "/root/LiSPER_remote/LiSPER_LiCl"))
 GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
 NTHREAD = 16
 

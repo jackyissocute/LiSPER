@@ -10,6 +10,18 @@ The scripts are copied from:
 
 They are kept here so the repository records not only the scientific outputs, but also the computational workflow used to generate them.
 
+## Organization Choice
+
+The scripts are stored in one shared `remote_orchestration/` folder instead of being duplicated under `li_cl/` and `na_cl/`.
+
+This is intentional:
+
+- `li_cl/` and `na_cl/` should stay focused on scientific inputs, logs, summaries, and results.
+- `remote_orchestration/` should hold reusable code that can operate on either condition.
+- The active condition is selected with `LISPER_WORKDIR`, so one script can run LiCl or NaCl without maintaining duplicate files.
+
+This keeps the repository closer to a real computational project: code is reusable, results are condition-specific, and remote execution history remains easy to audit.
+
 ## Execution Model
 
 The remote workflow is controlled by lightweight Python orchestration scripts. These scripts do not replace GROMACS. Instead, they:
@@ -38,15 +50,25 @@ source /root/miniconda3/etc/profile.d/conda.sh
 conda activate lisper-gmx
 ```
 
+Examples:
+
+```bash
+# LiCl minimization
+env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_LiCl \
+  python3 run_lisper_minimize.py
+
+# NaCl minimization with the same script
+env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_NaCl \
+  python3 run_lisper_minimize.py
+```
+
 ## Script Inventory
 
 | Script | Role |
 |---|---|
-| `scripts/run_lisper_minimize.py` | LiCl minimization driver. Reads `ready_gromacs_systems.tsv`, repairs overlapping TIP3 waters when possible, runs `gmx grompp` and `gmx mdrun`, and writes minimization summaries. |
-| `scripts/run_lisper_equilibrate.py` | LiCl equilibration driver. Builds `SOLU`, `SOLV`, and `SYSTEM` index groups, runs step4.1 equilibration, and writes equilibration summaries. |
+| `scripts/run_lisper_minimize.py` | Shared LiCl/NaCl minimization driver. Reads `ready_gromacs_systems.tsv`, repairs overlapping TIP3 waters when possible, runs `gmx grompp` and `gmx mdrun`, and writes minimization summaries. Uses `LISPER_WORKDIR`. |
+| `scripts/run_lisper_equilibrate.py` | Shared LiCl/NaCl equilibration driver. Builds `SOLU`, `SOLV`, and `SYSTEM` index groups, runs step4.1 equilibration, and writes equilibration summaries. Uses `LISPER_WORKDIR`. |
 | `scripts/run_lisper_production_cluster.py` | Shared LiCl/NaCl 20 ns production and clustering driver. Uses `LISPER_WORKDIR`, runs production MD, then attempts trajectory centering and `gmx cluster`. |
-| `scripts/run_lisper_nacl_minimize.py` | NaCl minimization equivalent of the LiCl minimization driver. |
-| `scripts/run_lisper_nacl_equilibrate.py` | NaCl equilibration equivalent of the LiCl equilibration driver. |
 | `scripts/queue_nacl_add2.py` | Handles the late-added revised NaCl `LiD3-1` and `StrongBind-Li` systems, then merges their summaries back into the full NaCl queue. |
 | `scripts/run_lid31_pipeline.py` | Earlier focused LiD3-1 repair/minimization/equilibration pipeline used during the revised one-chain LiD3-1 setup. |
 | `scripts/start_equilibration.sh` | Small shell launcher for the LiCl equilibration script. |
@@ -60,7 +82,7 @@ These are historical execution scripts copied from the remote machine. Some path
 /root/miniconda3
 ```
 
-For local reuse, convert those hard-coded paths into command-line arguments or environment variables.
+For local reuse, continue migrating hard-coded paths into command-line arguments or environment variables.
 
 The current production/clustering script exposed two useful lessons:
 
