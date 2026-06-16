@@ -120,7 +120,11 @@ flowchart TD
 > ![NaCl queue](https://img.shields.io/badge/NaCl_queue-waiting-f59e0b)
 > ![PMF](https://img.shields.io/badge/PMF-planned-0f766e)
 
-**Last synchronized monitor snapshot:** `2026-06-16 09:27 CST`
+<p align="center">
+  <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
+</p>
+
+**Last synchronized monitor snapshot:** `2026-06-16 11:27 CST`
 
 ### Process matrix
 
@@ -182,8 +186,8 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
-      <td><code>🟦🟦🟦🟦🟦🟦🟦🟦⬜⬜</code> 2 complete + 1 active</td>
-      <td><img alt="StrongBind-Li running" src="https://img.shields.io/badge/StrongBind--Li-15.84_ns_%2F_20_ns-2563eb"></td>
+      <td><code>🟦🟦🟦🟦🟦🟦🟦🟦🟦⬜</code> 2 complete + 1 active</td>
+      <td><img alt="StrongBind-Li running" src="https://img.shields.io/badge/StrongBind--Li-17.87_ns_%2F_20_ns-2563eb"></td>
       <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
     </tr>
     <tr>
@@ -274,7 +278,7 @@ flowchart TD
     <tr>
       <td><strong>StrongBind-Li</strong></td>
       <td>✅ complete</td>
-      <td>▶️ running<br><sub>15.84 ns / 20 ns</sub></td>
+      <td>▶️ running<br><sub>17.87 ns / 20 ns</sub></td>
       <td>⏳ next</td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
@@ -319,7 +323,7 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Active StrongBind-Li LiCl production</strong></td>
-      <td align="center"><strong><code>~3.5-5 hours</code></strong><br><sub>current run</sub></td>
+      <td align="center"><strong><code>~1.5-3 hours</code></strong><br><sub>current run</sub></td>
       <td>Finish the current 20 ns production and hand off to clustering.</td>
     </tr>
     <tr>

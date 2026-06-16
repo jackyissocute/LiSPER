@@ -1,6 +1,6 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-16 09:27 CST.
+Synced from remote logs on 2026-06-16 11:27 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
@@ -12,7 +12,7 @@ Synced from remote logs on 2026-06-16 09:27 CST.
 | IDP-Li-2 | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
 | LowCharge-Li | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
 | LiD2-IDP | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
-| StrongBind-Li | production_20ns | running | 7920000 | 15840.00000 | 79.20% | 299.23 | -66.79 | 2.11095e-06 | false |
+| StrongBind-Li | production_20ns | running | 8935000 | 17870.00000 | 89.35% | 297.04 | -152.67 | 1.71264e-06 | false |
 | SoftCage-Li | production_20ns | queued | - | - | - | - | - | - | false |
 | IDP-Rich-Li | production_20ns | queued | - | - | - | - | - | - | false |
 | Control-Negative | production_20ns | queued | - | - | - | - | - | - | false |
@@ -20,7 +20,7 @@ Synced from remote logs on 2026-06-16 09:27 CST.
 
 ## QC Interpretation
 
-- `StrongBind-Li` LiCl production is active and healthy at 15.84 ns / 20 ns, with temperature near 300 K, fluctuating NPT pressure, small constraint RMSD, and no fatal markers in the synced log tail.
+- `StrongBind-Li` LiCl production is active and healthy at 17.87 ns / 20 ns, with temperature near 300 K, fluctuating NPT pressure, small constraint RMSD, and no fatal markers in the synced log tail.
 - `LiD3-1` and `IDP-Li-1` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
 - Repaired top-cluster populations remain low: `LiD3-1` 15.69% and `IDP-Li-1` 7.00%. This supports the IDP-like hypothesis and means later PMF setup should consider whether extra representative clusters are scientifically useful.
 - The earlier `toppar/forcefield.itp` production setup failures are treated as setup/path failures, not peptide physics failures. The post-StrongBind recovery watcher is expected to requeue affected candidates through corrected topology-path logic.
@@ -39,11 +39,11 @@ Synced from remote logs on 2026-06-16 09:27 CST.
 
 ## Runtime Estimate
 
-`StrongBind-Li` is 4.16 ns from the 20 ns endpoint. At the observed CPU-only pace, the active run likely needs roughly 3.5-5 more hours before clustering and queue recovery can begin.
+`StrongBind-Li` is 2.13 ns from the 20 ns endpoint. At the observed CPU-only pace, the active run likely needs roughly 1.5-3 more hours before clustering and queue recovery can begin.
 
 | Scope | Estimate |
 |---|---:|
-| `StrongBind-Li` production remaining | roughly 3.5-5 hours |
+| `StrongBind-Li` production remaining | roughly 1.5-3 hours |
 | LiD3-1 clustering repair | complete |
 | IDP-Li-1 clustering repair | complete |
 | Remaining LiCl production/clustering, if sequential CPU-only | roughly 8-10 days |
