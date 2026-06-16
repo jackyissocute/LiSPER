@@ -129,6 +129,16 @@ This dashboard is a compact cover-page view of the active LiSPER program. Detail
 | **LiCl recovery watcher** | Waiting | Uses repaired peptide-only clustering and corrected topology-path logic | Repair clustering, then requeue topology-failed LiCl systems |
 | **NaCl production queue** | Waiting behind LiCl | Patched shared production/clustering script is loaded | Start after LiCl workflow releases the queue |
 
+| Remaining-time estimate | Current estimate | What must finish before this gate clears |
+|---|---:|---|
+| **Active StrongBind-Li LiCl production** | `~4-7 hours` | Finish the current 20 ns production, then hand off to fixed clustering/recovery |
+| **LiCl production + clustering set** | `~8-10 days` | Complete repaired LiCl reruns, later queued LiCl systems, and representative clustering |
+| **NaCl production + clustering set** | `~10 additional days` | Run the matched NaCl branch after LiCl releases the queue |
+| **PMF / ΔG extraction** | `~3-7 days after representative selection` | Build umbrella windows, run sampling, WHAM/PMF analysis, and QC convergence |
+| **First ΔΔG selectivity table** | `~3-4 weeks total` | Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) |
+
+> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after StrongBind-Li completes and the repaired LiCl queue begins.
+
 ```mermaid
 pie title LiCl Production Queue State
     "20 ns production complete" : 2
