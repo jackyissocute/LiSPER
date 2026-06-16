@@ -110,24 +110,53 @@ flowchart TD
 | **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Express purified-peptide constructs and prepare surface-display validation |
 | **III. Industrial translation** | Convert validated peptides into capture media | Concept stage | Select immobilization and column prototype strategy |
 
-## 📊 Project dashboard
+## 📊 Progress monitor dashboard
 
-| Workstream | Progress | Evidence in repository | Next decision |
+This dashboard is a compact cover-page view of the active LiSPER program. Detailed logs remain in the linked MD status files so the README stays readable.
+
+**Last synchronized monitor snapshot:** `2026-06-16 07:27 CST`
+
+| Program track | Dashboard bar | State | Current gate |
 |---|---:|---|---|
-| **Candidate design** | `complete` | 10-peptide first-round library | Keep library stable through first PMF round |
-| **ESMFold structures** | `complete` | Predicted PDB, PAE, plots | Use as starting structures only |
-| **CHARMM-GUI systems** | `complete` | 10 LiCl and 10 NaCl systems | Preserve QC manifests |
-| **GROMACS equilibration** | `complete` | LiCl and NaCl equilibration summaries | Continue production queue |
-| **Production MD + clustering** | `active` | 20 ns LiCl/NaCl queues | Select representative structures |
-| **Umbrella sampling + PMF** | `planned` | Workflow documented | Launch after clustering |
-| **Wet-lab validation** | `preparing` | Purified-peptide and surface-display tracks | Begin expression/purification and plan eCPX constructs |
-| **Bio-DLE translation** | `concept` | Deployment architecture notes | Prototype immobilized format |
+| **Phase I: computational discovery** | `███████░░░` 70% | Active | Finish LiCl/NaCl production, clustering, PMF, and ΔΔG ranking |
+| **Phase II: experimental validation** | `██░░░░░░░░` 20% | Preparing | Move first subset into expression, purification, and assay planning |
+| **Phase III: Bio-DLE translation** | `█░░░░░░░░░` 10% | Concept | Choose immobilization and prototype capture format after validation |
 
-```text
-Computational discovery  [########--]  active
-Wet-lab validation       [##--------]  preparing
-Industrial translation   [#---------]  concept
+| Active remote process | Current state | QC signal | Next automatic action |
+|---|---|---|---|
+| **LiCl / StrongBind-Li production MD** | `13.51 ns / 20 ns` (`67.55%`) | Temperature near 300 K; pressure fluctuating normally; small constraint RMSD; no fatal markers | Finish 20 ns production |
+| **LiCl old parent driver** | Frozen intentionally | Prevents outdated post-processing from advancing | Fixed watcher takes over after StrongBind-Li finishes |
+| **LiCl recovery watcher** | Waiting | Uses repaired peptide-only clustering and corrected topology-path logic | Repair clustering, then requeue topology-failed LiCl systems |
+| **NaCl production queue** | Waiting behind LiCl | Patched shared production/clustering script is loaded | Start after LiCl workflow releases the queue |
+
+```mermaid
+pie title LiCl Production Queue State
+    "20 ns production complete" : 2
+    "Active production" : 1
+    "Topology-path repair queued" : 4
+    "Waiting later in queue" : 3
 ```
+
+| Computational milestone | Progress | Evidence | Notes |
+|---|---:|---|---|
+| Candidate design | `██████████` 10/10 | First-round peptide library | Stable through first PMF round |
+| ESMFold structure generation | `██████████` 10/10 | Predicted PDB and structure outputs | Starting structures, not final ensembles |
+| CHARMM-GUI system building | `██████████` 20/20 | LiCl and NaCl systems | Revised LiD3-1 and StrongBind-Li systems included |
+| Minimization + equilibration | `██████████` 20/20 | LiCl and NaCl GROMACS summaries | Ready for production branches |
+| LiCl production MD | `███░░░░░░░` 2 complete + 1 active | [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md) | StrongBind-Li active; four setup-failed systems queued for fixed rerun |
+| LiCl structural clustering | `██░░░░░░░░` 2/10 repaired | Representative structures for LiD3-1 and IDP-Li-1 | Low top-cluster populations suggest strong conformational disorder |
+| NaCl production MD | `░░░░░░░░░░` queued | [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md) | Waiting for LiCl workflow handoff |
+| Umbrella sampling + PMF | `░░░░░░░░░░` planned | Workflow documented | Launch after representative structures are selected |
+
+<details>
+<summary><strong>Current MD interpretation</strong></summary>
+
+- `LiD3-1` and `IDP-Li-1` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
+- Their top-cluster populations are low (`15.69%` and `7.00%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
+- `StrongBind-Li` is the active LiCl production run and is progressing normally.
+- `LiND-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` were blocked by a topology include-path setup issue, not by peptide physics; repaired production logic is queued.
+
+</details>
 
 ## 🧪 Candidate library
 
