@@ -27,8 +27,10 @@ flowchart TD
 
 | Condition | Folder | Current State |
 |---|---|---|
-| LiCl | `li_cl/` | Equilibrated; 20 ns production/clustering running on remote |
-| NaCl | `na_cl/` | Minimized and equilibrated for all 10 systems; production/clustering queued |
+| LiCl | `li_cl/` | 10/10 equilibrated; 2 productions complete; `StrongBind-Li` running at 17.87 ns / 20 ns; 2 repaired representatives ready |
+| NaCl | `na_cl/` | 10/10 minimized/equilibrated; production/clustering queued behind LiCl |
+
+Latest monitor snapshot: `2026-06-16 11:27 CST`.
 
 ## What Belongs Here
 
