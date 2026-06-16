@@ -1,2 +1,13 @@
 candidate_id	condition	stage	status	last_step	last_time_ps	progress_percent	temperature_K	pressure_bar	constraint_rmsd	fatal_markers_found
-LiD3-1	LiCl	production_20ns	running	2100000	4200.00000	21.00	2.97286e+02	7.03153e+01	2.98894e-06	false
+LiD3-1	LiCl	production_20ns	complete	10000000	20000	100.00	final	final	final	false
+LiD3-1	LiCl	clustering_20ns_repair	complete	2001		15.69				false
+LiND-1	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
+IDP-Li-1	LiCl	production_20ns	complete	10000000	20000	100.00	final	final	final	false
+IDP-Li-1	LiCl	clustering_20ns_repair	complete	2001		7.00				false
+IDP-Li-2	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
+LowCharge-Li	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
+LiD2-IDP	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
+StrongBind-Li	LiCl	production_20ns	running	7920000	15840.00000	79.20	299.23	-66.79	2.11095e-06	false
+SoftCage-Li	LiCl	production_20ns	queued						false
+IDP-Rich-Li	LiCl	production_20ns	queued						false
+Control-Negative	LiCl	production_20ns	queued						false

@@ -1,45 +1,37 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-16 07:27 CST.
+Synced from remote logs on 2026-06-16 09:27 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
 | LiD3-1 | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
 | LiD3-1 | clustering_20ns_repair | complete | 2001 frames | - | top cluster 15.69% | - | - | - | false |
-| LiND-1 | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
+| LiND-1 | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
 | IDP-Li-1 | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
 | IDP-Li-1 | clustering_20ns_repair | complete | 2001 frames | - | top cluster 7.00% | - | - | - | false |
-| IDP-Li-2 | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
-| LowCharge-Li | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
-| LiD2-IDP | production_20ns | blocked: `grompp_failed` | - | - | - | - | - | - | true |
-| StrongBind-Li | production_20ns | running | 6755000 | 13510.00000 | 67.55% | near 300 K | fluctuating as expected | small | false |
-| LiCl old parent driver | production_20ns handoff | frozen intentionally | PID 3883 | - | stopped before old post-processing | - | - | - | false |
-| LiCl fixed recovery watcher | post-StrongBind repair/requeue | waiting | PID 72831 | - | will run after StrongBind mdrun exits | - | - | - | false |
-| NaCl queue | production_20ns | waiting behind LiCl queue with patched script | PID 72320 | - | - | - | - | - | false |
+| IDP-Li-2 | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
+| LowCharge-Li | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
+| LiD2-IDP | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
+| StrongBind-Li | production_20ns | running | 7920000 | 15840.00000 | 79.20% | 299.23 | -66.79 | 2.11095e-06 | false |
+| SoftCage-Li | production_20ns | queued | - | - | - | - | - | - | false |
+| IDP-Rich-Li | production_20ns | queued | - | - | - | - | - | - | false |
+| Control-Negative | production_20ns | queued | - | - | - | - | - | - | false |
+| NaCl queue | production_20ns | waiting behind LiCl queue with patched script | - | - | - | - | - | - | false |
 
 ## QC Interpretation
 
-- `LiD3-1` completed 20 ns LiCl production successfully at 2026-06-15 04:48:55 CST.
-- The completed `LiD3-1` production log has no fatal-error markers. Key finished products have been synced locally: production `.log`, final `.gro`, `.edr`, and `mdrun.stdout.log`. The large complete `.xtc` remains on the remote to avoid repeated large transfers.
-- The original `LiD3-1` post-production `gmx trjconv` centering step failed because the selected `SYSTEM` index contains atom index 68234 while the trajectory contains 68233 atoms. This was repaired with a peptide-only clustering path.
-- `IDP-Li-1` completed 20 ns LiCl production successfully at 2026-06-15 18:36:57 CST. Its original full-system clustering also failed by the same one-atom index mismatch, then succeeded with the peptide-only repair path.
-- Repaired representative structures now exist for `LiD3-1` and `IDP-Li-1` under `cluster_20ns_repair/representative_top_cluster.pdb`.
-- Top-cluster populations are low: `LiD3-1` 314/2001 frames (15.69%) and `IDP-Li-1` 140/2001 frames (7.00%). This is consistent with strong conformational heterogeneity and supports treating these peptides as flexible/IDP-like systems.
-- `LiND-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` did not start production. Their production `gmx grompp` failed because `toppar/forcefield.itp` was not found from the production working context.
-- The queue has moved on to `StrongBind-Li`, which is currently running 20 ns LiCl production. Its latest synced production state is 13.51 ns / 20 ns, temperature near 300 K, pressure fluctuating as expected for NPT, small constraint RMSD, and no fatal markers.
-- The old LiCl parent Python driver is intentionally frozen so it cannot advance into the previously identified outdated clustering/topology logic after the valid `StrongBind-Li` production finishes.
-- A fixed watcher is waiting for the active `StrongBind-Li` `mdrun` to exit. It will then stop the frozen old driver and run repaired peptide-only clustering plus corrected topology-path requeue for skipped candidates.
+- `StrongBind-Li` LiCl production is active and healthy at 15.84 ns / 20 ns, with temperature near 300 K, fluctuating NPT pressure, small constraint RMSD, and no fatal markers in the synced log tail.
+- `LiD3-1` and `IDP-Li-1` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
+- Repaired top-cluster populations remain low: `LiD3-1` 15.69% and `IDP-Li-1` 7.00%. This supports the IDP-like hypothesis and means later PMF setup should consider whether extra representative clusters are scientifically useful.
+- The earlier `toppar/forcefield.itp` production setup failures are treated as setup/path failures, not peptide physics failures. The post-StrongBind recovery watcher is expected to requeue affected candidates through corrected topology-path logic.
+- NaCl production/clustering remains queued behind the LiCl branch.
 
 ## Synced Small Artifacts
 
 | Candidate | Local artifact | Purpose |
 |---|---|---|
-| LiD3-1 | `remote_results/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.log` | Completed production log |
-| LiD3-1 | `remote_results/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.gro` | Final production coordinates |
-| LiD3-1 | `remote_results/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.edr` | Completed production energy file |
-| LiD3-1 | `remote_results/systems/LiD3-1/gromacs/cluster_20ns/trjconv_center.log` | Clustering failure diagnosis |
-| LiND-1 | `remote_results/systems/LiND-1/gromacs/run_prod_20ns/step5_production_20ns.grompp.log` | Production setup failure diagnosis |
-| IDP-Li-1 | `remote_results/systems/IDP-Li-1/gromacs/run_prod_20ns/step5_production_20ns.log` | Active production progress |
+| StrongBind-Li | `remote_results/systems/StrongBind-Li/gromacs/run_prod_20ns/step5_production_20ns.log` | Active production progress/QC |
+| StrongBind-Li | `remote_results/systems/StrongBind-Li/gromacs/run_prod_20ns/step5_production_20ns.grompp.log` | Production setup record |
 | LiD3-1 | `remote_results/systems/LiD3-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb` | Repaired representative structure |
 | IDP-Li-1 | `remote_results/systems/IDP-Li-1/gromacs/cluster_20ns_repair/representative_top_cluster.pdb` | Repaired representative structure |
 | LiCl repair | `remote_runs/clustering_repair_summary.tsv` | Repaired clustering status summary |
@@ -47,19 +39,17 @@ Synced from remote logs on 2026-06-16 07:27 CST.
 
 ## Runtime Estimate
 
-The active `StrongBind-Li` production run has reached 0.910 million of 10 million steps after about 1.8 hours of `gmx mdrun` wall time.
+`StrongBind-Li` is 4.16 ns from the 20 ns endpoint. At the observed CPU-only pace, the active run likely needs roughly 3.5-5 more hours before clustering and queue recovery can begin.
 
 | Scope | Estimate |
 |---|---:|
-| `StrongBind-Li` production remaining | roughly 4-7 hours if the current rate holds |
+| `StrongBind-Li` production remaining | roughly 3.5-5 hours |
 | LiD3-1 clustering repair | complete |
 | IDP-Li-1 clustering repair | complete |
-| LiND-1 production repair | short setup repair, then full 20 ns production |
-| All remaining LiCl production/clustering, if sequential CPU-only | roughly 8-10 days |
+| Remaining LiCl production/clustering, if sequential CPU-only | roughly 8-10 days |
 | NaCl production/clustering after LiCl, if sequential CPU-only | roughly 10 additional days |
-
-These are rough CPU-only estimates from current observed rates. Actual time can shift with system size, clustering overhead, and remote CPU scheduling.
+| PMF / Delta G extraction after representatives | roughly 3-7 days |
 
 ## Next Scientific Gate
 
-`LiD3-1` and `IDP-Li-1` now have representative structures from repaired peptide-only clustering. The next scientific gate is to decide whether to use the largest cluster representative directly for umbrella sampling or to inspect/compare additional clusters because the top-cluster populations are low.
+After `StrongBind-Li` reaches 20 ns, the conservative next step is repaired peptide-only clustering for `StrongBind-Li`, followed by corrected LiCl production reruns for candidates that were previously blocked by topology include paths. Umbrella sampling should wait until matched Li+ and Na+ representative structures exist for the same peptide.

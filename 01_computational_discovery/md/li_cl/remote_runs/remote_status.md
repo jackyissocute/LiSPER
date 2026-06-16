@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-16 07:27 CST
+Last checked: 2026-06-16 09:27 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -25,8 +25,8 @@ Running:
 - Original LiCl Python driver PID `3883` is intentionally frozen so it cannot continue into the outdated full-system clustering/topology path after the active production finishes.
 - Active GROMACS job: `StrongBind-Li` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 67257.
-- Latest synced `StrongBind-Li` production progress: 6,755,000 / 10,000,000 steps, 13.51 ns / 20 ns, 67.55%.
-- Latest synced `StrongBind-Li` health markers: temperature near 300 K, pressure fluctuating as expected for a small NPT system, small constraint RMSD, no fatal markers found.
+- Latest synced `StrongBind-Li` production progress: 7,920,000 / 10,000,000 steps, 15.84 ns / 20 ns, 79.20%.
+- Latest synced `StrongBind-Li` health markers: temperature 299.23 K, pressure fluctuating as expected for a small NPT system, constraint RMSD 2.11095e-06, no fatal markers found.
 - Fixed post-StrongBind recovery watcher PID: 72831. It waits for the current `mdrun` to finish, then runs repaired peptide-only clustering and corrected topology-path requeue for skipped candidates.
 
 Current blockers:
@@ -49,6 +49,7 @@ Latest synced results:
 - LiND-1 production setup diagnostic synced at `remote_results/systems/LiND-1/gromacs/run_prod_20ns/step5_production_20ns.grompp.log`.
 - Current queue summary synced at `production_clustering_summary.tsv`.
 - Current production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/01_computational_discovery/md/li_cl/remote_runs/current_production_snapshot.md`.
+- Current active-run estimate: `StrongBind-Li` likely has roughly 3.5-5 hours remaining before the post-production clustering/requeue watcher can take over.
 
 Queued next stage:
 - The active `StrongBind-Li` production should continue uninterrupted.

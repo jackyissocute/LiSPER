@@ -1,6 +1,6 @@
 # NaCl Remote GROMACS Status
 
-Last checked: 2026-06-16 07:27 CST
+Last checked: 2026-06-16 09:27 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -38,9 +38,9 @@ Running:
 - Add-two queue completed for `LiD3-1` and `StrongBind-Li`.
 - Queued `/root/LiSPER_remote/run_lisper_production_cluster.py` for all 10 NaCl systems with `WAIT_FOR_PID=3882`, so it starts after LiCl production/clustering.
 - Production/clustering queue PID file: `/root/LiSPER_remote/LiSPER_NaCl/remote_runs/nacl_production_cluster_20ns.pid`.
-- Latest observed NaCl production/clustering queue process: PID `72320`, still waiting for LiCl production/clustering to finish as of 2026-06-16 07:27 CST.
+- Latest observed NaCl production/clustering queue process: PID `72320`, still waiting for LiCl production/clustering to finish as of 2026-06-16 09:27 CST.
 - This NaCl waiter was restarted with the patched shared production/clustering script, so it should use the corrected topology-path and peptide-only clustering logic when released.
-- LiCl production/clustering is currently running active `StrongBind-Li` production at 13.51 ns / 20 ns; NaCl has not started production yet.
+- LiCl production/clustering is currently running active `StrongBind-Li` production at 15.84 ns / 20 ns; NaCl has not started production yet.
 - No NaCl production or clustering outputs are expected until the LiCl queue exits.
 - Production length: 20 ns per system (`nsteps = 10000000`, `dt = 0.002 ps`).
 - Clustering method: `gmx cluster`, GROMOS method, SOLU RMSD group, cutoff 0.20 nm.
