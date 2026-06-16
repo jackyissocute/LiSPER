@@ -1,12 +1,12 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-16 13:30 CST.
+Synced from remote logs on 2026-06-16 15:29 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
 | LiD3-1 | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
 | LiD3-1 | clustering_20ns_repair | complete | 2001 frames | - | top cluster 15.69% | - | - | - | false |
-| LiND-1 | production_20ns | running | 0 | 0.00000 | 0.00% | 300.36 | -260.85 | 2.75700e-06 | false |
+| LiND-1 | production_20ns | running | 775000 | 1550.00000 | 7.75% | 299.92 | 19.73 | 3.02127e-06 | false |
 | IDP-Li-1 | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
 | IDP-Li-1 | clustering_20ns_repair | complete | 2001 frames | - | top cluster 7.00% | - | - | - | false |
 | IDP-Li-2 | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
@@ -24,7 +24,7 @@ Synced from remote logs on 2026-06-16 13:30 CST.
 - `StrongBind-Li` completed 20 ns LiCl production cleanly and the repaired peptide-only clustering step produced `cluster_20ns_repair/representative_top_cluster.pdb`.
 - `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` now have repaired LiCl representative structures.
 - Repaired top-cluster populations remain low: `LiD3-1` 15.69%, `IDP-Li-1` 7.00%, and `StrongBind-Li` 3.45%. This supports the IDP-like hypothesis and means later PMF setup should consider whether extra representative clusters are scientifically useful.
-- `LiND-1` has moved into corrected 20 ns LiCl production after the earlier topology-path setup failure. The first synced frame shows normal temperature, small constraint RMSD, and no fatal markers.
+- `LiND-1` is running through corrected 20 ns LiCl production after the earlier topology-path setup failure. The latest synced frame shows normal temperature, small constraint RMSD, and no fatal markers.
 - NaCl production/clustering remains queued behind the LiCl branch.
 
 ## Synced Small Artifacts
@@ -42,11 +42,11 @@ Synced from remote logs on 2026-06-16 13:30 CST.
 
 ## Runtime Estimate
 
-`LiND-1` has just entered 20 ns production. At the observed CPU-only pace from the completed StrongBind-Li run, the active run likely needs roughly 18-25 more hours before clustering can begin.
+`LiND-1` has reached 1.55 ns of the 20 ns production target. At the observed CPU-only pace, the active run likely needs roughly 22-26 more hours before clustering can begin.
 
 | Scope | Estimate |
 |---|---:|
-| `LiND-1` production remaining | roughly 18-25 hours |
+| `LiND-1` production remaining | roughly 22-26 hours |
 | LiD3-1 clustering repair | complete |
 | IDP-Li-1 clustering repair | complete |
 | StrongBind-Li clustering repair | complete |

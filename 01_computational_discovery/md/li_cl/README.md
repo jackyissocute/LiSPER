@@ -9,11 +9,11 @@ Remote GROMACS workflow and synced results for peptide + LiCl systems.
 | CHARMM-GUI QC | 10/10 ready |
 | Minimization | 10/10 complete |
 | Equilibration | 10/10 complete |
-| 20 ns production | `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` complete; `LiND-1` running at 0.00 ns / 20 ns |
+| 20 ns production | `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` complete; `LiND-1` running at 1.55 ns / 20 ns |
 | Structural clustering | Repaired representatives ready for `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` |
 
 Latest QC snapshot: [remote_runs/current_production_snapshot.md](remote_runs/current_production_snapshot.md).
-Last synchronized monitor snapshot: `2026-06-16 13:30 CST`.
+Last synchronized monitor snapshot: `2026-06-16 15:29 CST`.
 
 ## Current Interpretation
 
@@ -21,9 +21,9 @@ Last synchronized monitor snapshot: `2026-06-16 13:30 CST`.
 
 The repaired peptide-only clustering path succeeded for all three completed candidates and produced `cluster_20ns_repair/representative_top_cluster.pdb`. Top-cluster populations are low, especially for `StrongBind-Li`, so umbrella sampling should consider whether one representative is enough or whether additional clusters should be compared.
 
-`LiND-1` has entered corrected 20 ns LiCl production after the earlier topology include-path setup issue. The first synced production frame is healthy: temperature is near 300 K, constraint RMSD is small, and no fatal markers were found.
+`LiND-1` is now running corrected 20 ns LiCl production after the earlier topology include-path setup issue. The latest synced production frame is healthy: temperature is near 300 K, pressure is within normal small-system NPT fluctuation, constraint RMSD is small, and no fatal markers were found.
 
-Current active-run estimate: roughly 18-25 hours remain for `LiND-1` before clustering can begin.
+Current active-run estimate: roughly 22-26 hours remain for `LiND-1` before clustering can begin.
 
 ## Key Files
 

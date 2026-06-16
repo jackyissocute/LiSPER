@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-16 13:30 CST`
+**Last synchronized monitor snapshot:** `2026-06-16 15:29 CST`
 
 ### Process matrix
 
@@ -187,7 +187,7 @@ flowchart TD
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
       <td><code>🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜</code> 3 complete + 1 active</td>
-      <td><img alt="LiND-1 running" src="https://img.shields.io/badge/LiND--1-0.00_ns_%2F_20_ns-2563eb"></td>
+      <td><img alt="LiND-1 running" src="https://img.shields.io/badge/LiND--1-1.55_ns_%2F_20_ns-2563eb"></td>
       <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
     </tr>
     <tr>
@@ -238,7 +238,7 @@ flowchart TD
     <tr>
       <td><strong>LiND-1</strong></td>
       <td>✅ complete</td>
-      <td>▶️ running<br><sub>0.00 ns / 20 ns</sub></td>
+      <td>▶️ running<br><sub>1.55 ns / 20 ns</sub></td>
       <td>⏳ next</td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
@@ -323,7 +323,7 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Active LiND-1 LiCl production</strong></td>
-      <td align="center"><strong><code>~18-25 hours</code></strong><br><sub>current run</sub></td>
+      <td align="center"><strong><code>~22-26 hours</code></strong><br><sub>current run</sub></td>
       <td>Finish the current 20 ns production and hand off to clustering.</td>
     </tr>
     <tr>

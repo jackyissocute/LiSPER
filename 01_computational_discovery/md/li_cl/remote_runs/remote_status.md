@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-16 13:30 CST
+Last checked: 2026-06-16 15:29 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -26,8 +26,8 @@ Running:
 - Original LiCl Python driver PID `3883` is intentionally frozen so it cannot continue into the outdated full-system clustering/topology path after the active production finishes.
 - Active GROMACS job: `LiND-1` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 97502.
-- Latest synced `LiND-1` production progress: 0 / 10,000,000 steps, 0.00 ns / 20 ns, 0.00%.
-- Latest synced `LiND-1` health markers: temperature 300.36 K, pressure fluctuating as expected for a small NPT system, constraint RMSD 2.75700e-06, no fatal markers found.
+- Latest synced `LiND-1` production progress: 775,000 / 10,000,000 steps, 1.55 ns / 20 ns, 7.75%.
+- Latest synced `LiND-1` health markers: temperature 299.92 K, pressure fluctuating as expected for a small NPT system, constraint RMSD 3.02127e-06, no fatal markers found.
 - The fixed recovery watcher completed StrongBind-Li clustering and released corrected production work to LiND-1.
 
 Current blockers:
@@ -52,7 +52,7 @@ Latest synced results:
 - LiND-1 active production log and setup diagnostic synced at `remote_results/systems/LiND-1/gromacs/run_prod_20ns/`.
 - Current queue summary synced at `production_clustering_summary.tsv`.
 - Current production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/01_computational_discovery/md/li_cl/remote_runs/current_production_snapshot.md`.
-- Current active-run estimate: `LiND-1` likely has roughly 18-25 hours remaining before clustering can begin.
+- Current active-run estimate: `LiND-1` likely has roughly 22-26 hours remaining before clustering can begin.
 
 Queued next stage:
 - The active `LiND-1` production should continue uninterrupted.
