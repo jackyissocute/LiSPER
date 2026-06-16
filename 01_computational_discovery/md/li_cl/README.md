@@ -9,21 +9,21 @@ Remote GROMACS workflow and synced results for peptide + LiCl systems.
 | CHARMM-GUI QC | 10/10 ready |
 | Minimization | 10/10 complete |
 | Equilibration | 10/10 complete |
-| 20 ns production | `LiD3-1` and `IDP-Li-1` complete; `StrongBind-Li` running at 17.87 ns / 20 ns (89.35%) |
-| Structural clustering | Repaired representatives ready for `LiD3-1` and `IDP-Li-1` |
+| 20 ns production | `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` complete; `LiND-1` running at 0.00 ns / 20 ns |
+| Structural clustering | Repaired representatives ready for `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` |
 
 Latest QC snapshot: [remote_runs/current_production_snapshot.md](remote_runs/current_production_snapshot.md).
-Last synchronized monitor snapshot: `2026-06-16 11:27 CST`.
+Last synchronized monitor snapshot: `2026-06-16 13:30 CST`.
 
 ## Current Interpretation
 
-`LiD3-1` and `IDP-Li-1` now have complete 20 ns LiCl production trajectories. The original full-system structural-clustering handoff failed during `gmx trjconv` because the `SYSTEM` index and trajectory atom counts differ by one atom. This did not invalidate the completed production runs.
+`LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` now have complete 20 ns LiCl production trajectories. The original full-system structural-clustering handoff failed during `gmx trjconv` for the early completed systems because the `SYSTEM` index and trajectory atom counts differ by one atom. This did not invalidate the completed production runs.
 
-The repaired peptide-only clustering path succeeded for both candidates and produced `cluster_20ns_repair/representative_top_cluster.pdb`. Top-cluster populations are low, especially for `IDP-Li-1`, so umbrella sampling should consider whether one representative is enough or whether additional clusters should be compared.
+The repaired peptide-only clustering path succeeded for all three completed candidates and produced `cluster_20ns_repair/representative_top_cluster.pdb`. Top-cluster populations are low, especially for `StrongBind-Li`, so umbrella sampling should consider whether one representative is enough or whether additional clusters should be compared.
 
-`LiND-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` were skipped by the production queue because `gmx grompp` could not resolve `toppar/forcefield.itp`. The active queue has moved on to `StrongBind-Li`, which is running normally in the latest synced log and is close to its 20 ns handoff.
+`LiND-1` has entered corrected 20 ns LiCl production after the earlier topology include-path setup issue. The first synced production frame is healthy: temperature is near 300 K, constraint RMSD is small, and no fatal markers were found.
 
-Current active-run estimate: roughly 1.5-3 hours remain for `StrongBind-Li` before the post-production clustering/requeue watcher can take over.
+Current active-run estimate: roughly 18-25 hours remain for `LiND-1` before clustering can begin.
 
 ## Key Files
 
@@ -56,4 +56,4 @@ flowchart TD
     representative --> umbrella
 ```
 
-Current gate: `D` has been reached for `LiD3-1` and `IDP-Li-1` through repaired peptide-only clustering. `StrongBind-Li` is approaching the same clustering gate.
+Current gate: `D` has been reached for `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` through repaired peptide-only clustering. `LiND-1` is now the active production gate.

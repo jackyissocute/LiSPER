@@ -116,7 +116,7 @@ flowchart TD
 > **Live project control panel.** This cover-page dashboard compresses the active LiSPER workflow into two views: a process matrix and a remaining-time horizon. Detailed logs remain in the linked MD status files so the README stays readable.
 >
 > ![Computational discovery](https://img.shields.io/badge/Phase_I-computational_discovery_active-2563eb)
-> ![Remote MD](https://img.shields.io/badge/remote_MD-StrongBind--Li_running-0f766e)
+> ![Remote MD](https://img.shields.io/badge/remote_MD-LiND--1_running-0f766e)
 > ![NaCl queue](https://img.shields.io/badge/NaCl_queue-waiting-f59e0b)
 > ![PMF](https://img.shields.io/badge/PMF-planned-0f766e)
 
@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-16 11:27 CST`
+**Last synchronized monitor snapshot:** `2026-06-16 13:30 CST`
 
 ### Process matrix
 
@@ -186,13 +186,13 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
-      <td><code>🟦🟦🟦🟦🟦🟦🟦🟦🟦⬜</code> 2 complete + 1 active</td>
-      <td><img alt="StrongBind-Li running" src="https://img.shields.io/badge/StrongBind--Li-17.87_ns_%2F_20_ns-2563eb"></td>
+      <td><code>🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜</code> 3 complete + 1 active</td>
+      <td><img alt="LiND-1 running" src="https://img.shields.io/badge/LiND--1-0.00_ns_%2F_20_ns-2563eb"></td>
       <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟪🟪⬜⬜⬜⬜⬜⬜⬜⬜</code> 2/10 representatives</td>
+      <td><code>🟪🟪🟪⬜⬜⬜⬜⬜⬜⬜</code> 3/10 representatives</td>
       <td><img alt="active" src="https://img.shields.io/badge/active-7c3aed"></td>
       <td>Representative set</td>
     </tr>
@@ -238,8 +238,8 @@ flowchart TD
     <tr>
       <td><strong>LiND-1</strong></td>
       <td>✅ complete</td>
-      <td>🔁 rerun queued</td>
-      <td>⏳ waiting</td>
+      <td>▶️ running<br><sub>0.00 ns / 20 ns</sub></td>
+      <td>⏳ next</td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
     </tr>
@@ -278,8 +278,8 @@ flowchart TD
     <tr>
       <td><strong>StrongBind-Li</strong></td>
       <td>✅ complete</td>
-      <td>▶️ running<br><sub>17.87 ns / 20 ns</sub></td>
-      <td>⏳ next</td>
+      <td>✅ 20 ns</td>
+      <td>✅ representative<br><sub>top cluster 3.45%</sub></td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
     </tr>
@@ -322,13 +322,13 @@ flowchart TD
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active StrongBind-Li LiCl production</strong></td>
-      <td align="center"><strong><code>~1.5-3 hours</code></strong><br><sub>current run</sub></td>
+      <td><strong>Active LiND-1 LiCl production</strong></td>
+      <td align="center"><strong><code>~18-25 hours</code></strong><br><sub>current run</sub></td>
       <td>Finish the current 20 ns production and hand off to clustering.</td>
     </tr>
     <tr>
       <td><strong>LiCl production + clustering set</strong></td>
-      <td align="center"><strong><code>~8-10 days</code></strong><br><sub>LiCl branch</sub></td>
+      <td align="center"><strong><code>~7-9 days</code></strong><br><sub>LiCl branch</sub></td>
       <td>Complete repaired LiCl reruns, queued LiCl systems, and representatives.</td>
     </tr>
     <tr>
@@ -349,15 +349,15 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after StrongBind-Li completes and the repaired LiCl queue begins.
+> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after LiND-1 completes and the corrected LiCl queue advances.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
-- `LiD3-1` and `IDP-Li-1` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
-- Their top-cluster populations are low (`15.69%` and `7.00%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
-- `StrongBind-Li` is the active LiCl production run and is progressing normally.
-- `LiND-1`, `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` were blocked by a topology include-path setup issue, not by peptide physics; repaired production logic is queued.
+- `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
+- Their top-cluster populations are low (`15.69%`, `7.00%`, and `3.45%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
+- `LiND-1` is the active LiCl production run through the corrected topology-path workflow.
+- `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` were previously blocked by a topology include-path setup issue, not by peptide physics; corrected production logic is now advancing candidate by candidate.
 
 </details>
 

@@ -9,10 +9,10 @@ Remote GROMACS workflow and synced results for peptide + NaCl systems.
 | CHARMM-GUI QC | 10/10 ready |
 | Minimization | 10/10 complete |
 | Equilibration | 10/10 complete |
-| 20 ns production | Queued after LiCl production/clustering; currently waiting while `StrongBind-Li` LiCl production runs at 17.87 ns / 20 ns |
+| 20 ns production | Queued after LiCl production/clustering; currently waiting while `LiND-1` LiCl production runs at 0.00 ns / 20 ns |
 | Structural clustering | Queued after NaCl production runs |
 
-Last synchronized monitor snapshot: `2026-06-16 11:27 CST`.
+Last synchronized monitor snapshot: `2026-06-16 13:30 CST`.
 
 ## Key Files
 
