@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-15 23:27 CST
+Last checked: 2026-06-16 07:27 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -9,7 +9,7 @@ Remote LiCl workdir: /root/LiSPER_remote/LiSPER_LiCl
 GROMACS env: conda activate lisper-gmx
 GROMACS version: 2026.0-conda_forge
 GPU note: GROMACS reports OpenCL support, but GPU detection failed because no valid OpenCL driver was found in the container. Current runs are CPU-only.
-Disk status: 30G total, 5.5G used, 25G available, 19% used.
+Disk status: 30G total, 5.7G used, 25G available, 19% used.
 
 Completed:
 - Uploaded all 10 QC-passed LiCl GROMACS systems.
@@ -25,7 +25,7 @@ Running:
 - Original LiCl Python driver PID `3883` is intentionally frozen so it cannot continue into the outdated full-system clustering/topology path after the active production finishes.
 - Active GROMACS job: `StrongBind-Li` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 67257.
-- Latest synced `StrongBind-Li` production progress: 2,405,000 / 10,000,000 steps, 4.81 ns / 20 ns, 24.05%.
+- Latest synced `StrongBind-Li` production progress: 6,755,000 / 10,000,000 steps, 13.51 ns / 20 ns, 67.55%.
 - Latest synced `StrongBind-Li` health markers: temperature near 300 K, pressure fluctuating as expected for a small NPT system, small constraint RMSD, no fatal markers found.
 - Fixed post-StrongBind recovery watcher PID: 72831. It waits for the current `mdrun` to finish, then runs repaired peptide-only clustering and corrected topology-path requeue for skipped candidates.
 
