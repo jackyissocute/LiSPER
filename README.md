@@ -117,38 +117,233 @@ flowchart TD
 >
 > ![Computational discovery](https://img.shields.io/badge/Phase_I-computational_discovery_active-2563eb)
 > ![Remote MD](https://img.shields.io/badge/remote_MD-StrongBind--Li_running-0f766e)
-> ![Recovery guard](https://img.shields.io/badge/recovery_guard-enabled-7c3aed)
 > ![NaCl queue](https://img.shields.io/badge/NaCl_queue-waiting-f59e0b)
+> ![PMF](https://img.shields.io/badge/PMF-planned-0f766e)
 
 **Last synchronized monitor snapshot:** `2026-06-16 07:27 CST`
 
 ### Process matrix
 
-| Layer | Process | Progress | State | Evidence / action |
-|---|---|---:|---|---|
-| Program | Phase I computational discovery | `🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜` 70% | ![active](https://img.shields.io/badge/active-2563eb) | Finish LiCl/NaCl production, clustering, PMF, and ΔΔG ranking |
-| Program | Phase II experimental validation | `🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` 20% | ![preparing](https://img.shields.io/badge/preparing-16a34a) | Move first subset into expression, purification, and assay planning |
-| Program | Phase III Bio-DLE translation | `🟧⬜⬜⬜⬜⬜⬜⬜⬜⬜` 10% | ![concept](https://img.shields.io/badge/concept-ea580c) | Choose immobilization and prototype capture format after validation |
-| Setup | Candidate design | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` 10/10 | ![complete](https://img.shields.io/badge/complete-16a34a) | First-round peptide library is stable through first PMF round |
-| Setup | ESMFold structures | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` 10/10 | ![complete](https://img.shields.io/badge/complete-16a34a) | Starting structures are available; ensembles come from MD |
-| Setup | CHARMM-GUI systems | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` 20/20 | ![complete](https://img.shields.io/badge/complete-16a34a) | LiCl and NaCl branches built, including revised LiD3-1 and StrongBind-Li |
-| Setup | Minimization + equilibration | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` 20/20 | ![complete](https://img.shields.io/badge/complete-16a34a) | Both branches are ready for production |
-| LiCl branch | Production MD | `🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜` 2 complete + 1 active | ![running](https://img.shields.io/badge/StrongBind--Li-13.51_ns_%2F_20_ns-2563eb) | [LiCl status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md); four setup-failed systems are queued for fixed rerun |
-| LiCl branch | Structural clustering | `🟪🟪⬜⬜⬜⬜⬜⬜⬜⬜` 2/10 repaired | ![repair active](https://img.shields.io/badge/repair_path-active-7c3aed) | LiD3-1 and IDP-Li-1 representatives exist; low top-cluster populations suggest disorder |
-| Guardrail | Old LiCl parent driver | `🟫🟫🟫🟫🟫🟫🟫🟫🟫🟫` protected | ![frozen](https://img.shields.io/badge/frozen-safety_guard-64748b) | Prevents outdated post-processing from advancing |
-| Guardrail | Fixed recovery watcher | `🟪🟪🟪⬜⬜⬜⬜⬜⬜⬜` waiting | ![waiting](https://img.shields.io/badge/waiting-post_StrongBind--Li-7c3aed) | Takes over after StrongBind-Li and runs repaired clustering plus topology-path requeue |
-| NaCl branch | Production + clustering | `🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜` queued | ![queued](https://img.shields.io/badge/queued-after_LiCl-f59e0b) | [NaCl status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md); patched shared script is loaded |
-| Free energy | Umbrella sampling + PMF | `⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` planned | ![planned](https://img.shields.io/badge/planned-after_representatives-0f766e) | Launch after representative structures are selected and QC-passed |
+<table>
+  <thead>
+    <tr>
+      <th>Track</th>
+      <th>Process</th>
+      <th>Progress</th>
+      <th>Status</th>
+      <th>Gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><strong>Program roadmap</strong></td>
+      <td>Phase I computational discovery</td>
+      <td><code>🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜</code> 70%</td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-2563eb"></td>
+      <td>ΔΔG ranking</td>
+    </tr>
+    <tr>
+      <td>Phase II experimental validation</td>
+      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜</code> 20%</td>
+      <td><img alt="preparing" src="https://img.shields.io/badge/preparing-16a34a"></td>
+      <td>Expression + assays</td>
+    </tr>
+    <tr>
+      <td>Phase III Bio-DLE translation</td>
+      <td><code>🟧⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> 10%</td>
+      <td><img alt="concept" src="https://img.shields.io/badge/concept-ea580c"></td>
+      <td>Immobilized format</td>
+    </tr>
+    <tr>
+      <td rowspan="4"><strong>System preparation</strong></td>
+      <td>Candidate library</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 10/10</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
+      <td>Library locked</td>
+    </tr>
+    <tr>
+      <td>ESMFold structures</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 10/10</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
+      <td>MD starting models</td>
+    </tr>
+    <tr>
+      <td>CHARMM-GUI systems</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 20/20</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
+      <td>LiCl + NaCl ready</td>
+    </tr>
+    <tr>
+      <td>Minimization + equilibration</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 20/20</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
+      <td>Production-ready</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>LiCl branch</strong></td>
+      <td>20 ns production MD</td>
+      <td><code>🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜</code> 2 complete + 1 active</td>
+      <td><img alt="StrongBind-Li running" src="https://img.shields.io/badge/StrongBind--Li-13.51_ns_%2F_20_ns-2563eb"></td>
+      <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
+    </tr>
+    <tr>
+      <td>Structural clustering</td>
+      <td><code>🟪🟪⬜⬜⬜⬜⬜⬜⬜⬜</code> 2/10 representatives</td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-7c3aed"></td>
+      <td>Representative set</td>
+    </tr>
+    <tr>
+      <td><strong>NaCl branch</strong></td>
+      <td>Production + clustering</td>
+      <td><code>🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> queued</td>
+      <td><img alt="queued" src="https://img.shields.io/badge/queued-after_LiCl-f59e0b"></td>
+      <td><a href="01_computational_discovery/md/na_cl/remote_runs/remote_status.md">NaCl status</a></td>
+    </tr>
+    <tr>
+      <td><strong>Free energy</strong></td>
+      <td>Umbrella sampling + PMF</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> planned</td>
+      <td><img alt="planned" src="https://img.shields.io/badge/planned-after_representatives-0f766e"></td>
+      <td>ΔG and ΔΔG</td>
+    </tr>
+  </tbody>
+</table>
+
+### Protein-focused matrix
+
+<table>
+  <thead>
+    <tr>
+      <th>Protein</th>
+      <th>Setup</th>
+      <th>LiCl production</th>
+      <th>LiCl clustering</th>
+      <th>NaCl branch</th>
+      <th>Free-energy gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>LiD3-1</strong></td>
+      <td>✅ complete</td>
+      <td>✅ 20 ns</td>
+      <td>✅ representative<br><sub>top cluster 15.69%</sub></td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>LiND-1</strong></td>
+      <td>✅ complete</td>
+      <td>🔁 rerun queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>IDP-Li-1</strong></td>
+      <td>✅ complete</td>
+      <td>✅ 20 ns</td>
+      <td>✅ representative<br><sub>top cluster 7.00%</sub></td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>IDP-Li-2</strong></td>
+      <td>✅ complete</td>
+      <td>🔁 rerun queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>LowCharge-Li</strong></td>
+      <td>✅ complete</td>
+      <td>🔁 rerun queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>LiD2-IDP</strong></td>
+      <td>✅ complete</td>
+      <td>🔁 rerun queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>StrongBind-Li</strong></td>
+      <td>✅ complete</td>
+      <td>▶️ running<br><sub>13.51 ns / 20 ns</sub></td>
+      <td>⏳ next</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>SoftCage-Li</strong></td>
+      <td>✅ complete</td>
+      <td>⏳ queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>IDP-Rich-Li</strong></td>
+      <td>✅ complete</td>
+      <td>⏳ queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+    <tr>
+      <td><strong>Control-Negative</strong></td>
+      <td>✅ complete</td>
+      <td>⏳ queued</td>
+      <td>⏳ waiting</td>
+      <td>⏳ queued</td>
+      <td>⏳ PMF pending</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Remaining-time horizon
 
-| Gate | Estimate | Confidence | What must finish before this gate clears |
-|---|---:|---|---|
-| Active StrongBind-Li LiCl production | ![4-7 hours](https://img.shields.io/badge/~4--7_hours-current_run-2563eb) | Medium | Finish the current 20 ns production, then hand off to fixed clustering/recovery |
-| LiCl production + clustering set | ![8-10 days](https://img.shields.io/badge/~8--10_days-LiCl_set-7c3aed) | Low-medium | Complete repaired LiCl reruns, later queued LiCl systems, and representative clustering |
-| NaCl production + clustering set | ![10 days](https://img.shields.io/badge/~10_additional_days-NaCl_set-f59e0b) | Low-medium | Run the matched NaCl branch after LiCl releases the queue |
-| PMF / ΔG extraction | ![3-7 days](https://img.shields.io/badge/~3--7_days-after_representatives-0f766e) | Low | Build umbrella windows, run sampling, WHAM/PMF analysis, and QC convergence |
-| First ΔΔG selectivity table | ![3-4 weeks](https://img.shields.io/badge/~3--4_weeks-total_to_first_table-dc2626) | Low | Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) |
+<table>
+  <thead>
+    <tr>
+      <th>Gate</th>
+      <th>Time remaining</th>
+      <th>What clears the gate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Active StrongBind-Li LiCl production</strong></td>
+      <td align="center"><strong><code>~4-7 hours</code></strong><br><sub>current run</sub></td>
+      <td>Finish the current 20 ns production and hand off to clustering.</td>
+    </tr>
+    <tr>
+      <td><strong>LiCl production + clustering set</strong></td>
+      <td align="center"><strong><code>~8-10 days</code></strong><br><sub>LiCl branch</sub></td>
+      <td>Complete repaired LiCl reruns, queued LiCl systems, and representatives.</td>
+    </tr>
+    <tr>
+      <td><strong>NaCl production + clustering set</strong></td>
+      <td align="center"><strong><code>~10 additional days</code></strong><br><sub>NaCl branch</sub></td>
+      <td>Run matched NaCl production and clustering after LiCl releases the queue.</td>
+    </tr>
+    <tr>
+      <td><strong>PMF / ΔG extraction</strong></td>
+      <td align="center"><strong><code>~3-7 days</code></strong><br><sub>after representatives</sub></td>
+      <td>Build umbrella windows, run sampling, then perform WHAM/PMF QC.</td>
+    </tr>
+    <tr>
+      <td><strong>First ΔΔG selectivity table</strong></td>
+      <td align="center"><strong><code>~3-4 weeks total</code></strong><br><sub>first selectivity table</sub></td>
+      <td>Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+).</td>
+    </tr>
+  </tbody>
+</table>
 
 > Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after StrongBind-Li completes and the repaired LiCl queue begins.
 
