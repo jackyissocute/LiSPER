@@ -4,11 +4,11 @@ Drop new files here when you want Codex to triage them into the repository.
 
 ## Current Intake Priority
 
-Upload the five remaining ESMFold result zip files for the final LiSPER library here first. After they are inspected, they will be moved into:
+Upload the two remaining ESMFold result zip files for the final LiSPER library here first. After they are inspected, they will be moved into:
 
 `01_computational_discovery/esmfold/raw_zips/`
 
-Then the extracted PDB, PAE, plot, manifest, and CHARMM-GUI-safe PDB files will be generated in the active ESMFold folders. Three candidates already have upstream assets done.
+Then the extracted PDB, PAE, plot, manifest, and CHARMM-GUI-safe PDB files will be generated in the active ESMFold folders. Six candidates already have ESMFold assets done.
 
 ## Later Intake
 

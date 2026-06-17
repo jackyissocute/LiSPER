@@ -4,14 +4,14 @@ This folder stores structure-prediction outputs for the active 8-candidate LiSPE
 
 ## Current State
 
-The 8-candidate library has been locked. ESMFold assets are already available for three candidates under their final names, and five candidates still need new ESMFold result zip files. Upload the remaining zip files into the repository-level `inbox/` folder first.
+The 8-candidate library has been locked. ESMFold assets are available for six candidates under their final names, and two candidates still need new ESMFold result zip files. Upload the remaining zip files into the repository-level `inbox/` folder first.
 
 Current ESMFold intake state:
 
 | Candidate group | Count | State |
 |---|---|
-| Upstream assets done | 3 | PDB/PAE/plots available under final names |
-| New uploads needed | 5 | Waiting for ESMFold zip files in `inbox/` |
+| ESMFold assets done | 6 | PDB/PAE/plots available under final names |
+| New uploads needed | 2 | Waiting for ESMFold zip files in `inbox/` |
 
 ## Layout
 
@@ -30,4 +30,4 @@ Current ESMFold intake state:
 
 ## Next Step
 
-After the five remaining ESMFold zip files are uploaded, validate sequence identity, normalize PDB filenames for CHARMM-GUI, and update `manifest.tsv`.
+After the two remaining ESMFold zip files are uploaded, validate sequence identity, normalize PDB filenames for CHARMM-GUI, and update `manifest.tsv`.

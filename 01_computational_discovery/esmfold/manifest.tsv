@@ -1,9 +1,9 @@
 candidate_id	sequence_status	esmfold_status	pdb_status	charmm_gui_safe_name	notes
-LiD3-Core	new	pending	pending	lid3core.pdb	Awaiting new ESMFold upload.
+LiD3-Core	new	completed	ready	lid3core.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiD3-Flex	exact_match	completed	ready	lid3flex.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiND-Hybrid	exact_match	completed	ready	lindhybrid.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiLC-1	exact_match	completed	ready	lilc1.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
-LiDS-1	new	pending	pending	lids1.pdb	Awaiting new ESMFold upload.
+LiDS-1	new	completed	ready	lids1.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiDA-1	new	pending	pending	lida1.pdb	Awaiting new ESMFold upload.
-LiN3-Core	new	pending	pending	lin3core.pdb	Awaiting new ESMFold upload.
+LiN3-Core	new	completed	ready	lin3core.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiA3-Ref	new_control	pending	pending	lia3ref.pdb	Awaiting new ESMFold upload.
