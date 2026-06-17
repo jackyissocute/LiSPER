@@ -1,6 +1,6 @@
 Remote AutoDL/SeeTACloud status
 
-Last checked: 2026-06-17 18:34 CST
+Last checked: 2026-06-17 21:57 CST
 
 Host: connect.westb.seetacloud.com
 Port: 37049
@@ -27,8 +27,8 @@ Running:
 - Original LiCl Python driver PID `3883` is intentionally frozen so it cannot continue into the outdated full-system clustering/topology path after the active production finishes.
 - Active GROMACS job: `IDP-Li-2` 20 ns production MD.
 - Latest observed `gmx mdrun` PID: 134568.
-- Latest synced `IDP-Li-2` production progress: 2,230,000 / 10,000,000 steps, 4.46 ns / 20 ns, 22.30%.
-- Latest synced `IDP-Li-2` health markers: temperature 300.46 K, pressure fluctuating as expected for a small NPT system, constraint RMSD 3.26269e-06, no fatal markers found.
+- Latest synced `IDP-Li-2` production progress: 4,310,000 / 10,000,000 steps, 8.62 ns / 20 ns, 43.10%.
+- Latest synced `IDP-Li-2` health markers: temperature 296.29 K, pressure fluctuating as expected for a small NPT system, constraint RMSD 2.11648e-06, no fatal markers found.
 - The corrected workflow completed LiND-1 production/clustering and released production work to IDP-Li-2.
 
 Current blockers:
@@ -55,7 +55,7 @@ Latest synced results:
 - IDP-Li-2 active production log synced at `remote_results/systems/IDP-Li-2/gromacs/run_prod_20ns/`.
 - Current queue summary synced at `production_clustering_summary.tsv`.
 - Current production snapshot: `/Users/jackylin/Documents/GitHub/LiSPER/01_computational_discovery/md/li_cl/remote_runs/current_production_snapshot.md`.
-- Current active-run estimate: `IDP-Li-2` likely has roughly 18-22 hours remaining before clustering can begin.
+- Current active-run estimate: `IDP-Li-2` likely has roughly 9-12 hours remaining before clustering can begin.
 
 Queued next stage:
 - The active `IDP-Li-2` production should continue uninterrupted.

@@ -1,6 +1,6 @@
 # LiCl Production and Clustering Snapshot
 
-Synced from remote logs on 2026-06-17 18:34 CST.
+Synced from remote logs on 2026-06-17 21:57 CST.
 
 | Candidate | Stage | Status | Last step | Time ps | Progress | T K | P bar | Constraint RMSD | Fatal markers |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|
@@ -10,7 +10,7 @@ Synced from remote logs on 2026-06-17 18:34 CST.
 | LiND-1 | clustering_20ns | complete | 2001 frames | - | top cluster 2.40% | - | - | - | false |
 | IDP-Li-1 | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
 | IDP-Li-1 | clustering_20ns_repair | complete | 2001 frames | - | top cluster 7.00% | - | - | - | false |
-| IDP-Li-2 | production_20ns | running | 2230000 | 4460.00000 | 22.30% | 300.46 | -49.12 | 3.26269e-06 | false |
+| IDP-Li-2 | production_20ns | running | 4310000 | 8620.00000 | 43.10% | 296.29 | 46.58 | 2.11648e-06 | false |
 | LowCharge-Li | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
 | LiD2-IDP | production_20ns | rerun queued after topology-path repair | - | - | - | - | - | - | false |
 | StrongBind-Li | production_20ns | complete | 10000000 | 20000 | 100.00% | final log complete | final log complete | final log complete | false |
@@ -45,16 +45,16 @@ Synced from remote logs on 2026-06-17 18:34 CST.
 
 ## Runtime Estimate
 
-`IDP-Li-2` has reached 4.46 ns of the 20 ns production target. At the observed CPU-only pace, the active run likely needs roughly 18-22 more hours before clustering can begin.
+`IDP-Li-2` has reached 8.62 ns of the 20 ns production target. At the observed CPU-only pace, the active run likely needs roughly 9-12 more hours before clustering can begin.
 
 | Scope | Estimate |
 |---|---:|
-| `IDP-Li-2` production remaining | roughly 18-22 hours |
+| `IDP-Li-2` production remaining | roughly 9-12 hours |
 | LiD3-1 clustering repair | complete |
 | LiND-1 clustering | complete |
 | IDP-Li-1 clustering repair | complete |
 | StrongBind-Li clustering repair | complete |
-| Remaining LiCl production/clustering, if sequential CPU-only | roughly 5-7 days |
+| Remaining LiCl production/clustering, if sequential CPU-only | roughly 4-6 days |
 | NaCl production/clustering after LiCl, if sequential CPU-only | roughly 10 additional days |
 | PMF / Delta G extraction after representatives | roughly 3-7 days |
 

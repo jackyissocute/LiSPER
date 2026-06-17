@@ -9,11 +9,11 @@ Remote GROMACS workflow and synced results for peptide + LiCl systems.
 | CHARMM-GUI QC | 10/10 ready |
 | Minimization | 10/10 complete |
 | Equilibration | 10/10 complete |
-| 20 ns production | `LiD3-1`, `LiND-1`, `IDP-Li-1`, and `StrongBind-Li` complete; `IDP-Li-2` running at 4.46 ns / 20 ns |
+| 20 ns production | `LiD3-1`, `LiND-1`, `IDP-Li-1`, and `StrongBind-Li` complete; `IDP-Li-2` running at 8.62 ns / 20 ns |
 | Structural clustering | Representatives ready for `LiD3-1`, `LiND-1`, `IDP-Li-1`, and `StrongBind-Li` |
 
 Latest QC snapshot: [remote_runs/current_production_snapshot.md](remote_runs/current_production_snapshot.md).
-Last synchronized monitor snapshot: `2026-06-17 18:34 CST`.
+Last synchronized monitor snapshot: `2026-06-17 21:57 CST`.
 
 ## Current Interpretation
 
@@ -23,7 +23,7 @@ The peptide-only clustering path succeeded for all four completed candidates and
 
 `IDP-Li-2` is now running corrected 20 ns LiCl production after the earlier topology include-path setup issue. The latest synced production frame is healthy: temperature is near 300 K, pressure is within normal small-system NPT fluctuation, constraint RMSD is small, and no fatal markers were found.
 
-Current active-run estimate: roughly 18-22 hours remain for `IDP-Li-2` before clustering can begin.
+Current active-run estimate: roughly 9-12 hours remain for `IDP-Li-2` before clustering can begin.
 
 ## Key Files
 

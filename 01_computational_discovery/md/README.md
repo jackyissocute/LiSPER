@@ -27,10 +27,10 @@ flowchart TD
 
 | Condition | Folder | Current State |
 |---|---|---|
-| LiCl | `li_cl/` | 10/10 equilibrated; 4 productions complete; `IDP-Li-2` running at 4.46 ns / 20 ns; 4 representatives ready |
+| LiCl | `li_cl/` | 10/10 equilibrated; 4 productions complete; `IDP-Li-2` running at 8.62 ns / 20 ns; 4 representatives ready |
 | NaCl | `na_cl/` | 10/10 minimized/equilibrated; production/clustering queued behind LiCl |
 
-Latest monitor snapshot: `2026-06-17 18:34 CST`.
+Latest monitor snapshot: `2026-06-17 21:57 CST`.
 
 ## What Belongs Here
 

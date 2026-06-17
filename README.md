@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-17 18:34 CST`
+**Last synchronized monitor snapshot:** `2026-06-17 21:57 CST`
 
 ### Process matrix
 
@@ -187,7 +187,7 @@ flowchart TD
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
       <td><code>🟦🟦🟦🟦🟦⬜⬜⬜⬜⬜</code> 4 complete + 1 active</td>
-      <td><img alt="IDP-Li-2 running" src="https://img.shields.io/badge/IDP--Li--2-4.46_ns_%2F_20_ns-2563eb"></td>
+      <td><img alt="IDP-Li-2 running" src="https://img.shields.io/badge/IDP--Li--2-8.62_ns_%2F_20_ns-2563eb"></td>
       <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
     </tr>
     <tr>
@@ -254,7 +254,7 @@ flowchart TD
     <tr>
       <td><strong>IDP-Li-2</strong></td>
       <td>✅ complete</td>
-      <td>▶️ running<br><sub>4.46 ns / 20 ns</sub></td>
+      <td>▶️ running<br><sub>8.62 ns / 20 ns</sub></td>
       <td>⏳ next</td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
@@ -323,12 +323,12 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Active IDP-Li-2 LiCl production</strong></td>
-      <td align="center"><strong><code>~18-22 hours</code></strong><br><sub>current run</sub></td>
+      <td align="center"><strong><code>~9-12 hours</code></strong><br><sub>current run</sub></td>
       <td>Finish the current 20 ns production and hand off to clustering.</td>
     </tr>
     <tr>
       <td><strong>LiCl production + clustering set</strong></td>
-      <td align="center"><strong><code>~5-7 days</code></strong><br><sub>LiCl branch</sub></td>
+      <td align="center"><strong><code>~4-6 days</code></strong><br><sub>LiCl branch</sub></td>
       <td>Complete repaired LiCl reruns, queued LiCl systems, and representatives.</td>
     </tr>
     <tr>

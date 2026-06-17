@@ -5,7 +5,7 @@ LiND-1	LiCl	production_20ns	complete	10000000	20000	100.00	final	final	final	fal
 LiND-1	LiCl	clustering_20ns	complete	2001		2.40				false
 IDP-Li-1	LiCl	production_20ns	complete	10000000	20000	100.00	final	final	final	false
 IDP-Li-1	LiCl	clustering_20ns_repair	complete	2001		7.00				false
-IDP-Li-2	LiCl	production_20ns	running	2230000	4460.00000	22.30	300.46	-49.12	3.26269e-06	false
+IDP-Li-2	LiCl	production_20ns	running	4310000	8620.00000	43.10	296.29	46.58	2.11648e-06	false
 LowCharge-Li	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
 LiD2-IDP	LiCl	production_20ns	rerun_queued_after_topology_path_repair						false
 StrongBind-Li	LiCl	production_20ns	complete	10000000	20000	100.00	final	final	final	false
