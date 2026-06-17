@@ -4,9 +4,11 @@ This folder will store CHARMM-GUI Solution Builder outputs for the active 8-cand
 
 ## Current State
 
-CHARMM-GUI systems are available for three final candidates in both LiCl and NaCl conditions. Five candidates still need matched LiCl/NaCl CHARMM-GUI systems. Safe PDBs for all 8 candidates are prepared in:
+CHARMM-GUI systems are available for three final candidates in both LiCl and NaCl conditions. Five candidates still need matched LiCl/NaCl CHARMM-GUI systems. Seven safe PDBs are prepared in:
 
 `01_computational_discovery/esmfold/charmm_gui_pdb/`
+
+LiD3-Core is on sequence-QC hold and should not be uploaded until its replacement ESMFold result is processed.
 
 ## Conditions
 

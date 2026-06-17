@@ -4,7 +4,7 @@ This stage contains the in silico LiSPER discovery workflow: candidate sequences
 
 ## Current State
 
-The active computational library is the final **8-candidate** panel in `sequences/candidates.tsv`. ESMFold assets are available for all 8 candidates under their final names. Three candidates also have matched LiCl/NaCl CHARMM-GUI systems available. The remaining near-term work is five matched CHARMM-GUI system pairs.
+The active computational library is the final **8-candidate** panel in `sequences/candidates.tsv`. Seven ESMFold structures are upload-ready under final names. LiD3-Core needs a replacement ESMFold result after sequence QC. Three candidates also have matched LiCl/NaCl CHARMM-GUI systems available. The remaining near-term work is one replacement structure plus five matched CHARMM-GUI system pairs.
 
 ```mermaid
 flowchart TD

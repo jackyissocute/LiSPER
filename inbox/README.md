@@ -4,11 +4,11 @@ Drop new files here when you want Codex to triage them into the repository.
 
 ## Current Intake Priority
 
-ESMFold intake is complete for the final LiSPER library. New uploads can still be placed here for triage, but the next priority is matched CHARMM-GUI LiCl/NaCl systems for the remaining candidates.
+Seven ESMFold structures are upload-ready for the final LiSPER library. LiD3-Core needs a replacement ESMFold result after sequence QC. New uploads can still be placed here for triage.
 
 `01_computational_discovery/esmfold/raw_zips/`
 
-The extracted PDB, PAE, plot, manifest, and CHARMM-GUI-safe PDB files have been generated in the active ESMFold folders.
+The extracted PDB, PAE, plot, manifest, and CHARMM-GUI-safe PDB files have been generated in the active ESMFold folders for the seven valid structures.
 
 ## Later Intake
 

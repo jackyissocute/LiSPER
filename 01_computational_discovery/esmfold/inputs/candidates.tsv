@@ -2,7 +2,7 @@ rank	candidate_id	sequence	length	status	reuse_source
 1	LiD3-Core	GPGDPGPGDPGPGDP	15	new_esfold_required	none
 2	LiD3-Flex	GPGDPGSGPGDPGSGPGDP	19	reusable_sequence	LiD3-1
 3	LiND-Hybrid	GPGNPGSGPGDPGSGPGNP	19	reusable_sequence	LiND-1
-4	LiLC-1	GPGDPGSGNPGSGDP	16	reusable_sequence	LowCharge-Li
+4	LiLC-1	GPGDPGSGNPGSGDP	15	reusable_sequence	LowCharge-Li
 5	LiDS-1	DGDGPGDPGDG	11	new_esfold_required	none
 6	LiDA-1	DADGPGDPDAG	11	new_esfold_required	none
 7	LiN3-Core	GPGNPGPGNPGPGNP	15	new_esfold_required	none

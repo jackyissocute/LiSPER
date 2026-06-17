@@ -113,10 +113,10 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live project control panel.** The active LiSPER library contains 8 final candidates. ESMFold intake is complete for all 8; three matched LiCl/NaCl CHARMM-GUI system pairs are already done, and five pairs remain.
+> **Live project control panel.** The active LiSPER library contains 8 final candidates. Seven ESMFold structures are upload-ready; LiD3-Core needs a replacement ESMFold file after sequence QC. Three matched LiCl/NaCl CHARMM-GUI system pairs are already done, and five pairs remain.
 >
 > ![Candidate library](https://img.shields.io/badge/final_library-8_candidates-2563eb)
-> ![ESMFold](https://img.shields.io/badge/ESMFold-8_done-16a34a)
+> ![ESMFold](https://img.shields.io/badge/ESMFold-7_ready_1_QC_needed-f59e0b)
 > ![CHARMM-GUI](https://img.shields.io/badge/CHARMM--GUI-3_pairs_done-16a34a)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
@@ -167,9 +167,9 @@ flowchart TD
     </tr>
     <tr>
       <td>ESMFold structures</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8/8 done</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>CHARMM-GUI upload set ready</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟥</code> 7 ready / 1 replacement needed</td>
+      <td><img alt="qc needed" src="https://img.shields.io/badge/QC-LiD3--Core_reupload_needed-f59e0b"></td>
+      <td>Replace LiD3-Core PDB</td>
     </tr>
     <tr>
       <td>CHARMM-GUI systems</td>
@@ -229,7 +229,7 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>✅ done</td>
+      <td>🟥 replacement needed</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
@@ -307,8 +307,8 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>ESMFold intake for final 8</strong></td>
-      <td align="center"><strong><code>complete</code></strong><br><sub>8/8 done</sub></td>
-      <td>All final-candidate PDB/PAE/plot assets are available under final names.</td>
+      <td align="center"><strong><code>7 ready / 1 QC hold</code></strong><br><sub>LiD3-Core replacement needed</sub></td>
+      <td>Upload a replacement LiD3-Core ESMFold result, then regenerate `lid3core.pdb` for CHARMM-GUI.</td>
     </tr>
     <tr>
       <td><strong>CHARMM-GUI LiCl/NaCl systems</strong></td>
@@ -347,11 +347,11 @@ flowchart TD
 
 ## 🧪 Candidate library
 
-The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. ESMFold assets are available for all 8 candidates.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Seven ESMFold structures are upload-ready; LiD3-Core needs a replacement structure after sequence QC.
 
 | Rank | Candidate | Sequence | Design role | Intake status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | ESMFold done |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Replacement ESMFold needed |
 | 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Upstream assets done |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Upstream assets done |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Upstream assets done; MD completion pending |

@@ -8,7 +8,7 @@ NaCl simulations should be generated as matched comparison systems after the rev
 
 | Stage | Status |
 |---|---|
-| ESMFold intake | 8/8 done |
+| ESMFold intake | 7 ready; LiD3-Core replacement needed |
 | CHARMM-GUI NaCl systems | 3/8 done |
 | Minimization | 3 records available |
 | Equilibration | 3 records available |
@@ -23,4 +23,5 @@ NaCl simulations should be generated as matched comparison systems after the rev
 | `LiD3-Flex` | Setup/equilibration done; production and clustering pending |
 | `LiND-Hybrid` | Setup/equilibration done; production and clustering pending |
 | `LiLC-1` | Setup/equilibration done; production and clustering pending |
-| `LiD3-Core`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | ESMFold done; waiting for CHARMM-GUI systems |
+| `LiD3-Core` | Replacement ESMFold result needed before CHARMM-GUI |
+| `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | ESMFold done; waiting for CHARMM-GUI systems |

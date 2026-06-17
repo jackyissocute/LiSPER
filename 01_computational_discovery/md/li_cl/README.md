@@ -6,7 +6,7 @@ LiCl MD is tracked under the final 8-candidate names.
 
 | Stage | Status |
 |---|---|
-| ESMFold intake | 8/8 done |
+| ESMFold intake | 7 ready; LiD3-Core replacement needed |
 | CHARMM-GUI LiCl systems | 3/8 done |
 | Minimization | 3 records available |
 | Equilibration | 3 records available |
@@ -21,4 +21,5 @@ LiCl MD is tracked under the final 8-candidate names.
 | `LiD3-Flex` | Production and representative structure done |
 | `LiND-Hybrid` | Production and representative structure done |
 | `LiLC-1` | Setup/equilibration done; production and clustering pending |
-| `LiD3-Core`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | ESMFold done; waiting for CHARMM-GUI systems |
+| `LiD3-Core` | Replacement ESMFold result needed before CHARMM-GUI |
+| `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | ESMFold done; waiting for CHARMM-GUI systems |

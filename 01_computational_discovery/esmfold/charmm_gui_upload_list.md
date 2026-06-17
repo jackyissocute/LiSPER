@@ -1,6 +1,6 @@
 # CHARMM-GUI Upload List
 
-CHARMM-GUI-safe PDBs are available for all 8 final candidates.
+CHARMM-GUI-safe PDBs are available for seven final candidates. LiD3-Core is on sequence-QC hold and needs a replacement ESMFold result before upload.
 
 Upload-ready PDBs live in:
 
@@ -10,7 +10,7 @@ Expected safe filenames and current state:
 
 | Candidate | Safe filename | State |
 |---|---|
-| `LiD3-Core` | `lid3core.pdb` | Done |
+| `LiD3-Core` | `lid3core.pdb` | Replacement needed |
 | `LiD3-Flex` | `lid3flex.pdb` | Done |
 | `LiND-Hybrid` | `lindhybrid.pdb` | Done |
 | `LiLC-1` | `lilc1.pdb` | Done |
