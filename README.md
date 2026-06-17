@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-16 15:29 CST`
+**Last synchronized monitor snapshot:** `2026-06-17 18:34 CST`
 
 ### Process matrix
 
@@ -186,13 +186,13 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
-      <td><code>🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜</code> 3 complete + 1 active</td>
-      <td><img alt="LiND-1 running" src="https://img.shields.io/badge/LiND--1-1.55_ns_%2F_20_ns-2563eb"></td>
+      <td><code>🟦🟦🟦🟦🟦⬜⬜⬜⬜⬜</code> 4 complete + 1 active</td>
+      <td><img alt="IDP-Li-2 running" src="https://img.shields.io/badge/IDP--Li--2-4.46_ns_%2F_20_ns-2563eb"></td>
       <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟪🟪🟪⬜⬜⬜⬜⬜⬜⬜</code> 3/10 representatives</td>
+      <td><code>🟪🟪🟪🟪⬜⬜⬜⬜⬜⬜</code> 4/10 representatives</td>
       <td><img alt="active" src="https://img.shields.io/badge/active-7c3aed"></td>
       <td>Representative set</td>
     </tr>
@@ -238,8 +238,8 @@ flowchart TD
     <tr>
       <td><strong>LiND-1</strong></td>
       <td>✅ complete</td>
-      <td>▶️ running<br><sub>1.55 ns / 20 ns</sub></td>
-      <td>⏳ next</td>
+      <td>✅ 20 ns</td>
+      <td>✅ representative<br><sub>top cluster 2.40%</sub></td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
     </tr>
@@ -254,8 +254,8 @@ flowchart TD
     <tr>
       <td><strong>IDP-Li-2</strong></td>
       <td>✅ complete</td>
-      <td>🔁 rerun queued</td>
-      <td>⏳ waiting</td>
+      <td>▶️ running<br><sub>4.46 ns / 20 ns</sub></td>
+      <td>⏳ next</td>
       <td>⏳ queued</td>
       <td>⏳ PMF pending</td>
     </tr>
@@ -322,13 +322,13 @@ flowchart TD
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active LiND-1 LiCl production</strong></td>
-      <td align="center"><strong><code>~22-26 hours</code></strong><br><sub>current run</sub></td>
+      <td><strong>Active IDP-Li-2 LiCl production</strong></td>
+      <td align="center"><strong><code>~18-22 hours</code></strong><br><sub>current run</sub></td>
       <td>Finish the current 20 ns production and hand off to clustering.</td>
     </tr>
     <tr>
       <td><strong>LiCl production + clustering set</strong></td>
-      <td align="center"><strong><code>~7-9 days</code></strong><br><sub>LiCl branch</sub></td>
+      <td align="center"><strong><code>~5-7 days</code></strong><br><sub>LiCl branch</sub></td>
       <td>Complete repaired LiCl reruns, queued LiCl systems, and representatives.</td>
     </tr>
     <tr>
@@ -349,15 +349,15 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after LiND-1 completes and the corrected LiCl queue advances.
+> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after IDP-Li-2 completes and the corrected LiCl queue advances.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
-- `LiD3-1`, `IDP-Li-1`, and `StrongBind-Li` completed 20 ns LiCl production and now have repaired peptide-only representative structures.
-- Their top-cluster populations are low (`15.69%`, `7.00%`, and `3.45%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
-- `LiND-1` is the active LiCl production run through the corrected topology-path workflow.
-- `IDP-Li-2`, `LowCharge-Li`, and `LiD2-IDP` were previously blocked by a topology include-path setup issue, not by peptide physics; corrected production logic is now advancing candidate by candidate.
+- `LiD3-1`, `LiND-1`, `IDP-Li-1`, and `StrongBind-Li` completed 20 ns LiCl production and now have peptide-only representative structures.
+- Their top-cluster populations are low (`15.69%`, `2.40%`, `7.00%`, and `3.45%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
+- `IDP-Li-2` is the active LiCl production run through the corrected topology-path workflow.
+- `LowCharge-Li` and `LiD2-IDP` were previously blocked by a topology include-path setup issue, not by peptide physics; corrected production logic is now advancing candidate by candidate.
 
 </details>
 
