@@ -1,0 +1,10 @@
+Please use the original pET-28a(+) backbone. Please synthesize each listed insert and clone it into the original pET-28a(+) MCS using the specified restriction sites. The insert encodes the complete His6-SUMO-LiSPER-STOP ORF. Please sequence-verify the full insert and both vector-insert junctions.
+
+Restriction strategy: NdeI/XhoI.
+Rationale: NdeI (CATATG) provides the ATG start codon without altering the second amino acid of the His6-SUMO ORF. NcoI is not recommended because CCATGG would force an extra/constrained residue after the start codon and would not preserve the exact MHHHHHH His6-SUMO N-terminus. XhoI is placed downstream of the TAA stop codon to prevent expression of C-terminal vector-derived residues or tags.
+
+Important cloning detail: for the final synthesis insert, the NdeI site contains the start codon. Do not duplicate the ATG after NdeI. The sequence format is CATATG + complete_ORF_without_its_first_ATG + CTCGAG.
+
+After SUMO protease cleavage, the released peptide should exactly match the listed native LiSPER peptide sequence with no residual His-tag, SUMO residue, T7 tag, linker, thrombin remnant, or vector-derived amino acid.
+
+This is a standard plasmid restriction-cloning order. Do not use CRISPR or genome editing.
