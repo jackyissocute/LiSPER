@@ -27,7 +27,7 @@ Design implication:
 
 - Use a small epitope tag rather than a large fluorescent protein for first-generation constructs.
 - Include an empty eCPX scaffold with the same tag.
-- Include Control-Negative LiSPER with the same tag and linker context.
+- Include LiA3-Ref LiSPER with the same tag and linker context.
 
 ## Detection Tag Placement
 
@@ -77,8 +77,8 @@ Controls:
 
 - Live empty scaffold.
 - Fixed empty scaffold.
-- Live Control-Negative.
-- Fixed Control-Negative.
+- Live LiA3-Ref.
+- Fixed LiA3-Ref.
 - Heat-killed control as stress/nonliving comparator.
 
 ## Plasmid-Encoded Controls Required
@@ -88,7 +88,7 @@ Future plasmid set should include:
 | Construct class | Purpose |
 |---|---|
 | Empty eCPX scaffold with detection tag | Measures scaffold and tag background. |
-| eCPX-Control-Negative | Controls for peptide length/context without Li-binding motif. |
+| eCPX-LiA3-Ref | Controls for peptide length/context without Li-binding motif. |
 | eCPX-LiSPER candidates | Tests candidate-specific Li/Na selectivity. |
 | Positive LBP display construct, if feasible | Confirms assay can detect lithium-binding behavior. |
 | Optional non-display tagged construct | Helps distinguish surface display from total expression. |
@@ -132,14 +132,14 @@ Future constructs should support:
 First-generation construct set should prioritize interpretability:
 
 1. Empty eCPX scaffold.
-2. Control-Negative peptide.
-3. LiD3-1.
-4. LiND-1.
-5. IDP-Li-1.
-6. LowCharge-Li.
+2. LiA3-Ref peptide.
+3. LiD3-Core.
+4. LiND-Hybrid.
+5. LiD3-Flex.
+6. LiLC-1.
 7. Optional known lithium-binding peptide positive control.
 
-Only after the assay works should the full 10-candidate display panel be built.
+Only after the assay works should the full final 8-candidate display panel be built.
 
 ## Key Design Question for Future Plasmid Work
 
@@ -152,4 +152,3 @@ Before plasmid design, decide:
 - which minimal control plasmids are required for the first assay.
 
 The assay plan makes one point clear: future plasmids should be designed for measurable, normalized, and controllable ion-binding experiments, not merely for surface expression.
-

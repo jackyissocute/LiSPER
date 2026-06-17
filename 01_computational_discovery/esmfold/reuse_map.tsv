@@ -1,0 +1,4 @@
+revised_candidate	legacy_candidate	legacy_archive_path	note
+LiD3-Flex	LiD3-1	archive/legacy_10_candidate_library/01_computational_discovery/esmfold/runs/LiD3-1	Sequence-identical; old ESMFold output can be reused or replaced by the new 8-candidate ESMFold upload.
+LiND-Hybrid	LiND-1	archive/legacy_10_candidate_library/01_computational_discovery/esmfold/runs/LiND-1	Sequence-identical; old ESMFold output can be reused or replaced by the new 8-candidate ESMFold upload.
+LiLC-1	LowCharge-Li	archive/legacy_10_candidate_library/01_computational_discovery/esmfold/runs/LowCharge-Li	Sequence-identical; old ESMFold output can be reused or replaced by the new 8-candidate ESMFold upload.

@@ -38,7 +38,7 @@ flowchart TD
 | Control | Purpose |
 |---|---|
 | Empty vector or His6-SUMO-only control | Measures tag, SUMO, resin, and buffer background. |
-| Control-Negative LiSPER peptide | Sequence-related negative control. |
+| LiA3-Ref LiSPER peptide | Sequence-related negative control. |
 | No-peptide blank | Measures tube, buffer, and assay background. |
 | Buffer-only blank | Detects Li/Na contamination. |
 | Li-only condition | Measures Li binding without Na competition. |
@@ -318,7 +318,7 @@ Suggested assay:
 
 Interpretation:
 
-- Li signal must exceed no-peptide, SUMO-only, and Control-Negative background.
+- Li signal must exceed no-peptide, SUMO-only, and LiA3-Ref background.
 
 ## 12. Na+ Binding Assay
 
@@ -354,7 +354,7 @@ Readout:
 
 Interpretation:
 
-- A strong candidate enriches Li relative to the starting Li/Na solution ratio and outperforms Control-Negative.
+- A strong candidate enriches Li relative to the starting Li/Na solution ratio and outperforms LiA3-Ref.
 
 ## 14. Data Analysis
 
@@ -381,7 +381,7 @@ Normalize by:
 Strong Track A evidence:
 
 - purified/recovered peptide identity confirmed,
-- Li binding above no-peptide and Control-Negative controls,
+- Li binding above no-peptide and LiA3-Ref controls,
 - Na binding low relative to Li,
 - mixed Li+Na assay shows Li enrichment,
 - results reproducible across independent preparations.
@@ -414,17 +414,16 @@ What Track A does not prove:
 
 Start with a small subset:
 
-1. Control-Negative.
-2. LiD3-1.
-3. LiND-1.
-4. IDP-Li-1.
-5. LowCharge-Li.
+1. LiA3-Ref.
+2. LiD3-Core.
+3. LiND-Hybrid.
+4. LiD3-Flex.
+5. LiLC-1.
 
 Recommended staged plan:
 
 1. Confirm expression of His6-SUMO fusions.
-2. Purify one positive-priority candidate and Control-Negative.
+2. Purify one positive-priority candidate and LiA3-Ref.
 3. Demonstrate SUMO cleavage and peptide recovery.
 4. Run a simple Li-only and Na-only assay.
 5. Move to mixed Li+Na and ICP validation only after recovery/QC is reliable.
-

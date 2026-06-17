@@ -1,11 +1,9 @@
-rank	candidate_id	sequence	role	main_design_logic	prediction	recommended_start
-1	LiD3-1	GPGDPGSGPGDPGSGPGDP	primary_candidate	Uses the best literature motif GPGDP, repeated 3x, with Gly/Ser flexibility.	Best first candidate	yes
-2	LiND-1	GPGNPGSGPGDPGSGPGNP	primary_candidate	Combines original LBP GPGNP with improved GPGDP.	Balanced affinity/selectivity	yes
-3	IDP-Li-1	SGDSGPGDPGDSG	primary_candidate	IDP-like flexible acidic shell around GPGDP.	Good Li+ binding, moderate selectivity	yes
-4	IDP-Li-2	GDSGSGPGDPGSGDS	primary_candidate	More symmetric disordered binding pocket.	Good screening candidate	no
-5	LowCharge-Li	GPGDPGSGNPGSGDP	primary_candidate	Lower negative charge to avoid nonspecific Na+/Ca2+ binding.	Better selectivity risk-control	yes
-6	LiD2-IDP	GPGDPGSDGSGPGDP	primary_candidate	Two GPGDP motifs plus IDP acidic spacer.	Strong but not overcharged	no
-7	StrongBind-Li	GPGDPGSDGPGDPGSD	primary_candidate	Higher Asp density for stronger Li+ capture.	High affinity, lower selectivity risk	no
-8	SoftCage-Li	GSGDPGNGDPGSG	primary_candidate	Short flexible oxygen-rich Li+ cage.	Small, cheap, easy to test	no
-9	IDP-Rich-Li	DSGDSGPGDPGDSGS	primary_candidate	More IDP-like, many carboxylate/Ser donors.	Strong binding, may bind other metals	no
-10	Control-Negative	GPGAPGSGPGAPGSGPGAP	negative_control	Literature-related weak/neutral control.	Should bind Li+ weaker	yes
+rank	candidate_id	sequence	length	status	reuse_source
+1	LiD3-Core	GPGDPGPGDPGPGDP	15	new_esfold_required	none
+2	LiD3-Flex	GPGDPGSGPGDPGSGPGDP	19	reusable_sequence	LiD3-1
+3	LiND-Hybrid	GPGNPGSGPGDPGSGPGNP	19	reusable_sequence	LiND-1
+4	LiLC-1	GPGDPGSGNPGSGDP	16	reusable_sequence	LowCharge-Li
+5	LiDS-1	DGDGPGDPGDG	11	new_esfold_required	none
+6	LiDA-1	DADGPGDPDAG	11	new_esfold_required	none
+7	LiN3-Core	GPGNPGPGNPGPGNP	15	new_esfold_required	none
+8	LiA3-Ref	GPGAPGPGAPGPGAP	15	new_esfold_required	none

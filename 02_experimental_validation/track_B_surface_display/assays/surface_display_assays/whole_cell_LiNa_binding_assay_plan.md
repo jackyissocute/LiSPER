@@ -89,7 +89,7 @@ Required controls:
 | Buffer-only blank | Baseline Li/Na concentration and contamination check. |
 | Non-displaying E. coli | Measures native cell-envelope adsorption. |
 | Empty eCPX scaffold | Measures display-scaffold background. |
-| eCPX + Control-Negative peptide | Controls for peptide length/composition without expected Li-binding motif. |
+| eCPX + LiA3-Ref peptide | Controls for peptide length/composition without expected Li-binding motif. |
 | Known lithium-binding peptide, if available | Positive reference for assay sensitivity. |
 | Killed-cell control | Distinguishes living-cell effects from passive surface adsorption. |
 | Li-only condition | Measures lithium uptake without sodium competition. |
@@ -120,7 +120,7 @@ Goal: rapidly compare candidates and eliminate obvious non-binders or high-Na bi
 ### Workflow
 
 1. Cell preparation:
-   - Grow and induce candidate, empty-scaffold, non-display, and Control-Negative strains using the future optimized eCPX expression condition.
+   - Grow and induce candidate, empty-scaffold, non-display, and LiA3-Ref strains using the future optimized eCPX expression condition.
    - Harvest cells gently and wash repeatedly into low-Na HEPES/KCl buffer.
    - Normalize by OD600 equivalent.
 2. Display verification:
@@ -142,12 +142,12 @@ Goal: rapidly compare candidates and eliminate obvious non-binders or high-Na bi
    - Conductivity as a nonspecific sanity check only, not a selectivity readout.
    - Outsourced ICP-OES small sample batch is preferred if local kit sensitivity is inadequate.
 8. Data analysis:
-   - Compare percent Li removal and percent Na removal against empty scaffold and Control-Negative.
+   - Compare percent Li removal and percent Na removal against empty scaffold and LiA3-Ref.
    - Flag candidates with Li uptake above controls and low Na uptake.
 
 ### Interpretation
 
-A candidate advances if it shows reproducibly higher Li depletion than empty scaffold and Control-Negative while showing minimal Na depletion in mixed Li+Na solution.
+A candidate advances if it shows reproducibly higher Li depletion than empty scaffold and LiA3-Ref while showing minimal Na depletion in mixed Li+Na solution.
 
 ## Level 2: Quantitative Validation Assay
 
@@ -202,7 +202,7 @@ ICP-OES is likely sufficient for mM to high-uM Li/Na assays and is usually more 
 
 Publishable evidence requires:
 
-- candidate Li uptake above empty scaffold and Control-Negative,
+- candidate Li uptake above empty scaffold and LiA3-Ref,
 - low Na uptake under Na-only and mixed conditions,
 - Li/Na selectivity ratio above controls,
 - reproducibility across independent biological replicates,
@@ -235,7 +235,7 @@ These values are not universal industrial constants; they are challenge conditio
 ### Workflow
 
 1. Cell preparation:
-   - Use best candidate(s), empty scaffold, Control-Negative, and non-displaying cells.
+   - Use best candidate(s), empty scaffold, LiA3-Ref, and non-displaying cells.
    - Prefer fixed cells if Level 2 shows fixation preserves binding.
 2. Display verification:
    - Confirm display before and after exposure for at least representative samples.
@@ -297,7 +297,7 @@ A good LiSPER candidate should show:
 - higher Li+ depletion from solution than controls,
 - higher pellet-associated Li+ than controls,
 - low Na+ depletion and low pellet-associated Na+,
-- higher Li/Na enrichment than empty scaffold and Control-Negative,
+- higher Li/Na enrichment than empty scaffold and LiA3-Ref,
 - reproducible performance across biological replicates,
 - retained function after washing/elution if regeneration is tested,
 - surface display level sufficient to explain binding signal.

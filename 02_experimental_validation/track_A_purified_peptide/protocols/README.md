@@ -20,4 +20,4 @@ Follow these protocols in order for purified His6-SUMO-LiSPER validation.
 | 11 | [Data analysis and interpretation](11_data_analysis_interpretation.md) | Analyze and interpret Track A binding data |
 | 12 | [Controls and troubleshooting](12_controls_troubleshooting.md) | Controls, failure modes, and rescue paths |
 
-Start with `Control-Negative` plus 2-4 top candidates before expanding to all 10.
+Start with `LiA3-Ref` plus 2-4 top candidates before expanding to final 8.

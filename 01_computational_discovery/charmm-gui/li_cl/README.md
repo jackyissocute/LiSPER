@@ -1,34 +1,11 @@
 # LiCl CHARMM-GUI Systems
 
-CHARMM-GUI Solution Builder outputs for peptide + LiCl systems.
+No active 8-candidate LiCl CHARMM-GUI systems have been imported yet.
 
-## QC Status
+## Next Step
 
-| Metric | Status |
-|---|---|
-| Candidates present | 10/10 |
-| Sequence matches | 10/10 |
-| Single protein molecule topology | 10/10 |
-| Li+ ion present as `LIT` | 10/10 |
-| Cl- ion present as `CLA` | 10/10 |
-| GROMACS files present | 10/10 |
+After ESMFold PDB normalization, submit each revised candidate to CHARMM-GUI Solution Builder and place the downloaded LiCl archives here.
 
-## Layout
+## Expected Candidates
 
-| Path | Purpose |
-|---|---|
-| `raw_archives/` | Original CHARMM-GUI `.tgz` files |
-| `systems/` | Extracted CHARMM-GUI systems |
-| `metadata/archive_mapping.tsv` | Download-to-candidate mapping |
-| `metadata/qc_manifest.tsv` | QC table for sequence, topology, ions, and files |
-| `metadata/input_order_charmm_gui.png` | Upload-order screenshot |
-
-## Provenance Note
-
-The first LiD3-1 LiCl export had a split protein topology (`PROA` + `PROB`). It is preserved under `systems/replaced/` and `raw_archives/replaced/`. The canonical `systems/LiD3-1/` folder contains the corrected one-chain setup.
-
-## Handoff
-
-GROMACS-ready paths are listed in:
-
-`../../md/li_cl/ready_gromacs_systems.tsv`
+`LiD3-Core`, `LiD3-Flex`, `LiND-Hybrid`, `LiLC-1`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref`

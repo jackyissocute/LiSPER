@@ -7,7 +7,7 @@
 | No-peptide blank | Measures Li/Na loss to tubes, filters, and buffers. |
 | Buffer-only blank | Detects Li/Na contamination. |
 | His6-SUMO-only or empty vector purification control | Measures tag/SUMO/resin background. |
-| Control-Negative LiSPER | Sequence-related negative control. |
+| LiA3-Ref LiSPER | Sequence-related negative control. |
 | SUMO protease blank | Detects protease and cleavage-buffer interference. |
 | Li-only condition | Tests lithium association without sodium. |
 | Na-only condition | Tests nonspecific sodium association. |
@@ -28,7 +28,7 @@
 | Recovery | peptide lost | wrong filter/resin/tube adsorption | avoid MWCO mismatch; collect all flow-through |
 | QC | no peptide visible | peptide too small for gel | use MS/HPLC |
 | Binding assay | high Li loss in blank | tube/filter adsorption or precipitation | change plasticware; run no-cell/no-peptide controls |
-| Binding assay | high Na binding | nonspecific electrostatics | compare Control-Negative; adjust buffer/ionic strength |
+| Binding assay | high Na binding | nonspecific electrostatics | compare LiA3-Ref; adjust buffer/ionic strength |
 | Analysis | poor mass balance | separation/sample prep artifact | measure wash and pellet fractions |
 
 ## Decision Rules
@@ -37,7 +37,7 @@ Do not interpret binding data unless:
 
 - peptide prep has some identity/QC evidence,
 - no-peptide blank is acceptable,
-- Control-Negative is included,
+- LiA3-Ref is included,
 - Li and Na measurements are within analytical range,
 - sample handling is consistent across candidates.
 

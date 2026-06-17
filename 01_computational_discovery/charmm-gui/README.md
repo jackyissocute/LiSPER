@@ -1,52 +1,24 @@
-# CHARMM-GUI Systems
+# CHARMM-GUI
 
-This folder stores CHARMM-GUI Solution Builder outputs for the paired LiSPER ion systems.
+This folder will store CHARMM-GUI Solution Builder outputs for the active 8-candidate LiSPER library.
 
-```mermaid
-flowchart TD
-    accTitle: CHARMM-GUI System Setup
-    accDescr: ESMFold peptide structures are prepared in CHARMM-GUI as parallel LiCl and NaCl GROMACS systems for remote molecular dynamics.
+## Current State
 
-    pdb["ESMFold<br/>PDB"]
-    builder["CHARMM-GUI<br/>Solution Builder"]
-    li_system["LiCl<br/>system"]
-    na_system["NaCl<br/>system"]
-    inputs["GROMACS<br/>inputs"]
-    remote_md["Remote<br/>MD"]
+The old 10-candidate CHARMM-GUI outputs were archived under:
 
-    pdb --> builder
-    builder --> li_system
-    builder --> na_system
-    li_system --> inputs
-    na_system --> inputs
-    inputs --> remote_md
-```
+`archive/legacy_10_candidate_library/01_computational_discovery/charmm-gui/`
 
-## Organized Conditions
+The active 8-candidate CHARMM-GUI stage has not started yet. It should begin only after ESMFold PDBs are prepared in:
 
-| Condition | Folder | QC Status | MD Status |
-|---|---|---|---|
-| LiCl | `li_cl/` | 10/10 ready | Minimization and equilibration complete |
-| NaCl | `na_cl/` | 10/10 ready | Minimization and equilibration complete |
+`01_computational_discovery/esmfold/charmm_gui_pdb/`
 
-## Shared Setup
+## Conditions
 
-| Setting | Value |
-|---|---|
-| Force field | CHARMM36m |
-| Water model | TIP3P |
-| Box setup | Cubic, 20 A padding |
-| Li+ residue name | `LIT` |
-| Na+ residue name | `SOD` |
-| Cl- residue name | `CLA` |
+| Condition | Status | Next action |
+|---|---|---|
+| LiCl | Awaiting revised ESMFold PDBs | Upload each safe PDB to CHARMM-GUI Solution Builder |
+| NaCl | Awaiting revised ESMFold PDBs | Build matched NaCl systems after LiCl setup logic is confirmed |
 
-## Folder Pattern
+## Reuse Note
 
-| Path | Contents |
-|---|---|
-| `<condition>/raw_archives/` | Original CHARMM-GUI `.tgz` downloads, renamed by candidate |
-| `<condition>/systems/` | Extracted CHARMM-GUI output, one folder per candidate |
-| `<condition>/metadata/` | Archive mapping, upload order, and QC manifest |
-| `<condition>/systems/replaced/` | Preserved superseded setup folders |
-
-Mixed Li+/Na+ competition systems are intentionally excluded from the first-round PMF workflow. The first comparison uses separate LiCl and NaCl systems.
+`LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` are sequence-identical to legacy candidates. Their old CHARMM-GUI materials may be used as provenance or emergency fallback, but the active workflow should prefer regenerated systems from the final 8-candidate ESMFold intake.

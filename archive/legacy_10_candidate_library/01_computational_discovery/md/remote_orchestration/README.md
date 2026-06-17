@@ -1,0 +1,124 @@
+# Remote GROMACS Orchestration
+
+This folder preserves the Python and shell scripts used to run LiSPER molecular-dynamics work on the AutoDL remote computer.
+
+The scripts are copied from:
+
+```text
+/root/LiSPER_remote
+```
+
+They are kept here so the repository records not only the scientific outputs, but also the computational workflow used to generate them.
+
+## Organization Choice
+
+The scripts are stored in one shared `remote_orchestration/` folder instead of being duplicated under `li_cl/` and `na_cl/`.
+
+This is intentional:
+
+- `li_cl/` and `na_cl/` should stay focused on scientific inputs, logs, summaries, and results.
+- `remote_orchestration/` should hold reusable code that can operate on either condition.
+- The active condition is selected with `LISPER_WORKDIR`, so one script can run LiCl or NaCl without maintaining duplicate files.
+
+This keeps the repository closer to a real computational project: code is reusable, results are condition-specific, and remote execution history remains easy to audit.
+
+For upload/download paths, use [`SYNC_PATHS.md`](SYNC_PATHS.md). It maps the active remote workdirs to the reorganized local repository folders.
+
+## Execution Model
+
+The remote workflow is controlled by lightweight Python orchestration scripts. These scripts do not replace GROMACS. Instead, they:
+
+1. Read candidate manifests and status summaries.
+2. Prepare clean working folders for each peptide system.
+3. Repair simple CHARMM-GUI/GROMACS setup issues when possible.
+4. Generate or update `.mdp` and index files.
+5. Launch GROMACS commands through `subprocess`.
+6. Write per-step logs and summary TSV files.
+7. Queue later stages with `WAIT_FOR_PID` so long jobs run sequentially.
+
+Typical remote launch pattern:
+
+```bash
+cd /root/LiSPER_remote
+nohup env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_LiCl \
+  python3 /root/LiSPER_remote/run_lisper_production_cluster.py \
+  > /root/LiSPER_remote/LiSPER_LiCl/remote_runs/licl_production_cluster_20ns.log 2>&1 &
+```
+
+The active GROMACS environment is:
+
+```bash
+source /root/miniconda3/etc/profile.d/conda.sh
+conda activate lisper-gmx
+```
+
+Examples:
+
+```bash
+# LiCl minimization
+env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_LiCl \
+  python3 run_lisper_minimize.py
+
+# NaCl minimization with the same script
+env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_NaCl \
+  python3 run_lisper_minimize.py
+```
+
+## Script Inventory
+
+| Script | Role |
+|---|---|
+| `scripts/run_lisper_minimize.py` | Shared LiCl/NaCl minimization driver. Reads `ready_gromacs_systems.tsv`, repairs overlapping TIP3 waters when possible, runs `gmx grompp` and `gmx mdrun`, and writes minimization summaries. Uses `LISPER_WORKDIR`. |
+| `scripts/run_lisper_equilibrate.py` | Shared LiCl/NaCl equilibration driver. Builds `SOLU`, `SOLV`, and `SYSTEM` index groups, runs step4.1 equilibration, and writes equilibration summaries. Uses `LISPER_WORKDIR`. |
+| `scripts/run_lisper_production_cluster.py` | Shared LiCl/NaCl 20 ns production and clustering driver. Uses `LISPER_WORKDIR`, runs production MD, then attempts trajectory centering and `gmx cluster`. |
+| `scripts/repair_completed_clustering.py` | Repaired peptide-only clustering driver for completed trajectories whose full-system `trjconv` handoff failed. Writes to `cluster_20ns_repair/` without overwriting original failed diagnostics. |
+| `scripts/queue_nacl_add2.py` | Handles the late-added revised NaCl `LiD3-1` and `StrongBind-Li` systems, then merges their summaries back into the full NaCl queue. Uses shared minimization/equilibration scripts through `LISPER_WORKDIR`. |
+| `scripts/run_lid31_pipeline.py` | Earlier focused LiD3-1 repair/minimization/equilibration pipeline used during the revised one-chain LiD3-1 setup. Uses `LISPER_WORKDIR` and `LISPER_CANDIDATE`. |
+| `scripts/start_equilibration.sh` | Small shell launcher for the equilibration script. Uses `LISPER_REMOTE_ROOT` and `LISPER_WORKDIR`. |
+
+## Current Caveats
+
+These are historical execution scripts copied from the remote machine. Some paths are intentionally remote-specific, especially:
+
+```text
+/root/LiSPER_remote
+/root/miniconda3
+```
+
+For local reuse, continue migrating hard-coded paths into command-line arguments or environment variables.
+
+The current production/clustering script exposed two useful lessons:
+
+- `LiD3-1` and `IDP-Li-1` production finished cleanly, but full-system clustering failed because the `SYSTEM` index did not match the trajectory atom count by one atom.
+- `LiND-1` production setup failed because the production working context could not resolve `toppar/forcefield.itp`.
+
+Those issues are post-processing/setup issues, not evidence that the completed MD trajectories are unusable. The repaired peptide-only clustering path successfully generated representative structures for `LiD3-1` and `IDP-Li-1`.
+
+## Scientific Handoff
+
+```mermaid
+flowchart TD
+    accTitle: Remote MD Orchestration
+    accDescr: Remote orchestration prepares GROMACS runs, executes production MD, centers trajectories, clusters structures, and exports representative PDB files.
+
+    systems["CHARMM-GUI<br/>systems"]
+    orchestration["Python<br/>orchestration"]
+    grompp["gmx<br/>grompp"]
+    mdrun["gmx<br/>mdrun"]
+    trajectory["20 ns<br/>trajectory"]
+    centering["Trajectory<br/>centering"]
+    clustering["gmx<br/>cluster"]
+    representative["Top-cluster<br/>PDB"]
+    umbrella["Umbrella<br/>setup"]
+
+    systems --> orchestration
+    orchestration --> grompp
+    grompp --> mdrun
+    mdrun --> trajectory
+    trajectory --> centering
+    centering --> clustering
+    clustering --> representative
+    representative --> umbrella
+```
+
+The next code improvement should be folding the peptide-only clustering logic back into the main production/clustering driver and fixing the topology include path issue before rerunning skipped candidates.

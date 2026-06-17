@@ -10,7 +10,7 @@ Use this file as the analysis specification for spreadsheets, notebooks, or scri
 | `date` | Experiment date. |
 | `operator` | Person performing assay. |
 | `candidate` | LiSPER candidate or control. |
-| `construct_type` | Candidate display, empty scaffold, non-display, Control-Negative, positive control. |
+| `construct_type` | Candidate display, empty scaffold, non-display, LiA3-Ref, positive control. |
 | `cell_format` | Live, fixed, heat-killed. |
 | `biological_replicate` | Independent culture number. |
 | `technical_replicate` | Technical replicate number. |
@@ -175,7 +175,7 @@ Acceptable pilot target:
 Primary comparisons:
 
 - Candidate vs empty eCPX scaffold.
-- Candidate vs Control-Negative peptide.
+- Candidate vs LiA3-Ref peptide.
 - Candidate vs non-displaying E. coli.
 
 Recommended tests:

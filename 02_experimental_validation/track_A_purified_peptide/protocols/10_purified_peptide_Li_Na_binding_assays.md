@@ -27,7 +27,7 @@ Compare Li and Na distribution between peptide-associated and free fractions. Th
 3. Incubate peptide and Li+.
 4. Separate free and peptide-associated Li using validated method.
 5. Measure Li by ICP-OES/ICP-MS or validated screening kit.
-6. Compare to no-peptide, SUMO-only, and Control-Negative controls.
+6. Compare to no-peptide, SUMO-only, and LiA3-Ref controls.
 
 ## Na-Only Assay
 
@@ -57,7 +57,7 @@ Suggested first matrix:
 
 A promising peptide shows:
 
-- Li binding above no-peptide and Control-Negative controls.
+- Li binding above no-peptide and LiA3-Ref controls.
 - Na binding low relative to Li.
 - Li enrichment in mixed Li+Na assays.
 

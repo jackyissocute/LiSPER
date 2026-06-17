@@ -51,14 +51,14 @@ Required construct classes:
 | Construct | Purpose |
 |---|---|
 | Empty eCPX scaffold | Scaffold/tag background. |
-| eCPX-Control-Negative LiSPER | Peptide-context negative control. |
+| eCPX-LiA3-Ref LiSPER | Peptide-context negative control. |
 | eCPX-LiSPER candidates | Candidate-specific selectivity. |
 | Positive lithium-binding peptide display, if available | Assay sensitivity reference. |
 | Non-displaying host | Native E. coli background. |
 
 Reviewer concern addressed:
 
-- Scaffold and tag effects are controlled only if empty scaffold and Control-Negative are built in the same display context.
+- Scaffold and tag effects are controlled only if empty scaffold and LiA3-Ref are built in the same display context.
 
 ## 2. Expression Strategy
 
@@ -139,7 +139,7 @@ Risk:
 
 Mitigation:
 
-- include non-displaying live cells, empty scaffold, Control-Negative, and fixed-cell comparison.
+- include non-displaying live cells, empty scaffold, LiA3-Ref, and fixed-cell comparison.
 
 ## 5. Fixed-Cell Workflow
 
@@ -209,7 +209,7 @@ Suggested conditions:
 
 Interpretation:
 
-- A useful display candidate enriches Li relative to the starting solution and relative to empty scaffold/Control-Negative.
+- A useful display candidate enriches Li relative to the starting solution and relative to empty scaffold/LiA3-Ref.
 
 ## 8. ICP-Based Quantification Workflow
 
@@ -253,7 +253,7 @@ selectivity_ratio = (Li_uptake / Na_uptake) / (Li_initial / Na_initial)
 Strong Track B evidence:
 
 - surface display verified,
-- Li uptake above non-displaying, empty scaffold, and Control-Negative controls,
+- Li uptake above non-displaying, empty scaffold, and LiA3-Ref controls,
 - low Na uptake,
 - Li/Na enrichment in mixed competition solution,
 - similar trend in live and fixed cells or a clear explanation for differences,
@@ -275,7 +275,7 @@ What Track B does not prove:
 | Concern | Required response |
 |---|---|
 | Scaffold binds lithium | Empty eCPX scaffold control. |
-| Tag binds lithium or sodium | Same tag in empty scaffold and Control-Negative; avoid metal-binding tags. |
+| Tag binds lithium or sodium | Same tag in empty scaffold and LiA3-Ref; avoid metal-binding tags. |
 | Cell surface binds ions | Non-displaying host control and killed/fixed controls. |
 | Binding is active transport | Compare live vs fixed cells. |
 | Candidate differences reflect display level | Measure flow cytometry display signal and normalize. |
@@ -298,9 +298,9 @@ What Track B does not prove:
 Start with:
 
 1. Empty scaffold.
-2. Control-Negative.
-3. LiD3-1.
-4. LiND-1.
-5. IDP-Li-1 or LowCharge-Li.
+2. LiA3-Ref.
+3. LiD3-Core.
+4. LiND-Hybrid.
+5. LiD3-Flex or LiLC-1.
 
-Do not begin with all 10 candidates unless staining, washing, separation, and quantification are already reliable.
+Do not begin with final 8 candidates unless staining, washing, separation, and quantification are already reliable.

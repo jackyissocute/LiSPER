@@ -1,48 +1,54 @@
 # Molecular Dynamics
 
-This folder tracks GROMACS work after CHARMM-GUI: minimization, equilibration, production MD, structural clustering, and handoff to umbrella sampling.
+This folder tracks GROMACS work for the active 8-candidate LiSPER library after ESMFold and CHARMM-GUI preparation.
+
+## Current State
+
+The old 10-candidate remote GROMACS workflow has been stopped and archived. Active 8-candidate MD has not started yet.
+
+| Condition | Folder | Current state |
+|---|---|---|
+| LiCl | `li_cl/` | Awaiting revised 8-candidate CHARMM-GUI systems |
+| NaCl | `na_cl/` | Awaiting revised 8-candidate CHARMM-GUI systems |
+
+Remote 8-candidate workspaces were initialized on AutoDL:
+
+| Condition | Remote workspace |
+|---|---|
+| LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
+| NaCl | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+
+Legacy 10-candidate remote workspaces were moved to:
+
+`/root/LiSPER_remote/legacy_10_candidate_runs/`
+
+## Workflow
 
 ```mermaid
 flowchart TD
-    accTitle: Molecular Dynamics Workflow
-    accDescr: GROMACS inputs from CHARMM-GUI are minimized, equilibrated, run through production MD, clustered, and prepared for umbrella sampling.
+    accTitle: Revised 8-Candidate MD Workflow
+    accDescr: The revised library restarts at ESMFold before CHARMM-GUI, minimization, equilibration, production MD, clustering, and PMF comparison.
 
-    inputs["CHARMM-GUI<br/>GROMACS inputs"]
-    minimization["Energy<br/>minimization"]
-    equilibration["Step4.1<br/>equilibration"]
-    production["20 ns<br/>production MD"]
-    clustering["Structural<br/>clustering"]
-    representatives["Representative<br/>structures"]
-    umbrella_setup["Umbrella<br/>setup"]
+    sequences["8 candidate sequences"]
+    esmfold["ESMFold intake"]
+    charmm["CHARMM-GUI LiCl/NaCl systems"]
+    minimization["Energy minimization"]
+    equilibration["Equilibration"]
+    production["20 ns production MD"]
+    clustering["Structural clustering"]
+    pmf["Umbrella sampling / PMF"]
 
-    inputs --> minimization
-    minimization --> equilibration
-    equilibration --> production
-    production --> clustering
-    clustering --> representatives
-    representatives --> umbrella_setup
+    sequences --> esmfold --> charmm --> minimization --> equilibration --> production --> clustering --> pmf
 ```
-
-## Conditions
-
-| Condition | Folder | Current State |
-|---|---|---|
-| LiCl | `li_cl/` | 10/10 equilibrated; 4 productions complete; `IDP-Li-2` running at 8.62 ns / 20 ns; 4 representatives ready |
-| NaCl | `na_cl/` | 10/10 minimized/equilibrated; production/clustering queued behind LiCl |
-
-Latest monitor snapshot: `2026-06-17 21:57 CST`.
 
 ## What Belongs Here
 
 | Sub-area | Purpose |
 |---|---|
-| `remote_orchestration/` | Python and shell scripts copied from the AutoDL machine; records how GROMACS jobs were launched, repaired, queued, and summarized |
-| `remote_runs/` | Remote scripts, logs, summaries, and status snapshots |
-| `remote_results/` | Synced GROMACS outputs from completed or monitored stages |
-| `ready_gromacs_systems.tsv` | Candidate/system index passed from CHARMM-GUI QC |
+| `remote_orchestration/` | Scripts and sync maps for the 8-candidate remote workflow |
+| `li_cl/remote_runs/` | LiCl launch/status logs for the 8-candidate workflow |
+| `li_cl/remote_results/` | Synced LiCl outputs for the 8-candidate workflow |
+| `na_cl/remote_runs/` | NaCl launch/status logs for the 8-candidate workflow |
+| `na_cl/remote_results/` | Synced NaCl outputs for the 8-candidate workflow |
 
-Keep Li+ and Na+ simulations separate until PMF comparison. This keeps Delta G(Li+) and Delta G(Na+) directly comparable.
-
-Remote upload/download path map: `remote_orchestration/SYNC_PATHS.md`.
-
-Detailed workflow note: `../../06_project_operations/docs/md_to_pmf_workflow.md`.
+Do not restart GROMACS until the active 8-candidate ESMFold and CHARMM-GUI inputs are ready.

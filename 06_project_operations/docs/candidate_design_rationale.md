@@ -24,30 +24,28 @@ flowchart LR
 
    Asp/Glu and backbone/side-chain oxygen donors may support Li+ coordination, but excessive negative charge may increase nonspecific Na+/Ca2+ binding.
 
-## Complete First-Round Library
+## Final 8-Candidate Library
 
 | Rank | Name | Sequence | Main design logic | Prediction | Recommended start |
 | --- | --- | --- | --- | --- | --- |
-| 1 | LiD3-1 | GPGDPGSGPGDPGSGPGDP | Uses the best literature motif GPGDP, repeated 3x, with Gly/Ser flexibility. | Best first candidate | Yes |
-| 2 | LiND-1 | GPGNPGSGPGDPGSGPGNP | Combines original LBP GPGNP with improved GPGDP. | Balanced affinity/selectivity | Yes |
-| 3 | IDP-Li-1 | SGDSGPGDPGDSG | IDP-like flexible acidic shell around GPGDP. | Good Li+ binding, moderate selectivity | Yes |
-| 4 | IDP-Li-2 | GDSGSGPGDPGSGDS | More symmetric disordered binding pocket. | Good screening candidate | No |
-| 5 | LowCharge-Li | GPGDPGSGNPGSGDP | Lower negative charge to avoid nonspecific Na+/Ca2+ binding. | Better selectivity risk-control | Yes |
-| 6 | LiD2-IDP | GPGDPGSDGSGPGDP | Two GPGDP motifs plus IDP acidic spacer. | Strong but not overcharged | No |
-| 7 | StrongBind-Li | GPGDPGSDGPGDPGSD | Higher Asp density for stronger Li+ capture. | High affinity, lower selectivity risk | No |
-| 8 | SoftCage-Li | GSGDPGNGDPGSG | Short flexible oxygen-rich Li+ cage. | Small, cheap, easy to test | No |
-| 9 | IDP-Rich-Li | DSGDSGPGDPGDSGS | More IDP-like, many carboxylate/Ser donors. | Strong binding, may bind other metals | No |
-| 10 | Control-Negative | GPGAPGSGPGAPGSGPGAP | Literature-related weak/neutral control. | Should bind Li+ weaker | Yes |
+| 1 | LiD3-Core | GPGDPGPGDPGPGDP | Linker-free GPGDP trimer based on the Korean Pep-D3 benchmark. | Strong compact benchmark | Yes |
+| 2 | LiD3-Flex | GPGDPGSGPGDPGSGPGDP | Flexible GSG-spaced GPGDP trimer retained from the old library. | Strong flexible candidate | Yes |
+| 3 | LiND-Hybrid | GPGNPGSGPGDPGSGPGNP | Mixed GPGNP/GPGDP donor environment retained from the old library. | Balanced affinity/selectivity | Yes |
+| 4 | LiLC-1 | GPGDPGSGNPGSGDP | Lower-charge mixed-donor control retained from the old library. | Selectivity risk-control | Yes |
+| 5 | LiDS-1 | DGDGPGDPGDG | Asp/Gly spacing probe for compact oxygen-donor geometry. | Mechanistic Li+/Na+ geometry probe | No |
+| 6 | LiDA-1 | DADGPGDPDAG | Ala-supported Asp pocket probe for partial preorganization. | Mechanistic pocket probe | No |
+| 7 | LiN3-Core | GPGNPGPGNPGPGNP | Linker-free GPGNP trimer benchmark. | Neutral-amide benchmark | No |
+| 8 | LiA3-Ref | GPGAPGPGAPGPGAP | Low-donor GPGAP trimer reference. | Weak reference baseline | Yes |
 
 ## Recommended Initial Subset
 
-- LiD3-1
-- LiND-1
-- IDP-Li-1
-- LowCharge-Li
-- Control-Negative
+- LiD3-Core
+- LiD3-Flex
+- LiND-Hybrid
+- LiLC-1
+- LiA3-Ref
 
-This subset balances one strong literature-motif repeat design, one mixed-motif design, one IDP-shell design, one selectivity risk-control design, and one negative control.
+This subset balances a compact GPGDP benchmark, a flexible GPGDP design, a mixed-motif design, a lower-charge risk-control design, and a low-donor reference.
 
 ## Screening Principle
 
@@ -65,5 +63,5 @@ More negative Delta Delta G values indicate stronger lithium preference.
 |---|---|
 | Strong Li+ PMF, weak Na+ PMF | Desired lithium selectivity |
 | Strong Li+ and strong Na+ PMFs | Nonspecific ion binding risk |
-| Weak Li+ and weak Na+ PMFs | Poor binder or useful negative-control behavior |
+| Weak Li+ and weak Na+ PMFs | Poor binder or useful low-donor reference behavior |
 | Low top-cluster population | Highly disordered ensemble; may require multiple representatives |

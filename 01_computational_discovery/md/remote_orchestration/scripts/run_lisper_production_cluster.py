@@ -6,7 +6,7 @@ import shutil
 import subprocess
 import time
 
-ROOT = Path(os.environ.get("LISPER_WORKDIR", "/root/LiSPER_remote/LiSPER_LiCl"))
+ROOT = Path(os.environ.get("LISPER_WORKDIR", "/root/LiSPER_remote/LiSPER_8cand_LiCl"))
 GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
 NTHREAD = int(os.environ.get("LISPER_NTHREAD", "16"))
 NPROD_STEPS = int(os.environ.get("LISPER_PROD_STEPS", "10000000"))  # 20 ns at 2 fs

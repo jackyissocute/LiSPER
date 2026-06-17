@@ -54,7 +54,7 @@ Track A is essential for attribution to the peptide sequence itself. Track B is 
 LiSPER peptide -> binds Li+ -> preferentially over Na+
 ```
 
-Track A starts from the existing His6-SUMO-LiSPER plasmids and ends with purified or recovered peptide Li+/Na+ binding data.
+Track A will start from regenerated His6-SUMO-LiSPER plasmids after the final 8-candidate library is carried through ESMFold and codon-optimization review.
 
 ### What Track A Proves
 
@@ -148,7 +148,7 @@ Attribution is more complex. Apparent Li binding could come from:
 - active transport or live-cell physiology,
 - local avidity from display geometry.
 
-Therefore Track B requires matched controls: non-displaying cells, empty eCPX scaffold, Control-Negative display, live/fixed comparisons, and display-level normalization.
+Therefore Track B requires matched controls: non-displaying cells, empty eCPX scaffold, `LiA3-Ref`-style low-donor reference display, live/fixed comparisons, and display-level normalization.
 
 ### Track B Resources
 
@@ -173,7 +173,7 @@ Therefore Track B requires matched controls: non-displaying cells, empty eCPX sc
 | Cost drivers | Expression, purification, SUMO protease, MS/ICP | Antibodies, flow cytometry, ICP, cell controls |
 | Main risk | Technical recovery failure mistaken for peptide failure | Background cell/scaffold binding mistaken for LiSPER binding |
 | Reviewer acceptance | Strong if peptide identity, purity, and controls are clear | Strong if display, scaffold, tag, and cell controls are rigorous |
-| Best first subset | Control-Negative plus 2-4 top candidates | Empty scaffold, Control-Negative, 2-4 top candidates |
+| Best first subset | `LiA3-Ref` plus 2-4 top candidates | Empty scaffold, `LiA3-Ref`, 2-4 top candidates |
 | Key readout | Li/Na binding by purified peptide | Whole-cell Li/Na uptake normalized by cells and display level |
 
 ---
@@ -232,8 +232,8 @@ A strong manuscript package would include:
 
 - computational candidate-design rationale,
 - MD/PMF ranking for Li+ vs Na+,
-- Track A data for top candidates plus Control-Negative,
-- Track B surface-display evidence for top candidates plus empty scaffold and Control-Negative,
+- Track A data for top candidates plus `LiA3-Ref`,
+- Track B surface-display evidence for top candidates plus empty scaffold and `LiA3-Ref`,
 - clear discussion of what each route proves and does not prove.
 
 Appropriate claims:

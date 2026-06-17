@@ -1,55 +1,35 @@
 # ESMFold
 
-This folder stores structure-prediction outputs used as starting conformations for CHARMM-GUI.
+This folder stores structure-prediction outputs for the active 8-candidate LiSPER library.
 
-```mermaid
-flowchart TD
-    accTitle: ESMFold Preparation Flow
-    accDescr: Candidate sequences are folded with ESMFold, validated as PDB files, and renamed for reliable CHARMM-GUI upload.
+## Current State
 
-    fasta["candidates.fasta"]
-    esmfold["ESMFold"]
-    raw_zip["Raw zip<br/>downloads"]
-    pdbs["Validated<br/>PDBs"]
-    upload_names["CHARMM-GUI<br/>safe names"]
+The 8-candidate library has been locked, and the workflow is waiting for the new ESMFold result zip files. Upload those zip files into the repository-level `inbox/` folder first.
 
-    fasta --> esmfold
-    esmfold --> raw_zip
-    raw_zip --> pdbs
-    pdbs --> upload_names
-```
+Three revised candidates are sequence-identical to legacy candidates and may reuse old ESMFold outputs if needed:
+
+| Revised candidate | Legacy candidate |
+|---|---|
+| `LiD3-Flex` | `LiD3-1` |
+| `LiND-Hybrid` | `LiND-1` |
+| `LiLC-1` | `LowCharge-Li` |
+
+The remaining five candidates require new ESMFold outputs.
 
 ## Layout
 
 | Path | Contents |
 |---|---|
-| `raw_zips/` | Original downloaded ESMFold zip files |
-| `runs/` | Canonical extracted run folder for each candidate |
-| `pdb/` | Flat PDB collection by candidate |
-| `charmm_gui_pdb/` | Upload-safe lowercase alphanumeric PDB names |
+| `inputs/` | Active 8-candidate FASTA and metadata |
+| `raw_zips/` | Incoming ESMFold zip files after inbox triage |
+| `runs/` | Extracted run folder for each candidate |
+| `pdb/` | Candidate-named PDB collection |
+| `charmm_gui_pdb/` | Upload-safe lowercase PDB names |
 | `pae/` | Predicted aligned error matrices |
 | `plots/` | ESMFold confidence plots |
-| `manifest.tsv` | Sequence/file validation manifest |
+| `manifest.tsv` | Intake and validation status |
+| `reuse_map.tsv` | Legacy ESMFold outputs that may be reused |
 
-## CHARMM-GUI Handoff
+## Next Step
 
-Upload from `charmm_gui_pdb/`, not from arbitrary downloaded filenames. These files avoid hyphens, spaces, underscores, and mixed capitalization.
-
-| Candidate | Upload File |
-|---|---|
-| LiD3-1 | `lid31.pdb` |
-| LiND-1 | `lind1.pdb` |
-| IDP-Li-1 | `idpli1.pdb` |
-| IDP-Li-2 | `idpli2.pdb` |
-| LowCharge-Li | `lowchargeli.pdb` |
-| LiD2-IDP | `lid2idp.pdb` |
-| StrongBind-Li | `strongbindli.pdb` |
-| SoftCage-Li | `softcageli.pdb` |
-| IDP-Rich-Li | `idprichli.pdb` |
-| Control-Negative | `controlnegative.pdb` |
-
-## Validation Notes
-
-All 10 ESMFold outputs were decompressed into canonical run folders, and each PDB sequence matched `../sequences/candidates.tsv`.
-
-Low pTM is expected for short flexible peptides and should not be interpreted as a final design score. These structures are starting points; selectivity is evaluated through MD, clustering, umbrella sampling, PMF, and Delta Delta G.
+After the 8 ESMFold zip files are uploaded, validate sequence identity, normalize PDB filenames for CHARMM-GUI, and update `manifest.tsv`.

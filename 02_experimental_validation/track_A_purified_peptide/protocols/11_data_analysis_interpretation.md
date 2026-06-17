@@ -7,7 +7,7 @@
 | Peptide prep | candidate, prep date, concentration estimate, QC status |
 | Assay condition | buffer, pH, temperature, time, Li, Na |
 | Measurement | Li free, Na free, bound/recovered fraction if available |
-| Controls | no peptide, SUMO-only, Control-Negative, buffer blank |
+| Controls | no peptide, SUMO-only, LiA3-Ref, buffer blank |
 | Replicates | biological and technical replicate IDs |
 
 ## Core Formulas
@@ -34,7 +34,7 @@ Normalize binding by:
 - peptide mass or molar amount,
 - assay volume,
 - peptide prep,
-- background from Control-Negative,
+- background from LiA3-Ref,
 - background from no-peptide blank.
 
 ## Interpretation Criteria
@@ -44,7 +44,7 @@ Strong evidence:
 - peptide identity confirmed,
 - Li binding above controls,
 - Na binding low,
-- Li/Na selectivity greater than Control-Negative,
+- Li/Na selectivity greater than LiA3-Ref,
 - reproducible across independent peptide preparations.
 
 Ambiguous evidence:
@@ -56,7 +56,7 @@ Ambiguous evidence:
 
 Negative evidence:
 
-- candidate matches Control-Negative and no-peptide controls,
+- candidate matches LiA3-Ref and no-peptide controls,
 - no reproducible Li binding,
 - apparent selectivity caused by Na measurement artifact.
 

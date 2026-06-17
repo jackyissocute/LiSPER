@@ -2,6 +2,10 @@
 
 This stage contains the in silico LiSPER discovery workflow: candidate sequences, structure prediction, CHARMM-GUI system construction, GROMACS simulations, umbrella sampling, PMF analysis, data, and analysis outputs.
 
+## Current State
+
+The active computational library is the final **8-candidate** panel in `sequences/candidates.tsv`. The previous 10-candidate ESMFold, CHARMM-GUI, and MD materials were archived after the design update. Active work now restarts at ESMFold intake before new matched LiCl/NaCl CHARMM-GUI and GROMACS runs.
+
 ```mermaid
 flowchart TD
     accTitle: Computational Discovery Folders

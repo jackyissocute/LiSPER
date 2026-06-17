@@ -1,0 +1,9 @@
+revised_candidate	legacy_candidate	sequence_identical	reuse_level	notes
+LiD3-Core		none	new_required	New linker-free GPGDP trimer; no old exact match.
+LiD3-Flex	LiD3-1	yes	esmfold_charmm_md_possible	Same amino-acid sequence as old LiD3-1.
+LiND-Hybrid	LiND-1	yes	esmfold_charmm_md_possible	Same amino-acid sequence as old LiND-1.
+LiLC-1	LowCharge-Li	yes	esmfold_charmm_possible	Same amino-acid sequence as old LowCharge-Li; old production had not completed.
+LiDS-1		none	new_required	New Asp-spacing geometry probe.
+LiDA-1		none	new_required	New Ala-supported Asp pocket.
+LiN3-Core		none	new_required	New no-linker GPGNP trimer.
+LiA3-Ref	Control-Negative	no	new_required	Replaces the control concept but sequence differs from old Control-Negative.

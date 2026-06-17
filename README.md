@@ -33,9 +33,9 @@ The repository now follows a clear program model:
 
 | What LiSPER is | Why it matters | Current focus |
 |---|---|---|
-| Lithium-selective peptide library | Li+/Na+ separation is central to lithium recovery | MD, clustering, PMF ranking |
-| Computational discovery engine | Prioritizes candidates before wet-lab cost | LiCl vs NaCl free-energy comparison |
-| Experimental validation program | Converts predictions into measurable assays | His6-SUMO peptide expression strategy |
+| Lithium-selective peptide library | Li+/Na+ separation is central to lithium recovery | Final 8-candidate intake |
+| Computational discovery engine | Prioritizes candidates before wet-lab cost | ESMFold then LiCl/NaCl rebuild |
+| Experimental validation program | Converts predictions into measurable assays | Waiting for final codon/plasmid designs |
 | Bio-DLE translation roadmap | Connects molecular recognition to process design | Immobilized peptide capture concepts |
 
 ## 🎯 Scientific thesis
@@ -113,18 +113,18 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live project control panel.** This cover-page dashboard compresses the active LiSPER workflow into two views: a process matrix and a remaining-time horizon. Detailed logs remain in the linked MD status files so the README stays readable.
+> **Live project control panel.** The active project has been reset around the final 8-candidate LiSPER library. The previous 10-candidate GROMACS work has been stopped and archived; reusable sequence-identical assets are preserved as provenance, but new active work restarts from ESMFold intake.
 >
-> ![Computational discovery](https://img.shields.io/badge/Phase_I-computational_discovery_active-2563eb)
-> ![Remote MD](https://img.shields.io/badge/remote_MD-LiND--1_running-0f766e)
-> ![NaCl queue](https://img.shields.io/badge/NaCl_queue-waiting-f59e0b)
-> ![PMF](https://img.shields.io/badge/PMF-planned-0f766e)
+> ![Candidate library](https://img.shields.io/badge/final_library-8_candidates-2563eb)
+> ![ESMFold](https://img.shields.io/badge/ESMFold-awaiting_uploads-f59e0b)
+> ![Remote MD](https://img.shields.io/badge/remote_MD-paused_archived-64748b)
+> ![PMF](https://img.shields.io/badge/PMF-after_new_MD-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-17 21:57 CST`
+**Last synchronized monitor snapshot:** `2026-06-18 00:45 CST`
 
 ### Process matrix
 
@@ -142,9 +142,9 @@ flowchart TD
     <tr>
       <td rowspan="3"><strong>Program roadmap</strong></td>
       <td>Phase I computational discovery</td>
-      <td><code>🟦🟦🟦🟦🟦🟦🟦⬜⬜⬜</code> 70%</td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-2563eb"></td>
-      <td>ΔΔG ranking</td>
+      <td><code>🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜</code> reset active</td>
+      <td><img alt="active reset" src="https://img.shields.io/badge/active-8_candidate_restart-2563eb"></td>
+      <td>ESMFold intake</td>
     </tr>
     <tr>
       <td>Phase II experimental validation</td>
@@ -161,52 +161,52 @@ flowchart TD
     <tr>
       <td rowspan="4"><strong>System preparation</strong></td>
       <td>Candidate library</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 10/10</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8/8</td>
       <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>Library locked</td>
+      <td>Final 8 locked</td>
     </tr>
     <tr>
       <td>ESMFold structures</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 10/10</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>MD starting models</td>
+      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 reusable / 8 pending intake</td>
+      <td><img alt="awaiting upload" src="https://img.shields.io/badge/waiting-ESMFold_zips-f59e0b"></td>
+      <td>Validate final 8 PDBs</td>
     </tr>
     <tr>
       <td>CHARMM-GUI systems</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 20/20</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>LiCl + NaCl ready</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 pairs</td>
+      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_ESMFold-64748b"></td>
+      <td>LiCl + NaCl systems</td>
     </tr>
     <tr>
       <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> 20/20</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>Production-ready</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 pairs</td>
+      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_CHARMM--GUI-64748b"></td>
+      <td>Production-ready states</td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
-      <td><code>🟦🟦🟦🟦🟦⬜⬜⬜⬜⬜</code> 4 complete + 1 active</td>
-      <td><img alt="IDP-Li-2 running" src="https://img.shields.io/badge/IDP--Li--2-8.62_ns_%2F_20_ns-2563eb"></td>
-      <td><a href="01_computational_discovery/md/li_cl/remote_runs/remote_status.md">LiCl status</a></td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> paused</td>
+      <td><img alt="paused" src="https://img.shields.io/badge/paused-awaiting_new_systems-64748b"></td>
+      <td><a href="01_computational_discovery/md/li_cl/">LiCl workspace</a></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟪🟪🟪🟪⬜⬜⬜⬜⬜⬜</code> 4/10 representatives</td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-7c3aed"></td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 representatives</td>
+      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_20_ns_MD-64748b"></td>
       <td>Representative set</td>
     </tr>
     <tr>
       <td><strong>NaCl branch</strong></td>
       <td>Production + clustering</td>
-      <td><code>🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> queued</td>
-      <td><img alt="queued" src="https://img.shields.io/badge/queued-after_LiCl-f59e0b"></td>
-      <td><a href="01_computational_discovery/md/na_cl/remote_runs/remote_status.md">NaCl status</a></td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> paused</td>
+      <td><img alt="pending" src="https://img.shields.io/badge/pending-matched_new_systems-64748b"></td>
+      <td><a href="01_computational_discovery/md/na_cl/">NaCl workspace</a></td>
     </tr>
     <tr>
       <td><strong>Free energy</strong></td>
       <td>Umbrella sampling + PMF</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> planned</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> planned</td>
       <td><img alt="planned" src="https://img.shields.io/badge/planned-after_representatives-0f766e"></td>
       <td>ΔG and ΔΔG</td>
     </tr>
@@ -219,92 +219,76 @@ flowchart TD
   <thead>
     <tr>
       <th>Protein</th>
-      <th>Setup</th>
-      <th>LiCl production</th>
-      <th>LiCl clustering</th>
-      <th>NaCl branch</th>
+      <th>ESMFold</th>
+      <th>CHARMM-GUI</th>
+      <th>LiCl MD</th>
+      <th>NaCl MD</th>
       <th>Free-energy gate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>LiD3-1</strong></td>
-      <td>✅ complete</td>
-      <td>✅ 20 ns</td>
-      <td>✅ representative<br><sub>top cluster 15.69%</sub></td>
-      <td>⏳ queued</td>
+      <td><strong>LiD3-Core</strong></td>
+      <td>⏳ new upload</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>LiND-1</strong></td>
-      <td>✅ complete</td>
-      <td>✅ 20 ns</td>
-      <td>✅ representative<br><sub>top cluster 2.40%</sub></td>
-      <td>⏳ queued</td>
+      <td><strong>LiD3-Flex</strong></td>
+      <td>🟨 reusable legacy<br><sub>same sequence as old LiD3-1</sub></td>
+      <td>⏳ regenerate preferred</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>IDP-Li-1</strong></td>
-      <td>✅ complete</td>
-      <td>✅ 20 ns</td>
-      <td>✅ representative<br><sub>top cluster 7.00%</sub></td>
-      <td>⏳ queued</td>
+      <td><strong>LiND-Hybrid</strong></td>
+      <td>🟨 reusable legacy<br><sub>same sequence as old LiND-1</sub></td>
+      <td>⏳ regenerate preferred</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>IDP-Li-2</strong></td>
-      <td>✅ complete</td>
-      <td>▶️ running<br><sub>8.62 ns / 20 ns</sub></td>
-      <td>⏳ next</td>
-      <td>⏳ queued</td>
+      <td><strong>LiLC-1</strong></td>
+      <td>🟨 reusable legacy<br><sub>same sequence as old LowCharge-Li</sub></td>
+      <td>⏳ regenerate preferred</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>LowCharge-Li</strong></td>
-      <td>✅ complete</td>
-      <td>🔁 rerun queued</td>
-      <td>⏳ waiting</td>
-      <td>⏳ queued</td>
+      <td><strong>LiDS-1</strong></td>
+      <td>⏳ new upload</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>LiD2-IDP</strong></td>
-      <td>✅ complete</td>
-      <td>🔁 rerun queued</td>
-      <td>⏳ waiting</td>
-      <td>⏳ queued</td>
+      <td><strong>LiDA-1</strong></td>
+      <td>⏳ new upload</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>StrongBind-Li</strong></td>
-      <td>✅ complete</td>
-      <td>✅ 20 ns</td>
-      <td>✅ representative<br><sub>top cluster 3.45%</sub></td>
-      <td>⏳ queued</td>
+      <td><strong>LiN3-Core</strong></td>
+      <td>⏳ new upload</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
-      <td><strong>SoftCage-Li</strong></td>
-      <td>✅ complete</td>
-      <td>⏳ queued</td>
-      <td>⏳ waiting</td>
-      <td>⏳ queued</td>
-      <td>⏳ PMF pending</td>
-    </tr>
-    <tr>
-      <td><strong>IDP-Rich-Li</strong></td>
-      <td>✅ complete</td>
-      <td>⏳ queued</td>
-      <td>⏳ waiting</td>
-      <td>⏳ queued</td>
-      <td>⏳ PMF pending</td>
-    </tr>
-    <tr>
-      <td><strong>Control-Negative</strong></td>
-      <td>✅ complete</td>
-      <td>⏳ queued</td>
-      <td>⏳ waiting</td>
-      <td>⏳ queued</td>
+      <td><strong>LiA3-Ref</strong></td>
+      <td>⏳ new upload</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
+      <td>⏳ pending</td>
       <td>⏳ PMF pending</td>
     </tr>
   </tbody>
@@ -322,61 +306,59 @@ flowchart TD
   </thead>
   <tbody>
     <tr>
-      <td><strong>Active IDP-Li-2 LiCl production</strong></td>
-      <td align="center"><strong><code>~9-12 hours</code></strong><br><sub>current run</sub></td>
-      <td>Finish the current 20 ns production and hand off to clustering.</td>
+      <td><strong>ESMFold intake for final 8</strong></td>
+      <td align="center"><strong><code>waiting on upload</code></strong><br><sub>current gate</sub></td>
+      <td>Place the 8 ESMFold result zip files in `inbox/`, then validate and normalize PDBs.</td>
     </tr>
     <tr>
-      <td><strong>LiCl production + clustering set</strong></td>
-      <td align="center"><strong><code>~4-6 days</code></strong><br><sub>LiCl branch</sub></td>
-      <td>Complete repaired LiCl reruns, queued LiCl systems, and representatives.</td>
+      <td><strong>CHARMM-GUI LiCl/NaCl rebuild</strong></td>
+      <td align="center"><strong><code>after ESMFold</code></strong><br><sub>manual web step</sub></td>
+      <td>Build matched LiCl and NaCl systems for the 8 active candidates.</td>
     </tr>
     <tr>
-      <td><strong>NaCl production + clustering set</strong></td>
-      <td align="center"><strong><code>~10 additional days</code></strong><br><sub>NaCl branch</sub></td>
-      <td>Run matched NaCl production and clustering after LiCl releases the queue.</td>
+      <td><strong>LiCl + NaCl production/clustering</strong></td>
+      <td align="center"><strong><code>TBD after systems</code></strong><br><sub>CPU-only queue</sub></td>
+      <td>Restart GROMACS only from the final 8-candidate CHARMM-GUI systems.</td>
     </tr>
     <tr>
       <td><strong>PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>~3-7 days</code></strong><br><sub>after representatives</sub></td>
+      <td align="center"><strong><code>planned</code></strong><br><sub>after representatives</sub></td>
       <td>Build umbrella windows, run sampling, then perform WHAM/PMF QC.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~3-4 weeks total</code></strong><br><sub>first selectivity table</sub></td>
+      <td align="center"><strong><code>TBD</code></strong><br><sub>after restart timing</sub></td>
       <td>Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+).</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are CPU-only planning ranges from the current AutoDL/GROMACS pace. They will tighten after IDP-Li-2 completes and the corrected LiCl queue advances.
+> Time estimates are intentionally reset because the candidate library changed. They will become quantitative again after the final 8 ESMFold/CHARMM-GUI systems are available and the new GROMACS queue starts.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
-- `LiD3-1`, `LiND-1`, `IDP-Li-1`, and `StrongBind-Li` completed 20 ns LiCl production and now have peptide-only representative structures.
-- Their top-cluster populations are low (`15.69%`, `2.40%`, `7.00%`, and `3.45%`), which supports the IDP-like design hypothesis and argues for comparing additional representatives before relying on a single umbrella-sampling start.
-- `IDP-Li-2` is the active LiCl production run through the corrected topology-path workflow.
-- `LowCharge-Li` and `LiD2-IDP` were previously blocked by a topology include-path setup issue, not by peptide physics; corrected production logic is now advancing candidate by candidate.
+- The earlier 10-candidate MD queue was stopped because it no longer matches the final design library.
+- Legacy 10-candidate results remain archived for provenance and possible reuse checks.
+- `LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` are sequence-identical to old candidates, so their old structure/setup materials may be reused only when sequence identity and provenance are documented.
+- Active MD should not restart until the final 8 ESMFold PDBs and matched CHARMM-GUI LiCl/NaCl systems exist.
 
 </details>
 
 ## 🧪 Candidate library
 
-The first-round LiSPER library is intentionally small: enough sequence diversity to test the design logic, but compact enough for simulation and wet-lab follow-through.
+The active LiSPER library now contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Three candidates are exact sequence carries from the original library; five require new ESMFold inputs.
 
-| Rank | Candidate | Sequence | Design role | First subset |
-|---:|---|---|---|:---:|
-| 1 | **LiD3-1** | `GPGDPGSGPGDPGSGPGDP` | Repeated GPGDP motif | Yes |
-| 2 | **LiND-1** | `GPGNPGSGPGDPGSGPGNP` | Hybrid GPGNP/GPGDP motif | Yes |
-| 3 | **IDP-Li-1** | `SGDSGPGDPGDSG` | Flexible acidic shell | Yes |
-| 4 | **IDP-Li-2** | `GDSGSGPGDPGSGDS` | Symmetric disordered pocket | No |
-| 5 | **LowCharge-Li** | `GPGDPGSGNPGSGDP` | Lower-charge risk control | Yes |
-| 6 | **LiD2-IDP** | `GPGDPGSDGSGPGDP` | Dual motif with acidic spacer | No |
-| 7 | **StrongBind-Li** | `GPGDPGSDGPGDPGSD` | Higher Asp-density binder | No |
-| 8 | **SoftCage-Li** | `GSGDPGNGDPGSG` | Short oxygen-rich cage | No |
-| 9 | **IDP-Rich-Li** | `DSGDSGPGDPGDSGS` | Highly disordered acidic design | No |
-| 10 | **Control-Negative** | `GPGAPGSGPGAPGSGPGAP` | Weak/neutral control | Yes |
+| Rank | Candidate | Sequence | Design role | Intake status |
+|---:|---|---|---|---|
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | New ESMFold required |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Reusable from old LiD3-1 |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Reusable from old LiND-1 |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Reusable from old LowCharge-Li |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | New ESMFold required |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | New ESMFold required |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | New ESMFold required |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | New ESMFold required |
 
 ## ⚙️ Computational workflow
 
@@ -444,7 +426,7 @@ Phase II is designed to convert computational rankings into measurable biologica
 | **Track A: His6-SUMO fusion** | Expressible peptide production route | Soluble expression, purification, cleavage |
 | **Track B: surface display** | LiSPER as biological capture interface | Whole-cell Li capture and Na competition |
 
-The first experimental subset is `LiD3-1`, `LiND-1`, `IDP-Li-1`, `LowCharge-Li`, and `Control-Negative`.
+The first experimental subset will be chosen from the final 8-candidate computational ranking. A conservative early bench subset is expected to include `LiD3-Core`, `LiD3-Flex`, `LiND-Hybrid`, `LiLC-1`, and `LiA3-Ref`.
 
 ## 🏭 Industrial outlook
 

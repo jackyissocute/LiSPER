@@ -10,5 +10,5 @@ Before designing plasmids, use:
 - `../assays/surface_display_assays/construct_design_implications.md`
 - `../protocols/00_track_B_surface_display_protocol_overview.md`
 
-Future plasmid designs should support surface-expression verification, scaffold controls, tag controls, Control-Negative display, and LiSPER candidate display in matched contexts.
+Future plasmid designs should support surface-expression verification, scaffold controls, tag controls, LiA3-Ref display, and LiSPER candidate display in matched contexts.
 

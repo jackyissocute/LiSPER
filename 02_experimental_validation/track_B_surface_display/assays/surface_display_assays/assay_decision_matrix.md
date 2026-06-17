@@ -53,7 +53,7 @@
 
 Advance a LiSPER candidate from Level 1 to Level 2 if:
 
-- Li uptake is above empty eCPX and Control-Negative controls.
+- Li uptake is above empty eCPX and LiA3-Ref controls.
 - Na uptake is low in Na-only and mixed Li+Na conditions.
 - Display signal is detectable and not grossly toxic to cells.
 - Replicates agree qualitatively.

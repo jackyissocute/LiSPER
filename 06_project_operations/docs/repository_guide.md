@@ -58,18 +58,16 @@ Use candidate IDs exactly as listed in `01_computational_discovery/sequences/can
 
 | Rank | Candidate |
 |---:|---|
-| 1 | `LiD3-1` |
-| 2 | `LiND-1` |
-| 3 | `IDP-Li-1` |
-| 4 | `IDP-Li-2` |
-| 5 | `LowCharge-Li` |
-| 6 | `LiD2-IDP` |
-| 7 | `StrongBind-Li` |
-| 8 | `SoftCage-Li` |
-| 9 | `IDP-Rich-Li` |
-| 10 | `Control-Negative` |
+| 1 | `LiD3-Core` |
+| 2 | `LiD3-Flex` |
+| 3 | `LiND-Hybrid` |
+| 4 | `LiLC-1` |
+| 5 | `LiDS-1` |
+| 6 | `LiDA-1` |
+| 7 | `LiN3-Core` |
+| 8 | `LiA3-Ref` |
 
-Ion-specific folders should include the condition, for example `LiD3-1_LiCl` or `LiD3-1_NaCl`.
+Ion-specific folders should include the condition, for example `LiD3-Core_LiCl` or `LiD3-Core_NaCl`.
 
 ## Inbox Workflow
 
@@ -81,7 +79,7 @@ flowchart LR
     D --> E["README/status update"]
 ```
 
-The inbox now lives at `06_project_operations/inbox/` and should stay mostly empty after processing. Permanent project files should live in the relevant stage folder.
+The active inbox lives at repository-level `inbox/` and should stay mostly empty after processing. Permanent project files should live in the relevant stage folder.
 
 ## Design Logic
 
@@ -91,4 +89,4 @@ The first-round library links three ideas:
 - Gly/Ser/Pro-rich sequence design provides IDP-like flexibility.
 - Asp/Glu oxygen donors may coordinate ions, while limited charge reduces nonspecific binding risk.
 
-Every candidate is evaluated against both Li+ and Na+, including the negative control.
+Every candidate is evaluated against both Li+ and Na+, including the low-donor reference.
