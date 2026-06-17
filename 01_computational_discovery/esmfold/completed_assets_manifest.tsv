@@ -4,4 +4,6 @@ LiD3-Flex	LiD3-1	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl MD production/cluster
 LiND-Hybrid	LiND-1	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl MD production/clustering; NaCl min/eq	Completed assets are available under the final 8-candidate name.
 LiLC-1	LowCharge-Li	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl/NaCl min/eq; partial LiCl production setup	Completed upstream assets are available; LiCl production/clustering still needs completion.
 LiDS-1	final_upload	final	ESMFold	ESMFold PDB/PAE/plot available under the final candidate name.
+LiDA-1	final_upload	final	ESMFold	ESMFold PDB/PAE/plot available under the final candidate name.
 LiN3-Core	final_upload	final	ESMFold	ESMFold PDB/PAE/plot available under the final candidate name.
+LiA3-Ref	final_upload	final	ESMFold	ESMFold PDB/PAE/plot available under the final candidate name.

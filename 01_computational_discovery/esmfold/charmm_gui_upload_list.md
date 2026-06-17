@@ -1,6 +1,6 @@
 # CHARMM-GUI Upload List
 
-Six CHARMM-GUI-safe PDBs are already available under final names. Two more will be added after the remaining ESMFold uploads are processed.
+CHARMM-GUI-safe PDBs are available for all 8 final candidates.
 
 Upload-ready PDBs live in:
 
@@ -15,6 +15,6 @@ Expected safe filenames and current state:
 | `LiND-Hybrid` | `lindhybrid.pdb` | Done |
 | `LiLC-1` | `lilc1.pdb` | Done |
 | `LiDS-1` | `lids1.pdb` | Done |
-| `LiDA-1` | `lida1.pdb` | Pending |
+| `LiDA-1` | `lida1.pdb` | Done |
 | `LiN3-Core` | `lin3core.pdb` | Done |
-| `LiA3-Ref` | `lia3ref.pdb` | Pending |
+| `LiA3-Ref` | `lia3ref.pdb` | Done |

@@ -113,10 +113,10 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live project control panel.** The active LiSPER library contains 8 final candidates. Six candidates now have ESMFold assets under their final names; two candidates are waiting for new ESMFold intake.
+> **Live project control panel.** The active LiSPER library contains 8 final candidates. ESMFold intake is complete for all 8; three matched LiCl/NaCl CHARMM-GUI system pairs are already done, and five pairs remain.
 >
 > ![Candidate library](https://img.shields.io/badge/final_library-8_candidates-2563eb)
-> ![ESMFold](https://img.shields.io/badge/ESMFold-6_done_2_pending-f59e0b)
+> ![ESMFold](https://img.shields.io/badge/ESMFold-8_done-16a34a)
 > ![CHARMM-GUI](https://img.shields.io/badge/CHARMM--GUI-3_pairs_done-16a34a)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
@@ -144,7 +144,7 @@ flowchart TD
       <td>Phase I computational discovery</td>
       <td><code>🟦🟦🟦⬜⬜⬜⬜⬜⬜⬜</code> active</td>
       <td><img alt="active" src="https://img.shields.io/badge/active-8_candidate_program-2563eb"></td>
-      <td>Finish final structure intake</td>
+      <td>Complete remaining CHARMM-GUI systems</td>
     </tr>
     <tr>
       <td>Phase II experimental validation</td>
@@ -167,9 +167,9 @@ flowchart TD
     </tr>
     <tr>
       <td>ESMFold structures</td>
-      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> 6/8 done</td>
-      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-2_uploads_pending-f59e0b"></td>
-      <td>Validate final 8 PDBs</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8/8 done</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
+      <td>CHARMM-GUI upload set ready</td>
     </tr>
     <tr>
       <td>CHARMM-GUI systems</td>
@@ -269,7 +269,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>⏳ new upload</td>
+      <td>✅ done</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
@@ -285,7 +285,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>⏳ new upload</td>
+      <td>✅ done</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
       <td>⏳ pending</td>
@@ -307,8 +307,8 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>ESMFold intake for final 8</strong></td>
-      <td align="center"><strong><code>2 uploads pending</code></strong><br><sub>6 already done</sub></td>
-      <td>Place the two remaining ESMFold result zip files in `inbox/`, then validate and normalize PDBs.</td>
+      <td align="center"><strong><code>complete</code></strong><br><sub>8/8 done</sub></td>
+      <td>All final-candidate PDB/PAE/plot assets are available under final names.</td>
     </tr>
     <tr>
       <td><strong>CHARMM-GUI LiCl/NaCl systems</strong></td>
@@ -333,7 +333,7 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are intentionally conservative while the remaining ESMFold and CHARMM-GUI systems are being collected. They will become quantitative again once the next GROMACS queue starts.
+> Time estimates are intentionally conservative while the remaining CHARMM-GUI systems are being collected. They will become quantitative again once the next GROMACS queue starts.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -347,7 +347,7 @@ flowchart TD
 
 ## 🧪 Candidate library
 
-The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Six candidates have ESMFold assets available; two still require new ESMFold inputs.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. ESMFold assets are available for all 8 candidates.
 
 | Rank | Candidate | Sequence | Design role | Intake status |
 |---:|---|---|---|---|
@@ -356,9 +356,9 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Upstream assets done |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Upstream assets done; MD completion pending |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | ESMFold done |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | New ESMFold required |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | ESMFold done |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | ESMFold done |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | New ESMFold required |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | ESMFold done |
 
 ## ⚙️ Computational workflow
 

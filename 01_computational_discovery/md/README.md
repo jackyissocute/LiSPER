@@ -8,8 +8,8 @@ The active MD workflow now uses the final 8-candidate names. Two candidates alre
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 2 production/clustering representatives done; 1 setup/equilibration done; 5 pending systems |
-| NaCl | `na_cl/` | 3 setup/equilibration records available; production/clustering pending |
+| LiCl | `li_cl/` | 2 production/clustering representatives done; 1 setup/equilibration done; 5 pending CHARMM-GUI systems |
+| NaCl | `na_cl/` | 3 setup/equilibration records available; 5 pending CHARMM-GUI systems; production/clustering pending |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
