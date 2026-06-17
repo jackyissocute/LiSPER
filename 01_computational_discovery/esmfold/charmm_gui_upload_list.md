@@ -1,20 +1,20 @@
 # CHARMM-GUI Upload List
 
-No active 8-candidate PDB upload set has been generated yet.
+Three CHARMM-GUI-safe PDBs are already available under final names. Five more will be added after the remaining ESMFold uploads are processed.
 
-After ESMFold intake, upload the files from:
+Upload-ready PDBs live in:
 
 `01_computational_discovery/esmfold/charmm_gui_pdb/`
 
-Expected safe filenames:
+Expected safe filenames and current state:
 
-| Candidate | Safe filename |
+| Candidate | Safe filename | State |
 |---|---|
-| `LiD3-Core` | `lid3core.pdb` |
-| `LiD3-Flex` | `lid3flex.pdb` |
-| `LiND-Hybrid` | `lindhybrid.pdb` |
-| `LiLC-1` | `lilc1.pdb` |
-| `LiDS-1` | `lids1.pdb` |
-| `LiDA-1` | `lida1.pdb` |
-| `LiN3-Core` | `lin3core.pdb` |
-| `LiA3-Ref` | `lia3ref.pdb` |
+| `LiD3-Core` | `lid3core.pdb` | Pending |
+| `LiD3-Flex` | `lid3flex.pdb` | Done |
+| `LiND-Hybrid` | `lindhybrid.pdb` | Done |
+| `LiLC-1` | `lilc1.pdb` | Done |
+| `LiDS-1` | `lids1.pdb` | Pending |
+| `LiDA-1` | `lida1.pdb` | Pending |
+| `LiN3-Core` | `lin3core.pdb` | Pending |
+| `LiA3-Ref` | `lia3ref.pdb` | Pending |

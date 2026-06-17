@@ -4,17 +4,14 @@ This folder stores structure-prediction outputs for the active 8-candidate LiSPE
 
 ## Current State
 
-The 8-candidate library has been locked, and the workflow is waiting for the new ESMFold result zip files. Upload those zip files into the repository-level `inbox/` folder first.
+The 8-candidate library has been locked. ESMFold assets are already available for three candidates under their final names, and five candidates still need new ESMFold result zip files. Upload the remaining zip files into the repository-level `inbox/` folder first.
 
-Three revised candidates are sequence-identical to legacy candidates and may reuse old ESMFold outputs if needed:
+Current ESMFold intake state:
 
-| Revised candidate | Legacy candidate |
+| Candidate group | Count | State |
 |---|---|
-| `LiD3-Flex` | `LiD3-1` |
-| `LiND-Hybrid` | `LiND-1` |
-| `LiLC-1` | `LowCharge-Li` |
-
-The remaining five candidates require new ESMFold outputs.
+| Upstream assets done | 3 | PDB/PAE/plots available under final names |
+| New uploads needed | 5 | Waiting for ESMFold zip files in `inbox/` |
 
 ## Layout
 
@@ -28,8 +25,9 @@ The remaining five candidates require new ESMFold outputs.
 | `pae/` | Predicted aligned error matrices |
 | `plots/` | ESMFold confidence plots |
 | `manifest.tsv` | Intake and validation status |
-| `reuse_map.tsv` | Legacy ESMFold outputs that may be reused |
+| `completed_assets_manifest.tsv` | Quiet provenance for candidates with completed upstream assets |
+| `reuse_map.tsv` | Internal exact-match traceability |
 
 ## Next Step
 
-After the 8 ESMFold zip files are uploaded, validate sequence identity, normalize PDB filenames for CHARMM-GUI, and update `manifest.tsv`.
+After the five remaining ESMFold zip files are uploaded, validate sequence identity, normalize PDB filenames for CHARMM-GUI, and update `manifest.tsv`.

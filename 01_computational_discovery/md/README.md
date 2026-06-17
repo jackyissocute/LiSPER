@@ -4,12 +4,12 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 ## Current State
 
-The old 10-candidate remote GROMACS workflow has been stopped and archived. Active 8-candidate MD has not started yet.
+The active MD workflow now uses the final 8-candidate names. Two candidates already have LiCl production/clustering representatives available; one additional candidate has upstream MD setup/equilibration assets available. The remaining candidates are waiting for ESMFold and CHARMM-GUI completion.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | Awaiting revised 8-candidate CHARMM-GUI systems |
-| NaCl | `na_cl/` | Awaiting revised 8-candidate CHARMM-GUI systems |
+| LiCl | `li_cl/` | 2 production/clustering representatives done; 1 setup/equilibration done; 5 pending systems |
+| NaCl | `na_cl/` | 3 setup/equilibration records available; production/clustering pending |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
@@ -18,16 +18,12 @@ Remote 8-candidate workspaces were initialized on AutoDL:
 | LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
 | NaCl | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
 
-Legacy 10-candidate remote workspaces were moved to:
-
-`/root/LiSPER_remote/legacy_10_candidate_runs/`
-
 ## Workflow
 
 ```mermaid
 flowchart TD
     accTitle: Revised 8-Candidate MD Workflow
-    accDescr: The revised library restarts at ESMFold before CHARMM-GUI, minimization, equilibration, production MD, clustering, and PMF comparison.
+    accDescr: The final library moves from ESMFold and CHARMM-GUI into minimization, equilibration, production MD, clustering, and PMF comparison.
 
     sequences["8 candidate sequences"]
     esmfold["ESMFold intake"]
@@ -51,4 +47,4 @@ flowchart TD
 | `na_cl/remote_runs/` | NaCl launch/status logs for the 8-candidate workflow |
 | `na_cl/remote_results/` | Synced NaCl outputs for the 8-candidate workflow |
 
-Do not restart GROMACS until the active 8-candidate ESMFold and CHARMM-GUI inputs are ready.
+Do not launch new GROMACS work for a candidate until that candidate has final-name ESMFold and matched CHARMM-GUI inputs ready.

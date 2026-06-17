@@ -113,18 +113,18 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live project control panel.** The active project has been reset around the final 8-candidate LiSPER library. The previous 10-candidate GROMACS work has been stopped and archived; reusable sequence-identical assets are preserved as provenance, but new active work restarts from ESMFold intake.
+> **Live project control panel.** The active LiSPER library contains 8 final candidates. Three candidates already have completed upstream assets under their final names; five candidates are waiting for new ESMFold intake.
 >
 > ![Candidate library](https://img.shields.io/badge/final_library-8_candidates-2563eb)
-> ![ESMFold](https://img.shields.io/badge/ESMFold-awaiting_uploads-f59e0b)
-> ![Remote MD](https://img.shields.io/badge/remote_MD-paused_archived-64748b)
-> ![PMF](https://img.shields.io/badge/PMF-after_new_MD-0f766e)
+> ![ESMFold](https://img.shields.io/badge/ESMFold-3_done_5_pending-f59e0b)
+> ![CHARMM-GUI](https://img.shields.io/badge/CHARMM--GUI-3_pairs_done-16a34a)
+> ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-18 00:45 CST`
+**Last synchronized monitor snapshot:** `2026-06-18 00:52 CST`
 
 ### Process matrix
 
@@ -142,9 +142,9 @@ flowchart TD
     <tr>
       <td rowspan="3"><strong>Program roadmap</strong></td>
       <td>Phase I computational discovery</td>
-      <td><code>🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜</code> reset active</td>
-      <td><img alt="active reset" src="https://img.shields.io/badge/active-8_candidate_restart-2563eb"></td>
-      <td>ESMFold intake</td>
+      <td><code>🟦🟦🟦⬜⬜⬜⬜⬜⬜⬜</code> active</td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-8_candidate_program-2563eb"></td>
+      <td>Complete remaining structure intake</td>
     </tr>
     <tr>
       <td>Phase II experimental validation</td>
@@ -167,40 +167,40 @@ flowchart TD
     </tr>
     <tr>
       <td>ESMFold structures</td>
-      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 reusable / 8 pending intake</td>
-      <td><img alt="awaiting upload" src="https://img.shields.io/badge/waiting-ESMFold_zips-f59e0b"></td>
+      <td><code>🟩🟩🟩⬜⬜⬜⬜⬜</code> 3/8 done</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-5_uploads_pending-f59e0b"></td>
       <td>Validate final 8 PDBs</td>
     </tr>
     <tr>
       <td>CHARMM-GUI systems</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 pairs</td>
-      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_ESMFold-64748b"></td>
-      <td>LiCl + NaCl systems</td>
+      <td><code>🟩🟩🟩⬜⬜⬜⬜⬜</code> 3/8 pairs done</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-5_pairs_pending-f59e0b"></td>
+      <td>Complete matched systems</td>
     </tr>
     <tr>
       <td>Minimization + equilibration</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 pairs</td>
-      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_CHARMM--GUI-64748b"></td>
+      <td><code>🟩🟩🟩⬜⬜⬜⬜⬜</code> 3/8 pairs started</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-upstream_done_for_3-f59e0b"></td>
       <td>Production-ready states</td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> paused</td>
-      <td><img alt="paused" src="https://img.shields.io/badge/paused-awaiting_new_systems-64748b"></td>
+      <td><code>🟩🟩🟨⬜⬜⬜⬜⬜</code> 2 done + 1 partial</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-representatives_available-16a34a"></td>
       <td><a href="01_computational_discovery/md/li_cl/">LiCl workspace</a></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> 0/8 representatives</td>
-      <td><img alt="pending" src="https://img.shields.io/badge/pending-after_20_ns_MD-64748b"></td>
+      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> 2/8 representatives</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-6_remaining-f59e0b"></td>
       <td>Representative set</td>
     </tr>
     <tr>
       <td><strong>NaCl branch</strong></td>
       <td>Production + clustering</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> paused</td>
-      <td><img alt="pending" src="https://img.shields.io/badge/pending-matched_new_systems-64748b"></td>
+      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 setup/equilibration records</td>
+      <td><img alt="pending production" src="https://img.shields.io/badge/production-pending-64748b"></td>
       <td><a href="01_computational_discovery/md/na_cl/">NaCl workspace</a></td>
     </tr>
     <tr>
@@ -237,26 +237,26 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟨 reusable legacy<br><sub>same sequence as old LiD3-1</sub></td>
-      <td>⏳ regenerate preferred</td>
-      <td>⏳ pending</td>
-      <td>⏳ pending</td>
+      <td>✅ done</td>
+      <td>✅ LiCl/NaCl done</td>
+      <td>✅ production + representative</td>
+      <td>🟨 setup/equilibration done</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟨 reusable legacy<br><sub>same sequence as old LiND-1</sub></td>
-      <td>⏳ regenerate preferred</td>
-      <td>⏳ pending</td>
-      <td>⏳ pending</td>
+      <td>✅ done</td>
+      <td>✅ LiCl/NaCl done</td>
+      <td>✅ production + representative</td>
+      <td>🟨 setup/equilibration done</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟨 reusable legacy<br><sub>same sequence as old LowCharge-Li</sub></td>
-      <td>⏳ regenerate preferred</td>
-      <td>⏳ pending</td>
-      <td>⏳ pending</td>
+      <td>✅ done</td>
+      <td>✅ LiCl/NaCl done</td>
+      <td>🟨 setup/equilibration done</td>
+      <td>🟨 setup/equilibration done</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
@@ -307,18 +307,18 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>ESMFold intake for final 8</strong></td>
-      <td align="center"><strong><code>waiting on upload</code></strong><br><sub>current gate</sub></td>
-      <td>Place the 8 ESMFold result zip files in `inbox/`, then validate and normalize PDBs.</td>
+      <td align="center"><strong><code>5 uploads pending</code></strong><br><sub>3 already done</sub></td>
+      <td>Place the five remaining ESMFold result zip files in `inbox/`, then validate and normalize PDBs.</td>
     </tr>
     <tr>
-      <td><strong>CHARMM-GUI LiCl/NaCl rebuild</strong></td>
-      <td align="center"><strong><code>after ESMFold</code></strong><br><sub>manual web step</sub></td>
-      <td>Build matched LiCl and NaCl systems for the 8 active candidates.</td>
+      <td><strong>CHARMM-GUI LiCl/NaCl systems</strong></td>
+      <td align="center"><strong><code>5 pairs pending</code></strong><br><sub>3 pairs already done</sub></td>
+      <td>Build matched LiCl and NaCl systems for the five remaining candidates.</td>
     </tr>
     <tr>
       <td><strong>LiCl + NaCl production/clustering</strong></td>
-      <td align="center"><strong><code>TBD after systems</code></strong><br><sub>CPU-only queue</sub></td>
-      <td>Restart GROMACS only from the final 8-candidate CHARMM-GUI systems.</td>
+      <td align="center"><strong><code>TBD after remaining systems</code></strong><br><sub>CPU-only queue</sub></td>
+      <td>Continue from completed assets where valid; run remaining candidates through paired MD and clustering.</td>
     </tr>
     <tr>
       <td><strong>PMF / ΔG extraction</strong></td>
@@ -327,34 +327,34 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>TBD</code></strong><br><sub>after restart timing</sub></td>
+      <td align="center"><strong><code>TBD</code></strong><br><sub>after queue timing</sub></td>
       <td>Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+).</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are intentionally reset because the candidate library changed. They will become quantitative again after the final 8 ESMFold/CHARMM-GUI systems are available and the new GROMACS queue starts.
+> Time estimates are intentionally conservative while the remaining five ESMFold and CHARMM-GUI systems are being collected. They will become quantitative again once the next GROMACS queue starts.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
-- The earlier 10-candidate MD queue was stopped because it no longer matches the final design library.
-- Legacy 10-candidate results remain archived for provenance and possible reuse checks.
-- `LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` are sequence-identical to old candidates, so their old structure/setup materials may be reused only when sequence identity and provenance are documented.
-- Active MD should not restart until the final 8 ESMFold PDBs and matched CHARMM-GUI LiCl/NaCl systems exist.
+- `LiD3-Flex` and `LiND-Hybrid` already have LiCl production/clustering representatives available under the final candidate names.
+- `LiLC-1` already has upstream setup/equilibration assets available and still needs LiCl production/clustering completion.
+- NaCl production/clustering remains the main paired-comparison gap for the completed upstream candidates.
+- Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
 </details>
 
 ## 🧪 Candidate library
 
-The active LiSPER library now contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Three candidates are exact sequence carries from the original library; five require new ESMFold inputs.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Three candidates already have completed upstream computational assets; five require new ESMFold inputs.
 
 | Rank | Candidate | Sequence | Design role | Intake status |
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | New ESMFold required |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Reusable from old LiD3-1 |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Reusable from old LiND-1 |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Reusable from old LowCharge-Li |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Upstream assets done |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Upstream assets done |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Upstream assets done; MD completion pending |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | New ESMFold required |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | New ESMFold required |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | New ESMFold required |
@@ -502,7 +502,7 @@ flowchart TD
 | [`05_outputs_and_communication/`](05_outputs_and_communication/) | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing materials |
 | [`06_project_operations/`](06_project_operations/) | Repository guides, reusable scripts, decision records, and temporary intake inbox |
 | [`assets/`](assets/) | Official LiSPER branding assets and reusable non-data media |
-| [`archive/`](archive/) | Superseded designs and preserved legacy materials |
+| [`archive/`](archive/) | Superseded working materials kept outside the active workflow |
 
 ## 🔗 Key project documents
 

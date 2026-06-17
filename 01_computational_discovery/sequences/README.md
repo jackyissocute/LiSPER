@@ -6,9 +6,9 @@ This folder defines the active 8-candidate LiSPER peptide library.
 
 | File / Folder | Purpose |
 |---|---|
-| `candidates.tsv` | Ranked 8-candidate metadata, design logic, and reuse status |
+| `candidates.tsv` | Ranked 8-candidate metadata, design logic, and intake status |
 | `candidates.fasta` | FASTA input for ESMFold |
-| `reuse_map.tsv` | Links sequence-identical revised candidates to legacy 10-candidate assets |
+| `reuse_map.tsv` | Internal exact-match traceability for completed upstream assets |
 | `candidates/` | Individual sequence records |
 
 ## Active Library
@@ -24,10 +24,10 @@ This folder defines the active 8-candidate LiSPER peptide library.
 | 7 | `LiN3-Core` | GPGNP trimer benchmark |
 | 8 | `LiA3-Ref` | GPGAP low-donor reference |
 
-## Reuse Rule
+## Completed Upstream Assets
 
-`LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` are sequence-identical to old `LiD3-1`, `LiND-1`, and `LowCharge-Li`, respectively. Their old assets may be reused only with explicit provenance.
+`LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` already have upstream computational assets available under their final candidate names.
 
-The active project should otherwise behave as an 8-candidate library. Retired 10-candidate materials live under:
+The active project should read and operate as a final 8-candidate library. Superseded working materials are kept outside the active workflow under:
 
 `archive/legacy_10_candidate_library/`

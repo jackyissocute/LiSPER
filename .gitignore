@@ -4,3 +4,12 @@
 # Python bytecode
 __pycache__/
 *.py[cod]
+
+# Large CHARMM-GUI system bundles are kept locally and mirrored to remote storage,
+# but are not committed directly to GitHub.
+01_computational_discovery/charmm-gui/*/systems/
+01_computational_discovery/charmm-gui/*/raw_archives/
+
+# MD trajectory files are kept locally or on remote storage, not in normal Git commits.
+01_computational_discovery/md/**/remote_results/**/*.xtc
+01_computational_discovery/md/**/remote_results/**/*.trr

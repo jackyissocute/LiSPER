@@ -1,17 +1,24 @@
 # LiCl Molecular Dynamics
 
-Active LiCl MD for the revised 8-candidate library has not started yet.
+LiCl MD is tracked under the final 8-candidate names.
 
 ## Status
 
 | Stage | Status |
 |---|---|
-| ESMFold intake | Waiting for 8 uploaded ESMFold result archives |
-| CHARMM-GUI LiCl systems | Pending |
-| Minimization | Pending |
-| Equilibration | Pending |
-| 20 ns production | Pending |
-| Structural clustering | Pending |
-| PMF handoff | Pending |
+| ESMFold intake | 3 done; 5 uploads pending |
+| CHARMM-GUI LiCl systems | 3/8 done |
+| Minimization | 3 records available |
+| Equilibration | 3 records available |
+| 20 ns production | 2 done; 1 partial/upstream-ready; 5 pending systems |
+| Structural clustering | 2 representatives available |
+| PMF handoff | Pending paired LiCl/NaCl representative set |
 
-The old 10-candidate LiCl outputs were archived and are no longer active workflow state.
+## Candidate Notes
+
+| Candidate | LiCl state |
+|---|---|
+| `LiD3-Flex` | Production and representative structure done |
+| `LiND-Hybrid` | Production and representative structure done |
+| `LiLC-1` | Setup/equilibration done; production and clustering pending |
+| `LiD3-Core`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | Waiting for ESMFold/CHARMM-GUI inputs |

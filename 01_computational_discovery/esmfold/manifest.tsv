@@ -1,8 +1,8 @@
 candidate_id	sequence_status	esmfold_status	pdb_status	charmm_gui_safe_name	notes
 LiD3-Core	new	pending	pending	lid3core.pdb	Awaiting new ESMFold upload.
-LiD3-Flex	reused_sequence	reusable_from_legacy	pending	lid3flex.pdb	Sequence-identical to legacy LiD3-1; can reuse legacy output if desired.
-LiND-Hybrid	reused_sequence	reusable_from_legacy	pending	lindhybrid.pdb	Sequence-identical to legacy LiND-1; can reuse legacy output if desired.
-LiLC-1	reused_sequence	reusable_from_legacy	pending	lilc1.pdb	Sequence-identical to legacy LowCharge-Li; can reuse legacy output if desired.
+LiD3-Flex	exact_match	completed	ready	lid3flex.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
+LiND-Hybrid	exact_match	completed	ready	lindhybrid.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
+LiLC-1	exact_match	completed	ready	lilc1.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiDS-1	new	pending	pending	lids1.pdb	Awaiting new ESMFold upload.
 LiDA-1	new	pending	pending	lida1.pdb	Awaiting new ESMFold upload.
 LiN3-Core	new	pending	pending	lin3core.pdb	Awaiting new ESMFold upload.

@@ -1,0 +1,11 @@
+candidate_id	status	repairs	run_dir
+LiD3-1	minimized	attempt0:atom19899:remove_neighbor_water:160:H2:dist=0.0953;target=6674:H1:TIP3 22634->22633	/root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_min
+LiND-1	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/LiND-1/gromacs/run_min
+IDP-Li-1	minimized	attempt0:atom25963:remove_neighbor_water:1611:OH2:dist=0.0972;target=8667:H2:TIP3 11395->11394	/root/LiSPER_remote/LiSPER_LiCl/systems/IDP-Li-1/gromacs/run_min
+IDP-Li-2	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/IDP-Li-2/gromacs/run_min
+LowCharge-Li	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/LowCharge-Li/gromacs/run_min
+LiD2-IDP	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/LiD2-IDP/gromacs/run_min
+StrongBind-Li	minimized	attempt0:atom43780:remove_neighbor_water:1955:H2:dist=0.0312;target=14619:H2:TIP3 16971->16970	/root/LiSPER_remote/LiSPER_LiCl/systems/StrongBind-Li/gromacs/run_min
+SoftCage-Li	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/SoftCage-Li/gromacs/run_min
+IDP-Rich-Li	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/IDP-Rich-Li/gromacs/run_min
+Control-Negative	minimized		/root/LiSPER_remote/LiSPER_LiCl/systems/Control-Negative/gromacs/run_min
