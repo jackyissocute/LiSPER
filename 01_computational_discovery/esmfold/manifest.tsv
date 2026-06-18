@@ -1,5 +1,5 @@
 candidate_id	sequence_status	esmfold_status	pdb_status	charmm_gui_safe_name	notes
-LiD3-Core	new	sequence_mismatch_quarantined	replacement_needed	lid3core.pdb	Uploaded PDB encoded LiA3-Ref sequence; removed from active CHARMM-GUI upload folders. Replacement ESMFold result needed.
+LiD3-Core	new	completed	ready	lid3core.pdb	Replacement ESMFold PDB/PAE/plot passed sequence QC and is available under the final candidate name.
 LiD3-Flex	exact_match	completed	ready	lid3flex.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiND-Hybrid	exact_match	completed	ready	lindhybrid.pdb	ESMFold PDB/PAE/plot available under the final candidate name.
 LiLC-1	exact_match	completed	ready	lilc1.pdb	ESMFold PDB/PAE/plot available under the final candidate name.

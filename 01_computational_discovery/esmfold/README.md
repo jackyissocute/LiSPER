@@ -4,14 +4,14 @@ This folder stores structure-prediction outputs for the active 8-candidate LiSPE
 
 ## Current State
 
-The 8-candidate library has been locked. Seven ESMFold structures are upload-ready under their final names. LiD3-Core needs a replacement ESMFold result after sequence QC.
+The 8-candidate library has been locked. All eight ESMFold structures are now upload-ready under their final names.
 
 Current ESMFold intake state:
 
 | Candidate group | Count | State |
 |---|---|
-| ESMFold assets ready | 7 | PDB/PAE/plots available under final names |
-| Replacement needed | 1 | LiD3-Core upload failed sequence QC |
+| ESMFold assets ready | 8 | PDB/PAE/plots available under final names |
+| Replacement needed | 0 | LiD3-Core replacement passed sequence QC |
 
 ## Layout
 
@@ -30,4 +30,4 @@ Current ESMFold intake state:
 
 ## Next Step
 
-Next, upload a replacement LiD3-Core ESMFold result. The other safe PDB names in `charmm_gui_pdb/` can be used to complete the remaining CHARMM-GUI LiCl and NaCl systems.
+Next, use the safe PDB names in `charmm_gui_pdb/` to complete any remaining CHARMM-GUI LiCl systems and to repair the one incomplete NaCl GROMACS package.

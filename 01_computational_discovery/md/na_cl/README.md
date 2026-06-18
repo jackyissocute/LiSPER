@@ -2,16 +2,16 @@
 
 NaCl MD is tracked under the final 8-candidate names.
 
-NaCl simulations should be generated as matched comparison systems after the revised LiCl/NaCl CHARMM-GUI inputs exist.
+NaCl simulations are being generated as matched comparison systems for the revised 8-candidate library.
 
 ## Status
 
 | Stage | Status |
 |---|---|
-| ESMFold intake | 7 ready; LiD3-Core replacement needed |
-| CHARMM-GUI NaCl systems | 3/8 done |
-| Minimization | 3 records available |
-| Equilibration | 3 records available |
+| ESMFold intake | 8/8 ready |
+| CHARMM-GUI NaCl systems | 7/8 GROMACS-ready; 1 QC hold |
+| Minimization | 7/7 queued systems minimized |
+| Equilibration | Running |
 | 20 ns production | Pending |
 | Structural clustering | Pending |
 | PMF handoff | Pending |
@@ -20,8 +20,11 @@ NaCl simulations should be generated as matched comparison systems after the rev
 
 | Candidate | NaCl state |
 |---|---|
-| `LiD3-Flex` | Setup/equilibration done; production and clustering pending |
-| `LiND-Hybrid` | Setup/equilibration done; production and clustering pending |
-| `LiLC-1` | Setup/equilibration done; production and clustering pending |
-| `LiD3-Core` | Replacement ESMFold result needed before CHARMM-GUI |
-| `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | ESMFold done; waiting for CHARMM-GUI systems |
+| `LiA3-Ref` | Minimized; equilibration running |
+| `LiD3-Core` | Minimized after water-overlap repair; equilibration queued/running |
+| `LiD3-Flex` | Minimized; equilibration queued/running |
+| `LiDA-1` | Minimized; equilibration queued/running |
+| `LiDS-1` | Minimized after water-overlap repair; equilibration queued/running |
+| `LiLC-1` | Minimized; equilibration queued/running |
+| `LiND-Hybrid` | Minimized; equilibration queued/running |
+| `LiN3-Core` | QC hold: NaCl archive lacks GROMACS inputs |

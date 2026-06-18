@@ -4,12 +4,12 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 ## Current State
 
-The active MD workflow now uses the final 8-candidate names. Two candidates already have LiCl production/clustering representatives available; one additional candidate has upstream MD setup/equilibration assets available. Five candidates still need matched CHARMM-GUI systems before MD can proceed.
+The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. Seven NaCl systems minimized cleanly and are now running equilibration; one NaCl system is on QC hold because its CHARMM-GUI archive lacks GROMACS inputs. LiCl still needs five additional CHARMM-GUI systems before the LiCl branch can become complete.
 
 | Condition | Folder | Current state |
 |---|---|---|
 | LiCl | `li_cl/` | 2 production/clustering representatives done; 1 setup/equilibration done; 5 pending CHARMM-GUI systems |
-| NaCl | `na_cl/` | 3 setup/equilibration records available; 5 pending CHARMM-GUI systems; production/clustering pending |
+| NaCl | `na_cl/` | 7 systems minimized; equilibration running; 1 QC hold; production/clustering pending |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 

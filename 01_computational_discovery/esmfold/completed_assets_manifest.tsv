@@ -1,4 +1,5 @@
 candidate	source_record	sequence_identity	completed_assets	note
+LiD3-Core	final_upload	final	ESMFold	Replacement ESMFold PDB/PAE/plot passed sequence QC and is available under the final candidate name.
 LiD3-Flex	LiD3-1	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl MD production/clustering; NaCl min/eq	Completed assets are available under the final 8-candidate name.
 LiND-Hybrid	LiND-1	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl MD production/clustering; NaCl min/eq	Completed assets are available under the final 8-candidate name.
 LiLC-1	LowCharge-Li	exact	ESMFold; CHARMM-GUI LiCl/NaCl; LiCl/NaCl min/eq; partial LiCl production setup	Completed upstream assets are available; LiCl production/clustering still needs completion.
