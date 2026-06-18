@@ -113,11 +113,11 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. The live work is now setup QC → production MD → clustering → representative structures → PMF → ΔΔG selectivity.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl setup is running on the original worker, while NaCl 20 ns production + clustering is running on a second AutoDL worker.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-equilibration_running-2563eb)
 > ![LiCl](https://img.shields.io/badge/LiCl-8_minimized-16a34a)
-> ![NaCl](https://img.shields.io/badge/NaCl-8_minimized_7_equilibrated-f59e0b)
+> ![NaCl](https://img.shields.io/badge/NaCl-production_running-2563eb)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
 <p align="center">
@@ -142,15 +142,15 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
       <td>Setup QC</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl/NaCl minimized; equilibration running</td>
-      <td><img alt="running" src="https://img.shields.io/badge/running-equilibration_QC-2563eb"></td>
-      <td>Pass setup summaries before production</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl equilibration running; NaCl production running</td>
+      <td><img alt="running" src="https://img.shields.io/badge/running-two_workers-2563eb"></td>
+      <td>QC LiCl setup and NaCl production/clustering</td>
     </tr>
     <tr>
       <td>Production launch readiness</td>
-      <td><code>🟨🟨⬜⬜⬜⬜⬜⬜</code> gated by paired setup QC</td>
-      <td><img alt="waiting" src="https://img.shields.io/badge/waiting-setup_QC-f59e0b"></td>
-      <td>Launch 20 ns only for passing systems</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> NaCl launched; LiCl gated by setup QC</td>
+      <td><img alt="partial" src="https://img.shields.io/badge/partial-NaCl_running-f59e0b"></td>
+      <td>Launch remaining LiCl production after setup QC</td>
     </tr>
     <tr>
       <td rowspan="3"><strong>LiCl branch</strong></td>
@@ -174,14 +174,14 @@ flowchart TD
     <tr>
       <td rowspan="3"><strong>NaCl branch</strong></td>
       <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 7 equilibrated; LiN3 equilibration running</td>
-      <td><img alt="setup queue" src="https://img.shields.io/badge/setup-add_on_running-2563eb"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8 equilibrated</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-setup_QC-16a34a"></td>
       <td><a href="01_computational_discovery/md/na_cl/">NaCl workspace</a></td>
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> waiting for setup QC</td>
-      <td><img alt="waiting" src="https://img.shields.io/badge/waiting-production_launch-f59e0b"></td>
+      <td><code>🟦⬜⬜⬜⬜⬜⬜⬜</code> running</td>
+      <td><img alt="running" src="https://img.shields.io/badge/running-second_worker-2563eb"></td>
       <td>Matched Na+ comparison ensembles</td>
     </tr>
     <tr>
@@ -294,13 +294,13 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Setup QC completion</strong></td>
-      <td align="center"><strong><code>LiCl 8 minimized; NaCl 8 minimized / 7 equilibrated</code></strong><br><sub>LiCl + LiN3-Core NaCl equilibration running</sub></td>
-      <td>QC setup outputs, then launch production/clustering for passing systems.</td>
+      <td align="center"><strong><code>LiCl 8 minimized; NaCl 8 equilibrated</code></strong><br><sub>LiCl equilibration running</sub></td>
+      <td>QC LiCl setup outputs, then launch remaining LiCl production/clustering.</td>
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>active next gate</code></strong><br><sub>after setup QC</sub></td>
-      <td>Run paired LiCl/NaCl production, cluster trajectories, and extract representatives.</td>
+      <td align="center"><strong><code>NaCl running</code></strong><br><sub>second AutoDL worker</sub></td>
+      <td>Collect NaCl production/clustering summaries, then pair with LiCl representatives.</td>
     </tr>
     <tr>
       <td><strong>PMF / ΔG extraction</strong></td>

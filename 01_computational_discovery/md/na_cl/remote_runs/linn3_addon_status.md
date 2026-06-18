@@ -10,11 +10,12 @@ Last updated: 2026-06-18 13:06 CST
 | Condition | NaCl |
 | Remote workdir | `LiSPER_8cand_NaCl_addon_LiN3Core` |
 | Queue | Minimization followed by equilibration |
-| Launch state | Minimization complete; equilibration running |
-| Local gate | Merge with NaCl status after setup QC |
+| Launch state | Minimization and equilibration complete |
+| Local gate | Included in the NaCl production worker |
 
 ## Notes
 
 - This add-on queue is separate from the previously completed seven-candidate NaCl setup batch.
-- Minimization completed cleanly and the add-on has moved into equilibration.
+- Minimization and equilibration completed cleanly.
+- The add-on has been merged into the 8-candidate NaCl production worker.
 - Production MD should wait until the add-on setup summary is inspected.
