@@ -191,11 +191,17 @@ flowchart TD
       <td>Na+ representative structures</td>
     </tr>
     <tr>
-      <td><strong>Free energy</strong></td>
-      <td>Umbrella sampling + PMF</td>
+      <td rowspan="2"><strong>Free energy</strong></td>
+      <td>Umbrella sampling</td>
       <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> planned</td>
       <td><img alt="planned" src="https://img.shields.io/badge/planned-after_representatives-0f766e"></td>
-      <td>ΔG and ΔΔG</td>
+      <td>Window design and biased sampling</td>
+    </tr>
+    <tr>
+      <td>WHAM / PMF / ΔG</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> planned</td>
+      <td><img alt="planned" src="https://img.shields.io/badge/planned-after_umbrella_sampling-0f766e"></td>
+      <td>ΔG and ΔΔG selectivity ranking</td>
     </tr>
   </tbody>
 </table>
@@ -210,7 +216,7 @@ flowchart TD
       <th>LiCl production / representative</th>
       <th>NaCl setup</th>
       <th>NaCl production / representative</th>
-      <th>PMF gate</th>
+      <th>Umbrella / PMF gate</th>
     </tr>
   </thead>
   <tbody>
@@ -220,7 +226,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
@@ -228,7 +234,7 @@ flowchart TD
       <td>✅ production + representative</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
@@ -236,7 +242,7 @@ flowchart TD
       <td>✅ production + representative</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
@@ -244,7 +250,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>🟨 setup/equilibration done</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
@@ -252,7 +258,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
@@ -260,7 +266,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -268,7 +274,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>🟦 equilibration running</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
@@ -276,7 +282,7 @@ flowchart TD
       <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
       <td>⏳ production pending</td>
-      <td>⏳ PMF pending</td>
+      <td>⏳ umbrella pending</td>
     </tr>
   </tbody>
 </table>
@@ -303,9 +309,14 @@ flowchart TD
       <td>Collect production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
-      <td><strong>PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>~5-10 days after representatives</code></strong><br><sub>depends on umbrella-window count and QC</sub></td>
-      <td>Build umbrella windows, run sampling, then perform WHAM/PMF QC for paired Li+/Na+ systems.</td>
+      <td><strong>Umbrella sampling</strong></td>
+      <td align="center"><strong><code>~5-10 days after representatives</code></strong><br><sub>likely longest compute gate; depends on window count and sampling length</sub></td>
+      <td>Design windows from paired representatives, run biased sampling, and check window overlap.</td>
+    </tr>
+    <tr>
+      <td><strong>WHAM / PMF / ΔG extraction</strong></td>
+      <td align="center"><strong><code>~1-2 days after umbrella sampling</code></strong><br><sub>analysis, convergence checks, and reruns if needed</sub></td>
+      <td>Run WHAM/PMF analysis, inspect convergence, then extract ΔG for paired Li+/Na+ systems.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
