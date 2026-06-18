@@ -208,81 +208,83 @@ flowchart TD
 
 ### Protein-focused matrix
 
+<sub>NaCl setup is complete for all eight candidates, so this live matrix now focuses on active and upcoming MD/free-energy gates.</sub>
+
 <table>
   <thead>
     <tr>
       <th>Protein</th>
       <th>LiCl setup</th>
       <th>LiCl production / representative</th>
-      <th>NaCl setup</th>
       <th>NaCl production / representative</th>
-      <th>Umbrella / PMF gate</th>
+      <th>Umbrella sampling</th>
+      <th>WHAM / PMF / ΔG</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
       <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td>✅ setup done</td>
       <td>✅ production + representative</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td>✅ setup done</td>
       <td>✅ production + representative</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td>✅ setup done</td>
-      <td>⏳ production pending</td>
-      <td>🟨 setup/equilibration done</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td>🟦 equilibration running</td>
-      <td>⏳ production pending</td>
-      <td>✅ equilibrated</td>
-      <td>⏳ production pending</td>
-      <td>⏳ umbrella pending</td>
+      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
+      <td>🟪 planned after paired representatives</td>
+      <td>🟪 planned after umbrella sampling</td>
     </tr>
   </tbody>
 </table>
