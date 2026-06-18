@@ -4,7 +4,7 @@ This folder will store CHARMM-GUI Solution Builder outputs for the active 8-cand
 
 ## Current State
 
-CHARMM-GUI NaCl systems are GROMACS-ready for all eight candidates. LiCl systems are GROMACS-ready for seven candidates; `LiN3-Core` LiCl is the only remaining CHARMM-GUI system still needed. Eight safe PDBs are prepared in:
+CHARMM-GUI systems are now GROMACS-ready for all eight candidates in both LiCl and NaCl conditions. Eight safe PDBs are prepared in:
 
 `01_computational_discovery/esmfold/charmm_gui_pdb/`
 
@@ -14,8 +14,8 @@ LiD3-Core replacement ESMFold files passed sequence QC and are now active.
 
 | Condition | Status | Next action |
 |---|---|---|
-| LiCl | 7/8 GROMACS-ready | Build `LiN3-Core` LiCl |
-| NaCl | 8/8 GROMACS-ready | Add `LiN3-Core` to the next NaCl MD queue |
+| LiCl | 8/8 GROMACS-ready | Launch/monitor LiCl MD setup |
+| NaCl | 8/8 GROMACS-ready | Add `LiN3-Core` to NaCl setup results |
 
 ## Reuse Note
 

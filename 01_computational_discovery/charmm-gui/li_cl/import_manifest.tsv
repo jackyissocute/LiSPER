@@ -5,5 +5,5 @@ LiD3-Flex	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
 LiDA-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
 LiDS-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
 LiLC-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiN3-Core	LiCl	pending	not_started	missing	no_LiCl_system	pending_charmm_gui
+LiN3-Core	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
 LiND-Hybrid	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs

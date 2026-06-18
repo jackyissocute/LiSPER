@@ -1,2 +1,2 @@
 candidate_id	condition	reason
-LiN3-Core	NaCl	Corrected CHARMM-GUI GROMACS-ready system is now local; not included in the already-running 7-candidate equilibration batch.
+LiN3-Core	NaCl	Corrected CHARMM-GUI GROMACS-ready system is local; add-on setup queue launched separately from the completed 7-candidate batch on 2026-06-18 13:06 CST.

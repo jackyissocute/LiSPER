@@ -7,10 +7,10 @@ LiCl MD is tracked under the final 8-candidate names.
 | Stage | Status |
 |---|---|
 | ESMFold intake | 8/8 ready |
-| CHARMM-GUI LiCl systems | 7/8 GROMACS-ready |
-| Minimization | 3 records available |
-| Equilibration | 3 records available |
-| 20 ns production | 2 done; 1 partial/upstream-ready; 5 pending production |
+| CHARMM-GUI LiCl systems | 8/8 GROMACS-ready |
+| Minimization | 8/8 minimized |
+| Equilibration | 8-candidate equilibration running |
+| 20 ns production | Pending setup QC |
 | Structural clustering | 2 representatives available |
 | PMF handoff | Pending paired LiCl/NaCl representative set |
 
@@ -18,8 +18,4 @@ LiCl MD is tracked under the final 8-candidate names.
 
 | Candidate | LiCl state |
 |---|---|
-| `LiD3-Flex` | Production and representative structure done |
-| `LiND-Hybrid` | Production and representative structure done |
-| `LiLC-1` | Setup/equilibration done; production and clustering pending |
-| `LiD3-Core`, `LiDS-1`, `LiDA-1`, `LiA3-Ref` | LiCl CHARMM-GUI system ready; MD pending |
-| `LiN3-Core` | Waiting for LiCl CHARMM-GUI system |
+| `LiD3-Core`, `LiD3-Flex`, `LiND-Hybrid`, `LiLC-1`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | Minimized; equilibration running |

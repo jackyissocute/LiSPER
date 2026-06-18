@@ -1,10 +1,10 @@
 # LiCl CHARMM-GUI Systems
 
-LiCl CHARMM-GUI systems are available for seven final candidates.
+LiCl CHARMM-GUI systems are available for all eight final candidates.
 
 ## Next Step
 
-Submit the remaining `LiN3-Core` LiCl system through CHARMM-GUI Solution Builder and place the downloaded archive here.
+All final LiCl systems have been imported and passed intake QC.
 
 ## Expected Candidates
 
@@ -21,6 +21,6 @@ Submit the remaining `LiN3-Core` LiCl system through CHARMM-GUI Solution Builder
 | `LiDS-1` | Done; GROMACS-ready |
 | `LiLC-1` | Done; GROMACS-ready |
 | `LiND-Hybrid` | Done; GROMACS-ready |
-| `LiN3-Core` | Pending LiCl CHARMM-GUI system |
+| `LiN3-Core` | Done; GROMACS-ready |
 
 See `import_manifest.tsv` for the current intake QC table.
