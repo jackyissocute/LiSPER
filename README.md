@@ -113,11 +113,11 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live project control panel.** The active LiSPER library contains 8 final candidates. ESMFold intake is complete, and both LiCl and NaCl CHARMM-GUI systems are GROMACS-ready for all eight candidates. LiCl minimization is complete for all eight and equilibration is running. NaCl minimization is also complete for all eight; seven NaCl systems are equilibrated and `LiN3-Core` NaCl equilibration is running.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. The live work is now setup QC → production MD → clustering → representative structures → PMF → ΔΔG selectivity.
 >
-> ![Candidate library](https://img.shields.io/badge/final_library-8_candidates-2563eb)
-> ![ESMFold](https://img.shields.io/badge/ESMFold-8_ready-16a34a)
-> ![CHARMM-GUI](https://img.shields.io/badge/NaCl-8_ready-16a34a)
+> ![Setup QC](https://img.shields.io/badge/setup_QC-equilibration_running-2563eb)
+> ![LiCl](https://img.shields.io/badge/LiCl-8_minimized-16a34a)
+> ![NaCl](https://img.shields.io/badge/NaCl-8_minimized_7_equilibrated-f59e0b)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
 <p align="center">
@@ -140,55 +140,30 @@ flowchart TD
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3"><strong>Program roadmap</strong></td>
-      <td>Phase I computational discovery</td>
-      <td><code>🟦🟦🟦⬜⬜⬜⬜⬜⬜⬜</code> active</td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-8_candidate_program-2563eb"></td>
-      <td>Launch and QC full LiCl/NaCl setup</td>
+      <td rowspan="2"><strong>Current gate</strong></td>
+      <td>Setup QC</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl/NaCl minimized; equilibration running</td>
+      <td><img alt="running" src="https://img.shields.io/badge/running-equilibration_QC-2563eb"></td>
+      <td>Pass setup summaries before production</td>
     </tr>
     <tr>
-      <td>Phase II experimental validation</td>
-      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜</code> 20%</td>
-      <td><img alt="preparing" src="https://img.shields.io/badge/preparing-16a34a"></td>
-      <td>Expression + assays</td>
+      <td>Production launch readiness</td>
+      <td><code>🟨🟨⬜⬜⬜⬜⬜⬜</code> gated by paired setup QC</td>
+      <td><img alt="waiting" src="https://img.shields.io/badge/waiting-setup_QC-f59e0b"></td>
+      <td>Launch 20 ns only for passing systems</td>
     </tr>
     <tr>
-      <td>Phase III Bio-DLE translation</td>
-      <td><code>🟧⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> 10%</td>
-      <td><img alt="concept" src="https://img.shields.io/badge/concept-ea580c"></td>
-      <td>Immobilized format</td>
-    </tr>
-    <tr>
-      <td rowspan="4"><strong>System preparation</strong></td>
-      <td>Candidate library</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8/8</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>Final 8 locked</td>
-    </tr>
-    <tr>
-      <td>ESMFold structures</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8/8 ready</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>All safe PDBs ready</td>
-    </tr>
-    <tr>
-      <td>CHARMM-GUI systems</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> LiCl 8/8; NaCl 8/8</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-16a34a"></td>
-      <td>All systems ready</td>
-    </tr>
-    <tr>
+      <td rowspan="3"><strong>LiCl branch</strong></td>
       <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl/NaCl 8 minimized; equilibration running</td>
-      <td><img alt="setup queue" src="https://img.shields.io/badge/setup-queues_running-2563eb"></td>
-      <td>QC setup summaries before production</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 8 minimized; equilibration running</td>
+      <td><img alt="running" src="https://img.shields.io/badge/running-LiCl_setup-2563eb"></td>
+      <td><a href="01_computational_discovery/md/li_cl/">LiCl setup QC</a></td>
     </tr>
     <tr>
-      <td rowspan="2"><strong>LiCl branch</strong></td>
       <td>20 ns production MD</td>
       <td><code>🟩🟩🟨⬜⬜⬜⬜⬜</code> 2 done + 1 partial</td>
       <td><img alt="partly complete" src="https://img.shields.io/badge/partial-representatives_available-16a34a"></td>
-      <td><a href="01_computational_discovery/md/li_cl/">LiCl workspace</a></td>
+      <td>Queue remaining systems after setup QC</td>
     </tr>
     <tr>
       <td>Structural clustering</td>
@@ -197,11 +172,23 @@ flowchart TD
       <td>Representative set</td>
     </tr>
     <tr>
-      <td><strong>NaCl branch</strong></td>
-      <td>Production + clustering</td>
+      <td rowspan="3"><strong>NaCl branch</strong></td>
+      <td>Minimization + equilibration</td>
       <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 7 equilibrated; LiN3 equilibration running</td>
       <td><img alt="setup queue" src="https://img.shields.io/badge/setup-add_on_running-2563eb"></td>
       <td><a href="01_computational_discovery/md/na_cl/">NaCl workspace</a></td>
+    </tr>
+    <tr>
+      <td>20 ns production MD</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> waiting for setup QC</td>
+      <td><img alt="waiting" src="https://img.shields.io/badge/waiting-production_launch-f59e0b"></td>
+      <td>Matched Na+ comparison ensembles</td>
+    </tr>
+    <tr>
+      <td>Structural clustering</td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> planned after production</td>
+      <td><img alt="planned" src="https://img.shields.io/badge/planned-after_20ns-0f766e"></td>
+      <td>Na+ representative structures</td>
     </tr>
     <tr>
       <td><strong>Free energy</strong></td>
@@ -219,76 +206,76 @@ flowchart TD
   <thead>
     <tr>
       <th>Protein</th>
-      <th>ESMFold</th>
-      <th>CHARMM-GUI</th>
-      <th>LiCl MD</th>
-      <th>NaCl MD</th>
-      <th>Free-energy gate</th>
+      <th>LiCl setup</th>
+      <th>LiCl production / representative</th>
+      <th>NaCl setup</th>
+      <th>NaCl production / representative</th>
+      <th>PMF gate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl ready</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl done</td>
+      <td>✅ setup done</td>
       <td>✅ production + representative</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl done</td>
+      <td>✅ setup done</td>
       <td>✅ production + representative</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl done</td>
-      <td>✅ equilibrated</td>
+      <td>✅ setup done</td>
+      <td>⏳ production pending</td>
       <td>🟨 setup/equilibration done</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl ready</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl ready</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl ready</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>✅ done</td>
-      <td>✅ LiCl/NaCl ready</td>
       <td>🟦 equilibration running</td>
+      <td>⏳ production pending</td>
       <td>✅ equilibrated</td>
+      <td>⏳ production pending</td>
       <td>⏳ PMF pending</td>
     </tr>
   </tbody>
@@ -306,19 +293,14 @@ flowchart TD
   </thead>
   <tbody>
     <tr>
-      <td><strong>ESMFold intake for final 8</strong></td>
-      <td align="center"><strong><code>complete</code></strong><br><sub>8/8 structures ready</sub></td>
-      <td>All final-name PDB/PAE/plot assets passed intake QC.</td>
-    </tr>
-    <tr>
-      <td><strong>CHARMM-GUI LiCl/NaCl systems</strong></td>
-      <td align="center"><strong><code>LiCl 8 ready / NaCl 8 ready</code></strong><br><sub>manual pre-MD gate closed</sub></td>
-      <td>Inspect setup summaries from the full LiCl queue and focused `LiN3-Core` NaCl add-on.</td>
-    </tr>
-    <tr>
-      <td><strong>LiCl + NaCl production/clustering</strong></td>
+      <td><strong>Setup QC completion</strong></td>
       <td align="center"><strong><code>LiCl 8 minimized; NaCl 8 minimized / 7 equilibrated</code></strong><br><sub>LiCl + LiN3-Core NaCl equilibration running</sub></td>
       <td>QC setup outputs, then launch production/clustering for passing systems.</td>
+    </tr>
+    <tr>
+      <td><strong>20 ns production + clustering</strong></td>
+      <td align="center"><strong><code>active next gate</code></strong><br><sub>after setup QC</sub></td>
+      <td>Run paired LiCl/NaCl production, cluster trajectories, and extract representatives.</td>
     </tr>
     <tr>
       <td><strong>PMF / ΔG extraction</strong></td>
