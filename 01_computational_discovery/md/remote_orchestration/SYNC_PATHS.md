@@ -20,7 +20,8 @@ Canonical path reference for the revised 8-candidate LiSPER workflow.
 |---|---|
 | Remote project root | `/root/LiSPER_remote` |
 | Active LiCl workdir | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
-| Active NaCl workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+| Active NaCl setup workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+| Active NaCl production workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
 | Legacy 10-candidate archive | `/root/LiSPER_remote/legacy_10_candidate_runs/` |
 
 ## Rule

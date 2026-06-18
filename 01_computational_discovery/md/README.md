@@ -6,19 +6,20 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl 20 ns production plus clustering is running on the original worker, and NaCl 20 ns production plus clustering is running on a second AutoDL worker.
 
-Latest production snapshot: `2026-06-18 20:45 CST`.
+Latest production snapshot: `2026-06-19 02:47 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 8/8 production jobs active; `0.35-1.24 ns / 20 ns`; clustering queued after each production run |
-| NaCl | `na_cl/` | 8/8 production jobs active; `0.02-0.14 ns / 20 ns`; clustering queued after each production run |
+| LiCl | `li_cl/` | 8/8 production jobs active; `1.09-3.78 ns / 20 ns`; clustering queued after each production run |
+| NaCl | `na_cl/` | 8/8 production jobs active; `0.05-0.28 ns / 20 ns`; clustering queued after each production run |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
 | Condition | Remote workspace |
 |---|---|
 | LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
-| NaCl | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+| NaCl setup | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+| NaCl production | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
 
 ## Workflow
 
