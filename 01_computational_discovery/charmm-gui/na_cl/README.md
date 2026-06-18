@@ -15,6 +15,6 @@ NaCl systems should remain matched comparison systems for the same 8 candidates 
 | `LiDS-1` | Done; GROMACS-ready |
 | `LiLC-1` | Done; GROMACS-ready |
 | `LiND-Hybrid` | Done; GROMACS-ready |
-| `LiN3-Core` | QC hold: archive lacks the CHARMM-GUI `gromacs/` input folder |
+| `LiN3-Core` | Done; GROMACS-ready |
 
 See `import_manifest.tsv` for the current intake QC table.

@@ -30,4 +30,18 @@ Current ESMFold intake state:
 
 ## Next Step
 
-Next, use the safe PDB names in `charmm_gui_pdb/` to complete any remaining CHARMM-GUI LiCl systems and to repair the one incomplete NaCl GROMACS package.
+Next, use the safe `LiN3-Core` PDB to complete the one remaining LiCl CHARMM-GUI system.
+
+## Duplication Policy
+
+The ESMFold folder intentionally keeps a few derived views of the same prediction:
+
+| View | Why it stays |
+|---|---|
+| `runs/` | Original extracted ESMFold job folders |
+| `pdb/`, `pae/`, `plots/` | Candidate-named canonical working copies |
+| `charmm_gui_pdb/` | Upload-safe lowercase PDB names for CHARMM-GUI |
+| `charmm_gui_pdb_original_esmfold_format/` | Historical upload-format reference |
+| `raw_zips/` | Original downloaded archives |
+
+Confirmed duplicate prior raw ZIPs were removed after content comparison; the remaining copies have distinct workflow roles.

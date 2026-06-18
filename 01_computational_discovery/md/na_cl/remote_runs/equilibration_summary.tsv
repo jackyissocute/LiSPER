@@ -1,0 +1,8 @@
+candidate_id	status	run_dir
+LiA3-Ref	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiA3-Ref/gromacs/run_eq
+LiD3-Core	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiD3-Core/gromacs/run_eq
+LiD3-Flex	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiD3-Flex/gromacs/run_eq
+LiDA-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDA-1/gromacs/run_eq
+LiDS-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDS-1/gromacs/run_eq
+LiLC-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiLC-1/gromacs/run_eq
+LiND-Hybrid	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiND-Hybrid/gromacs/run_eq

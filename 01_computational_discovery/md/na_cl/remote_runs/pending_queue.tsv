@@ -1,0 +1,2 @@
+candidate_id	condition	reason
+LiN3-Core	NaCl	Corrected CHARMM-GUI GROMACS-ready system is now local; not included in the already-running 7-candidate equilibration batch.

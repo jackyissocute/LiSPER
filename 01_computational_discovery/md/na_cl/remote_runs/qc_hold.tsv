@@ -1,2 +1,0 @@
-candidate_id	condition	reason
-LiN3-Core	NaCl	CHARMM-GUI archive lacks gromacs/ input folder; do not launch until corrected archive is supplied.

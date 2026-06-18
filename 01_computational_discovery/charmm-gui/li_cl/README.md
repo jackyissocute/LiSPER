@@ -1,10 +1,10 @@
 # LiCl CHARMM-GUI Systems
 
-LiCl CHARMM-GUI systems are available for three final candidates.
+LiCl CHARMM-GUI systems are available for seven final candidates.
 
 ## Next Step
 
-After ESMFold PDB normalization, submit the five remaining candidates to CHARMM-GUI Solution Builder and place the downloaded LiCl archives here.
+Submit the remaining `LiN3-Core` LiCl system through CHARMM-GUI Solution Builder and place the downloaded archive here.
 
 ## Expected Candidates
 
@@ -14,7 +14,13 @@ After ESMFold PDB normalization, submit the five remaining candidates to CHARMM-
 
 | Candidate | State |
 |---|---|
-| `LiD3-Flex` | Done |
-| `LiND-Hybrid` | Done |
-| `LiLC-1` | Done |
-| `LiD3-Core`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | Pending upload/build |
+| `LiA3-Ref` | Done; GROMACS-ready |
+| `LiD3-Core` | Done; GROMACS-ready |
+| `LiD3-Flex` | Done; GROMACS-ready |
+| `LiDA-1` | Done; GROMACS-ready |
+| `LiDS-1` | Done; GROMACS-ready |
+| `LiLC-1` | Done; GROMACS-ready |
+| `LiND-Hybrid` | Done; GROMACS-ready |
+| `LiN3-Core` | Pending LiCl CHARMM-GUI system |
+
+See `import_manifest.tsv` for the current intake QC table.

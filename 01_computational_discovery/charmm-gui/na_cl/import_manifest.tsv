@@ -5,5 +5,5 @@ LiD3-Flex	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
 LiDA-1	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
 LiDS-1	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
 LiLC-1	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
-LiN3-Core	NaCl	imported	pass	missing	SOD/CLA present	QC_hold_missing_gromacs_folder
+LiN3-Core	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
 LiND-Hybrid	NaCl	imported	pass	ready	SOD/CLA present	ready_for_gromacs
