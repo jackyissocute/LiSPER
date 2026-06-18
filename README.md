@@ -113,10 +113,10 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl setup is running on the original worker, while NaCl 20 ns production + clustering is running on a second AutoDL worker.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl setup is complete, and both LiCl and NaCl 20 ns production + clustering are now running on separate AutoDL workers.
 >
-> ![Setup QC](https://img.shields.io/badge/setup_QC-equilibration_running-2563eb)
-> ![LiCl](https://img.shields.io/badge/LiCl-8_minimized-16a34a)
+> ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
+> ![LiCl](https://img.shields.io/badge/LiCl-production_running-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-production_running-2563eb)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-18 13:06 CST`
+**Last synchronized monitor snapshot:** `2026-06-18 17:45 CST`
 
 ### Process matrix
 
@@ -142,34 +142,34 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
       <td>Setup QC</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl equilibration running; NaCl production running</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl and NaCl production running</td>
       <td><img alt="running" src="https://img.shields.io/badge/running-two_workers-2563eb"></td>
-      <td>QC LiCl setup and NaCl production/clustering</td>
+      <td>Monitor paired production and clustering</td>
     </tr>
     <tr>
       <td>Production launch readiness</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> NaCl launched; LiCl gated by setup QC</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> Both branches launched</td>
       <td><img alt="partial" src="https://img.shields.io/badge/partial-NaCl_running-f59e0b"></td>
-      <td>Launch remaining LiCl production after setup QC</td>
+      <td>Collect paired production/clustering outputs</td>
     </tr>
     <tr>
       <td rowspan="3"><strong>LiCl branch</strong></td>
       <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 8 minimized; equilibration running</td>
-      <td><img alt="running" src="https://img.shields.io/badge/running-LiCl_setup-2563eb"></td>
-      <td><a href="01_computational_discovery/md/li_cl/">LiCl setup QC</a></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 8 equilibrated</td>
+      <td><img alt="running" src="https://img.shields.io/badge/complete-LiCl_setup-16a34a"></td>
+      <td><a href="01_computational_discovery/md/li_cl/">LiCl setup complete</a></td>
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>🟩🟩🟨⬜⬜⬜⬜⬜</code> 2 done + 1 partial</td>
-      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-representatives_available-16a34a"></td>
-      <td>Queue remaining systems after setup QC</td>
+      <td><code>🟩🟩🟨⬜⬜⬜⬜⬜</code> running for 8 candidates</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/running-worker_A-2563eb"></td>
+      <td>Li+ ensemble trajectories</td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> 2/8 representatives</td>
-      <td><img alt="partly complete" src="https://img.shields.io/badge/partial-6_remaining-f59e0b"></td>
-      <td>Representative set</td>
+      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> queued after production</td>
+      <td><img alt="partly complete" src="https://img.shields.io/badge/queued-after_20ns-64748b"></td>
+      <td>Li+ representative structures</td>
     </tr>
     <tr>
       <td rowspan="3"><strong>NaCl branch</strong></td>
@@ -180,7 +180,7 @@ flowchart TD
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>🟦⬜⬜⬜⬜⬜⬜⬜</code> running</td>
+      <td><code>🟦🟦🟦🟦🟦🟦🟦🟦</code> running</td>
       <td><img alt="running" src="https://img.shields.io/badge/running-second_worker-2563eb"></td>
       <td>Matched Na+ comparison ensembles</td>
     </tr>
@@ -208,13 +208,12 @@ flowchart TD
 
 ### Protein-focused matrix
 
-<sub>NaCl setup is complete for all eight candidates, so this live matrix now focuses on active and upcoming MD/free-energy gates.</sub>
+<sub>LiCl and NaCl setup are complete for all eight candidates, so this live matrix now focuses on active and upcoming production/free-energy gates.</sub>
 
 <table>
   <thead>
     <tr>
       <th>Protein</th>
-      <th>LiCl setup</th>
       <th>LiCl production / representative</th>
       <th>NaCl production / representative</th>
       <th>Umbrella sampling</th>
@@ -224,64 +223,56 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟦 equilibration running</td>
-      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>✅ setup done</td>
-      <td>✅ production + representative</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>✅ setup done</td>
-      <td>✅ production + representative</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>✅ setup done</td>
-      <td>⬛ queued</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
-      <td>🟦 equilibration running</td>
-      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>🟦 equilibration running</td>
-      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟦 equilibration running</td>
-      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 equilibration running</td>
-      <td>⬛ queued after setup QC</td>
+      <td>🟦 production running</td>
       <td>🟦 production running</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
@@ -302,12 +293,12 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Setup QC completion</strong></td>
-      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>NaCl setup done; LiCl equilibration continuing on worker A</sub></td>
-      <td>Finish LiCl equilibration, scan logs, then release passing systems to production.</td>
+      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>LiCl and NaCl setup complete</sub></td>
+      <td>Setup gate is closed; continue production/clustering QC.</td>
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~3-6 days</code></strong><br><sub>NaCl running in parallel on worker B; LiCl follows setup QC</sub></td>
+      <td align="center"><strong><code>~3-6 days</code></strong><br><sub>LiCl on worker A; NaCl on worker B</sub></td>
       <td>Collect production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
@@ -328,16 +319,16 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are conservative and will tighten after the first NaCl parallel production jobs finish and LiCl production timing is measured on worker A.
+> Time estimates are conservative and will tighten after the first paired LiCl/NaCl production jobs finish and clustering reports are available.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
 - `LiD3-Flex` and `LiND-Hybrid` already have LiCl production/clustering representatives available under the final candidate names.
 - `LiLC-1` already has upstream setup/equilibration assets available and still needs LiCl production/clustering completion.
-- LiCl minimization is complete for all eight candidates and LiCl equilibration is running on worker A.
+- LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
-- NaCl 20 ns production and clustering are running in parallel on worker B.
+- LiCl and NaCl 20 ns production/clustering are running in parallel on separate workers.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
