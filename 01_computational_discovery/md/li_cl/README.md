@@ -19,3 +19,5 @@ LiCl MD is tracked under the final 8-candidate names.
 | Candidate | LiCl state |
 |---|---|
 | `LiD3-Core`, `LiD3-Flex`, `LiND-Hybrid`, `LiLC-1`, `LiDS-1`, `LiDA-1`, `LiN3-Core`, `LiA3-Ref` | Minimized; equilibration running |
+
+Live run summaries are kept in `remote_runs/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.

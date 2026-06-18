@@ -28,3 +28,5 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | `LiLC-1` | Minimized and equilibrated |
 | `LiND-Hybrid` | Minimized and equilibrated |
 | `LiN3-Core` | Minimized; add-on equilibration running |
+
+Live run summaries are kept in `remote_runs/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.
