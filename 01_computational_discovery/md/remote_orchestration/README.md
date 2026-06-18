@@ -36,6 +36,7 @@ Use [`SYNC_PATHS.md`](SYNC_PATHS.md) as the canonical path map.
 |---|---|
 | LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
 | NaCl | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
+| NaCl production worker | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
 
 Do not sync active 8-candidate products into older remote workdirs.
 
@@ -46,6 +47,7 @@ Do not sync active 8-candidate products into older remote workdirs.
 | `scripts/run_lisper_minimize.py` | Shared minimization driver for a prepared LiCl or NaCl workdir. |
 | `scripts/run_lisper_equilibrate.py` | Shared equilibration driver for minimized systems. |
 | `scripts/run_lisper_production_cluster.py` | Shared 20 ns production and clustering driver for equilibrated systems. |
+| `scripts/run_lisper_parallel_production_cluster.py` | Parallel candidate-level production and clustering driver for a fully equilibrated workdir. |
 | `scripts/start_equilibration.sh` | Small shell wrapper for launching equilibration on the active workdir. |
 
 All active scripts default to the 8-candidate LiCl workdir and can be redirected with `LISPER_WORKDIR`.
@@ -60,6 +62,12 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_LiCl \
 # NaCl
 env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl \
   python3 run_lisper_minimize.py
+
+# NaCl production worker, candidate-parallel
+env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker \
+  LISPER_JOBS=8 \
+  LISPER_NTHREAD_PER_JOB=16 \
+  python3 run_lisper_parallel_production_cluster.py
 ```
 
 ## Completed Asset Policy
