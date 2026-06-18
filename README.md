@@ -116,15 +116,15 @@ flowchart TD
 > **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl setup is complete, and both LiCl and NaCl 20 ns production + clustering are now running on separate AutoDL workers.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
-> ![LiCl](https://img.shields.io/badge/LiCl-production_running-2563eb)
-> ![NaCl](https://img.shields.io/badge/NaCl-production_running-2563eb)
+> ![LiCl](https://img.shields.io/badge/LiCl-0.28--0.98_ns_of_20_ns-2563eb)
+> ![NaCl](https://img.shields.io/badge/NaCl-0.02--0.12_ns_of_20_ns-2563eb)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-18 17:45 CST`
+**Last synchronized monitor snapshot:** `2026-06-18 20:07 CST`
 
 ### Process matrix
 
@@ -141,34 +141,34 @@ flowchart TD
   <tbody>
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
-      <td>Setup QC</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> LiCl and NaCl production running</td>
-      <td><img alt="running" src="https://img.shields.io/badge/running-two_workers-2563eb"></td>
-      <td>Monitor paired production and clustering</td>
+      <td>Paired production monitor</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 16 active production jobs</td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
+      <td>Monitor paired 20 ns production; clustering remains queued behind each job</td>
     </tr>
     <tr>
       <td>Production launch readiness</td>
       <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> Both branches launched</td>
-      <td><img alt="partial" src="https://img.shields.io/badge/partial-NaCl_running-f59e0b"></td>
-      <td>Collect paired production/clustering outputs</td>
+      <td><img alt="launched" src="https://img.shields.io/badge/launched-LiCl%2BNaCl-16a34a"></td>
+      <td>Collect production logs first; representatives after clustering completes</td>
     </tr>
     <tr>
       <td rowspan="3"><strong>LiCl branch</strong></td>
       <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟦</code> 8 equilibrated</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8 equilibrated</td>
       <td><img alt="running" src="https://img.shields.io/badge/complete-LiCl_setup-16a34a"></td>
       <td><a href="01_computational_discovery/md/li_cl/">LiCl setup complete</a></td>
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>🟩🟩🟨⬜⬜⬜⬜⬜</code> running for 8 candidates</td>
-      <td><img alt="partly complete" src="https://img.shields.io/badge/running-worker_A-2563eb"></td>
-      <td>Li+ ensemble trajectories</td>
+      <td><code>0.28-0.98 ns / 20 ns</code> across 8 active jobs</td>
+      <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-8%2F8_jobs-2563eb"></td>
+      <td>Li+ ensemble trajectories; current leader <code>LiDA-1</code> at <code>0.98 ns</code></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> queued after production</td>
-      <td><img alt="partly complete" src="https://img.shields.io/badge/queued-after_20ns-64748b"></td>
+      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> queued after production</td>
+      <td><img alt="queued" src="https://img.shields.io/badge/queued-after_20_ns-64748b"></td>
       <td>Li+ representative structures</td>
     </tr>
     <tr>
@@ -180,9 +180,9 @@ flowchart TD
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>🟦🟦🟦🟦🟦🟦🟦🟦</code> running</td>
-      <td><img alt="running" src="https://img.shields.io/badge/running-second_worker-2563eb"></td>
-      <td>Matched Na+ comparison ensembles</td>
+      <td><code>0.02-0.12 ns / 20 ns</code> across 8 active jobs</td>
+      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-8%2F8_jobs-2563eb"></td>
+      <td>Matched Na+ comparison ensembles; current leader <code>LiDA-1</code> at <code>0.12 ns</code></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
@@ -223,57 +223,57 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.43 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.03 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.29 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.02 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.28 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.04 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.44 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.06 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.67 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.08 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.98 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.12 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.44 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.03 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 production running</td>
-      <td>🟦 production running</td>
+      <td>🟦 <code>0.43 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>0.03 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -293,7 +293,7 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Setup QC completion</strong></td>
-      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>LiCl and NaCl setup complete</sub></td>
+      <td align="center"><strong><code>Complete</code></strong><br><sub>LiCl and NaCl setup gate is closed</sub></td>
       <td>Setup gate is closed; continue production/clustering QC.</td>
     </tr>
     <tr>
@@ -336,18 +336,18 @@ flowchart TD
 
 ## 🧪 Candidate library
 
-The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. All eight ESMFold structures are upload-ready.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. All eight candidates have paired LiCl/NaCl systems in active 20 ns production MD.
 
-| Rank | Candidate | Sequence | Design role | Intake status |
+| Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | ESMFold done; NaCl setup done |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Upstream assets done |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Upstream assets done |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Upstream assets done; MD completion pending |
-| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | ESMFold done |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | ESMFold done |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | ESMFold and CHARMM-GUI done |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | ESMFold done |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `0.43/20 ns`; NaCl `0.03/20 ns` |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `0.29/20 ns`; NaCl `0.02/20 ns` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `0.28/20 ns`; NaCl `0.04/20 ns` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `0.44/20 ns`; NaCl `0.06/20 ns` |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl `0.67/20 ns`; NaCl `0.08/20 ns` |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `0.98/20 ns`; NaCl `0.12/20 ns` |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | LiCl `0.44/20 ns`; NaCl `0.03/20 ns` |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `0.43/20 ns`; NaCl `0.03/20 ns` |
 
 ## ⚙️ Computational workflow
 

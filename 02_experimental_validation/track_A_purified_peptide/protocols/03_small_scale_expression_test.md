@@ -16,6 +16,17 @@ Track A depends on recovering enough fusion protein for cleavage and peptide ass
 - Lysis buffer or simple sample-preparation reagents.
 - SDS-PAGE or Tris-Tricine gel system.
 
+## Construct-Specific Readout
+
+The current plasmids express an N-terminal His6-Smt3 SUMO-LiSPER fusion from pET-28a(+).
+
+| Readout | Expected observation |
+|---|---|
+| Fusion band | Approximately 13.2-13.8 kDa depending on candidate. |
+| Best gel format | Tris-Tricine or high-percentage SDS-PAGE; ordinary low-percentage gels may compress the band near the dye front. |
+| Native peptide after SUMO cleavage | Approximately 1.0-1.6 kDa and often not visible by routine Coomassie staining. |
+| Optional confirmation | Anti-His western can confirm fusion expression if gel signal is weak. |
+
 ## Suggested Initial Matrix
 
 | Variable | Suggested values |
@@ -41,7 +52,7 @@ For DKU undergraduate feasibility, begin with fewer conditions:
 6. Harvest equal OD600-equivalent cells.
 7. Prepare total-cell samples.
 8. Lyse a matched aliquot to separate soluble and insoluble fractions.
-9. Run gel optimized for ~13-14 kDa His6-SUMO-LiSPER fusion.
+9. Run gel optimized for 13.2-13.8 kDa His6-SUMO-LiSPER fusion.
 10. Compare induced vs uninduced and soluble vs insoluble.
 
 ## Expected Outcome
@@ -66,4 +77,3 @@ Advance a condition if:
 - soluble fraction is acceptable,
 - cells grow reasonably,
 - condition is simple enough to reproduce.
-

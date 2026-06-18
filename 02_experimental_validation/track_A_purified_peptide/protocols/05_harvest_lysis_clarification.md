@@ -12,6 +12,16 @@ Collect induced biomass and prepare clarified soluble lysate for Ni-NTA purifica
 - Sonicator, lysozyme workflow, or other lab-approved lysis method.
 - Refrigerated centrifuge.
 
+## Buffer Compatibility Notes
+
+The target protein is His6-SUMO-LiSPER, so lysis conditions should preserve His-tag binding and downstream SUMO cleavage.
+
+- Keep pH near neutral to mildly basic for Ni-NTA compatibility.
+- Avoid EDTA or strong chelators before Ni-NTA purification because they strip nickel from resin.
+- Use reducing agent only if compatible with the selected resin and SUMO protease.
+- Keep lysate cold and process quickly; the released peptides are small, but the fusion can still degrade before purification.
+- Save total, soluble, and pellet fractions for gel analysis before concluding that expression failed.
+
 ## Step-by-Step Workflow
 
 1. Record culture volume and final OD600.
@@ -46,4 +56,3 @@ Collect induced biomass and prepare clarified soluble lysate for Ni-NTA purifica
 - Lysis buffer.
 - Lysis method and time.
 - Clarification conditions.
-

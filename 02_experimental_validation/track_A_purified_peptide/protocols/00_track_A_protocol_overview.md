@@ -12,6 +12,28 @@ Starting point: vendor-delivered His6-SUMO-LiSPER plasmid.
 
 Ending point: Li+/Na+ binding and selectivity data for purified or recovered LiSPER peptide.
 
+## Plasmid-to-Purification Alignment
+
+The current plasmid package is compatible with this purification track.
+
+| Design element | Purification meaning |
+|---|---|
+| pET-28a(+) backbone | T7 expression in BL21(DE3) or another T7 expression strain; kanamycin selection. |
+| N-terminal His6 tag | First capture step by Ni-NTA / IMAC. |
+| Smt3 SUMO tag | Improves solubility and gives a SUMO protease cleavage site that releases the native peptide. |
+| LiSPER peptide after SUMO C-terminal `GG` | SUMO cleavage should release the designed native peptide without extra residues. |
+| Stop codon before XhoI | Prevents vector-derived C-terminal residues. |
+
+Expected molecular sizes from the current 8-construct package:
+
+| Candidate group | His6-SUMO-LiSPER fusion | Released peptide |
+|---|---:|---:|
+| 15 aa peptides | ~13.35-13.49 kDa | ~1.16-1.29 kDa |
+| 19 aa peptides | ~13.77 kDa | ~1.58 kDa |
+| 11 aa peptides | ~13.16-13.18 kDa | ~0.96-0.99 kDa |
+
+The fusion protein should be visible on Tris-Tricine or high-percentage SDS-PAGE. The released peptide may not stain reliably, so peptide identity and recovery should rely on MS/HPLC when possible.
+
 ## Scientific Logic
 
 ```mermaid
@@ -104,7 +126,7 @@ Why:
 
 Expected outcome:
 
-- Detectable fusion protein near the expected ~13-14 kDa range.
+- Detectable fusion protein near the expected 13.2-13.8 kDa range.
 
 Workflow:
 

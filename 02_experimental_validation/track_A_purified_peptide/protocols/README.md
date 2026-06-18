@@ -4,6 +4,8 @@ This folder is intentionally modular. Track A has many bench steps, and each ste
 
 Follow these protocols in order for purified His6-SUMO-LiSPER validation.
 
+Before starting bench work, read [Construct-purification alignment check](construct_purification_alignment_check.md). It connects the current pET-28a(+)-His6-SUMO plasmid design to the purification and peptide-recovery strategy.
+
 | Order | Protocol | Purpose |
 |---:|---|---|
 | 00 | [Protocol overview](00_track_A_protocol_overview.md) | Full-track logic from vendor plasmid to Li+/Na+ selectivity data |

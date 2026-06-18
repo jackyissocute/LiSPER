@@ -8,6 +8,15 @@ Separate native untagged LiSPER peptide from His6-SUMO, His-tagged protease, unc
 
 LiSPER peptides are very small, approximately 1-2 kDa. Standard protein recovery assumptions often fail.
 
+## Main Risks
+
+| Risk | Why it matters | Practical response |
+|---|---|---|
+| Peptide passes through MWCO devices | Most candidates are below 2 kDa | Do not rely on ordinary protein concentrators for recovery unless validated. |
+| Peptide is invisible on gel | Small acidic/neutral peptides stain poorly | Use MS/HPLC or assay-linked recovery evidence. |
+| Peptide adsorbs to plastic/resin | Low mass and charged residues can cause handling loss | Use low-bind tubes and minimize transfers. |
+| Residual Ni/imidazole/salt contaminates assays | These interfere with Li+/Na+ measurements | Desalt or buffer-exchange peptide fractions before binding assays. |
+
 ## Recommended First Recovery Logic
 
 Use post-cleavage Ni-NTA subtraction:
@@ -27,6 +36,17 @@ Use post-cleavage Ni-NTA subtraction:
 6. Elute resin to check retained His-tagged material.
 7. Analyze retained proteins by gel.
 8. Send flow-through/wash fractions for peptide QC if possible.
+
+## Fraction Interpretation
+
+| Fraction | Expected content | What to check |
+|---|---|---|
+| Post-cleavage input | SUMO, peptide, protease, possible uncleaved fusion | Gel for cleavage efficiency. |
+| Ni-NTA flow-through | Native untagged LiSPER peptide | MS/HPLC or assay after desalting. |
+| Low-imidazole wash | Possible residual peptide | Save and test; do not discard early in method development. |
+| Ni-NTA elution | His6-SUMO, His-tagged protease, uncleaved fusion | Gel confirms subtraction worked. |
+
+Pool peptide-containing flow-through/wash fractions only after QC or a small pilot binding test supports the choice.
 
 ## Optional Cleanup
 
@@ -54,4 +74,3 @@ Use post-cleavage Ni-NTA subtraction:
 - Wash volumes.
 - Fraction labels.
 - QC submission IDs.
-

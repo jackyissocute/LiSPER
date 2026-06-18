@@ -15,6 +15,16 @@ SUMO cleavage and peptide recovery require enriched fusion protein. Contaminants
 - Bind/wash/elution buffers.
 - SDS-PAGE or Tris-Tricine gel setup.
 
+## Target and Fraction Logic
+
+| Species | His tag? | Expected behavior |
+|---|---|---|
+| His6-SUMO-LiSPER fusion | Yes | Binds Ni-NTA and elutes with imidazole. |
+| Host proteins | Mostly no | Mostly flow-through/wash, with some nonspecific binders. |
+| Free native LiSPER peptide | No | Not expected before cleavage; after cleavage it should not bind Ni-NTA strongly. |
+
+Expected fusion size is approximately 13.2-13.8 kDa. Use Tris-Tricine or high-percentage SDS-PAGE and include a low-molecular-weight marker.
+
 ## Step-by-Step Workflow
 
 1. Equilibrate Ni-NTA resin with binding buffer.
@@ -26,6 +36,18 @@ SUMO cleavage and peptide recovery require enriched fusion protein. Contaminants
 7. Analyze input, flow-through, wash, and elution by gel.
 8. Pool fractions containing target fusion.
 9. Buffer exchange pooled fusion before SUMO cleavage.
+
+## Recommended Fraction QC
+
+Run at minimum:
+
+- input lysate,
+- soluble flow-through,
+- final wash,
+- each elution fraction,
+- pooled elution before buffer exchange.
+
+Estimate fusion purity from the gel before cleavage. If the target band is weak or heavily contaminated, optimize expression/wash conditions before committing to peptide recovery.
 
 ## Expected Outcome
 
@@ -55,4 +77,3 @@ Keep labeled aliquots:
 ## DKU Feasibility Tip
 
 For first attempts, use small-scale batch Ni-NTA purification because it is easier to troubleshoot than a packed gravity column.
-

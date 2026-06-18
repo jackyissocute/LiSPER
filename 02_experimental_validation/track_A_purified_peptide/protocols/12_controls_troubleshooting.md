@@ -31,6 +31,16 @@
 | Binding assay | high Na binding | nonspecific electrostatics | compare LiA3-Ref; adjust buffer/ionic strength |
 | Analysis | poor mass balance | separation/sample prep artifact | measure wash and pellet fractions |
 
+## Plasmid-Specific Watch Points
+
+| Watch point | Why it can happen | What to do |
+|---|---|---|
+| Fusion expresses but native peptide recovery looks low | Native peptide is only ~1.0-1.6 kDa and may be missed by gel | Use MS/HPLC; save all flow-through and wash fractions. |
+| Cleavage appears incomplete | SUMO junction accessibility, buffer mismatch, protease issue | Run analytical cleavage matrix before scaling; verify protease compatibility. |
+| Peptide fraction contains SUMO | Ni-NTA subtraction overloaded or resin binding inefficient | Increase resin volume/contact time and check imidazole/pH. |
+| Binding assay gives high Li/Na in blanks | Carryover from buffers, resin, plastic, or water | Run buffer-only and process blanks through the same cleanup path. |
+| Candidate appears negative after poor recovery | Technical recovery failure, not necessarily failed binding | Repeat recovery/QC or consider synthetic peptide for the candidate. |
+
 ## Decision Rules
 
 Do not interpret binding data unless:
@@ -49,4 +59,3 @@ If purified peptide recovery repeatedly fails:
 2. Record the failure as a production/recovery limitation.
 3. Continue Track B surface-display validation if ready.
 4. Consider synthetic peptide purchase for top candidates if budget allows.
-

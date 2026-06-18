@@ -1,44 +1,54 @@
 # Plasmids
 
-This folder is the active plasmid-design workspace for the **final 8-candidate** LiSPER library.
+This folder is the active plasmid-design workspace for the **final 8-candidate** LiSPER purified-peptide library.
 
 ## Current State
 
-The old 10-candidate His6-SUMO construct package has been archived under:
+The current vendor-ready package is:
 
 ```text
-archive/legacy_10_candidate_library/02_experimental_validation/track_A_purified_peptide/plasmids/
+vendor_ready_restriction_SUMO/
 ```
 
-Those files are preserved for reference only. They should not be treated as the current vendor-ready set because the active candidate library has changed.
+It contains eight corrected pET-28a(+)-His6-SUMO-LiSPER construct maps, synthesis insert FASTA files, and a vendor order instruction document.
 
-## Active Rule
+The LiSPER peptide-coding regions now use the IDT E. coli codon-optimized DNA downloaded for the final 8 candidates.
 
-Regenerate plasmid and codon-optimization files only after the final 8-candidate computational intake is stable.
+## Vendor-Compatible Design Rule
 
-Planned order:
+The vendor should **not synthesize a redesigned full pET-28a plasmid**.
+
+Use the original pET-28a(+) backbone and synthesize only the expression insert:
 
 ```text
-final 8 candidates
--> ESMFold intake
--> CHARMM-GUI / MD prioritization
--> codon optimization
--> His6-SUMO construct design
--> GenBank / SnapGene / vendor package
+NdeI -> His6 -> Smt3 SUMO -> LiSPER peptide -> stop codon -> XhoI
 ```
 
-## Expected Final 8
+The generated final plasmid GenBank maps preserve the original pET-28a(+) backbone and replace only the NdeI/XhoI cloning interval.
+
+## Final 8 Constructs
 
 | Candidate | Plasmid status |
 |---|---|
-| `LiD3-Core` | Pending codon optimization |
-| `LiD3-Flex` | Pending codon optimization |
-| `LiND-Hybrid` | Pending codon optimization |
-| `LiLC-1` | Pending codon optimization |
-| `LiDS-1` | Pending codon optimization |
-| `LiDA-1` | Pending codon optimization |
-| `LiN3-Core` | Pending codon optimization |
-| `LiA3-Ref` | Pending codon optimization |
+| `LiD3-Core` | Vendor-ready GenBank + insert sequence generated |
+| `LiD3-Flex` | Vendor-ready GenBank + insert sequence generated |
+| `LiND-Hybrid` | Vendor-ready GenBank + insert sequence generated |
+| `LiLC-1` | Vendor-ready GenBank + insert sequence generated |
+| `LiDS-1` | Vendor-ready GenBank + insert sequence generated |
+| `LiDA-1` | Vendor-ready GenBank + insert sequence generated |
+| `LiN3-Core` | Vendor-ready GenBank + insert sequence generated |
+| `LiA3-Ref` | Vendor-ready GenBank + insert sequence generated |
+
+## Vendor Package
+
+| Path | Purpose |
+|---|---|
+| `vendor_ready_restriction_SUMO/VENDOR_ORDER_INSTRUCTIONS.md` | Concise ordering instructions for the cloning vendor |
+| `vendor_ready_restriction_SUMO/vendor_order_table.csv` | Insert names, insert sequences, lengths, and QC fields |
+| `vendor_ready_restriction_SUMO/genbank_final_constructs/` | Eight final circular plasmid maps in GenBank format |
+| `vendor_ready_restriction_SUMO/insert_sequences/` | FASTA files for synthesis inserts, fusion products, and released peptides |
+| `codon_optimization/idt_peptide_codon_optimization.csv` | Final IDT peptide codon-optimization manifest used by the plasmid generator |
+| `codon_optimization/idt_downloads/` | Original IDT CSV downloads renamed by candidate |
 
 ## Vector Map
 
@@ -46,6 +56,21 @@ final 8 candidates
 |---|---|
 | `vector_maps/pET28a_plus.dna` | Source pET-28a(+) SnapGene vector map used as the backbone reference |
 
-## Notes
+## QC Summary
 
-Exact-sequence reuse from the old candidate set may help with design review, but final plasmid files should use the final candidate names and final 8-candidate manifest.
+- All eight inserts start with NdeI and end with XhoI.
+- The NdeI site supplies the start codon; the insert does not duplicate an extra ATG after NdeI.
+- No internal NdeI or XhoI sites were detected inside the coding ORFs.
+- All IDT peptide-coding sequences translate back to the expected LiSPER peptide sequences.
+- Each GenBank file is circular and contains annotated cloning sites, vendor insert, His6 tag, Smt3 SUMO tag, candidate peptide, and stop codon.
+- SUMO protease cleavage is designed to release the native LiSPER peptide without extra residues.
+
+## Reproducibility
+
+The generator used for this package is:
+
+```text
+06_project_operations/scripts/design_pet28a_SUMO_restriction_vendor_package.py
+```
+
+Earlier full-cassette replacement scripts are superseded for vendor ordering because the synthesis vendor workflow requires insert cloning into a standard backbone rather than redesigning the surrounding MCS.

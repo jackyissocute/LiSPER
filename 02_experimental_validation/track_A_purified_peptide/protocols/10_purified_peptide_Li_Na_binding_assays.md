@@ -20,6 +20,19 @@ Compare Li and Na distribution between peptide-associated and free fractions. Th
 | Incubation | 15, 30, 60 min |
 | Replicates | at least 3 biological peptide preparations when possible |
 
+## Compatibility Requirements
+
+Before running binding assays, remove or account for:
+
+- imidazole from Ni-NTA elution,
+- nickel or cobalt resin carryover,
+- high sodium buffers,
+- EDTA or strong chelators,
+- glycerol/salts introduced during cleavage or storage,
+- plastic/filter background binding.
+
+Use potassium-based pH adjustment where possible so sodium is not accidentally introduced into the baseline buffer.
+
 ## Li-Only Assay
 
 1. Prepare peptide in low-sodium assay buffer.
@@ -61,3 +74,16 @@ A promising peptide shows:
 - Na binding low relative to Li.
 - Li enrichment in mixed Li+Na assays.
 
+## Minimum Reporting Template
+
+For each peptide and condition, record:
+
+| Field | Why |
+|---|---|
+| peptide preparation ID | separates biological prep variability from sequence effect |
+| estimated peptide amount | needed for binding normalization |
+| buffer composition and pH | ions and pH strongly affect interpretation |
+| Li/Na input concentration | defines competition strength |
+| Li/Na measured in blanks | detects background contamination |
+| Li/Na measured after peptide incubation | primary readout |
+| recovery/separation method | prevents confusing separation artifact with binding |
