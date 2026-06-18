@@ -294,37 +294,37 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>Setup QC completion</strong></td>
-      <td align="center"><strong><code>LiCl 8 minimized; NaCl 8 equilibrated</code></strong><br><sub>LiCl equilibration running</sub></td>
-      <td>QC LiCl setup outputs, then launch remaining LiCl production/clustering.</td>
+      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>NaCl setup done; LiCl equilibration continuing on worker A</sub></td>
+      <td>Finish LiCl equilibration, scan logs, then release passing systems to production.</td>
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>NaCl running</code></strong><br><sub>second AutoDL worker</sub></td>
-      <td>Collect NaCl production/clustering summaries, then pair with LiCl representatives.</td>
+      <td align="center"><strong><code>~3-6 days</code></strong><br><sub>NaCl running in parallel on worker B; LiCl follows setup QC</sub></td>
+      <td>Collect production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
       <td><strong>PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>planned</code></strong><br><sub>after representatives</sub></td>
-      <td>Build umbrella windows, run sampling, then perform WHAM/PMF QC.</td>
+      <td align="center"><strong><code>~5-10 days after representatives</code></strong><br><sub>depends on umbrella-window count and QC</sub></td>
+      <td>Build umbrella windows, run sampling, then perform WHAM/PMF QC for paired Li+/Na+ systems.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>TBD</code></strong><br><sub>after queue timing</sub></td>
-      <td>Complete LiCl and NaCl PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+).</td>
+      <td align="center"><strong><code>~10-18 days</code></strong><br><sub>first defensible table; full 8-candidate table may extend longer</sub></td>
+      <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates remain conservative while the setup queues run and the new minimization/equilibration summaries are collected.
+> Time estimates are conservative and will tighten after the first NaCl parallel production jobs finish and LiCl production timing is measured on worker A.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
 
 - `LiD3-Flex` and `LiND-Hybrid` already have LiCl production/clustering representatives available under the final candidate names.
 - `LiLC-1` already has upstream setup/equilibration assets available and still needs LiCl production/clustering completion.
-- LiCl minimization is complete for all eight candidates and LiCl equilibration is running.
-- NaCl minimization is complete for all eight candidates; seven NaCl systems are equilibrated and `LiN3-Core` equilibration is running.
-- `LiN3-Core` NaCl is running as a separate focused setup queue.
+- LiCl minimization is complete for all eight candidates and LiCl equilibration is running on worker A.
+- NaCl setup is complete for all eight candidates.
+- NaCl 20 ns production and clustering are running in parallel on worker B.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
