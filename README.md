@@ -116,7 +116,7 @@ flowchart TD
 > **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl setup is complete, and both LiCl and NaCl 20 ns production + clustering are now running on separate AutoDL workers.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
-> ![LiCl](https://img.shields.io/badge/LiCl-2.60--8.97_ns_of_20_ns-2563eb)
+> ![LiCl](https://img.shields.io/badge/LiCl-2.98--10.27_ns_of_20_ns-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-6_active_%2B_2_queued-2563eb)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
@@ -124,7 +124,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-19 14:24 CST`
+**Last synchronized monitor snapshot:** `2026-06-19 17:22 CST`
 
 ### Process matrix
 
@@ -161,9 +161,9 @@ flowchart TD
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>2.60-8.97 ns / 20 ns</code> across 8 active jobs</td>
+      <td><code>2.98-10.27 ns / 20 ns</code> across 8 active jobs</td>
       <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-8%2F8_jobs-2563eb"></td>
-      <td>Li+ ensemble trajectories; current leader <code>LiDA-1</code> at <code>8.97 ns</code></td>
+      <td>Li+ ensemble trajectories; current leader <code>LiDA-1</code> at <code>10.27 ns</code></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
@@ -180,7 +180,7 @@ flowchart TD
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>0.74-2.78 ns / 20 ns</code> across 6 active jobs; queued jobs at <code>0.13-0.16 ns</code></td>
+      <td><code>1.08-3.94 ns / 20 ns</code> across 6 active jobs; queued jobs at <code>0.13-0.16 ns</code></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/optimized-6_active%2B2_queued-2563eb"></td>
       <td>Matched Na+ ensembles; checkpoint-resumed with quota-matched threading</td>
     </tr>
@@ -223,57 +223,57 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟦 <code>3.96 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>1.08 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>4.53 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>1.56 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>2.65 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>0.74 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>3.03 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>1.08 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>2.60 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>2.98 ns / 20 ns</code>; clustering queued</td>
       <td>⬛ <code>0.16 ns / 20 ns</code>; queued behind optimized worker pool</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟦 <code>4.05 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>1.23 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>4.64 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>1.75 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
-      <td>🟦 <code>6.14 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>1.90 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>7.02 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>2.68 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>🟦 <code>8.97 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>2.78 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>10.27 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>3.94 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟦 <code>4.08 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>4.67 ns / 20 ns</code>; clustering queued</td>
       <td>⬛ <code>0.13 ns / 20 ns</code>; queued behind optimized worker pool</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 <code>3.97 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>1.04 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>4.55 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>1.51 ns / 20 ns</code>; clustering queued</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -298,7 +298,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~18-45+ days</code></strong><br><sub>updated after continued post-optimization NaCl progress</sub></td>
+      <td align="center"><strong><code>~16-40+ days</code></strong><br><sub>updated after continued post-optimization NaCl progress</sub></td>
       <td>Collect production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
@@ -313,7 +313,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~28-60+ days</code></strong><br><sub>production estimate improved after NaCl throughput stabilized</sub></td>
+      <td align="center"><strong><code>~25-55+ days</code></strong><br><sub>production estimate improved after NaCl throughput stabilized</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
@@ -340,14 +340,14 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `3.96/20 ns`; NaCl `1.08/20 ns` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `2.65/20 ns`; NaCl `0.74/20 ns` |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `2.60/20 ns`; NaCl `0.16/20 ns queued` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `4.05/20 ns`; NaCl `1.23/20 ns` |
-| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl `6.14/20 ns`; NaCl `1.90/20 ns` |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `8.97/20 ns`; NaCl `2.78/20 ns` |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | LiCl `4.08/20 ns`; NaCl `0.13/20 ns queued` |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `3.97/20 ns`; NaCl `1.04/20 ns` |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `4.53/20 ns`; NaCl `1.56/20 ns` |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `3.03/20 ns`; NaCl `1.08/20 ns` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `2.98/20 ns`; NaCl `0.16/20 ns queued` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `4.64/20 ns`; NaCl `1.75/20 ns` |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl `7.02/20 ns`; NaCl `2.68/20 ns` |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `10.27/20 ns`; NaCl `3.94/20 ns` |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | LiCl `4.67/20 ns`; NaCl `0.13/20 ns queued` |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `4.55/20 ns`; NaCl `1.51/20 ns` |
 
 ## ⚙️ Computational workflow
 
