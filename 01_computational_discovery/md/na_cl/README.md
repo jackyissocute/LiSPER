@@ -12,7 +12,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | CHARMM-GUI NaCl systems | 8/8 GROMACS-ready |
 | Minimization | 8/8 minimized including LiN3-Core add-on |
 | Equilibration | 8/8 equilibrated |
-| 20 ns production | Optimized checkpoint resume: 6 active + 2 queued; active jobs `0.44-1.74 ns / 20 ns`, queued jobs `0.13-0.16 ns / 20 ns` as of `2026-06-19 11:50 CST` |
+| 20 ns production | Optimized checkpoint resume: 6 active + 2 queued; active jobs `0.74-2.78 ns / 20 ns`, queued jobs `0.13-0.16 ns / 20 ns` as of `2026-06-19 14:24 CST` |
 | Structural clustering | Queued after each production run |
 | PMF handoff | Pending |
 
@@ -20,13 +20,13 @@ NaCl simulations are being generated as matched comparison systems for the revis
 
 | Candidate | NaCl production state |
 |---|---|
-| `LiD3-Core` | Active checkpoint resume; `0.65 ns / 20 ns`; clustering queued |
-| `LiD3-Flex` | Active checkpoint resume; `0.44 ns / 20 ns`; clustering queued |
+| `LiD3-Core` | Active checkpoint resume; `1.08 ns / 20 ns`; clustering queued |
+| `LiD3-Flex` | Active checkpoint resume; `0.74 ns / 20 ns`; clustering queued |
 | `LiND-Hybrid` | Queued behind optimized worker pool; `0.16 ns / 20 ns`; clustering queued |
-| `LiLC-1` | Active checkpoint resume; `0.77 ns / 20 ns`; clustering queued |
-| `LiDS-1` | Active checkpoint resume; `1.19 ns / 20 ns`; clustering queued |
-| `LiDA-1` | Active checkpoint resume; `1.74 ns / 20 ns`; clustering queued |
+| `LiLC-1` | Active checkpoint resume; `1.23 ns / 20 ns`; clustering queued |
+| `LiDS-1` | Active checkpoint resume; `1.90 ns / 20 ns`; clustering queued |
+| `LiDA-1` | Active checkpoint resume; `2.78 ns / 20 ns`; clustering queued |
 | `LiN3-Core` | Queued behind optimized worker pool; `0.13 ns / 20 ns`; clustering queued |
-| `LiA3-Ref` | Active checkpoint resume; `0.63 ns / 20 ns`; clustering queued |
+| `LiA3-Ref` | Active checkpoint resume; `1.04 ns / 20 ns`; clustering queued |
 
 Live run summaries are kept in `remote_runs/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.
