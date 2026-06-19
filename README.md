@@ -117,7 +117,7 @@ flowchart TD
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-1.89--6.53_ns_of_20_ns-2563eb)
-> ![NaCl](https://img.shields.io/badge/NaCl-0.08--0.49_ns_of_20_ns-2563eb)
+> ![NaCl](https://img.shields.io/badge/NaCl-6_active_%2B_2_queued-2563eb)
 > ![PMF](https://img.shields.io/badge/PMF-after_representatives-0f766e)
 
 <p align="center">
@@ -142,7 +142,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
       <td>Paired production monitor</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 16 active production jobs</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 14 active production jobs + 2 queued</td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
       <td>Monitor paired 20 ns production; clustering remains queued behind each job</td>
     </tr>
@@ -180,9 +180,9 @@ flowchart TD
     </tr>
     <tr>
       <td>20 ns production MD</td>
-      <td><code>0.08-0.49 ns / 20 ns</code> across 8 active jobs</td>
-      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-8%2F8_jobs-2563eb"></td>
-      <td>Matched Na+ comparison ensembles; current leader <code>LiDA-1</code> at <code>0.49 ns</code></td>
+      <td><code>0.08-0.49 ns / 20 ns</code> across 6 active + 2 queued jobs</td>
+      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/optimized-6_active%2B2_queued-2563eb"></td>
+      <td>Matched Na+ ensembles; checkpoint-resumed with quota-matched threading</td>
     </tr>
     <tr>
       <td>Structural clustering</td>
@@ -238,7 +238,7 @@ flowchart TD
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td>🟦 <code>1.89 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>0.16 ns / 20 ns</code>; clustering queued</td>
+      <td>⬛ <code>0.16 ns / 20 ns</code>; queued behind optimized worker pool</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -266,7 +266,7 @@ flowchart TD
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟦 <code>2.96 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>0.12 ns / 20 ns</code>; clustering queued</td>
+      <td>⬛ <code>0.12 ns / 20 ns</code>; queued behind optimized worker pool</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -298,7 +298,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~30-70+ days</code></strong><br><sub>NaCl production is the current bottleneck at measured pace</sub></td>
+      <td align="center"><strong><code>~25-60+ days</code></strong><br><sub>NaCl worker is now quota-matched; estimate should tighten after the next progress snapshot</sub></td>
       <td>Collect production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
@@ -313,13 +313,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~40-85+ days</code></strong><br><sub>at current two-worker pace; estimate may tighten if NaCl throughput improves</sub></td>
+      <td align="center"><strong><code>~35-75+ days</code></strong><br><sub>updated after NaCl workload optimization; estimate may tighten after measured throughput stabilizes</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are conservative and currently dominated by slow NaCl production throughput; they will tighten after the first paired production/clustering summaries are available.
+> Time estimates are conservative and still dominated by NaCl production throughput. The NaCl worker was optimized on 2026-06-19 from an oversubscribed launch to a quota-matched checkpoint resume, so the estimate should tighten after the next monitor snapshot.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -327,6 +327,7 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are running in parallel on separate workers.
+- NaCl production was checkpoint-resumed with 6 active jobs + 2 queued jobs to match the available CPU quota and improve throughput.
 - No final 8-candidate representative structures are ready yet; clustering remains queued behind the active 20 ns production jobs.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.

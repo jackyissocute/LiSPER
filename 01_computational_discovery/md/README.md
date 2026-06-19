@@ -11,7 +11,7 @@ Latest production snapshot: `2026-06-19 08:51 CST`.
 | Condition | Folder | Current state |
 |---|---|---|
 | LiCl | `li_cl/` | 8/8 production jobs active; `1.89-6.53 ns / 20 ns`; clustering queued after each production run |
-| NaCl | `na_cl/` | 8/8 production jobs active; `0.08-0.49 ns / 20 ns`; clustering queued after each production run |
+| NaCl | `na_cl/` | 6 production jobs active + 2 queued after checkpoint-safe optimization; `0.08-0.49 ns / 20 ns`; clustering queued after each production run |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 

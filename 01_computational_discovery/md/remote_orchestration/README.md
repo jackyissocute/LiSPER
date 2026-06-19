@@ -65,10 +65,12 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl \
 
 # NaCl production worker, candidate-parallel
 env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker \
-  LISPER_JOBS=8 \
-  LISPER_NTHREAD_PER_JOB=16 \
+  LISPER_JOBS=6 \
+  LISPER_NTHREAD_PER_JOB=2 \
   python3 run_lisper_parallel_production_cluster.py
 ```
+
+The NaCl production worker currently uses 6 concurrent jobs x 2 OpenMP threads to match the 12-core CPU quota on the second AutoDL container. This avoids the earlier oversubscription pattern and leaves two candidates queued behind the active worker pool.
 
 ## Completed Asset Policy
 
