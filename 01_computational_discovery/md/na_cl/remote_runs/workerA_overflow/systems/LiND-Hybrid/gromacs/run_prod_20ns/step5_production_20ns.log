@@ -1460,3 +1460,296 @@ Writing checkpoint, step 189840 at Sat Jun 20 20:44:01 2026
  Pressure (bar)   Constr. rmsd
     8.44828e+01    2.62811e-06
 
+           Step           Time
+         195000      390.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.70376e+02    6.21231e+02    5.49249e+02    2.68785e+01   -2.90468e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.24023e+02    4.62546e+03    1.06638e+05   -1.09800e+06    3.02234e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82253e+05    1.69207e+05   -8.13046e+05   -7.95286e+05    2.97681e+02
+ Pressure (bar)   Constr. rmsd
+    1.05769e+02    2.65646e-06
+
+Writing checkpoint, step 198160 at Sat Jun 20 20:59:11 2026
+
+
+           Step           Time
+         200000      400.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.08509e+02    6.21437e+02    5.05726e+02    5.98450e+01   -6.19350e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.30691e+02    4.67593e+03    1.05276e+05   -1.09680e+06    3.08059e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82304e+05    1.69192e+05   -8.13111e+05   -7.95032e+05    2.97655e+02
+ Pressure (bar)   Constr. rmsd
+    4.59882e+00    2.28644e-06
+
+           Step           Time
+         205000      410.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.53803e+02    6.44514e+02    4.89701e+02    3.58447e+01   -4.39799e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.25239e+02    4.61906e+03    1.05182e+05   -1.09761e+06    3.13397e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.83270e+05    1.70254e+05   -8.13016e+05   -7.95480e+05    2.99522e+02
+ Pressure (bar)   Constr. rmsd
+   -6.46891e+01    4.31336e-06
+
+Writing checkpoint, step 206320 at Sat Jun 20 21:14:05 2026
+
+
+           Step           Time
+         210000      420.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.86963e+02    5.93529e+02    5.26805e+02    2.62179e+01   -3.56090e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.27623e+02    4.63089e+03    1.05033e+05   -1.09685e+06    3.08394e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82678e+05    1.69705e+05   -8.12973e+05   -7.95232e+05    2.98556e+02
+ Pressure (bar)   Constr. rmsd
+   -5.48565e+00    3.14517e-06
+
+Writing checkpoint, step 214640 at Sat Jun 20 21:29:06 2026
+
+
+           Step           Time
+         215000      430.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.05238e+02    6.56614e+02    5.23943e+02    3.68731e+01   -4.25954e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.37642e+02    4.68409e+03    1.06411e+05   -1.09664e+06    3.17188e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.80859e+05    1.70613e+05   -8.10246e+05   -7.95745e+05    3.00154e+02
+ Pressure (bar)   Constr. rmsd
+    1.07681e+02    3.58952e-06
+
+           Step           Time
+         220000      440.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.13752e+02    6.70560e+02    5.19177e+02    3.53807e+01   -7.98019e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.36962e+02    4.64866e+03    1.04565e+05   -1.09419e+06    3.14334e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.80339e+05    1.69182e+05   -8.11157e+05   -7.95756e+05    2.97636e+02
+ Pressure (bar)   Constr. rmsd
+   -1.19602e+02    2.59030e-06
+
+Writing checkpoint, step 222880 at Sat Jun 20 21:44:09 2026
+
+
+           Step           Time
+         225000      450.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.99485e+02    6.06536e+02    4.89549e+02    3.80618e+01   -3.13043e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.15484e+02    4.58341e+03    1.06148e+05   -1.09804e+06    3.19754e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82690e+05    1.67504e+05   -8.15186e+05   -7.95278e+05    2.94684e+02
+ Pressure (bar)   Constr. rmsd
+    1.97546e+01    2.38170e-06
+
+           Step           Time
+         230000      460.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.17250e+02    6.34895e+02    5.16731e+02    2.71532e+01   -6.04962e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.18819e+02    4.63916e+03    1.05529e+05   -1.09595e+06    3.08921e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81240e+05    1.68203e+05   -8.13037e+05   -7.95374e+05    2.95914e+02
+ Pressure (bar)   Constr. rmsd
+    3.93142e+01    3.09667e-06
+
+Writing checkpoint, step 231120 at Sat Jun 20 21:58:57 2026
+
+
+           Step           Time
+         235000      470.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.63480e+02    6.41505e+02    5.17051e+02    4.03189e+01   -2.19127e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.42281e+02    4.60213e+03    1.05798e+05   -1.09636e+06    2.97551e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81501e+05    1.68074e+05   -8.13427e+05   -7.95700e+05    2.95688e+02
+ Pressure (bar)   Constr. rmsd
+    5.01713e+01    2.94375e-06
+
+Writing checkpoint, step 239680 at Sat Jun 20 22:14:11 2026
+
+
+           Step           Time
+         240000      480.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.58625e+02    6.06763e+02    5.38306e+02    4.46973e+01   -2.60289e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.31118e+02    4.69602e+03    1.05321e+05   -1.09703e+06    2.92753e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82636e+05    1.69376e+05   -8.13260e+05   -7.95602e+05    2.97977e+02
+ Pressure (bar)   Constr. rmsd
+   -2.80260e+01    2.71781e-06
+
+           Step           Time
+         245000      490.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.89892e+02    6.42548e+02    5.20797e+02    3.13850e+01   -5.56715e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.24625e+02    4.64469e+03    1.05158e+05   -1.09601e+06    3.09254e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81661e+05    1.68844e+05   -8.12817e+05   -7.95607e+05    2.97042e+02
+ Pressure (bar)   Constr. rmsd
+   -1.89519e+01    3.95340e-06
+
+Writing checkpoint, step 248080 at Sat Jun 20 22:29:07 2026
+
+
+           Step           Time
+         250000      500.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.29932e+02    6.48468e+02    5.21329e+02    3.00602e+01   -3.47668e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.03511e+02    4.62008e+03    1.04908e+05   -1.09581e+06    3.13029e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81655e+05    1.70655e+05   -8.11000e+05   -7.95800e+05    3.00228e+02
+ Pressure (bar)   Constr. rmsd
+   -6.19452e+01    4.04139e-06
+
+           Step           Time
+         255000      510.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.08890e+02    6.44674e+02    5.17787e+02    3.38828e+01   -5.98917e+00
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.07811e+02    4.64789e+03    1.05054e+05   -1.09661e+06    3.10523e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82300e+05    1.70606e+05   -8.11693e+05   -7.95688e+05    3.00142e+02
+ Pressure (bar)   Constr. rmsd
+   -3.27380e-01    2.80010e-06
+
+Writing checkpoint, step 256480 at Sat Jun 20 22:44:03 2026
+
+
+           Step           Time
+         260000      520.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    2.52019e+02    6.02377e+02    5.22211e+02    3.75377e+01   -4.14791e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    9.83377e+01    4.59918e+03    1.05180e+05   -1.09602e+06    3.15145e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81617e+05    1.68790e+05   -8.12827e+05   -7.96080e+05    2.96946e+02
+ Pressure (bar)   Constr. rmsd
+   -9.44476e+01    3.90190e-06
+
+Writing checkpoint, step 264880 at Sat Jun 20 22:59:10 2026
+
+
+           Step           Time
+         265000      530.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.73506e+02    6.50404e+02    5.71080e+02    3.33325e+01   -4.18359e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.22281e+02    4.58270e+03    1.05149e+05   -1.09563e+06    3.03206e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81354e+05    1.68816e+05   -8.12538e+05   -7.95826e+05    2.96993e+02
+ Pressure (bar)   Constr. rmsd
+   -2.19831e+01    2.32460e-06
+
+           Step           Time
+         270000      540.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.96945e+02    5.91459e+02    5.32535e+02    4.96122e+01   -3.40021e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.18920e+02    4.78768e+03    1.03339e+05   -1.09218e+06    3.14705e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.79455e+05    1.69913e+05   -8.09542e+05   -7.96369e+05    2.98923e+02
+ Pressure (bar)   Constr. rmsd
+   -1.87462e+02    2.84992e-06
+
+Writing checkpoint, step 273360 at Sat Jun 20 23:14:06 2026
+
+
+           Step           Time
+         275000      550.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.50671e+02    7.15915e+02    5.36299e+02    4.17784e+01   -6.63530e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.43673e+02    4.60294e+03    1.06394e+05   -1.09719e+06    3.08431e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81585e+05    1.69635e+05   -8.11950e+05   -7.96052e+05    2.98433e+02
+ Pressure (bar)   Constr. rmsd
+    1.14665e+02    2.81141e-06
+
+           Step           Time
+         280000      560.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.66658e+02    6.18035e+02    5.35813e+02    2.62760e+01   -4.63403e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.46253e+02    4.67402e+03    1.04775e+05   -1.09710e+06    3.13720e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.83067e+05    1.68772e+05   -8.14295e+05   -7.96325e+05    2.96916e+02
+ Pressure (bar)   Constr. rmsd
+   -1.55503e+02    2.86261e-06
+
+Writing checkpoint, step 281680 at Sat Jun 20 23:29:06 2026
+
+
+           Step           Time
+         285000      570.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.94931e+02    6.12724e+02    5.64769e+02    3.96576e+01   -2.75986e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.13644e+02    4.65694e+03    1.04463e+05   -1.09536e+06    3.00542e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.81739e+05    1.70107e+05   -8.11632e+05   -7.96396e+05    2.99264e+02
+ Pressure (bar)   Constr. rmsd
+   -1.65092e+02    3.36158e-06
+
+           Step           Time
+         290000      580.00000
+
+   Energies (kJ/mol)
+           Bond            U-B    Proper Dih.  Improper Dih.      CMAP Dih.
+    1.76682e+02    6.36903e+02    5.07914e+02    1.63729e+01   -3.86080e+01
+          LJ-14     Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.
+    1.18174e+02    4.66150e+03    1.05338e+05   -1.09704e+06    3.08596e+03
+      Potential    Kinetic En.   Total Energy  Conserved En.    Temperature
+   -9.82538e+05    1.70315e+05   -8.12223e+05   -7.96116e+05    2.99630e+02
+ Pressure (bar)   Constr. rmsd
+   -8.08678e+00    3.21768e-06
+

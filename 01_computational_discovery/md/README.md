@@ -4,14 +4,14 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 ## Current State
 
-The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl 20 ns production plus clustering is running on the original worker. The two formerly queued NaCl jobs have been offloaded to the original worker after LiDA-1 LiCl completed production and clustering.
+The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl 20 ns production plus clustering is running on the original worker. The two formerly queued NaCl jobs have been backfilled to the original worker after LiDA-1 LiCl completed production and clustering.
 
-Latest production snapshot: `2026-06-20 20:43 CST`.
+Latest production snapshot: `2026-06-20 23:41 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 7/8 production jobs active; `6.56-15.47 ns / 20 ns`; `LiDA-1` produced and clustered; top cluster `17.64%` |
-| NaCl | `na_cl/` | 8/8 production jobs active across both workers; Worker B active jobs `4.15-14.80 ns / 20 ns`; Worker A backfill jobs `0.37-0.45 ns / 20 ns` |
+| LiCl | `li_cl/` | 7/8 production jobs active; `6.94-16.38 ns / 20 ns`; `LiDA-1` produced and clustered; top cluster `17.64%` |
+| NaCl | `na_cl/` | 8/8 production jobs active across both workers; Worker B active jobs `4.47-15.93 ns / 20 ns`; Worker A backfill jobs `0.57-0.76 ns / 20 ns` |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
