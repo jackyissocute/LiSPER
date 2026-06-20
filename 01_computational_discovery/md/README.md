@@ -4,14 +4,14 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 ## Current State
 
-The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl 20 ns production plus clustering is running on the original worker, and NaCl 20 ns production plus clustering is running on a second AutoDL worker.
+The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl 20 ns production plus clustering is running on the original worker. The two formerly queued NaCl jobs have been offloaded to the original worker after LiDA-1 LiCl completed production and clustering.
 
-Latest production snapshot: `2026-06-20 14:28 CST`.
+Latest production snapshot: `2026-06-20 17:29 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 8/8 production jobs active; `5.74-19.76 ns / 20 ns`; clustering queued after each production run |
-| NaCl | `na_cl/` | 6 production jobs active + 2 queued after checkpoint-safe optimization; active jobs `3.49-12.35 ns / 20 ns`; queued jobs `0.13-0.16 ns / 20 ns`; clustering queued after each production run |
+| LiCl | `li_cl/` | 7/8 production jobs active; `6.14-14.48 ns / 20 ns`; `LiDA-1` produced and clustered; top cluster `17.64%` |
+| NaCl | `na_cl/` | 8/8 production jobs active across both workers; Worker B active jobs `3.80-13.49 ns / 20 ns`; Worker A overflow jobs `0.13-0.16 ns / 20 ns` |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
@@ -20,6 +20,7 @@ Remote 8-candidate workspaces were initialized on AutoDL:
 | LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
 | NaCl setup | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
 | NaCl production | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
+| NaCl overflow | `/root/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA` |
 
 ## Workflow
 

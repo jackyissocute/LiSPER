@@ -1,6 +1,6 @@
 # NaCl Production Worker Status
 
-Last updated: 2026-06-20 14:28 CST
+Last updated: 2026-06-20 17:29 CST
 
 ## Active Queue
 
@@ -10,25 +10,25 @@ Last updated: 2026-06-20 14:28 CST
 | Candidate set | Final 8-candidate NaCl systems |
 | Worker | Second AutoDL machine |
 | Stage | 20 ns production followed by structural clustering |
-| Launch state | Optimized checkpoint resume: 6 active jobs + 2 queued jobs |
-| Production progress | Active jobs `3.49-12.35 ns / 20 ns`; queued jobs `0.13-0.16 ns / 20 ns` |
-| Current leader | `LiDA-1` at `12.35 ns / 20 ns` |
-| Worker pool | `LISPER_JOBS=6`, `LISPER_NTHREAD_PER_JOB=2` |
-| Effective CPU quota | 12 cores on the second AutoDL container |
-| Optimization reason | Replaced the oversubscribed 8-job x 16-thread launch with a quota-matched 6-job x 2-thread launch |
+| Launch state | 6 active jobs on Worker B + 2 overflow active jobs on Worker A |
+| Production progress | Worker B jobs `3.80-13.49 ns / 20 ns`; Worker A overflow jobs `0.13-0.16 ns / 20 ns` |
+| Current leader | `LiDA-1` at `13.49 ns / 20 ns` |
+| Worker pool | Worker B: `LISPER_JOBS=6`, `LISPER_NTHREAD_PER_JOB=2`; Worker A overflow: `LISPER_JOBS=2`, `LISPER_NTHREAD_PER_JOB=1` |
+| Effective CPU quota | Worker B uses 12/12 cores; Worker A uses 16/16 after LiDA-1 LiCl completed |
+| Optimization reason | The queued NaCl pair was offloaded after Worker A freed two CPU slots, avoiding duplicate candidate-condition-stage work |
 
 ## Per-Candidate Production Progress
 
 | Candidate | State |
 |---|---|
-| `LiD3-Core` | Active checkpoint resume; `5.14 ns / 20 ns`; clustering queued |
-| `LiD3-Flex` | Active checkpoint resume; `3.49 ns / 20 ns`; clustering queued |
-| `LiND-Hybrid` | Queued behind optimized worker pool; `0.16 ns / 20 ns`; clustering queued |
-| `LiLC-1` | Active checkpoint resume; `5.49 ns / 20 ns`; clustering queued |
-| `LiDS-1` | Active checkpoint resume; `8.32 ns / 20 ns`; clustering queued |
-| `LiDA-1` | Active checkpoint resume; `12.35 ns / 20 ns`; clustering queued |
-| `LiN3-Core` | Queued behind optimized worker pool; `0.13 ns / 20 ns`; clustering queued |
-| `LiA3-Ref` | Active checkpoint resume; `5.03 ns / 20 ns`; clustering queued |
+| `LiD3-Core` | Active checkpoint resume on Worker B; `5.65 ns / 20 ns`; clustering queued |
+| `LiD3-Flex` | Active checkpoint resume on Worker B; `3.80 ns / 20 ns`; clustering queued |
+| `LiND-Hybrid` | Active overflow on Worker A; `0.16 ns / 20 ns`; clustering queued |
+| `LiLC-1` | Active checkpoint resume on Worker B; `5.97 ns / 20 ns`; clustering queued |
+| `LiDS-1` | Active checkpoint resume on Worker B; `9.04 ns / 20 ns`; clustering queued |
+| `LiDA-1` | Active checkpoint resume on Worker B; `13.49 ns / 20 ns`; clustering queued |
+| `LiN3-Core` | Active overflow on Worker A; `0.13 ns / 20 ns`; clustering queued |
+| `LiA3-Ref` | Active checkpoint resume on Worker B; `5.52 ns / 20 ns`; clustering queued |
 
 ## Notes
 
@@ -36,5 +36,6 @@ Last updated: 2026-06-20 14:28 CST
 - All eight NaCl systems are equilibrated in the production worker manifest.
 - The first sequential single-candidate launcher was replaced by the tracked parallel launcher.
 - On 2026-06-19, the NaCl worker was checkpoint-restarted with `.cpt` files and `-append` using 6 concurrent jobs x 2 OpenMP threads. This matches the 12-core quota and avoids the previous 8 x 16 oversubscription.
+- On 2026-06-20, `LiND-Hybrid` and `LiN3-Core` were offloaded to Worker A as 2 concurrent jobs x 1 OpenMP thread after `LiDA-1` LiCl completed and freed two CPU slots. The original queued directories on Worker B were disabled to prevent duplicate launches.
 - Older production logs may still contain the previous oversubscription warning because GROMACS appends into the same log during checkpoint continuation; the active relaunched jobs report `Using 2 OpenMP threads`.
 - Active trajectories are not synced locally while production is running.
