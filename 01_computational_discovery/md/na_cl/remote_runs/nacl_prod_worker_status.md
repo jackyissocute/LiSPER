@@ -1,6 +1,6 @@
 # NaCl Production Worker Status
 
-Last updated: 2026-06-20 11:28 CST
+Last updated: 2026-06-20 14:28 CST
 
 ## Active Queue
 
@@ -11,8 +11,8 @@ Last updated: 2026-06-20 11:28 CST
 | Worker | Second AutoDL machine |
 | Stage | 20 ns production followed by structural clustering |
 | Launch state | Optimized checkpoint resume: 6 active jobs + 2 queued jobs |
-| Production progress | Active jobs `3.16-11.16 ns / 20 ns`; queued jobs `0.13-0.16 ns / 20 ns` |
-| Current leader | `LiDA-1` at `11.16 ns / 20 ns` |
+| Production progress | Active jobs `3.49-12.35 ns / 20 ns`; queued jobs `0.13-0.16 ns / 20 ns` |
+| Current leader | `LiDA-1` at `12.35 ns / 20 ns` |
 | Worker pool | `LISPER_JOBS=6`, `LISPER_NTHREAD_PER_JOB=2` |
 | Effective CPU quota | 12 cores on the second AutoDL container |
 | Optimization reason | Replaced the oversubscribed 8-job x 16-thread launch with a quota-matched 6-job x 2-thread launch |
@@ -21,14 +21,14 @@ Last updated: 2026-06-20 11:28 CST
 
 | Candidate | State |
 |---|---|
-| `LiD3-Core` | Active checkpoint resume; `4.61 ns / 20 ns`; clustering queued |
-| `LiD3-Flex` | Active checkpoint resume; `3.16 ns / 20 ns`; clustering queued |
+| `LiD3-Core` | Active checkpoint resume; `5.14 ns / 20 ns`; clustering queued |
+| `LiD3-Flex` | Active checkpoint resume; `3.49 ns / 20 ns`; clustering queued |
 | `LiND-Hybrid` | Queued behind optimized worker pool; `0.16 ns / 20 ns`; clustering queued |
-| `LiLC-1` | Active checkpoint resume; `4.99 ns / 20 ns`; clustering queued |
-| `LiDS-1` | Active checkpoint resume; `7.56 ns / 20 ns`; clustering queued |
-| `LiDA-1` | Active checkpoint resume; `11.16 ns / 20 ns`; clustering queued |
+| `LiLC-1` | Active checkpoint resume; `5.49 ns / 20 ns`; clustering queued |
+| `LiDS-1` | Active checkpoint resume; `8.32 ns / 20 ns`; clustering queued |
+| `LiDA-1` | Active checkpoint resume; `12.35 ns / 20 ns`; clustering queued |
 | `LiN3-Core` | Queued behind optimized worker pool; `0.13 ns / 20 ns`; clustering queued |
-| `LiA3-Ref` | Active checkpoint resume; `4.51 ns / 20 ns`; clustering queued |
+| `LiA3-Ref` | Active checkpoint resume; `5.03 ns / 20 ns`; clustering queued |
 
 ## Notes
 
