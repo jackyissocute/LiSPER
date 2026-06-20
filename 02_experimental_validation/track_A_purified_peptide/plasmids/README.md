@@ -1,10 +1,12 @@
 # Plasmids
 
-This folder is the active plasmid-design workspace for the **final 8-candidate** LiSPER purified-peptide library.
+This folder is the secondary/fallback plasmid-design workspace for the **final 8-candidate** LiSPER purified-peptide library.
+
+Current wet-lab priority has shifted to ordering synthetic LiSPER peptides directly for first-pass Li+/Na+ binding assays. These plasmid designs are retained for optional in-house His6-SUMO peptide production if later needed.
 
 ## Current State
 
-The current vendor-ready package is:
+The current vendor-ready fallback package is:
 
 ```text
 vendor_ready_restriction_SUMO/
@@ -15,6 +17,8 @@ It contains eight corrected pET-28a(+)-His6-SUMO-LiSPER construct maps, synthesi
 The LiSPER peptide-coding regions now use the IDT E. coli codon-optimized DNA downloaded for the final 8 candidates.
 
 ## Vendor-Compatible Design Rule
+
+Use this section only if the project chooses to pursue in-house expression and purification instead of, or in addition to, ordered synthetic peptides.
 
 The vendor should **not synthesize a redesigned full pET-28a plasmid**.
 

@@ -1,6 +1,10 @@
 # Vendor-Ready Restriction-Cloning SUMO Plasmids
 
-This folder contains the corrected purified-peptide plasmid vendor package for the final 8 LiSPER candidates. The package follows the vendor-compatible rule: synthesize only the insert, then clone it into an original pET-28a(+) backbone by NdeI/XhoI restriction cloning.
+This folder contains the corrected purified-peptide plasmid vendor package for the final 8 LiSPER candidates.
+
+Current project priority is to order synthetic LiSPER peptides directly for first-pass binding assays. This plasmid package is retained as a fallback/secondary route for in-house His6-SUMO expression and native peptide recovery.
+
+If activated, the package follows the vendor-compatible rule: synthesize only the insert, then clone it into an original pET-28a(+) backbone by NdeI/XhoI restriction cloning.
 
 The LiSPER peptide-coding regions use the IDT E. coli codon-optimized sequences stored in `../codon_optimization/idt_peptide_codon_optimization.csv`.
 

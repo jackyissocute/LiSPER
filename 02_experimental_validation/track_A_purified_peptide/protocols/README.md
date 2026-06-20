@@ -1,8 +1,10 @@
-# Track A Protocols
+# Track A Fallback Production Protocols
 
-This folder is intentionally modular. Track A has many bench steps, and each step needs to remain short enough to use at the bench without scrolling through one giant protocol.
+This folder is intentionally modular, but it is now a **secondary/fallback production route**.
 
-Follow these protocols in order for purified His6-SUMO-LiSPER validation.
+The current first-pass Track A plan is to order synthetic LiSPER peptides and run direct Li+/Na+ binding assays. Use these protocols if the project later decides to produce native LiSPER peptides through His6-SUMO expression, cleavage, and recovery.
+
+If this route is activated, follow these protocols in order for purified His6-SUMO-LiSPER validation.
 
 Before starting bench work, read [Construct-purification alignment check](construct_purification_alignment_check.md). It connects the current pET-28a(+)-His6-SUMO plasmid design to the purification and peptide-recovery strategy.
 

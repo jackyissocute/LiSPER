@@ -1,6 +1,8 @@
 # IDT Codon Optimization
 
-This folder stores the final IDT E. coli codon-optimization inputs used for the purified-peptide plasmid package.
+This folder stores the final IDT E. coli codon-optimization inputs used for the fallback purified-peptide plasmid package.
+
+The current first-pass Track A plan is to order synthetic LiSPER peptides directly. These codon-optimization files are retained for optional in-house His6-SUMO expression if peptide production later becomes necessary.
 
 ## Files
 
@@ -11,7 +13,7 @@ This folder stores the final IDT E. coli codon-optimization inputs used for the 
 
 ## Usage
 
-The vendor-ready plasmid generator reads this manifest and inserts the IDT-optimized peptide-coding DNA into the His6-SUMO-LiSPER expression cassette.
+If the fallback plasmid route is activated, the vendor-ready plasmid generator reads this manifest and inserts the IDT-optimized peptide-coding DNA into the His6-SUMO-LiSPER expression cassette.
 
 ```text
 06_project_operations/scripts/design_pet28a_SUMO_restriction_vendor_package.py

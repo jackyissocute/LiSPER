@@ -1,12 +1,14 @@
 # Track B: Surface Display Validation
 
-Track B answers the biological-deployment question:
+Track B is the main follow-up wet-lab engineering stage after ordered synthetic peptide binding assays identify the best LiSPER candidates.
+
+It answers the biological-deployment question:
 
 > Can LiSPER remain functional when displayed on a biological surface?
 
-This track uses future eCPX surface-display constructs to test surface expression, surface accessibility, whole-cell Li+ capture, and Li+/Na+ selectivity.
+This track uses future eCPX surface-display constructs to test surface expression, surface accessibility, whole-cell Li+ capture, Li+/Na+ selectivity, condition optimization, and capture-release-reuse.
 
-Track B is not a fallback for Track A. It answers a different question.
+Track B is no longer meant to prove peptide-intrinsic binding from scratch. Track A ordered-peptide statistics should do that first. Track B asks whether the best peptides can become a practical bacterial capture material.
 
 ## Contents
 
@@ -43,3 +45,13 @@ capture-release-reuse testing
 ↓
 optional strain comparison
 ```
+
+## Main Study Goal
+
+The strongest Track B study is not just "display a peptide on cells." The goal is to identify:
+
+- the best displayed LiSPER candidate,
+- the best assay/operating condition,
+- the best normalization strategy,
+- whether capture can be reversed and reused,
+- whether surface-display performance supports a low-cost Bio-DLE direction.

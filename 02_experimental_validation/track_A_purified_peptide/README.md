@@ -1,51 +1,54 @@
-# Track A: Purified Peptide Validation
+# Track A: Ordered Peptide Binding Validation
 
 Track A answers the molecular-recognition question:
 
 > Does the LiSPER peptide itself selectively recognize Li+ over Na+?
 
-This track will use regenerated His6-SUMO-LiSPER plasmids for the final 8-candidate library to express soluble fusion proteins, cleave SUMO, recover native LiSPER peptides, and test Li+/Na+ binding directly.
+The current first-pass plan is to **order synthetic LiSPER peptides directly**, test Li+/Na+ binding, and compare the experimental ranking with computational PMF predictions.
+
+The existing His6-SUMO plasmid and purification files are retained as a secondary/fallback route for future in-house peptide production, but they are no longer the first experimental gate.
 
 ```mermaid
 flowchart TD
-    accTitle: Track A Bench Workflow
-    accDescr: Track A starts with His6-SUMO-LiSPER plasmids and proceeds through expression, purification, cleavage, peptide recovery, QC, and Li over Na binding assays.
+    accTitle: Track A Binding Workflow
+    accDescr: Track A now starts with ordered synthetic peptides, measures Li and Na binding directly, compares results with PMF ranking, and selects candidates for surface display.
 
-    plasmid["His6-SUMO<br/>plasmid"]
-    transformation["Transformation"]
-    expression["Expression<br/>test"]
-    purification["Ni-NTA<br/>purification"]
-    cleavage["SUMO<br/>cleavage"]
-    recovery["Native peptide<br/>recovery"]
-    assay["Li/Na<br/>binding assay"]
-    evidence["Molecular<br/>evidence"]
+    ranking["Computational<br/>PMF ranking"]
+    order["Order synthetic<br/>peptides"]
+    qc["Peptide identity<br/>and purity QC"]
+    assay["Direct Li/Na<br/>binding assay"]
+    compare["Experiment vs<br/>PMF comparison"]
+    shortlist["Top candidates<br/>for display"]
 
-    plasmid --> transformation
-    transformation --> expression
-    expression --> purification
-    purification --> cleavage
-    cleavage --> recovery
-    recovery --> assay
-    assay --> evidence
+    ranking --> order
+    order --> qc
+    qc --> assay
+    assay --> compare
+    compare --> shortlist
 ```
 
 ## Contents
 
 | Folder | Purpose |
 |---|---|
-| `plasmids/` | Final 8-candidate plasmid design workspace and vector records. |
-| `protocols/` | Ordered Track A protocols from transformation through binding-data analysis. |
+| `planning/` | Current ordered synthetic peptide binding plan and computational-validation logic. |
+| `plasmids/` | Secondary/fallback pET-28a(+)-His6-SUMO plasmid design workspace for optional in-house peptide production. |
+| `protocols/` | Secondary/fallback expression, purification, cleavage, peptide-recovery, and binding-assay protocols. |
 
 ## Start Here
 
-1. Read `protocols/00_track_A_protocol_overview.md`.
-2. Use `protocols/README.md` as the ordered protocol index.
-3. Read `protocols/construct_purification_alignment_check.md` before ordering or starting bench work.
-4. Start with `LiA3-Ref` plus 2-4 priority candidates before scaling to the full final 8.
+1. Read `planning/ordered_synthetic_peptide_binding_plan.md`.
+2. Finalize which candidate peptides will be ordered.
+3. Confirm peptide purity, counterion/salt form, solubility, and analytical method requirements with the vendor/core facility.
+4. Run direct Li-only, Na-only, and Li+Na competition binding assays.
+5. Compare experimental binding/selectivity ranking with PMF ranking.
+6. Select top 2-3 candidates plus `LiA3-Ref` or another reference control for Track B surface display.
 
-## Current Construct Readiness
+## Secondary Production Route
 
-The final 8 pET-28a(+)-His6-SUMO-LiSPER plasmid designs are vendor-ready in `plasmids/vendor_ready_restriction_SUMO/`.
+The final 8 pET-28a(+)-His6-SUMO-LiSPER plasmid designs remain vendor-ready in `plasmids/vendor_ready_restriction_SUMO/`.
+
+Use this route only if ordered peptide supply, cost, modifications, or follow-up production needs justify in-house expression and purification.
 
 Expected purification logic:
 

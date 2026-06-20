@@ -35,7 +35,7 @@ The repository now follows a clear program model:
 |---|---|---|
 | Lithium-selective peptide library | Li+/Na+ separation is central to lithium recovery | Final 8-candidate intake |
 | Computational discovery engine | Prioritizes candidates before wet-lab cost | Full LiCl/NaCl MD setup gate |
-| Experimental validation program | Converts predictions into measurable assays | Waiting for final codon/plasmid designs |
+| Experimental validation program | Converts predictions into measurable assays | Ordered synthetic peptide binding first, then surface display |
 | Bio-DLE translation roadmap | Connects molecular recognition to process design | Immobilized peptide capture concepts |
 
 ## 🎯 Scientific thesis
@@ -80,13 +80,13 @@ LiSPER is organized as a three-stage program: discover the molecular principle, 
 ```mermaid
 flowchart TD
     accTitle: LiSPER Three-Phase Roadmap
-    accDescr: LiSPER moves from computational discovery to two parallel experimental validation tracks and then to industrial translation.
+    accDescr: LiSPER moves from computational discovery to ordered synthetic peptide binding assays, then surface-display engineering, and finally industrial translation.
 
     phase_one["🔍 Phase I<br/>Computational<br/>discovery"]
     rank["📊 Li/Na<br/>ranking"]
     phase_two["🧪 Phase II<br/>Experimental<br/>validation"]
-    track_a["Track A<br/>purified peptide"]
-    track_b["Track B<br/>surface display"]
+    track_a["Track A<br/>ordered peptide<br/>binding assays"]
+    track_b["Track B<br/>surface-display<br/>engineering"]
     phase_three["📦 Phase III<br/>Industrial<br/>translation"]
 
     phase_one --> rank
@@ -107,7 +107,7 @@ flowchart TD
 | Phase | Goal | Status | Near-term gate |
 |---|---|---|---|
 | **I. Computational discovery** | Rank LiSPER candidates by Li+/Na+ selectivity | Active | Finish production MD, clustering, umbrella sampling, PMF |
-| **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Express purified-peptide constructs and prepare surface-display validation |
+| **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Order synthetic peptides, run Li/Na binding assays, then build surface-display constructs |
 | **III. Industrial translation** | Convert validated peptides into capture media | Concept stage | Select immobilization and column prototype strategy |
 
 ## 📊 Progress monitor dashboard
@@ -411,11 +411,11 @@ Phase II is designed to convert computational rankings into measurable biologica
 
 | Route | What it tests | Planned readout |
 |---|---|---|
-| **Track A: purified peptide** | Intrinsic LiSPER binding behavior | Li+ binding, Na+ competition, selectivity trend |
-| **Track A: His6-SUMO fusion** | Expressible peptide production route | Soluble expression, purification, cleavage |
-| **Track B: surface display** | LiSPER as biological capture interface | Whole-cell Li capture and Na competition |
+| **Track A: ordered synthetic peptide binding** | Intrinsic LiSPER binding behavior and computational validation | Li+ binding, Na+ competition, selectivity trend, PMF agreement |
+| **Track A fallback: His6-SUMO production** | Optional in-house peptide production route | Soluble expression, purification, cleavage, peptide recovery |
+| **Track B: surface-display engineering** | LiSPER as biological capture interface | Display level, whole-cell Li capture, Na rejection, regeneration |
 
-The first experimental subset will be chosen from the final 8-candidate computational ranking. A conservative early bench subset is expected to include `LiD3-Core`, `LiD3-Flex`, `LiND-Hybrid`, `LiLC-1`, and `LiA3-Ref`.
+The first wet-lab gate is no longer plasmid expression. The current plan is to order synthetic LiSPER peptides, measure Li+/Na+ binding directly, compare the experimental ranking with computational PMF predictions, and then use the best candidates for the main surface-display program.
 
 ## 🏭 Industrial outlook
 
@@ -485,7 +485,7 @@ flowchart TD
 | Directory | Purpose |
 |---|---|
 | [`01_computational_discovery/`](01_computational_discovery/) | Candidate sequences, ESMFold structures, CHARMM-GUI systems, MD, umbrella sampling, PMF, and analysis |
-| [`02_experimental_validation/`](02_experimental_validation/) | Plasmids, wet-lab planning, purified-peptide validation, surface-display validation, and assay protocols |
+| [`02_experimental_validation/`](02_experimental_validation/) | Ordered synthetic peptide binding validation, optional in-house production resources, surface-display engineering, and assay protocols |
 | [`03_industrial_translation/`](03_industrial_translation/) | Immobilized capture formats, packed-bed process design, and deployment architecture |
 | [`04_reference_library/`](04_reference_library/) | External evidence base: papers, patents, source metadata, citation exports, and reading notes |
 | [`05_outputs_and_communication/`](05_outputs_and_communication/) | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing materials |
@@ -498,6 +498,8 @@ flowchart TD
 - [Repository guide](06_project_operations/docs/repository_guide.md)
 - [Candidate design rationale](06_project_operations/docs/candidate_design_rationale.md)
 - [MD to PMF workflow](06_project_operations/docs/md_to_pmf_workflow.md)
+- [Ordered synthetic peptide binding plan](02_experimental_validation/track_A_purified_peptide/planning/ordered_synthetic_peptide_binding_plan.md)
+- [Surface-display optimization plan](02_experimental_validation/track_B_surface_display/planning/integrated_surface_display_optimization_plan.md)
 - [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
 - [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)
 - [Surface-display host selection report](02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/reports/final_host_selection_report.md)

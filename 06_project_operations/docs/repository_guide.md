@@ -6,16 +6,29 @@ LiSPER asks whether de novo designed, IDP-like peptides can selectively bind Li+
 
 ```mermaid
 flowchart TD
-    A["01_computational_discovery/sequences/"] --> B["01_computational_discovery/esmfold/"]
-    B --> C["01_computational_discovery/charmm-gui/"]
-    C --> D["01_computational_discovery/md/"]
-    D --> E["01_computational_discovery/umbrella/"]
-    E --> F["01_computational_discovery/pmf/"]
-    F --> G["candidate ranking"]
-    G --> H["02_experimental_validation/track_A_purified_peptide/"]
-    G --> I["02_experimental_validation/track_B_surface_display/"]
-    H --> J["03_industrial_translation/"]
-    I --> J
+    accTitle: LiSPER Main Data Flow
+    accDescr: The main data flow moves from computational discovery to ordered synthetic peptide binding validation, then to surface-display engineering and industrial translation.
+
+    sequences["sequences/"]
+    esmfold["esmfold/"]
+    charmm_gui["charmm-gui/"]
+    md["md/"]
+    umbrella["umbrella/"]
+    pmf["pmf/"]
+    ranking["candidate<br/>ranking"]
+    ordered_peptides["Track A<br/>ordered peptide assays"]
+    display["Track B<br/>surface display"]
+    translation["03_industrial_translation/"]
+
+    sequences --> esmfold
+    esmfold --> charmm_gui
+    charmm_gui --> md
+    md --> umbrella
+    umbrella --> pmf
+    pmf --> ranking
+    ranking --> ordered_peptides
+    ordered_peptides --> display
+    display --> translation
 ```
 
 ## Organizational Model
@@ -23,13 +36,25 @@ flowchart TD
 LiSPER has three active research phases and three support layers.
 
 ```mermaid
-flowchart LR
-    A["Research pipeline<br/>01-03"] --> B["Computational discovery"]
-    A --> C["Experimental validation"]
-    A --> D["Industrial translation"]
-    E["Support layers<br/>04-06"] --> F["Reference library"]
-    E --> G["Outputs and communication"]
-    E --> H["Project operations"]
+flowchart TD
+    accTitle: Repository Organization Model
+    accDescr: LiSPER is organized into three research pipeline folders and three support-layer folders.
+
+    pipeline["Research pipeline<br/>01-03"]
+    computational["Computational<br/>discovery"]
+    validation["Experimental<br/>validation"]
+    translation["Industrial<br/>translation"]
+    support["Support layers<br/>04-06"]
+    reference["Reference<br/>library"]
+    outputs["Outputs and<br/>communication"]
+    operations["Project<br/>operations"]
+
+    pipeline --> computational
+    pipeline --> validation
+    pipeline --> translation
+    support --> reference
+    support --> outputs
+    support --> operations
 ```
 
 Use this rule when placing new files:
@@ -44,7 +69,7 @@ Use this rule when placing new files:
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | Two parallel validation tracks: purified peptide molecular recognition and surface-display biological deployment |
+| `02_experimental_validation/` | Ordered synthetic peptide binding validation, optional in-house peptide production resources, and surface-display engineering |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_reference_library/` | External sources, literature PDFs, citation exports, evidence notes, and source metadata |
 | `05_outputs_and_communication/` | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing outputs |
@@ -72,11 +97,20 @@ Ion-specific folders should include the condition, for example `LiD3-Core_LiCl` 
 ## Inbox Workflow
 
 ```mermaid
-flowchart LR
-    A["New file"] --> B["inbox/"]
-    B --> C["Codex inspection"]
-    C --> D["Permanent folder"]
-    D --> E["README/status update"]
+flowchart TD
+    accTitle: Inbox Classification Flow
+    accDescr: New files enter the inbox, are inspected, moved to a permanent folder, and documented in README or status files.
+
+    new_file["New file"]
+    inbox["inbox/"]
+    inspection["Codex<br/>inspection"]
+    permanent["Permanent<br/>folder"]
+    documentation["README or<br/>status update"]
+
+    new_file --> inbox
+    inbox --> inspection
+    inspection --> permanent
+    permanent --> documentation
 ```
 
 The active inbox lives at repository-level `inbox/` and should stay mostly empty after processing. Permanent project files should live in the relevant stage folder.

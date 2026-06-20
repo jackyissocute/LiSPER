@@ -6,7 +6,19 @@ Repository note: the originally requested deliverable path was `wetlab/surface_d
 
 Design the downstream assay before designing eCPX plasmids. The assay should test whether E. coli K-12/MG1655-compatible cells displaying LiSPER peptides on the surface can selectively capture Li+ from aqueous solution while rejecting Na+.
 
-This plan treats surface display as a parallel wet-lab validation track alongside purified His6-SUMO-LiSPER peptide assays.
+The updated wet-lab logic is:
+
+```text
+ordered synthetic peptide binding assay
+↓
+experimental Li/Na ranking and PMF comparison
+↓
+top 2-3 candidates plus controls
+↓
+surface-display assay and optimization
+```
+
+Therefore this plan treats surface display as the main engineering follow-up after direct peptide binding statistics, not as a replacement for peptide-intrinsic validation.
 
 ## Core Recommendation
 
