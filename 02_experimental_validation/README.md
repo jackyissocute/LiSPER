@@ -154,6 +154,7 @@ Therefore Track B requires matched controls: non-displaying cells, empty eCPX sc
 
 | Folder | Purpose |
 |---|---|
+| [`track_B_surface_display/planning/`](track_B_surface_display/planning/) | Integrated Track B study plan, module priorities, and professor discussion brief. |
 | [`track_B_surface_display/protocols/`](track_B_surface_display/protocols/) | Surface-display validation workflow. |
 | [`track_B_surface_display/assays/surface_display_assays/`](track_B_surface_display/assays/surface_display_assays/) | Whole-cell Li+/Na+ binding assay design. |
 | [`track_B_surface_display/research/surface_display_host_selection/`](track_B_surface_display/research/surface_display_host_selection/) | Host, environment, and display-platform research. |
