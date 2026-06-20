@@ -6,3 +6,4 @@ LiDA-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDA-1/gromacs
 LiDS-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDS-1/gromacs/run_eq
 LiLC-1	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiLC-1/gromacs/run_eq
 LiND-Hybrid	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiND-Hybrid/gromacs/run_eq
+LiN3-Core	equilibrated	/root/LiSPER_remote/LiSPER_8cand_NaCl_addon_LiN3Core/systems/LiN3-Core/gromacs/run_eq
