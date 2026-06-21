@@ -12,7 +12,7 @@ LiCl MD is tracked under the final 8-candidate names.
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | 6/8 active; `8.61-13.30 ns / 20 ns` as of `2026-06-21 12:07 CST`; `LiDA-1` and `LiDS-1` complete |
 | Structural clustering | 2/8 complete; `LiDA-1` top cluster `17.64%`; `LiDS-1` top cluster `15.69%`; others queued after production |
-| PMF handoff | `LiDA-1` has paired LiCl/NaCl representatives; umbrella-window design is the next gate |
+| PMF handoff | Umbrella sampling active for clustered LiCl conditions: `LiDA-1` and `LiDS-1` |
 
 ## Candidate Notes
 
@@ -22,8 +22,8 @@ LiCl MD is tracked under the final 8-candidate names.
 | `LiD3-Flex` | `8.63 ns / 20 ns`; clustering queued |
 | `LiND-Hybrid` | `8.61 ns / 20 ns`; clustering queued |
 | `LiLC-1` | `13.22 ns / 20 ns`; clustering queued |
-| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `15.69%` |
-| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.64%` |
+| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `15.69%`; umbrella pulling active |
+| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.64%`; umbrella pulling active |
 | `LiN3-Core` | `13.30 ns / 20 ns`; clustering queued |
 | `LiA3-Ref` | `12.97 ns / 20 ns`; clustering queued |
 

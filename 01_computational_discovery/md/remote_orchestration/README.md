@@ -48,6 +48,7 @@ Do not sync active 8-candidate products into older remote workdirs.
 | `scripts/run_lisper_equilibrate.py` | Shared equilibration driver for minimized systems. |
 | `scripts/run_lisper_production_cluster.py` | Shared 20 ns production and clustering driver for equilibrated systems. |
 | `scripts/run_lisper_parallel_production_cluster.py` | Parallel candidate-level production and clustering driver for a fully equilibrated workdir. |
+| `scripts/run_lisper_umbrella_sampling.py` | Condition-level umbrella driver for clustered representatives. |
 | `scripts/start_equilibration.sh` | Small shell wrapper for launching equilibration on the active workdir. |
 
 All active scripts default to the 8-candidate LiCl workdir and can be redirected with `LISPER_WORKDIR`.
@@ -71,6 +72,8 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker \
 ```
 
 The NaCl production worker currently uses 6 concurrent jobs x 2 OpenMP threads to match the 12-core CPU quota on the second AutoDL container. This avoids the earlier oversubscription pattern and leaves two candidates queued behind the active worker pool.
+
+Umbrella sampling is condition-specific: a LiCl or NaCl condition can enter umbrella window design and sampling immediately after that condition has completed production, clustering, and representative extraction. It does not need to wait for the matched ion condition.
 
 ## Completed Asset Policy
 

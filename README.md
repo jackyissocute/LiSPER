@@ -113,19 +113,19 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers, and `LiDA-1` now has paired LiCl/NaCl representative structures for umbrella-window design.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Umbrella sampling now starts condition-by-condition as soon as a clustered representative exists.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-2_clustered_%2B_6_active-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-1_clustered_%2B_7_active-2563eb)
 > ![Compute](https://img.shields.io/badge/CPU-26%2F28_cores_active-f59e0b)
-> ![PMF](https://img.shields.io/badge/umbrella_design-LiDA--1_ready-0f766e)
+> ![PMF](https://img.shields.io/badge/umbrella-3_conditions_active-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-21 12:07 CST`
+**Last synchronized monitor snapshot:** `2026-06-21 12:26 CST`
 
 ### Process matrix
 
@@ -143,9 +143,9 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
       <td>Paired production monitor</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> 13 active production jobs + 3 representatives; compute <code>26/28 cores</code></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 13 active production jobs + 3 umbrella pulls; compute <code>27/28 cores</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
-      <td>Monitor paired production; first paired LiCl/NaCl representative set is available</td>
+      <td>Monitor production plus condition-level umbrella starts for clustered representatives</td>
     </tr>
     <tr>
       <td>Production launch readiness</td>
@@ -193,10 +193,10 @@ flowchart TD
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
-      <td>Umbrella window design</td>
-      <td><code>🟨⬜⬜⬜⬜⬜⬜⬜</code> <code>LiDA-1</code> paired representatives ready; protocol/script needed before sampling</td>
-      <td><img alt="planned" src="https://img.shields.io/badge/next-LiDA--1_windows-f59e0b"></td>
-      <td>Define pull coordinate/windows before biased sampling launch</td>
+      <td>Umbrella pulling + window generation</td>
+      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 condition-level jobs active: <code>LiDA-1</code> LiCl, <code>LiDS-1</code> LiCl, <code>LiDA-1</code> NaCl</td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-3_conditions-2563eb"></td>
+      <td>Pull representative full systems, generate windows, then run biased sampling</td>
     </tr>
     <tr>
       <td>Umbrella sampling → WHAM / PMF / ΔG</td>
@@ -226,7 +226,7 @@ flowchart TD
       <td><strong>LiD3-Core</strong></td>
       <td>🟦 <code>13.09 ns / 20 ns</code>; clustering queued</td>
       <td>🟦 <code>8.95 ns / 20 ns</code>; clustering queued</td>
-      <td>🟪 planned after paired representatives</td>
+      <td>🟦 LiCl umbrella pulling active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -261,7 +261,7 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟨 paired representatives ready; window design next</td>
+      <td>🟦 LiCl + NaCl umbrella pulling active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -304,8 +304,8 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>protocol design now; ~5-10 days sampling after launch</code></strong><br><sub><code>LiDA-1</code> paired representatives are ready, but no umbrella launcher is present yet</sub></td>
-      <td>Design windows from paired representatives, create/review launcher, run biased sampling, and check window overlap.</td>
+      <td align="center"><strong><code>active for 3 conditions</code></strong><br><sub>condition-level launches use 1 thread each; more conditions join as clustering finishes</sub></td>
+      <td>Pull representative full systems, generate umbrella windows, run biased sampling, and check window overlap.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -320,7 +320,7 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are conservative and now depend on two things: the remaining production/clustering tail and the still-unwritten umbrella/PMF launcher. The first paired representative set is ready, so the next meaningful task is umbrella window design for `LiDA-1`.
+> Time estimates are conservative and now depend on the remaining production/clustering tail plus umbrella-window throughput. Umbrella sampling has started for clustered conditions and will expand as additional representatives appear.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -330,7 +330,7 @@ flowchart TD
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
 - Worker A currently runs 6 LiCl production jobs plus 2 NaCl backfill jobs; Worker B runs 5 NaCl production jobs.
 - LiCl representatives are ready for `LiDA-1` and `LiDS-1`; NaCl representative is ready for `LiDA-1`.
-- `LiDA-1` is the first paired LiCl/NaCl representative set and can move into umbrella window design after the protocol/launcher is written.
+- Umbrella sampling is condition-specific: `LiDA-1` LiCl, `LiDS-1` LiCl, and `LiDA-1` NaCl have entered the initial pulling/window-generation stage.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
