@@ -1,9 +1,9 @@
 candidate	status	ns_completed	target_ns	step	last_checked_cst
-LiD3-Core	running	0.120	20	60000	2026-06-19 08:51
-LiD3-Flex	running	0.080	20	40000	2026-06-19 08:51
-LiND-Hybrid	running	0.160	20	80000	2026-06-19 08:51
-LiLC-1	running	0.240	20	120000	2026-06-19 08:51
-LiDS-1	running	0.350	20	175000	2026-06-19 08:51
-LiDA-1	running	0.490	20	245000	2026-06-19 08:51
-LiN3-Core	running	0.120	20	60000	2026-06-19 08:51
-LiA3-Ref	running	0.120	20	60000	2026-06-19 08:51
+LiD3-Core	running_workerB	8.950	20	4475000	2026-06-21 12:07
+LiD3-Flex	running_workerB	6.000	20	3000000	2026-06-21 12:07
+LiND-Hybrid	running_workerA_backfill	1.430	20	715000	2026-06-21 12:07
+LiLC-1	running_workerB	9.390	20	4695000	2026-06-21 12:07
+LiDS-1	running_workerB	14.210	20	7105000	2026-06-21 12:07
+LiDA-1	clustered_workerB	20.000	20	10000000	2026-06-21 12:07
+LiN3-Core	running_workerA_backfill	2.080	20	1040000	2026-06-21 12:07
+LiA3-Ref	running_workerB	8.770	20	4385000	2026-06-21 12:07

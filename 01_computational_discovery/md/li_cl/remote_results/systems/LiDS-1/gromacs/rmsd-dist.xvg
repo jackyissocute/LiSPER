@@ -1,0 +1,118 @@
+# This file was created Sun Jun 21 11:09:02 2026
+# Created by:
+#               :-) GROMACS - gmx cluster, 2026.0-conda_forge (-:
+# 
+# Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+# Data prefix:  /root/miniconda3/envs/lisper-gmx
+# Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs
+# Command line:
+#   gmx cluster -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/final_solu_reference.gro -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/production_20ns_solu_centered.xtc -method gromos -cutoff 0.2 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/clusters.xpm -g /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/cluster.log -cl /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/representative_top_cluster.pdb -clid /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/cluster_id.xvg -sz /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns/cluster_size.xvg
+# gmx cluster is part of G R O M A C S:
+#
+# Guyana Rwanda Oman Macau Angola Cameroon Senegal
+#
+@    title "RMS Distribution"
+@    xaxis  label "RMS (nm)"
+@    yaxis  label "counts"
+@TYPE xy
+         0           0
+0.00771587           0
+ 0.0154317           0
+ 0.0231476           0
+ 0.0308635           0
+ 0.0385794           0
+ 0.0462952           0
+ 0.0540111           2
+  0.061727          11
+ 0.0694429          28
+ 0.0771587          71
+ 0.0848746         145
+ 0.0925905         278
+  0.100306         487
+  0.108022         723
+  0.115738        1006
+  0.123454        1561
+   0.13117        2180
+  0.138886        3101
+  0.146602        4238
+  0.154317        5775
+  0.162033        7631
+  0.169749        9901
+  0.177465       12111
+  0.185181       14785
+  0.192897       16976
+  0.200613       19217
+  0.208329       21285
+  0.216044       22440
+   0.22376       24010
+  0.231476       24731
+  0.239192       25732
+  0.246908       26148
+  0.254624       26968
+   0.26234       27344
+  0.270056       28490
+  0.277771       29487
+  0.285487       30806
+  0.293203       32361
+  0.300919       34160
+  0.308635       36263
+  0.316351       37832
+  0.324067       39467
+  0.331783       40728
+  0.339498       42123
+  0.347214       43007
+   0.35493       43322
+  0.362646       43519
+  0.370362       44628
+  0.378078       45156
+  0.385794       46730
+   0.39351       48338
+  0.401225       49308
+  0.408941       51551
+  0.416657       53200
+  0.424373       54996
+  0.432089       56833
+  0.439805       57591
+  0.447521       58365
+  0.455237       58367
+  0.462952       57726
+  0.470668       56209
+  0.478384       54598
+    0.4861       51842
+  0.493816       48563
+  0.501532       45149
+  0.509248       40844
+  0.516964       36615
+  0.524679       32358
+  0.532395       28497
+  0.540111       24245
+  0.547827       20513
+  0.555543       17391
+  0.563259       14498
+  0.570975       11842
+  0.578691       10215
+  0.586406        8527
+  0.594122        7035
+  0.601838        5748
+  0.609554        4747
+   0.61727        3999
+  0.624986        3198
+  0.632702        2576
+  0.640418        2132
+  0.648133        1612
+  0.655849        1236
+  0.663565         926
+  0.671281         723
+  0.678997         532
+  0.686713         382
+  0.694429         283
+  0.702145         201
+   0.70986         177
+  0.717576         129
+  0.725292          93
+  0.733008          59
+  0.740724          29
+   0.74844          21
+  0.756156           9
+  0.763871           6
+  0.771587           2
