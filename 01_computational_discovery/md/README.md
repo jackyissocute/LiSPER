@@ -12,7 +12,7 @@ Latest production/umbrella snapshot: `2026-06-21 21:14 CST`.
 |---|---|---|
 | LiCl | `li_cl/` | 6/8 production jobs active; `9.61-14.86 ns / 20 ns`; `LiDA-1` and `LiDS-1` produced and clustered; top clusters `17.64%` and `15.69%` |
 | NaCl | `na_cl/` | 7/8 production jobs active across both workers; Worker B active jobs `7.13-16.89 ns / 20 ns`; Worker A backfill jobs `1.99-2.94 ns / 20 ns`; `LiDA-1` produced and clustered; top cluster `17.94%` |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | Active for clustered conditions: `LiDA-1` LiCl, `LiDS-1` LiCl, and `LiDA-1` NaCl |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | `1/55` windows complete; 4 active windows: LiCl `LiDA-1:000`, LiCl `LiDS-1:000`, NaCl `LiDA-1:001-002` |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 

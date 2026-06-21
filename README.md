@@ -118,8 +118,8 @@ flowchart TD
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-2_clustered_%2B_6_active-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-1_clustered_%2B_7_active-2563eb)
-> ![Compute](https://img.shields.io/badge/CPU-26%2F28_cores_active-f59e0b)
-> ![PMF](https://img.shields.io/badge/umbrella-3_conditions_active-0f766e)
+> ![Compute](https://img.shields.io/badge/CPU-28%2F28_cores_active-f59e0b)
+> ![Umbrella](https://img.shields.io/badge/umbrella_windows-1%2F55_complete-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
@@ -136,73 +136,47 @@ flowchart TD
       <th>Process</th>
       <th>Progress</th>
       <th>Status</th>
-      <th>Gate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2"><strong>Current gate</strong></td>
-      <td>Paired production monitor</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 13 active production jobs + 4 umbrella window jobs; compute <code>28/28 cores</code></td>
+      <td><strong>Compute</strong></td>
+      <td>Worker load</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>28/28 cores</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
-      <td>Monitor production plus condition-level umbrella starts for clustered representatives</td>
     </tr>
     <tr>
-      <td>Production launch readiness</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> Both branches launched</td>
-      <td><img alt="launched" src="https://img.shields.io/badge/launched-LiCl%2BNaCl-16a34a"></td>
-      <td>Collect production logs first; representatives after clustering completes</td>
-    </tr>
-    <tr>
-      <td rowspan="3"><strong>LiCl branch</strong></td>
-      <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8 equilibrated</td>
-      <td><img alt="running" src="https://img.shields.io/badge/complete-LiCl_setup-16a34a"></td>
-      <td><a href="01_computational_discovery/md/li_cl/">LiCl setup complete</a></td>
-    </tr>
-    <tr>
+      <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>9.61-14.86 ns / 20 ns</code> across 6 active jobs; <code>LiDA-1</code> and <code>LiDS-1</code> produced</td>
+      <td><code>9.61-14.86 ns / 20 ns</code></td>
       <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
-      <td>Li+ ensemble trajectories; two representatives now available</td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> 2/8 representatives complete; top clusters <code>17.64%</code>, <code>15.69%</code></td>
+      <td><code>🟩🟩⬜⬜⬜⬜⬜⬜</code> <code>2/8 reps</code></td>
       <td><img alt="clustered" src="https://img.shields.io/badge/clustered-2%2F8-16a34a"></td>
-      <td>Li+ representative structures; <code>LiDA-1</code> paired with NaCl</td>
     </tr>
     <tr>
-      <td rowspan="3"><strong>NaCl branch</strong></td>
-      <td>Minimization + equilibration</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 8 equilibrated</td>
-      <td><img alt="complete" src="https://img.shields.io/badge/complete-setup_QC-16a34a"></td>
-      <td><a href="01_computational_discovery/md/na_cl/">NaCl workspace</a></td>
-    </tr>
-    <tr>
+      <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>7.13-16.89 ns / 20 ns</code> across 5 Worker B jobs; 2 Worker A backfill jobs at <code>1.99-2.94 ns</code>; <code>LiDA-1</code> produced</td>
+      <td><code>7.13-16.89 ns / 20 ns</code></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-7%2F8_jobs-2563eb"></td>
-      <td>Matched Na+ ensembles; backfill pair remains non-duplicated on Worker A</td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩⬜⬜⬜⬜⬜⬜⬜</code> 1/8 representative complete; top cluster <code>17.94%</code></td>
+      <td><code>🟩⬜⬜⬜⬜⬜⬜⬜</code> <code>1/8 reps</code></td>
       <td><img alt="clustered" src="https://img.shields.io/badge/clustered-1%2F8-16a34a"></td>
-      <td>Na+ representative structures; <code>LiDA-1</code> paired with LiCl</td>
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
-      <td>Umbrella pulling + window generation</td>
-      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 condition-level jobs active: <code>LiDA-1</code> LiCl <code>0/19 windows</code>, <code>LiDS-1</code> LiCl <code>0/21 windows</code>, <code>LiDA-1</code> NaCl <code>1/15 windows; 001-002 active</code></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-3_conditions-2563eb"></td>
-      <td>Pull representative full systems, generate windows, then run biased sampling</td>
+      <td>Umbrella windows</td>
+      <td><code>🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜</code> <strong>1/55 windows complete</strong><br><sub><code>LiDA-1</code> LiCl <code>0/19</code> active <code>000</code> · <code>LiDS-1</code> LiCl <code>0/21</code> active <code>000</code> · <code>LiDA-1</code> NaCl <code>1/15</code> active <code>001-002</code></sub></td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-4_windows-2563eb"></td>
     </tr>
     <tr>
-      <td>Umbrella sampling → WHAM / PMF / ΔG</td>
-      <td><code>⬜⬜⬜⬜⬜⬜⬜⬜</code> planned after window design and sampling</td>
+      <td>WHAM / PMF / ΔG</td>
+      <td><code>⬜⬜⬜</code> <code>0/3 condition PMFs</code></td>
       <td><img alt="planned" src="https://img.shields.io/badge/planned-after_umbrella_sampling-0f766e"></td>
-      <td>ΔG and ΔΔG selectivity ranking</td>
     </tr>
   </tbody>
 </table>
@@ -225,8 +199,8 @@ flowchart TD
     <tr>
       <td><strong>LiD3-Core</strong></td>
       <td>🟦 <code>14.63 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>9.61 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 LiCl umbrella window sampling active</td>
+      <td>🟦 <code>10.51 ns / 20 ns</code>; clustering queued</td>
+      <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -238,7 +212,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>10.51 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>9.61 ns / 20 ns</code>; clustering queued</td>
       <td>🟦 <code>1.99 ns / 20 ns</code>; Worker A backfill active</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
@@ -254,14 +228,14 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟦 <code>16.89 ns / 20 ns</code>; clustering queued</td>
-      <td>🟪 planned after paired representatives</td>
+      <td>🟦 LiCl <code>0/21</code>; active <code>000</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl + NaCl umbrella window sampling active</td>
+      <td>🟦 LiCl <code>0/19</code> active <code>000</code>; NaCl <code>1/15</code> active <code>001-002</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -299,13 +273,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~5-13 days</code></strong><br><sub>13 active jobs; 3 representatives complete; 26/28 cores active</sub></td>
+      <td align="center"><strong><code>~5-13 days</code></strong><br><sub>13 active jobs; 3 representatives complete; 28/28 cores active</sub></td>
       <td>Finish remaining production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>active for 3 conditions</code></strong><br><sub>condition-level launches use 1 thread each; more conditions join as clustering finishes</sub></td>
-      <td>Pull representative full systems, generate umbrella windows, run biased sampling, and check window overlap.</td>
+      <td align="center"><strong><code>1/55 windows</code></strong><br><sub>4 active windows now; more join after clustering</sub></td>
+      <td>Complete window sampling, then check overlap and convergence.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>

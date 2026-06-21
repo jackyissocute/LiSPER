@@ -6,13 +6,15 @@ Last updated: 2026-06-21 21:14 CST
 
 Umbrella sampling is condition-specific. A candidate-condition can enter window design and umbrella sampling as soon as that condition has completed 20 ns production, structural clustering, and representative extraction. It does not need to wait for the matched LiCl/NaCl condition.
 
-## Active Umbrella Tasks
+## Umbrella Window Meter
 
-| Candidate | Condition | Worker | Stage | Threads | Status |
-|---|---|---|---|---:|---|
-| `LiDA-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/19` windows complete; window `000` active at ~`866 ps / 1 ns` |
-| `LiDS-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/21` windows complete; window `000` active at ~`460 ps / 1 ns` |
-| `LiDA-1` | NaCl | Worker B | Umbrella window sampling | 2 | Pull complete; `1/15` windows complete; windows `001-002` active after duplicate `001` repair |
+| Candidate | Condition | Worker | Complete / total | Active windows | Window meter |
+|---|---|---|---:|---|---|
+| `LiDA-1` | LiCl | Worker A | `0/19` | `000` | `⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDS-1` | LiCl | Worker A | `0/21` | `000` | `⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | NaCl | Worker B | `1/15` | `001-002` | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+
+Total umbrella window progress: `1/55` complete; `4` windows active.
 
 ## Compute Fit
 
@@ -29,7 +31,7 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current repaired pulls completed cleanly and generated PBC-safe window sets. NaCl `LiDA-1` window `000` finished cleanly. A duplicate `window_001` launch was caught, stopped, and archived as diagnostic; clean windows `001-002` are now active. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
+Current repaired pulls completed cleanly and generated PBC-safe window sets. NaCl `LiDA-1` window `000` finished cleanly. A duplicate `window_001` launch was caught, stopped, and archived as diagnostic; clean windows `001-002` are active. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
 
 ## Implementation
 
