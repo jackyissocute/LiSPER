@@ -23,3 +23,14 @@ Using 1 OpenMP thread
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
 500000 steps,   1000.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    15245.655    15245.655      100.0
+                         4h14:05
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        5.667        4.235       30.491            0.654 
+
+GROMACS reminds you: "This type of advanced sampling techniques... which are not so advanced, really." (Viveca Lindahl, on AWH, at her thesis defense.)
+

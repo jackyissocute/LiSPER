@@ -1,9 +1,8 @@
-bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
                 :-) GROMACS - gmx mdrun, 2026.0-conda_forge (-:
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_002_1.52nm
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_000_0.62nm
 Command line:
   gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
 
@@ -27,10 +26,10 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    15390.358    15390.358      100.0
-                         4h16:30
+       Time:    23850.037    23850.037      100.0
+                         6h37:30
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.614        4.275       30.781            0.647 
+Performance:        3.623        6.625       47.700            0.612 
 
-GROMACS reminds you: "We Have No Money" (E. Clementi)
+GROMACS reminds you: "Watch Out Where the Huskies Go" (F. Zappa)
 

@@ -3,7 +3,7 @@ bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_002_1.52nm
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_004_1.72nm
 Command line:
   gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
 
@@ -23,14 +23,3 @@ Using 1 OpenMP thread
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
 500000 steps,   1000.0 ps.
-
-Writing final coordinates.
-
-               Core t (s)   Wall t (s)        (%)
-       Time:    15390.358    15390.358      100.0
-                         4h16:30
-                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.614        4.275       30.781            0.647 
-
-GROMACS reminds you: "We Have No Money" (E. Clementi)
-

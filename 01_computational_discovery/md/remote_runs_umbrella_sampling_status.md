@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-22 00:07 CST
+Last updated: 2026-06-22 03:10 CST
 
 ## Launch Rule
 
@@ -10,11 +10,11 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 
 | Candidate | Condition | Worker | Complete / total | Active windows | Window meter |
 |---|---|---|---:|---|---|
-| `LiDA-1` | LiCl | Worker A | `1/19` | `001` | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDS-1` | LiCl | Worker A | `0/21` | `000` | `⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | `1/15` | `001-002` | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | LiCl | Worker A | `2/19` | `002` | `🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDS-1` | LiCl | Worker A | `1/21` | `001` | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | NaCl | Worker B | `3/15` | `003-004` | `🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` |
 
-Total valid umbrella window progress: `2/55` complete; `4` windows active.
+Total valid umbrella window progress: `6/55` complete; `4` windows active.
 
 ## Compute Fit
 
@@ -31,7 +31,7 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current repaired pulls completed cleanly and generated PBC-safe window sets. LiCl `LiDA-1` window `000` and NaCl `LiDA-1` window `000` finished cleanly. A duplicate NaCl `window_001` launch was caught, stopped, and archived as diagnostic; that superseded folder is preserved but not counted as a valid scientific window. Clean windows `LiDA-1` LiCl `001`, `LiDS-1` LiCl `000`, and `LiDA-1` NaCl `001-002` are active. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
+Current repaired pulls completed cleanly and generated PBC-safe window sets. Completed valid windows are `LiDA-1` LiCl `000-001`, `LiDS-1` LiCl `000`, and `LiDA-1` NaCl `000-002`. A duplicate NaCl `window_001` launch was caught, stopped, and archived as diagnostic; that superseded folder is preserved but not counted as a valid scientific window. Active windows are `LiDA-1` LiCl `002`, `LiDS-1` LiCl `001`, and `LiDA-1` NaCl `003-004`. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
 
 ## Implementation
 
