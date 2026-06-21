@@ -1,6 +1,6 @@
 # Worker A NaCl Backfill Status
 
-Last updated: 2026-06-21 12:07 CST
+Last updated: 2026-06-21 15:06 CST
 
 ## Purpose
 
@@ -10,9 +10,9 @@ Last updated: 2026-06-21 12:07 CST
 
 | Candidate | State |
 |---|---|
-| `LiND-Hybrid` | Active on Worker A backfill; `1.43 ns / 20 ns`; `-ntomp 1` |
-| `LiN3-Core` | Active on Worker A backfill; `2.08 ns / 20 ns`; `-ntomp 1` |
+| `LiND-Hybrid` | Active on Worker A backfill; `1.62 ns / 20 ns`; `-ntomp 1` |
+| `LiN3-Core` | Active on Worker A backfill; `2.37 ns / 20 ns`; `-ntomp 1` |
 
 ## Scheduling Note
 
-Worker A now runs six LiCl production jobs at 2 threads each plus two NaCl backfill jobs at 1 thread each, using 14/16 cores without duplicating Worker B. Worker B continues five NaCl production jobs at 2 threads each, using 10/12 cores after `LiDA-1` NaCl completed and clustered. No additional task was launched because the next ready gate is umbrella-window design and the repository does not yet contain a reviewed umbrella/PMF launcher.
+Worker A now runs six LiCl production jobs at 2 threads each plus two NaCl backfill jobs at 1 thread each plus two LiCl umbrella pulls at 1 thread each, using 16/16 cores without duplicating Worker B. Worker B continues five NaCl production jobs at 2 threads each plus one NaCl umbrella pull at 1 thread, using 11/12 cores after `LiDA-1` NaCl completed and clustered.

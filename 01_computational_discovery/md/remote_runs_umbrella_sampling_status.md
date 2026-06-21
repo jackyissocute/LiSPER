@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-21 14:36 CST
+Last updated: 2026-06-21 15:06 CST
 
 ## Launch Rule
 
@@ -28,6 +28,8 @@ No candidate-condition-stage is duplicated. Umbrella jobs were launched only for
 The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: the peptide-ion pull distance exceeded the allowed half-box distance. The failed pull directory is retained remotely as diagnostic evidence and is not treated as scientific output.
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
+
+Current active repaired pulls are still in the pull stage; no validated umbrella windows, WHAM, PMF, Delta G, or Delta Delta G output is available yet. A stale `pull mdrun_failed` summary from the earlier NaCl failure was archived as diagnostic because the repaired NaCl pull is now running.
 
 ## Implementation
 

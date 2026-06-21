@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	initial_distance_nm	pull_ns	window_ns	window_spacing_nm	requested_window_extension_nm	effective_window_extension_nm	box_min_vector_nm	pbc_safe_max_distance_nm	pbc_safe_fraction	pbc_margin_nm
+LiDA-1	LIT	128	3580.000	0.9449	0.500	1.000	0.100	2.000	1.800	6.3657	2.8146	0.450	0.050

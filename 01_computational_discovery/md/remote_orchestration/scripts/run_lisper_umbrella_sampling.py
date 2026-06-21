@@ -191,6 +191,8 @@ def archive_incompatible_pull(pull_dir, expected_rate, expected_config):
     archive = UMB_DIR / f"pull_{reason}_diagnostic_{stamp}"
     shutil.move(str(pull_dir), str(archive))
     archive_superseded_windows(reason)
+    if SUMMARY.exists():
+        shutil.move(str(SUMMARY), str(UMB_DIR / f"umbrella_summary_{reason}_diagnostic_{stamp}.tsv"))
     return archive
 
 
