@@ -4,6 +4,7 @@ import csv
 import math
 import os
 import re
+import shutil
 import subprocess
 import time
 
@@ -16,6 +17,8 @@ PULL_NS = float(os.environ.get("LISPER_PULL_NS", "0.5"))
 WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "1.0"))
 WINDOW_SPACING_NM = float(os.environ.get("LISPER_WINDOW_SPACING_NM", "0.10"))
 WINDOW_EXTENSION_NM = float(os.environ.get("LISPER_WINDOW_EXTENSION_NM", "2.00"))
+PBC_SAFE_FRACTION = float(os.environ.get("LISPER_PBC_SAFE_FRACTION", "0.45"))
+PBC_MARGIN_NM = float(os.environ.get("LISPER_PBC_MARGIN_NM", "0.05"))
 PULL_K = float(os.environ.get("LISPER_PULL_K", "1000"))
 GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
 
@@ -102,6 +105,93 @@ def write_index_with_target(frame_gro, out_ndx):
         handle.write("\n[ TARGET_ION ]\n")
         handle.write(f"{target_atom}\n")
     return target_atom, initial_distance
+
+
+def min_box_vector_length(frame_gro):
+    parts = [float(x) for x in Path(frame_gro).read_text(errors="replace").splitlines()[-1].split()]
+    if len(parts) == 3:
+        vectors = [(parts[0], 0.0, 0.0), (0.0, parts[1], 0.0), (0.0, 0.0, parts[2])]
+    elif len(parts) == 9:
+        vectors = [
+            (parts[0], parts[3], parts[4]),
+            (parts[5], parts[1], parts[6]),
+            (parts[7], parts[8], parts[2]),
+        ]
+    else:
+        raise RuntimeError(f"Could not parse box vector line from {frame_gro}: {parts}")
+    lengths = [math.sqrt(x * x + y * y + z * z) for x, y, z in vectors]
+    return min(lengths)
+
+
+def pbc_safe_extension(initial_distance, box_min_length):
+    safe_max_distance = box_min_length * PBC_SAFE_FRACTION - PBC_MARGIN_NM
+    max_extension = safe_max_distance - initial_distance
+    if max_extension < WINDOW_SPACING_NM:
+        raise RuntimeError(
+            "Initial ion distance is too close to the PBC half-box limit for safe pulling: "
+            f"initial={initial_distance:.4f} nm, safe_max={safe_max_distance:.4f} nm, "
+            f"box_min_vector={box_min_length:.4f} nm"
+        )
+    effective = min(WINDOW_EXTENSION_NM, max_extension)
+    effective = math.floor(effective / WINDOW_SPACING_NM) * WINDOW_SPACING_NM
+    return max(WINDOW_SPACING_NM, effective), safe_max_distance
+
+
+def archive_superseded_windows(reason):
+    window_dirs = sorted(UMB_DIR.glob("window_*"))
+    if not window_dirs:
+        return None
+    stamp = time.strftime("%Y%m%d_%H%M%S")
+    archive_root = UMB_DIR / f"windows_{reason}_diagnostic_{stamp}"
+    archive_root.mkdir()
+    for path in window_dirs:
+        shutil.move(str(path), str(archive_root / path.name))
+    return archive_root
+
+
+def pull_mdp_rate(pull_dir):
+    mdp = pull_dir / "pull.mdp"
+    if not mdp.exists():
+        return None
+    for line in mdp.read_text(errors="replace").splitlines():
+        if line.split("=", 1)[0].strip() == "pull_coord1_rate":
+            try:
+                return float(line.split("=", 1)[1].strip().split()[0])
+            except (IndexError, ValueError):
+                return None
+    return None
+
+
+def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance):
+    return (
+        f"candidate_id\t{CANDIDATE}\n"
+        f"ion_resname\t{ION_RESNAME}\n"
+        f"initial_distance_nm\t{initial_distance:.4f}\n"
+        f"effective_window_extension_nm\t{effective_extension:.4f}\n"
+        f"pull_rate_nm_per_ps\t{pull_rate:.8f}\n"
+        f"box_min_vector_nm\t{box_min_length:.4f}\n"
+        f"pbc_safe_max_distance_nm\t{safe_max_distance:.4f}\n"
+        f"pbc_safe_fraction\t{PBC_SAFE_FRACTION:.4f}\n"
+        f"pbc_margin_nm\t{PBC_MARGIN_NM:.4f}\n"
+    )
+
+
+def archive_incompatible_pull(pull_dir, expected_rate, expected_config):
+    pull_log = pull_dir / "pull.log"
+    if not pull_dir.exists():
+        return None
+    marker = pull_dir / "pull_config.tsv"
+    rate = pull_mdp_rate(pull_dir)
+    finished = pull_log.exists() and "Finished mdrun" in pull_log.read_text(errors="replace")
+    marker_matches = marker.exists() and marker.read_text(errors="replace") == expected_config
+    if finished and marker_matches and rate is not None and abs(rate - expected_rate) <= 1e-7:
+        return None
+    reason = "failed" if not finished else "superseded"
+    stamp = time.strftime("%Y%m%d_%H%M%S")
+    archive = UMB_DIR / f"pull_{reason}_diagnostic_{stamp}"
+    shutil.move(str(pull_dir), str(archive))
+    archive_superseded_windows(reason)
+    return archive
 
 
 def base_mdp(nsteps, continuation, pull_rate, pull_init, output_every=500):
@@ -237,17 +327,21 @@ def main():
             raise RuntimeError("Failed to extract full representative frame")
 
     target_atom, initial_distance = write_index_with_target(full_rep, UMB_DIR / "umbrella_index.ndx")
+    box_min_length = min_box_vector_length(full_rep)
+    effective_extension, safe_max_distance = pbc_safe_extension(initial_distance, box_min_length)
     metadata = UMB_DIR / "umbrella_metadata.tsv"
     metadata.write_text(
-        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\tinitial_distance_nm\tpull_ns\twindow_ns\twindow_spacing_nm\twindow_extension_nm\n"
-        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\n"
+        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\tinitial_distance_nm\tpull_ns\twindow_ns\twindow_spacing_nm\trequested_window_extension_nm\teffective_window_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\n"
+        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\n"
     )
 
     pull_dir = UMB_DIR / "pull"
-    pull_dir.mkdir(exist_ok=True)
     pull_mdp = pull_dir / "pull.mdp"
     pull_steps = int(PULL_NS * 500000)
-    pull_rate = WINDOW_EXTENSION_NM / (PULL_NS * 1000.0)
+    pull_rate = effective_extension / (PULL_NS * 1000.0)
+    pull_config = pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance)
+    archive_incompatible_pull(pull_dir, pull_rate, pull_config)
+    pull_dir.mkdir(exist_ok=True)
     pull_mdp.write_text(base_mdp(pull_steps, "no", pull_rate, initial_distance))
     pull_status = "complete"
     if not (pull_dir / "pull.log").exists() or "Finished mdrun" not in (pull_dir / "pull.log").read_text(errors="replace"):
@@ -266,11 +360,12 @@ def main():
             }
         ])
         raise RuntimeError(f"Pulling stage failed: {pull_status}")
+    (pull_dir / "pull_config.tsv").write_text(pull_config)
 
     points = parse_pullx(pull_dir / "pull_pullx.xvg")
     distances = [
         round(initial_distance + i * WINDOW_SPACING_NM, 4)
-        for i in range(int(WINDOW_EXTENSION_NM / WINDOW_SPACING_NM) + 1)
+        for i in range(int(effective_extension / WINDOW_SPACING_NM) + 1)
     ]
     rows = []
     window_jobs = []
