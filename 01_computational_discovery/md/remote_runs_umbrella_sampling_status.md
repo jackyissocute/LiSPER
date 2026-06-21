@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-21 15:06 CST
+Last updated: 2026-06-21 18:05 CST
 
 ## Launch Rule
 
@@ -10,9 +10,9 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 
 | Candidate | Condition | Worker | Stage | Threads | Status |
 |---|---|---|---|---:|---|
-| `LiDA-1` | LiCl | Worker A | PBC-safe initial pulling from clustered full-system representative | 1 | Active; effective pull extension 1.80 nm |
-| `LiDS-1` | LiCl | Worker A | PBC-safe initial pulling from clustered full-system representative | 1 | Active; effective pull extension 2.00 nm |
-| `LiDA-1` | NaCl | Worker B | PBC-safe initial pulling from clustered full-system representative | 1 | Active; effective pull extension 1.40 nm |
+| `LiDA-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/19` windows complete; window `000` active |
+| `LiDS-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/21` windows complete; window `000` active |
+| `LiDA-1` | NaCl | Worker B | Umbrella window sampling | 1 | Pull complete; `0/15` windows complete; window `000` active |
 
 ## Compute Fit
 
@@ -29,7 +29,7 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current active repaired pulls are still in the pull stage; no validated umbrella windows, WHAM, PMF, Delta G, or Delta Delta G output is available yet. A stale `pull mdrun_failed` summary from the earlier NaCl failure was archived as diagnostic because the repaired NaCl pull is now running.
+Current repaired pulls completed cleanly and generated PBC-safe window sets. The first umbrella window is active for each ready condition, but no validated window has completed yet; WHAM, PMF, Delta G, and Delta Delta G output are not available.
 
 ## Implementation
 
