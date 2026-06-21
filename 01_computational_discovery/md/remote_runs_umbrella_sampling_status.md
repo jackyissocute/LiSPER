@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-21 18:05 CST
+Last updated: 2026-06-21 18:14 CST
 
 ## Launch Rule
 
@@ -12,14 +12,14 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 |---|---|---|---|---:|---|
 | `LiDA-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/19` windows complete; window `000` active |
 | `LiDS-1` | LiCl | Worker A | Umbrella window sampling | 1 | Pull complete; `0/21` windows complete; window `000` active |
-| `LiDA-1` | NaCl | Worker B | Umbrella window sampling | 1 | Pull complete; `0/15` windows complete; window `000` active |
+| `LiDA-1` | NaCl | Worker B | Umbrella window sampling | 2 | Pull complete; `0/15` windows complete; windows `000-001` active |
 
 ## Compute Fit
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
 | Worker A | 14 threads | 2 threads | 16/16 |
-| Worker B | 10 threads | 1 thread | 11/12 |
+| Worker B | 10 threads | 2 threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 
@@ -29,7 +29,7 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current repaired pulls completed cleanly and generated PBC-safe window sets. The first umbrella window is active for each ready condition, but no validated window has completed yet; WHAM, PMF, Delta G, and Delta Delta G output are not available.
+Current repaired pulls completed cleanly and generated PBC-safe window sets. The first umbrella window is active for each ready condition, and the second NaCl `LiDA-1` window was launched as one-core backfill on Worker B; no validated window has completed yet, so WHAM, PMF, Delta G, and Delta Delta G output are not available.
 
 ## Implementation
 

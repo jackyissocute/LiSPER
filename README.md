@@ -143,7 +143,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Current gate</strong></td>
       <td>Paired production monitor</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 13 active production jobs + 3 umbrella window jobs; compute <code>27/28 cores</code></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> 13 active production jobs + 4 umbrella window jobs; compute <code>28/28 cores</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
       <td>Monitor production plus condition-level umbrella starts for clustered representatives</td>
     </tr>
@@ -194,7 +194,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella pulling + window generation</td>
-      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 condition-level jobs active: <code>LiDA-1</code> LiCl <code>0/19 windows</code>, <code>LiDS-1</code> LiCl <code>0/21 windows</code>, <code>LiDA-1</code> NaCl <code>0/15 windows</code></td>
+      <td><code>🟨🟨🟨⬜⬜⬜⬜⬜</code> 3 condition-level jobs active: <code>LiDA-1</code> LiCl <code>0/19 windows</code>, <code>LiDS-1</code> LiCl <code>0/21 windows</code>, <code>LiDA-1</code> NaCl <code>0/15 windows; 000-001 active</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-3_conditions-2563eb"></td>
       <td>Pull representative full systems, generate windows, then run biased sampling</td>
     </tr>
