@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-22 09:10 CST
+Last updated: 2026-06-22 10:18 CST
 
 ## Launch Rule
 
@@ -13,16 +13,16 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiDA-1` | LiCl | Worker A | `3/19` | `003` | `🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDS-1` | LiCl | Worker A | `2/21` | `002` | `🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | Worker B | `5/15` | `005-007` | `🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜` |
-| `LiDS-1` | NaCl | Worker B | `0/generated` | blocked before windows | `representative extraction crash` |
+| `LiDS-1` | NaCl | Worker B | `0/generated` | pull active | `windows pending` |
 
-Total valid umbrella window progress: `10/55` complete; `5` valid windows active. `LiDS-1` NaCl is representative-ready but blocked before window generation by a GROMACS full-system extraction crash.
+Total valid umbrella window progress: `10/55` complete; `5` valid windows active, plus `LiDS-1` NaCl pull active before window generation.
 
 ## Compute Fit
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
 | Worker A | 14 threads | 2 threads | 16/16 |
-| Worker B | 8 threads | 3 threads | 11/12 |
+| Worker B | 8 threads | 4 threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 
@@ -34,7 +34,7 @@ The umbrella driver now computes a per-system safe pull extension from the actua
 
 Current repaired pulls completed cleanly and generated PBC-safe window sets for `LiDA-1` LiCl, `LiDS-1` LiCl, and `LiDA-1` NaCl. Completed valid windows are `LiDA-1` LiCl `000-002`, `LiDS-1` LiCl `000-001`, and `LiDA-1` NaCl `000-004`. Active windows are `LiDA-1` LiCl `003`, `LiDS-1` LiCl `002`, and `LiDA-1` NaCl `005-007`.
 
-`LiDS-1` NaCl completed production and clustering with top-cluster population `14.59%`, but its umbrella driver stopped before pull/window generation because `gmx trjconv` crashed while extracting the full representative frame. The diagnostic log is preserved at `na_cl/remote_results/umbrella_sampling/LiDS-1/extract_representative_full_system.log`; no `LiDS-1` NaCl windows are counted as scientific output yet. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
+`LiDS-1` NaCl completed production and clustering with top-cluster population `14.59%`. Its first umbrella launch exposed two setup issues: a stale index atom count during full-frame extraction and a stale `topol.top` water count during pull `grompp`. Both diagnostics are preserved under `na_cl/remote_results/umbrella_sampling/LiDS-1/`. The repaired driver now extracts the frame from the production TPR's `System` group and uses the cleaned production topology; `LiDS-1` NaCl pull is active, but no windows are counted as scientific output until they are generated and sampled. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
 
 ## Implementation
 

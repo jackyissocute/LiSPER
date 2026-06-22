@@ -264,9 +264,13 @@ def closest_time(points, distance):
 
 
 def topology_for():
-    cleaned = GROMACS_DIR / "topol_cleaned_for_prod.top"
-    if cleaned.exists():
-        return cleaned
+    for cleaned in [
+        GROMACS_DIR / "topol_cleaned_for_prod.top",
+        GROMACS_DIR / "topol_clean_attempt1.top",
+        GROMACS_DIR / "run_min" / "topol_cleaned.top",
+    ]:
+        if cleaned.exists():
+            return cleaned
     return GROMACS_DIR / "topol.top"
 
 
@@ -321,9 +325,9 @@ def main():
         code, _ = run_shell(
             f"{GMX_ENV} && gmx trjconv -s {PROD_DIR / 'step5_production_20ns.tpr'} "
             f"-f {PROD_DIR / 'step5_production_20ns.xtc'} -dump {rep_time:.3f} "
-            f"-o {full_rep} -n {GROMACS_DIR / 'index.ndx'} -pbc mol -center",
+            f"-o {full_rep} -pbc mol",
             log=UMB_DIR / "extract_representative_full_system.log",
-            stdin="0\n2\n",
+            stdin="0\n",
         )
         if code != 0:
             raise RuntimeError("Failed to extract full representative frame")

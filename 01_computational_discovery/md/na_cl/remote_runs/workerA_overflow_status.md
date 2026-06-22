@@ -1,6 +1,6 @@
 # Worker A NaCl Backfill Status
 
-Last updated: 2026-06-22 09:10 CST
+Last updated: 2026-06-22 10:18 CST
 
 ## Purpose
 
@@ -15,4 +15,4 @@ Last updated: 2026-06-22 09:10 CST
 
 ## Scheduling Note
 
-Worker A now runs six LiCl production jobs at 2 threads each plus two NaCl backfill jobs at 1 thread each plus two LiCl umbrella windows at 1 thread each, using 16/16 cores without duplicating Worker B. Worker B continues four NaCl production jobs at 2 threads each plus three `LiDA-1` NaCl umbrella windows at 1 thread each, using 11/12 cores after `LiDS-1` NaCl completed and clustered but blocked before umbrella window generation.
+Worker A now runs six LiCl production jobs at 2 threads each plus two NaCl backfill jobs at 1 thread each plus two LiCl umbrella windows at 1 thread each, using 16/16 cores without duplicating Worker B. Worker B continues four NaCl production jobs at 2 threads each plus three `LiDA-1` NaCl umbrella windows and one repaired `LiDS-1` NaCl umbrella pull at 1 thread each, using 12/12 cores.

@@ -14,7 +14,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | 6/8 active across both workers: 4 Worker B jobs at `8.75-13.70 ns / 20 ns`, plus 2 Worker A backfill jobs at `2.73-4.12 ns / 20 ns` as of `2026-06-22 09:10 CST`; `LiDA-1` and `LiDS-1` complete |
 | Structural clustering | 2/8 complete; `LiDA-1` top cluster `17.94%`; `LiDS-1` top cluster `14.59%`; others queued after production |
-| PMF handoff | Umbrella windows active: `LiDA-1` `5/15`, active `005-007`; `LiDS-1` representative-ready but blocked before window generation |
+| PMF handoff | Umbrella windows active: `LiDA-1` `5/15`, active `005-007`; `LiDS-1` pull active before window generation |
 
 ## Candidate Notes
 
@@ -24,7 +24,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | `LiD3-Flex` | Active checkpoint resume on Worker B; `8.75 ns / 20 ns`; clustering queued |
 | `LiND-Hybrid` | Worker A backfill active; `2.73 ns / 20 ns`; clustering queued |
 | `LiLC-1` | Active checkpoint resume on Worker B; `13.70 ns / 20 ns`; clustering queued |
-| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; umbrella extraction blocked |
+| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; umbrella pull active |
 | `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.94%`; umbrella `5/15`, active `005-007` |
 | `LiN3-Core` | Worker A backfill active; `4.12 ns / 20 ns`; clustering queued |
 | `LiA3-Ref` | Active checkpoint resume on Worker B; `12.73 ns / 20 ns`; clustering queued |
