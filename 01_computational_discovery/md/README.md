@@ -6,13 +6,13 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl and NaCl 20 ns production plus clustering are running across two AutoDL workers without duplicate candidate-condition-stage jobs. Umbrella sampling is active condition-by-condition for clustered representatives.
 
-Latest production/umbrella snapshot: `2026-06-22 10:18 CST`.
+Latest production/umbrella snapshot: `2026-06-22 12:11 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 6/8 production jobs active; `11.06-17.13 ns / 20 ns`; `LiDA-1` and `LiDS-1` produced and clustered; top clusters `17.64%` and `15.69%` |
-| NaCl | `na_cl/` | 6/8 production jobs active across both workers; Worker B jobs `8.75-13.70 ns / 20 ns`; Worker A backfill jobs `2.73-4.12 ns / 20 ns`; `LiDA-1` and `LiDS-1` produced and clustered; top clusters `17.94%` and `14.59%` |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | `10/55` valid windows complete; 5 active windows: LiCl `LiDA-1:003`, LiCl `LiDS-1:002`, NaCl `LiDA-1:005-007`; `LiDS-1` NaCl pull active before window generation |
+| LiCl | `li_cl/` | 6/8 production jobs active; `11.42-17.72 ns / 20 ns`; `LiDA-1` and `LiDS-1` produced and clustered; top clusters `17.64%` and `15.69%` |
+| NaCl | `na_cl/` | 6/8 production jobs active across both workers; Worker B jobs `9.08-14.27 ns / 20 ns`; Worker A backfill jobs `2.93-4.42 ns / 20 ns`; `LiDA-1` and `LiDS-1` produced and clustered; top clusters `17.94%` and `14.59%` |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | `11/55` valid windows complete; 5 active windows: LiCl `LiDA-1:004`, LiCl `LiDS-1:002`, NaCl `LiDA-1:005-007`; `LiDS-1` NaCl pull active at `301/500 ps` before window generation |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
