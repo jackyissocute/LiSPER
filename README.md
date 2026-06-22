@@ -273,13 +273,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~4-10 days</code></strong><br><sub>30/30 cores active across two workers</sub></td>
+      <td align="center"><strong><code>~3-7 days</code></strong><br><sub>30/30 cores active across the 18-core + 12-core worker pool</sub></td>
       <td>Finish remaining production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
       <td align="center"><strong><code>22/72 windows</code></strong><br><sub>8 active windows across LiCl and NaCl</sub></td>
-      <td>Complete window sampling, then check overlap and convergence.</td>
+      <td>Complete active-set windows, then expand as the next representatives clear clustering.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -288,13 +288,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~12-30+ days</code></strong><br><sub>paired representatives started; remaining estimate still dominated by production + umbrella sampling</sub></td>
+      <td align="center"><strong><code>~9-22 days</code></strong><br><sub>recalibrated after replacement Worker A increased the pool to 30 cores</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are conservative and now depend on the remaining production/clustering tail plus umbrella-window throughput. Umbrella sampling has started for clustered conditions and will expand as additional representatives appear.
+> Time estimates are conservative and now reflect the 18-core replacement Worker A plus the 12-core Worker B. The remaining critical path is production/clustering tail → umbrella-window throughput → WHAM/PMF checks.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
