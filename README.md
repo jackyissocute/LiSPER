@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-22 21:41 CST`
+**Last synchronized monitor snapshot:** `2026-06-22 22:12 CST`
 
 ### Process matrix
 
@@ -142,13 +142,13 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩</code> <code>12/12 confirmed</code><br><sub>Worker A reconnect pending</sub></td>
-      <td><img alt="recovered" src="https://img.shields.io/badge/recovered-Worker_B-f59e0b"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>30/30 cores</code></td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>12.14-18.89 ns / 20 ns</code></td>
+      <td><code>12.44-19.36 ns / 20 ns</code></td>
       <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -159,7 +159,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>10.06-15.91 ns / 20 ns</code><br><sub>Worker A backfill reconnect pending</sub></td>
+      <td><code>10.11-15.99 ns / 20 ns</code><br><sub>backfill <code>3.49-5.27 ns / 20 ns</code></sub></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -170,8 +170,8 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>20/72 known windows</strong><br><sub><code>LiDA-1</code> NaCl <code>11/15</code> active <code>011-014</code> · <code>LiDS-1</code> NaCl <code>1/17</code> · LiCl last-known <code>8/40</code>, reconnect pending</sub></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-4_windows_confirmed-2563eb"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>22/72 valid windows</strong><br><sub><code>LiDA-1</code> LiCl <code>6/19</code> active <code>006-007</code> · <code>LiDS-1</code> LiCl <code>4/21</code> active <code>004-005</code> · <code>LiDA-1</code> NaCl <code>11/15</code> active <code>011-014</code> · <code>LiDS-1</code> NaCl <code>1/17</code></sub></td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-8_windows-2563eb"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -198,29 +198,29 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟦 <code>18.43 ns / 20 ns</code>; clustering queued</td>
+      <td>🟦 <code>18.90 ns / 20 ns</code>; recovered on Worker A</td>
       <td>🟦 <code>15.14 ns / 20 ns</code>; recovered from checkpoint</td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>12.14 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>10.06 ns / 20 ns</code>; recovered from checkpoint</td>
+      <td>🟦 <code>12.44 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>10.11 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>12.23 ns / 20 ns</code>; clustering queued</td>
-      <td>⚪ Worker A reconnect pending</td>
+      <td>🟦 <code>12.54 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>3.49 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟦 <code>18.80 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>15.91 ns / 20 ns</code>; recovered from checkpoint</td>
+      <td>🟦 <code>19.27 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>15.99 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -228,27 +228,27 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl last-known <code>3/21</code>; NaCl <code>1/17</code></td>
+      <td>🟦 LiCl <code>4/21</code> active <code>004-005</code>; NaCl <code>1/17</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl last-known <code>5/19</code>; NaCl <code>11/15</code> active <code>011-014</code></td>
+      <td>🟦 LiCl <code>6/19</code> active <code>006-007</code>; NaCl <code>11/15</code> active <code>011-014</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟦 <code>18.89 ns / 20 ns</code>; clustering queued</td>
-      <td>⚪ Worker A reconnect pending</td>
+      <td>🟦 <code>19.36 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>5.27 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 <code>18.23 ns / 20 ns</code>; clustering queued</td>
-      <td>🟦 <code>14.66 ns / 20 ns</code>; recovered from checkpoint</td>
+      <td>🟦 <code>18.67 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>14.74 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -273,12 +273,12 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~4-12 days</code></strong><br><sub>Worker B recovered at 12/12 cores; Worker A reconnect pending</sub></td>
+      <td align="center"><strong><code>~4-10 days</code></strong><br><sub>30/30 cores active across two workers</sub></td>
       <td>Finish remaining production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>20/72 windows</code></strong><br><sub>4 confirmed active windows; LiCl last-known pending reconnect</sub></td>
+      <td align="center"><strong><code>22/72 windows</code></strong><br><sub>8 active windows across LiCl and NaCl</sub></td>
       <td>Complete window sampling, then check overlap and convergence.</td>
     </tr>
     <tr>
@@ -302,9 +302,9 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
-- Worker B recovered after shutdown and now runs 4 NaCl production jobs plus 4 `LiDA-1` NaCl umbrella windows at 12/12 cores. Worker A is still reconnect-pending on the recorded port.
+- Replacement Worker A is active with 18/18 GROMACS threads, and Worker B is active with 12/12 threads. The current combined pool is 30/30 cores without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1` and `LiDS-1`; NaCl representatives are ready for `LiDA-1` and `LiDS-1`.
-- Umbrella sampling is condition-specific: `LiDA-1` NaCl has four confirmed active windows; `LiDS-1` NaCl has one completed window; LiCl umbrella state remains last-known until Worker A reconnects. Twenty valid windows are known complete from confirmed plus last-known outputs.
+- Umbrella sampling is condition-specific: LiCl and NaCl both have active windows, with 22 valid windows complete and 8 windows currently active across the two workers.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
@@ -317,12 +317,12 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `18.43/20 ns`; NaCl `15.14/20 ns recovered` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `12.14/20 ns`; NaCl `10.06/20 ns recovered` |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `12.23/20 ns`; NaCl Worker A reconnect pending |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `18.80/20 ns`; NaCl `15.91/20 ns recovered` |
-| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl last-known `3/21`; NaCl umbrella `1/17` |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `12.44/20 ns`; NaCl `10.11/20 ns recovered` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `12.54/20 ns`; NaCl `3.49/20 ns backfill` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `19.27/20 ns`; NaCl `15.99/20 ns recovered` |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl umbrella `4/21`; NaCl umbrella `1/17` |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | paired LiCl/NaCl representatives ready; umbrella active for both conditions |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `18.89/20 ns`; NaCl Worker A reconnect pending |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `19.36/20 ns`; NaCl `5.27/20 ns backfill` |
 | 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `18.23/20 ns`; NaCl `14.66/20 ns recovered` |
 
 ## ⚙️ Computational workflow

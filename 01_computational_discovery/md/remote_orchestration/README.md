@@ -32,11 +32,11 @@ New GROMACS tasks should start only for candidates with final-name ESMFold PDBs 
 
 Use [`SYNC_PATHS.md`](SYNC_PATHS.md) as the canonical path map.
 
-| Condition | Remote workdir |
-|---|---|
-| LiCl | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
-| NaCl | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
-| NaCl production worker | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
+| Worker | Remote workdir | Active role |
+|---|---|---|
+| Worker A replacement, 18 cores | `/root/LiSPER_remote/LiSPER_8cand_LiCl` | LiCl production/clustering and LiCl umbrella backfill |
+| Worker A replacement, 18 cores | `/root/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA` | NaCl backfill for candidates moved off Worker B |
+| Worker B, 12 cores | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` | NaCl production/clustering and NaCl umbrella backfill |
 
 Do not sync active 8-candidate products into older remote workdirs.
 
@@ -71,7 +71,7 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker \
   python3 run_lisper_parallel_production_cluster.py
 ```
 
-The NaCl production worker currently uses 6 concurrent jobs x 2 OpenMP threads to match the 12-core CPU quota on the second AutoDL container. This avoids the earlier oversubscription pattern and leaves two candidates queued behind the active worker pool.
+Current scheduling treats the two AutoDL machines as one non-oversubscribed pool: Worker A replacement is capped at 18 active GROMACS threads, and Worker B is capped at 12. Count actual `gmx mdrun -ntomp/-nt` threads before launching new work.
 
 Umbrella sampling is condition-specific: a LiCl or NaCl condition can enter umbrella window design and sampling immediately after that condition has completed production, clustering, and representative extraction. It does not need to wait for the matched ion condition.
 

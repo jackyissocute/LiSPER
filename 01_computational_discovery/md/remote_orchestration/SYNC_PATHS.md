@@ -16,6 +16,11 @@ Canonical path reference for the revised 8-candidate LiSPER workflow.
 
 ## Remote Roots
 
+| Worker | SSH | CPU quota | Primary role |
+|---|---|---:|---|
+| Worker A / replacement | `ssh -p 27815 root@connect.westc.seetacloud.com` | 18 cores | LiCl production/clustering plus fitted LiCl umbrella and NaCl backfill |
+| Worker B / NaCl | `ssh -p 43418 root@connect.westd.seetacloud.com` | 12 cores | NaCl production/clustering plus fitted NaCl umbrella |
+
 | Purpose | Path |
 |---|---|
 | Remote project root | `/root/LiSPER_remote` |
