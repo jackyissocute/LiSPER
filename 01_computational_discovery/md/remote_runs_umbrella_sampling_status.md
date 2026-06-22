@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-22 18:23 CST
+Last updated: 2026-06-22 21:41 CST
 
 ## Launch Rule
 
@@ -12,16 +12,16 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 |---|---|---|---:|---|---|
 | `LiDA-1` | LiCl | Worker A | `5/19` | `005` | `🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜` |
 | `LiDS-1` | LiCl | Worker A | `3/21` | `003` | `🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | `8/15` | `008-010` | `🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜` |
-| `LiDS-1` | NaCl | Worker B | `0/17` | `000` | `⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | NaCl | Worker B | `11/15` | `011-014` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜` |
+| `LiDS-1` | NaCl | Worker B | `1/17` | queued | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
 
-Total valid umbrella window progress: `16/72` complete; `6` valid windows active.
+Total known valid umbrella window progress: `20/72` complete; `4` confirmed valid windows active. Worker A refused its recorded SSH port during this recovery pass, so LiCl windows remain last-known until reconnect.
 
 ## Compute Fit
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
-| Worker A | 14 threads | 2 threads | 16/16 |
+| Worker A | reconnect pending | reconnect pending | unverified |
 | Worker B | 8 threads | 4 threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
@@ -32,7 +32,7 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current repaired pulls completed cleanly and generated PBC-safe window sets for `LiDA-1` LiCl, `LiDS-1` LiCl, `LiDA-1` NaCl, and `LiDS-1` NaCl. Completed valid windows are `LiDA-1` LiCl `000-004`, `LiDS-1` LiCl `000-002`, and `LiDA-1` NaCl `000-007`. Active windows are `LiDA-1` LiCl `005`, `LiDS-1` LiCl `003`, `LiDA-1` NaCl `008-010`, and `LiDS-1` NaCl `000`.
+Current repaired pulls completed cleanly and generated PBC-safe window sets for `LiDA-1` LiCl, `LiDS-1` LiCl, `LiDA-1` NaCl, and `LiDS-1` NaCl. Completed valid windows are last-known `LiDA-1` LiCl `000-004`, last-known `LiDS-1` LiCl `000-002`, `LiDA-1` NaCl `000-010`, and `LiDS-1` NaCl `000`. Confirmed active windows are `LiDA-1` NaCl `011-014`; LiCl active-window verification is pending Worker A reconnect.
 
 `LiDS-1` NaCl completed production and clustering with top-cluster population `14.59%`. Its first umbrella launch exposed two setup issues: a stale index atom count during full-frame extraction and a stale `topol.top` water count during pull `grompp`. Both diagnostics are preserved under `na_cl/remote_results/umbrella_sampling/LiDS-1/`. The repaired driver now extracts the frame from the production TPR's `System` group and uses the cleaned production topology; the repaired pull finished and `LiDS-1` NaCl window `000` is active. WHAM, PMF, Delta G, and Delta Delta G output are not available yet.
 
