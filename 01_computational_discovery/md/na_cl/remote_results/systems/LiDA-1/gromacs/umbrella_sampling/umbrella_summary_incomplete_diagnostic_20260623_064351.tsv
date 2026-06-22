@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
+LiDA-1	SOD	125	18360.000	000	1.3237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_000_1.32nm

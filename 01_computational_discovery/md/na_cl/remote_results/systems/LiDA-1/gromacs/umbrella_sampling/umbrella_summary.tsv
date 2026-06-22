@@ -1,2 +1,16 @@
 candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
 LiDA-1	SOD	125	18360.000	000	1.3237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_000_1.32nm
+LiDA-1	SOD	125	18360.000	001	1.4237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_001_1.42nm
+LiDA-1	SOD	125	18360.000	002	1.5237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_002_1.52nm
+LiDA-1	SOD	125	18360.000	003	1.6237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_003_1.62nm
+LiDA-1	SOD	125	18360.000	004	1.7237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_004_1.72nm
+LiDA-1	SOD	125	18360.000	005	1.8237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_005_1.82nm
+LiDA-1	SOD	125	18360.000	006	1.9237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_006_1.92nm
+LiDA-1	SOD	125	18360.000	007	2.0237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_007_2.02nm
+LiDA-1	SOD	125	18360.000	008	2.1237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_008_2.12nm
+LiDA-1	SOD	125	18360.000	009	2.2237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_009_2.22nm
+LiDA-1	SOD	125	18360.000	010	2.3237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_010_2.32nm
+LiDA-1	SOD	125	18360.000	011	2.4237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_011_2.42nm
+LiDA-1	SOD	125	18360.000	012	2.5237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_012_2.52nm
+LiDA-1	SOD	125	18360.000	013	2.6237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_013_2.62nm
+LiDA-1	SOD	125	18360.000	014	2.7237	complete	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_014_2.72nm
