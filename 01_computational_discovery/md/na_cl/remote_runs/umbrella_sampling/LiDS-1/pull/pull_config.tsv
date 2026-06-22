@@ -1,0 +1,9 @@
+candidate_id	LiDS-1
+ion_resname	SOD
+initial_distance_nm	1.5241
+effective_window_extension_nm	1.6000
+pull_rate_nm_per_ps	0.00320000
+box_min_vector_nm	7.2169
+pbc_safe_max_distance_nm	3.1976
+pbc_safe_fraction	0.4500
+pbc_margin_nm	0.0500

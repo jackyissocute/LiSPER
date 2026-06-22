@@ -1,3 +1,4 @@
 candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
 LiDS-1	LIT	128	13160.000	000	0.6202	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_000_0.62nm
 LiDS-1	LIT	128	13160.000	001	0.7202	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_001_0.72nm
+LiDS-1	LIT	128	13160.000	002	0.8202	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_002_0.82nm
