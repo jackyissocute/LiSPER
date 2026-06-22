@@ -148,7 +148,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>12.44-19.36 ns / 20 ns</code></td>
+      <td><code>12.63-19.66 ns / 20 ns</code></td>
       <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -159,7 +159,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>10.11-15.99 ns / 20 ns</code><br><sub>backfill <code>3.49-5.27 ns / 20 ns</code></sub></td>
+      <td><code>10.38-16.34 ns / 20 ns</code><br><sub>backfill <code>3.59-5.43 ns / 20 ns</code></sub></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -198,29 +198,29 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟦 <code>18.90 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>15.14 ns / 20 ns</code>; recovered from checkpoint</td>
+      <td>🟦 <code>19.20 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>15.56 ns / 20 ns</code>; recovered from checkpoint</td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>12.44 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>10.11 ns / 20 ns</code>; recovered on Worker B</td>
+      <td>🟦 <code>12.63 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>10.38 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>12.54 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>3.49 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>12.73 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>3.59 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟦 <code>19.27 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>15.99 ns / 20 ns</code>; recovered on Worker B</td>
+      <td>🟦 <code>19.57 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>16.34 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -240,15 +240,15 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟦 <code>19.36 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>5.27 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>19.66 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>5.43 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 <code>18.67 ns / 20 ns</code>; recovered on Worker A</td>
-      <td>🟦 <code>14.74 ns / 20 ns</code>; recovered on Worker B</td>
+      <td>🟦 <code>18.96 ns / 20 ns</code>; recovered on Worker A</td>
+      <td>🟦 <code>15.08 ns / 20 ns</code>; recovered on Worker B</td>
       <td>🟪 planned after paired representatives</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -316,14 +316,14 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `18.43/20 ns`; NaCl `15.14/20 ns recovered` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `12.44/20 ns`; NaCl `10.11/20 ns recovered` |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `12.54/20 ns`; NaCl `3.49/20 ns backfill` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `19.27/20 ns`; NaCl `15.99/20 ns recovered` |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `19.20/20 ns`; NaCl `15.56/20 ns recovered` |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `12.63/20 ns`; NaCl `10.38/20 ns recovered` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `12.73/20 ns`; NaCl `3.59/20 ns backfill` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `19.57/20 ns`; NaCl `16.34/20 ns recovered` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl umbrella `4/21`; NaCl umbrella `1/17` |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | paired LiCl/NaCl representatives ready; umbrella active for both conditions |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `19.36/20 ns`; NaCl `5.27/20 ns backfill` |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `18.23/20 ns`; NaCl `14.66/20 ns recovered` |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `19.66/20 ns`; NaCl `5.43/20 ns backfill` |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `18.96/20 ns`; NaCl `15.08/20 ns recovered` |
 
 ## ⚙️ Computational workflow
 

@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-22 22:12 CST
+Last updated: 2026-06-23 00:24 CST
 
 ## Launch Rule
 
@@ -16,6 +16,8 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiDS-1` | NaCl | Worker B | `1/17` | queued | `🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
 
 Total valid umbrella window progress: `22/72` complete; `8` valid windows active across both workers.
+
+Active window sampling progress at this checkpoint: LiCl `LiDA-1` windows `006-007` are about `0.37 ns/window`; LiCl `LiDS-1` windows `004-005` are about `0.25 ns/window`; NaCl `LiDA-1` windows `011-014` are about `0.57-0.62 ns/window`. NaCl `LiDS-1` window `001` is prepared but not active because Worker B is already at `12/12` threads.
 
 ## Compute Fit
 

@@ -1,4 +1,5 @@
 candidate_id	production_status	cluster_status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	production_wall_s	production_ns_per_day	production_hour_per_ns	production_finished_at	production_dir	cluster_dir
 LiDA-1	produced	clustered	1	359	17.94	175055.801	9.623	2.494	Sun Jun 21 09:37:37 2026	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/run_prod_20ns	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns
+LiDS-1	produced	clustered	1	292	14.59	251789.844	6.740	3.561	Mon Jun 22 06:56:32 2026	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/run_prod_20ns	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/cluster_20ns
 LiN3-Core	exception:[Errno 2] No such file or directory: '/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiN3-Core/gromacs/run_prod_20ns'										
 LiND-Hybrid	exception:[Errno 2] No such file or directory: '/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiND-Hybrid/gromacs/run_prod_20ns'										
