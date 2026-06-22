@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
+LiDA-1	LIT	128	3580.000	pull		mdrun_failed	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull
