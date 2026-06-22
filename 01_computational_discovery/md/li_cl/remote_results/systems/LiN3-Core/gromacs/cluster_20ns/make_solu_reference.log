@@ -1,0 +1,31 @@
+               :-) GROMACS - gmx trjconv, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs
+Command line:
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.gro -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/cluster_20ns/final_solu_reference.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_eq/index_clean.ndx
+
+Will write gro: Coordinate file in Gromos-87 format
+Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Group     0 (           SOLU) has   171 elements
+Group     1 (           SOLV) has 44298 elements
+Group     2 (         SYSTEM) has 44470 elements
+Select a group: Reading frames from gro file 'Title', 44469 atoms.
+
+Reading frame       0 time    0.000   
+Precision of /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.gro is 0.001 (nm)
+
+Back Off! I just backed up /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/cluster_20ns/final_solu_reference.gro to /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/cluster_20ns/#final_solu_reference.gro.3#
+
+Last frame          0 time    0.000   
+ ->  frame      0 time    0.000      
+Last written: frame      0 time    0.000
+
+
+GROMACS reminds you: "You Should Sleep Late Man, It's Much Easier On Your Constitution" (Beastie Boys)
+
+Note that major changes are planned in future for trjconv, to improve usability and utility.
+Select group for output
+Selected 0: 'SOLU'
