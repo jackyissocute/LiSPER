@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-23 06:33 CST`
+**Last synchronized monitor snapshot:** `2026-06-23 08:43 CST`
 
 ### Process matrix
 
@@ -142,24 +142,24 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> <code>26/30 safe threads</code></td>
+      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>23/30 safe threads</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>13.15-19.76 ns / 20 ns</code><br><sub><code>LiD3-Core</code>, <code>LiLC-1</code>, <code>LiN3-Core</code> clustered this cycle</sub></td>
-      <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-3%2F8_jobs-2563eb"></td>
+      <td><code>13.36-13.45 ns / 20 ns</code><br><sub><code>LiD3-Core</code>, <code>LiLC-1</code>, <code>LiN3-Core</code>, <code>LiA3-Ref</code> clustered this cycle</sub></td>
+      <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩🟩🟩🟩⬜⬜⬜</code> <code>5/8 reps</code></td>
-      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-5%2F8-16a34a"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>6/8 reps</code></td>
+      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-6%2F8-16a34a"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>11.13-17.38 ns / 20 ns</code><br><sub>backfill <code>3.86-5.85 ns / 20 ns</code></sub></td>
+      <td><code>11.42-17.82 ns / 20 ns</code><br><sub>backfill <code>3.97-6.02 ns / 20 ns</code></sub></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-6%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -170,8 +170,8 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>20 current windows</strong><br><sub><code>LiDS-1</code> LiCl <code>4/21</code>, active <code>004-005</code> · <code>LiDA-1</code> NaCl <code>15/15</code> complete · <code>LiDS-1</code> NaCl <code>1/17</code>, active <code>001-004</code> · LiCl pulls active for <code>LiDA-1</code>, <code>LiD3-Core</code>, <code>LiLC-1</code>, <code>LiN3-Core</code></sub></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-10_umbrella_mdruns-2563eb"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>22 current windows</strong><br><sub><code>LiDS-1</code> LiCl <code>6/21</code> complete · <code>LiDA-1</code> NaCl <code>15/15</code> complete · <code>LiDS-1</code> NaCl <code>1/17</code>, active <code>001-004</code> · LiCl pulls active for <code>LiDA-1</code>, <code>LiD3-Core</code>, <code>LiLC-1</code>, <code>LiN3-Core</code>, <code>LiA3-Ref</code></sub></td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-9_umbrella_mdruns-2563eb"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -199,28 +199,28 @@ flowchart TD
     <tr>
       <td><strong>LiD3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.69%</code></td>
-      <td>🟦 <code>16.59 ns / 20 ns</code></td>
+      <td>🟦 <code>17.02 ns / 20 ns</code></td>
       <td>🟦 LiCl pull active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>13.15 ns / 20 ns</code></td>
-      <td>🟦 <code>11.13 ns / 20 ns</code></td>
+      <td>🟦 <code>13.36 ns / 20 ns</code></td>
+      <td>🟦 <code>11.42 ns / 20 ns</code></td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>13.25 ns / 20 ns</code></td>
-      <td>🟦 <code>3.86 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>13.45 ns / 20 ns</code></td>
+      <td>🟦 <code>3.97 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.15%</code></td>
-      <td>🟦 <code>17.38 ns / 20 ns</code></td>
+      <td>🟦 <code>17.82 ns / 20 ns</code></td>
       <td>🟦 LiCl pull active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -228,7 +228,7 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl <code>4/21</code>, active <code>004-005</code>; NaCl <code>1/17</code>, active <code>001-004</code></td>
+      <td>🟦 LiCl <code>6/21</code>; NaCl <code>1/17</code>, active <code>001-004</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -241,15 +241,15 @@ flowchart TD
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟦 <code>5.85 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>6.02 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟦 LiCl pull active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟦 <code>19.76 ns / 20 ns</code></td>
-      <td>🟦 <code>16.07 ns / 20 ns</code></td>
-      <td>🟪 planned after representative</td>
+      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>5.05%</code></td>
+      <td>🟦 <code>16.50 ns / 20 ns</code></td>
+      <td>🟦 LiCl pull active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
   </tbody>
@@ -273,12 +273,12 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~1-4 days</code></strong><br><sub>26/30 safe threads active; LiCl representatives are 5/8</sub></td>
+      <td align="center"><strong><code>~1-4 days</code></strong><br><sub>23/30 safe threads active; LiCl representatives are 6/8</sub></td>
       <td>Finish remaining production logs, cluster trajectories, and extract dominant representative structures.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>20 current windows</code></strong><br><sub>10 umbrella mdruns active: 6 windows + 4 pulls</sub></td>
+      <td align="center"><strong><code>22 current windows</code></strong><br><sub>9 umbrella mdruns active: 4 windows + 5 pulls</sub></td>
       <td>Complete active windows and convert current LiCl pulls into new window sets.</td>
     </tr>
     <tr>
@@ -302,9 +302,9 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
-- Replacement Worker A is active with 14/18 GROMACS threads, and Worker B is active with 12/12 threads. The current combined pool is 26/30 safe threads without duplicate candidate-condition-stage jobs.
-- LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, and `LiN3-Core`; NaCl representatives are ready for `LiDA-1` and `LiDS-1`.
-- Umbrella sampling is condition-specific: 20 current windows are complete, 6 windows are active, and 4 LiCl pull gates are active before fresh window generation.
+- Replacement Worker A is active with 11/18 GROMACS threads, and Worker B is active with 12/12 threads. The current combined pool is 23/30 safe threads without duplicate candidate-condition-stage jobs.
+- LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1` and `LiDS-1`.
+- Umbrella sampling is condition-specific: 22 current windows are complete, 4 windows are active, and 5 LiCl pull gates are active before fresh window generation.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
@@ -316,14 +316,14 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl representative ready; LiCl pull active; NaCl `16.59/20 ns` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `13.15/20 ns`; NaCl `11.13/20 ns` |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `13.25/20 ns`; NaCl `3.86/20 ns backfill` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl representative ready; LiCl pull active; NaCl `17.38/20 ns` |
-| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl umbrella `4/21`; NaCl umbrella `1/17`, active `001-004` |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl representative ready; LiCl pull active; NaCl `17.02/20 ns` |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | LiCl `13.36/20 ns`; NaCl `11.42/20 ns` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl `13.45/20 ns`; NaCl `3.97/20 ns backfill` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl representative ready; LiCl pull active; NaCl `17.82/20 ns` |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl umbrella `6/21`; NaCl umbrella `1/17`, active `001-004` |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl pull active; NaCl umbrella `15/15` complete |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl representative ready; LiCl pull active; NaCl `5.85/20 ns backfill` |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `19.76/20 ns`; NaCl `16.07/20 ns` |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl representative ready; LiCl pull active; NaCl `6.02/20 ns backfill` |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl representative ready; LiCl pull active; NaCl `16.50/20 ns` |
 
 ## ⚙️ Computational workflow
 

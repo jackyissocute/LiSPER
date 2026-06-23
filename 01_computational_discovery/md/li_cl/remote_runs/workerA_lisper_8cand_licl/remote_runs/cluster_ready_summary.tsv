@@ -1,4 +1,2 @@
 candidate_id	status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	detail
-LiD3-Core	clustered	1	254	12.69	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/cluster_20ns/representative_top_cluster.pdb
-LiLC-1	clustered	1	83	4.15	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/representative_top_cluster.pdb
-LiN3-Core	clustered	1	93	4.65	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/cluster_20ns/representative_top_cluster.pdb
+LiA3-Ref	clustered	1	101	5.05	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/cluster_20ns/representative_top_cluster.pdb

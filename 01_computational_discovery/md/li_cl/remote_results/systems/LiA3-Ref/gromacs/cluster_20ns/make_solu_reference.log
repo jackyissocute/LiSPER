@@ -1,0 +1,29 @@
+               :-) GROMACS - gmx trjconv, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs
+Command line:
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.gro -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/cluster_20ns/final_solu_reference.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_eq/index_clean.ndx
+
+Will write gro: Coordinate file in Gromos-87 format
+Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Group     0 (           SOLU) has   159 elements
+Group     1 (           SOLV) has 45896 elements
+Group     2 (         SYSTEM) has 46056 elements
+Select a group: Reading frames from gro file 'Title', 46055 atoms.
+
+Reading frame       0 time    0.000   
+Precision of /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.gro is 0.001 (nm)
+
+Last frame          0 time    0.000   
+ ->  frame      0 time    0.000      
+Last written: frame      0 time    0.000
+
+
+GROMACS reminds you: "Academe, n.: An ancient school where morality and philosophy were taught. Academy, n.: A modern school where football is taught." (Ambrose Bierce)
+
+Note that major changes are planned in future for trjconv, to improve usability and utility.
+Select group for output
+Selected 0: 'SOLU'
