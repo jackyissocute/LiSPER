@@ -1,19 +1,18 @@
-bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
                 :-) GROMACS - gmx mdrun, 2026.0-conda_forge (-:
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_003_1.62nm
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/umbrella_sampling/pull
 Command line:
-  gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
+  gmx mdrun -deffnm pull -ntmpi 1 -ntomp 1
 
 Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
 The current CPU can measure timings more accurately than the code in
 gmx mdrun was configured to use. This might affect your simulation
 speed as accurate timings are needed for load-balancing.
 Please consider rebuilding gmx mdrun with the GMX_USE_RDTSCP=ON CMake option.
-Reading file umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
-Changing nstlist from 20 to 80, rlist from 1.225 to 1.326
+Reading file pull.tpr, VERSION 2026.0-conda_forge (single precision)
+Changing nstlist from 20 to 80, rlist from 1.226 to 1.327
 
 
 Using 1 MPI thread
@@ -22,15 +21,15 @@ Using 1 OpenMP thread
 
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
-500000 steps,   1000.0 ps.
+250000 steps,    500.0 ps.
 
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    14825.949    14825.949      100.0
-                         4h07:05
+       Time:    11333.745    11333.745      100.0
+                         3h08:53
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.828        4.118       29.652            0.672 
+Performance:        3.812        6.296       45.335            0.644 
 
-GROMACS reminds you: "If a rat is a good model for your emotional life, you're in big trouble." (Robert Sapolsky)
+GROMACS reminds you: "If you have any trouble sounding condescending, find a UNIX user to show you how it's done." (Scott Adams, Dilbert Cartoonist)
 

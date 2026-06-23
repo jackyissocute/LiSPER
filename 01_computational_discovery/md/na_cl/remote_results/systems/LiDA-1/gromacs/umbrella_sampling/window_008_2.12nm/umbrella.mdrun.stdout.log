@@ -3,7 +3,7 @@ bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_003_1.62nm
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_008_2.12nm
 Command line:
   gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
 
@@ -13,7 +13,7 @@ gmx mdrun was configured to use. This might affect your simulation
 speed as accurate timings are needed for load-balancing.
 Please consider rebuilding gmx mdrun with the GMX_USE_RDTSCP=ON CMake option.
 Reading file umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
-Changing nstlist from 20 to 80, rlist from 1.225 to 1.326
+Changing nstlist from 20 to 80, rlist from 1.226 to 1.327
 
 
 Using 1 MPI thread
@@ -27,10 +27,10 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    14825.949    14825.949      100.0
-                         4h07:05
+       Time:    16640.114    16640.115      100.0
+                         4h37:20
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.828        4.118       29.652            0.672 
+Performance:        5.192        4.622       33.280            0.599 
 
-GROMACS reminds you: "If a rat is a good model for your emotional life, you're in big trouble." (Robert Sapolsky)
+GROMACS reminds you: "Like other defaulters, I like to lay half the blame on ill-fortune and adverse circumstances" (Mr. Rochester in Jane Eyre by Charlotte Bronte)
 

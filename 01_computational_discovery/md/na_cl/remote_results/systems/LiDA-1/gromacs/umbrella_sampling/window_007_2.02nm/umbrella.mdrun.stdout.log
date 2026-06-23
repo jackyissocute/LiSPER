@@ -3,7 +3,7 @@ bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_003_1.62nm
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/window_007_2.02nm
 Command line:
   gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
 
@@ -27,10 +27,10 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    14825.949    14825.949      100.0
-                         4h07:05
+       Time:    16061.878    16061.878      100.0
+                         4h27:41
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.828        4.118       29.652            0.672 
+Performance:        5.379        4.462       32.124            0.620 
 
-GROMACS reminds you: "If a rat is a good model for your emotional life, you're in big trouble." (Robert Sapolsky)
+GROMACS reminds you: "Load Up Your Rubber Bullets" (10 CC)
 

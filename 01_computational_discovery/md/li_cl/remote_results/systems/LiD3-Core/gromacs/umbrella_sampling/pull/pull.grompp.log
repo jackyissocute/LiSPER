@@ -1,0 +1,60 @@
+                :-) GROMACS - gmx grompp, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs
+Command line:
+  gmx grompp -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/umbrella_sampling/pull/pull.mdp -c /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/umbrella_sampling/representative_full_system.gro -p /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/topol_clean_attempt1.top -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/umbrella_sampling/umbrella_index.ndx -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/umbrella_sampling/pull/pull.tpr -maxwarn 1
+
+Generating 1-4 interactions: fudge = 1
+Pull group 1 'SOLU' has 165 atoms
+Pull group 2 'TARGET_ION' has 1 atoms
+Number of degrees of freedom in T-Coupling group SOLU is 418.00
+Number of degrees of freedom in T-Coupling group SOLV is 88680.00
+Pull group  natoms  pbc atom  distance at start  reference at t=0
+       1       165        83
+       2         1         0       0.803 nm          0.845 nm
+
+GROMACS reminds you: "This type of advanced sampling techniques... which are not so advanced, really." (Viveca Lindahl, on AWH, at her thesis defense.)
+
+Setting the LD random seed to 861858687
+
+Generated 252 of the 253 non-bonded parameter combinations
+
+Generated 91 of the 253 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'LIT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Setting gen_seed to -136906883
+
+Velocities were taken from a Maxwell distribution at 298.15 K
+
+The largest distance between excluded atoms is 0.396 nm between atom 146 and 149
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.297 nm, buffer size 0.097 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.226 nm, buffer size 0.026 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 72x72x72, spacing 0.115 0.115 0.115
+
+Estimate for the relative computational load of the PME mesh part: 0.18
+
+This run will generate roughly 112 Mb of data
