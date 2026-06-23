@@ -1,0 +1,2 @@
+candidate_id	status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	detail
+LiLC-1	clustered	1	39	1.95	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/cluster_20ns/representative_top_cluster.pdb

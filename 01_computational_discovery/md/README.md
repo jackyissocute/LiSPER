@@ -6,13 +6,13 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl and NaCl 20 ns production plus clustering are running across two AutoDL workers without duplicate candidate-condition-stage jobs. Umbrella sampling is active condition-by-condition for clustered representatives.
 
-Latest production/umbrella snapshot: `2026-06-23 20:41 CST`.
+Latest production/umbrella snapshot: `2026-06-23 23:50 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | Replacement Worker A active at 18/18 safe mdrun threads; 2/8 production jobs active at `14.42-14.50 ns / 20 ns`; 6/8 representatives ready |
-| NaCl | `na_cl/` | Worker B active at 12/12 safe mdrun threads and Worker A backfill active; Worker B jobs `12.62-19.67 ns / 20 ns`; Worker A backfill `4.52-6.88 ns / 20 ns` |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | `26` current windows complete; 16 one-thread umbrella windows active; NaCl `LiDA-1` preliminary WHAM QC has warnings |
+| LiCl | `li_cl/` | Replacement Worker A active at 18/18 safe mdrun threads; 2/8 production jobs active at `14.68-14.77 ns / 20 ns`; 6/8 representatives ready |
+| NaCl | `na_cl/` | Worker B active at 11/12 mdrun threads during `LiLC-1` pull and Worker A backfill active; Worker B production jobs `12.98-19.40 ns / 20 ns`; Worker A backfill `4.66-7.10 ns / 20 ns`; 3/8 representatives ready |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | `34` current windows complete; 16 one-thread umbrella windows active plus one `LiLC-1` NaCl pull; NaCl `LiDA-1` preliminary WHAM QC has warnings |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 

@@ -13,11 +13,11 @@ Number of degrees of freedom in T-Coupling group SOLU is 306.00
 Number of degrees of freedom in T-Coupling group SOLV is 39681.00
 Pull group  natoms  pbc atom  distance at start  reference at t=0
        1       120        60
-       2         1         0       1.180 nm          1.245 nm
+       2         1         0       1.170 nm          1.245 nm
 
-GROMACS reminds you: "Calling a system 'non-linear' is like calling all wild animals 'non-elephants'." (Stan Ulam)
+GROMACS reminds you: "Do You Have Sex Maniacs or Schizophrenics or Astrophysicists in Your Family?" (Gogol Bordello)
 
-Setting the LD random seed to -367201286
+Setting the LD random seed to 447725311
 
 Generated 299 of the 300 non-bonded parameter combinations
 
@@ -39,17 +39,17 @@ Excluding 2 bonded neighbours molecule type 'TIP3'
 
 turning H bonds into constraints...
 
-Setting gen_seed to 1610342398
+Setting gen_seed to -1075578950
 
 Velocities were taken from a Maxwell distribution at 298.15 K
 
-The largest distance between excluded atoms is 0.399 nm between atom 98 and 101
+The largest distance between excluded atoms is 0.395 nm between atom 39 and 48
 
 Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
 
 Calculated rlist for 1x1 atom pair-list as 1.297 nm, buffer size 0.097 nm
 
-Set rlist, assuming 4x4 atom pair-list, to 1.225 nm, buffer size 0.025 nm
+Set rlist, assuming 4x4 atom pair-list, to 1.226 nm, buffer size 0.026 nm
 
 Note that mdrun will redetermine rlist based on the actual pair-list setup
 Calculating fourier grid dimensions for X Y Z

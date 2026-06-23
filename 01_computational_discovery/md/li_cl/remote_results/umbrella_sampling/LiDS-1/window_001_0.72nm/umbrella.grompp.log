@@ -13,11 +13,11 @@ Number of degrees of freedom in T-Coupling group SOLU is 292.00
 Number of degrees of freedom in T-Coupling group SOLV is 58251.00
 Pull group  natoms  pbc atom  distance at start  reference at t=0
        1       114        57
-       2         1         0       0.723 nm          0.720 nm
+       2         1         0       0.717 nm          0.720 nm
 
-GROMACS reminds you: "Watch Out Where the Huskies Go" (F. Zappa)
+GROMACS reminds you: "Scientists do not join hands every Sunday and sing "Yes gravity is real! I know gravity is real! I will have faith! I believe in my heart that what goes up, up, up must come down, down, down. Amen!" If they did, we would think they were pretty insecure about the concept." (Dan Barker)
 
-Setting the LD random seed to -524307
+Setting the LD random seed to -147459
 
 Generated 252 of the 253 non-bonded parameter combinations
 
@@ -39,11 +39,11 @@ Excluding 2 bonded neighbours molecule type 'TIP3'
 
 turning H bonds into constraints...
 
-Setting gen_seed to 937262811
+Setting gen_seed to 2049834618
 
 Velocities were taken from a Maxwell distribution at 298.15 K
 
-The largest distance between excluded atoms is 0.398 nm between atom 64 and 78
+The largest distance between excluded atoms is 0.392 nm between atom 64 and 78
 
 Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
 
