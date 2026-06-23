@@ -1,6 +1,6 @@
 # LiCl Production Worker Status
 
-Last updated: 2026-06-23 17:41 CST
+Last updated: 2026-06-23 20:41 CST
 
 ## Active Queue
 
@@ -11,7 +11,7 @@ Last updated: 2026-06-23 17:41 CST
 | Worker | Replacement AutoDL machine |
 | Stage | 20 ns production followed by structural clustering |
 | Launch state | 2 active LiCl production jobs + 6 completed/representative-ready conditions |
-| Production progress | `14.15-14.24 ns / 20 ns` across active LiCl jobs |
+| Production progress | `14.42-14.50 ns / 20 ns` across active LiCl jobs |
 | Current leader | Six LiCl conditions are representative-ready; `LiD3-Flex` and `LiND-Hybrid` remain in production |
 | Worker pool | LiCl: 2 active jobs x 2 OpenMP threads; Worker A also carries 2 NaCl backfill jobs x 1 thread and 12 LiCl umbrella/pull threads |
 | Effective CPU quota | 18/18 active mdrun threads on replacement Worker A, without oversubscription |
@@ -21,8 +21,8 @@ Last updated: 2026-06-23 17:41 CST
 | Candidate | State |
 |---|---|
 | `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `12.69%`; umbrella window `000` active |
-| `LiD3-Flex` | `14.15 ns / 20 ns`; clustering queued |
-| `LiND-Hybrid` | `14.24 ns / 20 ns`; clustering queued |
+| `LiD3-Flex` | `14.42 ns / 20 ns`; clustering queued |
+| `LiND-Hybrid` | `14.50 ns / 20 ns`; clustering queued |
 | `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `4.15%`; umbrella window `000` active |
 | `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `15.69%`; umbrella `0/21`, active `000-005` |
 | `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.64%`; umbrella `2/19`, active `002-003` |

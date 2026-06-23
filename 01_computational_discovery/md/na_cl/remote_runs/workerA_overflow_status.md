@@ -1,6 +1,6 @@
 # Worker A NaCl Backfill Status
 
-Last updated: 2026-06-23 17:41 CST
+Last updated: 2026-06-23 20:41 CST
 
 ## Purpose
 
@@ -10,8 +10,8 @@ Last updated: 2026-06-23 17:41 CST
 
 | Candidate | State |
 |---|---|
-| `LiND-Hybrid` | Active on replacement Worker A backfill; `4.38 ns / 20 ns`; `-ntomp 1` |
-| `LiN3-Core` | Active on replacement Worker A backfill; `6.66 ns / 20 ns`; `-ntomp 1` |
+| `LiND-Hybrid` | Active on replacement Worker A backfill; `4.52 ns / 20 ns`; `-ntomp 1` |
+| `LiN3-Core` | Active on replacement Worker A backfill; `6.88 ns / 20 ns`; `-ntomp 1` |
 
 ## Scheduling Note
 
