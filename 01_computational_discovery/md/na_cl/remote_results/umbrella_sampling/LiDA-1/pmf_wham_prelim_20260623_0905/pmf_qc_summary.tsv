@@ -1,0 +1,2 @@
+candidate_id	ion	condition	status	windows	profile_min_nm	profile_min_kjmol	outer_mean_kjmol	prelim_outer_minus_min_kjmol	endpoint_minus_min_kjmol	zero_hist_bins	single_window_or_empty_bins	total_hist_bins	warnings
+LiDA-1	Na	NaCl	qc_warning	15	1.141945	0.000000	3.701947	3.701947	3.646120	1	29	200	WARNING, no data point in bin 1 (z=1.15073) ! | Warning, poor sampling bin 197 (z=2.8734). Check your histograms! | Warning, poor sampling bin 199 (z=2.89098). Check your histograms!
