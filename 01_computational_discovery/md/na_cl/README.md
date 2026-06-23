@@ -14,7 +14,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | Worker B active at `12/12` cores with 4 checkpoint-resumed jobs at `11.42-17.82 ns / 20 ns`; replacement Worker A backfill active at `3.97-6.02 ns / 20 ns` as of `2026-06-23 08:43 CST`; `LiDA-1` and `LiDS-1` complete |
 | Structural clustering | 2/8 complete; `LiDA-1` top cluster `17.94%`; `LiDS-1` top cluster `14.59%`; others queued after production |
-| PMF handoff | Umbrella windows: `LiDA-1` `15/15` complete; `LiDS-1` `1/17`, active `001-004` |
+| PMF handoff | Umbrella windows: `LiDA-1` `15/15` complete with preliminary WHAM QC output; `LiDS-1` `1/17`, active `001-004` |
 
 ## Candidate Notes
 

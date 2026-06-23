@@ -12,7 +12,7 @@ LiCl MD is tracked under the final 8-candidate names.
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | 2/8 active on replacement Worker A; `13.36-13.45 ns / 20 ns` as of `2026-06-23 08:43 CST`; 6/8 produced |
 | Structural clustering | 6/8 complete; top clusters: `LiDA-1` `17.64%`, `LiDS-1` `15.69%`, `LiD3-Core` `12.69%`, `LiLC-1` `4.15%`, `LiN3-Core` `4.65%`, `LiA3-Ref` `5.05%` |
-| PMF handoff | Umbrella active: `LiDS-1` `6/21` complete; pulls active for `LiDA-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref` |
+| PMF handoff | Umbrella active: `LiDS-1` `6/21` plus resume/pull active; pulls active for `LiDA-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref` |
 
 ## Candidate Notes
 

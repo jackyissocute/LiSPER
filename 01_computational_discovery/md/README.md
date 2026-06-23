@@ -10,9 +10,9 @@ Latest production/umbrella snapshot: `2026-06-23 08:43 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | Replacement Worker A active at 11/18 cores; 2/8 production jobs active; `13.36-13.45 ns / 20 ns`; 6/8 representatives ready after the LiCl clustering repair |
+| LiCl | `li_cl/` | Replacement Worker A active at 12/18 cores; 2/8 production jobs active; `13.36-13.45 ns / 20 ns`; 6/8 representatives ready after the LiCl clustering repair |
 | NaCl | `na_cl/` | Worker B active at 12/12 cores and Worker A backfill active; Worker B jobs `11.42-17.82 ns / 20 ns`; Worker A backfill `3.97-6.02 ns / 20 ns` |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | `22` current windows complete; 4 windows active and 5 LiCl pulls active; NaCl `LiDA-1` is `15/15` complete |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | `22` current windows complete; 4 windows active and 6 LiCl pull/resume gates active; NaCl `LiDA-1` preliminary WHAM QC complete |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
