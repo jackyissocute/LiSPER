@@ -266,8 +266,9 @@ def closest_time(points, distance):
 def topology_for():
     for cleaned in [
         GROMACS_DIR / "topol_cleaned_for_prod.top",
-        GROMACS_DIR / "topol_clean_attempt1.top",
+        GROMACS_DIR / "topol_clean_attempt2.top",
         GROMACS_DIR / "run_min" / "topol_cleaned.top",
+        GROMACS_DIR / "topol_clean_attempt1.top",
     ]:
         if cleaned.exists():
             return cleaned
