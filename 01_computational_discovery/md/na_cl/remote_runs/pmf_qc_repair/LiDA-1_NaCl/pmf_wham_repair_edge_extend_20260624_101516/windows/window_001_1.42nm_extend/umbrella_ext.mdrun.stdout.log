@@ -22,3 +22,14 @@ Using 1 OpenMP thread
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
 500000 steps,   1000.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    17033.444    17033.445      100.0
+                         4h43:53
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        5.072        4.732       34.067            0.585 
+
+GROMACS reminds you: "All I Ever Wanted Was Your Life" (Red Hot Chili Peppers)
+
