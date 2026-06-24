@@ -6,13 +6,13 @@ Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbre
 Command line:
   gmx mdrun -deffnm umbrella -ntmpi 1 -ntomp 1
 
-Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
+Compiled SIMD is AVX2_256, but AVX_512 might be faster (see log).
 The current CPU can measure timings more accurately than the code in
 gmx mdrun was configured to use. This might affect your simulation
 speed as accurate timings are needed for load-balancing.
 Please consider rebuilding gmx mdrun with the GMX_USE_RDTSCP=ON CMake option.
 Reading file umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
-Changing nstlist from 20 to 80, rlist from 1.226 to 1.327
+Changing nstlist from 20 to 80, rlist from 1.225 to 1.326
 
 
 Using 1 MPI thread
@@ -26,10 +26,10 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    16167.163    16167.164      100.0
-                         4h29:27
+       Time:    20611.783    20611.783      100.0
+                         5h43:31
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        5.344        4.491       32.334            0.617 
+Performance:        4.192        5.725       41.223            0.484 
 
-GROMACS reminds you: "A method is more important than a discovery, since the right method will lead to new and even more important discoveries." (Lev Landau)
+GROMACS reminds you: "The Universe is Somewhere In Here" (J.G.E.M. Fraaije)
 

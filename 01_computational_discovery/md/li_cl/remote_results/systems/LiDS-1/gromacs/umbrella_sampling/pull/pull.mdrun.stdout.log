@@ -6,7 +6,7 @@ Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbre
 Command line:
   gmx mdrun -deffnm pull -ntmpi 1 -ntomp 1
 
-Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
+Compiled SIMD is AVX2_256, but AVX_512 might be faster (see log).
 The current CPU can measure timings more accurately than the code in
 gmx mdrun was configured to use. This might affect your simulation
 speed as accurate timings are needed for load-balancing.
@@ -26,10 +26,10 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    12586.028    12586.028      100.0
-                         3h29:46
+       Time:    15616.931    15616.932      100.0
+                         4h20:16
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:        3.432        6.992       50.344            0.580 
+Performance:        2.766        8.676       62.467            0.468 
 
-GROMACS reminds you: "Right Now My Job is Eating These Doughnuts" (Bodycount)
+GROMACS reminds you: "Shaken, not Stirred" (J. Bond)
 

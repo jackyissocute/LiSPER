@@ -1,0 +1,7 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+Traceback (most recent call last):
+  File "/root/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py", line 434, in <module>
+    main()
+  File "/root/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py", line 368, in main
+    raise RuntimeError(f"Pulling stage failed: {pull_status}")
+RuntimeError: Pulling stage failed: grompp_failed

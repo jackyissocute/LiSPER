@@ -4,7 +4,7 @@ Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
 Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs
 Command line:
-  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 313.800 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_013_1.92nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/umbrella_index.ndx
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 331.800 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_013_1.92nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/umbrella_index.ndx
 
 Will write gro: Coordinate file in Gromos-87 format
 Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr, VERSION 2026.0-conda_forge (single precision)
@@ -56,12 +56,12 @@ Reading frame     180 time  180.000
 Reading frame     190 time  190.000   
 Reading frame     200 time  200.000   
 Reading frame     300 time  300.000   
-Dumping frame at t= 314 ps
+Dumping frame at t= 332 ps
 
-Last written: frame      0 time  314.000
+Last written: frame      0 time  332.000
 
 
-GROMACS reminds you: "It is not critical to add the next quote to a patch release" (Paul Bauer)
+GROMACS reminds you: "You Got to Relate to It" (A.E. Torda)
 
 Note that major changes are planned in future for trjconv, to improve usability and utility.
 Select group for output

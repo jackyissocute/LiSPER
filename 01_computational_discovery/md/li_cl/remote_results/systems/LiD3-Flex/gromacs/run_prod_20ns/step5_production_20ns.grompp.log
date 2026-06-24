@@ -2,17 +2,17 @@
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs
 Command line:
-  gmx grompp -f /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.mdp -o /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.tpr -c /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_eq/step4.1_equilibration.gro -p /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/topol_clean_attempt1.top -n /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_eq/index_clean.ndx -maxwarn 1
+  gmx grompp -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/run_prod_20ns/step5_production_20ns.mdp -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/run_prod_20ns/step5_production_20ns.tpr -c /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/run_eq/step4.1_equilibration.gro -p /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/topol_clean_attempt1.top -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/run_eq/index_clean.ndx -maxwarn 1
 
 Generating 1-4 interactions: fudge = 1
 Number of degrees of freedom in T-Coupling group SOLU is 510.00
-Number of degrees of freedom in T-Coupling group SOLV is 136194.00
+Number of degrees of freedom in T-Coupling group SOLV is 136086.00
 
-GROMACS reminds you: "Nobody Never Learnt No-Nothing from No History" (Gogol Bordello)
+GROMACS reminds you: "Nothing is more anarchic than power." (Pier Paolo Pasolini)
 
-Setting the LD random seed to -276890305
+Setting the LD random seed to -505023045
 
 Generated 275 of the 276 non-bonded parameter combinations
 
@@ -34,9 +34,9 @@ Excluding 2 bonded neighbours molecule type 'TIP3'
 
 turning H bonds into constraints...
 
-Taking velocities from '/root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_eq/step4.1_equilibration.gro'
+Taking velocities from '/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Flex/gromacs/run_eq/step4.1_equilibration.gro'
 
-The largest distance between excluded atoms is 0.392 nm between atom 158 and 170
+The largest distance between excluded atoms is 0.396 nm between atom 38 and 41
 
 Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
 

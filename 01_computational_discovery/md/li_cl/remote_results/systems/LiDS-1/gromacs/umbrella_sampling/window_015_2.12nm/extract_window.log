@@ -4,7 +4,7 @@ Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
 Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs
 Command line:
-  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 358.400 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_015_2.12nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/umbrella_index.ndx
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 358.000 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_015_2.12nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/umbrella_index.ndx
 
 Will write gro: Coordinate file in Gromos-87 format
 Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/pull/pull.tpr, VERSION 2026.0-conda_forge (single precision)
@@ -61,7 +61,7 @@ Dumping frame at t= 358 ps
 Last written: frame      0 time  358.000
 
 
-GROMACS reminds you: "Physics isn't a religion. If it were, we'd have a much easier time raising money." (Leon Lederman)
+GROMACS reminds you: "Sir, spare your threats: The bug which you would fright me with I seek." (Hermione, Act III, scene II of Shakespeare's Winter's Tale)
 
 Note that major changes are planned in future for trjconv, to improve usability and utility.
 Select group for output

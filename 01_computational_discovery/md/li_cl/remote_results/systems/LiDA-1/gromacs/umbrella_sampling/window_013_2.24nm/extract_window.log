@@ -4,7 +4,7 @@ Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
 Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs
 Command line:
-  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 357.200 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_013_2.24nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/umbrella_index.ndx
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull/pull.tpr -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull/pull.xtc -dump 350.200 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_013_2.24nm/start.gro -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/umbrella_index.ndx
 
 Will write gro: Coordinate file in Gromos-87 format
 Reading file /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/pull/pull.tpr, VERSION 2026.0-conda_forge (single precision)
@@ -56,12 +56,12 @@ Reading frame     180 time  180.000
 Reading frame     190 time  190.000   
 Reading frame     200 time  200.000   
 Reading frame     300 time  300.000   
-Dumping frame at t= 357 ps
+Dumping frame at t= 350 ps
 
-Last written: frame      0 time  357.000
+Last written: frame      0 time  350.000
 
 
-GROMACS reminds you: "Science is the great antidote to the poison of enthusiasm and superstition." (Adam Smith, Wealth of Nations, 1776)
+GROMACS reminds you: "Documentation is like sex: When it's good it's great, and when it's bad it's better than nothing." (Linus Torvalds)
 
 Note that major changes are planned in future for trjconv, to improve usability and utility.
 Select group for output

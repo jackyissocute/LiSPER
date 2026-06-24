@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
+LiLC-1	LIT	165	4470.000	000	1.0112	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/umbrella_sampling/window_000_1.01nm

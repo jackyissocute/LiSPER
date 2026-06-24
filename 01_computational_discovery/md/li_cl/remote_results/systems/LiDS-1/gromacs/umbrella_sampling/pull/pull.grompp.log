@@ -15,9 +15,9 @@ Pull group  natoms  pbc atom  distance at start  reference at t=0
        1       114        57
        2         1         0       0.607 nm          0.620 nm
 
-GROMACS reminds you: "Does All This Money Really Have To Go To Charity ?" (Rick)
+GROMACS reminds you: "There is only one thing worse than coming home from the lab to a sink full of dirty dishes, and that is not going to the lab at all!" (Chien-Shiung Wu)
 
-Setting the LD random seed to 368885682
+Setting the LD random seed to -604088342
 
 Generated 252 of the 253 non-bonded parameter combinations
 
@@ -39,7 +39,7 @@ Excluding 2 bonded neighbours molecule type 'TIP3'
 
 turning H bonds into constraints...
 
-Setting gen_seed to 2078784934
+Setting gen_seed to -1612743093
 
 Velocities were taken from a Maxwell distribution at 298.15 K
 

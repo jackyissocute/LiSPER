@@ -1,3 +1,9 @@
 candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
 LiDA-1	LIT	128	3580.000	000	0.9449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_000_0.94nm
 LiDA-1	LIT	128	3580.000	001	1.0449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_001_1.04nm
+LiDA-1	LIT	128	3580.000	002	1.1449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_002_1.14nm
+LiDA-1	LIT	128	3580.000	003	1.2449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_003_1.24nm
+LiDA-1	LIT	128	3580.000	004	1.3449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_004_1.34nm
+LiDA-1	LIT	128	3580.000	005	1.4449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_005_1.44nm
+LiDA-1	LIT	128	3580.000	006	1.5449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_006_1.54nm
+LiDA-1	LIT	128	3580.000	007	1.6449	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling/window_007_1.64nm

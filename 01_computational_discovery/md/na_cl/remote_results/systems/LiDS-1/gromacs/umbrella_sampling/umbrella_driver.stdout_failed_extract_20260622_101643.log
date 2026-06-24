@@ -1,0 +1,7 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+Traceback (most recent call last):
+  File "/root/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py", line 430, in <module>
+    main()
+  File "/root/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py", line 329, in main
+    raise RuntimeError("Failed to extract full representative frame")
+RuntimeError: Failed to extract full representative frame

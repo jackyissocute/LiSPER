@@ -1,8 +1,8 @@
 ;
 ;	File 'mdout.mdp' was generated
 ;	By user: root (0)
-;	On host: autodl-container-09ac499132-b7ff4379
-;	At date: Thu Jun 18 17:45:52 2026
+;	On host: autodl-container-9eb44ab0a9-fe7fcabf
+;	At date: Wed Jun 24 06:59:28 2026
 ;
 ;	Created by:
 ;	               :-) GROMACS - gmx grompp, 2026.0-conda_forge (-:
@@ -11,7 +11,7 @@
 ;	Data prefix:  /root/miniconda3/envs/lisper-gmx
 ;	Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs
 ;	Command line:
-;	  gmx grompp -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_prod_20ns/step5_production_20ns.mdp -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_prod_20ns/step5_production_20ns.tpr -c /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_eq/step4.1_equilibration.gro -p /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/topol_cleaned_for_prod.top -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_eq/index_clean.ndx -maxwarn 1
+;	  gmx grompp -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_017_2.32nm/umbrella.mdp -c /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_017_2.32nm/start.gro -p /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/topol_cleaned_for_prod.top -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/umbrella_index.ndx -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/umbrella_sampling/window_017_2.32nm/umbrella.tpr -maxwarn 1
 
 ; VARIOUS PREPROCESSING OPTIONS
 ; Preprocessor information: use cpp syntax.
@@ -25,7 +25,7 @@ integrator               = md
 ; Start time and timestep in ps
 tinit                    = 0
 dt                       = 0.002
-nsteps                   = 10000000
+nsteps                   = 500000
 ; For exact run continuation or redoing part of a run
 init-step                = 0
 ; Part index is updated automatically on checkpointing (keeps files separate)
@@ -67,11 +67,11 @@ nstxout                  = 0
 nstvout                  = 0
 nstfout                  = 0
 ; Output frequency for energies to log file and energy file
-nstlog                   = 5000
+nstlog                   = 500
 nstcalcenergy            = 100
-nstenergy                = 5000
+nstenergy                = 500
 ; Output frequency and precision for .xtc file
-nstxout-compressed       = 5000
+nstxout-compressed       = 500
 compressed-x-precision   = 1000
 ; This selects the subset of atoms for the compressed
 ; trajectory file. You can select multiple groups. By
@@ -173,16 +173,16 @@ annealing-time           =
 annealing-temp           = 
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
-gen-vel                  = no
-gen-temp                 = 300
-gen-seed                 = 1572861822
+gen_vel                  = yes
+gen_temp                 = 298.15
+gen_seed                 = 1335334735
 
 ; OPTIONS FOR BONDS    
 constraints              = h-bonds
 ; Type of constraint algorithm
 constraint_algorithm     = LINCS
 ; Do not constrain the start configuration
-continuation             = yes
+continuation             = no
 ; Use successive overrelaxation to reduce the number of shake iterations
 Shake-SOR                = no
 ; Relative tolerance of shake
@@ -213,7 +213,43 @@ wall-density             =
 wall-ewald-zfac          = 3
 
 ; COM PULLING          
-pull                     = no
+pull                     = yes
+; Cylinder radius for dynamic reaction force groups (nm)
+pull-cylinder-r          = 1.5
+pull-constr-tol          = 1e-06
+pull-print-com           = no
+pull-print-ref-value     = no
+pull-print-components    = no
+pull_nstxout             = 100
+pull_nstfout             = 100
+pull-pbc-ref-prev-step-com = no
+pull-xout-average        = no
+pull-fout-average        = no
+; Number of pull groups 
+pull_ngroups             = 2
+; Number of pull coordinates
+pull_ncoords             = 1
+; Group and coordinate parameters
+pull_group1_name         = SOLU
+pull-group1-weights      = 
+pull-group1-pbcatom      = 0
+pull_group2_name         = TARGET_ION
+pull-group2-weights      = 
+pull-group2-pbcatom      = 0
+pull_coord1_type         = umbrella
+pull-coord1-potential-provider = 
+pull-coord1-expression   = 
+pull-coord1-dx           = 1e-09
+pull_coord1_geometry     = distance
+pull_coord1_groups       = 1 2
+pull_coord1_dim          = Y Y Y
+pull-coord1-origin       = 0.0 0.0 0.0
+pull-coord1-vec          = 0.0 0.0 0.0
+pull-coord1-start        = no
+pull_coord1_init         = 2.3202
+pull_coord1_rate         = 0.000000
+pull_coord1_k            = 1000
+pull-coord1-kB           = 1000
 
 ; AWH biasing          
 awh                      = no
