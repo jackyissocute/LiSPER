@@ -1,0 +1,6 @@
+started_cst	2026-06-24 20:12:16 CST
+original_windows	15
+repair_windows	5
+total_windows	20
+source_original	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_diagnostic_valid15_20260624_095453
+source_repair	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516

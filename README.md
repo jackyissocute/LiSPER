@@ -119,13 +119,13 @@ flowchart TD
 > ![LiCl](https://img.shields.io/badge/LiCl-6_clustered_%2B_2_active-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-5_clustered_%2B_3_active-2563eb)
 > ![Compute](https://img.shields.io/badge/CPU-27%2F30_mdrun_threads-f59e0b)
-> ![Umbrella](https://img.shields.io/badge/umbrella-69_windows_%2B_5_repair_%2B_19_active-0f766e)
+> ![Umbrella](https://img.shields.io/badge/umbrella-72_windows_%2B_5_repair_%2B_19_active-0f766e)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-24 18:25 CST`
+**Last synchronized monitor snapshot:** `2026-06-24 21:05 CST`
 
 ### Process matrix
 
@@ -170,12 +170,12 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>69 current windows</strong><br><sub>LiDA-1 NaCl repair <code>5/5</code> complete; <code>19</code> umbrella windows active</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>72 current windows</strong><br><sub>LiDA-1 NaCl repair <code>5/5</code> complete; <code>19</code> umbrella windows active</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-19_windows-2563eb"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 NaCl combined WHAM queued</code></td>
+      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 NaCl combined WHAM QC complete</code></td>
       <td><img alt="qc" src="https://img.shields.io/badge/status-QC-7c3aed"></td>
     </tr>
   </tbody>
@@ -235,8 +235,8 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>10/19</code>, active <code>010-011</code>; 🟨 NaCl <code>15/15 + 5/5</code> repair complete</td>
-      <td>🟪 NaCl combined WHAM/bootstrap queued; valid-15 diagnostic remains QC-only</td>
+      <td>🟦 LiCl <code>12/19</code>, active <code>012-013</code>; 🟨 NaCl <code>15/15 + 5/5</code> repair complete</td>
+      <td>🟪 NaCl combined WHAM/bootstrap complete; `0` empty bins, `1` weak bin; QC-only pending tail/time-slice review</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -249,7 +249,7 @@ flowchart TD
       <td><strong>LiA3-Ref</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>5.05%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>7.35%</code></td>
-      <td>🟦 LiCl <code>1/21</code>, active <code>001</code>; NaCl windows <code>000-003</code> active</td>
+      <td>🟦 LiCl <code>2/21</code>, active <code>002</code>; NaCl windows <code>000-003</code> active</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
   </tbody>
@@ -278,7 +278,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>69 current + 5 repair windows</code></strong><br><sub>19 umbrella windows active; LiDA-1 NaCl repair extensions complete</sub></td>
+      <td align="center"><strong><code>72 current + 5 repair windows</code></strong><br><sub>19 umbrella windows active; LiDA-1 NaCl combined WHAM QC complete</sub></td>
       <td>Complete active windows, then run WHAM/QC on each condition as window sets finish.</td>
     </tr>
     <tr>
@@ -304,8 +304,8 @@ flowchart TD
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
 - Replacement Worker A is active with 15/18 safe mdrun threads, and Worker B is active with 12/12 threads. The current combined pool is 27/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, and `LiLC-1`.
-- Umbrella sampling is condition-specific: 69 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 19 one-thread umbrella windows are active. Superseded duplicate or repair directories are retained only as diagnostics.
-- NaCl `LiDA-1` has a preliminary GROMACS WHAM profile from its 15 complete windows; valid-15 diagnostics still showed weak edge bins and time-sliced Delta G instability. Five edge-window repair extensions are now complete, and combined WHAM/bootstrap/time-slice QC is queued before any final Delta G is accepted.
+- Umbrella sampling is condition-specific: 72 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 19 one-thread umbrella windows are active. Superseded duplicate or repair directories are retained only as diagnostics.
+- NaCl `LiDA-1` has combined original-plus-repair GROMACS WHAM/bootstrap QC complete. Empty bins improved to `0`, weak bins improved to `1` at 100 bins, but tail and time-slice review is still required before any final Delta G is accepted.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
@@ -322,9 +322,9 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl production active; NaCl Worker A backfill active |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `2/21`, active `002`; NaCl `2/21`, active `002-003` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl `18/21`, active `018-020`; NaCl `17/17`, WHAM ready |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `10/19`, active `010-011`; NaCl `15/15 + 5/5` repair complete, combined WHAM queued |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `12/19`, active `012-013`; NaCl `15/15 + 5/5` repair complete, combined WHAM QC complete |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `2/21`, active `002`; NaCl Worker A backfill active |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `1/21`, active `001`; NaCl representative ready, windows `000-003` active |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `2/21`, active `002`; NaCl representative ready, windows `000-003` active |
 
 ## ⚙️ Computational workflow
 

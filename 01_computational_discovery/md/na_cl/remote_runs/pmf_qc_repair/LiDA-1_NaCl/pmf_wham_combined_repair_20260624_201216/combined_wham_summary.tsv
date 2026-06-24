@@ -1,0 +1,8 @@
+analysis	bins	empty_bins	weak_or_single_window_bins	delta_outer_minus_min_kjmol
+bins_100	100	0	1	0.000000
+bins_75	75	0	1	0.000000
+bins_50	50	0	0	0.000000
+timeslice_b100	100	0	1	0.000000
+timeslice_b250	100	0	1	0.000000
+timeslice_b500	100	0	3	0.000000
+bootstrap_100bins_b100	100	0	1	0.000000
