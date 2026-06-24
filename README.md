@@ -170,12 +170,12 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>56 current windows</strong><br><sub>LiDS-1 NaCl <code>17/17</code> complete; LiA3-Ref and LiD3-Core NaCl pulls active; LiD3-Core topology repair launched</sub></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-12_windows_%2B_2_pulls-2563eb"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>56 current windows</strong><br><sub>LiDA-1 NaCl repair <code>5</code> edge extensions active; LiDS-1 NaCl <code>17/17</code> complete; LiA3-Ref and LiD3-Core NaCl pulls active</sub></td>
+      <td><img alt="active" src="https://img.shields.io/badge/active-17_windows_%2B_2_pulls-2563eb"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟪⬜⬜⬜</code> <code>1 preliminary WHAM QC</code></td>
+      <td><code>🟪🟦⬜⬜</code> <code>1 WHAM QC repair active</code></td>
       <td><img alt="qc" src="https://img.shields.io/badge/status-QC-7c3aed"></td>
     </tr>
   </tbody>
@@ -235,8 +235,8 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>8/19</code>, active <code>008-009</code>; 🟩 NaCl <code>15/15</code> complete</td>
-      <td>🟪 NaCl WHAM QC warning</td>
+      <td>🟦 LiCl <code>8/19</code>, active <code>008-009</code>; 🟨 NaCl <code>15/15</code> complete + repair <code>5</code></td>
+      <td>🟦 NaCl WHAM/QC repair active; valid-15 diagnostic remains QC-only</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -305,7 +305,7 @@ flowchart TD
 - Replacement Worker A is active with 18/18 safe mdrun threads, and Worker B is active with 11/12 threads during the initial `LiLC-1` NaCl pull. The current combined pool is 29/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, and `LiLC-1`.
 - Umbrella sampling is condition-specific: 34 current windows are complete, 16 one-thread umbrella windows are active, and `LiLC-1` NaCl has entered its PBC-safe pull. Superseded duplicate or repair directories are retained only as diagnostics.
-- NaCl `LiDA-1` has a preliminary GROMACS WHAM profile from its 15 complete windows; overlap/convergence QC is still required before extracting final Delta G.
+- NaCl `LiDA-1` has a preliminary GROMACS WHAM profile from its 15 complete windows; valid-15 diagnostics still showed weak edge bins and time-sliced Delta G instability, so five edge-window repair extensions are active before any final Delta G is accepted.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
