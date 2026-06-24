@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-24 10:18 CST
+Last updated: 2026-06-24 18:25 CST
 
 ## Launch Rule
 
@@ -10,28 +10,28 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 
 | Candidate | Condition | Worker | Complete / total | Active windows | Window meter |
 |---|---|---|---:|---|---|
-| `LiDA-1` | LiCl | replacement Worker A | `8/19` | `008-009` | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦` |
-| `LiDS-1` | LiCl | replacement Worker A | `12/21` | `012-017` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦🟦🟦🟦🟦⬜⬜⬜` |
-| `LiD3-Core` | LiCl | replacement Worker A | `0/21` | `000` | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiLC-1` | LiCl | replacement Worker A | `0/21` | `000` | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiN3-Core` | LiCl | replacement Worker A | `0/21` | `000` | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | LiCl | replacement Worker A | `0/21` | `000` | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | `15/15` | repair windows `000,001,002,013,014` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 + 🟦 repair` |
+| `LiDA-1` | LiCl | replacement Worker A | `10/19` | `010-011` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦` |
+| `LiDS-1` | LiCl | replacement Worker A | `18/21` | `018-020` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦🟦` |
+| `LiD3-Core` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
+| `LiLC-1` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
+| `LiN3-Core` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | LiCl | replacement Worker A | `1/21` | `001` | `🟩🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | NaCl | Worker B | `15/15` + `5/5` repair | combined WHAM queued | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 + 🟩 repair` |
 | `LiDS-1` | NaCl | Worker B | `17/17` | complete | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
-| `LiLC-1` | NaCl | Worker B | `0/21` | `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | NaCl | Worker B | `0/pending` | pull active | `🟦 pull` |
-| `LiD3-Core` | NaCl | Worker B | `0/pending` | pull active after topology repair | `🟦 pull` |
+| `LiLC-1` | NaCl | Worker B | `2/21` | `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | NaCl | Worker B | `0/pending` | `000-003` | `🟦🟦🟦🟦` |
+| `LiD3-Core` | NaCl | Worker B | `0/pending` | `000-003` | `🟦🟦🟦🟦` |
 
-Current umbrella progress: `56` current windows complete; `12` window mdruns active on replacement Worker A, `2` `LiLC-1` NaCl windows active on Worker B, `LiA3-Ref` plus `LiD3-Core` NaCl pulls active on Worker B, and `5` LiDA-1 NaCl WHAM/QC repair extension windows active on Worker B.
+Current umbrella progress: LiDA-1 NaCl repair extensions completed (`5/5`). Replacement Worker A is at `15/18` mdrun threads with LiCl production/backfill plus driver-owned LiCl umbrella queues. Worker B is at `12/12` mdrun threads with one NaCl production job plus LiD3-Core, LiA3-Ref, and LiLC-1 NaCl window batches.
 
-NaCl `LiDA-1` completed all 15 valid windows and now has a preliminary GROMACS WHAM profile with QC warnings. A valid-15 diagnostic WHAM pass showed that coarser binning removes the empty-bin artifact, but weak edge bins persist and time-sliced outer-minus-minimum Delta G is unstable (`0.93-2.41 kJ/mol`), so five edge-window extension repairs were launched in a separate repair folder. LiCl `LiDA-1` completed windows `000-007` and has windows `008-009` active. LiCl `LiDS-1` completed windows `000-011` and has windows `012-017` active. NaCl `LiDS-1` completed all 17 valid windows and is ready for preliminary WHAM/QC when compute and analysis scheduling allow. NaCl `LiLC-1` has windows `000-001` active. NaCl `LiA3-Ref` and `LiD3-Core` were clustered this cycle and entered PBC-safe umbrella pulls; `LiD3-Core` required a topology-selection repair before the pull started.
+NaCl `LiDA-1` completed all 15 valid windows and now has a preliminary GROMACS WHAM profile with QC warnings. A valid-15 diagnostic WHAM pass showed that coarser binning removes the empty-bin artifact, but weak edge bins persist and time-sliced outer-minus-minimum Delta G is unstable (`0.93-2.41 kJ/mol`). Five copied edge-window extension repairs completed in a separate repair folder. The next LiDA-1 NaCl gate is combined original+repair WHAM with bootstrap/error and time-sliced convergence checks; it is queued until Worker B frees analysis capacity. LiCl `LiDA-1` completed windows `000-009` and has windows `010-011` active. LiCl `LiDS-1` completed windows `000-017` and has windows `018-020` active. NaCl `LiDS-1` completed all 17 valid windows and is ready for preliminary WHAM/QC when compute and analysis scheduling allow. NaCl `LiLC-1` has windows `002-003` active. NaCl `LiA3-Ref` and `LiD3-Core` transitioned from pulls into windows `000-003`.
 
 ## Compute Fit
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
-| replacement Worker A | 6 threads | 12 threads | 18/18 |
-| Worker B | 2 production threads | 2 window threads + 2 pull threads + 5 repair extension threads | 11/12 |
+| replacement Worker A | 6 threads | 9 umbrella threads | 15/18 |
+| Worker B | 2 production threads | 10 umbrella threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 
@@ -41,9 +41,9 @@ The first NaCl `LiDA-1` pull exposed a real GROMACS periodic-boundary failure: t
 
 The umbrella driver now computes a per-system safe pull extension from the actual full-system `.gro` box vectors before generating windows. It records both the requested extension and the effective extension in `umbrella_metadata.tsv`, archives incompatible or failed pull/window folders, and only reuses a pull trajectory when its saved configuration marker matches the current PBC-safe settings.
 
-Current valid complete windows are `LiDA-1` NaCl `000-014`, `LiDS-1` NaCl `000-016`, `LiDA-1` LiCl `000-007`, `LiDS-1` LiCl `000-011`, plus first LiCl windows for `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`. Active windows are `LiDA-1` LiCl `008-009`, `LiDS-1` LiCl `012-017`, `LiD3-Core` LiCl `001`, `LiLC-1` LiCl `001`, `LiN3-Core` LiCl `001`, `LiA3-Ref` LiCl `001`, and `LiLC-1` NaCl `000-001`; `LiA3-Ref` and `LiD3-Core` NaCl pulls are active.
+Current valid complete windows are `LiDA-1` NaCl `000-014`, `LiDA-1` NaCl repair extensions `000`, `001`, `002`, `013`, `014`, `LiDS-1` NaCl `000-016`, `LiDA-1` LiCl `000-009`, `LiDS-1` LiCl `000-017`, `LiD3-Core` LiCl `000-001`, `LiLC-1` LiCl `000-001`, `LiN3-Core` LiCl `000-001`, `LiA3-Ref` LiCl `000`, and `LiLC-1` NaCl `000-001`. Active windows are `LiDA-1` LiCl `010-011`, `LiDS-1` LiCl `018-020`, `LiD3-Core` LiCl `002`, `LiLC-1` LiCl `002`, `LiN3-Core` LiCl `002`, `LiA3-Ref` LiCl `001`, `LiLC-1` NaCl `002-003`, `LiA3-Ref` NaCl `000-003`, and `LiD3-Core` NaCl `000-003`.
 
-Preliminary PMF/QC output exists for NaCl `LiDA-1` under `pmf_wham_prelim_20260623_0905/`: GROMACS WHAM converged from 15 complete windows after a 100 ps burn-in. The original QC summary reports preliminary outer-minus-minimum PMF `3.70 kJ/mol`, with `1` empty histogram bin and `29/200` weak/single-window bins. The follow-up valid-15 diagnostic under `pmf_wham_diagnostic_valid15_20260624_095453/` produced `0` empty bins at 100, 75, and 50 bins, but retained `14`, `10`, and `6` weak/single-window bins, respectively. Time-sliced outer-minus-minimum Delta G changed from `1.40` to `0.93` to `2.41 kJ/mol`, so this remains QC-only. Five copied edge windows (`000`, `001`, `002`, `013`, `014`) were relaunched as `umbrella_ext` repairs under `pmf_wham_repair_edge_extend_20260624_101516/`; combined WHAM and bootstrap should run after these extensions complete.
+Preliminary PMF/QC output exists for NaCl `LiDA-1` under `pmf_wham_prelim_20260623_0905/`: GROMACS WHAM converged from 15 complete windows after a 100 ps burn-in. The original QC summary reports preliminary outer-minus-minimum PMF `3.70 kJ/mol`, with `1` empty histogram bin and `29/200` weak/single-window bins. The follow-up valid-15 diagnostic under `pmf_wham_diagnostic_valid15_20260624_095453/` produced `0` empty bins at 100, 75, and 50 bins, but retained `14`, `10`, and `6` weak/single-window bins, respectively. Time-sliced outer-minus-minimum Delta G changed from `1.40` to `0.93` to `2.41 kJ/mol`, so this remains QC-only. Five copied edge windows (`000`, `001`, `002`, `013`, `014`) completed `umbrella_ext` repair sampling under `pmf_wham_repair_edge_extend_20260624_101516/`; combined WHAM and bootstrap are the next reliability gate.
 
 `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref` LiCl completed clustering with top cluster populations `12.69%`, `4.15%`, `4.65%`, and `5.05%`, respectively. `LiLC-1` NaCl also clustered with top cluster population `1.95%`. These low populations suggest broad peptide disorder, but representative structures were produced and their next umbrella gates can proceed.
 
