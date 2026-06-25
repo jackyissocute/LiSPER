@@ -304,7 +304,7 @@ flowchart TD
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
 - Replacement Worker A is active with 12/18 safe mdrun threads, and Worker B is active with 12/12 threads. The current combined pool is 24/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
-- Umbrella sampling is condition-specific: 90 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 16 one-thread umbrella windows are active. Umbrella drivers are paused under QC hold while the default pull/window strategy is audited after repeated WHAM overlap/bin warnings.
+- Umbrella sampling is condition-specific: 90 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 16 one-thread umbrella windows are active. Umbrella drivers are paused under QC hold while the pull/window strategy is tailored for this flexible peptide system: future launches use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` has combined original-plus-repair GROMACS WHAM/bootstrap QC complete. Empty bins improved to `0`, weak bins improved to `1` at 100 bins, but tail and time-slice review is still required before any final Delta G is accepted.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.

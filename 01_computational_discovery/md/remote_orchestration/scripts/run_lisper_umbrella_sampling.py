@@ -17,9 +17,13 @@ PULL_NS = float(os.environ.get("LISPER_PULL_NS", "1.0"))
 WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "2.0"))
 WINDOW_SPACING_NM = float(os.environ.get("LISPER_WINDOW_SPACING_NM", "0.075"))
 WINDOW_EXTENSION_NM = float(os.environ.get("LISPER_WINDOW_EXTENSION_NM", "2.00"))
+WINDOW_EQ_NS = float(os.environ.get("LISPER_WINDOW_EQ_NS", "0.5"))
 PBC_SAFE_FRACTION = float(os.environ.get("LISPER_PBC_SAFE_FRACTION", "0.45"))
 PBC_MARGIN_NM = float(os.environ.get("LISPER_PBC_MARGIN_NM", "0.05"))
 PULL_K = float(os.environ.get("LISPER_PULL_K", "1000"))
+BINDING_DONOR_CUTOFF_NM = float(os.environ.get("LISPER_BINDING_DONOR_CUTOFF_NM", "0.40"))
+MIN_BINDING_DONORS = int(os.environ.get("LISPER_MIN_BINDING_DONORS", "3"))
+MAX_BINDING_DONORS = int(os.environ.get("LISPER_MAX_BINDING_DONORS", "6"))
 GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
 
 GROMACS_DIR = ROOT / "systems" / CANDIDATE / "gromacs"
@@ -64,6 +68,27 @@ def read_representative_time_ps():
     return float(match.group(1))
 
 
+def distance(a, b):
+    return math.sqrt(sum((x - y) ** 2 for x, y in zip(a, b)))
+
+
+def centroid(coords):
+    return tuple(sum(axis) / len(coords) for axis in zip(*coords))
+
+
+def donor_atom(resname, atomname):
+    atomname = atomname.strip()
+    if atomname in {"O", "OXT"}:
+        return True
+    if resname == "ASP" and atomname in {"OD1", "OD2"}:
+        return True
+    if resname == "ASN" and atomname == "OD1":
+        return True
+    if resname == "SER" and atomname == "OG":
+        return True
+    return False
+
+
 def write_index_with_target(frame_gro, out_ndx):
     lines = Path(frame_gro).read_text(errors="replace").splitlines()
     natoms = int(lines[1].strip())
@@ -73,35 +98,41 @@ def write_index_with_target(frame_gro, out_ndx):
     ion_atoms = []
     solu_coords = []
     ion_coords = []
+    donor_atoms = []
     for idx, line in enumerate(atom_lines, start=1):
         resname = line[5:10].strip()
+        atomname = line[10:15].strip()
         x = float(line[20:28])
         y = float(line[28:36])
         z = float(line[36:44])
+        coord = (x, y, z)
         if resname in {"ASP", "ALA", "GLY", "PRO", "SER", "ASN"}:
             solu_atoms.append(idx)
-            solu_coords.append((x, y, z))
+            solu_coords.append(coord)
+            if donor_atom(resname, atomname):
+                donor_atoms.append((idx, coord))
         else:
             solv_atoms.append(idx)
         if resname == ION_RESNAME:
             ion_atoms.append(idx)
-            ion_coords.append((idx, x, y, z))
+            ion_coords.append((idx, coord))
     if not solu_atoms:
         raise RuntimeError("No peptide atoms found for SOLU group")
+    if not donor_atoms:
+        raise RuntimeError("No peptide donor atoms found for BINDING_SITE group")
     if not ion_atoms:
         raise RuntimeError(f"No {ION_RESNAME} atoms found")
 
-    cx = sum(x for x, _, _ in solu_coords) / len(solu_coords)
-    cy = sum(y for _, y, _ in solu_coords) / len(solu_coords)
-    cz = sum(z for _, _, z in solu_coords) / len(solu_coords)
-    target = min(
-        ion_coords,
-        key=lambda item: (item[1] - cx) ** 2 + (item[2] - cy) ** 2 + (item[3] - cz) ** 2,
-    )
+    target = min(ion_coords, key=lambda ion: min(distance(ion[1], donor[1]) for donor in donor_atoms))
     target_atom = target[0]
-    initial_distance = math.sqrt(
-        (target[1] - cx) ** 2 + (target[2] - cy) ** 2 + (target[3] - cz) ** 2
-    )
+    nearby = [donor for donor in donor_atoms if distance(target[1], donor[1]) <= BINDING_DONOR_CUTOFF_NM]
+    if len(nearby) < MIN_BINDING_DONORS:
+        nearby = sorted(donor_atoms, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+    else:
+        nearby = sorted(nearby, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+    binding_atoms = [idx for idx, _ in nearby]
+    binding_center = centroid([coord for _, coord in nearby])
+    initial_distance = distance(target[1], binding_center)
 
     with Path(out_ndx).open("w") as handle:
         handle.write("[ SOLU ]\n")
@@ -113,9 +144,12 @@ def write_index_with_target(frame_gro, out_ndx):
         handle.write("\n[ SYSTEM ]\n")
         for i in range(0, natoms, 15):
             handle.write(" ".join(str(a) for a in range(i + 1, min(i + 16, natoms + 1))) + "\n")
+        handle.write("\n[ BINDING_SITE ]\n")
+        for i in range(0, len(binding_atoms), 15):
+            handle.write(" ".join(str(a) for a in binding_atoms[i : i + 15]) + "\n")
         handle.write("\n[ TARGET_ION ]\n")
         handle.write(f"{target_atom}\n")
-    return target_atom, initial_distance
+    return target_atom, initial_distance, binding_atoms
 
 
 def min_box_vector_length(frame_gro):
@@ -173,10 +207,12 @@ def pull_mdp_rate(pull_dir):
     return None
 
 
-def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance):
+def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms):
     return (
         f"candidate_id\t{CANDIDATE}\n"
         f"ion_resname\t{ION_RESNAME}\n"
+        "reaction_coordinate\tBINDING_SITE_to_TARGET_ION\n"
+        f"binding_site_atoms\t{','.join(str(a) for a in binding_atoms)}\n"
         f"initial_distance_nm\t{initial_distance:.4f}\n"
         f"effective_window_extension_nm\t{effective_extension:.4f}\n"
         f"pull_rate_nm_per_ps\t{pull_rate:.8f}\n"
@@ -236,7 +272,7 @@ def base_mdp(nsteps, continuation, pull_rate, pull_init, output_every=500):
             "pull                     = yes",
             "pull_ngroups             = 2",
             "pull_ncoords             = 1",
-            "pull_group1_name         = SOLU",
+            "pull_group1_name         = BINDING_SITE",
             "pull_group2_name         = TARGET_ION",
             "pull_coord1_type         = umbrella",
             "pull_coord1_geometry     = distance",
@@ -286,11 +322,12 @@ def topology_for():
     return GROMACS_DIR / "topol.top"
 
 
-def grompp_mdrun(window_dir, mdp, gro, deffnm):
+def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
     tpr = window_dir / f"{deffnm}.tpr"
+    cpt_arg = f" -t {cpt}" if cpt and Path(cpt).exists() else ""
     code, _ = run_shell(
         f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology_for()} "
-        f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr} -maxwarn 1",
+        f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg} -maxwarn 1",
         log=window_dir / f"{deffnm}.grompp.log",
     )
     if code != 0:
@@ -345,20 +382,20 @@ def main():
         if code != 0:
             raise RuntimeError("Failed to extract full representative frame")
 
-    target_atom, initial_distance = write_index_with_target(full_rep, UMB_DIR / "umbrella_index.ndx")
+    target_atom, initial_distance, binding_atoms = write_index_with_target(full_rep, UMB_DIR / "umbrella_index.ndx")
     box_min_length = min_box_vector_length(full_rep)
     effective_extension, safe_max_distance = pbc_safe_extension(initial_distance, box_min_length)
     metadata = UMB_DIR / "umbrella_metadata.tsv"
     metadata.write_text(
-        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\tinitial_distance_nm\tpull_ns\twindow_ns\twindow_spacing_nm\trequested_window_extension_nm\teffective_window_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\n"
-        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\n"
+        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\treaction_coordinate\tbinding_site_atoms\tinitial_distance_nm\tpull_ns\twindow_eq_ns\twindow_ns\twindow_spacing_nm\trequested_window_extension_nm\teffective_window_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\tdonor_cutoff_nm\n"
+        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\tBINDING_SITE_to_TARGET_ION\t{','.join(str(a) for a in binding_atoms)}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_EQ_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\t{BINDING_DONOR_CUTOFF_NM:.3f}\n"
     )
 
     pull_dir = UMB_DIR / "pull"
     pull_mdp = pull_dir / "pull.mdp"
     pull_steps = int(PULL_NS * 500000)
     pull_rate = effective_extension / (PULL_NS * 1000.0)
-    pull_config = pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance)
+    pull_config = pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms)
     archive_incompatible_pull(pull_dir, pull_rate, pull_config)
     pull_dir.mkdir(exist_ok=True)
     pull_mdp.write_text(base_mdp(pull_steps, "no", pull_rate, initial_distance))
@@ -416,14 +453,19 @@ def main():
                 )
                 continue
         mdp = win / "umbrella.mdp"
-        mdp.write_text(base_mdp(int(WINDOW_NS * 500000), "no", 0.0, dist, output_every=500))
-        window_jobs.append((i, dist, win, mdp, gro))
+        eq_mdp = win / "umbrella_eq.mdp"
+        eq_mdp.write_text(base_mdp(int(WINDOW_EQ_NS * 500000), "no", 0.0, dist, output_every=500))
+        mdp.write_text(base_mdp(int(WINDOW_NS * 500000), "yes", 0.0, dist, output_every=500))
+        window_jobs.append((i, dist, win, eq_mdp, mdp, gro))
 
     def run_window(job):
-        i, dist, win, mdp, gro = job
+        i, dist, win, eq_mdp, mdp, gro = job
         status = "complete"
         if not (win / "umbrella.log").exists() or "Finished mdrun" not in (win / "umbrella.log").read_text(errors="replace"):
-            status = grompp_mdrun(win, mdp, gro, "umbrella")
+            if not (win / "umbrella_eq.log").exists() or "Finished mdrun" not in (win / "umbrella_eq.log").read_text(errors="replace"):
+                status = grompp_mdrun(win, eq_mdp, gro, "umbrella_eq")
+            if status == "complete":
+                status = grompp_mdrun(win, mdp, win / "umbrella_eq.gro", "umbrella", cpt=win / "umbrella_eq.cpt")
         return {
             "candidate_id": CANDIDATE,
             "ion_resname": ION_RESNAME,

@@ -43,7 +43,14 @@ The common umbrella default strategy is now under QC audit because the first com
 - `LiDS-1` LiCl preliminary WHAM: `0` empty bins but `9/100` weak/single-window bins.
 - `LiDS-1` NaCl preliminary WHAM: `2` empty bins and `12/100` weak/single-window bins, with time-slice shifts.
 
-The umbrella driver defaults were changed for future launches from `0.5 ns` pull, `1.0 ns/window`, and `0.10 nm` spacing to `1.0 ns` pull, `2.0 ns/window`, and `0.075 nm` spacing. A hold-file guard was added so future driver runs stop before launching new windows while the audit is active.
+The umbrella driver is being tailored to this IDP-like peptide system rather than using a generic umbrella recipe. Future launches now use the dominant-cluster full-system representative frame, define the reaction coordinate as `BINDING_SITE_to_TARGET_ION` from peptide donor atoms in the representative structure, and archive any old peptide-COM pull before reuse. Defaults were changed from `0.5 ns` pull, `1.0 ns/window`, and `0.10 nm` spacing to `1.0 ns` pull, `0.5 ns` window equilibration, `2.0 ns` production per window, and `0.075 nm` spacing. A hold-file guard was added so future driver runs stop before launching new windows while the audit is active.
+
+Rationale:
+
+- The 20 ns production plus clustering step is used directly: the umbrella start frame is extracted from the top-cluster representative time, not an arbitrary peptide conformation.
+- Because these peptides are flexible, pulling relative to the whole-peptide center of mass can be a poor binding coordinate. The new coordinate uses the local donor/binding-site atom group selected from the representative frame.
+- The CHARMM-GUI water box is PBC-limited, so the effective pull extension is still capped by measured box vectors before windows are generated.
+- Existing WHAM warnings mean old complete windows remain diagnostic/preliminary. Final Delta G should come only from WHAM/QC after the audited coordinate, denser windows, explicit window equilibration, bootstrap/error analysis, and time-sliced convergence checks pass.
 
 ## PBC-Safe Umbrella Repair
 

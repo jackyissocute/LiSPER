@@ -12,7 +12,7 @@ Latest production/umbrella snapshot: `2026-06-25 10:22 CST`.
 |---|---|---|
 | LiCl | `li_cl/` | Replacement Worker A active at 12/18 safe mdrun threads; 2/8 production jobs active plus LiCl umbrella windows; 6/8 representatives ready |
 | NaCl | `na_cl/` | Worker B is full at 12/12 mdrun threads with one production job plus NaCl umbrella windows; Worker A backfill continues for two NaCl jobs; 5/8 representatives ready |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | `90` current windows plus `5/5` LiDA-1 NaCl repair-extension windows complete; `16` umbrella windows active; new old-parameter launches held during umbrella parameter audit |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | `90` current windows plus `5/5` LiDA-1 NaCl repair-extension windows complete; `16` umbrella windows active; old-parameter launches held while the umbrella coordinate is tailored to clustered IDP-like peptide representatives |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
