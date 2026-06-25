@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-25 10:35 CST
+Last updated: 2026-06-25 13:25 CST
 
 ## Launch Rule
 
@@ -17,21 +17,21 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | Worker B | `15/15` + `5/5` repair | combined WHAM QC complete | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 + 🟩 repair` |
-| `LiDS-1` | NaCl | Worker B | `17/17` | WHAM QC complete | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
+| `LiDS-1` | NaCl | Worker B | `17/17`; v2 pull active | v2 pull `umbrella_sampling_binding_site_v2` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` + `🟦 v2` |
 | `LiLC-1` | NaCl | Worker B | `4/21` | `004-005` | `🟩🟩🟩🟩🟦🟦⬜⬜⬜⬜` |
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Old-parameter umbrella driver processes remain paused under `UMBRELLA_QC_HOLD` after repeated WHAM overlap/bin warnings. Replacement Worker A is now running audited v2 LiCl pull stages for `LiDS-1` and `LiDA-1` in separate `umbrella_sampling_binding_site_v2` folders. Worker A is at `13/18` active mdrun threads during the two v2 pulls and is expected to reach `18/18` when those pulls convert into 7 one-thread v2 window jobs. Worker B is still full at `12/12`, so no new NaCl v2 work was launched there.
+Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Old-parameter umbrella driver processes remain paused or guarded under `UMBRELLA_QC_HOLD` after repeated WHAM overlap/bin warnings. Replacement Worker A is running audited v2 LiCl pull stages for `LiDS-1` and `LiDA-1` in separate `umbrella_sampling_binding_site_v2` folders. Worker B had safe headroom at the 13:25 CST check, so audited v2 NaCl `LiDS-1` was launched in `umbrella_sampling_binding_site_v2` with `LISPER_JOBS=6`; it is in the pull stage after a topology-path repair made `topol_cleaned_for_prod.top` point to the successful production-root topology.
 
-NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. Both `LiDS-1` PMFs remain preliminary pending overlap/materiality review and, for NaCl, likely repair planning.
+NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both old-parameter conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. Both old-parameter `LiDS-1` PMFs remain preliminary; the paired v2 LiCl/NaCl reruns are now the path toward reliable Delta G and Delta Delta G.
 
 ## Compute Fit
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
-| replacement Worker A | 6 threads | 7 umbrella threads | 13/18 |
-| Worker B | 2 production threads | 10 umbrella threads | 12/12 |
+| replacement Worker A | 6 threads | 7 umbrella threads, including 2 v2 pulls | 13/18 |
+| Worker B | 2 production threads | 5 umbrella threads, including 1 v2 pull | 8/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 
@@ -64,7 +64,7 @@ Preliminary PMF/QC output exists for NaCl `LiDA-1` under `pmf_wham_prelim_202606
 
 `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref` LiCl completed clustering with top cluster populations `12.69%`, `4.15%`, `4.65%`, and `5.05%`, respectively. `LiLC-1` NaCl also clustered with top cluster population `1.95%`. These low populations suggest broad peptide disorder, but representative structures were produced and their next umbrella gates can proceed.
 
-`LiDS-1` NaCl completed production and clustering with top-cluster population `14.59%`. Its umbrella run finished all `17/17` windows. Preliminary WHAM/QC is complete, but Delta G and Delta Delta G output are not final; the next gate is overlap/materiality review and likely NaCl repair planning if the empty-bin warning remains material.
+`LiDS-1` NaCl completed production and clustering with top-cluster population `14.59%`. Its old-parameter umbrella run finished all `17/17` windows. Preliminary WHAM/QC is complete, but Delta G and Delta Delta G output are not final. Audited binding-site v2 NaCl `LiDS-1` was launched at 2026-06-25 13:24 CST on Worker B; the first attempt failed at `grompp` because the script selected the `run_min` topology copy, then the retry succeeded after preferring the production-root topology used by the earlier successful windows. Monitor the active v2 pull, then v2 window generation, WHAM/bootstrap, and time-slice convergence before promoting any Delta G value.
 
 `LiA3-Ref` and `LiD3-Core` NaCl completed clustering this cycle with top-cluster populations `7.35%` and `10.34%`. Both were launched into umbrella pulls on Worker B. `LiD3-Core` initially failed at pull `grompp` because the umbrella script preferred a stale `topol_clean_attempt1.top`; the script now prefers the production-consistent `topol_clean_attempt2.top` before the `run_min` copy, and the repaired pull is running. The failed pulls are diagnostics only and are not scientific output.
 

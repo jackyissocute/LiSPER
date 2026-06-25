@@ -6,13 +6,13 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl and NaCl 20 ns production plus clustering are running across two AutoDL workers without duplicate candidate-condition-stage jobs. Umbrella sampling is active condition-by-condition for clustered representatives.
 
-Latest production/umbrella snapshot: `2026-06-25 10:35 CST`.
+Latest production/umbrella snapshot: `2026-06-25 13:25 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
 | LiCl | `li_cl/` | Replacement Worker A active at 13/18 safe mdrun threads during audited v2 LiCl pulls; 2/8 production jobs active plus LiCl umbrella work; 6/8 representatives ready |
-| NaCl | `na_cl/` | Worker B is full at 12/12 mdrun threads with one production job plus NaCl umbrella windows; Worker A backfill continues for two NaCl jobs; 5/8 representatives ready |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | Old-parameter drivers held; audited binding-site v2 pulls active for `LiDS-1` LiCl and `LiDA-1` LiCl; NaCl v2 repair waits for safe Worker B cores |
+| NaCl | `na_cl/` | Worker B active at 8/12 safe mdrun threads with one production job, old-parameter NaCl umbrella windows, and audited v2 `LiDS-1` NaCl pull; Worker A backfill continues for two NaCl jobs; 5/8 representatives ready |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | Old-parameter drivers held/guarded; audited binding-site v2 pulls active for `LiDS-1` LiCl, `LiDA-1` LiCl, and `LiDS-1` NaCl; PMF/Delta G remains preliminary until v2 WHAM/bootstrap/time-slice QC passes |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
