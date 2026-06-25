@@ -6,13 +6,13 @@ This folder tracks GROMACS work for the active 8-candidate LiSPER library after 
 
 The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl and NaCl 20 ns production plus clustering are running across two AutoDL workers without duplicate candidate-condition-stage jobs. Umbrella sampling is active condition-by-condition for clustered representatives.
 
-Latest production/umbrella snapshot: `2026-06-25 17:20 CST`.
+Latest production/umbrella snapshot: `2026-06-25 21:20 CST`.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | Replacement Worker A active at 10/18 safe mdrun threads after stopping old non-v2 windows; 2/8 production jobs active plus audited v2 `LiDS-1` LiCl pull and `LiDA-1` LiCl v2 window equilibration; 6/8 representatives ready |
-| NaCl | `na_cl/` | Worker B active at 4/12 safe mdrun threads with one production job plus audited v2 `LiDS-1` and `LiDA-1` NaCl pulls; future v2 window concurrency capped to stay within quota; 5/8 representatives ready |
-| Umbrella | `remote_runs_umbrella_sampling_status.md` | Old-parameter umbrella compute stopped/guarded; audited binding-site v2 pulls active for paired `LiDS-1` and `LiDA-1` LiCl/NaCl; PMF/Delta G remains preliminary until v2 WHAM/bootstrap/time-slice QC passes |
+| LiCl | `li_cl/` | Replacement Worker A active at 13/18 safe mdrun threads after stopping old non-v2 windows; 2/8 production jobs active plus paired v2 windows for `LiDA-1` and `LiDS-1`; 6/8 representatives ready |
+| NaCl | `na_cl/` | Worker B active at 12/12 safe mdrun threads with one production job plus paired v2 equilibration windows for `LiDS-1` and `LiDA-1`; 5/8 representatives ready |
+| Umbrella | `remote_runs_umbrella_sampling_status.md` | Old-parameter umbrella compute stopped/guarded; all four paired v2 pulls complete and v2 windows active; PMF/Delta G remains preliminary until v2 WHAM/bootstrap/time-slice QC passes |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 
