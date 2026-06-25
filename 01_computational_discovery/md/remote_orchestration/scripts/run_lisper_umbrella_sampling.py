@@ -29,7 +29,7 @@ GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisp
 GROMACS_DIR = ROOT / "systems" / CANDIDATE / "gromacs"
 PROD_DIR = GROMACS_DIR / "run_prod_20ns"
 CLUSTER_DIR = GROMACS_DIR / "cluster_20ns"
-UMB_DIR = GROMACS_DIR / "umbrella_sampling"
+UMB_DIR = GROMACS_DIR / os.environ.get("LISPER_UMB_SUBDIR", "umbrella_sampling")
 SUMMARY = UMB_DIR / "umbrella_summary.tsv"
 HOLD_FILES = [
     ROOT / "UMBRELLA_QC_HOLD",
@@ -39,6 +39,8 @@ HOLD_FILES = [
 
 
 def assert_not_on_hold(stage):
+    if os.environ.get("LISPER_ALLOW_QC_HOLD") == "1":
+        return
     for hold in HOLD_FILES:
         if hold.exists():
             raise RuntimeError(f"Umbrella launch is on QC hold at {stage}: {hold}")

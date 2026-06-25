@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-25 10:22 CST
+Last updated: 2026-06-25 10:35 CST
 
 ## Launch Rule
 
@@ -22,7 +22,7 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Replacement Worker A is at `12/18` mdrun threads with LiCl production/backfill plus active LiCl umbrella windows. Worker B is at `12/12` mdrun threads with one NaCl production job plus LiD3-Core, LiA3-Ref, and LiLC-1 NaCl windows. Umbrella driver processes are paused under `UMBRELLA_QC_HOLD` after repeated WHAM overlap/bin warnings; current single-window `mdrun` jobs continue, but new old-parameter windows are held.
+Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Old-parameter umbrella driver processes remain paused under `UMBRELLA_QC_HOLD` after repeated WHAM overlap/bin warnings. Replacement Worker A is now running audited v2 LiCl pull stages for `LiDS-1` and `LiDA-1` in separate `umbrella_sampling_binding_site_v2` folders. Worker A is at `13/18` active mdrun threads during the two v2 pulls and is expected to reach `18/18` when those pulls convert into 7 one-thread v2 window jobs. Worker B is still full at `12/12`, so no new NaCl v2 work was launched there.
 
 NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. Both `LiDS-1` PMFs remain preliminary pending overlap/materiality review and, for NaCl, likely repair planning.
 
@@ -30,7 +30,7 @@ NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plu
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
-| replacement Worker A | 6 threads | 6 umbrella threads | 12/18 |
+| replacement Worker A | 6 threads | 7 umbrella threads | 13/18 |
 | Worker B | 2 production threads | 10 umbrella threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
@@ -43,7 +43,7 @@ The common umbrella default strategy is now under QC audit because the first com
 - `LiDS-1` LiCl preliminary WHAM: `0` empty bins but `9/100` weak/single-window bins.
 - `LiDS-1` NaCl preliminary WHAM: `2` empty bins and `12/100` weak/single-window bins, with time-slice shifts.
 
-The umbrella driver is being tailored to this IDP-like peptide system rather than using a generic umbrella recipe. Future launches now use the dominant-cluster full-system representative frame, define the reaction coordinate as `BINDING_SITE_to_TARGET_ION` from peptide donor atoms in the representative structure, and archive any old peptide-COM pull before reuse. Defaults were changed from `0.5 ns` pull, `1.0 ns/window`, and `0.10 nm` spacing to `1.0 ns` pull, `0.5 ns` window equilibration, `2.0 ns` production per window, and `0.075 nm` spacing. A hold-file guard was added so future driver runs stop before launching new windows while the audit is active.
+The umbrella driver is being tailored to this IDP-like peptide system rather than using a generic umbrella recipe. Active v2 launches use the dominant-cluster full-system representative frame, define the reaction coordinate as `BINDING_SITE_to_TARGET_ION` from peptide donor atoms in the representative structure, and archive any old peptide-COM pull before reuse. Defaults were changed from `0.5 ns` pull, `1.0 ns/window`, and `0.10 nm` spacing to `1.0 ns` pull, `0.5 ns` window equilibration, `2.0 ns` production per window, and `0.075 nm` spacing. A hold-file guard remains in place so normal/old launches stop unless an audited v2 launch explicitly opts in.
 
 Rationale:
 
