@@ -12,7 +12,7 @@ LiCl MD is tracked under the final 8-candidate names.
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | 2/8 active on replacement Worker A; `15.53-15.61 ns / 20 ns` as of `2026-06-25 09:35 CST`; 6/8 produced |
 | Structural clustering | 6/8 complete; top clusters: `LiDA-1` `17.64%`, `LiDS-1` `15.69%`, `LiD3-Core` `12.69%`, `LiLC-1` `4.15%`, `LiN3-Core` `4.65%`, `LiA3-Ref` `5.05%` |
-| PMF handoff | Old/default umbrella compute stopped/guarded; old windows retained only as diagnostics. Audited v2 LiCl windows are active for `LiDA-1` and `LiDS-1`; final PMF/Delta G waits for v2 WHAM/bootstrap/time-slice QC |
+| Free-energy handoff | Representatives are handed to `../../umbrella/`; old/default umbrella windows are diagnostics only. Audited v2 LiCl windows are active for `LiDA-1` and `LiDS-1`; final PMF/Delta G waits in `../../pmf/` for v2 WHAM/bootstrap/time-slice QC |
 
 ## Candidate Notes
 
@@ -27,4 +27,4 @@ LiCl MD is tracked under the final 8-candidate names.
 | `LiN3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `4.65%`; umbrella `3/21` complete; window `003` active |
 | `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `5.05%`; umbrella `2/21` complete; window `002` active |
 
-Live run summaries are kept in `remote_runs/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.
+Live MD run summaries are kept in `remote_runs/`. Umbrella sampling status is in `../../umbrella/remote_runs_umbrella_sampling_status.md`; WHAM/PMF QC is in `../../pmf/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.

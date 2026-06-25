@@ -34,8 +34,8 @@ flowchart TD
 | `sequences/` | Candidate peptide sequences and metadata. |
 | `esmfold/` | ESMFold predictions and CHARMM-GUI-ready PDBs. |
 | `charmm-gui/` | LiCl and NaCl system-builder outputs. |
-| `md/` | GROMACS minimization, equilibration, production, clustering, and remote logs. |
-| `umbrella/` | Umbrella sampling setup and future windows. |
-| `pmf/` | PMF and Delta G analysis. |
+| `md/` | GROMACS minimization, equilibration, 20 ns production, structural clustering, representative extraction, and MD-stage remote logs. |
+| `umbrella/` | Umbrella sampling drivers, v2 reaction-coordinate setup, pull stages, window equilibration/production, synced window outputs, and umbrella diagnostics. |
+| `pmf/` | WHAM, PMF QC, bootstrap/time-slice checks, Delta G estimates, and paired Delta Delta G analysis. |
 | `analysis/` | Cross-stage computational interpretation and ranking work. |
 | `data/` | Raw and processed computational data not tied to one workflow folder. |

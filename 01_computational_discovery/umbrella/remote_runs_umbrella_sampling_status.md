@@ -73,7 +73,7 @@ Preliminary PMF/QC output exists for NaCl `LiDA-1` under `pmf_wham_prelim_202606
 Umbrella orchestration uses:
 
 ```text
-01_computational_discovery/md/remote_orchestration/scripts/run_lisper_umbrella_sampling.py
+01_computational_discovery/umbrella/remote_orchestration/scripts/run_lisper_umbrella_sampling.py
 ```
 
 The driver extracts the full solvated representative frame from the completed production trajectory, selects the nearest Li+ or Na+ ion to the peptide center of mass, builds explicit `SOLU`, `SOLV`, `SYSTEM`, and `TARGET_ION` index groups, caps the initial pull below the GROMACS PBC half-box limit, then launches one-thread umbrella windows sequentially by default.

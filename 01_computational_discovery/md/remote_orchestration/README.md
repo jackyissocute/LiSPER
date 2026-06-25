@@ -1,6 +1,6 @@
 # Remote GROMACS Orchestration
 
-This folder contains the active remote-execution code for the revised **8-candidate** LiSPER workflow.
+This folder contains the active remote-execution code for the revised **8-candidate** LiSPER MD workflow. MD-stage orchestration remains here; umbrella drivers and synced umbrella outputs are organized in `../../umbrella/`, and WHAM/PMF/Delta G QC is organized in `../../pmf/`.
 
 One-off scripts from earlier development rounds are preserved under:
 
@@ -23,7 +23,8 @@ The active computational order is:
 -> 20 ns production MD
 -> structural clustering
 -> representative structures
--> umbrella sampling / PMF / Delta Delta G
+-> handoff to umbrella sampling
+-> WHAM / PMF / Delta Delta G
 ```
 
 New GROMACS tasks should start only for candidates with final-name ESMFold PDBs and matched CHARMM-GUI systems.
@@ -48,8 +49,9 @@ Do not sync active 8-candidate products into older remote workdirs.
 | `scripts/run_lisper_equilibrate.py` | Shared equilibration driver for minimized systems. |
 | `scripts/run_lisper_production_cluster.py` | Shared 20 ns production and clustering driver for equilibrated systems. |
 | `scripts/run_lisper_parallel_production_cluster.py` | Parallel candidate-level production and clustering driver for a fully equilibrated workdir. |
-| `scripts/run_lisper_umbrella_sampling.py` | Condition-level umbrella driver for clustered representatives. |
 | `scripts/start_equilibration.sh` | Small shell wrapper for launching equilibration on the active workdir. |
+
+The umbrella driver was moved to `../../umbrella/remote_orchestration/scripts/run_lisper_umbrella_sampling.py` so new umbrella work is visible under the top-level umbrella step.
 
 All active scripts default to the 8-candidate LiCl workdir and can be redirected with `LISPER_WORKDIR`.
 
@@ -73,7 +75,7 @@ env LISPER_WORKDIR=/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker \
 
 Current scheduling treats the two AutoDL machines as one non-oversubscribed pool: Worker A replacement is capped at 18 active GROMACS threads, and Worker B is capped at 12. Count actual `gmx mdrun -ntomp/-nt` threads before launching new work.
 
-Umbrella sampling is condition-specific: a LiCl or NaCl condition can enter umbrella window design and sampling immediately after that condition has completed production, clustering, and representative extraction. It does not need to wait for the matched ion condition.
+Umbrella sampling is condition-specific: a LiCl or NaCl condition can enter umbrella window design and sampling immediately after that condition has completed production, clustering, and representative extraction. It does not need to wait for the matched ion condition. Local umbrella files should be synced to `../../umbrella/`; WHAM/PMF outputs should be synced to `../../pmf/`.
 
 ## Completed Asset Policy
 

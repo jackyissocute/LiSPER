@@ -1,6 +1,8 @@
 # PMF Analysis
 
-Future folder for potential-of-mean-force analysis, Delta G estimates, and Li+/Na+ selectivity ranking.
+This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selectivity analysis after umbrella sampling.
+
+Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the relevant v2 umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
 
 ## Selectivity Equation
 
@@ -17,6 +19,20 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | `delta_g_summary.tsv` | Per-condition free energies |
 | `selectivity_summary.tsv` | Delta Delta G candidate ranking |
 | convergence plots | Check whether PMFs are reliable |
+
+## Active Layout
+
+| Path | Purpose |
+|---|---|
+| `remote_runs/li_cl/pmf_qc/` | LiCl WHAM and PMF QC runs. |
+| `remote_runs/na_cl/pmf_qc/` | NaCl WHAM and PMF QC runs. |
+| `remote_runs/na_cl/pmf_qc_repair/` | NaCl repair/diagnostic WHAM runs retained as preliminary evidence. |
+| `remote_results/li_cl/` | Synced LiCl PMF products when completed and safe to store. |
+| `remote_results/na_cl/` | Synced NaCl PMF products when completed and safe to store. |
+
+## Reliability Gates
+
+Do not label Delta G as final when WHAM/GROMACS reports empty bins, weak/single-window bins, poor overlap, unstable time slices, or large uncertainty. Repair steps should be scientifically justified: extend weak windows, add/interpolate windows where overlap is poor, rerun WHAM with bootstrap/error analysis, and compare time-sliced convergence.
 
 ```mermaid
 flowchart TD

@@ -113,19 +113,19 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Old umbrella launches are held after repeated WHAM overlap/bin warnings; audited binding-site v2 LiCl pulls are now active for `LiDS-1` and `LiDA-1`.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Old umbrella launches are held after repeated WHAM overlap/bin warnings; all four paired audited binding-site v2 pulls are complete and v2 windows are active for `LiDA-1`/`LiDS-1` in both LiCl and NaCl.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-6_clustered_%2B_2_active-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-5_clustered_%2B_3_active-2563eb)
 > ![Compute](https://img.shields.io/badge/CPU-25%2F30_mdrun_threads-f59e0b)
-> ![Umbrella](https://img.shields.io/badge/umbrella-v2_active_%7C_2_pulls-2563eb)
+> ![Umbrella](https://img.shields.io/badge/umbrella-v2_pulls_complete_%7C_windows_active-2563eb)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-25 10:35 CST`
+**Last synchronized monitor snapshot:** `2026-06-25 21:20 CST`
 
 ### Process matrix
 
@@ -170,8 +170,8 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟦🟦</code> <strong>2 audited v2 pulls active</strong><br><sub>LiDS-1 LiCl and LiDA-1 LiCl use binding-site coordinate; old-parameter launches remain held</sub></td>
-      <td><img alt="v2 active" src="https://img.shields.io/badge/v2_active-2_pulls-2563eb"></td>
+      <td><code>🟦🟦🟦🟦</code> <strong>4 audited v2 pulls complete; windows active</strong><br><sub>LiDA-1 and LiDS-1 are running paired LiCl/NaCl v2 windows; old-parameter launches remain held</sub></td>
+      <td><img alt="v2 active" src="https://img.shields.io/badge/v2_windows-active-2563eb"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -228,15 +228,15 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl <code>21/21</code> complete; 🟩 NaCl <code>17/17</code> complete</td>
-      <td>🟪 LiCl WHAM QC complete; NaCl WHAM QC complete but preliminary</td>
+      <td>🟦 old LiCl <code>21/21</code>, old NaCl <code>17/17</code>; paired v2 windows active</td>
+      <td>🟪 old WHAM QC complete but preliminary; final waits for v2 PMF QC</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>14/19</code>, active <code>014-015</code>; 🟨 NaCl <code>15/15 + 5/5</code> repair complete</td>
-      <td>🟪 NaCl combined WHAM/bootstrap complete; `0` empty bins, `1` weak bin; QC-only pending tail/time-slice review</td>
+      <td>🟦 old LiCl <code>14/19</code>, old NaCl <code>15/15 + 5/5</code> repair; paired v2 windows active</td>
+      <td>🟪 old NaCl WHAM/bootstrap improved to <code>0</code> empty bins and <code>1</code> weak bin, but QC-only; final waits for v2 PMF QC</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -278,8 +278,8 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>v2 active</code></strong><br><sub>LiDS-1 LiCl and LiDA-1 LiCl audited pulls running</sub></td>
-      <td>Run audited binding-site umbrella tracks first; start NaCl v2/repair tracks when Worker B frees safe cores.</td>
+      <td align="center"><strong><code>v2 windows active</code></strong><br><sub>all four paired LiDA-1/LiDS-1 LiCl/NaCl pulls complete</sub></td>
+      <td>Finish audited binding-site v2 window equilibration/production, then run WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -304,7 +304,7 @@ flowchart TD
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
 - Replacement Worker A is active with 13/18 safe mdrun threads during two audited v2 pull stages, and Worker B is active with 12/12 threads. The current combined pool is 25/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
-- Umbrella sampling is condition-specific: old-parameter umbrella drivers remain paused under QC hold, while audited v2 tracks are now active for LiDS-1 LiCl and LiDA-1 LiCl. The v2 tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
+- Umbrella sampling is condition-specific: old-parameter umbrella drivers remain paused under QC hold, while paired audited v2 tracks are now active for `LiDA-1` and `LiDS-1` in both LiCl and NaCl. The v2 tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` has combined original-plus-repair GROMACS WHAM/bootstrap QC complete. Empty bins improved to `0`, weak bins improved to `1` at 100 bins, but tail and time-slice review is still required before any final Delta G is accepted.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
