@@ -113,19 +113,19 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Umbrella sampling now starts condition-by-condition as soon as a clustered representative exists.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Umbrella sampling is under a QC parameter audit after repeated WHAM overlap/bin warnings; already running windows continue, but new old-parameter window launches are held.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-6_clustered_%2B_2_active-2563eb)
 > ![NaCl](https://img.shields.io/badge/NaCl-5_clustered_%2B_3_active-2563eb)
 > ![Compute](https://img.shields.io/badge/CPU-24%2F30_mdrun_threads-f59e0b)
-> ![Umbrella](https://img.shields.io/badge/umbrella-90_windows_%2B_5_repair_%2B_16_active-0f766e)
+> ![Umbrella](https://img.shields.io/badge/umbrella-QC_hold_%7C_16_active-f59e0b)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-25 09:35 CST`
+**Last synchronized monitor snapshot:** `2026-06-25 10:22 CST`
 
 ### Process matrix
 
@@ -170,12 +170,12 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>90 current windows</strong><br><sub>LiDA-1 NaCl repair <code>5/5</code> complete; <code>16</code> umbrella windows active</sub></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-16_windows-2563eb"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩</code> <strong>90 current windows</strong><br><sub><code>16</code> windows active; new old-parameter launches held for QC audit</sub></td>
+      <td><img alt="hold" src="https://img.shields.io/badge/QC_hold-16_active-f59e0b"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 NaCl and LiDS-1 WHAM QC complete</code></td>
+      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 NaCl and LiDS-1 WHAM QC complete; parameter audit active</code></td>
       <td><img alt="qc" src="https://img.shields.io/badge/status-QC-7c3aed"></td>
     </tr>
   </tbody>
@@ -278,8 +278,8 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>90 current + 5 repair windows</code></strong><br><sub>16 umbrella windows active; LiDA-1 NaCl and LiDS-1 WHAM QC complete</sub></td>
-      <td>Complete active windows, then run WHAM/QC on each condition as window sets finish.</td>
+      <td align="center"><strong><code>QC hold</code></strong><br><sub>16 windows active; old default launches paused</sub></td>
+      <td>Finish currently active windows only, then resume with audited umbrella parameters or targeted repair windows.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -304,7 +304,7 @@ flowchart TD
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
 - Replacement Worker A is active with 12/18 safe mdrun threads, and Worker B is active with 12/12 threads. The current combined pool is 24/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
-- Umbrella sampling is condition-specific: 90 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 16 one-thread umbrella windows are active. Superseded duplicate or repair directories are retained only as diagnostics.
+- Umbrella sampling is condition-specific: 90 current windows plus 5 LiDA-1 NaCl repair-extension windows are complete, and 16 one-thread umbrella windows are active. Umbrella drivers are paused under QC hold while the default pull/window strategy is audited after repeated WHAM overlap/bin warnings.
 - NaCl `LiDA-1` has combined original-plus-repair GROMACS WHAM/bootstrap QC complete. Empty bins improved to `0`, weak bins improved to `1` at 100 bins, but tail and time-slice review is still required before any final Delta G is accepted.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.

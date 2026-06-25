@@ -13,9 +13,9 @@ CANDIDATE = os.environ.get("LISPER_CANDIDATE", "LiDA-1")
 ION_RESNAME = os.environ["LISPER_ION_RESNAME"]
 NTHREAD = int(os.environ.get("LISPER_NTHREAD_PER_JOB", "1"))
 NJOBS = int(os.environ.get("LISPER_JOBS", "1"))
-PULL_NS = float(os.environ.get("LISPER_PULL_NS", "0.5"))
-WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "1.0"))
-WINDOW_SPACING_NM = float(os.environ.get("LISPER_WINDOW_SPACING_NM", "0.10"))
+PULL_NS = float(os.environ.get("LISPER_PULL_NS", "1.0"))
+WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "2.0"))
+WINDOW_SPACING_NM = float(os.environ.get("LISPER_WINDOW_SPACING_NM", "0.075"))
 WINDOW_EXTENSION_NM = float(os.environ.get("LISPER_WINDOW_EXTENSION_NM", "2.00"))
 PBC_SAFE_FRACTION = float(os.environ.get("LISPER_PBC_SAFE_FRACTION", "0.45"))
 PBC_MARGIN_NM = float(os.environ.get("LISPER_PBC_MARGIN_NM", "0.05"))
@@ -27,6 +27,17 @@ PROD_DIR = GROMACS_DIR / "run_prod_20ns"
 CLUSTER_DIR = GROMACS_DIR / "cluster_20ns"
 UMB_DIR = GROMACS_DIR / "umbrella_sampling"
 SUMMARY = UMB_DIR / "umbrella_summary.tsv"
+HOLD_FILES = [
+    ROOT / "UMBRELLA_QC_HOLD",
+    GROMACS_DIR / "UMBRELLA_QC_HOLD",
+    UMB_DIR / "UMBRELLA_QC_HOLD",
+]
+
+
+def assert_not_on_hold(stage):
+    for hold in HOLD_FILES:
+        if hold.exists():
+            raise RuntimeError(f"Umbrella launch is on QC hold at {stage}: {hold}")
 
 
 def run_shell(cmd, cwd=GROMACS_DIR, log=None, stdin=None):
@@ -320,6 +331,7 @@ def write_summary(rows):
 
 def main():
     UMB_DIR.mkdir(exist_ok=True)
+    assert_not_on_hold("start")
     rep_time = read_representative_time_ps()
     full_rep = UMB_DIR / "representative_full_system.gro"
     if not full_rep.exists():
@@ -370,6 +382,7 @@ def main():
     (pull_dir / "pull_config.tsv").write_text(pull_config)
 
     points = parse_pullx(pull_dir / "pull_pullx.xvg")
+    assert_not_on_hold("before_window_generation")
     distances = [
         round(initial_distance + i * WINDOW_SPACING_NM, 4)
         for i in range(int(effective_extension / WINDOW_SPACING_NM) + 1)
@@ -422,12 +435,20 @@ def main():
             "path": str(win),
         }
 
+    pending = list(window_jobs)
+    running = {}
     with ThreadPoolExecutor(max_workers=NJOBS) as pool:
-        futures = [pool.submit(run_window, job) for job in window_jobs]
-        for fut in as_completed(futures):
-            rows.append(fut.result())
-            write_summary(sorted(rows, key=lambda row: row["window_id"]))
-            time.sleep(0.1)
+        while pending or running:
+            assert_not_on_hold("before_window_submit")
+            while pending and len(running) < NJOBS:
+                job = pending.pop(0)
+                running[pool.submit(run_window, job)] = job
+            for fut in as_completed(list(running)):
+                rows.append(fut.result())
+                running.pop(fut, None)
+                write_summary(sorted(rows, key=lambda row: row["window_id"]))
+                time.sleep(0.1)
+                break
     write_summary(sorted(rows, key=lambda row: row["window_id"]))
 
 

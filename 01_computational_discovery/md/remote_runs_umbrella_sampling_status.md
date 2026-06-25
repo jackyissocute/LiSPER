@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-25 09:35 CST
+Last updated: 2026-06-25 10:22 CST
 
 ## Launch Rule
 
@@ -22,7 +22,7 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Replacement Worker A is at `12/18` mdrun threads with LiCl production/backfill plus driver-owned LiCl umbrella queues. Worker B is at `12/12` mdrun threads with one NaCl production job plus LiD3-Core, LiA3-Ref, and LiLC-1 NaCl window batches.
+Current umbrella progress: `90` current windows plus LiDA-1 NaCl repair extensions completed (`5/5`). Replacement Worker A is at `12/18` mdrun threads with LiCl production/backfill plus active LiCl umbrella windows. Worker B is at `12/12` mdrun threads with one NaCl production job plus LiD3-Core, LiA3-Ref, and LiLC-1 NaCl windows. Umbrella driver processes are paused under `UMBRELLA_QC_HOLD` after repeated WHAM overlap/bin warnings; current single-window `mdrun` jobs continue, but new old-parameter windows are held.
 
 NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. Both `LiDS-1` PMFs remain preliminary pending overlap/materiality review and, for NaCl, likely repair planning.
 
@@ -34,6 +34,16 @@ NaCl `LiDA-1` completed all 15 valid windows and now has a combined original-plu
 | Worker B | 2 production threads | 10 umbrella threads | 12/12 |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
+
+## Parameter Audit Hold
+
+The common umbrella default strategy is now under QC audit because the first completed WHAM analyses show repeated coverage warnings:
+
+- `LiDA-1` NaCl original WHAM: `1` empty bin and `29/200` weak/single-window bins; combined repair improved this to `0` empty and `1/100` weak bin but still needs tail/time-slice review.
+- `LiDS-1` LiCl preliminary WHAM: `0` empty bins but `9/100` weak/single-window bins.
+- `LiDS-1` NaCl preliminary WHAM: `2` empty bins and `12/100` weak/single-window bins, with time-slice shifts.
+
+The umbrella driver defaults were changed for future launches from `0.5 ns` pull, `1.0 ns/window`, and `0.10 nm` spacing to `1.0 ns` pull, `2.0 ns/window`, and `0.075 nm` spacing. A hold-file guard was added so future driver runs stop before launching new windows while the audit is active.
 
 ## PBC-Safe Umbrella Repair
 
