@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	reaction_coordinate	binding_site_atoms	initial_distance_nm	pull_ns	window_eq_ns	window_ns	window_spacing_nm	requested_window_extension_nm	effective_window_extension_nm	box_min_vector_nm	pbc_safe_max_distance_nm	pbc_safe_fraction	pbc_margin_nm	donor_cutoff_nm
+LiDA-1	LIT	128	3580.000	BINDING_SITE_to_TARGET_ION	73,99,74,100	0.1291	1.000	0.500	2.000	0.075	2.000	1.950	6.3657	2.8146	0.450	0.050	0.400
