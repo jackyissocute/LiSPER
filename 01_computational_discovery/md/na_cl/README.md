@@ -14,7 +14,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | Equilibration | 8/8 equilibrated |
 | 20 ns production | Worker B has `LiD3-Flex` active; replacement Worker A backfill has `LiN3-Core` and `LiND-Hybrid` active as of `2026-06-25 09:35 CST`; five candidates are produced |
 | Structural clustering | 5/8 complete; top clusters: `LiDA-1` `17.94%`, `LiDS-1` `14.59%`, `LiLC-1` `1.95%`, `LiA3-Ref` `7.35%`, `LiD3-Core` `10.34%` |
-| PMF handoff | Umbrella windows: `LiDA-1` `15/15` complete plus repair extensions `5/5` complete, combined WHAM/bootstrap QC complete but still preliminary; `LiDS-1` `17/17` old-parameter windows complete with preliminary WHAM/QC complete, and audited v2 NaCl pull active; `LiLC-1` `4/21` complete; `LiA3-Ref` has windows `004`, `005`, and `007` active at the 13:25 CST check; old/default launches remain QC-held |
+| PMF handoff | Old/default umbrella compute stopped/guarded; `LiDA-1` old windows `15/15` plus repair extensions `5/5` complete but preliminary; `LiDS-1` old windows `17/17` complete but preliminary; audited v2 NaCl pulls active for both `LiDS-1` and `LiDA-1` |
 
 ## Candidate Notes
 
@@ -24,8 +24,8 @@ NaCl simulations are being generated as matched comparison systems for the revis
 | `LiD3-Flex` | Recovered checkpoint resume on Worker B; `14.19 ns / 20 ns`; clustering queued |
 | `LiND-Hybrid` | Replacement Worker A backfill active; `5.09 ns / 20 ns`; clustering queued |
 | `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `1.95%`; umbrella `4/21` complete; windows `004-005` active |
-| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; old-parameter umbrella `17/17` complete; preliminary WHAM/QC complete with empty/weak-bin warnings; audited binding-site v2 pull launched on Worker B at 2026-06-25 13:24 CST |
-| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.94%`; umbrella `15/15` complete; repair extensions `5/5` complete; combined WHAM/bootstrap QC complete; still preliminary pending tail/time-slice review |
+| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; old-parameter umbrella `17/17` complete; preliminary WHAM/QC complete with empty/weak-bin warnings; audited binding-site v2 pull active on Worker B |
+| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.94%`; old-parameter umbrella `15/15` complete; repair extensions `5/5` complete; combined WHAM/bootstrap QC complete but preliminary; audited binding-site v2 pull active on Worker B with `LISPER_JOBS=4` |
 | `LiN3-Core` | Replacement Worker A backfill active; `7.78 ns / 20 ns`; clustering queued |
 | `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `7.35%`; umbrella `4/21` complete; windows `004-007` active |
 
