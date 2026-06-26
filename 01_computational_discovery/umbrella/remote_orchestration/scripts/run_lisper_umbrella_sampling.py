@@ -312,27 +312,37 @@ def closest_time(points, distance):
     return min(points, key=lambda item: abs(item[1] - distance))[0]
 
 
-def topology_for():
+def topology_candidates():
+    candidates = []
     for cleaned in [
         GROMACS_DIR / "topol_cleaned_for_prod.top",
         GROMACS_DIR / "topol_clean_attempt2.top",
-        GROMACS_DIR / "run_min" / "topol_cleaned.top",
         GROMACS_DIR / "topol_clean_attempt1.top",
+        GROMACS_DIR / "topol.top",
+        GROMACS_DIR / "run_min" / "topol_cleaned.top",
     ]:
         if cleaned.exists():
-            return cleaned
-    return GROMACS_DIR / "topol.top"
+            candidates.append(cleaned)
+    if not candidates:
+        raise FileNotFoundError(f"No usable topology found under {GROMACS_DIR}")
+    return candidates
 
 
 def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
     tpr = window_dir / f"{deffnm}.tpr"
     cpt_arg = f" -t {cpt}" if cpt and Path(cpt).exists() else ""
-    code, _ = run_shell(
-        f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology_for()} "
-        f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg} -maxwarn 1",
-        log=window_dir / f"{deffnm}.grompp.log",
-    )
-    if code != 0:
+    grompp_log = window_dir / f"{deffnm}.grompp.log"
+    grompp_attempts = []
+    for topology in topology_candidates():
+        code, stdout = run_shell(
+            f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology} "
+            f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg} -maxwarn 1",
+        )
+        grompp_attempts.append(f"### topology: {topology}\n{stdout}")
+        grompp_log.write_text("\n\n".join(grompp_attempts))
+        if code == 0:
+            break
+    else:
         return "grompp_failed"
     code, _ = run_shell(
         f"{GMX_ENV} && cd {window_dir} && OMP_NUM_THREADS={NTHREAD} "

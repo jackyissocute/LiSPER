@@ -113,19 +113,19 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Four paired refined umbrella pulls are complete; `LiDA-1`/`LiDS-1` refined windows are now running in both LiCl and NaCl.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl production/clustering is complete for all eight candidates; NaCl has six representatives ready and two backfill productions still running. `LiDA-1`/`LiDS-1` refined windows are active, and `LiD3-Flex` has entered paired refined pulls.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
-> ![LiCl](https://img.shields.io/badge/LiCl-6_clustered_%2B_2_active-2563eb)
-> ![NaCl](https://img.shields.io/badge/NaCl-5_clustered_%2B_3_active-2563eb)
-> ![Compute](https://img.shields.io/badge/CPU-25%2F30_mdrun_threads-f59e0b)
+> ![LiCl](https://img.shields.io/badge/LiCl-8%2F8_clustered-16a34a)
+> ![NaCl](https://img.shields.io/badge/NaCl-6_clustered_%2B_2_active-2563eb)
+> ![Compute](https://img.shields.io/badge/CPU-21%2F30_mdrun_threads-f59e0b)
 > ![Umbrella](https://img.shields.io/badge/umbrella-refined_windows_active-2563eb)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-26 08:34 CST`
+**Last synchronized monitor snapshot:** `2026-06-26 13:20 CST`
 
 ### Process matrix
 
@@ -142,14 +142,25 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> <code>25/30 active mdrun threads</code></td>
+      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>21/30 active mdrun threads</code></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>19.72-19.78 ns / 20 ns</code><br><sub><code>LiD3-Flex</code> and <code>LiND-Hybrid</code> active</sub></td>
-      <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
+      <td><code>8/8 complete</code><br><sub>Last completions: <code>LiD3-Flex</code>, <code>LiND-Hybrid</code></sub></td>
+      <td><img alt="LiCl production complete" src="https://img.shields.io/badge/complete-8%2F8-16a34a"></td>
+    </tr>
+    <tr>
+      <td>Structural clustering</td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>8/8 reps</code></td>
+      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-8%2F8-16a34a"></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>NaCl</strong></td>
+      <td>20 ns production MD</td>
+      <td><code>6/8 complete</code><br><sub>backfill <code>7.48-11.52 ns / 20 ns</code>; 6/8 clustered</sub></td>
+      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
@@ -157,20 +168,9 @@ flowchart TD
       <td><img alt="clustered" src="https://img.shields.io/badge/clustered-6%2F8-16a34a"></td>
     </tr>
     <tr>
-      <td rowspan="2"><strong>NaCl</strong></td>
-      <td>20 ns production MD</td>
-      <td><code>19.47 ns / 20 ns</code><br><sub>backfill <code>7.27-11.18 ns / 20 ns</code>; 5/8 clustered</sub></td>
-      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-3%2F8_jobs-2563eb"></td>
-    </tr>
-    <tr>
-      <td>Structural clustering</td>
-      <td><code>🟩🟩🟩🟩🟩⬜⬜⬜</code> <code>5/8 reps</code></td>
-      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-5%2F8-16a34a"></td>
-    </tr>
-    <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟦🟦🟦🟦</code> <strong>4 refined pulls complete; windows active</strong><br><sub>LiDA-1 and LiDS-1 are running paired LiCl/NaCl refined windows</sub></td>
+      <td><code>🟦🟦🟦🟦🟦🟦</code> <strong>LiDA/LiDS windows active; LiD3-Flex pulls active</strong><br><sub>Refined work now covers three paired candidates</sub></td>
       <td><img alt="refined active" src="https://img.shields.io/badge/refined_windows-active-2563eb"></td>
     </tr>
     <tr>
@@ -205,16 +205,16 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>19.72 ns / 20 ns</code></td>
-      <td>🟦 <code>19.47 ns / 20 ns</code></td>
-      <td>🟪 planned after representative</td>
+      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.40%</code></td>
+      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>3.80%</code></td>
+      <td>🟦 paired <code>V2 pull active</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>19.78 ns / 20 ns</code></td>
-      <td>🟦 <code>7.27 ns / 20 ns</code>; Worker A backfill</td>
-      <td>🟪 planned after representative</td>
+      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.89%</code></td>
+      <td>🟦 <code>7.48 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟪 planned after NaCl representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
@@ -241,7 +241,7 @@ flowchart TD
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟦 <code>11.18 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>11.52 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟦 LiCl <code>3/21</code>, active <code>003</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
