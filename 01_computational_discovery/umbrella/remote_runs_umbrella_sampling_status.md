@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-25 21:20 CST
+Last updated: 2026-06-26 08:34 CST
 
 ## Launch Rule
 
@@ -10,19 +10,19 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 
 | Candidate | Condition | Worker | Complete / total | Active windows | Window meter |
 |---|---|---|---:|---|---|
-| `LiDA-1` | LiCl | replacement Worker A | old `14/19`; v2 pull complete | v2 production windows `000-002` | `🟩 old + 🟦🟦🟦 v2 prod` |
-| `LiDS-1` | LiCl | replacement Worker A | old `21/21`; v2 pull complete | v2 equil windows `000-003` | `🟩 old + 🟦🟦🟦🟦 v2 eq` |
+| `LiDA-1` | LiCl | Worker A | V2 `3/27` | equil windows `003-005`; next production after equil | `🟩🟩🟩🟦🟦🟦⬜⬜⬜⬜` |
+| `LiDS-1` | LiCl | Worker A | V2 `0/27` | production windows `000-003` | `🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜` |
 | `LiD3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiLC-1` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | old `15/15` + `5/5` repair; v2 pull complete | v2 equil windows `000-003` | `🟩 old + 🟩 repair + 🟦🟦🟦🟦 v2 eq` |
-| `LiDS-1` | NaCl | Worker B | old `17/17`; v2 pull complete | v2 equil windows `000-005` | `🟩 old + 🟦🟦🟦🟦🟦🟦 v2 eq` |
+| `LiDA-1` | NaCl | Worker B | V2 `4/22` | equil windows `004-007`; next production after equil | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
+| `LiDS-1` | NaCl | Worker B | V2 `0/27` | production windows `000-005` | `🟦🟦🟦🟦🟦🟦⬜⬜⬜⬜` |
 | `LiLC-1` | NaCl | Worker B | `4/21` | `004-005` | `🟩🟩🟩🟩🟦🟦⬜⬜⬜⬜` |
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: old/default umbrella compute has been stopped and guarded after repeated WHAM overlap/bin warnings. All four paired v2 pulls are complete: `LiDA-1` LiCl at 17:07 CST, `LiDA-1` NaCl at 19:35 CST, `LiDS-1` LiCl at 20:05 CST, and `LiDS-1` NaCl at 20:52 CST. `LiDA-1` LiCl has entered v2 production windows (`000-002` active). `LiDS-1` LiCl is in v2 window equilibration (`000-003` active). Worker B is exactly full but within quota: `LiDA-1` NaCl v2 equil windows `000-003` and `LiDS-1` NaCl v2 equil windows `000-005` are active alongside one 2-thread production job. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. All four paired V2 pulls are complete. `LiDA-1` LiCl has `3/27` V2 production windows complete and equilibration windows `003-005` active. `LiDS-1` LiCl has production windows `000-003` active. `LiDA-1` NaCl has `4/22` V2 production windows complete and equilibration windows `004-007` active. `LiDS-1` NaCl has production windows `000-005` active. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
 NaCl `LiDA-1` completed all 15 valid old-parameter windows and has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both old-parameter conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. These old-parameter PMFs remain QC-only; the paired v2 LiCl/NaCl reruns are now the route to publishable Delta G and Delta Delta G.
 
@@ -30,8 +30,8 @@ NaCl `LiDA-1` completed all 15 valid old-parameter windows and has a combined or
 
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
-| replacement Worker A | 6 production threads | 3 v2 production windows + 4 v2 equilibration windows; old non-v2 windows stopped | 13/18 active now |
-| Worker B | 2 production threads | 10 v2 equilibration windows; old non-v2 windows stopped | 12/12 active now |
+| Worker A | 6 production threads | 4 V2 production windows + 3 V2 equilibration windows | 13/18 active now |
+| Worker B | 2 production threads | 6 V2 production windows + 4 V2 equilibration windows | 12/12 active now |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 

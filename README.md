@@ -113,7 +113,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Four paired refined umbrella pulls are complete and refined windows are active for `LiDA-1`/`LiDS-1` in both LiCl and NaCl.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. LiCl and NaCl 20 ns production + clustering are active across two AutoDL workers. Four paired refined umbrella pulls are complete; `LiDA-1`/`LiDS-1` refined windows are now running in both LiCl and NaCl.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-6_clustered_%2B_2_active-2563eb)
@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-25 21:20 CST`
+**Last synchronized monitor snapshot:** `2026-06-26 08:34 CST`
 
 ### Process matrix
 
@@ -148,7 +148,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>15.53-15.61 ns / 20 ns</code><br><sub><code>LiD3-Flex</code> and <code>LiND-Hybrid</code> active</sub></td>
+      <td><code>19.72-19.78 ns / 20 ns</code><br><sub><code>LiD3-Flex</code> and <code>LiND-Hybrid</code> active</sub></td>
       <td><img alt="LiCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -159,7 +159,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>14.19 ns / 20 ns</code><br><sub>backfill <code>5.09-7.78 ns / 20 ns</code>; 5/8 clustered</sub></td>
+      <td><code>19.47 ns / 20 ns</code><br><sub>backfill <code>7.27-11.18 ns / 20 ns</code>; 5/8 clustered</sub></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-3%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -205,15 +205,15 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟦 <code>15.53 ns / 20 ns</code></td>
-      <td>🟦 <code>14.19 ns / 20 ns</code></td>
+      <td>🟦 <code>19.72 ns / 20 ns</code></td>
+      <td>🟦 <code>19.47 ns / 20 ns</code></td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟦 <code>15.61 ns / 20 ns</code></td>
-      <td>🟦 <code>5.09 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>19.78 ns / 20 ns</code></td>
+      <td>🟦 <code>7.27 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -228,20 +228,20 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl <code>V2 active</code>; NaCl <code>V2 active</code></td>
+      <td>🟦 LiCl <code>V2 4 active</code>; NaCl <code>V2 6 active</code></td>
       <td>🟪 PMF QC; final waits for refined WHAM/time-slice checks</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>V2 3/27</code>; NaCl <code>V2 active</code></td>
+      <td>🟦 LiCl <code>V2 3/27</code>; NaCl <code>V2 4/22</code></td>
       <td>🟪 NaCl <code>20-window QC set</code>: <code>0</code> empty bins, <code>1</code> weak bin; final waits for refined PMF QC</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟦 <code>7.78 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>11.18 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟦 LiCl <code>3/21</code>, active <code>003</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
