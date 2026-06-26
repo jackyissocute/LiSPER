@@ -278,7 +278,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>refined windows active</code></strong><br><sub>NaCl LiDS-1: 6/27 complete; LiD3-Flex pulls active</sub></td>
+      <td align="center"><strong><code>refined windows active</code></strong><br><sub>LiDS-1: LiCl 4/27, NaCl 6/27; LiDA-1 NaCl 8/22</sub></td>
       <td>Finish refined window equilibration/production, then run WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
