@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-26 13:20 CST
+Last updated: 2026-06-26 17:15 CST
 
 ## Launch Rule
 
@@ -18,13 +18,13 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | Worker B | V2 `4/22` | equil windows `004-007`; next production after equil | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
-| `LiDS-1` | NaCl | Worker B | V2 `0/27` | production windows `000-005` | `🟦🟦🟦🟦🟦🟦⬜⬜⬜⬜` |
+| `LiDS-1` | NaCl | Worker B | V2 `6/27` | equil windows `006-011` | `🟩🟩🟦🟦🟦🟦⬜⬜⬜⬜` |
 | `LiD3-Flex` | NaCl | Worker B | V2 pull active | pull running | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiLC-1` | NaCl | Worker B | `4/21` | `004-005` | `🟩🟩🟩🟩🟦🟦⬜⬜⬜⬜` |
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired `LiDA-1` and `LiDS-1` V2 windows are active in both conditions. Newly representative-ready `LiD3-Flex` entered refined LiCl/NaCl pulls this cycle. The LiCl launch needed a topology-selection repair because the production coordinate count matched `topol_clean_attempt1.top`, not the original `topol.top`; the driver now tries usable topology candidates and records attempts in the grompp log. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired `LiDA-1` and `LiDS-1` V2 windows are active in both conditions. NaCl `LiDS-1` completed refined production for windows `000-005` and advanced its next six windows through equilibration. `LiD3-Flex` LiCl/NaCl pulls remain active. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
 NaCl `LiDA-1` completed all 15 valid old-parameter windows and has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both old-parameter conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. These old-parameter PMFs remain QC-only; the paired v2 LiCl/NaCl reruns are now the route to publishable Delta G and Delta Delta G.
 

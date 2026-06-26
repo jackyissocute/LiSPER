@@ -278,7 +278,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>refined windows active</code></strong><br><sub>all four paired LiDA-1/LiDS-1 LiCl/NaCl pulls complete</sub></td>
+      <td align="center"><strong><code>refined windows active</code></strong><br><sub>NaCl LiDS-1: 6/27 complete; LiD3-Flex pulls active</sub></td>
       <td>Finish refined window equilibration/production, then run WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -302,7 +302,7 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
-- Replacement Worker A is active with 13/18 safe mdrun threads during refined umbrella stages, and Worker B is active with 12/12 threads. The current combined pool is 25/30 active mdrun threads without duplicate candidate-condition-stage jobs.
+- Worker A is active with 10/18 safe mdrun threads and Worker B with 11/12 threads. The combined pool is 21/30 active mdrun threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1` and `LiDS-1` in both LiCl and NaCl. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` has a 20-window preliminary QC set with `0` empty bins and `1` weak bin at 100 bins, but tail and time-slice review is still required before any final Delta G is accepted.
