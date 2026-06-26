@@ -2,7 +2,7 @@
 
 Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
 Data prefix:  /root/miniconda3/envs/lisper-gmx
-Working dir:  /root/LiSPER_remote/LiSPER_NaCl/systems/LiD3-1/gromacs/run_eq
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiD3-Flex/gromacs/run_eq
 Command line:
   gmx mdrun -deffnm step4.1_equilibration -ntmpi 1 -ntomp 16
 
@@ -26,9 +26,9 @@ starting mdrun 'Title'
 Writing final coordinates.
 
                Core t (s)   Wall t (s)        (%)
-       Time:    16602.167     1037.636     1600.0
+       Time:    17754.275     1109.642     1600.0
                  (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
-Performance:       10.408        2.306        8.301            8.217 
+Performance:        9.733        2.466        8.877            7.684 
 
-GROMACS reminds you: "There is no place like ~" (Anonymous)
+GROMACS reminds you: "Wait a Minute, aren't You.... ? (gunshots) Yeah." (Bodycount)
 

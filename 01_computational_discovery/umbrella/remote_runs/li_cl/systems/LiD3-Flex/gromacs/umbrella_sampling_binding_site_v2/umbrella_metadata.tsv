@@ -1,0 +1,2 @@
+candidate_id	ion_resname	target_atom	representative_time_ps	reaction_coordinate	binding_site_atoms	initial_distance_nm	pull_ns	window_eq_ns	window_ns	window_spacing_nm	requested_window_extension_nm	effective_window_extension_nm	box_min_vector_nm	pbc_safe_max_distance_nm	pbc_safe_fraction	pbc_margin_nm	donor_cutoff_nm
+LiD3-Flex	LIT	241	16660.000	BINDING_SITE_to_TARGET_ION	40,39,42	0.2545	1.000	0.500	2.000	0.075	2.000	1.950	9.5612	4.2525	0.450	0.050	0.400

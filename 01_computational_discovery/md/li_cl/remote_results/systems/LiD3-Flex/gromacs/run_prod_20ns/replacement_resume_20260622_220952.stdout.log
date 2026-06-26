@@ -21,3 +21,14 @@ Using 2 OpenMP threads
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
 10000000 steps,  20000.0 ps (continuing from step 6219680,  12439.4 ps).
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:   615901.239   307950.619      200.0
+                         3d13h32:30
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        2.121       11.314       81.462            0.837 
+
+GROMACS reminds you: "I know poetry is not dead, nor genius lost; nor has Mammon gained power over either, to bind or slay; they will both assert their existence, their presence, their liberty and strength again one day." (Jane Eyre in Jane Eyre by Charlotte Bronte)
+

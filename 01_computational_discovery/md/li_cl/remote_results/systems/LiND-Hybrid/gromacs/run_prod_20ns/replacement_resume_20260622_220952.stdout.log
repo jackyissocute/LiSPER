@@ -21,3 +21,14 @@ Using 2 OpenMP threads
 NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
 starting mdrun 'Title'
 10000000 steps,  20000.0 ps (continuing from step 6269840,  12539.7 ps).
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:   611326.211   305663.105      200.0
+                         3d12h54:23
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        2.109       11.381       81.944            0.832 
+
+GROMACS reminds you: "Occams Razor is the scientific principle that, all things being equal, the simplest explanation is always the dog ate my homework." (Greg Tamblyn)
+
