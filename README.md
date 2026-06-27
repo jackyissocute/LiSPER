@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-27 18:56 CST`
+**Last synchronized monitor snapshot:** `2026-06-27 22:56 CST`
 
 ### Process matrix
 
@@ -159,7 +159,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>6/8 complete</code><br><sub>backfill <code>8.87-13.69 ns / 20 ns</code>; 6/8 clustered</sub></td>
+      <td><code>6/8 complete</code><br><sub>backfill <code>9.05-13.98 ns / 20 ns</code>; 6/8 clustered</sub></td>
       <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
@@ -213,7 +213,7 @@ flowchart TD
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.89%</code></td>
-      <td>🟦 <code>8.87 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>9.05 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟪 planned after NaCl representative</td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -235,13 +235,13 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>V2 9/27</code>; NaCl <code>V2 12/22</code></td>
+      <td>🟦 LiCl <code>V2 9/27</code>; NaCl <code>V2 16/22</code></td>
       <td>🟪 NaCl <code>20-window QC set</code>: <code>0</code> empty bins, <code>1</code> weak bin; final waits for refined PMF QC</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟦 <code>13.69 ns / 20 ns</code>; Worker A backfill</td>
+      <td>🟦 <code>13.98 ns / 20 ns</code>; Worker A backfill</td>
       <td>🟦 LiCl <code>3/21</code>, active <code>003</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
@@ -278,7 +278,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>refined windows active</code></strong><br><sub>LiDA-1: LiCl 9/27, NaCl 12/22; LiDS-1: LiCl 8/27, NaCl 12/27</sub></td>
+      <td align="center"><strong><code>refined windows active</code></strong><br><sub>LiDA-1: LiCl 9/27, NaCl 16/22; LiDS-1: LiCl 8/27, NaCl 12/27</sub></td>
       <td>Finish refined window equilibration/production, then run WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
