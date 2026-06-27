@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-28 02:56 CST
+Last updated: 2026-06-28 06:56 CST
 
 ## Launch Rule
 
@@ -18,13 +18,13 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | Worker B | V2 `16/22` | equil windows `016-019` | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiDS-1` | NaCl | Worker B | V2 `16/27` | production `015`, `017`; equil `018-021` | `🟩🟩🟩🟩🟩🟩🟦🟦⬜⬜` |
+| `LiDS-1` | NaCl | Worker B | V2 `18/27` | production windows `018-023` | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiD3-Flex` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiLC-1` | NaCl | Worker B | `4/21` | `004-005` | `🟩🟩🟩🟩🟦🟦⬜⬜⬜⬜` |
 | `LiA3-Ref` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | `4/21` | `004-007` | `🟩🟩🟩🟩🟦🟦🟦🟦⬜⬜` |
 
-Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired `LiDA-1`, `LiDS-1`, and `LiD3-Flex` V2 windows are active in both conditions. LiCl `LiDA-1` advanced to `12/27` and is equilibrating windows `012-014`; LiCl `LiDS-1` remains `8/27`; LiCl `LiD3-Flex` is running windows `000-003`; NaCl `LiDA-1` remains `16/22` and is running windows `016-019`; NaCl `LiDS-1` advanced to `16/27`; NaCl `LiD3-Flex` is running windows `000-001`. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired `LiDA-1`, `LiDS-1`, and `LiD3-Flex` V2 windows are active in both conditions. LiCl `LiDA-1` remains `12/27` and is running windows `012-014`; LiCl `LiDS-1` remains `8/27`; LiCl `LiD3-Flex` is running windows `000-003`; NaCl `LiDA-1` remains `16/22` and is running windows `016-019`; NaCl `LiDS-1` advanced to `18/27` and is running windows `018-023`; NaCl `LiD3-Flex` is running windows `000-001`. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
 NaCl `LiDA-1` completed all 15 valid old-parameter windows and has a combined original-plus-repair GROMACS WHAM/bootstrap QC pass. The repair improved histogram coverage from `1` empty bin and `29/200` weak bins to `0` empty bins and `1/100` weak bin at the 100-bin combined setting. The result remains preliminary because the residual warning sits at the outer tail and the time-sliced plateau/minimum estimate shifts (`2.02-2.97 kJ/mol` across 100-bin slices). `LiDS-1` completed WHAM/QC for both old-parameter conditions: LiCl has `0` empty bins and `9/100` weak bins, while NaCl has `2` empty bins and `12/100` weak bins. These old-parameter PMFs remain QC-only; the paired v2 LiCl/NaCl reruns are now the route to publishable Delta G and Delta Delta G.
 
