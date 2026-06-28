@@ -13,3 +13,6 @@ __pycache__/
 # MD trajectory files are kept locally or on remote storage, not in normal Git commits.
 01_computational_discovery/md/**/remote_results/**/*.xtc
 01_computational_discovery/md/**/remote_results/**/*.trr
+
+# Large local safety snapshot made before remote cleanup; keep on laptop, not in GitHub.
+01_computational_discovery/md/remote_runs/legacy_10_candidate_runs_workerA_snapshot/

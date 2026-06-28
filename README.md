@@ -127,6 +127,8 @@ flowchart TD
 
 **Last synchronized monitor snapshot:** `2026-06-28 18:57 CST`
 
+**Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
+
 ### Process matrix
 
 <table>
