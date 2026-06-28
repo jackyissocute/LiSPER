@@ -26,9 +26,16 @@ More negative Delta Delta G indicates stronger Li+ preference.
 |---|---|
 | `remote_runs/li_cl/pmf_qc/` | LiCl WHAM and PMF QC runs. |
 | `remote_runs/na_cl/pmf_qc/` | NaCl WHAM and PMF QC runs. |
+| `remote_runs/na_cl/pmf_wham/` | Refined NaCl WHAM products synced from completed v2 umbrella sets. |
 | `remote_runs/na_cl/pmf_qc_repair/` | NaCl repair/diagnostic WHAM runs retained as preliminary evidence. |
 | `remote_results/li_cl/` | Synced LiCl PMF products when completed and safe to store. |
 | `remote_results/na_cl/` | Synced NaCl PMF products when completed and safe to store. |
+
+## Current Refined PMF State
+
+| Candidate | Condition | Window set | WHAM/PMF state | Delta G status |
+|---|---|---:|---|---|
+| `LiDA-1` | NaCl | V2 `22/22` | `profile_v2.xvg` and `histo_v2.xvg` synced; QC summary reports `200/200` finite profile points and `3` poor-sampling warning hits in far-tail bins | Preliminary only; repair/QC, bootstrap/error, and time-slice convergence still required |
 
 ## Reliability Gates
 
