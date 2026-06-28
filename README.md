@@ -118,14 +118,14 @@ flowchart TD
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-8%2F8_clustered-16a34a)
 > ![NaCl](https://img.shields.io/badge/NaCl-6_clustered_%2B_2_active-2563eb)
-> ![Compute](https://img.shields.io/badge/CPU-21%2F30_mdrun_threads-f59e0b)
+> ![Compute](https://img.shields.io/badge/CPU-27%2F30_mdrun_threads-f59e0b)
 > ![Umbrella](https://img.shields.io/badge/umbrella-refined_tracks_active-2563eb)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-28 23:05 CST`
+**Last synchronized monitor snapshot:** `2026-06-29 00:38 CST`
 
 **Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
 
@@ -144,7 +144,7 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩⬜⬜⬜</code> <code>21/30 active mdrun threads</code><br><sub>Drivers staged to expand after pull/equilibration gates</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> <code>27/30 active mdrun threads</code><br><sub>Recovered after accidental stop; no duplicate windows detected</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
@@ -296,7 +296,7 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are based on the current `21/30` real `gmx mdrun` pool during mixed pull, equilibration, and production-window stages. The launched efficiency drivers are capped to expand toward full safe occupancy once pull/equilibration gates convert into production windows, without duplicating existing `LiDA-1`, `LiDS-1`, or `LiD3-Flex` windows. The first likely paired Delta Delta G table remains LiDA-1; NaCl V2 WHAM is complete but still preliminary because far-tail poor-sampling warnings require QC repair/review.
+> Time estimates are based on the current `27/30` real `gmx mdrun` pool after the 2026-06-29 recovery launch. The active drivers are capped to stay under Worker A/B quotas and expand only when pull/equilibration gates convert into ready production windows, without duplicating existing `LiDA-1`, `LiDS-1`, or `LiD3-Flex` windows. The first likely paired Delta Delta G table remains LiDA-1; NaCl V2 WHAM is complete but still preliminary because far-tail poor-sampling warnings require QC repair/review.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -304,7 +304,7 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are running in parallel across two workers with no duplicate candidate-condition-stage jobs.
-- Worker A is active with 14/18 real `gmx mdrun` threads and Worker B with 7/12. The combined pool is 21/30 active real `mdrun` threads without duplicate candidate-condition-stage jobs; the lower instantaneous occupancy reflects pull/equilibration stages and WHAM analysis rather than idle-ready production windows.
+- Worker A is active with 17/18 real `gmx mdrun` threads and Worker B with 10/12 after the 2026-06-29 accidental-stop recovery. The combined pool is 27/30 active real `mdrun` threads without duplicate candidate-condition-stage jobs; Worker B remains below 12 while two pull-stage drivers are still single-core.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, and `LiLC-1` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` V2 WHAM completed from 22 refined windows with a finite PMF profile, but GROMACS reported three poor-sampling far-tail bins. It remains preliminary until repair/QC, bootstrap, and time-slice convergence checks pass.
