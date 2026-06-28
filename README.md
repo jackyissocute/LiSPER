@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-28 18:57 CST`
+**Last synchronized monitor snapshot:** `2026-06-28 19:48 CST`
 
 **Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
 
@@ -202,8 +202,8 @@ flowchart TD
       <td><strong>LiD3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>10.34%</code></td>
-      <td>🟦 LiCl <code>3/21</code>, active <code>003</code>; NaCl <code>4/21</code>, active <code>004-007</code></td>
-      <td>🟪 planned after umbrella sampling</td>
+      <td>🟦 LiCl <code>V2 0/27</code>, pull active; NaCl <code>V2 0/27</code>, pull active</td>
+      <td>🟪 PMF pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
@@ -296,7 +296,7 @@ flowchart TD
   </tbody>
 </table>
 
-> Time estimates are based on the current 23/30 active-thread pool, with about 21 threads running umbrella windows and two threads still used by NaCl production tails. The first likely paired Delta Delta G table remains LiDA-1; full three-candidate coverage depends on LiDS-1 and LiD3-Flex finishing their refined windows and passing WHAM/PMF QC.
+> Time estimates are based on the current `25/30` active-thread pool during the new `LiD3-Core` V2 pull stage. The launched efficiency drivers are capped to expand toward `30/30` once pull preparation converts into window production, without duplicating existing `LiDA-1`, `LiDS-1`, or `LiD3-Flex` windows. The first likely paired Delta Delta G table remains LiDA-1; full coverage depends on each refined track finishing windows and passing WHAM/PMF QC.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -319,7 +319,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | LiCl `3/21`, active `003`; NaCl `4/21`, active `004-007` |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 pulls active; window production pending pull completion |
 | 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl/NaCl umbrella windows active; PMF QC pending final refined run |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl Worker A backfill active |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, active `003`; NaCl `4/21`, active `004-005` |
