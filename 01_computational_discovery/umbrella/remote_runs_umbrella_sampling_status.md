@@ -17,7 +17,7 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiLC-1` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | V2 `22/22` + V3 repair | V3 tail extensions `020-021` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦` |
+| `LiDA-1` | NaCl | Worker B | V3 `22/24` | tail repair windows `020-021` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
 | `LiD3-Flex` | NaCl | Worker B | V2 `2/27` | production windows `002-006` | `🟩🟩🟦🟦🟦🟦🟦⬜⬜⬜` |
 | `LiLC-1` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
