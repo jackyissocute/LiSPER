@@ -2,7 +2,7 @@
 
 This folder owns the umbrella-sampling step after MD production and representative clustering. It contains umbrella drivers, v2 reaction-coordinate metadata, pull stages, window equilibration/production logs, synced window outputs, and retained diagnostics from superseded old-parameter runs.
 
-Latest umbrella snapshot: `2026-06-26 13:20 CST`.
+Latest umbrella snapshot: `2026-06-29 15:08 CST`.
 
 ## Entry Requirement
 

@@ -1,0 +1,10 @@
+metric	value
+input_windows	27
+profile_points	200
+finite_points	200
+nonfinite_profile_points	0
+warning_keyword_hits	2
+pmf_min_kj_mol	-0.586153
+pmf_max_kj_mol	5.79528
+pmf_span_kj_mol	6.38143
+status	preliminary_qc_review_required
