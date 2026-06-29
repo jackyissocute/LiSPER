@@ -1,0 +1,30 @@
+Worker B cleanup 20260629_1000
+BEFORE
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G   23G  7.9G  74% /
+ACTIVE_CWDS
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Core/gromacs/umbrella_sampling_binding_site_v2/pull
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/umbrella_sampling_binding_site_v2/pull
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/umbrella_sampling_binding_site_v2/window_024_2.63nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/umbrella_sampling_binding_site_v2/window_025_2.70nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/umbrella_sampling_binding_site_v2/window_026_2.78nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_003_0.33nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_004_0.41nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_002_0.26nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_006_0.56nm
+/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_005_0.48nm
+964M	/root/LiSPER_remote/LiSPER_LiCl
+REMOVED dir /root/LiSPER_remote/LiSPER_LiCl
+1.3G	/root/LiSPER_remote/LiSPER_8cand_NaCl
+REMOVED dir /root/LiSPER_remote/LiSPER_8cand_NaCl
+180M	/root/LiSPER_remote/LiSPER_8cand_NaCl_addon_LiN3Core
+REMOVED dir /root/LiSPER_remote/LiSPER_8cand_NaCl_addon_LiN3Core
+OLD_DEFAULT_XTC_SIZE
+1020M	total
+V2_COMPLETED_XTC_SIZE
+11G	total
+V2_COMPLETED_PULL_XTC_SIZE
+405M	total
+AFTER
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G  7.8G   23G  26% /
