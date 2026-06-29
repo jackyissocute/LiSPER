@@ -1,0 +1,31 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+             :-) GROMACS - gmx convert-tpr, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root
+Command line:
+  gmx convert-tpr -s /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_021_2.75nm/umbrella.tpr -extend 2000 -o /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/v3_tail_repair_20260629_1915/window_021_extend_2ns/umbrella_ext.tpr
+
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_021_2.75nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+
+GROMACS reminds you: "Don't pay any attention to what they write about you. Just measure it in inches." (Andy Warhol)
+
+Input file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   1000000     
+  Runtime for the run                             2000 ps  
+  Run end step                                 1000000     
+  Run end time                                    2000 ps  
+
+Extending remaining runtime by 2000 ps
+
+Output file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   2000000     
+  Runtime for the run                             4000 ps  
+  Run end step                                 2000000     
+  Run end time                                    4000 ps  
+

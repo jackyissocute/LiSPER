@@ -2,7 +2,7 @@
 
 This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selectivity analysis after umbrella sampling.
 
-Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the relevant v2 umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
+Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
 
 ## Selectivity Equation
 
@@ -35,7 +35,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Window set | WHAM/PMF state | Delta G status |
 |---|---|---:|---|---|
-| `LiDA-1` | NaCl | V3 `22/24` | V2 `22/22` WHAM outputs are synced; QC summary reports `200/200` finite profile points and `3` poor-sampling warning hits in far-tail bins; V3 adds two tail-extension windows `020-021`, both active | Preliminary only; V3 repair, combined WHAM/bootstrap, and time-slice convergence must pass before Delta G promotion |
+| `LiDA-1` | NaCl | V3 `24/24` | V3 combined WHAM/bootstrap/time-slice outputs are synced; QC summary reports `200/200` finite profile points, `9` warning lines, far-tail poor-sampling bins at `z=2.92314-2.93281 nm`, and `1.67557 kJ/mol` time-slice span shift | Preliminary only; V4 far-tail repair is queued before Delta G promotion |
 | `LiDS-1` | NaCl | V2 `27/27` | `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; QC summary reports `200/200` finite profile points, `0` nonfinite points, and `2` poor-sampling warning hits | Preliminary only; QC review and time-slice/bootstrap interpretation still required |
 
 ## Reliability Gates

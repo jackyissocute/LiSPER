@@ -1,0 +1,15 @@
+field	value
+candidate	LiDA-1
+condition	NaCl
+current_protocol	V3
+classification	REPAIR
+decision_time_cst	2026-06-30 07:39
+v3_input_windows	24
+v3_profile_points	200
+v3_finite_points	200
+v3_warning_lines	9
+v3_time_slice_span_shift_kj_mol	1.67557
+primary_qc_issue	poor far-tail sampling remains at z=2.92314-2.93281 nm; b500 also reported one low-edge empty bin at z=1.01843
+v4_plan	add or extend the outer reference-tail sampling near 2.90-2.94 nm, then rerun combined WHAM/bootstrap/time-slice QC with single-thread WHAM
+launch_condition	launch as soon as either worker has safe non-duplicate 1-2 mdrun slots and required V3 checkpoint/input files are present
+dashboard_status	NaCl V3 24/24 complete; V4 tail repair queued; Delta G preliminary only
