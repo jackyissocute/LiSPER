@@ -172,7 +172,7 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟦🟦🟦🟦🟦🟦</code> <strong>Refined umbrella tracks active</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, and LiA3-Ref NaCl pull</sub></td>
+      <td><code>🟦🟦🟦🟦🟦🟦</code> <strong>Refined umbrella tracks active</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, and LiA3-Ref NaCl window</sub></td>
       <td><img alt="refined active" src="https://img.shields.io/badge/refined_windows-active-2563eb"></td>
     </tr>
     <tr>
@@ -251,7 +251,7 @@ flowchart TD
       <td><strong>LiA3-Ref</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>5.05%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>7.35%</code></td>
-      <td>🟦 LiCl <code>2/21</code>, active <code>002</code>; NaCl <code>V2 0/27</code>, pull active</td>
+      <td>🟦 LiCl <code>2/21</code>, active <code>002</code>; NaCl <code>V2 0/27</code>, active <code>000</code></td>
       <td>🟪 planned after umbrella sampling</td>
     </tr>
   </tbody>
@@ -326,7 +326,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl refined windows active; NaCl V3 tail repair active after V2 WHAM QC warnings |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `3/21`, active `003`; NaCl Worker A backfill active |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `2/21`, active `002`; NaCl refined pull active |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `2/21`, active `002`; NaCl `V2 0/27`, active `000` |
 
 ## ⚙️ Computational workflow
 
