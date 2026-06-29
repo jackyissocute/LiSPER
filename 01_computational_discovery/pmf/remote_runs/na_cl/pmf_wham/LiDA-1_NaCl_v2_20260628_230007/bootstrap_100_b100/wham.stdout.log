@@ -1,0 +1,1701 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+                 :-) GROMACS - gmx wham, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/pmf_wham_v2_20260628_230007/bootstrap_100_b100
+Command line:
+  gmx wham -it ../tpr-files.dat -if ../pullf-files.dat -bins 100 -b 100 -nBootstrap 100 -bsres bootstrap_profile_std.xvg -bsprof bootstrap_profiles.xvg -o profile_kjmol.xvg -hist histo.xvg
+
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_000_1.18nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_001_1.25nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_002_1.33nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_003_1.40nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_004_1.48nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_005_1.55nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_006_1.63nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_007_1.70nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_008_1.78nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_009_1.85nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_010_1.93nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_011_2.00nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_012_2.08nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_013_2.15nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_014_2.23nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_015_2.30nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_016_2.38nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_017_2.45nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_018_2.53nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_019_2.60nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_020_2.68nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_021_2.75nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_000_1.18nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_001_1.25nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_002_1.33nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_003_1.40nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_004_1.48nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_005_1.55nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_006_1.63nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_007_1.70nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_008_1.78nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_009_1.85nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_010_1.93nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_011_2.00nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_012_2.08nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_013_2.15nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_014_2.23nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_015_2.30nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_016_2.38nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_017_2.45nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_018_2.53nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_019_2.60nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_020_2.68nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_021_2.75nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Warning, poor sampling bin 99 (z=2.92797). Check your histograms!
+Found 22 tpr and 22 pull force files in ../tpr-files.dat and ../pullf-files.dat, respectively
+Reading 22 tpr and pullx/pullf files
+Automatic determination of boundaries...
+
+File /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_000_1.18nm/umbrella.tpr, 1 coordinates, with these options:
+	Geometry distance   k = 1000      position = 1.1779    dimensions [Y Y Y] (3 dimensions). Used: Yes
+	Pull group coordinates of 0 groups expected in pullx files.
+	Reference value of the coordinate not expected in pullx files.
+	Use option -v to see this output for all input tpr files
+
+
+Reading pull force file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_000_1.18nm/umbrella_pullf.xvg, expecting 2 columns:
+	Column for time: 1
+	Column(s) with data for pull coordinate 1 are
+		reaction coordinate:             2
+		center-of-mass of groups:        No
+		reference position column:       No
+	Found 10001 times in /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_000_1.18nm/umbrella_pullf.xvg
+
+Determined boundaries to 1.003929 and 2.937642
+
+Wrote histo.xvg
+Getting initial potential by integration.
+Initialized rapid wham stuff (contrib tolerance 4.54545e-08)
+Evaluating only 743 of 2200 expressions.
+
+	   1) Maximum change 1.085312e-02
+	 100) Maximum change 2.583186e-05
+	 200) Maximum change 9.220036e-06
+	 300) Maximum change 3.716643e-06
+	 400) Maximum change 1.512146e-06
+Switched to exact iteration in iteration 446
+Converged in 447 iterations. Final maximum change 9.90634e-07
+Wrote profile_kjmol.xvg
+  *******************************************
+  ******** Start bootstrap nr 1 ************
+  *******************************************
+	   1) Maximum change 2.031467e-02
+	 100) Maximum change 1.175593e-05
+	 200) Maximum change 6.883413e-06
+	 300) Maximum change 4.095269e-06
+	 400) Maximum change 2.437640e-06
+	 500) Maximum change 1.450969e-06
+	Converged in 573 iterations. Final maximum change 9.93478e-07
+  *******************************************
+  ******** Start bootstrap nr 2 ************
+  *******************************************
+	   1) Maximum change 5.313257e-02
+	 100) Maximum change 2.753162e-04
+	 200) Maximum change 1.323355e-04
+	 300) Maximum change 7.214163e-05
+	 400) Maximum change 3.994313e-05
+	 500) Maximum change 2.215444e-05
+	 600) Maximum change 1.229035e-05
+	 700) Maximum change 6.818305e-06
+	 800) Maximum change 3.782590e-06
+	 900) Maximum change 2.098467e-06
+	1000) Maximum change 1.164166e-06
+	Converged in 1027 iterations. Final maximum change 9.92957e-07
+  *******************************************
+  ******** Start bootstrap nr 3 ************
+  *******************************************
+	   1) Maximum change 5.926541e-02
+	 100) Maximum change 3.073651e-04
+	 200) Maximum change 1.603054e-04
+	 300) Maximum change 1.063682e-04
+	 400) Maximum change 7.422073e-05
+	 500) Maximum change 5.316400e-05
+	 600) Maximum change 3.996207e-05
+	 700) Maximum change 2.975891e-05
+	 800) Maximum change 2.198936e-05
+	 900) Maximum change 1.619067e-05
+	1000) Maximum change 1.190161e-05
+	1100) Maximum change 8.742142e-06
+	1200) Maximum change 6.419160e-06
+	1300) Maximum change 4.712686e-06
+	1400) Maximum change 3.459606e-06
+	1500) Maximum change 2.539629e-06
+	1600) Maximum change 1.864264e-06
+	1700) Maximum change 1.368490e-06
+	1800) Maximum change 1.004557e-06
+	Converged in 1803 iterations. Final maximum change 9.9528e-07
+  *******************************************
+  ******** Start bootstrap nr 4 ************
+  *******************************************
+	   1) Maximum change 8.648901e-02
+	 100) Maximum change 7.884887e-04
+	 200) Maximum change 5.440604e-04
+	 300) Maximum change 3.606956e-04
+	 400) Maximum change 2.387302e-04
+	 500) Maximum change 1.579939e-04
+	 600) Maximum change 1.045613e-04
+	 700) Maximum change 6.919926e-05
+	 800) Maximum change 4.579640e-05
+	 900) Maximum change 3.030825e-05
+	1000) Maximum change 2.005812e-05
+	1100) Maximum change 1.327454e-05
+	1200) Maximum change 8.785140e-06
+	1300) Maximum change 5.814037e-06
+	1400) Maximum change 3.847750e-06
+	1500) Maximum change 2.546454e-06
+	1600) Maximum change 1.685252e-06
+	1700) Maximum change 1.115305e-06
+	Converged in 1728 iterations. Final maximum change 9.93563e-07
+  *******************************************
+  ******** Start bootstrap nr 5 ************
+  *******************************************
+	   1) Maximum change 5.711177e-02
+	 100) Maximum change 6.255168e-04
+	 200) Maximum change 3.756852e-04
+	 300) Maximum change 2.410481e-04
+	 400) Maximum change 1.503805e-04
+	 500) Maximum change 9.295438e-05
+	 600) Maximum change 5.727843e-05
+	 700) Maximum change 3.525708e-05
+	 800) Maximum change 2.169397e-05
+	 900) Maximum change 1.334670e-05
+	1000) Maximum change 8.210840e-06
+	1100) Maximum change 5.051181e-06
+	1200) Maximum change 3.107383e-06
+	1300) Maximum change 1.911592e-06
+	1400) Maximum change 1.175966e-06
+	Converged in 1435 iterations. Final maximum change 9.92091e-07
+  *******************************************
+  ******** Start bootstrap nr 6 ************
+  *******************************************
+	   1) Maximum change 5.250334e-02
+	 100) Maximum change 2.779717e-04
+	 200) Maximum change 1.551181e-04
+	 300) Maximum change 1.072473e-04
+	 400) Maximum change 7.543348e-05
+	 500) Maximum change 5.312142e-05
+	 600) Maximum change 3.741212e-05
+	 700) Maximum change 2.634859e-05
+	 800) Maximum change 1.855678e-05
+	 900) Maximum change 1.306915e-05
+	1000) Maximum change 9.204329e-06
+	1100) Maximum change 6.482413e-06
+	1200) Maximum change 4.565425e-06
+	1300) Maximum change 3.215330e-06
+	1400) Maximum change 2.264488e-06
+	1500) Maximum change 1.594829e-06
+	1600) Maximum change 1.123204e-06
+	Converged in 1635 iterations. Final maximum change 9.93498e-07
+  *******************************************
+  ******** Start bootstrap nr 7 ************
+  *******************************************
+	   1) Maximum change 6.947010e-02
+	 100) Maximum change 4.196954e-05
+	 200) Maximum change 3.588250e-05
+	 300) Maximum change 2.951436e-05
+	 400) Maximum change 2.411022e-05
+	 500) Maximum change 1.968421e-05
+	 600) Maximum change 1.606977e-05
+	 700) Maximum change 1.311886e-05
+	 800) Maximum change 1.070974e-05
+	 900) Maximum change 8.742975e-06
+	1000) Maximum change 7.137359e-06
+	1100) Maximum change 5.826585e-06
+	1200) Maximum change 4.756519e-06
+	1300) Maximum change 3.882963e-06
+	1400) Maximum change 3.169833e-06
+	1500) Maximum change 2.587669e-06
+	1600) Maximum change 2.112421e-06
+	1700) Maximum change 1.724454e-06
+	1800) Maximum change 1.407740e-06
+	1900) Maximum change 1.149193e-06
+	Converged in 1970 iterations. Final maximum change 9.97054e-07
+  *******************************************
+  ******** Start bootstrap nr 8 ************
+  *******************************************
+	   1) Maximum change 2.451168e-02
+	 100) Maximum change 7.722906e-04
+	 200) Maximum change 3.828043e-04
+	 300) Maximum change 2.190792e-04
+	 400) Maximum change 1.288188e-04
+	 500) Maximum change 7.609612e-05
+	 600) Maximum change 4.498740e-05
+	 700) Maximum change 2.660015e-05
+	 800) Maximum change 1.572868e-05
+	 900) Maximum change 9.300485e-06
+	1000) Maximum change 5.499477e-06
+	1100) Maximum change 3.251910e-06
+	1200) Maximum change 1.922898e-06
+	1300) Maximum change 1.137037e-06
+	Converged in 1326 iterations. Final maximum change 9.91796e-07
+  *******************************************
+  ******** Start bootstrap nr 9 ************
+  *******************************************
+	   1) Maximum change 4.902725e-02
+	 100) Maximum change 8.182465e-05
+	 200) Maximum change 2.882614e-05
+	 300) Maximum change 1.704482e-05
+	 400) Maximum change 1.003454e-05
+	 500) Maximum change 5.905881e-06
+	 600) Maximum change 3.475886e-06
+	 700) Maximum change 2.045722e-06
+	 800) Maximum change 1.204005e-06
+	Converged in 837 iterations. Final maximum change 9.89452e-07
+  *******************************************
+  ******** Start bootstrap nr 10 ************
+  *******************************************
+	   1) Maximum change 7.162206e-02
+	 100) Maximum change 6.661854e-04
+	 200) Maximum change 3.551681e-04
+	 300) Maximum change 1.714220e-04
+	 400) Maximum change 8.137650e-05
+	 500) Maximum change 3.849449e-05
+	 600) Maximum change 1.819525e-05
+	 700) Maximum change 8.598871e-06
+	 800) Maximum change 4.063573e-06
+	 900) Maximum change 1.920309e-06
+	Converged in 989 iterations. Final maximum change 9.85488e-07
+  *******************************************
+  ******** Start bootstrap nr 11 ************
+  *******************************************
+	   1) Maximum change 3.004475e-02
+	 100) Maximum change 5.174603e-04
+	 200) Maximum change 3.543956e-04
+	 300) Maximum change 2.352734e-04
+	 400) Maximum change 1.560088e-04
+	 500) Maximum change 1.034496e-04
+	 600) Maximum change 6.860019e-05
+	 700) Maximum change 4.549178e-05
+	 800) Maximum change 3.016810e-05
+	 900) Maximum change 2.000635e-05
+	1000) Maximum change 1.326756e-05
+	1100) Maximum change 8.798658e-06
+	1200) Maximum change 5.835031e-06
+	1300) Maximum change 3.869643e-06
+	1400) Maximum change 2.566252e-06
+	1500) Maximum change 1.701876e-06
+	1600) Maximum change 1.128644e-06
+	Converged in 1631 iterations. Final maximum change 9.93724e-07
+  *******************************************
+  ******** Start bootstrap nr 12 ************
+  *******************************************
+	   1) Maximum change 4.452645e-02
+	 100) Maximum change 4.327289e-04
+	 200) Maximum change 1.867184e-04
+	 300) Maximum change 8.841631e-05
+	 400) Maximum change 4.545755e-05
+	 500) Maximum change 2.499786e-05
+	 600) Maximum change 1.358756e-05
+	 700) Maximum change 7.346952e-06
+	 800) Maximum change 3.963133e-06
+	 900) Maximum change 2.135487e-06
+	1000) Maximum change 1.150106e-06
+	Converged in 1024 iterations. Final maximum change 9.91341e-07
+  *******************************************
+  ******** Start bootstrap nr 13 ************
+  *******************************************
+	   1) Maximum change 2.807549e-02
+	 100) Maximum change 2.269489e-04
+	 200) Maximum change 1.631979e-04
+	 300) Maximum change 1.221274e-04
+	 400) Maximum change 9.144895e-05
+	 500) Maximum change 6.847791e-05
+	 600) Maximum change 5.127717e-05
+	 700) Maximum change 3.839714e-05
+	 800) Maximum change 2.875243e-05
+	 900) Maximum change 2.153034e-05
+	1000) Maximum change 1.612233e-05
+	1100) Maximum change 1.207272e-05
+	1200) Maximum change 9.040295e-06
+	1300) Maximum change 6.769558e-06
+	1400) Maximum change 5.069186e-06
+	1500) Maximum change 3.795913e-06
+	1600) Maximum change 2.842460e-06
+	1700) Maximum change 2.128494e-06
+	1800) Maximum change 1.593862e-06
+	1900) Maximum change 1.193518e-06
+	Converged in 1963 iterations. Final maximum change 9.94842e-07
+  *******************************************
+  ******** Start bootstrap nr 14 ************
+  *******************************************
+	   1) Maximum change 2.287275e-02
+	 100) Maximum change 4.361651e-04
+	 200) Maximum change 2.262524e-04
+	 300) Maximum change 1.356905e-04
+	 400) Maximum change 8.648183e-05
+	 500) Maximum change 5.635029e-05
+	 600) Maximum change 3.699696e-05
+	 700) Maximum change 2.435287e-05
+	 800) Maximum change 1.604390e-05
+	 900) Maximum change 1.057297e-05
+	1000) Maximum change 6.968319e-06
+	1100) Maximum change 4.592771e-06
+	1200) Maximum change 3.027104e-06
+	1300) Maximum change 1.995181e-06
+	1400) Maximum change 1.315039e-06
+	Converged in 1467 iterations. Final maximum change 9.9456e-07
+  *******************************************
+  ******** Start bootstrap nr 15 ************
+  *******************************************
+	   1) Maximum change 5.080600e-02
+	 100) Maximum change 1.580873e-04
+	 200) Maximum change 4.786626e-05
+	 300) Maximum change 2.498452e-05
+	 400) Maximum change 1.373406e-05
+	 500) Maximum change 7.575308e-06
+	 600) Maximum change 4.179234e-06
+	 700) Maximum change 2.305686e-06
+	 800) Maximum change 1.272051e-06
+	Converged in 842 iterations. Final maximum change 9.9091e-07
+  *******************************************
+  ******** Start bootstrap nr 16 ************
+  *******************************************
+	   1) Maximum change 3.060716e-02
+	 100) Maximum change 1.122624e-04
+	 200) Maximum change 5.901970e-05
+	 300) Maximum change 3.547397e-05
+	 400) Maximum change 2.185092e-05
+	 500) Maximum change 1.351115e-05
+	 600) Maximum change 8.359290e-06
+	 700) Maximum change 5.172311e-06
+	 800) Maximum change 3.200408e-06
+	 900) Maximum change 1.980280e-06
+	1000) Maximum change 1.225315e-06
+	Converged in 1044 iterations. Final maximum change 9.91764e-07
+  *******************************************
+  ******** Start bootstrap nr 17 ************
+  *******************************************
+	   1) Maximum change 4.450434e-02
+	 100) Maximum change 1.860764e-04
+	 200) Maximum change 6.636803e-05
+	 300) Maximum change 2.449097e-05
+	 400) Maximum change 9.108642e-06
+	 500) Maximum change 3.391195e-06
+	 600) Maximum change 1.262732e-06
+	Converged in 625 iterations. Final maximum change 9.86395e-07
+  *******************************************
+  ******** Start bootstrap nr 18 ************
+  *******************************************
+	   1) Maximum change 1.959210e-02
+	 100) Maximum change 1.038078e-03
+	 200) Maximum change 5.609461e-04
+	 300) Maximum change 3.291200e-04
+	 400) Maximum change 1.953387e-04
+	 500) Maximum change 1.161200e-04
+	 600) Maximum change 6.904251e-05
+	 700) Maximum change 4.105219e-05
+	 800) Maximum change 2.440934e-05
+	 900) Maximum change 1.451359e-05
+	1000) Maximum change 8.629651e-06
+	1100) Maximum change 5.131107e-06
+	1200) Maximum change 3.050905e-06
+	1300) Maximum change 1.814037e-06
+	1400) Maximum change 1.078608e-06
+	Converged in 1416 iterations. Final maximum change 9.92525e-07
+  *******************************************
+  ******** Start bootstrap nr 19 ************
+  *******************************************
+	   1) Maximum change 6.240911e-02
+	 100) Maximum change 1.878428e-03
+	 200) Maximum change 6.033547e-04
+	 300) Maximum change 1.861783e-04
+	 400) Maximum change 5.717675e-05
+	 500) Maximum change 1.753940e-05
+	 600) Maximum change 5.378505e-06
+	 700) Maximum change 1.649158e-06
+	Converged in 744 iterations. Final maximum change 9.80267e-07
+  *******************************************
+  ******** Start bootstrap nr 20 ************
+  *******************************************
+	   1) Maximum change 3.259855e-02
+	 100) Maximum change 5.728618e-04
+	 200) Maximum change 2.905144e-04
+	 300) Maximum change 1.336964e-04
+	 400) Maximum change 6.130533e-05
+	 500) Maximum change 2.810781e-05
+	 600) Maximum change 1.288724e-05
+	 700) Maximum change 5.908751e-06
+	 800) Maximum change 2.709149e-06
+	 900) Maximum change 1.242141e-06
+	Converged in 929 iterations. Final maximum change 9.90734e-07
+  *******************************************
+  ******** Start bootstrap nr 21 ************
+  *******************************************
+	   1) Maximum change 4.383434e-02
+	 100) Maximum change 9.977544e-05
+	 200) Maximum change 9.070789e-06
+	 300) Maximum change 3.823035e-06
+	 400) Maximum change 1.906537e-06
+	Converged in 493 iterations. Final maximum change 9.9134e-07
+  *******************************************
+  ******** Start bootstrap nr 22 ************
+  *******************************************
+	   1) Maximum change 4.270094e-02
+	 100) Maximum change 3.848694e-04
+	 200) Maximum change 2.508384e-04
+	 300) Maximum change 1.544753e-04
+	 400) Maximum change 9.450558e-05
+	 500) Maximum change 5.774172e-05
+	 600) Maximum change 3.527016e-05
+	 700) Maximum change 2.154278e-05
+	 800) Maximum change 1.315805e-05
+	 900) Maximum change 8.036748e-06
+	1000) Maximum change 4.908728e-06
+	1100) Maximum change 2.998179e-06
+	1200) Maximum change 1.831244e-06
+	1300) Maximum change 1.118497e-06
+	Converged in 1324 iterations. Final maximum change 9.93688e-07
+  *******************************************
+  ******** Start bootstrap nr 23 ************
+  *******************************************
+	   1) Maximum change 7.036316e-02
+	 100) Maximum change 3.798348e-04
+	 200) Maximum change 8.610352e-05
+	 300) Maximum change 2.610490e-05
+	 400) Maximum change 1.043428e-05
+	 500) Maximum change 5.054372e-06
+	 600) Maximum change 2.717648e-06
+	 700) Maximum change 1.546871e-06
+	Converged in 778 iterations. Final maximum change 9.91295e-07
+  *******************************************
+  ******** Start bootstrap nr 24 ************
+  *******************************************
+	   1) Maximum change 4.469634e-02
+	 100) Maximum change 4.228765e-04
+	 200) Maximum change 2.554343e-04
+	 300) Maximum change 1.485072e-04
+	 400) Maximum change 8.603311e-05
+	 500) Maximum change 4.982302e-05
+	 600) Maximum change 2.885230e-05
+	 700) Maximum change 1.670825e-05
+	 800) Maximum change 9.675693e-06
+	 900) Maximum change 5.603172e-06
+	1000) Maximum change 3.244786e-06
+	1100) Maximum change 1.879051e-06
+	1200) Maximum change 1.088155e-06
+	Converged in 1217 iterations. Final maximum change 9.91622e-07
+  *******************************************
+  ******** Start bootstrap nr 25 ************
+  *******************************************
+	   1) Maximum change 3.309493e-02
+	 100) Maximum change 5.394545e-04
+	 200) Maximum change 2.586323e-04
+	 300) Maximum change 1.422548e-04
+	 400) Maximum change 7.658019e-05
+	 500) Maximum change 4.100091e-05
+	 600) Maximum change 2.193621e-05
+	 700) Maximum change 1.173526e-05
+	 800) Maximum change 6.277992e-06
+	 900) Maximum change 3.358534e-06
+	1000) Maximum change 1.796717e-06
+	Converged in 1095 iterations. Final maximum change 9.91732e-07
+  *******************************************
+  ******** Start bootstrap nr 26 ************
+  *******************************************
+	   1) Maximum change 2.449310e-02
+	 100) Maximum change 5.740058e-05
+	 200) Maximum change 1.922729e-05
+	 300) Maximum change 8.918110e-06
+	 400) Maximum change 5.078517e-06
+	 500) Maximum change 3.206249e-06
+	 600) Maximum change 2.109443e-06
+	 700) Maximum change 1.408685e-06
+	Converged in 787 iterations. Final maximum change 9.95762e-07
+  *******************************************
+  ******** Start bootstrap nr 27 ************
+  *******************************************
+	   1) Maximum change 7.578503e-02
+	 100) Maximum change 4.023257e-04
+	 200) Maximum change 2.019677e-04
+	 300) Maximum change 1.146934e-04
+	 400) Maximum change 6.623902e-05
+	 500) Maximum change 3.834145e-05
+	 600) Maximum change 2.219999e-05
+	 700) Maximum change 1.285446e-05
+	 800) Maximum change 7.443158e-06
+	 900) Maximum change 4.309835e-06
+	1000) Maximum change 2.495537e-06
+	1100) Maximum change 1.444998e-06
+	Converged in 1169 iterations. Final maximum change 9.91086e-07
+  *******************************************
+  ******** Start bootstrap nr 28 ************
+  *******************************************
+	   1) Maximum change 3.911977e-02
+	 100) Maximum change 6.437689e-04
+	 200) Maximum change 4.421571e-04
+	 300) Maximum change 3.019184e-04
+	 400) Maximum change 2.060849e-04
+	 500) Maximum change 1.406660e-04
+	 600) Maximum change 9.601215e-05
+	 700) Maximum change 6.553283e-05
+	 800) Maximum change 4.472895e-05
+	 900) Maximum change 3.052928e-05
+	1000) Maximum change 2.083737e-05
+	1100) Maximum change 1.422225e-05
+	1200) Maximum change 9.707181e-06
+	1300) Maximum change 6.625482e-06
+	1400) Maximum change 4.522114e-06
+	1500) Maximum change 3.086493e-06
+	1600) Maximum change 2.106634e-06
+	1700) Maximum change 1.437847e-06
+	Converged in 1797 iterations. Final maximum change 9.92967e-07
+  *******************************************
+  ******** Start bootstrap nr 29 ************
+  *******************************************
+	   1) Maximum change 1.688869e-02
+	 100) Maximum change 1.985147e-04
+	 200) Maximum change 4.722825e-05
+	 300) Maximum change 1.446965e-05
+	 400) Maximum change 4.610306e-06
+	 500) Maximum change 1.482016e-06
+	Converged in 536 iterations. Final maximum change 9.85478e-07
+  *******************************************
+  ******** Start bootstrap nr 30 ************
+  *******************************************
+	   1) Maximum change 5.260730e-02
+	 100) Maximum change 3.320158e-04
+	 200) Maximum change 9.284430e-05
+	 300) Maximum change 5.118032e-05
+	 400) Maximum change 2.233721e-05
+	 500) Maximum change 9.383237e-06
+	 600) Maximum change 3.912886e-06
+	 700) Maximum change 1.629354e-06
+	Converged in 757 iterations. Final maximum change 9.88708e-07
+  *******************************************
+  ******** Start bootstrap nr 31 ************
+  *******************************************
+	   1) Maximum change 5.390100e-02
+	 100) Maximum change 2.144007e-04
+	 200) Maximum change 1.240868e-04
+	 300) Maximum change 7.927510e-05
+	 400) Maximum change 4.873253e-05
+	 500) Maximum change 2.966419e-05
+	 600) Maximum change 1.800774e-05
+	 700) Maximum change 1.092321e-05
+	 800) Maximum change 6.624387e-06
+	 900) Maximum change 4.017110e-06
+	1000) Maximum change 2.435981e-06
+	1100) Maximum change 1.477174e-06
+	Converged in 1179 iterations. Final maximum change 9.9497e-07
+  *******************************************
+  ******** Start bootstrap nr 32 ************
+  *******************************************
+	   1) Maximum change 2.904121e-02
+	 100) Maximum change 5.277878e-04
+	 200) Maximum change 2.069458e-04
+	 300) Maximum change 8.401306e-05
+	 400) Maximum change 3.517233e-05
+	 500) Maximum change 1.511676e-05
+	 600) Maximum change 7.681790e-06
+	 700) Maximum change 3.880062e-06
+	 800) Maximum change 1.904319e-06
+	Converged in 890 iterations. Final maximum change 9.88304e-07
+  *******************************************
+  ******** Start bootstrap nr 33 ************
+  *******************************************
+	   1) Maximum change 3.341869e-02
+	 100) Maximum change 3.230415e-04
+	 200) Maximum change 8.220702e-05
+	 300) Maximum change 1.660805e-05
+	 400) Maximum change 3.304074e-06
+	Converged in 475 iterations. Final maximum change 9.8334e-07
+  *******************************************
+  ******** Start bootstrap nr 34 ************
+  *******************************************
+	   1) Maximum change 1.743492e-02
+	 100) Maximum change 2.588087e-04
+	 200) Maximum change 1.443107e-04
+	 300) Maximum change 8.318256e-05
+	 400) Maximum change 4.798180e-05
+	 500) Maximum change 2.767625e-05
+	 600) Maximum change 1.596342e-05
+	 700) Maximum change 9.207411e-06
+	 800) Maximum change 5.310619e-06
+	 900) Maximum change 3.063024e-06
+	1000) Maximum change 1.766665e-06
+	1100) Maximum change 1.018961e-06
+	Converged in 1105 iterations. Final maximum change 9.9116e-07
+  *******************************************
+  ******** Start bootstrap nr 35 ************
+  *******************************************
+	   1) Maximum change 3.447760e-02
+	 100) Maximum change 2.041709e-04
+	 200) Maximum change 6.171380e-05
+	 300) Maximum change 3.130413e-05
+	 400) Maximum change 1.891618e-05
+	 500) Maximum change 1.216239e-05
+	 600) Maximum change 7.968002e-06
+	 700) Maximum change 5.248260e-06
+	 800) Maximum change 3.462106e-06
+	 900) Maximum change 2.284813e-06
+	1000) Maximum change 1.508041e-06
+	Converged in 1100 iterations. Final maximum change 9.95408e-07
+  *******************************************
+  ******** Start bootstrap nr 36 ************
+  *******************************************
+	   1) Maximum change 3.098093e-02
+	 100) Maximum change 6.259302e-04
+	 200) Maximum change 1.046381e-04
+	 300) Maximum change 2.444335e-05
+	 400) Maximum change 9.499831e-06
+	 500) Maximum change 5.243215e-06
+	 600) Maximum change 2.794187e-06
+	 700) Maximum change 1.476089e-06
+	Converged in 762 iterations. Final maximum change 9.92502e-07
+  *******************************************
+  ******** Start bootstrap nr 37 ************
+  *******************************************
+	   1) Maximum change 3.056576e-02
+	 100) Maximum change 3.306716e-04
+	 200) Maximum change 1.662432e-04
+	 300) Maximum change 9.618684e-05
+	 400) Maximum change 6.070473e-05
+	 500) Maximum change 3.690580e-05
+	 600) Maximum change 2.210045e-05
+	 700) Maximum change 1.315084e-05
+	 800) Maximum change 7.804292e-06
+	 900) Maximum change 4.626061e-06
+	1000) Maximum change 2.740777e-06
+	1100) Maximum change 1.623468e-06
+	Converged in 1194 iterations. Final maximum change 9.92253e-07
+  *******************************************
+  ******** Start bootstrap nr 38 ************
+  *******************************************
+	   1) Maximum change 4.566464e-02
+	 100) Maximum change 2.891569e-04
+	 200) Maximum change 1.517139e-04
+	 300) Maximum change 8.273438e-05
+	 400) Maximum change 4.522654e-05
+	 500) Maximum change 2.472654e-05
+	 600) Maximum change 1.351881e-05
+	 700) Maximum change 7.391196e-06
+	 800) Maximum change 4.041024e-06
+	 900) Maximum change 2.209369e-06
+	1000) Maximum change 1.207940e-06
+	Converged in 1033 iterations. Final maximum change 9.89715e-07
+  *******************************************
+  ******** Start bootstrap nr 39 ************
+  *******************************************
+	   1) Maximum change 1.900077e-02
+	 100) Maximum change 4.795219e-04
+	 200) Maximum change 2.816107e-04
+	 300) Maximum change 1.658205e-04
+	 400) Maximum change 9.765275e-05
+	 500) Maximum change 5.750779e-05
+	 600) Maximum change 3.386606e-05
+	 700) Maximum change 1.994343e-05
+	 800) Maximum change 1.174448e-05
+	 900) Maximum change 6.916184e-06
+	1000) Maximum change 4.072854e-06
+	1100) Maximum change 2.398451e-06
+	1200) Maximum change 1.412416e-06
+	Converged in 1267 iterations. Final maximum change 9.9052e-07
+  *******************************************
+  ******** Start bootstrap nr 40 ************
+  *******************************************
+	   1) Maximum change 2.320486e-02
+	 100) Maximum change 3.087369e-04
+	 200) Maximum change 1.255042e-04
+	 300) Maximum change 1.003497e-04
+	 400) Maximum change 7.545090e-05
+	 500) Maximum change 5.537692e-05
+	 600) Maximum change 4.026639e-05
+	 700) Maximum change 2.917101e-05
+	 800) Maximum change 2.110161e-05
+	 900) Maximum change 1.525520e-05
+	1000) Maximum change 1.102585e-05
+	1100) Maximum change 7.968214e-06
+	1200) Maximum change 5.758240e-06
+	1300) Maximum change 4.161111e-06
+	1400) Maximum change 3.006936e-06
+	1500) Maximum change 2.172884e-06
+	1600) Maximum change 1.570173e-06
+	1700) Maximum change 1.134639e-06
+	Converged in 1740 iterations. Final maximum change 9.96371e-07
+  *******************************************
+  ******** Start bootstrap nr 41 ************
+  *******************************************
+	   1) Maximum change 1.844826e-02
+	 100) Maximum change 2.107822e-04
+	 200) Maximum change 6.524023e-05
+	 300) Maximum change 2.628879e-05
+	 400) Maximum change 1.144903e-05
+	 500) Maximum change 5.080568e-06
+	 600) Maximum change 2.264195e-06
+	 700) Maximum change 1.010029e-06
+	Converged in 703 iterations. Final maximum change 9.85877e-07
+  *******************************************
+  ******** Start bootstrap nr 42 ************
+  *******************************************
+	   1) Maximum change 2.869389e-02
+	 100) Maximum change 1.857728e-04
+	 200) Maximum change 1.049139e-04
+	 300) Maximum change 7.476265e-05
+	 400) Maximum change 4.897380e-05
+	 500) Maximum change 3.182445e-05
+	 600) Maximum change 2.066314e-05
+	 700) Maximum change 1.341484e-05
+	 800) Maximum change 8.708904e-06
+	 900) Maximum change 5.653745e-06
+	1000) Maximum change 3.670334e-06
+	1100) Maximum change 2.382719e-06
+	1200) Maximum change 1.546816e-06
+	1300) Maximum change 1.004162e-06
+	Converged in 1302 iterations. Final maximum change 9.95547e-07
+  *******************************************
+  ******** Start bootstrap nr 43 ************
+  *******************************************
+	   1) Maximum change 6.263737e-02
+	 100) Maximum change 1.194765e-03
+	 200) Maximum change 7.302126e-04
+	 300) Maximum change 4.385708e-04
+	 400) Maximum change 2.626812e-04
+	 500) Maximum change 1.572310e-04
+	 600) Maximum change 9.410730e-05
+	 700) Maximum change 5.633064e-05
+	 800) Maximum change 3.372143e-05
+	 900) Maximum change 2.018819e-05
+	1000) Maximum change 1.208674e-05
+	1100) Maximum change 7.236594e-06
+	1200) Maximum change 4.332786e-06
+	1300) Maximum change 2.594211e-06
+	1400) Maximum change 1.553268e-06
+	Converged in 1487 iterations. Final maximum change 9.94168e-07
+  *******************************************
+  ******** Start bootstrap nr 44 ************
+  *******************************************
+	   1) Maximum change 5.367565e-02
+	 100) Maximum change 1.162423e-03
+	 200) Maximum change 6.343267e-04
+	 300) Maximum change 3.294745e-04
+	 400) Maximum change 1.703431e-04
+	 500) Maximum change 8.803031e-05
+	 600) Maximum change 4.549064e-05
+	 700) Maximum change 2.350774e-05
+	 800) Maximum change 1.214787e-05
+	 900) Maximum change 6.277540e-06
+	1000) Maximum change 3.243986e-06
+	1100) Maximum change 1.676365e-06
+	Converged in 1180 iterations. Final maximum change 9.88589e-07
+  *******************************************
+  ******** Start bootstrap nr 45 ************
+  *******************************************
+	   1) Maximum change 2.739076e-02
+	 100) Maximum change 7.470200e-04
+	 200) Maximum change 4.203009e-04
+	 300) Maximum change 2.303784e-04
+	 400) Maximum change 1.260391e-04
+	 500) Maximum change 6.894071e-05
+	 600) Maximum change 3.770667e-05
+	 700) Maximum change 2.062276e-05
+	 800) Maximum change 1.127893e-05
+	 900) Maximum change 6.168576e-06
+	1000) Maximum change 3.373648e-06
+	1100) Maximum change 1.845072e-06
+	1200) Maximum change 1.009082e-06
+	Converged in 1203 iterations. Final maximum change 9.90962e-07
+  *******************************************
+  ******** Start bootstrap nr 46 ************
+  *******************************************
+	   1) Maximum change 5.857953e-02
+	 100) Maximum change 1.332156e-03
+	 200) Maximum change 5.408528e-04
+	 300) Maximum change 2.645290e-04
+	 400) Maximum change 1.211650e-04
+	 500) Maximum change 5.386515e-05
+	 600) Maximum change 2.359952e-05
+	 700) Maximum change 1.026360e-05
+	 800) Maximum change 4.446875e-06
+	 900) Maximum change 1.922917e-06
+	Converged in 979 iterations. Final maximum change 9.90823e-07
+  *******************************************
+  ******** Start bootstrap nr 47 ************
+  *******************************************
+	   1) Maximum change 1.715165e-02
+	 100) Maximum change 2.146446e-04
+	 200) Maximum change 1.137879e-04
+	 300) Maximum change 4.361449e-05
+	 400) Maximum change 1.576380e-05
+	 500) Maximum change 5.631787e-06
+	 600) Maximum change 2.007219e-06
+	Converged in 669 iterations. Final maximum change 9.84693e-07
+  *******************************************
+  ******** Start bootstrap nr 48 ************
+  *******************************************
+	   1) Maximum change 4.698338e-02
+	 100) Maximum change 1.041435e-03
+	 200) Maximum change 3.495737e-04
+	 300) Maximum change 1.451797e-04
+	 400) Maximum change 6.460343e-05
+	 500) Maximum change 2.927926e-05
+	 600) Maximum change 1.333096e-05
+	 700) Maximum change 6.076561e-06
+	 800) Maximum change 2.770622e-06
+	 900) Maximum change 1.263361e-06
+	Converged in 931 iterations. Final maximum change 9.90413e-07
+  *******************************************
+  ******** Start bootstrap nr 49 ************
+  *******************************************
+	   1) Maximum change 2.755017e-02
+	 100) Maximum change 3.162015e-05
+	 200) Maximum change 7.375924e-06
+	 300) Maximum change 3.348705e-06
+	 400) Maximum change 1.811306e-06
+	 500) Maximum change 1.006637e-06
+	Converged in 503 iterations. Final maximum change 9.89141e-07
+  *******************************************
+  ******** Start bootstrap nr 50 ************
+  *******************************************
+	   1) Maximum change 3.395286e-02
+	 100) Maximum change 2.793088e-04
+	 200) Maximum change 1.246556e-04
+	 300) Maximum change 6.905286e-05
+	 400) Maximum change 4.477148e-05
+	 500) Maximum change 2.689817e-05
+	 600) Maximum change 1.571971e-05
+	 700) Maximum change 9.088550e-06
+	 800) Maximum change 5.232098e-06
+	 900) Maximum change 3.006779e-06
+	1000) Maximum change 1.726712e-06
+	Converged in 1100 iterations. Final maximum change 9.91321e-07
+  *******************************************
+  ******** Start bootstrap nr 51 ************
+  *******************************************
+	   1) Maximum change 4.891116e-02
+	 100) Maximum change 1.266764e-04
+	 200) Maximum change 6.958017e-05
+	 300) Maximum change 4.942147e-05
+	 400) Maximum change 3.282885e-05
+	 500) Maximum change 2.161752e-05
+	 600) Maximum change 1.421781e-05
+	 700) Maximum change 9.349434e-06
+	 800) Maximum change 6.147896e-06
+	 900) Maximum change 4.042643e-06
+	1000) Maximum change 2.658297e-06
+	1100) Maximum change 1.747999e-06
+	1200) Maximum change 1.149420e-06
+	Converged in 1235 iterations. Final maximum change 9.92566e-07
+  *******************************************
+  ******** Start bootstrap nr 52 ************
+  *******************************************
+	   1) Maximum change 2.583214e-02
+	 100) Maximum change 4.396811e-05
+	 200) Maximum change 1.574844e-05
+	 300) Maximum change 1.103398e-05
+	 400) Maximum change 7.543416e-06
+	 500) Maximum change 5.148731e-06
+	 600) Maximum change 3.513859e-06
+	 700) Maximum change 2.398087e-06
+	 800) Maximum change 1.636610e-06
+	 900) Maximum change 1.116928e-06
+	Converged in 930 iterations. Final maximum change 9.95931e-07
+  *******************************************
+  ******** Start bootstrap nr 53 ************
+  *******************************************
+	   1) Maximum change 4.168452e-02
+	 100) Maximum change 3.172213e-04
+	 200) Maximum change 1.532210e-04
+	 300) Maximum change 7.054416e-05
+	 400) Maximum change 3.237750e-05
+	 500) Maximum change 1.485709e-05
+	 600) Maximum change 6.817389e-06
+	 700) Maximum change 3.128255e-06
+	 800) Maximum change 1.435444e-06
+	Converged in 848 iterations. Final maximum change 9.87636e-07
+  *******************************************
+  ******** Start bootstrap nr 54 ************
+  *******************************************
+	   1) Maximum change 5.840931e-02
+	 100) Maximum change 1.688668e-04
+	 200) Maximum change 5.552895e-05
+	 300) Maximum change 2.912435e-05
+	 400) Maximum change 1.560579e-05
+	 500) Maximum change 7.763800e-06
+	 600) Maximum change 3.770488e-06
+	 700) Maximum change 1.815914e-06
+	Converged in 783 iterations. Final maximum change 9.87902e-07
+  *******************************************
+  ******** Start bootstrap nr 55 ************
+  *******************************************
+	   1) Maximum change 3.767632e-02
+	 100) Maximum change 5.854343e-04
+	 200) Maximum change 4.073969e-04
+	 300) Maximum change 2.805896e-04
+	 400) Maximum change 1.932722e-04
+	 500) Maximum change 1.331399e-04
+	 600) Maximum change 9.172213e-05
+	 700) Maximum change 6.319140e-05
+	 800) Maximum change 4.353654e-05
+	 900) Maximum change 2.999564e-05
+	1000) Maximum change 2.066654e-05
+	1100) Maximum change 1.423906e-05
+	1200) Maximum change 9.810647e-06
+	1300) Maximum change 6.759517e-06
+	1400) Maximum change 4.657308e-06
+	1500) Maximum change 3.208891e-06
+	1600) Maximum change 2.210934e-06
+	1700) Maximum change 1.523340e-06
+	1800) Maximum change 1.049586e-06
+	Converged in 1814 iterations. Final maximum change 9.96266e-07
+  *******************************************
+  ******** Start bootstrap nr 56 ************
+  *******************************************
+	   1) Maximum change 4.483456e-02
+	 100) Maximum change 1.059785e-03
+	 200) Maximum change 5.098476e-04
+	 300) Maximum change 2.370838e-04
+	 400) Maximum change 1.098600e-04
+	 500) Maximum change 5.086993e-05
+	 600) Maximum change 2.355110e-05
+	 700) Maximum change 1.090301e-05
+	 800) Maximum change 5.047532e-06
+	 900) Maximum change 2.336748e-06
+	1000) Maximum change 1.081795e-06
+	Converged in 1012 iterations. Final maximum change 9.86292e-07
+  *******************************************
+  ******** Start bootstrap nr 57 ************
+  *******************************************
+	   1) Maximum change 4.735587e-02
+	 100) Maximum change 6.289213e-04
+	 200) Maximum change 1.843275e-04
+	 300) Maximum change 6.776857e-05
+	 400) Maximum change 2.943560e-05
+	 500) Maximum change 1.361766e-05
+	 600) Maximum change 6.423064e-06
+	 700) Maximum change 3.046528e-06
+	 800) Maximum change 1.447707e-06
+	Converged in 851 iterations. Final maximum change 9.90771e-07
+  *******************************************
+  ******** Start bootstrap nr 58 ************
+  *******************************************
+	   1) Maximum change 8.119426e-02
+	 100) Maximum change 3.490856e-04
+	 200) Maximum change 2.002457e-04
+	 300) Maximum change 1.200199e-04
+	 400) Maximum change 7.256131e-05
+	 500) Maximum change 4.393667e-05
+	 600) Maximum change 2.661124e-05
+	 700) Maximum change 1.611839e-05
+	 800) Maximum change 9.762928e-06
+	 900) Maximum change 5.913413e-06
+	1000) Maximum change 3.581755e-06
+	1100) Maximum change 2.169467e-06
+	1200) Maximum change 1.314044e-06
+	Converged in 1256 iterations. Final maximum change 9.92378e-07
+  *******************************************
+  ******** Start bootstrap nr 59 ************
+  *******************************************
+	   1) Maximum change 2.880769e-02
+	 100) Maximum change 3.423935e-04
+	 200) Maximum change 1.429767e-04
+	 300) Maximum change 6.067271e-05
+	 400) Maximum change 2.577170e-05
+	 500) Maximum change 1.094740e-05
+	 600) Maximum change 4.650273e-06
+	 700) Maximum change 1.975357e-06
+	Converged in 781 iterations. Final maximum change 9.87322e-07
+  *******************************************
+  ******** Start bootstrap nr 60 ************
+  *******************************************
+	   1) Maximum change 2.257763e-02
+	 100) Maximum change 2.437921e-04
+	 200) Maximum change 1.534049e-04
+	 300) Maximum change 9.043966e-05
+	 400) Maximum change 5.284085e-05
+	 500) Maximum change 3.082736e-05
+	 600) Maximum change 1.797997e-05
+	 700) Maximum change 1.048624e-05
+	 800) Maximum change 6.115696e-06
+	 900) Maximum change 3.566731e-06
+	1000) Maximum change 2.080147e-06
+	1100) Maximum change 1.213158e-06
+	Converged in 1137 iterations. Final maximum change 9.93724e-07
+  *******************************************
+  ******** Start bootstrap nr 61 ************
+  *******************************************
+	   1) Maximum change 1.710744e-02
+	 100) Maximum change 5.311554e-04
+	 200) Maximum change 4.027433e-04
+	 300) Maximum change 2.576889e-04
+	 400) Maximum change 1.613137e-04
+	 500) Maximum change 1.006702e-04
+	 600) Maximum change 6.279734e-05
+	 700) Maximum change 3.917031e-05
+	 800) Maximum change 2.443269e-05
+	 900) Maximum change 1.524006e-05
+	1000) Maximum change 9.506112e-06
+	1100) Maximum change 5.929523e-06
+	1200) Maximum change 3.698597e-06
+	1300) Maximum change 2.307037e-06
+	1400) Maximum change 1.439038e-06
+	Converged in 1479 iterations. Final maximum change 9.91136e-07
+  *******************************************
+  ******** Start bootstrap nr 62 ************
+  *******************************************
+	   1) Maximum change 6.176612e-02
+	 100) Maximum change 5.966167e-04
+	 200) Maximum change 3.638047e-04
+	 300) Maximum change 2.228261e-04
+	 400) Maximum change 1.364780e-04
+	 500) Maximum change 8.358674e-05
+	 600) Maximum change 5.119154e-05
+	 700) Maximum change 3.135092e-05
+	 800) Maximum change 1.919981e-05
+	 900) Maximum change 1.175818e-05
+	1000) Maximum change 7.200813e-06
+	1100) Maximum change 4.409827e-06
+	1200) Maximum change 2.700603e-06
+	1300) Maximum change 1.653863e-06
+	1400) Maximum change 1.012834e-06
+	Converged in 1404 iterations. Final maximum change 9.93183e-07
+  *******************************************
+  ******** Start bootstrap nr 63 ************
+  *******************************************
+	   1) Maximum change 1.571324e-02
+	 100) Maximum change 2.482992e-04
+	 200) Maximum change 1.854253e-04
+	 300) Maximum change 1.426848e-04
+	 400) Maximum change 1.101113e-04
+	 500) Maximum change 8.501208e-05
+	 600) Maximum change 6.563868e-05
+	 700) Maximum change 5.068079e-05
+	 800) Maximum change 3.913157e-05
+	 900) Maximum change 3.021418e-05
+	1000) Maximum change 2.332889e-05
+	1100) Maximum change 1.801262e-05
+	1200) Maximum change 1.390784e-05
+	1300) Maximum change 1.073847e-05
+	1400) Maximum change 8.291343e-06
+	1500) Maximum change 6.401877e-06
+	1600) Maximum change 4.942989e-06
+	1700) Maximum change 3.816558e-06
+	1800) Maximum change 2.946823e-06
+	1900) Maximum change 2.275288e-06
+	2000) Maximum change 1.756784e-06
+	2100) Maximum change 1.356440e-06
+	2200) Maximum change 1.047328e-06
+	Converged in 2219 iterations. Final maximum change 9.97109e-07
+  *******************************************
+  ******** Start bootstrap nr 64 ************
+  *******************************************
+	   1) Maximum change 5.198884e-02
+	 100) Maximum change 2.756200e-04
+	 200) Maximum change 1.530431e-04
+	 300) Maximum change 9.209198e-05
+	 400) Maximum change 5.685178e-05
+	 500) Maximum change 3.529338e-05
+	 600) Maximum change 2.193531e-05
+	 700) Maximum change 1.363633e-05
+	 800) Maximum change 8.477587e-06
+	 900) Maximum change 5.270498e-06
+	1000) Maximum change 3.276665e-06
+	1100) Maximum change 2.037102e-06
+	1200) Maximum change 1.266466e-06
+	Converged in 1251 iterations. Final maximum change 9.93847e-07
+  *******************************************
+  ******** Start bootstrap nr 65 ************
+  *******************************************
+	   1) Maximum change 3.761149e-02
+	 100) Maximum change 6.407793e-05
+	 200) Maximum change 3.681034e-05
+	 300) Maximum change 2.837352e-05
+	 400) Maximum change 2.207696e-05
+	 500) Maximum change 1.718899e-05
+	 600) Maximum change 1.338386e-05
+	 700) Maximum change 1.042110e-05
+	 800) Maximum change 8.114200e-06
+	 900) Maximum change 6.317974e-06
+	1000) Maximum change 4.919374e-06
+	1100) Maximum change 3.830380e-06
+	1200) Maximum change 2.982455e-06
+	1300) Maximum change 2.322233e-06
+	1400) Maximum change 1.808164e-06
+	1500) Maximum change 1.407893e-06
+	1600) Maximum change 1.096230e-06
+	Converged in 1638 iterations. Final maximum change 9.96798e-07
+  *******************************************
+  ******** Start bootstrap nr 66 ************
+  *******************************************
+	   1) Maximum change 4.241609e-02
+	 100) Maximum change 1.720966e-04
+	 200) Maximum change 6.065521e-05
+	 300) Maximum change 2.971600e-05
+	 400) Maximum change 1.613538e-05
+	 500) Maximum change 8.344974e-06
+	 600) Maximum change 4.230128e-06
+	 700) Maximum change 2.125732e-06
+	 800) Maximum change 1.064132e-06
+	Converged in 810 iterations. Final maximum change 9.9297e-07
+  *******************************************
+  ******** Start bootstrap nr 67 ************
+  *******************************************
+	   1) Maximum change 5.317043e-02
+	 100) Maximum change 8.000345e-04
+	 200) Maximum change 2.221832e-04
+	 300) Maximum change 9.097116e-05
+	 400) Maximum change 5.303805e-05
+	 500) Maximum change 2.991594e-05
+	 600) Maximum change 1.671938e-05
+	 700) Maximum change 9.319520e-06
+	 800) Maximum change 5.190824e-06
+	 900) Maximum change 2.890565e-06
+	1000) Maximum change 1.609536e-06
+	Converged in 1083 iterations. Final maximum change 9.89891e-07
+  *******************************************
+  ******** Start bootstrap nr 68 ************
+  *******************************************
+	   1) Maximum change 3.541976e-02
+	 100) Maximum change 3.339705e-04
+	 200) Maximum change 2.285654e-04
+	 300) Maximum change 1.548425e-04
+	 400) Maximum change 1.045964e-04
+	 500) Maximum change 7.059891e-05
+	 600) Maximum change 4.764178e-05
+	 700) Maximum change 3.214825e-05
+	 800) Maximum change 2.169324e-05
+	 900) Maximum change 1.463839e-05
+	1000) Maximum change 9.877893e-06
+	1100) Maximum change 6.665567e-06
+	1200) Maximum change 4.497914e-06
+	1300) Maximum change 3.035191e-06
+	1400) Maximum change 2.048149e-06
+	1500) Maximum change 1.382093e-06
+	Converged in 1584 iterations. Final maximum change 9.93184e-07
+  *******************************************
+  ******** Start bootstrap nr 69 ************
+  *******************************************
+	   1) Maximum change 4.768130e-02
+	 100) Maximum change 2.917774e-04
+	 200) Maximum change 1.875599e-04
+	 300) Maximum change 9.469391e-05
+	 400) Maximum change 4.608134e-05
+	 500) Maximum change 2.230206e-05
+	 600) Maximum change 1.078441e-05
+	 700) Maximum change 5.214238e-06
+	 800) Maximum change 2.521020e-06
+	 900) Maximum change 1.218879e-06
+	Converged in 929 iterations. Final maximum change 9.87299e-07
+  *******************************************
+  ******** Start bootstrap nr 70 ************
+  *******************************************
+	   1) Maximum change 3.397320e-02
+	 100) Maximum change 2.045875e-04
+	 200) Maximum change 1.483683e-04
+	 300) Maximum change 1.129573e-04
+	 400) Maximum change 8.688991e-05
+	 500) Maximum change 6.695588e-05
+	 600) Maximum change 5.161044e-05
+	 700) Maximum change 3.978402e-05
+	 800) Maximum change 3.066788e-05
+	 900) Maximum change 2.364068e-05
+	1000) Maximum change 1.822369e-05
+	1100) Maximum change 1.404795e-05
+	1200) Maximum change 1.082903e-05
+	1300) Maximum change 8.347693e-06
+	1400) Maximum change 6.434923e-06
+	1500) Maximum change 4.960441e-06
+	1600) Maximum change 3.823819e-06
+	1700) Maximum change 2.947639e-06
+	1800) Maximum change 2.272225e-06
+	1900) Maximum change 1.751574e-06
+	2000) Maximum change 1.350223e-06
+	2100) Maximum change 1.040837e-06
+	Converged in 2117 iterations. Final maximum change 9.9574e-07
+  *******************************************
+  ******** Start bootstrap nr 71 ************
+  *******************************************
+	   1) Maximum change 4.190804e-02
+	 100) Maximum change 1.209161e-04
+	 200) Maximum change 2.428219e-05
+	 300) Maximum change 1.523380e-05
+	 400) Maximum change 8.857101e-06
+	 500) Maximum change 5.114946e-06
+	 600) Maximum change 2.952061e-06
+	 700) Maximum change 1.703671e-06
+	Converged in 798 iterations. Final maximum change 9.94072e-07
+  *******************************************
+  ******** Start bootstrap nr 72 ************
+  *******************************************
+	   1) Maximum change 8.312813e-02
+	 100) Maximum change 1.817823e-04
+	 200) Maximum change 7.417459e-05
+	 300) Maximum change 3.299951e-05
+	 400) Maximum change 1.497385e-05
+	 500) Maximum change 6.820246e-06
+	 600) Maximum change 3.108669e-06
+	 700) Maximum change 1.417121e-06
+	Converged in 746 iterations. Final maximum change 9.87393e-07
+  *******************************************
+  ******** Start bootstrap nr 73 ************
+  *******************************************
+	   1) Maximum change 4.468083e-02
+	 100) Maximum change 3.218659e-04
+	 200) Maximum change 1.903680e-04
+	 300) Maximum change 1.161351e-04
+	 400) Maximum change 7.190303e-05
+	 500) Maximum change 4.482138e-05
+	 600) Maximum change 2.802609e-05
+	 700) Maximum change 1.754859e-05
+	 800) Maximum change 1.099491e-05
+	 900) Maximum change 6.890673e-06
+	1000) Maximum change 4.319020e-06
+	1100) Maximum change 2.707277e-06
+	1200) Maximum change 1.697034e-06
+	1300) Maximum change 1.063783e-06
+	Converged in 1315 iterations. Final maximum change 9.91807e-07
+  *******************************************
+  ******** Start bootstrap nr 74 ************
+  *******************************************
+	   1) Maximum change 2.455589e-02
+	 100) Maximum change 1.719050e-04
+	 200) Maximum change 7.501190e-05
+	 300) Maximum change 3.579831e-05
+	 400) Maximum change 1.721305e-05
+	 500) Maximum change 8.287685e-06
+	 600) Maximum change 3.991416e-06
+	 700) Maximum change 1.922405e-06
+	Converged in 791 iterations. Final maximum change 9.88873e-07
+  *******************************************
+  ******** Start bootstrap nr 75 ************
+  *******************************************
+	   1) Maximum change 3.194648e-02
+	 100) Maximum change 2.878027e-04
+	 200) Maximum change 1.652924e-04
+	 300) Maximum change 8.039822e-05
+	 400) Maximum change 3.733991e-05
+	 500) Maximum change 1.715783e-05
+	 600) Maximum change 7.863948e-06
+	 700) Maximum change 3.602057e-06
+	 800) Maximum change 1.649664e-06
+	Converged in 866 iterations. Final maximum change 9.85236e-07
+  *******************************************
+  ******** Start bootstrap nr 76 ************
+  *******************************************
+	   1) Maximum change 6.977633e-02
+	 100) Maximum change 2.275976e-04
+	 200) Maximum change 1.932215e-04
+	 300) Maximum change 1.642353e-04
+	 400) Maximum change 1.396453e-04
+	 500) Maximum change 1.187439e-04
+	 600) Maximum change 1.009708e-04
+	 700) Maximum change 8.585690e-05
+	 800) Maximum change 7.300446e-05
+	 900) Maximum change 6.207530e-05
+	1000) Maximum change 5.278179e-05
+	1100) Maximum change 4.487927e-05
+	1200) Maximum change 3.815965e-05
+	1300) Maximum change 3.244594e-05
+	1400) Maximum change 2.758761e-05
+	1500) Maximum change 2.345664e-05
+	1600) Maximum change 1.994417e-05
+	1700) Maximum change 1.695761e-05
+	1800) Maximum change 1.441823e-05
+	1900) Maximum change 1.225910e-05
+	2000) Maximum change 1.042327e-05
+	2100) Maximum change 8.862348e-06
+	2200) Maximum change 7.535168e-06
+	2300) Maximum change 6.406732e-06
+	2400) Maximum change 5.447280e-06
+	2500) Maximum change 4.631509e-06
+	2600) Maximum change 3.937902e-06
+	2700) Maximum change 3.348166e-06
+	2800) Maximum change 2.846747e-06
+	2900) Maximum change 2.420419e-06
+	3000) Maximum change 2.057937e-06
+	3100) Maximum change 1.749740e-06
+	3200) Maximum change 1.487698e-06
+	3300) Maximum change 1.264899e-06
+	3400) Maximum change 1.075466e-06
+	Converged in 3446 iterations. Final maximum change 9.98127e-07
+  *******************************************
+  ******** Start bootstrap nr 77 ************
+  *******************************************
+	   1) Maximum change 6.622517e-02
+	 100) Maximum change 1.439386e-04
+	 200) Maximum change 9.271994e-05
+	 300) Maximum change 5.990666e-05
+	 400) Maximum change 3.869850e-05
+	 500) Maximum change 2.499767e-05
+	 600) Maximum change 1.614741e-05
+	 700) Maximum change 1.043051e-05
+	 800) Maximum change 6.737645e-06
+	 900) Maximum change 4.352217e-06
+	1000) Maximum change 2.811337e-06
+	1100) Maximum change 1.815998e-06
+	1200) Maximum change 1.173053e-06
+	Converged in 1238 iterations. Final maximum change 9.93565e-07
+  *******************************************
+  ******** Start bootstrap nr 78 ************
+  *******************************************
+	   1) Maximum change 2.175219e-02
+	 100) Maximum change 4.098486e-04
+	 200) Maximum change 2.956941e-04
+	 300) Maximum change 1.880241e-04
+	 400) Maximum change 1.182570e-04
+	 500) Maximum change 7.428375e-05
+	 600) Maximum change 4.665433e-05
+	 700) Maximum change 2.930094e-05
+	 800) Maximum change 1.840223e-05
+	 900) Maximum change 1.155738e-05
+	1000) Maximum change 7.258527e-06
+	1100) Maximum change 4.558666e-06
+	1200) Maximum change 2.863038e-06
+	1300) Maximum change 1.798111e-06
+	1400) Maximum change 1.129291e-06
+	Converged in 1428 iterations. Final maximum change 9.91391e-07
+  *******************************************
+  ******** Start bootstrap nr 79 ************
+  *******************************************
+	   1) Maximum change 9.030719e-02
+	 100) Maximum change 7.409655e-04
+	 200) Maximum change 3.615175e-04
+	 300) Maximum change 2.001776e-04
+	 400) Maximum change 1.123482e-04
+	 500) Maximum change 6.313681e-05
+	 600) Maximum change 3.548533e-05
+	 700) Maximum change 1.994421e-05
+	 800) Maximum change 1.120942e-05
+	 900) Maximum change 6.300117e-06
+	1000) Maximum change 3.540897e-06
+	1100) Maximum change 1.990113e-06
+	1200) Maximum change 1.118515e-06
+	Converged in 1221 iterations. Final maximum change 9.91028e-07
+  *******************************************
+  ******** Start bootstrap nr 80 ************
+  *******************************************
+	   1) Maximum change 5.225950e-02
+	 100) Maximum change 3.930458e-04
+	 200) Maximum change 1.758373e-04
+	 300) Maximum change 8.726648e-05
+	 400) Maximum change 4.389947e-05
+	 500) Maximum change 2.211966e-05
+	 600) Maximum change 1.114756e-05
+	 700) Maximum change 5.618105e-06
+	 800) Maximum change 2.831393e-06
+	 900) Maximum change 1.426954e-06
+	Converged in 953 iterations. Final maximum change 9.92397e-07
+  *******************************************
+  ******** Start bootstrap nr 81 ************
+  *******************************************
+	   1) Maximum change 6.565650e-02
+	 100) Maximum change 2.402507e-04
+	 200) Maximum change 6.946672e-05
+	 300) Maximum change 2.735963e-05
+	 400) Maximum change 1.241522e-05
+	 500) Maximum change 5.915521e-06
+	 600) Maximum change 2.860660e-06
+	 700) Maximum change 1.389357e-06
+	Converged in 747 iterations. Final maximum change 9.89962e-07
+  *******************************************
+  ******** Start bootstrap nr 82 ************
+  *******************************************
+	   1) Maximum change 4.470252e-02
+	 100) Maximum change 5.342972e-04
+	 200) Maximum change 2.944827e-04
+	 300) Maximum change 1.556085e-04
+	 400) Maximum change 8.152947e-05
+	 500) Maximum change 4.261359e-05
+	 600) Maximum change 2.225771e-05
+	 700) Maximum change 1.162321e-05
+	 800) Maximum change 6.069415e-06
+	 900) Maximum change 3.169280e-06
+	1000) Maximum change 1.654902e-06
+	Converged in 1079 iterations. Final maximum change 9.90474e-07
+  *******************************************
+  ******** Start bootstrap nr 83 ************
+  *******************************************
+	   1) Maximum change 1.899802e-02
+	 100) Maximum change 4.800340e-04
+	 200) Maximum change 2.980677e-04
+	 300) Maximum change 1.888341e-04
+	 400) Maximum change 1.197520e-04
+	 500) Maximum change 7.595804e-05
+	 600) Maximum change 4.818488e-05
+	 700) Maximum change 3.056864e-05
+	 800) Maximum change 1.939364e-05
+	 900) Maximum change 1.230421e-05
+	1000) Maximum change 7.806479e-06
+	1100) Maximum change 4.952919e-06
+	1200) Maximum change 3.142463e-06
+	1300) Maximum change 1.993796e-06
+	1400) Maximum change 1.265006e-06
+	Converged in 1453 iterations. Final maximum change 9.93954e-07
+  *******************************************
+  ******** Start bootstrap nr 84 ************
+  *******************************************
+	   1) Maximum change 4.937016e-02
+	 100) Maximum change 6.032117e-05
+	 200) Maximum change 3.509977e-05
+	 300) Maximum change 2.251948e-05
+	 400) Maximum change 1.479296e-05
+	 500) Maximum change 9.774541e-06
+	 600) Maximum change 6.467852e-06
+	 700) Maximum change 4.281297e-06
+	 800) Maximum change 2.834181e-06
+	 900) Maximum change 1.876242e-06
+	1000) Maximum change 1.242088e-06
+	Converged in 1054 iterations. Final maximum change 9.94075e-07
+  *******************************************
+  ******** Start bootstrap nr 85 ************
+  *******************************************
+	   1) Maximum change 1.162221e-01
+	 100) Maximum change 1.175689e-04
+	 200) Maximum change 5.227979e-05
+	 300) Maximum change 2.807552e-05
+	 400) Maximum change 1.522283e-05
+	 500) Maximum change 8.258026e-06
+	 600) Maximum change 4.479899e-06
+	 700) Maximum change 2.430305e-06
+	 800) Maximum change 1.318419e-06
+	Converged in 847 iterations. Final maximum change 9.89016e-07
+  *******************************************
+  ******** Start bootstrap nr 86 ************
+  *******************************************
+	   1) Maximum change 4.073381e-02
+	 100) Maximum change 5.729987e-04
+	 200) Maximum change 2.595178e-04
+	 300) Maximum change 1.096325e-04
+	 400) Maximum change 4.616659e-05
+	 500) Maximum change 1.943628e-05
+	 600) Maximum change 8.182572e-06
+	 700) Maximum change 3.444810e-06
+	 800) Maximum change 1.450242e-06
+	Converged in 844 iterations. Final maximum change 9.91003e-07
+  *******************************************
+  ******** Start bootstrap nr 87 ************
+  *******************************************
+	   1) Maximum change 4.464821e-02
+	 100) Maximum change 4.121850e-04
+	 200) Maximum change 2.822424e-04
+	 300) Maximum change 1.555262e-04
+	 400) Maximum change 8.225886e-05
+	 500) Maximum change 4.309379e-05
+	 600) Maximum change 2.252390e-05
+	 700) Maximum change 1.176598e-05
+	 800) Maximum change 6.145445e-06
+	 900) Maximum change 3.209697e-06
+	1000) Maximum change 1.676376e-06
+	Converged in 1081 iterations. Final maximum change 9.90566e-07
+  *******************************************
+  ******** Start bootstrap nr 88 ************
+  *******************************************
+	   1) Maximum change 2.805971e-02
+	 100) Maximum change 3.863560e-04
+	 200) Maximum change 2.255480e-04
+	 300) Maximum change 1.312043e-04
+	 400) Maximum change 7.632286e-05
+	 500) Maximum change 4.439849e-05
+	 600) Maximum change 2.582773e-05
+	 700) Maximum change 1.502473e-05
+	 800) Maximum change 8.740350e-06
+	 900) Maximum change 5.084541e-06
+	1000) Maximum change 2.957843e-06
+	1100) Maximum change 1.720675e-06
+	1200) Maximum change 1.000974e-06
+	Converged in 1202 iterations. Final maximum change 9.90188e-07
+  *******************************************
+  ******** Start bootstrap nr 89 ************
+  *******************************************
+	   1) Maximum change 7.718485e-02
+	 100) Maximum change 3.325233e-04
+	 200) Maximum change 2.848216e-05
+	 300) Maximum change 1.293020e-05
+	 400) Maximum change 9.168821e-06
+	 500) Maximum change 6.772843e-06
+	 600) Maximum change 5.017309e-06
+	 700) Maximum change 3.717541e-06
+	 800) Maximum change 2.754524e-06
+	 900) Maximum change 2.040976e-06
+	1000) Maximum change 1.512270e-06
+	1100) Maximum change 1.120523e-06
+	Converged in 1139 iterations. Final maximum change 9.96848e-07
+  *******************************************
+  ******** Start bootstrap nr 90 ************
+  *******************************************
+	   1) Maximum change 1.865024e-02
+	 100) Maximum change 1.894672e-04
+	 200) Maximum change 7.141003e-05
+	 300) Maximum change 3.692140e-05
+	 400) Maximum change 1.759588e-05
+	 500) Maximum change 8.275139e-06
+	 600) Maximum change 3.882808e-06
+	 700) Maximum change 1.821141e-06
+	Converged in 781 iterations. Final maximum change 9.86257e-07
+  *******************************************
+  ******** Start bootstrap nr 91 ************
+  *******************************************
+	   1) Maximum change 4.185065e-02
+	 100) Maximum change 4.224517e-04
+	 200) Maximum change 1.472335e-04
+	 300) Maximum change 1.005732e-04
+	 400) Maximum change 6.370102e-05
+	 500) Maximum change 4.005916e-05
+	 600) Maximum change 2.517336e-05
+	 700) Maximum change 1.581770e-05
+	 800) Maximum change 9.938894e-06
+	 900) Maximum change 6.244959e-06
+	1000) Maximum change 3.923913e-06
+	1100) Maximum change 2.465517e-06
+	1200) Maximum change 1.549159e-06
+	Converged in 1296 iterations. Final maximum change 9.91631e-07
+  *******************************************
+  ******** Start bootstrap nr 92 ************
+  *******************************************
+	   1) Maximum change 2.900642e-02
+	 100) Maximum change 3.632148e-04
+	 200) Maximum change 3.690602e-05
+	 300) Maximum change 1.254855e-05
+	 400) Maximum change 6.577846e-06
+	 500) Maximum change 3.319411e-06
+	 600) Maximum change 1.667871e-06
+	Converged in 676 iterations. Final maximum change 9.88185e-07
+  *******************************************
+  ******** Start bootstrap nr 93 ************
+  *******************************************
+	   1) Maximum change 3.360940e-02
+	 100) Maximum change 1.090475e-04
+	 200) Maximum change 2.957566e-05
+	 300) Maximum change 1.875266e-05
+	 400) Maximum change 1.161656e-05
+	 500) Maximum change 7.186216e-06
+	 600) Maximum change 4.445131e-06
+	 700) Maximum change 2.749569e-06
+	 800) Maximum change 1.700761e-06
+	 900) Maximum change 1.052013e-06
+	Converged in 912 iterations. Final maximum change 9.93089e-07
+  *******************************************
+  ******** Start bootstrap nr 94 ************
+  *******************************************
+	   1) Maximum change 1.292353e-01
+	 100) Maximum change 1.426244e-03
+	 200) Maximum change 6.271717e-04
+	 300) Maximum change 3.067203e-04
+	 400) Maximum change 1.567192e-04
+	 500) Maximum change 8.154822e-05
+	 600) Maximum change 4.274327e-05
+	 700) Maximum change 2.246783e-05
+	 800) Maximum change 1.182325e-05
+	 900) Maximum change 6.224438e-06
+	1000) Maximum change 3.277447e-06
+	1100) Maximum change 1.725835e-06
+	Converged in 1187 iterations. Final maximum change 9.87894e-07
+  *******************************************
+  ******** Start bootstrap nr 95 ************
+  *******************************************
+	   1) Maximum change 4.062509e-02
+	 100) Maximum change 2.710817e-04
+	 200) Maximum change 1.467086e-04
+	 300) Maximum change 8.174102e-05
+	 400) Maximum change 4.423850e-05
+	 500) Maximum change 2.384900e-05
+	 600) Maximum change 1.285007e-05
+	 700) Maximum change 6.923179e-06
+	 800) Maximum change 3.729918e-06
+	 900) Maximum change 2.009515e-06
+	1000) Maximum change 1.082636e-06
+	Converged in 1014 iterations. Final maximum change 9.92838e-07
+  *******************************************
+  ******** Start bootstrap nr 96 ************
+  *******************************************
+	   1) Maximum change 1.836880e-02
+	 100) Maximum change 1.765799e-04
+	 200) Maximum change 1.325775e-04
+	 300) Maximum change 8.782530e-05
+	 400) Maximum change 5.795796e-05
+	 500) Maximum change 3.824238e-05
+	 600) Maximum change 2.523286e-05
+	 700) Maximum change 1.664877e-05
+	 800) Maximum change 1.098485e-05
+	 900) Maximum change 7.247752e-06
+	1000) Maximum change 4.782016e-06
+	1100) Maximum change 3.155132e-06
+	1200) Maximum change 2.081725e-06
+	1300) Maximum change 1.373500e-06
+	Converged in 1378 iterations. Final maximum change 9.93094e-07
+  *******************************************
+  ******** Start bootstrap nr 97 ************
+  *******************************************
+	   1) Maximum change 3.043719e-02
+	 100) Maximum change 6.943176e-04
+	 200) Maximum change 4.786471e-04
+	 300) Maximum change 3.369008e-04
+	 400) Maximum change 2.365410e-04
+	 500) Maximum change 1.660142e-04
+	 600) Maximum change 1.165197e-04
+	 700) Maximum change 8.178733e-05
+	 800) Maximum change 5.741152e-05
+	 900) Maximum change 4.030241e-05
+	1000) Maximum change 2.829283e-05
+	1100) Maximum change 1.986237e-05
+	1200) Maximum change 1.394416e-05
+	1300) Maximum change 9.789450e-06
+	1400) Maximum change 6.872701e-06
+	1500) Maximum change 4.825017e-06
+	1600) Maximum change 3.387442e-06
+	1700) Maximum change 2.378187e-06
+	1800) Maximum change 1.669633e-06
+	1900) Maximum change 1.172186e-06
+	Converged in 1946 iterations. Final maximum change 9.96154e-07
+  *******************************************
+  ******** Start bootstrap nr 98 ************
+  *******************************************
+	   1) Maximum change 1.225742e-02
+	 100) Maximum change 9.553873e-05
+	 200) Maximum change 6.339067e-05
+	 300) Maximum change 4.040418e-05
+	 400) Maximum change 2.565408e-05
+	 500) Maximum change 1.628462e-05
+	 600) Maximum change 1.033693e-05
+	 700) Maximum change 6.561527e-06
+	 800) Maximum change 4.165031e-06
+	 900) Maximum change 2.643818e-06
+	1000) Maximum change 1.678204e-06
+	1100) Maximum change 1.065266e-06
+	Converged in 1115 iterations. Final maximum change 9.95067e-07
+  *******************************************
+  ******** Start bootstrap nr 99 ************
+  *******************************************
+	   1) Maximum change 5.115135e-02
+	 100) Maximum change 5.400850e-04
+	 200) Maximum change 2.587500e-04
+	 300) Maximum change 1.117494e-04
+	 400) Maximum change 4.790727e-05
+	 500) Maximum change 2.052311e-05
+	 600) Maximum change 8.791340e-06
+	 700) Maximum change 3.765877e-06
+	 800) Maximum change 1.613162e-06
+	Converged in 858 iterations. Final maximum change 9.8659e-07
+  *******************************************
+  ******** Start bootstrap nr 100 ************
+  *******************************************
+	   1) Maximum change 1.954229e-02
+	 100) Maximum change 2.604882e-04
+	 200) Maximum change 2.155544e-05
+	 300) Maximum change 2.714650e-06
+	 400) Maximum change 1.116610e-06
+	Converged in 415 iterations. Final maximum change 9.85099e-07
+Wrote boot strap result to bootstrap_profile_std.xvg
+
+In case you use results from gmx wham for a publication, please cite:
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+J. S. Hub, B. L. de Groot, D. van der Spoel
+g_wham - A free weighted histogram analysis implementation including robust
+error and autocorrelation estimates
+J. Chem. Theory Comput. (2010)
+https://doi.org/10.1021/ct100494z
+-------- -------- --- Thank You --- -------- --------
+
+
+GROMACS reminds you: "You should never bet against anything in science at odds of more than about 10^12 to 1." (Ernest Rutherford)
+
