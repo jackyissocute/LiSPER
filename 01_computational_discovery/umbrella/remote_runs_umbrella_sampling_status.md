@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-06-29 15:08 CST
+Last updated: 2026-06-29 19:15 CST
 
 ## Launch Rule
 
@@ -17,16 +17,16 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiLC-1` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | Worker B | V2 `22/22` | WHAM complete; QC repair/review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
+| `LiDA-1` | NaCl | Worker B | V2 `22/22` + V3 repair | V3 tail extensions `020-021` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🟦` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
 | `LiD3-Flex` | NaCl | Worker B | V2 `2/27` | production windows `002-006` | `🟩🟩🟦🟦🟦🟦🟦⬜⬜⬜` |
 | `LiLC-1` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiA3-Ref` | NaCl | Worker B | V2 `0/27` | pull active | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiD3-Core` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` advanced to `19/27` and is running windows `019-022`; LiCl `LiDS-1` remains `12/27` and is running windows `012-015`; LiCl `LiD3-Flex` is running windows `000-003`; LiCl `LiD3-Core` moved into windows `000-001`. NaCl `LiDA-1` completed V2 `22/22` and GROMACS WHAM completed with QC review required; NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `2/27` complete and production windows `002-006` active. `LiLC-1` and `LiD3-Core` NaCl are running windows `000-001`. `LiA3-Ref` NaCl refined pull was launched at 2026-06-29 15:04 CST to use Worker B's three idle cores; the old `4/21` NaCl windows remain diagnostics only. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: old/default umbrella compute remains guarded after repeated WHAM overlap/bin warnings. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` advanced to `19/27` and is running windows `019-022`; LiCl `LiDS-1` advanced to `16/27` and is running windows `016-019`; LiCl `LiD3-Flex` is running windows `000-003`; LiCl `LiD3-Core` is running windows `000-001`. NaCl `LiDA-1` completed V2 `22/22`, GROMACS WHAM/bootstrap/time-slice QC stayed preliminary, and V3 tail repair extensions for windows `020-021` are active to improve far-tail/reference sampling. NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `2/27` complete and production windows `002-006` active. `LiLC-1` and `LiD3-Core` NaCl are running windows `000-001`. `LiA3-Ref` NaCl refined pull remains active. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
-Scheduling note, 2026-06-29 15:08 CST: Worker A is at `18/18` real `mdrun` threads and Worker B is at `10/12` real `mdrun` threads. Worker B fell to `9/12` after `LiDS-1` NaCl finished windows `024-026`; the idle capacity was used to launch the scientifically ready `LiA3-Ref` NaCl refined pull and run short LiDS-1/LiDA-1 WHAM QC jobs. The remaining gap is caused by LiA3-Ref being in a single-core pull gate; it should expand toward its `LISPER_JOBS=3` cap after window generation. No candidate-condition-stage-window is duplicated.
+Scheduling note, 2026-06-29 19:15 CST: Worker A is at `18/18` real `mdrun` threads and Worker B is at `12/12` real `mdrun` threads. The last two Worker B cores were assigned to LiDA-1 NaCl V3 tail repair extensions for windows `020-021`, targeting poor-sampling bins near the outer reference tail. No candidate-condition-stage-window is duplicated.
 
 Recovery note, 2026-06-29 00:38 CST: both workers were reachable but had no real `gmx mdrun` jobs after an accidental stop around 00:09-00:10 CST. The two NaCl production tails on Worker A were resumed from `.cpt` checkpoints with `-append`. Refined umbrella drivers were relaunched without duplicate candidate-condition-stage windows: Worker A runs `LiDA-1` cap `4`, `LiDS-1` cap `4`, `LiD3-Flex` cap `4`, and `LiD3-Core` cap `2`; Worker B runs `LiDS-1` cap `3`, `LiD3-Flex` cap `5`, `LiD3-Core` cap `2`, and `LiLC-1` cap `2`. Verified recovery load is Worker A `17/18` real `mdrun` threads and Worker B `10/12`; Worker B is below 12 while two drivers remain in single-core pull stages.
 
@@ -45,7 +45,7 @@ NaCl `LiDA-1` completed all 15 valid old-parameter windows and has a combined or
 | Worker | Existing MD load | Umbrella load | Total |
 |---|---:|---:|---:|
 | Worker A | 4 production threads | 14 V2 windows | 18/18 real `mdrun` active now |
-| Worker B | 0 production threads | 10 V2 windows/pulls | 10/12 real `mdrun` active now |
+| Worker B | 0 production threads | 10 V2 windows/pulls + 2 V3 tail repairs | 12/12 real `mdrun` active now |
 
 No candidate-condition-stage is duplicated. Umbrella jobs were launched only for clustered conditions with representative structures already available.
 
