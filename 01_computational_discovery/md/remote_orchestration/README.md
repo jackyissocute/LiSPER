@@ -77,6 +77,14 @@ Current scheduling treats the two AutoDL machines as one non-oversubscribed pool
 
 Umbrella sampling is condition-specific: a LiCl or NaCl condition can enter umbrella window design and sampling immediately after that condition has completed production, clustering, and representative extraction. It does not need to wait for the matched ion condition. Local umbrella files should be synced to `../../umbrella/`; WHAM/PMF outputs should be synced to `../../pmf/`.
 
+## Autonomous PMF Repair Rule
+
+Every completed umbrella/WHAM result must be classified as `PASS`, `REPAIR`, `WAIT-RUNNING`, or `BLOCKED` during monitoring. A failed or incomplete PMF QC result is not a passive status: if the result has material empty bins, weak/single-window bins, poor overlap, unstable time slices, large uncertainty, or bad bound/reference regions, the monitor should infer the smallest justified repair and launch it when safe capacity exists.
+
+Repair work should be generated from real GROMACS inputs and checkpoints, never invented locally. Acceptable repairs include extending weak or tail windows, adding/interpolating denser windows around poor-overlap coordinates, rerunning equilibration/production for suspect windows, correcting coordinate/PBC setup, and rerunning WHAM with bootstrap plus multiple burn-ins. Use internal `v3`, `v4`, or later labels when the repair generation changes. If no safe core is available, write the exact queued repair plan and start it as soon as capacity opens.
+
+The monitor should stop modifying a candidate-condition only after the reliability gate passes or a real blocker is documented. Final Delta G requires no material empty bins, no material weak bins in the bound basin/transition/reference plateau, reasonable overlap, stable time-sliced PMF basin-to-plateau difference, acceptable bootstrap/error, and comparable LiCl/NaCl protocols.
+
 ## Completed Asset Policy
 
 Three final candidates already have completed upstream assets:
