@@ -237,7 +237,7 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>V2 19/27</code>, active <code>019-022</code>; NaCl <code>V2 22/22</code></td>
+      <td>🟦 LiCl <code>V2 19/27</code>, active <code>019-022</code>; NaCl <code>V2 22/22</code>; NaCl <code>V3 0/2</code>, active <code>020-021</code></td>
       <td>🟪 NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>3</code> poor-sampling warnings; V3 tail repair active</td>
     </tr>
     <tr>
