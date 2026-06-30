@@ -1,0 +1,30 @@
+             :-) GROMACS - gmx convert-tpr, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/v4_tail_repair_20260630/window_021_extend_2ns
+Command line:
+  gmx convert-tpr -s /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/v3_tail_repair_20260629_1915/window_021_extend_2ns/umbrella_ext.tpr -extend 2000 -o umbrella_v4.tpr
+
+Reading file /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/v3_tail_repair_20260629_1915/window_021_extend_2ns/umbrella_ext.tpr, VERSION 2026.0-conda_forge (single precision)
+
+GROMACS reminds you: "Alas, You're Welcome" (Prof. Dumbledore in Potter Puppet Pals)
+
+Input file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   2000000     
+  Runtime for the run                             4000 ps  
+  Run end step                                 2000000     
+  Run end time                                    4000 ps  
+
+Extending remaining runtime by 2000 ps
+
+Output file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   3000000     
+  Runtime for the run                             6000 ps  
+  Run end step                                 3000000     
+  Run end time                                    6000 ps  
+

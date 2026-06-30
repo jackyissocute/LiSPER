@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-30 07:39 CST`
+**Last synchronized monitor snapshot:** `2026-06-30 10:05 CST`
 
 **Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
 
@@ -144,7 +144,7 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>30/30 mdrun threads active</code><br><sub>V4 tail repair queued; launch when safe slots open</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>30/30 mdrun threads active</code><br><sub>V4 tail repair active on the outermost safe tail window</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
@@ -238,7 +238,7 @@ flowchart TD
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
       <td>🟦 LiCl <code>V2 23/27</code>, active <code>023-026</code>; NaCl <code>V3 24/24</code></td>
-      <td>🟪 NaCl V3 WHAM complete: <code>200/200</code> finite points, far-tail poor-sampling warnings, <code>1.68 kJ/mol</code> time-slice span shift; V4 tail repair queued</td>
+      <td>🟪 NaCl V3 WHAM complete: <code>200/200</code> finite points, far-tail poor-sampling warnings, <code>1.68 kJ/mol</code> time-slice span shift; V4 tail repair active</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -290,13 +290,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~3-7 days first table</code></strong><br><sub>30/30 verified mdrun threads; LiDA-1 NaCl V4 tail repair queued</sub></td>
+      <td align="center"><strong><code>~3-7 days first table</code></strong><br><sub>30/30 verified mdrun threads; LiDA-1 NaCl V4 tail repair active</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are based on the current `30/30` verified active `mdrun` thread pool after the 2026-06-29 recovery and cleanup. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is queued because far-tail poor-sampling warnings and a material time-slice span shift remain.
+> Time estimates are based on the current `30/30` verified active `mdrun` thread pool after the 2026-06-29 recovery and cleanup. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is active because far-tail poor-sampling warnings and a material time-slice span shift remain.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -307,7 +307,7 @@ flowchart TD
 - Worker A is active with 18/18 real `gmx mdrun` threads and Worker B has 12/12 real `gmx mdrun` threads after the 2026-06-29 recovery, cleanup, efficiency fill, and LiDA-1 NaCl V3 tail repair launch. The combined pool is 30/30 verified active `mdrun` threads without duplicate candidate-condition-stage jobs.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, and `LiLC-1` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
-- NaCl `LiDA-1` V3 WHAM completed from 24 refined windows with `200/200` finite profile points, but GROMACS still reported poor far-tail sampling at `z=2.92314-2.93281 nm` and the time-slice span shifted by `1.68 kJ/mol`. V4 tail repair is queued for the next safe slot. NaCl `LiDS-1` V2 WHAM completed from 27 refined windows with `200/200` finite profile points and two poor-sampling warning hits. Both remain preliminary until repair/QC, bootstrap, and time-slice convergence checks pass.
+- NaCl `LiDA-1` V3 WHAM completed from 24 refined windows with `200/200` finite profile points, but GROMACS still reported poor far-tail sampling at `z=2.92314-2.93281 nm` and the time-slice span shifted by `1.68 kJ/mol`. V4 tail repair is active as a 2 ns extension of the outermost PBC-safe tail window from the V3 checkpoint. NaCl `LiDS-1` V2 WHAM completed from 27 refined windows with `200/200` finite profile points and two poor-sampling warning hits. Both remain preliminary until repair/QC, bootstrap, and time-slice convergence checks pass.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
@@ -324,7 +324,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl Worker A backfill active |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, active `003`; NaCl refined pull active |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl refined windows active; NaCl V3 WHAM synced but preliminary; V4 tail repair queued |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl refined windows active; NaCl V3 WHAM synced but preliminary; V4 tail repair active |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `3/21`, active `003`; NaCl Worker A backfill active |
 | 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `2/21`, active `002`; NaCl `V2 0/27`, active `000` |
 

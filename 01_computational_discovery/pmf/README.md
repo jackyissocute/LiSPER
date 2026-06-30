@@ -35,7 +35,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Window set | WHAM/PMF state | Delta G status |
 |---|---|---:|---|---|
-| `LiDA-1` | NaCl | V3 `24/24` | V3 combined WHAM/bootstrap/time-slice outputs are synced; QC summary reports `200/200` finite profile points, `9` warning lines, far-tail poor-sampling bins at `z=2.92314-2.93281 nm`, and `1.67557 kJ/mol` time-slice span shift | Preliminary only; V4 far-tail repair is queued before Delta G promotion |
+| `LiDA-1` | NaCl | V4 active | V3 combined WHAM/bootstrap/time-slice outputs are synced; QC summary reports `200/200` finite profile points, `9` warning lines, far-tail poor-sampling bins at `z=2.92314-2.93281 nm`, and `1.67557 kJ/mol` time-slice span shift. V4 extends the outermost PBC-safe tail window from the V3 checkpoint | Preliminary only; V4 must finish and pass combined WHAM/bootstrap/time-slice QC before Delta G promotion |
 | `LiDS-1` | NaCl | V2 `27/27` | `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; QC summary reports `200/200` finite profile points, `0` nonfinite points, and `2` poor-sampling warning hits | Preliminary only; QC review and time-slice/bootstrap interpretation still required |
 
 ## Reliability Gates
