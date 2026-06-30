@@ -113,19 +113,19 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. The active remote workload has been migrated onto the 32-core GCP runner, with AutoDL retained only as a backup/source while final handoff is verified. LiCl production/clustering is complete for all eight candidates; NaCl has six representatives ready and two backfill productions still running. Refined umbrella tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, and `LiA3-Ref`.
+> **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. The active remote workload has been migrated onto the 32-core GCP runner, with AutoDL retained only as a backup/source while final handoff is verified. LiCl production/clustering is complete for all eight candidates; NaCl has seven representatives ready and one backfill production still running. Refined umbrella tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, and `LiN3-Core`.
 >
 > ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
 > ![LiCl](https://img.shields.io/badge/LiCl-8%2F8_clustered-16a34a)
-> ![NaCl](https://img.shields.io/badge/NaCl-6_clustered_%2B_2_active-2563eb)
-> ![Compute](https://img.shields.io/badge/GCP_CPU-30%2F32_mdrun_cores-f59e0b)
+> ![NaCl](https://img.shields.io/badge/NaCl-7_clustered_%2B_1_active-2563eb)
+> ![Compute](https://img.shields.io/badge/GCP_CPU-29%2F32_mdrun_cores-f59e0b)
 > ![Umbrella](https://img.shields.io/badge/umbrella-refined_tracks_active-2563eb)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-30 13:15 CST`
+**Last synchronized monitor snapshot:** `2026-06-30 17:56 CST`
 
 **GCP migration checkpoint:** the 32-core GCP runner is carrying the active production, umbrella, and LiDA-1 NaCl V4 tail-repair workload. A shutdown-safety archive of recent AutoDL checkpoints/logs was copied to the GCP data disk at `2026-06-30 13:11 CST` before any AutoDL shutdown decision.
 
@@ -146,7 +146,7 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟨</code> <code>30/32 GCP mdrun cores active</code><br><sub>GCP runner carries active umbrella, production, and V4 tail-repair work; AutoDL is backup/source only.</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟨</code> <code>29/32 GCP mdrun cores active</code><br><sub>GCP runner carries active umbrella, one remaining production tail, and V4 tail-repair work; AutoDL is backup/source only.</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-GCP_32_core_runner-2563eb"></td>
     </tr>
     <tr>
@@ -163,18 +163,18 @@ flowchart TD
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>6/8 complete</code><br><sub>backfill <code>10.17-15.72 ns / 20 ns</code>; 6/8 clustered</sub></td>
-      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-2%2F8_jobs-2563eb"></td>
+      <td><code>7/8 complete</code><br><sub><code>LiN3-Core</code> produced/clustered; <code>LiND-Hybrid</code> backfill remains active</sub></td>
+      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-1%2F8_jobs-2563eb"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>6/8 reps</code></td>
-      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-6%2F8-16a34a"></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> <code>7/8 reps</code></td>
+      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-7%2F8-16a34a"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟦🟦🟦🟦🟦🟦</code> <strong>Refined umbrella tracks active</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, and LiA3-Ref NaCl window</sub></td>
+      <td><code>🟦🟦🟦🟦🟦🟦🟦</code> <strong>Refined umbrella tracks active</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, LiA3-Ref, and LiN3-Core NaCl pull</sub></td>
       <td><img alt="refined active" src="https://img.shields.io/badge/refined_windows-active-2563eb"></td>
     </tr>
     <tr>
@@ -245,9 +245,9 @@ flowchart TD
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟦 <code>15.72 ns / 20 ns</code>; Worker A backfill</td>
-      <td>🟦 LiCl <code>3/21</code>, active <code>003</code></td>
-      <td>🟪 planned after umbrella sampling</td>
+      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>11.44%</code></td>
+      <td>🟦 LiCl <code>3/21</code>, active <code>003</code>; NaCl pull active</td>
+      <td>🟪 PMF pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
@@ -277,8 +277,8 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>two NaCl production tails at 10.17 and 15.72 ns / 20 ns</sub></td>
-      <td>Finish remaining production logs, cluster trajectories, and extract dominant representative structures.</td>
+      <td align="center"><strong><code>~1 day</code></strong><br><sub>one NaCl production tail remains after LiN3-Core completion</sub></td>
+      <td>Finish the remaining production log, cluster the trajectory, and extract the dominant representative structure.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
@@ -292,13 +292,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~3-7 days first table</code></strong><br><sub>GCP 30/32 verified mdrun cores; LiDA-1 NaCl V4 and paired refined windows active</sub></td>
+      <td align="center"><strong><code>~3-6 days first table</code></strong><br><sub>GCP 29/32 verified mdrun cores; LiDA-1 NaCl V4 and paired refined windows active</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `30/32` verified active `mdrun` core pool after the 2026-06-30 migration. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is active on the GCP runner.
+> Time estimates are based on the current GCP `29/32` verified active `mdrun` core pool after the 2026-06-30 migration and the observed `LiN3-Core` NaCl production speed of `2.714 ns/day`. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is active on the GCP runner.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -306,8 +306,8 @@ flowchart TD
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are now being carried by the 32-core GCP runner, with AutoDL retained as a backup/source during final handoff.
-- GCP is active with about 30/32 `mdrun` cores occupied after the 2026-06-30 migration. Recent AutoDL checkpoint/log evidence was archived on the GCP data disk before shutdown planning, so the handoff does not depend on live AutoDL state.
-- LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core`.
+- GCP is active with about 29/32 `mdrun` cores occupied after the 2026-06-30 migration. Recent AutoDL checkpoint/log evidence was archived on the GCP data disk before shutdown planning, so the handoff does not depend on live AutoDL state.
+- LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, `LiD3-Core`, and `LiN3-Core`.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, and `LiLC-1` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` V3 WHAM completed from 24 refined windows with `200/200` finite profile points, but GROMACS still reported poor far-tail sampling at `z=2.92314-2.93281 nm` and the time-slice span shifted by `1.68 kJ/mol`. V4 tail repair is active as a 2 ns extension of the outermost PBC-safe tail window from the V3 checkpoint. NaCl `LiDS-1` V2 WHAM completed from 27 refined windows with `200/200` finite profile points and two poor-sampling warning hits. Both remain preliminary until repair/QC, bootstrap, and time-slice convergence checks pass.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
@@ -317,7 +317,7 @@ flowchart TD
 
 ## 🧪 Candidate library
 
-The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Paired LiCl/NaCl systems are prepared for all eight candidates; the leading tracks are now in refined umbrella sampling while two NaCl production tails continue.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Paired LiCl/NaCl systems are prepared for all eight candidates; the leading tracks are now in refined umbrella sampling while one NaCl production tail continues.
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
@@ -327,7 +327,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, active `003`; NaCl refined pull active |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl refined windows active; NaCl V3 WHAM synced but preliminary; V4 tail repair active |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl `3/21`, active `003`; NaCl Worker A backfill active |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | NaCl representative ready and refined pull active; LiCl `3/21`, active `003` |
 | 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl `2/21`, active `002`; NaCl `V2 0/27`, active `000` |
 
 ## ⚙️ Computational workflow
