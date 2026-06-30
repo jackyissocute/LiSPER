@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-30 10:05 CST`
+**Last synchronized monitor snapshot:** `2026-06-30 11:00 CST`
 
 **Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
 
@@ -144,7 +144,7 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>30/30 mdrun threads active</code><br><sub>V4 tail repair active on the outermost safe tail window</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>30/30 mdrun threads active</code><br><sub>V4 tail repair active; LiDS-1 LiCl windows 020-021 filled idle cores</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-two_workers-2563eb"></td>
     </tr>
     <tr>
@@ -230,7 +230,7 @@ flowchart TD
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl <code>V2 12/27</code>, active <code>012-015</code>; NaCl <code>V2 27/27</code></td>
+      <td>🟦 LiCl <code>V2 16/27</code>, active <code>016-021</code>; NaCl <code>V2 27/27</code></td>
       <td>🟪 NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>2</code> poor-sampling warnings; final waits for QC review</td>
     </tr>
     <tr>
@@ -290,13 +290,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~3-7 days first table</code></strong><br><sub>30/30 verified mdrun threads; LiDA-1 NaCl V4 tail repair active</sub></td>
+      <td align="center"><strong><code>~3-7 days first table</code></strong><br><sub>30/30 verified mdrun threads; LiDA-1 NaCl V4 and LiDS-1 LiCl tail windows active</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are based on the current `30/30` verified active `mdrun` thread pool after the 2026-06-29 recovery and cleanup. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is active because far-tail poor-sampling warnings and a material time-slice span shift remain.
+> Time estimates are based on the current `30/30` verified active `mdrun` thread pool after the 2026-06-29 recovery and cleanup. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, V4 tail repair is active, and two idle Worker A cores were filled with LiDS-1 LiCl windows `020-021`.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
