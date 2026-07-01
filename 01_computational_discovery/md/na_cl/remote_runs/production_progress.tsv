@@ -1,9 +1,9 @@
 candidate	status	ns_completed	target_ns	step	last_checked_cst
-LiD3-Core	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiD3-Flex	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiND-Hybrid	running_gcp_backfill	15.070	20	7535000	2026-07-01 22:46
-LiLC-1	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiDS-1	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiDA-1	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiN3-Core	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
-LiA3-Ref	clustered_gcp	20.000	20	10000000	2026-07-01 22:46
+LiD3-Core	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiD3-Flex	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiND-Hybrid	running_gcp_backfill	15.370	20	7685000	2026-07-02 02:46
+LiLC-1	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiDS-1	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiDA-1	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiN3-Core	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
+LiA3-Ref	clustered_gcp	20.000	20	10000000	2026-07-02 02:46
