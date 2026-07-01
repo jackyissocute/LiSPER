@@ -1,0 +1,2 @@
+WARNING, no data point in bin 0 (z=0.057512) !
+WARNING, no data point in bin 0 (z=0.057512) !

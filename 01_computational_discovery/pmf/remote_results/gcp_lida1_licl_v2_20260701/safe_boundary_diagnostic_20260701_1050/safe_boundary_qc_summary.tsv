@@ -1,0 +1,3 @@
+variant	scientific_warning_count	time_slice_span_shift_kj_mol	b100_points	b100_nonfinite	b100_span	b250_span	b500_span	status
+clip_max2p22	2	2.74275	200	0	34.3859	33.1417	31.6431	diagnostic_review_required
+clip_max2p20	2	2.82085	200	0	34.4723	33.2334	31.6514	diagnostic_review_required

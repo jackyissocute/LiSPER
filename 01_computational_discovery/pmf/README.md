@@ -35,7 +35,8 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Window set | WHAM/PMF state | Delta G status |
 |---|---|---:|---|---|
-| `LiDA-1` | NaCl | V4 active | V3 combined WHAM/bootstrap/time-slice outputs are synced; QC summary reports `200/200` finite profile points, `9` warning lines, far-tail poor-sampling bins at `z=2.92314-2.93281 nm`, and `1.67557 kJ/mol` time-slice span shift. V4 extends the outermost PBC-safe tail window from the V3 checkpoint | Preliminary only; V4 must finish and pass combined WHAM/bootstrap/time-slice QC before Delta G promotion |
+| `LiDA-1` | LiCl | V2 `27/27`; V3 repair active | V2 WHAM/bootstrap/time-slice outputs are synced under `remote_results/gcp_lida1_licl_v2_20260701/`. The profile has `200/200` finite points and `0` nonfinite points, but `11` poor-sampling warning lines at the outer tail and `2.77 kJ/mol` burn-in/time-slice span shift. Clipped diagnostics at `max=2.22` and `max=2.20 nm` still have warnings and >`2.7 kJ/mol` span shift. | Repair required before Delta G promotion; V3 extends LiCl tail windows `024-026` from checkpoints. |
+| `LiDA-1` | NaCl | V4 `25/25` | V4 WHAM/bootstrap/time-slice outputs are synced under `remote_results/gcp_lida1_nacl_v4_20260701/`. Full-range WHAM has `200/200` finite profile points but far-tail warnings. The PBC-safe diagnostic `1.03-2.90 nm` has `200/200` finite points, `0` scientific warnings, and `0.56 kJ/mol` time-slice span shift. | Numeric-screen pass for the clipped region; preliminary only until manual bound/reference-region review and paired LiCl repair QC. |
 | `LiDS-1` | NaCl | V2 `27/27` | `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; QC summary reports `200/200` finite profile points, `0` nonfinite points, and `2` poor-sampling warning hits | Preliminary only; QC review and time-slice/bootstrap interpretation still required |
 
 ## Reliability Gates

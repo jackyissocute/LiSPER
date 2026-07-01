@@ -1,0 +1,30 @@
+             :-) GROMACS - gmx convert-tpr, 2026.0-conda_forge (-:
+
+Executable:   /home/jackieeelin929/opt/lisper_gmx_env/bin.AVX2_256/gmx
+Data prefix:  /home/jackieeelin929/opt/lisper_gmx_env
+Working dir:  /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/v3_tail_repair_20260701_1105/window_024_extend_2ns
+Command line:
+  gmx convert-tpr -s /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_024_1.93nm/umbrella.tpr -extend 2000 -o umbrella_ext.tpr
+
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_024_1.93nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+
+GROMACS reminds you: "Is That a Real Poncho ?" (F. Zappa)
+
+Input file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   1000000     
+  Runtime for the run                             2000 ps  
+  Run end step                                 1000000     
+  Run end time                                    2000 ps  
+
+Extending remaining runtime by 2000 ps
+
+Output file:
+  Run start step                                     0     
+  Run start time                                     0 ps  
+  Step to be made during run                   2000000     
+  Runtime for the run                             4000 ps  
+  Run end step                                 2000000     
+  Run end time                                    4000 ps  
+
