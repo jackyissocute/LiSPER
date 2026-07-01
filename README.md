@@ -125,7 +125,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-06-30 17:56 CST`
+**Last synchronized monitor snapshot:** `2026-07-01 09:16 CST`
 
 **GCP migration checkpoint:** the 32-core GCP runner is carrying the active production, umbrella, and LiDA-1 NaCl V4 tail-repair workload. A shutdown-safety archive of recent AutoDL checkpoints/logs was copied to the GCP data disk at `2026-06-30 13:11 CST` before any AutoDL shutdown decision.
 
@@ -146,7 +146,7 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟨</code> <code>29/32 GCP mdrun cores active</code><br><sub>GCP runner carries active umbrella, one remaining production tail, and V4 tail-repair work; AutoDL is backup/source only.</sub></td>
+      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>25/32 GCP mdrun cores active</code><br><sub>GCP runner carries active umbrella and one remaining production tail; AutoDL is backup/source only.</sub></td>
       <td><img alt="active" src="https://img.shields.io/badge/active-GCP_32_core_runner-2563eb"></td>
     </tr>
     <tr>
@@ -179,7 +179,7 @@ flowchart TD
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 and LiDS-1 NaCl WHAM complete; QC review required</code></td>
+      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 NaCl V4 WHAM complete; safe-boundary diagnostic passes numeric screen, manual region review required</code></td>
       <td><img alt="qc" src="https://img.shields.io/badge/status-QC-7c3aed"></td>
     </tr>
   </tbody>
@@ -239,8 +239,8 @@ flowchart TD
       <td><strong>LiDA-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟦 LiCl <code>V2 23/27</code>, active <code>023-026</code>; NaCl <code>V3 24/24</code></td>
-      <td>🟪 NaCl V3 WHAM complete: <code>200/200</code> finite points, far-tail poor-sampling warnings, <code>1.68 kJ/mol</code> time-slice span shift; V4 tail repair active</td>
+      <td>🟦 LiCl <code>V2 26/27</code>, active <code>026</code>; NaCl <code>V4 25/25</code></td>
+      <td>🟨 NaCl V4 full-range WHAM remains preliminary; PBC-safe boundary diagnostic has <code>200/200</code> finite points, <code>0</code> scientific warnings, and <code>0.56 kJ/mol</code> time-slice span shift; manual bound/reference-region review required</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -282,7 +282,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~2-5 days</code></strong><br><sub>LiDA-1 left 8 LiCl windows; LiDS-1 left 15 LiCl windows; LiD3-Flex left 52 paired windows</sub></td>
+      <td align="center"><strong><code>~2-5 days</code></strong><br><sub>LiDA-1 left 1 LiCl window; LiDS-1 left 10 LiCl windows; LiD3-Flex left 52 paired windows</sub></td>
       <td>Finish refined window equilibration/production, then run WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -292,13 +292,13 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~3-6 days first table</code></strong><br><sub>GCP 29/32 verified mdrun cores; LiDA-1 NaCl V4 and paired refined windows active</sub></td>
+      <td align="center"><strong><code>~2-5 days first table</code></strong><br><sub>LiDA-1 NaCl V4 analysis completed; first table waits on paired LiCl completion and manual QC region review</sub></td>
       <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `29/32` verified active `mdrun` core pool after the 2026-06-30 migration and the observed `LiN3-Core` NaCl production speed of `2.714 ns/day`. The first likely paired Delta Delta G table remains LiDA-1; NaCl V3 WHAM/bootstrap/time-slice QC is synced but preliminary, and V4 tail repair is active on the GCP runner.
+> Time estimates are based on the current GCP `25/32` verified active `mdrun` core pool after the 2026-06-30 migration and the observed `LiN3-Core` NaCl production speed of `2.714 ns/day`. The first likely paired Delta Delta G table remains LiDA-1; NaCl V4 WHAM/bootstrap/time-slice analysis is synced, with the full-range PMF still preliminary but the PBC-safe boundary diagnostic passing the numeric screen pending manual bound/reference-region review.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -309,7 +309,7 @@ flowchart TD
 - GCP is active with about 29/32 `mdrun` cores occupied after the 2026-06-30 migration. Recent AutoDL checkpoint/log evidence was archived on the GCP data disk before shutdown planning, so the handoff does not depend on live AutoDL state.
 - LiCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiD3-Core`, `LiLC-1`, `LiN3-Core`, and `LiA3-Ref`; NaCl representatives are ready for `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, `LiD3-Core`, and `LiN3-Core`.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, and `LiLC-1` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
-- NaCl `LiDA-1` V3 WHAM completed from 24 refined windows with `200/200` finite profile points, but GROMACS still reported poor far-tail sampling at `z=2.92314-2.93281 nm` and the time-slice span shifted by `1.68 kJ/mol`. V4 tail repair is active as a 2 ns extension of the outermost PBC-safe tail window from the V3 checkpoint. NaCl `LiDS-1` V2 WHAM completed from 27 refined windows with `200/200` finite profile points and two poor-sampling warning hits. Both remain preliminary until repair/QC, bootstrap, and time-slice convergence checks pass.
+- NaCl `LiDA-1` V4 WHAM completed from `25` input windows. The full-range profile remains preliminary because far-tail sampling warnings persist outside the PBC-safe material region, but the PBC-safe boundary diagnostic (`1.03-2.90 nm`) has `200/200` finite profile points, `0` scientific WHAM warnings, and a `0.56 kJ/mol` time-slice span shift. This is a numeric-screen pass pending manual bound/reference-region review before Delta G promotion. NaCl `LiDS-1` V2 WHAM completed from 27 refined windows with `200/200` finite profile points and two poor-sampling warning hits, and remains preliminary until QC review.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 

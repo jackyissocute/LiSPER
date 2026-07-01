@@ -1,0 +1,7 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+WARNING, no data point in bin 1 (z=1.01425) !
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+WARNING, no data point in bin 1 (z=1.01425) !
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+WARNING, no data point in bin 1 (z=1.01425) !
+WARNING, no data point in bin 2 (z=1.02375) !

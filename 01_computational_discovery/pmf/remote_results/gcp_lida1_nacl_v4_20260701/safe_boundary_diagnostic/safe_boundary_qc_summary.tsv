@@ -1,0 +1,4 @@
+variant	scientific_warning_count	time_slice_span_shift_kj_mol	b100_points	b100_nonfinite	b100_span	b250_span	b500_span	status
+clip_max2p90	4	0.738126	200	0	7.37697	8.11509	7.81044	diagnostic_review_required
+clip_max2p88	4	0.737941	200	0	6.90486	7.6428	7.30093	diagnostic_review_required
+clip_min1p03_max2p90	0	0.558616	200	0	6.28629	6.70115	6.84491	qc_numeric_screen_pass_manual_region_review_required
