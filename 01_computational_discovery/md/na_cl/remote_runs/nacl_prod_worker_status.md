@@ -1,6 +1,6 @@
 # NaCl Production Worker Status
 
-Last updated: 2026-06-25 09:35 CST
+Last updated: 2026-07-01 22:46 CST
 
 ## Active Queue
 
@@ -8,27 +8,27 @@ Last updated: 2026-06-25 09:35 CST
 |---|---|
 | Condition | NaCl |
 | Candidate set | Final 8-candidate NaCl systems |
-| Worker | Second AutoDL machine |
+| Worker | 32-core GCP runner; AutoDL retained only as backup/source |
 | Stage | 20 ns production followed by structural clustering |
-| Launch state | Worker B active: 1 production job + active `LiLC-1`, `LiA3-Ref`, and `LiD3-Core` NaCl umbrella windows; `LiDA-1` NaCl repair extensions and combined WHAM/bootstrap QC completed; `LiDS-1` NaCl WHAM/QC completed; replacement Worker A backfill active for two NaCl jobs |
-| Production progress | Worker B production job `14.19 ns / 20 ns`; Worker A backfill jobs `5.09-7.78 ns / 20 ns`; five NaCl conditions are produced and representative-ready |
-| Current leader | `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, and `LiD3-Core` at `20.00 ns / 20 ns`, representative ready |
-| Worker pool | Worker B: 1 active production job x 2 OpenMP threads plus 10 active NaCl umbrella windows x 1 thread |
-| Effective CPU quota | Worker B is at 12/12 active mdrun threads; replacement Worker A is at 12/18 active mdrun threads |
-| Optimization reason | The queued NaCl pair was backfilled onto Worker A after two CPU slots opened, avoiding duplicate candidate-condition-stage work |
+| Launch state | GCP active: one remaining `LiND-Hybrid` NaCl production tail plus refined NaCl umbrella windows for `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, and `LiN3-Core`; `LiDA-1` and `LiDS-1` NaCl WHAM/QC outputs are retained as preliminary evidence |
+| Production progress | Seven NaCl conditions are produced and representative-ready; `LiND-Hybrid` remains active at `15.07 ns / 20 ns` |
+| Current leader | `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, `LiD3-Core`, `LiD3-Flex`, and `LiN3-Core` at `20.00 ns / 20 ns`, representative ready |
+| Worker pool | GCP: `27` real `mdrun` processes using `28` OpenMP threads across production, umbrella, and LiDA-1 LiCl repair |
+| Effective CPU quota | GCP is at `28/32` active `mdrun` threads; scheduling remains safe with a small reserve for SSH, Python drivers, WHAM/QC, and filesystem work |
+| Optimization reason | GCP migration consolidated active work and avoided duplicate candidate-condition-stage-window launches |
 
 ## Per-Candidate Production Progress
 
 | Candidate | State |
 |---|---|
-| `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `10.34%`; umbrella `4/21` complete; windows `004-007` active |
-| `LiD3-Flex` | Recovered checkpoint resume on Worker B; `14.19 ns / 20 ns`; clustering queued |
-| `LiND-Hybrid` | Replacement Worker A backfill active; `5.09 ns / 20 ns`; clustering queued |
-| `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `1.95%`; umbrella `4/21` complete; windows `004-005` active |
+| `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `10.34%`; refined NaCl V2 `2/27`, active `002-003` |
+| `LiD3-Flex` | `20.00 ns / 20 ns`; representative ready; top cluster `3.80%`; refined NaCl V2 `2/27`, active `002-006` |
+| `LiND-Hybrid` | GCP backfill active; `15.07 ns / 20 ns`; clustering queued after production completion |
+| `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `1.95%`; refined NaCl V2 `2/27`, active `002-003` |
 | `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; umbrella `17/17` complete; preliminary WHAM/QC complete with `2` empty and `12/100` weak bins at the 100-bin setting |
 | `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.94%`; umbrella `15/15` complete; WHAM QC repair extensions `5/5` complete; combined WHAM/bootstrap QC complete; still preliminary pending tail/time-slice review |
-| `LiN3-Core` | Replacement Worker A backfill active; `7.78 ns / 20 ns`; clustering queued |
-| `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `7.35%`; umbrella `4/21` complete; windows `004-007` active |
+| `LiN3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `11.44%`; refined NaCl V2 `0/27`, active `000-001` |
+| `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `7.35%`; refined NaCl V2 `2/27`, active `002-003` |
 
 ## Notes
 

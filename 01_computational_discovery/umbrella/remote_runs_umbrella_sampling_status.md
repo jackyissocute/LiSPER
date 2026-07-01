@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-01 18:55 CST
+Last updated: 2026-07-01 22:46 CST
 
 ## Launch Rule
 
@@ -12,19 +12,20 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 |---|---|---|---:|---|---|
 | `LiDA-1` | LiCl | GCP | V2 `27/27`; V3 repair active | repair extensions `024-026` | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
 | `LiDS-1` | LiCl | GCP | V2 `20/27` | production windows `020-023` | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiD3-Flex` | LiCl | Worker A | V2 `0/27` | production windows `000-003` | `🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜` |
-| `LiD3-Core` | LiCl | Worker A | V2 `0/27` | equil windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiLC-1` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
-| `LiN3-Core` | LiCl | replacement Worker A | `3/21` | `003` | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | LiCl | replacement Worker A | `2/21` | `002` | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
+| `LiD3-Flex` | LiCl | GCP | V2 `0/27` | production windows `000-003` | `🟦🟦🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiD3-Core` | LiCl | GCP | V2 `2/27` | equil/production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiLC-1` | LiCl | GCP | `3/21` | next window `003` ready, not currently running | `🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` |
+| `LiN3-Core` | LiCl | GCP | `3/21` | next window `003` ready, not currently running | `🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | LiCl | GCP | `2/21` | next window `002` ready, not currently running | `🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | GCP | V4 `25/25` | WHAM/QC complete; manual region review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
-| `LiD3-Flex` | NaCl | Worker B | V2 `2/27` | production windows `002-006` | `🟩🟩🟦🟦🟦🟦🟦⬜⬜⬜` |
-| `LiLC-1` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | NaCl | Worker B | V2 `0/27` | window `000` active | `🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜` |
-| `LiD3-Core` | NaCl | Worker B | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
+| `LiD3-Flex` | NaCl | GCP | V2 `2/27` | production windows `002-006` | `🟩🟩🟦🟦🟦🟦🟦⬜⬜⬜` |
+| `LiLC-1` | NaCl | GCP | V2 `2/27` | equil/production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | NaCl | GCP | V2 `2/27` | production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiD3-Core` | NaCl | GCP | V2 `2/27` | equil/production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiN3-Core` | NaCl | GCP | V2 `0/27` | production windows `000-001` | `🟦🟦⬜⬜⬜⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` completed V2 `27/27`; V2 WHAM/bootstrap/time-slice QC found finite profiles but material outer-tail poor sampling and `2.77 kJ/mol` time-slice span shift, so V3 checkpoint extensions are active for windows `024-026`. LiCl `LiDS-1` has V2 `20/27` complete and is running windows `020-023`; LiCl `LiD3-Flex` is running windows `000-003`; LiCl `LiD3-Core` is running windows `000-001`. NaCl `LiDA-1` V4 has `25` WHAM input windows complete; full-range WHAM remains preliminary, while the PBC-safe `1.03-2.90 nm` diagnostic passes the numeric screen pending manual region review. NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `2/27` complete and production windows `002-006` active. `LiLC-1` and `LiD3-Core` NaCl are running windows `000-001`. `LiA3-Ref` NaCl windows `002-003` are active/equilibrating. `LiN3-Core` NaCl windows `000-001` are active from the GCP overflow root. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` completed V2 `27/27`; V2 WHAM/bootstrap/time-slice QC found finite profiles but material outer-tail poor sampling and `2.77 kJ/mol` time-slice span shift, so V3 checkpoint extensions are active for windows `024-026`. At this snapshot the repair logs show the extensions continuing from step `1000000` and reaching roughly `2.53-2.56 ns` of their `4.00 ns` extended targets. LiCl `LiDS-1` has V2 `20/27` complete and is running windows `020-023`; LiCl `LiD3-Flex` is running windows `000-003`; LiCl `LiD3-Core` has `2/27` complete and is running `002-003`. NaCl `LiDA-1` V4 has `25` WHAM input windows complete; full-range WHAM remains preliminary, while the PBC-safe `1.03-2.90 nm` diagnostic passes the numeric screen pending manual region review. NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `2/27` complete and production windows `002-006` active. `LiLC-1`, `LiD3-Core`, and `LiA3-Ref` NaCl each have V2 `2/27` complete with windows `002-003` active. `LiN3-Core` NaCl windows `000-001` are active from the GCP overflow root. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
 LiDA-1 LiCl V2/V3 status, 2026-07-01 18:55 CST: `pmf_wham_v2_20260701_1048` completed from `27` refined LiCl windows. The V2 full-range profile has `200/200` finite points and `0` nonfinite points, but `11` poor-sampling warning lines at the outer tail (`z=2.228-2.250 nm`) and `2.77 kJ/mol` burn-in/time-slice span shift. Clipped diagnostics at `max=2.22` and `max=2.20 nm` still retained warnings and >`2.7 kJ/mol` span shift. Classification is `REPAIR`; V3 extends windows `024-026` by `2 ns` from checkpoints. Expected completion signal is `Finished mdrun` in each `umbrella_ext.log`, followed by combined WHAM/bootstrap/time-slice QC.
 
