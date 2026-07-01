@@ -1,6 +1,6 @@
 # NaCl Production Worker Status
 
-Last updated: 2026-07-02 02:46 CST
+Last updated: 2026-07-02 06:49 CST
 
 ## Active Queue
 
@@ -11,7 +11,7 @@ Last updated: 2026-07-02 02:46 CST
 | Worker | 32-core GCP runner; AutoDL retained only as backup/source |
 | Stage | 20 ns production followed by structural clustering |
 | Launch state | GCP active: one remaining `LiND-Hybrid` NaCl production tail plus refined NaCl umbrella windows for `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, and `LiN3-Core`; `LiDA-1` and `LiDS-1` NaCl WHAM/QC outputs are retained as preliminary evidence |
-| Production progress | Seven NaCl conditions are produced and representative-ready; `LiND-Hybrid` remains active at `15.37 ns / 20 ns` |
+| Production progress | Seven NaCl conditions are produced and representative-ready; `LiND-Hybrid` remains active at `15.69 ns / 20 ns` |
 | Current leader | `LiDA-1`, `LiDS-1`, `LiLC-1`, `LiA3-Ref`, `LiD3-Core`, `LiD3-Flex`, and `LiN3-Core` at `20.00 ns / 20 ns`, representative ready |
 | Worker pool | GCP: `27` real `mdrun` processes using `28` OpenMP threads across production, umbrella, and LiDA-1 LiCl repair |
 | Effective CPU quota | GCP is at `28/32` active `mdrun` threads; scheduling remains safe with a small reserve for SSH, Python drivers, WHAM/QC, and filesystem work |
@@ -23,7 +23,7 @@ Last updated: 2026-07-02 02:46 CST
 |---|---|
 | `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `10.34%`; refined NaCl V2 `2/27`, active `002-003` |
 | `LiD3-Flex` | `20.00 ns / 20 ns`; representative ready; top cluster `3.80%`; refined NaCl V2 `2/27`, active `002-006` |
-| `LiND-Hybrid` | GCP backfill active; `15.37 ns / 20 ns`; clustering queued after production completion |
+| `LiND-Hybrid` | GCP backfill active; `15.69 ns / 20 ns`; clustering queued after production completion |
 | `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `1.95%`; refined NaCl V2 `2/27`, active `002-003` |
 | `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `14.59%`; umbrella `17/17` complete; preliminary WHAM/QC complete with `2` empty and `12/100` weak bins at the 100-bin setting |
 | `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.94%`; umbrella `15/15` complete; WHAM QC repair extensions `5/5` complete; combined WHAM/bootstrap QC complete; still preliminary pending tail/time-slice review |
