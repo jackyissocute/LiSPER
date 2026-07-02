@@ -21,3 +21,14 @@ Using 1 OpenMP thread
 NOTE: Thread affinity was not set.
 starting mdrun 'Title'
 2000000 steps,   4000.0 ps (continuing from step 1000000,   2000.0 ps).
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    50189.618    50189.619      100.0
+                         13h56:29
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        3.443        6.971       50.190            0.397 
+
+GROMACS reminds you: "By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest." (Confucius)
+

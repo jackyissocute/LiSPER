@@ -1,0 +1,11 @@
+Warning, poor sampling bin 197 (z=2.23271). Check your histograms!
+Warning, poor sampling bin 198 (z=2.24378). Check your histograms!
+Warning, poor sampling bin 199 (z=2.25485). Check your histograms!
+Warning, poor sampling bin 197 (z=2.23296). Check your histograms!
+Warning, poor sampling bin 198 (z=2.24393). Check your histograms!
+Warning, poor sampling bin 199 (z=2.2549). Check your histograms!
+Warning, poor sampling bin 197 (z=2.233). Check your histograms!
+Warning, poor sampling bin 198 (z=2.24396). Check your histograms!
+Warning, poor sampling bin 197 (z=2.23271). Check your histograms!
+Warning, poor sampling bin 198 (z=2.24378). Check your histograms!
+Warning, poor sampling bin 199 (z=2.25485). Check your histograms!

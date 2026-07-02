@@ -21,3 +21,14 @@ Using 1 OpenMP thread
 NOTE: Thread affinity was not set.
 starting mdrun 'Title'
 2000000 steps,   4000.0 ps (continuing from step 1000000,   2000.0 ps).
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    51541.760    51541.760      100.0
+                         14h19:01
+                 (ns/day)    (hour/ns)    (ms/step)  (Matom*steps/s) 
+Performance:        3.353        7.159       51.542            0.387 
+
+GROMACS reminds you: "Sitting on a rooftop watching molecules collide" (A Camp)
+
