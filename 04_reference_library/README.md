@@ -22,9 +22,9 @@ flowchart TD
     library --> controls
     library --> translation
 
-    classDef source fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
-    classDef library fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef use fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef source fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef library fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef use fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
     class sources source
     class library library
     class design,simulation,controls,translation use

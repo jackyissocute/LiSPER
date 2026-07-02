@@ -10,10 +10,11 @@
 </p>
 
 <p align="center">
-  <img alt="Program status" src="https://img.shields.io/badge/status-active%20computational%20discovery-2563eb">
-  <img alt="Project type" src="https://img.shields.io/badge/project-peptide%20ion%20selectivity-0f766e">
-  <img alt="Simulation" src="https://img.shields.io/badge/MD-GROMACS%20%7C%20CHARMM36m-7c3aed">
-  <img alt="Translation goal" src="https://img.shields.io/badge/vision-Bio--DLE-ea580c">
+  <img alt="Program status" src="https://img.shields.io/badge/status-active%20computational%20discovery-38BDF8">
+  <img alt="LiCl branch" src="https://img.shields.io/badge/LiCl-identity-818CF8">
+  <img alt="NaCl branch" src="https://img.shields.io/badge/NaCl-identity-2DD4BF">
+  <img alt="Project type" src="https://img.shields.io/badge/project-peptide%20ion%20selectivity-64748B">
+  <img alt="Simulation" src="https://img.shields.io/badge/MD-GROMACS%20%7C%20CHARMM36m-64748B">
 </p>
 
 ---
@@ -64,9 +65,9 @@ flowchart TD
     ensembles --> comparison
     comparison --> selectivity
 
-    classDef idea fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
-    classDef peptide fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
-    classDef result fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef idea fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef peptide fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef result fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
 
     class motifs,flexibility,donors idea
     class candidates,ensembles,comparison peptide
@@ -96,9 +97,9 @@ flowchart TD
     track_a --> phase_three
     track_b --> phase_three
 
-    classDef computational fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
-    classDef experimental fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    classDef industrial fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
+    classDef computational fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef experimental fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
+    classDef industrial fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
     class phase_one,rank computational
     class phase_two,track_a,track_b experimental
     class phase_three industrial
@@ -115,11 +116,12 @@ flowchart TD
 > [!IMPORTANT]
 > **Live MD control panel.** The pre-MD intake gates are closed: final library, ESMFold structures, and paired LiCl/NaCl CHARMM-GUI systems are complete. The active remote workload has been migrated onto the 32-core GCP runner, with AutoDL retained only as a backup/source while final handoff is verified. LiCl production/clustering is complete for all eight candidates; NaCl has seven representatives ready and one backfill production still running. Refined umbrella tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, and `LiN3-Core`.
 >
-> ![Setup QC](https://img.shields.io/badge/setup_QC-complete-16a34a)
-> ![LiCl](https://img.shields.io/badge/LiCl-8%2F8_clustered-16a34a)
-> ![NaCl](https://img.shields.io/badge/NaCl-7_clustered_%2B_1_active-2563eb)
-> ![Compute](https://img.shields.io/badge/GCP_CPU-28%2F32_mdrun_cores-f59e0b)
-> ![Umbrella](https://img.shields.io/badge/umbrella-refined_tracks_active-2563eb)
+> ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
+> ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
+> ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
+> ![Compute running](https://img.shields.io/badge/GCP_CPU-25%2F32_mdrun_threads_running-38BDF8)
+> ![Umbrella running](https://img.shields.io/badge/umbrella-refined_tracks_running-38BDF8)
+> ![PMF QC review](https://img.shields.io/badge/PMF-QC_review-A78BFA)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
@@ -130,6 +132,10 @@ flowchart TD
 **GCP migration checkpoint:** the 32-core GCP runner is carrying the active production, umbrella, and PMF/QC workload. A shutdown-safety archive of recent AutoDL checkpoints/logs was copied to the GCP data disk at `2026-06-30 13:11 CST` before any AutoDL shutdown decision.
 
 **Worker A storage cleanup:** at `2026-06-28 19:05 CST`, the inactive 10-candidate legacy archive was filtered into a local safety snapshot, then removed remotely. Worker A recovered from `96%` used (`1.4 GB` free) to `80%` used (`6.1 GB` free). The local safety snapshot is ignored by Git because it is `1.4 GB`; current status, refined umbrella products, and cleanup metadata remain versioned.
+
+**Status color rule:** status colors are global and independent of ion identity: complete = green `#22C55E`, running = cyan `#38BDF8`, queued = yellow `#FACC15`, QC review = purple `#A78BFA`, warning/repair/failed = coral/red `#FB7185`/`#EF4444`, planned = slate `#64748B`. LiCl and NaCl use identity accents only: LiCl `#818CF8`, NaCl `#2DD4BF`.
+
+**Umbrella stage rule:** umbrella progress is reported as five fixed sub-steps: `Prep -> Pull -> Windows generated -> Umbrella MD -> QC`. Stage position says what step it is; status text/color says the state of that step.
 
 ### Process matrix
 
@@ -146,41 +152,41 @@ flowchart TD
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🟩🟩🟩🟩🟩🟩⬜⬜</code> <code>25/32 GCP mdrun threads active</code><br><sub>GCP runner carries active umbrella, one remaining production tail, and LiDA-1 LiCl V4 tail repair; AutoDL is backup/source only.</sub></td>
-      <td><img alt="active" src="https://img.shields.io/badge/active-GCP_32_core_runner-2563eb"></td>
+      <td><code>25/32 GCP mdrun threads running</code><br><sub>GCP runner carries active umbrella, one remaining production tail, and LiDA-1 LiCl V4 tail repair; AutoDL is backup/source only.</sub></td>
+      <td><img alt="GCP running" src="https://img.shields.io/badge/GCP-running-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
       <td>20 ns production MD</td>
       <td><code>8/8 complete</code><br><sub>Last completions: <code>LiD3-Flex</code>, <code>LiND-Hybrid</code></sub></td>
-      <td><img alt="LiCl production complete" src="https://img.shields.io/badge/complete-8%2F8-16a34a"></td>
+      <td><img alt="LiCl production complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩🟩</code> <code>8/8 reps</code></td>
-      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-8%2F8-16a34a"></td>
+      <td><code>8/8 reps complete</code></td>
+      <td><img alt="LiCl clustering complete" src="https://img.shields.io/badge/clustered-8%2F8-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
       <td><code>7/8 complete</code><br><sub><code>LiN3-Core</code> produced/clustered; <code>LiND-Hybrid</code> backfill remains active</sub></td>
-      <td><img alt="NaCl production progress" src="https://img.shields.io/badge/active-1%2F8_jobs-2563eb"></td>
+      <td><img alt="NaCl production running" src="https://img.shields.io/badge/running-1%2F8_jobs-38BDF8"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟩🟩🟩🟩🟩🟩🟩⬜</code> <code>7/8 reps</code></td>
-      <td><img alt="clustered" src="https://img.shields.io/badge/clustered-7%2F8-16a34a"></td>
+      <td><code>7/8 reps complete; 1 planned after production</code></td>
+      <td><img alt="NaCl clustering partial" src="https://img.shields.io/badge/clustered-7%2F8-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🟦🟦🟦🟦🟦🟦🟦</code> <strong>Refined umbrella tracks active</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, LiA3-Ref, and LiN3-Core NaCl windows</sub></td>
-      <td><img alt="refined active" src="https://img.shields.io/badge/refined_windows-active-2563eb"></td>
+      <td><strong>Refined umbrella tracks running</strong><br><sub>LiDA/LiDS/LiD3-Flex windows, LiD3-Core/LiLC-1, LiA3-Ref, and LiN3-Core NaCl windows</sub></td>
+      <td><img alt="refined umbrella running" src="https://img.shields.io/badge/refined_windows-running-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟨🟨⬜⬜</code> <code>LiDA-1 paired WHAM under repair/QC: NaCl V4 numeric screen pass; LiCl V2 WHAM triggered V3 tail repair</code></td>
-      <td><img alt="qc" src="https://img.shields.io/badge/status-QC-f59e0b"></td>
+      <td><code>LiDA-1 paired WHAM under repair/QC: NaCl V4 numeric screen pass; LiCl V2 WHAM triggered V3 tail repair</code></td>
+      <td><img alt="PMF QC review" src="https://img.shields.io/badge/status-QC_review-A78BFA"></td>
     </tr>
   </tbody>
 </table>
@@ -202,59 +208,59 @@ flowchart TD
   <tbody>
     <tr>
       <td><strong>LiD3-Core</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.69%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>10.34%</code></td>
-      <td>🟦 LiCl <code>V2 2/27</code>, active <code>002-003</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>⬛ PMF pending refined windows</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>12.69%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>10.34%</code></td>
+      <td><code>LiCl V2 2/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>002-003</code>; QC planned<br><code>NaCl V2 2/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>002-003</code>; QC planned</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.40%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>3.80%</code></td>
-      <td>🟦 LiCl <code>V2 4/27</code>, active <code>004-007,020-024</code>; NaCl <code>V2 5/27</code>, active <code>002,005,007-009</code></td>
-      <td>⬛ PMF pending; final waits for refined WHAM/time-slice checks</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>4.40%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>3.80%</code></td>
+      <td><code>LiCl V2 4/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>004-007,020-024</code>; QC planned<br><code>NaCl V2 5/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>002,005,007-009</code>; QC planned</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> pending refined WHAM/time-slice checks</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.89%</code></td>
-      <td>🟦 <code>15.98 ns / 20 ns</code>; GCP backfill active</td>
-      <td>⬛ planned after NaCl representative</td>
-      <td>⬛ planned after umbrella sampling</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>12.89%</code></td>
+      <td><img alt="running" src="https://img.shields.io/badge/running-15.98%2F20_ns-38BDF8"> GCP backfill active</td>
+      <td><img alt="umbrella planned" src="https://img.shields.io/badge/umbrella-planned-64748B"> after NaCl representative</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.15%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>1.95%</code></td>
-      <td>🟦 LiCl <code>3/21</code>, ready <code>003</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>⬛ planned after umbrella sampling</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>4.15%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>1.95%</code></td>
+      <td><code>LiCl 3/21</code>: Prep complete; Pull complete; 21 windows generated; Umbrella MD queued at <code>003</code>; QC planned<br><code>NaCl V2 2/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>002-003</code>; QC planned</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
-      <td>🟦 LiCl <code>V2 24/27</code>, active <code>024-026</code>; NaCl <code>V2 27/27</code></td>
-      <td>🟨 NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>2</code> poor-sampling warnings; final waits for QC review</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>15.69%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>14.59%</code></td>
+      <td><code>LiCl V2 24/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>024-026</code>; QC planned<br><code>NaCl V2 27/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD complete; QC review needed</td>
+      <td><img alt="WHAM QC review" src="https://img.shields.io/badge/WHAM-QC_review-A78BFA"> NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>2</code> poor-sampling warnings</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.64%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>17.94%</code></td>
-      <td>🟨 LiCl <code>V3 27/27</code>; WHAM complete but failed numeric QC, <code>V4</code> tail repair active for window <code>026</code>; NaCl <code>V4 25/25</code></td>
-      <td>🟨 Paired QC repair in progress. NaCl V4 safe-boundary diagnostic has <code>200/200</code> finite points, <code>0</code> scientific warnings, and <code>0.56 kJ/mol</code> time-slice span shift. LiCl V3 WHAM has <code>200/200</code> finite points but <code>11</code> poor-sampling warning lines and <code>2.71 kJ/mol</code> burn-in/time-slice span shift, so LiCl V4 tail repair is running before Delta G promotion.</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>17.64%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>17.94%</code></td>
+      <td><code>LiCl V4 27/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD repair running at <code>026</code>; QC warning<br><code>NaCl V4 25/25</code>: Prep complete; Pull complete; 25 WHAM input windows complete; Umbrella MD complete; QC review needed</td>
+      <td><img alt="paired QC repair" src="https://img.shields.io/badge/paired_QC-repair-FB7185"> NaCl V4 safe-boundary diagnostic has <code>200/200</code> finite points, <code>0</code> scientific warnings, and <code>0.56 kJ/mol</code> time-slice span shift. LiCl V3 WHAM has <code>200/200</code> finite points but <code>11</code> poor-sampling warning lines and <code>2.71 kJ/mol</code> burn-in/time-slice span shift, so LiCl V4 tail repair is running before Delta G promotion.</td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>11.44%</code></td>
-      <td>🟦 LiCl <code>3/21</code>, ready <code>003</code>; NaCl <code>V2 0/27</code>, active <code>000-001</code></td>
-      <td>⬛ PMF pending refined windows</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>4.65%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>11.44%</code></td>
+      <td><code>LiCl 3/21</code>: Prep complete; Pull complete; 21 windows generated; Umbrella MD queued at <code>003</code>; QC planned<br><code>NaCl V2 0/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>000-001</code>; QC planned</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>5.05%</code></td>
-      <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>7.35%</code></td>
-      <td>🟦 LiCl <code>2/21</code>, ready <code>002</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>⬛ planned after umbrella sampling</td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>5.05%</code></td>
+      <td><img alt="complete" src="https://img.shields.io/badge/complete-20.00%2F20_ns-22C55E"> representative ready, top cluster <code>7.35%</code></td>
+      <td><code>LiCl 2/21</code>: Prep complete; Pull complete; 21 windows generated; Umbrella MD queued at <code>002</code>; QC planned<br><code>NaCl V2 2/27</code>: Prep complete; Pull complete; 27 windows generated; Umbrella MD running <code>002-003</code>; QC planned</td>
+      <td><img alt="PMF planned" src="https://img.shields.io/badge/PMF-planned-64748B"> after umbrella sampling</td>
     </tr>
   </tbody>
 </table>
@@ -366,10 +372,10 @@ flowchart TD
     li_pmf --> ranking
     na_pmf --> ranking
 
-    classDef input fill:#f3f4f6,stroke:#6b7280,stroke-width:2px,color:#1f2937
-    classDef simulation fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
-    classDef analysis fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
-    classDef result fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef input fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef simulation fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef analysis fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
+    classDef result fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
 
     class sequences,structures,systems input
     class li_md,na_md,li_pmf,na_pmf simulation
@@ -420,9 +426,9 @@ flowchart TD
     resin --> column
     column --> recovery
 
-    classDef experimental fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    classDef industrial fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
-    classDef result fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a5f
+    classDef experimental fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
+    classDef industrial fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef result fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
 
     class peptide experimental
     class immobilization,beads,resin,column industrial
@@ -455,9 +461,9 @@ flowchart TD
     H -.-> B
     H -.-> C
 
-    classDef phase fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef support fill:#fef9c3,stroke:#ca8a04,stroke-width:2px,color:#713f12
-    classDef output fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
+    classDef phase fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef support fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef output fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
     class A,B,C phase
     class D,E,H,I support
     class F,G output

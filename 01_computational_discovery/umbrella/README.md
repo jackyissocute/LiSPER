@@ -4,6 +4,10 @@ This folder owns the umbrella-sampling step after MD production and representati
 
 Latest umbrella snapshot: `2026-06-30 11:00 CST`.
 
+## Progress Display Rule
+
+Umbrella sampling status uses five fixed sub-steps: `Prep -> Pull -> Windows generated -> Umbrella MD -> QC`. Position identifies the sub-step; status color/text identifies the state. Use complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` and NaCl `#2DD4BF` are ion identity accents only, never status colors.
+
 ## Entry Requirement
 
 Umbrella sampling should start from representative structures selected after production-MD clustering.
@@ -23,6 +27,11 @@ flowchart TD
     clustering --> representative
     representative --> coordinate
     coordinate --> windows
+
+    classDef complete fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
+    classDef running fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    class trajectory,clustering,representative,coordinate complete
+    class windows running
 ```
 
 ## Recommended Metadata

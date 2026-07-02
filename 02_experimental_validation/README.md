@@ -25,10 +25,10 @@ flowchart TD
     biological --> validation
     validation --> translation
 
-    classDef comp fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef trackA fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
-    classDef trackB fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
-    classDef future fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#7c2d12
+    classDef comp fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef trackA fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
+    classDef trackB fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
+    classDef future fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
     class discovery comp
     class track_a,ranking trackA
     class track_b,biological trackB

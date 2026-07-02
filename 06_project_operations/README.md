@@ -22,9 +22,9 @@ flowchart TD
     inbox --> classify
     classify --> permanent
 
-    classDef ops fill:#f3f4f6,stroke:#6b7280,stroke-width:2px,color:#1f2937
-    classDef active fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef final fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef ops fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
+    classDef active fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef final fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
     class operations ops
     class docs,scripts,inbox,classify active
     class permanent final

@@ -25,9 +25,9 @@ flowchart TD
     presentations --> communication
     milestones --> communication
 
-    classDef evidence fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1e3a8a
-    classDef output fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#3b0764
-    classDef final fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d
+    classDef evidence fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    classDef output fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
+    classDef final fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
     class evidence evidence
     class figures,manuscript,presentations,milestones output
     class communication final

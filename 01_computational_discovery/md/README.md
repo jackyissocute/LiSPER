@@ -8,6 +8,8 @@ The active MD workflow now uses the final 8-candidate names. All eight ESMFold s
 
 Latest production/free-energy handoff snapshot: `2026-06-26 13:20 CST`.
 
+Progress reporting follows the dashboard status palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` and NaCl `#2DD4BF` are identity accents only.
+
 | Condition | Folder | Current state |
 |---|---|---|
 | LiCl | `li_cl/` | 8/8 production jobs complete and 8/8 representatives ready; refined umbrella work has moved to `../umbrella/` |
@@ -40,6 +42,12 @@ flowchart TD
     handoff["Representative handoff"]
 
     sequences --> esmfold --> charmm --> minimization --> equilibration --> production --> clustering --> handoff
+
+    classDef complete fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
+    classDef running fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
+    class sequences,esmfold,charmm,minimization,equilibration complete
+    class production,clustering running
+    class handoff complete
 ```
 
 ## What Belongs Here

@@ -4,15 +4,17 @@ LiCl MD is tracked under the final 8-candidate names.
 
 ## Status
 
+Status colors match the dashboard palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` is an identity accent only.
+
 | Stage | Status |
 |---|---|
-| ESMFold intake | 8/8 ready |
-| CHARMM-GUI LiCl systems | 8/8 GROMACS-ready |
-| Minimization | 8/8 minimized |
-| Equilibration | 8/8 equilibrated |
-| 20 ns production | 8/8 complete |
-| Structural clustering | 8/8 complete; new top clusters: `LiD3-Flex` `4.40%`, `LiND-Hybrid` `12.89%` |
-| Free-energy handoff | Representatives are handed to `../../umbrella/`; old/default umbrella windows are diagnostics only. Refined LiCl windows/pulls are active for `LiDA-1`, `LiDS-1`, and `LiD3-Flex`; final PMF/Delta G waits in `../../pmf/` for WHAM/bootstrap/time-slice QC |
+| ESMFold intake | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> ready |
+| CHARMM-GUI LiCl systems | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> GROMACS-ready |
+| Minimization | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> minimized |
+| Equilibration | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> equilibrated |
+| 20 ns production | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> |
+| Structural clustering | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> new top clusters: `LiD3-Flex` `4.40%`, `LiND-Hybrid` `12.89%` |
+| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/refined_umbrella-running-38BDF8"> Representatives are handed to `../../umbrella/`; old/default umbrella windows are diagnostics only. Final PMF/Delta G waits in `../../pmf/` for WHAM/bootstrap/time-slice QC |
 
 ## Candidate Notes
 
