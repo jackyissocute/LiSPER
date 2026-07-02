@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-03 02:55 CST
+Last updated: 2026-07-03 06:50 CST
 
 ## Launch Rule
 
@@ -21,11 +21,11 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
 | `LiD3-Flex` | NaCl | GCP | V2 `7/27` | production windows `007-011` | `🟩🟩🟩🟩🟩🟩🟩🟦🟦🟦` |
 | `LiLC-1` | NaCl | GCP | V2 `2/27` | equil/production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | NaCl | GCP | V2 `2/27` | production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | NaCl | GCP | V2 `4/27` | equil/production windows `004-005` | `🟩🟩🟩🟩🟦🟦⬜⬜⬜⬜` |
 | `LiD3-Core` | NaCl | GCP | V2 `2/27` | equil/production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
 | `LiN3-Core` | NaCl | GCP | V2 `2/27` | production windows `002-003` | `🟩🟩🟦🟦⬜⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. LiCl `LiDS-1` has V2 `24/27` complete and is running windows `024-026`; LiCl `LiD3-Flex` has `4/27` complete, the main driver is running windows `004-007`, and guarded one-off backfill windows `020-024` remain active. LiCl `LiD3-Core` has `2/27` complete and is running `002-003`. NaCl `LiDA-1` V4 has `25` WHAM input windows complete; full-range WHAM remains preliminary, while the PBC-safe `1.03-2.90 nm` diagnostic passes the numeric screen pending manual region review. NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `7/27` complete and production windows `007-011` active. `LiLC-1`, `LiD3-Core`, `LiA3-Ref`, and `LiN3-Core` NaCl each have V2 `2/27` complete with windows `002-003` active. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. LiCl `LiDS-1` has V2 `24/27` complete and is running windows `024-026`; LiCl `LiD3-Flex` has `4/27` complete, the main driver is running windows `004-007`, and guarded one-off backfill windows `020-024` remain active. LiCl `LiD3-Core` has `2/27` complete and is running `002-003`. NaCl `LiDA-1` V4 has `25` WHAM input windows complete; full-range WHAM remains preliminary, while the PBC-safe `1.03-2.90 nm` diagnostic passes the numeric screen pending manual region review. NaCl `LiDS-1` completed V2 `27/27` and GROMACS WHAM completed with QC review required; NaCl `LiD3-Flex` has `7/27` complete and production windows `007-011` active. `LiLC-1`, `LiD3-Core`, and `LiN3-Core` NaCl each have V2 `2/27` complete with windows `002-003` active. `LiA3-Ref` NaCl advanced to V2 `4/27` complete with windows `004-005` active. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
 
 LiDA-1 LiCl V4 status, 2026-07-03 02:55 CST: V4 window `026` finished from the V3 checkpoint and wrote final coordinates plus pull traces. `pmf_wham_v4_20260702_1855` completed from `27` combined LiCl windows with `200/200` finite profile points and `0` nonfinite points, but retained `12` poor-sampling warning lines at the outer tail (`z=2.24551-2.25665 nm`) and `2.73 kJ/mol` burn-in/time-slice span shift. Classification remains `REPAIR`; no Delta G is promoted until the outer-tail materiality and any next minimal repair are decided.
 
