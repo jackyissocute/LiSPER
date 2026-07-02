@@ -220,7 +220,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl V2 4/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 5/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl V2 4/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 7/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V3 repair completed but did not pass QC; V4 window 026 repair is running. LiDS-1 has 24/27 LiCl windows complete; LiD3-Flex has 4/27 LiCl and 5/27 NaCl windows complete, with guarded LiCl backfill windows active.</sub></td>
+      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V3 repair completed but did not pass QC; V4 window 026 repair is running. LiDS-1 has 24/27 LiCl windows complete; LiD3-Flex has 4/27 LiCl and 7/27 NaCl windows complete, with guarded LiCl backfill windows active.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -331,7 +331,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 windows `2/27` complete with `002-003` active on both conditions |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `4/27` and NaCl `5/27` umbrella windows complete; LiCl backfill windows active; PMF QC pending final refined run |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `4/27` and NaCl `7/27` umbrella windows complete; LiCl backfill windows active; PMF QC pending final refined run |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl GCP backfill active at `15.98/20 ns` |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, next window ready; NaCl `V2 2/27`, active `002-003` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
