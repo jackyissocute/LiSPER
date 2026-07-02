@@ -4,17 +4,17 @@ This folder tracks the MD-stage GROMACS work for the active 8-candidate LiSPER l
 
 ## Current State
 
-The active MD workflow now uses the final 8-candidate names. All eight ESMFold structures are ready. All LiCl and NaCl CHARMM-GUI systems are GROMACS-ready. LiCl and NaCl setup are complete for all eight candidates. LiCl and NaCl 20 ns production plus clustering are running across two AutoDL workers without duplicate candidate-condition-stage jobs. Clustered representatives are handed to `../umbrella/`; WHAM/PMF/Delta G QC is tracked in `../pmf/`.
+Final 8-candidate MD is in handoff mode: setup is complete, LiCl is complete, NaCl has one active production tail, and free-energy work lives in `../umbrella/` + `../pmf/`.
 
 Latest production/free-energy handoff snapshot: `2026-06-26 13:20 CST`.
 
-Progress reporting follows the dashboard status palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` and NaCl `#2DD4BF` are identity accents only.
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned.
 
 | Condition | Folder | Current state |
 |---|---|---|
-| LiCl | `li_cl/` | 8/8 production jobs complete and 8/8 representatives ready; refined umbrella work has moved to `../umbrella/` |
-| NaCl | `na_cl/` | 6/8 production jobs complete and 6/8 representatives ready; Worker A backfill continues for `LiN3-Core` and `LiND-Hybrid` |
-| Handoff | `../umbrella/` and `../pmf/` | Paired `LiDA-1`, `LiDS-1`, and `LiD3-Flex` refined umbrella work is active; PMF/Delta G remains preliminary until WHAM/bootstrap/time-slice QC passes |
+| ![LiCl](https://img.shields.io/badge/LiCl-accent-818CF8) | `li_cl/` | 🟢 `8/8` production, 🟢 `8/8` reps |
+| ![NaCl](https://img.shields.io/badge/NaCl-accent-2DD4BF) | `na_cl/` | 🟢 `7/8` reps, 🔵 `1` tail active |
+| Free energy | `../umbrella/` + `../pmf/` | 🔵 umbrella, 🟣 PMF QC |
 
 Remote 8-candidate workspaces were initialized on AutoDL:
 

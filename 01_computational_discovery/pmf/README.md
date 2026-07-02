@@ -4,7 +4,7 @@ This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selec
 
 Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
 
-Progress badges and diagrams use the dashboard status palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` and NaCl `#2DD4BF` remain ion identity accents only.
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
 ## Selectivity Equation
 
@@ -37,9 +37,18 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Window set | WHAM/PMF state | Delta G status |
 |---|---|---:|---|---|
-| `LiDA-1` | LiCl | V3 `27/27`; V4 repair active | V3 combined WHAM/bootstrap/time-slice outputs are synced under `remote_results/gcp_lida1_licl_v3_20260702/`. The profile has `200/200` finite points and `0` nonfinite points, but `11` poor-sampling warning lines at `z=2.23271-2.25490 nm` and `2.71 kJ/mol` burn-in/time-slice span shift. Clipped diagnostics at `max=2.22` and `max=2.20 nm` still have warnings and `2.74-2.82 kJ/mol` span shift. | <img alt="repair warning" src="https://img.shields.io/badge/repair-required-FB7185"> V4 extends LiCl tail window `026` from the V3 checkpoint to `6 ns` before Delta G promotion. |
-| `LiDA-1` | NaCl | V4 `25/25` | V4 WHAM/bootstrap/time-slice outputs are synced under `remote_results/gcp_lida1_nacl_v4_20260701/`. Full-range WHAM has `200/200` finite profile points but far-tail warnings. The PBC-safe diagnostic `1.03-2.90 nm` has `200/200` finite points, `0` scientific warnings, and `0.56 kJ/mol` time-slice span shift. | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> Numeric-screen pass for the clipped region; preliminary until manual bound/reference-region review and paired LiCl repair QC. |
-| `LiDS-1` | NaCl | V2 `27/27` | `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; QC summary reports `200/200` finite profile points, `0` nonfinite points, and `2` poor-sampling warning hits | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> Preliminary until QC review and time-slice/bootstrap interpretation are complete. |
+| `LiDA-1` | LiCl | V3 `27/27`; V4 active | 🔺 V3 finite, tail warnings; V4 extends window `026` to `6 ns` | <img alt="repair warning" src="https://img.shields.io/badge/repair-required-FB7185"> |
+| `LiDA-1` | NaCl | V4 `25/25` | 🟣 numeric screen passed in PBC-safe region | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
+| `LiDS-1` | NaCl | V2 `27/27` | 🟣 `200/200` finite, `2` poor-sampling warning hits | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
+
+<details>
+<summary><strong>PMF detail notes</strong></summary>
+
+- `LiDA-1` LiCl V3 outputs are synced under `remote_results/gcp_lida1_licl_v3_20260702/`: `200/200` finite points, `0` nonfinite points, `11` poor-sampling warning lines at `z=2.23271-2.25490 nm`, and `2.71 kJ/mol` burn-in/time-slice span shift. Clipped diagnostics at `max=2.22` and `max=2.20 nm` still have warnings and `2.74-2.82 kJ/mol` span shift.
+- `LiDA-1` NaCl V4 outputs are synced under `remote_results/gcp_lida1_nacl_v4_20260701/`: full-range WHAM has `200/200` finite points but far-tail warnings; PBC-safe diagnostic `1.03-2.90 nm` has `200/200` finite points, `0` scientific warnings, and `0.56 kJ/mol` time-slice span shift.
+- `LiDS-1` NaCl V2 has `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; Delta G remains preliminary until QC review.
+
+</details>
 
 ## Reliability Gates
 

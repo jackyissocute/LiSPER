@@ -6,7 +6,7 @@ NaCl simulations are being generated as matched comparison systems for the revis
 
 ## Status
 
-Status colors match the dashboard palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. NaCl `#2DD4BF` is an identity accent only.
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. NaCl color is identity only.
 
 | Stage | Status |
 |---|---|
@@ -14,9 +14,9 @@ Status colors match the dashboard palette: complete `#22C55E`, running `#38BDF8`
 | CHARMM-GUI NaCl systems | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> GROMACS-ready |
 | Minimization | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> minimized including LiN3-Core add-on |
 | Equilibration | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> equilibrated |
-| 20 ns production | <img alt="running" src="https://img.shields.io/badge/running-backfill-38BDF8"> 6/8 complete; Worker A backfill still active for `LiN3-Core` and `LiND-Hybrid` |
+| 20 ns production | <img alt="running" src="https://img.shields.io/badge/running-backfill-38BDF8"> 6/8 complete; Worker A backfill active |
 | Structural clustering | <img alt="running" src="https://img.shields.io/badge/running-6%2F8-38BDF8"> new top cluster: `LiD3-Flex` `3.80%` |
-| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/refined_umbrella-running-38BDF8"> Representatives are handed to `../../umbrella/`; old/default windows and repair extensions are diagnostics only. Final PMF/Delta G waits in `../../pmf/` for WHAM/bootstrap/time-slice QC |
+| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/refined_umbrella-running-38BDF8"> reps handed to `../../umbrella/`; PMF waits in `../../pmf/` |
 
 ## Candidate Notes
 

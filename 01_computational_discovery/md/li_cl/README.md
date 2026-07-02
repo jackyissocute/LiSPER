@@ -4,7 +4,7 @@ LiCl MD is tracked under the final 8-candidate names.
 
 ## Status
 
-Status colors match the dashboard palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` is an identity accent only.
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl color is identity only.
 
 | Stage | Status |
 |---|---|
@@ -14,7 +14,7 @@ Status colors match the dashboard palette: complete `#22C55E`, running `#38BDF8`
 | Equilibration | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> equilibrated |
 | 20 ns production | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> |
 | Structural clustering | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> new top clusters: `LiD3-Flex` `4.40%`, `LiND-Hybrid` `12.89%` |
-| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/refined_umbrella-running-38BDF8"> Representatives are handed to `../../umbrella/`; old/default umbrella windows are diagnostics only. Final PMF/Delta G waits in `../../pmf/` for WHAM/bootstrap/time-slice QC |
+| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/refined_umbrella-running-38BDF8"> reps handed to `../../umbrella/`; PMF waits in `../../pmf/` |
 
 ## Candidate Notes
 

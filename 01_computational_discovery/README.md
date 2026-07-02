@@ -4,9 +4,9 @@ This stage contains the in silico LiSPER discovery workflow: candidate sequences
 
 ## Current State
 
-The active computational library is the final **8-candidate** panel in `sequences/candidates.tsv`. ESMFold intake and matched LiCl/NaCl CHARMM-GUI setup are complete for all eight candidates. Current progress reporting focuses on 20 ns production/clustering handoff, refined umbrella sampling, WHAM/PMF QC, and paired Delta Delta G promotion.
+Final **8-candidate** computational workflow: setup complete, umbrella running, PMF in QC/repair.
 
-Status colors should follow the dashboard palette: complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl and NaCl colors are identity accents only: LiCl `#818CF8`, NaCl `#2DD4BF`.
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned.
 
 ```mermaid
 flowchart TD

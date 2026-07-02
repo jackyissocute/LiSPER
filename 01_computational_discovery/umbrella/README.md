@@ -6,7 +6,9 @@ Latest umbrella snapshot: `2026-06-30 11:00 CST`.
 
 ## Progress Display Rule
 
-Umbrella sampling status uses five fixed sub-steps: `Prep -> Pull -> Windows generated -> Umbrella MD -> QC`. Position identifies the sub-step; status color/text identifies the state. Use complete `#22C55E`, running `#38BDF8`, queued `#FACC15`, QC review `#A78BFA`, warning/repair/failed `#FB7185`/`#EF4444`, and planned `#64748B`. LiCl `#818CF8` and NaCl `#2DD4BF` are ion identity accents only, never status colors.
+Stage order: `Prep -> Pull -> Windows -> Umbrella MD -> QC`.
+
+Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned, `◆` QC stage. LiCl/NaCl colors are identity accents only.
 
 ## Entry Requirement
 
