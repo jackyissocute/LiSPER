@@ -179,8 +179,8 @@ flowchart TD
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟪🟨⬜⬜</code> <code>LiDA-1 paired WHAM under repair/QC: NaCl V4 numeric screen pass; LiCl V2 WHAM triggered V3 tail repair</code></td>
-      <td><img alt="qc" src="https://img.shields.io/badge/status-QC-7c3aed"></td>
+      <td><code>🟨🟨⬜⬜</code> <code>LiDA-1 paired WHAM under repair/QC: NaCl V4 numeric screen pass; LiCl V2 WHAM triggered V3 tail repair</code></td>
+      <td><img alt="qc" src="https://img.shields.io/badge/status-QC-f59e0b"></td>
     </tr>
   </tbody>
 </table>
@@ -205,35 +205,35 @@ flowchart TD
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>10.34%</code></td>
       <td>🟦 LiCl <code>V2 2/27</code>, active <code>002-003</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>🟪 PMF pending refined windows</td>
+      <td>⬛ PMF pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.40%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>3.80%</code></td>
-      <td>🟦 LiCl <code>V2 2/27</code>, active <code>000,003-005</code>; NaCl <code>V2 5/27</code>, active <code>002,005,007-009</code></td>
-      <td>🟪 PMF pending; final waits for refined WHAM/time-slice checks</td>
+      <td>🟦 LiCl <code>V2 4/27</code>, active <code>004-007,020-024</code>; NaCl <code>V2 5/27</code>, active <code>002,005,007-009</code></td>
+      <td>⬛ PMF pending; final waits for refined WHAM/time-slice checks</td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>12.89%</code></td>
       <td>🟦 <code>15.98 ns / 20 ns</code>; GCP backfill active</td>
-      <td>🟪 planned after NaCl representative</td>
-      <td>🟪 planned after umbrella sampling</td>
+      <td>⬛ planned after NaCl representative</td>
+      <td>⬛ planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.15%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>1.95%</code></td>
       <td>🟦 LiCl <code>3/21</code>, ready <code>003</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>🟪 planned after umbrella sampling</td>
+      <td>⬛ planned after umbrella sampling</td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>15.69%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>14.59%</code></td>
       <td>🟦 LiCl <code>V2 24/27</code>, active <code>024-026</code>; NaCl <code>V2 27/27</code></td>
-      <td>🟪 NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>2</code> poor-sampling warnings; final waits for QC review</td>
+      <td>🟨 NaCl V2 WHAM complete: <code>0</code> nonfinite points, <code>2</code> poor-sampling warnings; final waits for QC review</td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
@@ -247,14 +247,14 @@ flowchart TD
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>4.65%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>11.44%</code></td>
       <td>🟦 LiCl <code>3/21</code>, ready <code>003</code>; NaCl <code>V2 0/27</code>, active <code>000-001</code></td>
-      <td>🟪 PMF pending refined windows</td>
+      <td>⬛ PMF pending refined windows</td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>5.05%</code></td>
       <td>🟩 <code>20.00 ns / 20 ns</code>; representative ready, top cluster <code>7.35%</code></td>
       <td>🟦 LiCl <code>2/21</code>, ready <code>002</code>; NaCl <code>V2 2/27</code>, active <code>002-003</code></td>
-      <td>🟪 planned after umbrella sampling</td>
+      <td>⬛ planned after umbrella sampling</td>
     </tr>
   </tbody>
 </table>
@@ -282,7 +282,7 @@ flowchart TD
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V3 repair completed but did not pass QC; V4 window 026 repair is running. LiDS-1 has 24/27 LiCl windows complete; LiD3-Flex has 2/27 LiCl and 5/27 NaCl windows complete.</sub></td>
+      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V3 repair completed but did not pass QC; V4 window 026 repair is running. LiDS-1 has 24/27 LiCl windows complete; LiD3-Flex has 4/27 LiCl and 5/27 NaCl windows complete, with guarded LiCl backfill windows active.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -322,7 +322,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 windows `2/27` complete with `002-003` active on both conditions |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `2/27` and NaCl `5/27` umbrella windows complete; PMF QC pending final refined run |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `4/27` and NaCl `5/27` umbrella windows complete; LiCl backfill windows active; PMF QC pending final refined run |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl GCP backfill active at `15.98/20 ns` |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, next window ready; NaCl `V2 2/27`, active `002-003` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
