@@ -39,6 +39,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 |---|---|---:|---|---|
 | `LiDA-1` | LiCl | V4 `27/27` | 🔺 V4 finite, outer-tail warnings and time-slice sensitivity remain | <img alt="repair warning" src="https://img.shields.io/badge/repair-required-FB7185"> |
 | `LiDA-1` | NaCl | V4 `25/25` | 🟣 numeric screen passed in PBC-safe region | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
+| `LiDS-1` | LiCl | V2 `27/27` | 🔵 WHAM/bootstrap/time-slice QC running | <img alt="WHAM running" src="https://img.shields.io/badge/WHAM-running-38BDF8"> |
 | `LiDS-1` | NaCl | V2 `27/27` | 🟣 `200/200` finite, `2` poor-sampling warning hits | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
 
 <details>
@@ -47,6 +48,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 - `LiDA-1` LiCl V3 outputs are synced under `remote_results/gcp_lida1_licl_v3_20260702/`: `200/200` finite points, `0` nonfinite points, `11` poor-sampling warning lines at `z=2.23271-2.25490 nm`, and `2.71 kJ/mol` burn-in/time-slice span shift. Clipped diagnostics at `max=2.22` and `max=2.20 nm` still have warnings and `2.74-2.82 kJ/mol` span shift.
 - `LiDA-1` LiCl V4 outputs are synced under `remote_results/gcp_lida1_licl_v4_20260703/`: V4 window `026` finished from checkpoint, WHAM/bootstrap completed with `200/200` finite profile points, `0` nonfinite points, `12` poor-sampling warning lines at `z=2.24551-2.25665 nm`, and `2.73 kJ/mol` burn-in/time-slice span shift. Classification remains repair-focused QC review.
 - `LiDA-1` NaCl V4 outputs are synced under `remote_results/gcp_lida1_nacl_v4_20260701/`: full-range WHAM has `200/200` finite points but far-tail warnings; PBC-safe diagnostic `1.03-2.90 nm` has `200/200` finite points, `0` scientific warnings, and `0.56 kJ/mol` time-slice span shift.
+- `LiDS-1` LiCl V2 WHAM/QC is running remotely under `pmf_wham_v2_20260703_0655/` after all `27/27` refined windows completed. Early full-range WHAM output reports poor/empty far-tail bins near `z=2.48-2.53 nm`; final bootstrap/time-slice QC is pending.
 - `LiDS-1` NaCl V2 has `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; Delta G remains preliminary until QC review.
 
 </details>
