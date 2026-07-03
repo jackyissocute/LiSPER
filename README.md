@@ -213,7 +213,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl V2 2/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 2/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl V2 3/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 2/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -226,7 +226,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
-      <td><code>17.42/20 ns</code> 🔵</td>
+      <td><code>17.70/20 ns</code> 🔵</td>
       <td><code>planned</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
@@ -234,7 +234,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl 3/21</code> 🟢 🟢 🟢 🟡 ◆⚫<br><code>NaCl V2 2/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl 3/21</code> 🟢 🟢 🟢 🟡 ◆⚫<br><code>NaCl V2 3/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -286,7 +286,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>one NaCl production tail remains at ~17.42/20 ns</sub></td>
+      <td align="center"><strong><code>~1-2 days</code></strong><br><sub>one NaCl production tail remains at ~17.70/20 ns</sub></td>
       <td>Finish the remaining production log, cluster the trajectory, and extract the dominant representative structure.</td>
     </tr>
     <tr>
@@ -307,7 +307,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `28` real `mdrun` jobs using `29` OpenMP threads after the LiDA-1 LiCl V4 one-window tail repair finished, and the observed remaining `LiND-Hybrid` NaCl production tail at `17.42/20 ns`. The first likely paired Delta Delta G table remains LiDA-1, but LiCl V4 WHAM/bootstrap still requires repair-focused QC review before any Delta G promotion.
+> Time estimates are based on the current GCP `28` real `mdrun` jobs using `29` OpenMP threads after the LiDA-1 LiCl V4 one-window tail repair finished, and the observed remaining `LiND-Hybrid` NaCl production tail at `17.70/20 ns`. The first likely paired Delta Delta G table remains LiDA-1, but LiCl V4 WHAM/bootstrap still requires repair-focused QC review before any Delta G promotion.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -330,10 +330,10 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 windows `2/27` complete with `002-003` active on both conditions |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl V2 `3/27`, active `003-004`; NaCl V2 `2/27`, active `002-003` |
 | 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `4/27` and NaCl `7/27` umbrella windows complete; LiCl backfill windows active; PMF QC pending final refined run |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl GCP backfill active at `17.42/20 ns` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, next window ready; NaCl `V2 2/27`, active `002-003` |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl GCP backfill active at `17.70/20 ns` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl `3/21`, next window ready; NaCl `V2 3/27`, active `003-004` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | LiCl refined windows active; NaCl V2 WHAM complete but preliminary pending QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `V4 27/27`, V4 WHAM/bootstrap finite but still in repair-focused QC review; NaCl V4 safe-boundary PMF diagnostic numeric-screen pass, manual region review required |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | NaCl representative ready; NaCl `V2 2/27`, active `002-003`; LiCl `3/21`, next window ready |
