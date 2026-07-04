@@ -155,7 +155,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🔵 28/32 GCP threads</code></td>
+      <td><code>🔵 29/32 GCP threads</code></td>
       <td><img alt="GCP running" src="https://img.shields.io/badge/GCP-running-38BDF8"></td>
     </tr>
     <tr>
@@ -227,7 +227,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>NaCl V2 pull</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><code>LiCl V2 pull</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl V2 pull</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V4 repair completed, but WHAM/bootstrap still requires QC repair review. LiDS-1 has paired V2 windows complete and LiCl WHAM/bootstrap now in QC review. LiND-Hybrid NaCl V2 pull is active after final clustering; LiA3-Ref NaCl advanced to 6/27.</sub></td>
+      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 LiCl V4 repair completed, but WHAM/bootstrap still requires QC repair review. LiDS-1 has paired V2 windows complete and LiCl WHAM/bootstrap now in QC review. LiND-Hybrid LiCl/NaCl V2 pulls are active after final clustering; LiA3-Ref NaCl advanced to 6/27.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -307,7 +307,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `28` real `mdrun` jobs using `28` OpenMP threads. All 20 ns production and clustering gates are now closed. The first likely paired Delta Delta G table is still contested between LiDA-1 repair review and LiDS-1 paired V2 QC review; no Delta G is promoted before QC passes.
+> Time estimates are based on the current GCP `29` real `mdrun` jobs using `29` OpenMP threads. All 20 ns production and clustering gates are now closed. The first likely paired Delta Delta G table is still contested between LiDA-1 repair review and LiDS-1 paired V2 QC review; no Delta G is promoted before QC passes.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -332,7 +332,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl V2 `4/27`, active `004-005`; NaCl V2 `4/27`, active `004-005` |
 | 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `4/27` and NaCl `7/27` umbrella windows complete; LiCl backfill windows active; PMF QC pending final refined run |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl representative ready; NaCl representative ready; NaCl V2 pull active |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl and NaCl representatives ready; LiCl/NaCl V2 pulls active |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl V2 windows generated, active `000`; NaCl `V2 4/27`, active `004-005` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired V2 `27/27` windows complete; LiCl WHAM/bootstrap and NaCl WHAM both in QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `V4 27/27`, V4 WHAM/bootstrap finite but still in repair-focused QC review; NaCl V4 safe-boundary PMF diagnostic numeric-screen pass, manual region review required |
