@@ -1,0 +1,63 @@
+### topology: /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/topol_cleaned_for_prod.top
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+                :-) GROMACS - gmx grompp, 2026.0-conda_forge (-:
+
+Executable:   /home/jackieeelin929/opt/lisper_gmx_env/bin.AVX2_256/gmx
+Data prefix:  /home/jackieeelin929/opt/lisper_gmx_env
+Working dir:  /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs
+Command line:
+  gmx grompp -f /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/umbrella_sampling_binding_site_v2/window_002_0.77nm/umbrella_eq.mdp -c /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/umbrella_sampling_binding_site_v2/window_002_0.77nm/start.gro -p /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/topol_cleaned_for_prod.top -n /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/umbrella_sampling_binding_site_v2/umbrella_index.ndx -o /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/umbrella_sampling_binding_site_v2/window_002_0.77nm/umbrella_eq.tpr -maxwarn 1
+
+Generating 1-4 interactions: fudge = 1
+Pull group 1 'BINDING_SITE' has 6 atoms
+Pull group 2 'TARGET_ION' has 1 atoms
+Number of degrees of freedom in T-Coupling group SOLU is 430.00
+Number of degrees of freedom in T-Coupling group SOLV is 88743.00
+Pull group  natoms  pbc atom  distance at start  reference at t=0
+       1         6        65
+       2         1         0       0.704 nm          0.774 nm
+
+GROMACS reminds you: "Three Little Fonzies" (Pulp Fiction)
+
+Setting the LD random seed to -8533
+
+Generated 251 of the 253 non-bonded parameter combinations
+
+Generated 105 of the 253 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'SOD'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Setting gen_seed to -604668234
+
+Velocities were taken from a Maxwell distribution at 298.15 K
+
+The largest distance between excluded atoms is 0.395 nm between atom 105 and 117
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.297 nm, buffer size 0.097 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.226 nm, buffer size 0.026 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 72x72x72, spacing 0.115 0.115 0.115
+
+Estimate for the relative computational load of the PME mesh part: 0.18
+
+This run will generate roughly 112 Mb of data
