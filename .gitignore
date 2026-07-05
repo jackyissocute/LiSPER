@@ -14,5 +14,9 @@ __pycache__/
 01_computational_discovery/md/**/remote_results/**/*.xtc
 01_computational_discovery/md/**/remote_results/**/*.trr
 
+# Active umbrella window workdirs contain bulky GROMACS binaries/logs and private
+# absolute remote paths; preserve locally or on remote storage instead.
+01_computational_discovery/umbrella/remote_results/**/gromacs/umbrella_sampling_binding_site_v2/
+
 # Large local safety snapshot made before remote cleanup; keep on laptop, not in GitHub.
 01_computational_discovery/md/remote_runs/legacy_10_candidate_runs_workerA_snapshot/
