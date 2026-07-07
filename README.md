@@ -127,7 +127,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-07 09:34 CST`
+**Last synchronized monitor snapshot:** `2026-07-07 13:40 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -291,7 +291,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 and LiDS-1 remain paired QC/repair-review limited. LiD3-Flex LiCl/NaCl reached `17/27`; LiLC-1 and LiN3-Core LiCl reached `2/27`.</sub></td>
+      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiDA-1 and LiDS-1 remain paired QC/repair-review limited. LiA3-Ref LiCl reached `2/27`; other counters are unchanged.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -307,7 +307,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `25` real `mdrun` jobs using `25` OpenMP threads and `69%` data-disk use. All 20 ns production and clustering gates are closed. The first likely paired Delta Delta G table is still contested between LiDA-1 repair review and LiDS-1 paired V2 QC review; no Delta G is promoted before QC passes.
+> Time estimates are based on the current GCP `25` real `mdrun` jobs using `25` OpenMP threads and `70%` data-disk use. All 20 ns production and clustering gates are closed. The first likely paired Delta Delta G table is still contested between LiDA-1 repair review and LiDS-1 paired V2 QC review; no Delta G is promoted before QC passes.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -337,7 +337,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired V2 `27/27` windows complete; LiCl WHAM/bootstrap and NaCl WHAM both in QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `V4 27/27`, V4 WHAM/bootstrap finite but still in repair-focused QC review; NaCl V4 safe-boundary PMF diagnostic numeric-screen pass, manual region review required |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl V2 `2/27`, equilibration `002`; NaCl `V2 6/27`, active `006-007` |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl V2 `1/27`, active `001`; NaCl `V2 8/27`, production `008-009` |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl V2 `2/27`, equilibration `002`; NaCl `V2 8/27`, production `008-009` |
 
 ## ⚙️ Computational workflow
 

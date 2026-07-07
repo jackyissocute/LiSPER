@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-07 09:34 CST
+Last updated: 2026-07-07 13:40 CST
 
 ## Launch Rule
 
@@ -16,7 +16,7 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiD3-Core` | LiCl | GCP | V2 `8/27` | production windows `008-009` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiLC-1` | LiCl | GCP | V2 `2/27` | equilibration window `002` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | GCP | V2 `2/27` | equilibration window `002` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
-| `LiA3-Ref` | LiCl | GCP | V2 `1/27` | window `001` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | LiCl | GCP | V2 `2/27` | equilibration window `002` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiND-Hybrid` | LiCl | GCP | V2 `0/27` | window `000` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | GCP | V4 `25/25` | WHAM/QC complete; manual region review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
@@ -27,7 +27,9 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiN3-Core` | NaCl | GCP | V2 `6/27` | production windows `006-007` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
 | `LiND-Hybrid` | NaCl | GCP | V2 `0/27` | windows `000-001` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro`/done outputs, while active windows are listed separately. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. `LiDS-1` has paired V2 `27/27` windows complete; LiCl WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655` with `200/200` finite points, `22` warning lines, and poor/empty far-tail bins near `z=2.48-2.53 nm`, so classification is QC review and no Delta G is promoted. `LiD3-Flex` advanced to V2 `17/27` for both LiCl and NaCl, while `LiLC-1` LiCl and `LiN3-Core` LiCl advanced to V2 `2/27`. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro`/done outputs, while active windows are listed separately. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. `LiDS-1` has paired V2 `27/27` windows complete; LiCl WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655` with `200/200` finite points, `22` warning lines, and poor/empty far-tail bins near `z=2.48-2.53 nm`, so classification is QC review and no Delta G is promoted. `LiA3-Ref` LiCl advanced to V2 `2/27`; other completed-window counters are unchanged. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+
+Capacity/progress check, 2026-07-07 13:40 CST: GCP is healthy at `25` real workflow `mdrun` jobs using `25` OpenMP threads, load near `25`, and data disk at `70%` used. `LiA3-Ref` LiCl advanced to V2 `2/27`; no extra job was submitted because active drivers are already occupying ready work.
 
 Capacity/progress check, 2026-07-07 09:34 CST: GCP is healthy at `25` real workflow `mdrun` jobs using `25` OpenMP threads, load near `25`, and data disk at `69%` used. `LiD3-Flex` LiCl/NaCl advanced to V2 `17/27`; `LiLC-1` and `LiN3-Core` LiCl advanced to V2 `2/27`. No extra job was submitted because active drivers are already occupying ready work.
 
