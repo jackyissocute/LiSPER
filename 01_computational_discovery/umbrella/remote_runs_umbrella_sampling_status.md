@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-10 01:38 CST
+Last updated: 2026-07-10 05:41 CST
 
 ## Launch Rule
 
@@ -25,9 +25,11 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiA3-Ref` | NaCl | GCP | V2 `12/27` | production windows `012-013` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiD3-Core` | NaCl | GCP | V2 `12/27` | production windows `012-013` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiN3-Core` | NaCl | GCP | V2 `10/27` | production windows `010-011` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiND-Hybrid` | NaCl | GCP | V2 `2/27` | production windows `002-003` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
+| `LiND-Hybrid` | NaCl | GCP | V2 `3/27` | production window `003`; equilibration window `004` active | `🟩🟩🟩🟦⬜⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro`/done outputs, while active windows are listed separately. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. `LiDS-1` has paired V2 `27/27` windows complete; LiCl WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655` with `200/200` finite points, `22` warning lines, and poor/empty far-tail bins near `z=2.48-2.53 nm`, so classification is QC review and no Delta G is promoted. This heartbeat moved the remaining active equilibration windows into production for `LiD3-Flex` LiCl/NaCl, `LiD3-Core` LiCl/NaCl, and `LiLC-1` NaCl; completed-window counters and WHAM/QC artifacts did not materially change. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro`/done outputs, while active windows are listed separately. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. `LiDS-1` has paired V2 `27/27` windows complete; LiCl WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655` with `200/200` finite points, `22` warning lines, and poor/empty far-tail bins near `z=2.48-2.53 nm`, so classification is QC review and no Delta G is promoted. This heartbeat advanced `LiND-Hybrid` NaCl to V2 `3/27` with window `004` in equilibration; WHAM/QC artifacts did not materially change. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+
+Capacity/progress check, 2026-07-10 05:41 CST: GCP is healthy at `25` real workflow `mdrun` jobs using `25` OpenMP threads, load near `25`, and data disk at `88%` used. No extra job was submitted because active drivers are already occupying ready work.
 
 Capacity/progress check, 2026-07-10 01:38 CST: GCP is healthy at `25` real workflow `mdrun` jobs using `25` OpenMP threads, load near `25`, and data disk at `87%` used. No extra job was submitted because active drivers are already occupying ready work.
 
