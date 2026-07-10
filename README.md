@@ -213,7 +213,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl V2 13/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 12/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -234,7 +234,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl V2 4/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 12/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl V2 4/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -330,10 +330,10 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl V2 `13/27`, production `013-014`; NaCl V2 `12/27`, production `012-013` |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 `14/27`, production `014-015` |
 | 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `21/27`, production `016-019`; NaCl `22/27`, production `022-026`; PMF QC pending final refined run |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl V2 `2/27`, production `002`; NaCl V2 `4/27`, production `004-005` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl V2 `4/27`, production `004`; NaCl `V2 12/27`, production `012-013` |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl V2 `4/27`, production `004`; NaCl `V2 14/27`, production `014-015` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired V2 `27/27` windows complete; LiCl WHAM/bootstrap and NaCl WHAM both in QC review |
 | 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `V4 27/27`, V4 WHAM/bootstrap finite but still in repair-focused QC review; NaCl V4 safe-boundary PMF diagnostic numeric-screen pass, manual region review required |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl V2 `4/27`, production `004`; NaCl `V2 12/27`, equilibration `012-013` |
