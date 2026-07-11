@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-11 20:20 CST
+Last updated: 2026-07-12 20:15 CST
 
 ## Launch Rule
 
@@ -12,22 +12,24 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 |---|---|---|---:|---|---|
 | `LiDA-1` | LiCl | GCP | V4 `27/27` | V4 WHAM/bootstrap complete; repair-focused QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟥` |
 | `LiDS-1` | LiCl | GCP | V2 `27/27` | WHAM/bootstrap complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
-| `LiD3-Flex` | LiCl | GCP | V2 `24/27` | production windows `019, 025-026` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦` |
+| `LiD3-Flex` | LiCl | GCP | V2 `25/27` | windows `025-026` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦` |
 | `LiD3-Core` | LiCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiLC-1` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
-| `LiA3-Ref` | LiCl | GCP | V2 `4/27` | production windows `004, 026` active | `🟩🟩🟩🟩🟦⬜⬜⬜⬜⬜` |
+| `LiA3-Ref` | LiCl | GCP | V2 `5/27` | windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
 | `LiND-Hybrid` | LiCl | GCP | V2 `2/27` | production window `002` active | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | GCP | V4 `25/25` | WHAM/QC complete; manual region review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
-| `LiD3-Flex` | NaCl | GCP | V2 `27/27` | umbrella MD complete; WHAM/QC pending | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
+| `LiD3-Flex` | NaCl | GCP | V2 `27/27` | WHAM/bootstrap complete; paired QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
 | `LiLC-1` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiA3-Ref` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiD3-Core` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiN3-Core` | NaCl | GCP | V2 `12/27` | equilibration windows `012-013` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiN3-Core` | NaCl | GCP | V2 `13/27` | windows `013-014, 026` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiND-Hybrid` | NaCl | GCP | V2 `4/27` | production windows `004-005` active | `🟩🟩🟩🟩🟦⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro`/done outputs, while active windows are listed separately. LiCl `LiDA-1` completed V4 window `026` repair and combined WHAM/bootstrap under `pmf_wham_v4_20260702_1855`; the V4 profile has `200/200` finite points but still has `12` poor-sampling warning lines at `z=2.24551-2.25665 nm` and a `2.73 kJ/mol` burn-in/time-slice span shift, so classification remains `REPAIR` pending materiality/next-repair review. `LiDS-1` has paired V2 `27/27` windows complete; LiCl WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655` with `200/200` finite points, `22` warning lines, and poor/empty far-tail bins near `z=2.48-2.53 nm`, so classification is QC review and no Delta G is promoted. This heartbeat completed LiD3-Flex NaCl V2 `27/27` and advanced LiCl to `24/27`; WHAM/QC is pending paired completion. Old windows and repair outputs are retained only as diagnostics/preliminary QC evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro` outputs, while active windows are listed separately. LiCl `LiDA-1` remains `REPAIR` after V4 outer-tail warnings and a `2.73 kJ/mol` burn-in sensitivity. `LiDS-1` remains in paired QC review with no promoted Delta G. This heartbeat advanced LiD3-Flex LiCl to `25/27`, LiN3-Core NaCl to `13/27`, and LiA3-Ref LiCl to `5/27`. LiD3-Flex NaCl WHAM/bootstrap completed with finite profiles and `0.34 kJ/mol` burn-in span variation, but four poor-sampling outer-tail bins require paired region review after LiCl finishes. Old windows and repair outputs remain diagnostic/preliminary evidence.
+
+Capacity/progress check, 2026-07-12 20:15 CST: GCP is healthy at `26` real one-thread `mdrun` jobs, load near `26`, and data disk at `28%` used. LiD3-Flex NaCl WHAM/bootstrap QC was launched as non-duplicate analysis; no extra umbrella job was submitted because active drivers already own ready windows and analysis preserves the required CPU headroom.
 
 Capacity/progress check, 2026-07-11 20:20 CST: GCP is healthy at `27` real one-thread `mdrun` jobs, load near `27`, and data disk at `26%` used after verified completed-trajectory cleanup. No additional job was submitted because the shared scheduler is within the validated `28 ± 1` operating band and all ready work is already owned by active drivers.
 

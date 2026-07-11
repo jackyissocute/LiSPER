@@ -1,0 +1,117 @@
+bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+                 :-) GROMACS - gmx wham, 2026.0-conda_forge (-:
+
+Executable:   /home/jackieeelin929/opt/lisper_gmx_env/bin.AVX2_256/gmx
+Data prefix:  /home/jackieeelin929/opt/lisper_gmx_env
+Working dir:  /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/pmf_wham_v2_20260712_2015
+Command line:
+  gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_v2_b250.xvg -hist histo_v2_b250.xvg -unit kJ -b 250
+
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_000_0.11nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_001_0.18nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_002_0.26nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_003_0.33nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_004_0.41nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_005_0.48nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_006_0.56nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_007_0.63nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_008_0.71nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_009_0.78nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_010_0.86nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_011_0.93nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_012_1.01nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_013_1.08nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_014_1.16nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_015_1.23nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_016_1.31nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_017_1.38nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_018_1.46nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_019_1.53nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_020_1.61nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_021_1.68nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_022_1.76nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_023_1.83nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_024_1.91nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_025_1.98nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_026_2.06nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_000_0.11nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_001_0.18nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_002_0.26nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_003_0.33nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_004_0.41nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_005_0.48nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_006_0.56nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_007_0.63nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_008_0.71nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_009_0.78nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_010_0.86nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_011_0.93nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_012_1.01nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_013_1.08nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_014_1.16nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_015_1.23nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_016_1.31nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_017_1.38nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_018_1.46nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_019_1.53nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_020_1.61nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_021_1.68nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_022_1.76nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_023_1.83nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_024_1.91nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_025_1.98nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_026_2.06nm/umbrella.tpr, VERSION 2026.0-conda_forge (single precision)
+Warning, poor sampling bin 196 (z=2.22121). Check your histograms!
+Warning, poor sampling bin 197 (z=2.23242). Check your histograms!
+Warning, poor sampling bin 198 (z=2.24364). Check your histograms!
+Warning, poor sampling bin 199 (z=2.25486). Check your histograms!
+Found 27 tpr and 27 pull force files in tpr-files.dat and pullf-files.dat, respectively
+Reading 27 tpr and pullx/pullf files
+Automatic determination of boundaries...
+
+File /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_000_0.11nm/umbrella.tpr, 1 coordinates, with these options:
+	Geometry distance   k = 1000      position = 0.1083    dimensions [Y Y Y] (3 dimensions). Used: Yes
+	Pull group coordinates of 0 groups expected in pullx files.
+	Reference value of the coordinate not expected in pullx files.
+	Use option -v to see this output for all input tpr files
+
+
+Reading pull force file /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_000_0.11nm/umbrella_pullf.xvg, expecting 2 columns:
+	Column for time: 1
+	Column(s) with data for pull coordinate 1 are
+		reaction coordinate:             2
+		center-of-mass of groups:        No
+		reference position column:       No
+	Found 10001 times in /mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling_binding_site_v2/window_000_0.11nm/umbrella_pullf.xvg
+
+Determined boundaries to 0.017041 and 2.260466
+
+Wrote histo_v2_b250.xvg
+Getting initial potential by integration.
+Initialized rapid wham stuff (contrib tolerance 3.7037e-08)
+Evaluating only 1500 of 5400 expressions.
+
+	   1) Maximum change 8.245407e-02
+	 100) Maximum change 8.234873e-05
+	 200) Maximum change 2.195514e-05
+	 300) Maximum change 9.597686e-06
+	 400) Maximum change 5.043211e-06
+	 500) Maximum change 2.763037e-06
+	 600) Maximum change 1.521205e-06
+Switched to exact iteration in iteration 671
+Converged in 672 iterations. Final maximum change 9.89051e-07
+Wrote profile_v2_b250.xvg
+
+In case you use results from gmx wham for a publication, please cite:
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+J. S. Hub, B. L. de Groot, D. van der Spoel
+g_wham - A free weighted histogram analysis implementation including robust
+error and autocorrelation estimates
+J. Chem. Theory Comput. (2010)
+https://doi.org/10.1021/ct100494z
+-------- -------- --- Thank You --- -------- --------
+
+
+GROMACS reminds you: "You got one part of that wrong. This is not meth." (Breaking Bad)
+
