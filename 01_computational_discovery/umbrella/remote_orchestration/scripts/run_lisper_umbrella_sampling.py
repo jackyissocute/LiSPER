@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import csv
+import fcntl
 import math
 import os
 import re
@@ -12,7 +13,9 @@ ROOT = Path(os.environ["LISPER_WORKDIR"])
 CANDIDATE = os.environ.get("LISPER_CANDIDATE", "LiDA-1")
 ION_RESNAME = os.environ["LISPER_ION_RESNAME"]
 NTHREAD = 1
-NJOBS = int(os.environ.get("LISPER_JOBS", "1"))
+NJOBS = int(os.environ.get("LISPER_JOBS", "4"))
+GLOBAL_MDRUN_LIMIT = int(os.environ.get("LISPER_GLOBAL_MDRUN_LIMIT", "28"))
+GLOBAL_MDRUN_LOCK = Path(os.environ.get("LISPER_GLOBAL_MDRUN_LOCK", "/tmp/lisper_gmx_mdrun.lock"))
 PULL_NS = float(os.environ.get("LISPER_PULL_NS", "1.0"))
 WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "2.0"))
 WINDOW_SPACING_NM = float(os.environ.get("LISPER_WINDOW_SPACING_NM", "0.075"))
@@ -24,7 +27,7 @@ PULL_K = float(os.environ.get("LISPER_PULL_K", "1000"))
 BINDING_DONOR_CUTOFF_NM = float(os.environ.get("LISPER_BINDING_DONOR_CUTOFF_NM", "0.40"))
 MIN_BINDING_DONORS = int(os.environ.get("LISPER_MIN_BINDING_DONORS", "3"))
 MAX_BINDING_DONORS = int(os.environ.get("LISPER_MAX_BINDING_DONORS", "6"))
-GMX_ENV = "source /root/miniconda3/etc/profile.d/conda.sh && conda activate lisper-gmx"
+GMX_ENV = "export PATH=$HOME/.local/bin:$PATH"
 
 GROMACS_DIR = ROOT / "systems" / CANDIDATE / "gromacs"
 PROD_DIR = GROMACS_DIR / "run_prod_20ns"
@@ -59,6 +62,43 @@ def run_shell(cmd, cwd=GROMACS_DIR, log=None, stdin=None):
     if log:
         Path(log).write_text(proc.stdout)
     return proc.returncode, proc.stdout
+
+
+def count_active_mdruns(proc_root=Path("/proc")):
+    count = 0
+    for proc_dir in proc_root.glob("[0-9]*"):
+        try:
+            comm = (proc_dir / "comm").read_text().strip()
+            cmdline = (proc_dir / "cmdline").read_bytes().replace(b"\0", b" ").decode(errors="replace")
+        except (FileNotFoundError, PermissionError, ProcessLookupError):
+            continue
+        if comm.startswith("gmx") and "mdrun" in cmdline:
+            count += 1
+    return count
+
+
+def run_mdrun_with_global_limit(cmd, cwd, log):
+    GLOBAL_MDRUN_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    while True:
+        with GLOBAL_MDRUN_LOCK.open("a+") as lock_handle:
+            fcntl.flock(lock_handle, fcntl.LOCK_EX)
+            if count_active_mdruns() < GLOBAL_MDRUN_LIMIT:
+                proc = subprocess.Popen(
+                    f"bash -lc {cmd!r}",
+                    shell=True,
+                    cwd=cwd,
+                    text=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.STDOUT,
+                )
+                # Keep launches serialized until GROMACS has replaced the shell
+                # wrapper and becomes visible to the node-wide process count.
+                time.sleep(1.0)
+                break
+        time.sleep(2.0)
+    stdout, _ = proc.communicate()
+    Path(log).write_text(stdout)
+    return proc.returncode
 
 
 def read_representative_time_ps():
@@ -344,9 +384,10 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
             break
     else:
         return "grompp_failed"
-    code, _ = run_shell(
-        f"{GMX_ENV} && cd {window_dir} && OMP_NUM_THREADS={NTHREAD} "
+    code = run_mdrun_with_global_limit(
+        f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
         f"gmx mdrun -deffnm {deffnm} -ntmpi 1 -ntomp {NTHREAD}",
+        cwd=window_dir,
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
     )
     if code != 0:
