@@ -11,7 +11,7 @@ import time
 ROOT = Path(os.environ["LISPER_WORKDIR"])
 CANDIDATE = os.environ.get("LISPER_CANDIDATE", "LiDA-1")
 ION_RESNAME = os.environ["LISPER_ION_RESNAME"]
-NTHREAD = int(os.environ.get("LISPER_NTHREAD_PER_JOB", "1"))
+NTHREAD = 1
 NJOBS = int(os.environ.get("LISPER_JOBS", "1"))
 PULL_NS = float(os.environ.get("LISPER_PULL_NS", "1.0"))
 WINDOW_NS = float(os.environ.get("LISPER_WINDOW_NS", "2.0"))
