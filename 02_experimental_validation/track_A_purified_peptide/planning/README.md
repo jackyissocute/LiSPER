@@ -1,22 +1,20 @@
 # Track A Planning
 
-Track A now begins with ordered synthetic LiSPER peptides.
+Track A begins with commercial synthetic LiSPER peptides (GenScript or equivalent China peptide vendor).
 
-Use this folder to plan direct peptide binding assays before committing to surface-display plasmid construction.
+No plasmid design and no bacterial peptide production in this track.
 
 | File | Purpose |
 |---|---|
-| [Ordered synthetic peptide binding plan](ordered_synthetic_peptide_binding_plan.md) | Main plan for using vendor-ordered peptides to validate computational Li/Na selectivity predictions |
-
-## Current Logic
+| [Ordered synthetic peptide binding plan](ordered_synthetic_peptide_binding_plan.md) | Main plan for vendor peptides validating computational Li/Na ranking |
 
 ```mermaid
 flowchart TD
     accTitle: Ordered Peptide Validation
-    accDescr: Track A starts with ordered synthetic peptides, measures Li and Na binding directly, compares the results with computational ranking, and selects candidates for Track B.
+    accDescr: Track A orders synthetic peptides, measures Li and Na binding, compares with PMF ranking, and selects Track B candidates.
 
     computational["Computational<br/>ranking"]
-    order["Order synthetic<br/>peptides"]
+    order["Order peptides<br/>from vendor"]
     assay["Direct Li/Na<br/>binding assays"]
     compare["Compare with<br/>PMF ranking"]
     select["Select top<br/>display candidates"]
@@ -27,4 +25,4 @@ flowchart TD
     compare --> select
 ```
 
-The His6-SUMO plasmid and purification materials remain available one level up as a fallback production route.
+Ordering details live in `../ordering/`.

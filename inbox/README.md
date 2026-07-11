@@ -12,7 +12,9 @@ The extracted PDB, PAE, plot, manifest, and CHARMM-GUI-safe PDB files have been 
 
 ## Later Intake
 
-Codon-optimization files and plasmid/vector materials should also enter through this inbox, but they are downstream of the remaining ESMFold and CHARMM-GUI setup.
+Track A commercial peptide quotes, HPLC/MS certificates, and order paperwork should go to `02_experimental_validation/track_A_purified_peptide/ordering/` after triage.
+
+Track B eCPX plasmid/vector materials are still downstream and should enter through this inbox when design starts.
 
 ## Rule
 

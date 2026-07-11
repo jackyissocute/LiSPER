@@ -2,7 +2,7 @@
 
 LiSPER experimental validation is organized around **two connected wet-lab tracks**.
 
-The current strategy has changed: LiSPER peptides will be ordered directly as synthetic peptides for the first binding assays. In-house His6-SUMO expression and purification is retained as a secondary/fallback production route, but it is no longer the first experimental gate.
+The current strategy is fixed: LiSPER peptides for Track A are **bought as commercial synthetic peptides** (GenScript or another reliable China peptide vendor). No Track A plasmid design, bacterial culture, or His6-SUMO expression.
 
 ```mermaid
 flowchart TD
@@ -62,7 +62,7 @@ computationally ranked peptide
 -> comparison with PMF ranking
 ```
 
-Track A now starts from vendor-ordered synthetic LiSPER peptides. The goal is to generate direct binding statistics before committing months of work to surface-display plasmids and bacterial assays.
+Track A starts from vendor-ordered synthetic LiSPER peptides. The goal is to generate direct binding statistics before committing months of work to surface-display plasmids and bacterial assays.
 
 ### What Track A Proves
 
@@ -85,7 +85,7 @@ Track A is the strongest answer to reviewer concerns about attribution:
 
 ### Main Risk
 
-Technical difficulty is lower than in-house expression/purification, but the assay still needs controls:
+Assay still needs controls:
 
 - peptide purity and identity confirmation,
 - buffer and plasticware ion background,
@@ -93,21 +93,17 @@ Technical difficulty is lower than in-house expression/purification, but the ass
 - nonspecific adsorption to tubes or filters,
 - appropriate negative/reference peptide controls.
 
-The archived/planned His6-SUMO route remains useful if ordered peptide cost, modifications, or supply become limiting, but it is no longer the primary first-pass validation route.
-
 ### Track A Resources
-
-The current Track A folder still contains the existing in-house production resources:
 
 [`track_A_purified_peptide/`](track_A_purified_peptide/)
 
 | Resource | Current role |
 |---|---|
-| `planning/` | Current ordered synthetic peptide binding plan and computational-validation logic. |
-| `protocols/` | Secondary/fallback His6-SUMO expression, purification, cleavage, peptide recovery, and binding-assay protocols. |
-| `plasmids/` | Vendor-ready pET-28a(+)-His6-SUMO designs retained for optional in-house peptide production. |
+| `ordering/` | GenScript/China vendor checklist and candidate sequence order table. |
+| `planning/` | Ordered synthetic peptide binding plan and computational-validation logic. |
+| `protocols/` | Peptide receipt/QC, Li/Na binding assays, analysis, and controls. |
 
-The strategic decision is set: direct peptide binding comes before surface-display construction.
+Archived His6-SUMO plasmid and expression materials live under `archive/superseded_track_A_his6_sumo_production/` and are not part of the active Track A path.
 
 ---
 
@@ -172,7 +168,7 @@ Therefore Track B requires matched controls: non-displaying cells, empty eCPX sc
 | Weakness | Does not test surface immobilization or reuse | Scaffold/tag/cell effects complicate attribution |
 | Publication value | High for validating the computational workflow | High for synthetic biology, biotechnology, and Bio-DLE translation |
 | Technical difficulty | Moderate if peptides are ordered and ICP/assay access is available | Moderate-high |
-| Cost drivers | Peptide synthesis, purity/QC, ICP or ion assay | Plasmids, antibodies, flow cytometry, ICP, cell controls |
+| Cost drivers | Peptide synthesis (GenScript/China vendor), purity/QC, ICP or ion assay | Plasmids, antibodies, flow cytometry, ICP, cell controls |
 | Main risk | Weak signal, assay background, or poor correlation with PMF | Background cell/scaffold binding mistaken for LiSPER binding |
 | Reviewer acceptance | Strong if peptide identity, purity, controls, and PMF comparison are clear | Strong if display, scaffold, tag, cell, and regeneration controls are rigorous |
 | Best first subset | `LiA3-Ref` plus all ordered candidates or a top computational subset | Empty scaffold, `LiA3-Ref`, top 2-3 peptide hits |

@@ -69,7 +69,7 @@ Use this rule when placing new files:
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | Ordered synthetic peptide binding validation, optional in-house peptide production resources, and surface-display engineering |
+| `02_experimental_validation/` | Vendor-ordered synthetic peptide binding validation and surface-display engineering |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_reference_library/` | External sources, literature PDFs, citation exports, evidence notes, and source metadata |
 | `05_outputs_and_communication/` | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing outputs |

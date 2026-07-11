@@ -26,7 +26,7 @@ flowchart TD
 | New papers | `04_reference_library/` or a study folder under `03_industrial_translation/` |
 | CHARMM-GUI archives | `01_computational_discovery/charmm-gui/<condition>/` |
 | ESMFold downloads | `01_computational_discovery/esmfold/` |
-| Track A plasmid/vector files | `02_experimental_validation/track_A_purified_peptide/plasmids/` |
+| Track A peptide order quotes / HPLC-MS certificates | `02_experimental_validation/track_A_purified_peptide/ordering/` |
 | Track B plasmid/vector files | `02_experimental_validation/track_B_surface_display/plasmids/` |
 | Screenshots | `05_outputs_and_communication/figures/` or condition metadata |
 | One-off notes | `06_project_operations/docs/`, the relevant track `protocols/`, or `05_outputs_and_communication/manuscript/` |

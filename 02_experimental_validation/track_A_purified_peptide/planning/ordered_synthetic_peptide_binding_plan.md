@@ -1,12 +1,14 @@
 # Ordered Synthetic Peptide Binding Plan
 
-This plan updates Track A to match the current wet-lab strategy:
+Active Track A strategy:
 
-> Order LiSPER peptides directly, run Li+/Na+ binding assays first, and use the resulting statistics to validate the computational workflow and select candidates for surface display.
+> Buy synthetic LiSPER peptides from GenScript or another reliable China peptide vendor, run Li+/Na+ binding assays, validate computational ranking, then select Track B surface-display candidates.
+
+No Track A plasmids. No bacterial culture or in-house peptide production.
 
 ## Purpose
 
-Track A now has two connected goals:
+Track A has two connected goals:
 
 1. Test whether designed LiSPER peptides show measurable Li+/Na+ selectivity in solution.
 2. Test whether computational ranking from MD/PMF predicts experimental binding and selectivity trends.
@@ -21,7 +23,7 @@ flowchart TD
     accDescr: The ordered synthetic peptide assay moves from candidate selection through vendor ordering, peptide QC, Li/Na binding tests, computational comparison, and Track B candidate selection.
 
     candidates["Final candidate<br/>library"]
-    vendor["Vendor peptide<br/>ordering"]
+    vendor["GenScript / China<br/>peptide vendor"]
     qc["Peptide QC<br/>identity purity solubility"]
     li_assay["Li-only<br/>binding"]
     na_assay["Na-only<br/>binding"]
@@ -54,14 +56,17 @@ If budget allows, ordering all final candidates is best because it allows a true
 
 ## Vendor Information To Confirm
 
+Use `../ordering/vendor_peptide_order_checklist.md` as the order checklist. Key fields:
+
 | Item | Why it matters |
 |---|---|
 | Peptide purity | Low-purity material can distort binding data |
-| Salt/counterion form | Sodium or other counterions can interfere with Li/Na assays |
+| Salt/counterion form | Sodium/TFA or other counterions can interfere with Li/Na assays |
 | Terminal state | Acetylation/amidation or free termini can change charge and binding |
 | Solubility guidance | Prevents failed assays from precipitation |
 | Quantity | Must support repeats, controls, and follow-up assays |
-| QC certificate | Needed for publication-quality traceability |
+| HPLC + MS certificate | Needed for publication-quality traceability |
+| Exact sequence on vial | Must match `../ordering/candidate_order_table.csv` |
 
 ## Core Assays
 

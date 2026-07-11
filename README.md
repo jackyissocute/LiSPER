@@ -402,10 +402,9 @@ Phase II is designed to convert computational rankings into measurable biologica
 | Route | What it tests | Planned readout |
 |---|---|---|
 | **Track A: ordered synthetic peptide binding** | Intrinsic LiSPER binding behavior and computational validation | Li+ binding, Na+ competition, selectivity trend, PMF agreement |
-| **Track A fallback: His6-SUMO production** | Optional in-house peptide production route | Soluble expression, purification, cleavage, peptide recovery |
 | **Track B: surface-display engineering** | LiSPER as biological capture interface | Display level, whole-cell Li capture, Na rejection, regeneration |
 
-The first wet-lab gate is no longer plasmid expression. The current plan is to order synthetic LiSPER peptides, measure Li+/Na+ binding directly, compare the experimental ranking with computational PMF predictions, and then use the best candidates for the main surface-display program.
+The first wet-lab gate is commercial peptide purchase, not plasmid expression. Order synthetic LiSPER peptides from GenScript or another reliable China peptide vendor, measure Li+/Na+ binding directly, compare experimental ranking with computational PMF predictions, then use the best candidates for the main surface-display program.
 
 ## 🏭 Industrial outlook
 
@@ -475,7 +474,7 @@ flowchart TD
 | Directory | Purpose |
 |---|---|
 | [`01_computational_discovery/`](01_computational_discovery/) | Candidate sequences, ESMFold structures, CHARMM-GUI systems, MD, umbrella sampling, PMF, and analysis |
-| [`02_experimental_validation/`](02_experimental_validation/) | Ordered synthetic peptide binding validation, optional in-house production resources, surface-display engineering, and assay protocols |
+| [`02_experimental_validation/`](02_experimental_validation/) | Vendor-ordered synthetic peptide binding validation, surface-display engineering, and assay protocols |
 | [`03_industrial_translation/`](03_industrial_translation/) | Immobilized capture formats, packed-bed process design, and deployment architecture |
 | [`04_reference_library/`](04_reference_library/) | External evidence base: papers, patents, source metadata, citation exports, and reading notes |
 | [`05_outputs_and_communication/`](05_outputs_and_communication/) | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing materials |
@@ -489,6 +488,7 @@ flowchart TD
 - [Candidate design rationale](06_project_operations/docs/candidate_design_rationale.md)
 - [MD to PMF workflow](06_project_operations/docs/md_to_pmf_workflow.md)
 - [Ordered synthetic peptide binding plan](02_experimental_validation/track_A_purified_peptide/planning/ordered_synthetic_peptide_binding_plan.md)
+- [Track A vendor peptide order checklist](02_experimental_validation/track_A_purified_peptide/ordering/vendor_peptide_order_checklist.md)
 - [Surface-display optimization plan](02_experimental_validation/track_B_surface_display/planning/integrated_surface_display_optimization_plan.md)
 - [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
 - [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)

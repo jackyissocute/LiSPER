@@ -1,14 +1,14 @@
-# 11 Track A Data Analysis and Interpretation Protocol
+# 03 Track A Data Analysis and Interpretation
 
 ## Required Data
 
 | Data type | Required fields |
 |---|---|
-| Peptide prep | candidate, prep date, concentration estimate, QC status |
+| Peptide lot | candidate, vendor, lot, purity, concentration estimate, QC status |
 | Assay condition | buffer, pH, temperature, time, Li, Na |
 | Measurement | Li free, Na free, bound/recovered fraction if available |
-| Controls | no peptide, SUMO-only, LiA3-Ref, buffer blank |
-| Replicates | biological and technical replicate IDs |
+| Controls | no peptide, `LiA3-Ref`, buffer blank |
+| Replicates | technical and independent-aliquot IDs |
 
 ## Core Formulas
 
@@ -33,32 +33,40 @@ Normalize binding by:
 
 - peptide mass or molar amount,
 - assay volume,
-- peptide prep,
-- background from LiA3-Ref,
+- peptide lot,
+- background from `LiA3-Ref`,
 - background from no-peptide blank.
 
 ## Interpretation Criteria
 
 Strong evidence:
 
-- peptide identity confirmed,
+- peptide identity confirmed by vendor HPLC/MS,
 - Li binding above controls,
 - Na binding low,
-- Li/Na selectivity greater than LiA3-Ref,
-- reproducible across independent peptide preparations.
+- Li/Na selectivity greater than `LiA3-Ref`,
+- reproducible across independent aliquots/lots.
 
 Ambiguous evidence:
 
 - Li and Na both bind strongly,
-- binding appears only in one peptide prep,
+- binding appears only in one aliquot,
 - mass balance is poor,
 - no-peptide blank loses Li.
 
 Negative evidence:
 
-- candidate matches LiA3-Ref and no-peptide controls,
+- candidate matches `LiA3-Ref` and no-peptide controls,
 - no reproducible Li binding,
 - apparent selectivity caused by Na measurement artifact.
+
+## Computational Comparison
+
+Build an experimental rank table and compare with PMF / ΔΔG rank. Useful outcomes:
+
+- strong agreement,
+- partial agreement with explainable outliers,
+- failure of a design feature that guides redesign.
 
 ## What Track A Can Claim
 
@@ -73,4 +81,3 @@ Track A cannot by itself claim:
 - surface-display function,
 - packed-bed performance,
 - industrial raffinate compatibility.
-
