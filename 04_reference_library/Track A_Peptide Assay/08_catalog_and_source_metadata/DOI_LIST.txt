@@ -1,0 +1,26 @@
+# DOI Quick List — Track A Peptide Assay
+
+Paste into Zotero / Paperpile / BibTeX managers.
+
+```text
+10.1016/j.desal.2024.117412
+10.1016/j.jece.2022.109029
+10.1093/jimb/kuae012
+10.3390/recycling11010004
+10.1039/D6SC01183G
+10.3390/ijms160920641
+10.3390/app10186418
+10.3390/pr13010027
+10.1155/2012/323907
+10.1101/2024.06.26.600843
+10.1101/2025.07.10.664242
+10.1128/aem.65.3.1092-1098.1999
+10.1039/b907122a
+10.1016/j.resmic.2018.06.001
+```
+
+PMID for TFA counterion exchange review:
+
+```text
+18035848
+```
