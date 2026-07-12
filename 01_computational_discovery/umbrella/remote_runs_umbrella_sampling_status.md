@@ -6,7 +6,7 @@ Last updated: 2026-07-12 16:55 CST
 
 **Clean restart.** All legacy umbrella v1/v2/v3/v4 data removed from this git worktree and archived to Jacky 1TB.
 
-Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/02_legacy_umbrella_unreliable/`
+Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_umbrella_unreliable/`
 
 Those campaigns remain **diagnostic only** (`0/8` same chemical site). Do **not** resume them for ΔΔG ranking.
 
@@ -40,7 +40,10 @@ Those campaigns remain **diagnostic only** (`0/8` same chemical site). Do **not*
 
 ## Next science steps
 
-1. Reconstruct LiLC-1 LiCl/NaCl bound starts on locked Asp14 donors.
-2. Flip manifests to `VALIDATED_BOUND`.
-3. Rent stable CPU host; launch **fresh** locked-site umbrella only.
-4. Sync fat outputs to Jacky 1TB `05_future_remote_sync/`; push QC + ΔΔG tables to GitHub.
+Follow `PREFLIGHT_RUNBOOK.md` (do **not** rent until Phase A–B pass).
+
+1. Run readiness inventory (`check_campaign_readiness.py`) — expect MISSING_XTC / BLOCKED_SITE_LOCK today.
+2. Reconstruct LiLC-1 LiCl/NaCl bound starts on locked Asp14 donors; `validate_bound_start.py --promote`.
+3. Rent AMD EPYC **9554P** (128t); use `launch_locked_site.env.example` (`GLOBAL_MDRUN_LIMIT=124`).
+4. Pilot LiLC-1 only → WHAM → `evaluate_paired_pmf_qc.py`; scale other 7 only after PASS.
+5. Sync fat → Jacky `ACTIVE/incoming/`; lean QC + ΔΔG → GitHub.

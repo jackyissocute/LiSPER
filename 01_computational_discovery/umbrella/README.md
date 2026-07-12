@@ -4,7 +4,7 @@ This folder owns the umbrella-sampling step after MD production and representati
 
 **Clean restart (2026-07-12):** legacy v1/v2/v3/v4 window dumps removed from git worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md`). This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty `remote_runs/` / `remote_results/` scaffolds.
 
-Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). See `remote_runs_umbrella_sampling_status.md` and `../pmf/LEGACY_DATA_EVALUATION.md`.
+Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). **Before renting CPU:** `PREFLIGHT_RUNBOOK.md`. Also `remote_runs_umbrella_sampling_status.md`, `../pmf/LEGACY_DATA_EVALUATION.md`.
 
 ## Progress Display Rule
 
@@ -54,12 +54,12 @@ flowchart TD
 
 | Path | Purpose |
 |---|---|
-| `remote_runs_umbrella_sampling_status.md` | Compact umbrella status and v2 progress surface. |
-| `remote_runs/li_cl/` | LiCl umbrella launch logs, v2 metadata, pulls, and windows. |
-| `remote_runs/na_cl/` | NaCl umbrella launch logs, v2 metadata, pulls, and windows. |
-| `remote_results/li_cl/` | Synced completed LiCl umbrella outputs. |
-| `remote_results/na_cl/` | Synced completed NaCl umbrella outputs. |
-| `remote_orchestration/scripts/` | Umbrella-specific local drivers. |
+| `PREFLIGHT_RUNBOOK.md` | Pre-rent checklist (Phase A–F). |
+| `remote_runs_umbrella_sampling_status.md` | Canonical campaign status. |
+| `remote_orchestration/PROVIDER.md` | Chosen CPU host (EPYC 9554P). |
+| `remote_orchestration/launch_locked_site.env.example` | 128-thread launch env. |
+| `remote_runs/` / `remote_results/` | Empty scaffolds for new locked-site campaigns. |
+| `remote_orchestration/scripts/` | Site-lock gated drivers + preflight helpers. |
 
 ## Current Rule
 

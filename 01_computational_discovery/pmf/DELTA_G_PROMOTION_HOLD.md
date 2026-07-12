@@ -15,6 +15,6 @@ Release requires, for each candidate-condition pair:
 
 Legacy dynamic-nearest-site umbrella (`umbrella_sampling_binding_site_v2` and its WHAM products) is **stopped**, not finished for ranking. Those campaigns are diagnostic only (`0/8` same-site pairs). See `LEGACY_DATA_EVALUATION.md`.
 
-Do not relaunch `resume_incomplete_windows_quickpod.py` / `watchdog_resume.sh` for mismatched-site windows.
+Do not relaunch archived QuickPod resume/watchdog stubs (Jacky `ARCHIVE/legacy_ops_docs_20260712/umbrella_scripts/`) for mismatched-site windows.
 
 Next authorized compute: reconstruct/validate bound starts → mark `VALIDATED_BOUND` → locked-site umbrella pilot (**LiLC-1** first).

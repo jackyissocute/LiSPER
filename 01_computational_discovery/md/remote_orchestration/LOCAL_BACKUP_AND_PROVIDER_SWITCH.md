@@ -3,8 +3,9 @@
 Date: 2026-07-12  
 Status: **MOVED TO JACKY 1TB — Mac copy deleted**
 
-Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/01_gcp_remote_backup_20260712/`
+Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/ACTIVE/seeds/gcp_remote_backup_20260712/`
 
-See `../../STORAGE_LAYOUT.md`.
+See `../../STORAGE_LAYOUT.md` and `SYNC_PATHS.md`.
 
-GCP may be stopped/deleted for billing. Next: stable VM-class CPU host; locked-site umbrella restart only (not mismatched legacy campaigns).
+GCP may be stopped/deleted for billing.  
+**Next host:** AMD EPYC **9554P** (128t) — locked-site umbrella only (not mismatched legacy campaigns).

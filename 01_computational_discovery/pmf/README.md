@@ -6,7 +6,7 @@ Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only aft
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-**Clean restart (2026-07-12):** legacy WHAM under `remote_results/gcp_*` removed from this worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md` → `03_legacy_pmf_diagnostic/`). Empty `remote_runs/` / `remote_results/` scaffolds await locked-site umbrella. Next science: `VALIDATED_BOUND` pilot (LiLC-1).
+**Clean restart (2026-07-12):** legacy WHAM under `remote_results/gcp_*` removed from this worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md` → `ARCHIVE/legacy_pmf_diagnostic/`). Empty `remote_runs/` / `remote_results/` scaffolds await locked-site umbrella. Next science: `VALIDATED_BOUND` pilot (LiLC-1).
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -30,12 +30,9 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Path | Purpose |
 |---|---|
-| `remote_runs/li_cl/pmf_qc/` | LiCl WHAM and PMF QC runs. |
-| `remote_runs/na_cl/pmf_qc/` | NaCl WHAM and PMF QC runs. |
-| `remote_runs/na_cl/pmf_wham/` | Refined NaCl WHAM products synced from completed v2 umbrella sets. |
-| `remote_runs/na_cl/pmf_qc_repair/` | NaCl repair/diagnostic WHAM runs retained as preliminary evidence. |
-| `remote_results/li_cl/` | Synced LiCl PMF products when completed and safe to store. |
-| `remote_results/na_cl/` | Synced NaCl PMF products when completed and safe to store. |
+| `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
+| `remote_results/` | Empty scaffold — lean synced PMF products |
+| Legacy fat | Jacky `ARCHIVE/legacy_pmf_diagnostic/` only |
 
 ## Current PMF state (all diagnostic / held)
 

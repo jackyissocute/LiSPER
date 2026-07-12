@@ -1,55 +1,57 @@
 # Remote Sync Path Map
 
-Canonical path reference for the revised 8-candidate LiSPER workflow.
+Canonical paths for the 8-candidate LiSPER workflow. Updated 2026-07-12.
 
-## Local Roots
-
-| Purpose | Path |
-|---|---|
-| Main repo | `/Users/jackylin/Documents/GitHub/LiSPER` |
-| Active MD workspace | `01_computational_discovery/md/` |
-| LiCl status/logs | `01_computational_discovery/md/li_cl/remote_runs/` |
-| LiCl synced outputs | `01_computational_discovery/md/li_cl/remote_results/` |
-| NaCl status/logs | `01_computational_discovery/md/na_cl/remote_runs/` |
-| NaCl synced outputs | `01_computational_discovery/md/na_cl/remote_results/` |
-| Orchestration scripts | `01_computational_discovery/md/remote_orchestration/scripts/` |
-| Umbrella workspace | `01_computational_discovery/umbrella/` |
-| Umbrella status/logs | `01_computational_discovery/umbrella/remote_runs/` |
-| Umbrella synced outputs | `01_computational_discovery/umbrella/remote_results/` |
-| PMF workspace | `01_computational_discovery/pmf/` |
-| PMF QC/results | `01_computational_discovery/pmf/remote_runs/` and `01_computational_discovery/pmf/remote_results/` |
-
-## Remote Roots
-
-| Worker | SSH | CPU quota | Primary role |
-|---|---|---:|---|
-| **Local Mac backup** | — | — | Canonical offline archive: `~/Documents/LiSPER_backups/gcp_LiSPER_remote_20260712/` (see `LOCAL_BACKUP_AND_PROVIDER_SWITCH.md`) |
-| Next CPU VM | TBD | prefer ~96–128 threads | Locked-site `VALIDATED_BOUND` rebuild host |
-| GCP `lisper-runner-32v` | `ssh gcp-lisper` | 32 vCPU | Safe to stop after local backup verified 2026-07-12 |
-| QuickPod | destroyed | — | Abandoned (unstable SSH) |
-| Worker A / AutoDL | backup only | 18 cores | Optional |
-| Worker B / AutoDL | backup only | 12 cores | Optional |
-
-### QuickPod paths (use these)
+## Local (always)
 
 | Purpose | Path |
 |---|---|
-| Remote project root | `/data/LiSPER_remote` |
-| Active LiCl workdir | `/data/LiSPER_remote/LiSPER_8cand_LiCl` |
-| Active NaCl production workdir | `/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
-| Active NaCl overflow workdir | `/data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA` |
-| Scripts | `/data/LiSPER_remote/scripts` |
-| Paired site manifests | `/data/LiSPER_remote/paired_binding_sites` |
+| Git worktree (Part A lean) | `/Users/jackylin/Documents/GitHub/LiSPER` |
+| MD | `01_computational_discovery/md/` |
+| Umbrella | `01_computational_discovery/umbrella/` |
+| PMF / ΔΔG | `01_computational_discovery/pmf/` |
+| Storage policy | `01_computational_discovery/STORAGE_LAYOUT.md` |
+| Campaign status | `01_computational_discovery/umbrella/remote_runs_umbrella_sampling_status.md` |
+| Pre-rent checklist | `01_computational_discovery/umbrella/PREFLIGHT_RUNBOOK.md` |
 
-### Legacy GCP paths (backup only; do not launch new jobs here)
+## Cold disk (optional mount)
 
 | Purpose | Path |
 |---|---|
-| GCP project root | `/mnt/lisper_data/LiSPER_remote` |
-| Legacy AutoDL roots | `/root/LiSPER_remote/LiSPER_8cand_*` |
+| Cold root | `/Volumes/Jacky 1TB/Research/LiSPER_cold/` |
+| New fat syncs | `.../ACTIVE/incoming/{umbrella,pmf,md}/` |
+| Rebuild seeds | `.../ACTIVE/seeds/charmm_gui_systems/` |
+| GCP snapshot | `.../ACTIVE/seeds/gcp_remote_backup_20260712/` |
+| Legacy (do not rank) | `.../ARCHIVE/` |
 
-## Rule
+Disk often unplugged → lean sync to git only; fat waits for next mount.
 
-Do not sync new active products into the old `/root/LiSPER_remote/LiSPER_LiCl` or `/root/LiSPER_remote/LiSPER_NaCl` paths. Those old workdirs were archived after the library changed from 10 candidates to 8 candidates.
+## Next compute host (chosen)
 
-Remote workdirs are unchanged by the local folder split. Locally, production/clustering artifacts go to `md/`, umbrella artifacts go to `umbrella/`, and WHAM/PMF/Delta G artifacts go to `pmf/`.
+| Item | Value |
+|---|---|
+| **Pick** | **AMD EPYC 9554P** (64c / 128t, 3.1–3.75 GHz) |
+| Why | Modern Genoa, 128 threads, 384 GB RAM, 2×1 TB NVMe, **10 Gbps**, **~$1.34/hr** (half of 9575F) |
+| Reject | 9575F (~2× $/hr, same threads); dual-socket 7402/6230R/6330 (older, thin 2×500 GB disk); 9754 (256t but ~1.6× $/hr — only if wall-clock dominates) |
+| Env | `umbrella/remote_orchestration/launch_locked_site.env.example` |
+| Scheduler | `LISPER_GLOBAL_MDRUN_LIMIT=124` (128 − 4 reserve), 1 thread / window |
+
+## Remote layout (on rented host)
+
+```
+/data/LiSPER_remote/
+  LiSPER_8cand_LiCl/
+  LiSPER_8cand_NaCl_prod_worker/
+  scripts/
+  paired_binding_sites/     # copy of umbrella/paired_site_manifests/
+```
+
+## Retired providers (do not launch)
+
+| Provider | Status |
+|---|---|
+| QuickPod | Destroyed / abandoned (unstable SSH). Stubs archived to Jacky `ARCHIVE/legacy_ops_docs_20260712/` |
+| GCP `lisper-runner-32v` | Soft-stop OK after backup; science copy on Jacky seeds |
+| AutoDL workers | Backup only |
+
+Historical remote path names (`/data/LiSPER_remote/...`) stay as the **template** for the next host — not a live QuickPod box.

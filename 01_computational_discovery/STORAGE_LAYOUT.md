@@ -4,26 +4,53 @@
 
 | Layer | Path | Holds |
 |---|---|---|
-| **A — GitHub + Mac git worktree** | `~/Documents/GitHub/LiSPER` | Code, docs, site manifests, QC protocols, audit TSVs, ΔΔG tables when ready |
-| **B+C — Jacky 1TB cold** | `/Volumes/Jacky 1TB/Research/LiSPER_cold/` | Fat runtime (`.xtc`, logs, `.edr`, `.cpt`, window piles), analysis packs (`pullf`/`pullx`/`tpr`), GCP backup, CHARMM-GUI seeds |
+| **A — GitHub + Mac git worktree** | `~/Documents/GitHub/LiSPER` | Code, docs, site manifests, QC protocols, audit TSVs, lean `pullf`/`xvg`, ΔΔG tables when ready |
+| **B — Jacky 1TB cold (optional mount)** | `/Volumes/Jacky 1TB/Research/LiSPER_cold/` | Fat runtime (`.xtc`, window piles, `.edr`, `.cpt`), WHAM packs, rebuild seeds, archived legacy |
 
 Live `git commit` / `git push` only from the **Mac** worktree. Do **not** put the live git root on ExFAT Jacky 1TB.
 
-## Cold archive map
+Disk is often **unplugged**. Automations and day-to-day syncs keep **lean Part A** on Mac/GitHub. Fat Part B lands on the 1TB the next time it is mounted.
 
-| Folder | Contents |
+## Cold disk map (open `ACTIVE/` first)
+
+```
+LiSPER_cold/
+├── README.txt
+├── ACTIVE/                          ← use this
+│   ├── incoming/                    ★ NEW fat remote syncs
+│   │   ├── umbrella/
+│   │   ├── pmf/
+│   │   └── md/
+│   └── seeds/                       rebuild inputs (keep)
+│       ├── charmm_gui_systems/
+│       └── gcp_remote_backup_20260712/
+└── ARCHIVE/                         ← ignore for ranking
+    ├── legacy_umbrella_unreliable/
+    ├── legacy_pmf_diagnostic/
+    ├── legacy_10_candidate_library/
+    └── legacy_ops_docs_20260712/    stale status + QuickPod stubs
+```
+
+| Path | Role |
 |---|---|
-| `01_gcp_remote_backup_20260712/` | Full GCP remote science backup (no `.xtc`/`.trr`) |
-| `02_legacy_umbrella_unreliable/` | All legacy US v1/v2/v3/v4 window dumps — **not for ranking** |
-| `03_legacy_pmf_diagnostic/` | Legacy WHAM/PMF products — diagnostic only |
-| `04_charmm_gui_systems/` | CHARMM-GUI system seeds for remote rebuild |
-| `05_future_remote_sync/` | Empty; land new remote fat syncs here |
-| `06_repo_archive_legacy_10_candidate_library/` | Superseded 10-candidate library |
+| `ACTIVE/incoming/` | Write target for new locked-site umbrella / WHAM / MD fat syncs |
+| `ACTIVE/seeds/charmm_gui_systems/` | CHARMM-GUI LiCl + NaCl seeds for remote rebuild |
+| `ACTIVE/seeds/gcp_remote_backup_20260712/` | GCP remote science snapshot (no `.xtc`/`.trr`) |
+| `ARCHIVE/*` | Legacy / superseded — diagnostic only, not for ΔΔG |
+| `ARCHIVE/legacy_ops_docs_20260712/` | Stale status MDs + obsolete QuickPod stubs |
+
+## Sync policy
+
+| When | What goes where |
+|---|---|
+| Always (disk optional) | Lean QC, manifests, ΔΔG tables → Mac git / GitHub |
+| Disk plugged | Fat windows, trajectories, WHAM packs → `ACTIVE/incoming/{umbrella,pmf,md}/` |
+| Disk unplugged | Skip fat copy; queue until next mount |
 
 ## Fresh umbrella restart
 
 1. Reconstruct bound starts → mark `VALIDATED_BOUND` in `umbrella/paired_site_manifests/`.
 2. Launch locked-site umbrella (pilot: **LiLC-1**).
-3. Sync new fat outputs to `05_future_remote_sync/`, keep GitHub lean.
+3. Sync new fat outputs to `ACTIVE/incoming/`; keep GitHub lean.
 
 See `umbrella/remote_runs_umbrella_sampling_status.md` and `pmf/LEGACY_DATA_EVALUATION.md`.

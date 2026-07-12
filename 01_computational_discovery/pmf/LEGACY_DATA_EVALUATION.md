@@ -24,9 +24,11 @@ Verdict: **stop legacy dynamic-nearest campaigns**. Do not finish them for ranki
 
 ## Discard from GitHub (keep on remote disk only if useful)
 
-Bulky GROMACS binaries and raw WHAM curves from mismatched campaigns mislead reviewers if treated as results. Untracked via `.gitignore`; live copies stay on QuickPod/GCP until disk reclaim.
+Bulky GROMACS binaries and raw WHAM curves from mismatched campaigns mislead reviewers if treated as results. Untracked via `.gitignore`. Fat copies live on Jacky:
 
-Patterns: window `*.gro` / `*.edr` / `*.cpt` / `*.tpr` / `*.log` / `*.xvg` / `*.mdp` under umbrella/pmf `remote_runs` and `remote_results`.
+`/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_{umbrella_unreliable,pmf_diagnostic}/`
+
+Patterns: window `*.gro` / `*.edr` / `*.cpt` / `*.tpr` / `*.log` / `*.xvg` / `*.mdp`.
 
 ## Required before any ΔG / ΔΔG table
 
@@ -37,5 +39,5 @@ Patterns: window `*.gro` / `*.edr` / `*.cpt` / `*.tpr` / `*.log` / `*.xvg` / `*.
 
 ## Compute policy
 
-- QuickPod: **stop** all legacy `gmx mdrun` / resume / watchdog.
-- Next launch: locked-site pilot only. No parallel finish of mismatched v2/v3/v4 sets.
+- Legacy resume / watchdog: **archived** (Jacky `ARCHIVE/legacy_ops_docs_20260712/`). Do not relaunch.
+- Next host: AMD EPYC **9554P**. Locked-site pilot only. No parallel finish of mismatched v2/v3/v4 sets.
