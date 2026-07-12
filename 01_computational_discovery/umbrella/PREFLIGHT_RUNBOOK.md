@@ -81,6 +81,11 @@ Launch **one candidate, both ions**, locked-site driver only.
 After windows complete → WHAM →:
 
 ```bash
+python3 01_computational_discovery/pmf/remote_orchestration/scripts/lock_paired_regions.py \
+  --li-metadata .../LiCl/umbrella_metadata.tsv \
+  --na-metadata .../NaCl/umbrella_metadata.tsv \
+  --out .../pmf/LiLC-1/paired_regions.tsv
+
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/run_wham_qc.py \
   --umbrella-dir .../LiLC-1/gromacs/umbrella_sampling \
   --out .../pmf/LiLC-1/LiCl
@@ -94,7 +99,7 @@ python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_pai
   --li-burnin ... ... --na-burnin ... ... \
   --li-histo ... --na-histo ... \
   --wham-warning-files ... \
-  --bound-min ... --bound-max ... --ref-min ... --ref-max ... \
+  --regions .../pmf/LiLC-1/paired_regions.tsv \
   --out .../LiLC-1_paired_qc.tsv
 ```
 

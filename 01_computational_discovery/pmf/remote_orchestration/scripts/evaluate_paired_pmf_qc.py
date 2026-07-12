@@ -7,8 +7,7 @@ Inputs are already-computed WHAM products for one candidate pair:
   --li-half-early / --li-half-late ... required independent-half profiles
   --li-burnin / --na-burnin            required predeclared burn-in profiles
   --li-histo / --na-histo              required per-window histogram profiles
-  --bound-min --bound-max              shared bound region (nm)
-  --ref-min --ref-max                  shared reference plateau (nm)
+  --regions                            pre-PMF locked shared regions TSV
 
 Prints PASS/FAIL/REPAIR and writes a TSV summary. Does not invent regions.
 """
@@ -107,10 +106,7 @@ def main():
     p.add_argument("--na-burnin", type=Path, nargs="+", required=True)
     p.add_argument("--li-histo", type=Path, required=True)
     p.add_argument("--na-histo", type=Path, required=True)
-    p.add_argument("--bound-min", type=float, required=True)
-    p.add_argument("--bound-max", type=float, required=True)
-    p.add_argument("--ref-min", type=float, required=True)
-    p.add_argument("--ref-max", type=float, required=True)
+    p.add_argument("--regions", type=Path, required=True)
     p.add_argument("--flat-max", type=float, default=1.0)
     p.add_argument("--half-max", type=float, default=1.0)
     p.add_argument("--burnin-max", type=float, default=1.0)
@@ -121,6 +117,13 @@ def main():
     args = p.parse_args()
     if len(args.li_burnin) < 2 or len(args.na_burnin) < 2:
         p.error("at least two predeclared burn-in variants are required per ion")
+    regions = next(csv.DictReader(args.regions.open(), delimiter="\t"))
+    if regions.get("candidate") != args.candidate or regions.get("status") != "LOCKED_PRE_PMF":
+        p.error("regions must match candidate and have status LOCKED_PRE_PMF")
+    args.bound_min = float(regions["bound_min_nm"])
+    args.bound_max = float(regions["bound_max_nm"])
+    args.ref_min = float(regions["ref_min_nm"])
+    args.ref_max = float(regions["ref_max_nm"])
 
     li = series_xy(read_xvg(args.li_profile))
     na = series_xy(read_xvg(args.na_profile))

@@ -69,6 +69,11 @@ def test_qc_math_smoke():
         warnings.write_text("clean\n")
         histo = tmp / "histo.xvg"
         histo.write_text("".join(f"{x:.3f} 1.0 1.0 1.0\n" for x in [i * 0.1 for i in range(5, 26)]))
+        regions = tmp / "regions.tsv"
+        regions.write_text(
+            "candidate\tstatus\tbound_min_nm\tbound_max_nm\tref_min_nm\tref_max_nm\n"
+            "Toy\tLOCKED_PRE_PMF\t0.4\t0.6\t1.8\t2.2\n"
+        )
         out = tmp / "qc.tsv"
         script = Path(__file__).resolve().parents[2] / "pmf/remote_orchestration/scripts/evaluate_paired_pmf_qc.py"
         # fix path: this test lives under umbrella/.../scripts; pmf script is sibling stage
@@ -107,14 +112,8 @@ def test_qc_math_smoke():
                 str(histo),
                 "--wham-warning-files",
                 str(warnings),
-                "--bound-min",
-                "0.4",
-                "--bound-max",
-                "0.6",
-                "--ref-min",
-                "1.8",
-                "--ref-max",
-                "2.2",
+                "--regions",
+                str(regions),
                 "--out",
                 str(out),
             ]
@@ -148,11 +147,26 @@ def test_wham_prepare_fails_closed_then_writes_inputs():
         assert "burnin_25\t1000.000\t2500.000" in (root / "out/analysis_times.tsv").read_text()
 
 
+def test_region_lock_uses_shared_non_guard_range():
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        header = "candidate_id\tsite_lock_id\twindow_spacing_nm\twindow_eq_ns\twindow_ns\tguard_windows\tinitial_distance_nm\teffective_analysis_extension_nm\n"
+        li, na, out = root / "li.tsv", root / "na.tsv", root / "regions.tsv"
+        li.write_text(header + "Toy\tsite\t0.075\t0.500\t2.000\t3\t0.4400\t1.950\n")
+        na.write_text(header + "Toy\tsite\t0.075\t0.500\t2.000\t3\t0.4200\t1.950\n")
+        script = ROOT.parents[2] / "pmf" / "remote_orchestration" / "scripts" / "lock_paired_regions.py"
+        subprocess.check_call([sys.executable, str(script), "--li-metadata", str(li), "--na-metadata", str(na), "--out", str(out)])
+        text = out.read_text()
+        assert "LOCKED_PRE_PMF" in text
+        assert "0.4400\t0.5500\t2.0700\t2.3700" in text
+
+
 if __name__ == "__main__":
     test_estimate_runs()
     test_validate_bound_geometry()
     test_qc_math_smoke()
     test_wham_prepare_fails_closed_then_writes_inputs()
+    test_region_lock_uses_shared_non_guard_range()
     # also keep existing driver unit checks
     subprocess.check_call([sys.executable, str(ROOT / "test_umbrella_design.py")])
     print("preflight_selfcheck_ok")
