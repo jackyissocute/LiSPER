@@ -114,20 +114,20 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** Legacy mismatched-site umbrella **stopped**. Publishable ΔΔG needs locked-site `VALIDATED_BOUND` (pilot LiLC-1). Promotion hold active. See `01_computational_discovery/pmf/LEGACY_DATA_EVALUATION.md`.
+> **Live snapshot:** Locked-site **LiLC-1** pilot running on EPYC 9554P (128t). Both LiCl/NaCl in **pull** (~3%). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Compute stopped](https://img.shields.io/badge/legacy_umbrella-stopped-FB7185)
-> ![Next science](https://img.shields.io/badge/next-LiLC--1_VALIDATED_BOUND-38BDF8)
+> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-pull_~3%25-38BDF8)
+> ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-12 14:10 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 20:30 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -136,7 +136,7 @@ Status: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC review, 🔺 repair/wa
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
-QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remote`. Legacy resume obsolete. GCP soft-stopped backup. AutoDL backup/source only.
+Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy QuickPod/GCP campaigns archived; do not resume for ranking.
 
 </details>
 
@@ -155,8 +155,8 @@ QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remo
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🛑 legacy mdrun stop; next = locked-site pilot</code></td>
-      <td><img alt="legacy stopped" src="https://img.shields.io/badge/legacy-stopped-FB7185"></td>
+      <td><code>🔵 2/124 mdrun (LiLC-1 LiCl+NaCl pull)</code></td>
+      <td><img alt="pilot pull active" src="https://img.shields.io/badge/pilot_pull-active-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -183,13 +183,13 @@ QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remo
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 refined tracks</code></td>
-      <td><img alt="refined umbrella running" src="https://img.shields.io/badge/refined_windows-running-38BDF8"></td>
+      <td><code>🔵 LiLC-1 locked pull ~3% (both ions)</code></td>
+      <td><img alt="locked pilot pull" src="https://img.shields.io/badge/LiLC--1_locked-pull-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟣 QC</code> <code>🔺 LiDA-1 repair</code></td>
-      <td><img alt="PMF QC review" src="https://img.shields.io/badge/status-QC_review-A78BFA"></td>
+      <td><code>⚫ wait pilot windows + QC</code></td>
+      <td><img alt="PMF promotion hold" src="https://img.shields.io/badge/DeltaG-hold-A78BFA"></td>
     </tr>
   </tbody>
 </table>
@@ -213,57 +213,57 @@ QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remo
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl V3 25/30</code> 🟢 🟢 🟢 🔵 ▲🟥<br><code>NaCl V3 27/30</code> 🟢 🟢 🟢 🔵 ▲🟥</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>LiCl V2 2/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 4/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl V2 5/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>LiCl locked pull ~3%</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl locked pull ~3%</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 15.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 14.59%</sub></td>
-      <td><code>LiCl V2 27/27</code> 🟢 🟢 🟢 🟢 ◆🟣<br><code>NaCl V2 27/27</code> 🟢 🟢 🟢 🟢 ◆🟣</td>
-      <td><img alt="WHAM QC review" src="https://img.shields.io/badge/WHAM-QC_review-A78BFA"></td>
+      <td><code>legacy V2 diagnostic</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site restart</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl V4 27/27</code> 🟢 🟢 🟢 🔺 ◆🔺<br><code>NaCl V4 25/25</code> 🟢 🟢 🟢 🟢 ◆🟣</td>
-      <td><img alt="paired QC repair" src="https://img.shields.io/badge/paired_QC-repair-FB7185"></td>
+      <td><code>legacy V4 diagnostic</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site restart</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>LiCl V2 5/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>LiCl V2 5/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 14/27</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
+      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>await locked-site</code> ⚫ ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="site lock required" src="https://img.shields.io/badge/site_lock-required-FB7185"></td>
     </tr>
   </tbody>
 </table>
@@ -291,17 +291,17 @@ QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remo
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>restart under site lock</code></strong><br><sub>Legacy campaigns stopped; reconstruct VALIDATED_BOUND starts (pilot LiLC-1).</sub></td>
-      <td>Do not finish mismatched-site windows. Validate locked donors, then new umbrella.</td>
+      <td align="center"><strong><code>~0.5 day (LiLC-1 pilot)</code></strong><br><sub>Locked-site LiCl+NaCl pull running (~3%); then ~31 windows/ion.</sub></td>
+      <td>Finish LiLC-1 pull → windows → WHAM → paired QC PASS before scaling other 7.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>~1-4 days after paired windows</code></strong><br><sub>WHAM/bootstrap/time-slice QC, plus targeted repairs if overlap is weak</sub></td>
+      <td align="center"><strong><code>after pilot windows</code></strong><br><sub>WHAM/bootstrap + region-aware QC on locked-site curves only</sub></td>
       <td>Run WHAM/PMF analysis, inspect convergence, then extract ΔG for paired Li+/Na+ systems.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>blocked until SITE_LOCKED + VALIDATED_BOUND</code></strong><br><sub>Existing WHAM is diagnostic only (0/8 same-site pairs)</sub></td>
+      <td align="center"><strong><code>~1 day after pilot PASS</code></strong><br><sub>LiLC-1 first row; then scale remaining 7 under same site lock</sub></td>
       <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
     </tr>
   </tbody>
