@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull complete both ions; **window eq** ~91% (60/60 windows, 0 failed, ~3.0 ns/day). 8/8 candidates `VALIDATED_BOUND`. ΔG promotion hold until pilot QC PASS.
+> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull and 0.5 ns window eq complete both ions; **2.0 ns window production** ~4% (60/60 windows, 0 failed, ~3.0 ns/day). 8/8 candidates `VALIDATED_BOUND`. ΔG promotion hold until pilot QC PASS.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_eq_~91%25-38BDF8)
+> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_prod_~4%25-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/VALIDATED__BOUND-8%2F8-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 locked window-eq ~91% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
-      <td><img alt="locked pilot window eq" src="https://img.shields.io/badge/LiLC--1_locked-window_eq_~91%25-38BDF8"></td>
+      <td><code>🔵 LiLC-1 locked window-prod ~4% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
+      <td><img alt="locked pilot window production" src="https://img.shields.io/badge/LiLC--1_locked-window_prod_~4%25-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -235,7 +235,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked window-eq ~91%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-eq ~91%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl locked window-prod ~4%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-prod ~4%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
     </tr>
     <tr>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.7 day (LiLC-1 pilot rem)</code></strong><br><sub>Live ~3.0 ns/day · ~126 ps/h · eq rem ~0.4 h; then 2.0 ns prod ≈ 16 h (60 parallel)</sub></td>
-      <td>Finish LiLC-1 window eq → prod → WHAM → paired QC PASS before scaling other 7 (already VALIDATED_BOUND).</td>
+      <td align="center"><strong><code>~0.7 day (LiLC-1 pilot rem)</code></strong><br><sub>Live ~3.0 ns/day · production ~4%; ≈15.4 h remaining (60 parallel)</sub></td>
+      <td>Finish LiLC-1 window production → WHAM → paired QC PASS before scaling other 7 (already VALIDATED_BOUND).</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -318,7 +318,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
 - Active compute: remote 128-thread EPYC 9554P worker.
 - All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
-- LiLC-1 locked-site window eq is the live pilot; remaining candidates queue until pilot QC PASS.
+- LiLC-1 locked-site window production is the live pilot; remaining candidates queue until pilot QC PASS.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>
