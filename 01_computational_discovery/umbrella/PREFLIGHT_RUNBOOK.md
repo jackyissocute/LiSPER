@@ -36,7 +36,7 @@ Also plug Jacky 1TB and confirm:
 |---|---|
 | `ACTIVE/seeds/charmm_gui_systems/` | NaCl topologies / rebuild seeds |
 | `ACTIVE/seeds/gcp_remote_backup_20260712/` | System trees (no xtc by design) |
-| `ARCHIVE/legacy_umbrella_unreliable/` | Optional hunt for old `representative_full_system.gro` (diagnostic only) |
+| Cold-disk seed archive | Optional hunt for prior `representative_full_system.gro` if rebuilding starts |
 
 ### Phase B — Bound starts (still mostly local / short remote)
 
@@ -76,7 +76,7 @@ Reject: 9575F (2× price), dual-socket ~$0.72 boxes (thin disk / older), 9754 un
 python3 .../estimate_umbrella_campaign.py --threads 128 --candidates 1
 ```
 
-Launch **one candidate, both ions**, locked-site driver only. No legacy resume/watchdog.
+Launch **one candidate, both ions**, locked-site driver only.
 
 After windows complete → WHAM →:
 

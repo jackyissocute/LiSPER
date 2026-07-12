@@ -22,7 +22,7 @@ Canonical paths for the 8-candidate LiSPER workflow. Updated 2026-07-12.
 | New fat syncs | `.../ACTIVE/incoming/{umbrella,pmf,md}/` |
 | Rebuild seeds | `.../ACTIVE/seeds/charmm_gui_systems/` |
 | GCP snapshot | `.../ACTIVE/seeds/gcp_remote_backup_20260712/` |
-| Legacy (do not rank) | `.../ARCHIVE/` |
+| Cold archive | `.../ARCHIVE/` |
 
 Disk often unplugged → lean sync to git only; fat waits for next mount.
 
@@ -54,7 +54,7 @@ Disk often unplugged → lean sync to git only; fat waits for next mount.
 
 | Provider | Status |
 |---|---|
-| QuickPod | Destroyed / abandoned (unstable SSH). Stubs archived to Jacky `ARCHIVE/legacy_ops_docs_20260712/` |
+| QuickPod | Destroyed / abandoned (unstable SSH). Ops stubs archived under Jacky cold `ARCHIVE/` |
 | GCP `lisper-runner-32v` | Soft-stop OK after backup; science copy on Jacky seeds |
 | AutoDL workers | Backup only |
 

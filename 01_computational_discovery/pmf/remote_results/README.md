@@ -1,7 +1,5 @@
-# Fresh PMF / WHAM workspace
+# PMF remote results
 
-Legacy diagnostic WHAM products archived to Jacky 1TB:
+Empty scaffold for lean synced PMF products.
 
-`/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_pmf_diagnostic/`
-
-Not publishable paired DeltaDeltaG. Await locked-site umbrella restart.
+Fat packs stay on the compute host / Jacky cold disk — see `../../STORAGE_LAYOUT.md`.

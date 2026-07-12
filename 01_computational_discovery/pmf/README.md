@@ -6,7 +6,7 @@ Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only aft
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-**Clean restart (2026-07-12):** legacy WHAM under `remote_results/gcp_*` removed from this worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md` → `ARCHIVE/legacy_pmf_diagnostic/`). Empty `remote_runs/` / `remote_results/` scaffolds await locked-site umbrella. Next science: `VALIDATED_BOUND` pilot (LiLC-1).
+Worktree keeps Part A scaffolds only. Next science: locked-site `VALIDATED_BOUND` pilot (**LiLC-1**), then scale.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -32,23 +32,14 @@ More negative Delta Delta G indicates stronger Li+ preference.
 |---|---|
 | `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
 | `remote_results/` | Empty scaffold — lean synced PMF products |
-| Legacy fat | Jacky `ARCHIVE/legacy_pmf_diagnostic/` only |
+| Cold fat | Jacky cold disk / compute host — see `../STORAGE_LAYOUT.md` |
 
-## Current PMF state (all diagnostic / held)
+## Current PMF state
 
-| Candidate | Condition | Legacy WHAM | Publishable paired ΔΔG? |
+| Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiDA-1` | LiCl / NaCl | V4 curves exist | **No** — site mismatch |
-| `LiDS-1` | LiCl / NaCl | V2 curves exist | **No** — site mismatch |
-| `LiD3-Flex` | NaCl (LiCl incomplete) | V2 NaCl curve exists | **No** — site mismatch |
-| Others | — | none promoted | **No** — wait for locked-site rerun |
-
-<details>
-<summary><strong>Why legacy PMF detail is not a ranking path</strong></summary>
-
-Numeric finite profiles and outer-tail WHAM warnings exist for some mismatched-site campaigns. They do not fix the estimand: Li and Na used different chemical donor sets. Do not spend repair cycles on those curves for paired ΔΔG. Full keep/discard list: `LEGACY_DATA_EVALUATION.md`.
-
-</details>
+| `LiLC-1` | LiCl / NaCl | pending (window eq running) | **No** — wait pilot QC PASS |
+| Other 7 | LiCl / NaCl | queued | **No** — await pilot PASS then launch |
 
 ## Reliability Gates
 

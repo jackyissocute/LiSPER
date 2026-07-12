@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull complete both ions; **window eq** ~50% (≈249 ps / 500 ps; 60/60 windows; 0 failed; ~3.0 ns/day). **8/8** candidates `VALIDATED_BOUND` (scale-ready after pilot QC PASS). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
+> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull complete both ions; **window eq** ~58% (60/60 windows, 0 failed, ~3.0 ns/day). 8/8 candidates `VALIDATED_BOUND`. ΔG promotion hold until pilot QC PASS.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_eq_~50%25-38BDF8)
+> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_eq_~58%25-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/VALIDATED__BOUND-8%2F8-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-12 23:32 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 23:55 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -137,7 +137,7 @@ Status: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC review, 🔺 repair/wa
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
-Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy QuickPod/GCP campaigns archived; do not resume for ranking.
+Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`).
 
 </details>
 
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 locked window-eq ~50% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
-      <td><img alt="locked pilot window eq" src="https://img.shields.io/badge/LiLC--1_locked-window_eq_~50%25-38BDF8"></td>
+      <td><code>🔵 LiLC-1 locked window-eq ~58% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
+      <td><img alt="locked pilot window eq" src="https://img.shields.io/badge/LiLC--1_locked-window_eq_~58%25-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -214,57 +214,57 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked window-eq ~50%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-eq ~50%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl locked window-eq ~58%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-eq ~58%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 15.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 14.59%</sub></td>
-      <td><code>legacy V2 diagnostic</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>legacy V4 diagnostic</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>legacy diagnostic only</code> 🔺 🔺 🔺 🔺 ◆🔺<br><code>VALIDATED_BOUND — queued post-pilot</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-FBBF24"></td>
+      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
     </tr>
   </tbody>
 </table>
@@ -302,13 +302,13 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~0.8 day (first row) · ~3.8 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
+      <td align="center"><strong><code>~0.8 day (first row) · ~4.0 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
       <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
     </tr>
   </tbody>
 </table>
 
-> Legacy mismatched-site umbrella stopped (do not resume). Publishable paired ΔΔG requires locked-site `VALIDATED_BOUND` campaigns — see `LEGACY_DATA_EVALUATION.md`. No Delta G promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
+> Publishable paired ΔΔG requires locked-site `VALIDATED_BOUND` campaigns and QC PASS. No Delta G promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -316,12 +316,10 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
-- QuickPod is primary archive/compute for **locked-site** work under `/data/LiSPER_remote`. Legacy mismatched-site `mdrun` must stay stopped. GCP soft-stopped 2026-07-12.
-- LiCl and NaCl representatives are ready for all eight candidates.
-- **Do not** continue refined dynamic-nearest umbrella tracks for ranking. Reconstruct/validate locked-site bound starts first (pilot `LiLC-1`).
-- Existing LiDA-1 / LiDS-1 / LiD3-Flex WHAM products are diagnostic only under the promotion hold.
+- Active host: `lisper-epyc` (`/data/LiSPER_remote`).
+- All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
+- LiLC-1 locked-site window eq is the live pilot; remaining candidates queue until pilot QC PASS.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
-- Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 
 </details>
 

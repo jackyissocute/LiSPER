@@ -523,7 +523,7 @@ def main():
     box_min_length = min_box_vector_length(full_rep)
     analysis_extension, effective_extension, safe_max_distance = pbc_safe_extensions(initial_distance, box_min_length)
     metadata = UMB_DIR / "umbrella_metadata.tsv"
-    site_status = "SITE_LOCKED" if site_lock else "SITE_MISMATCH_DIAGNOSTIC_LEGACY"
+    site_status = "SITE_LOCKED" if site_lock else "SITE_MISMATCH"
     site_id = site_lock["site_id"] if site_lock else "none"
     site_donors = site_lock["donor_identities"] if site_lock else "dynamic_nearest"
     metadata.write_text(

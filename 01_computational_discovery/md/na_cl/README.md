@@ -31,4 +31,4 @@ Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, 
 | `LiN3-Core` | Replacement Worker A backfill active; `11.52 ns / 20 ns`; clustering queued |
 | `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `7.35%`; umbrella `4/21` complete; windows `004-007` active |
 
-Live MD run summaries are kept in `remote_runs/`. Umbrella sampling status is in `../../umbrella/remote_runs_umbrella_sampling_status.md`; WHAM/PMF QC is in `../../pmf/`. Earlier non-active library summaries are archived under `remote_runs/legacy_10_candidate/`.
+Live MD run summaries are kept in `remote_runs/`. Umbrella sampling status is in `../../umbrella/remote_runs_umbrella_sampling_status.md`; WHAM/PMF QC is in `../../pmf/`. Prior library snapshots, if any, live under cold storage — see `../remote_orchestration/SYNC_PATHS.md`.

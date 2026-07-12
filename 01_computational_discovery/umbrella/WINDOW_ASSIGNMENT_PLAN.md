@@ -80,7 +80,7 @@ Paired QC: `evaluate_paired_pmf_qc.py` on Mac or remote after both ions ready.
 1. Never exceed `LISPER_GLOBAL_MDRUN_LIMIT=124`.
 2. Never use >1 thread per window on this host (benchmarked).
 3. Never launch without `VALIDATED_BOUND` manifest.
-4. Never mix legacy `umbrella_sampling_binding_site_v2` with locked-site dirs.
+4. Use locked-site workdirs only (`umbrella_sampling` under current campaign roots).
 5. Pilot PASS before blasting remaining 7.
 
 ## Remote paths

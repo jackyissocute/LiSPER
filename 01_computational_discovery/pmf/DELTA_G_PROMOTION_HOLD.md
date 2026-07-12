@@ -1,6 +1,6 @@
 # Delta G promotion hold
 
-Status: active from 2026-07-12 P0 corrective mandate.
+Status: active.
 
 Do not promote any Delta G or Delta Delta G as final while this file exists.
 
@@ -11,10 +11,6 @@ Release requires, for each candidate-condition pair:
 3. A shared physical-region and estimator manifest.
 4. Region-aware WHAM QC from the central evaluator.
 
-## Compute policy (2026-07-12)
+## Compute policy
 
-Legacy dynamic-nearest-site umbrella (`umbrella_sampling_binding_site_v2` and its WHAM products) is **stopped**, not finished for ranking. Those campaigns are diagnostic only (`0/8` same-site pairs). See `LEGACY_DATA_EVALUATION.md`.
-
-Do not relaunch archived QuickPod resume/watchdog stubs (Jacky `ARCHIVE/legacy_ops_docs_20260712/umbrella_scripts/`) for mismatched-site windows.
-
-Next authorized compute: locked-site umbrella pilot (**LiLC-1** first). Bound starts are **8/8 `VALIDATED_BOUND`**; do **not** fan remaining candidates until LiLC-1 paired WHAM QC = PASS.
+Authorized compute: locked-site `VALIDATED_BOUND` umbrella on `lisper-epyc`, pilot **LiLC-1** first, then scale remaining candidates after paired QC PASS.

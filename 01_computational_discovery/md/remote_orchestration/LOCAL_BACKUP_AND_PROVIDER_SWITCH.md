@@ -8,4 +8,4 @@ Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/ACTIVE/seeds/gcp_remote_back
 See `../../STORAGE_LAYOUT.md` and `SYNC_PATHS.md`.
 
 GCP may be stopped/deleted for billing.  
-**Next host:** AMD EPYC **9554P** (128t) — locked-site umbrella only (not mismatched legacy campaigns).
+**Next host:** AMD EPYC **9554P** (128t) — locked-site umbrella only.

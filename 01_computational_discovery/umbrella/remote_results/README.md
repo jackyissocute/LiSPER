@@ -1,7 +1,5 @@
-# Fresh umbrella workspace
+# Umbrella remote results
 
-Legacy v1/v2/v3/v4 mismatched-site campaigns were archived to Jacky 1TB:
+Empty scaffold for lean synced products from locked-site umbrella.
 
-`/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_umbrella_unreliable/`
-
-Do not resume those runs for ranking. Next: locked-site `VALIDATED_BOUND` campaigns only.
+Fat trajectories stay on the compute host / Jacky cold disk — see `../../STORAGE_LAYOUT.md`.

@@ -1,7 +1,5 @@
-# Fresh PMF / WHAM workspace
+# PMF remote runs
 
-Legacy diagnostic WHAM products archived to Jacky 1TB:
+Empty scaffold for locked-site WHAM / QC run logs.
 
-`/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_pmf_diagnostic/`
-
-Not publishable paired DeltaDeltaG. Await locked-site umbrella restart.
+Live umbrella status: `../../umbrella/remote_runs_umbrella_sampling_status.md`

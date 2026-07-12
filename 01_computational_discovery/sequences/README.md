@@ -30,4 +30,4 @@ This folder defines the active 8-candidate LiSPER peptide library.
 
 The active project should read and operate as a final 8-candidate library. Superseded working materials are kept outside the active workflow under:
 
-`archive/legacy_10_candidate_library/`
+`archive/` (prior library snapshot)

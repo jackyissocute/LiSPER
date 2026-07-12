@@ -2,9 +2,8 @@
 
 This folder owns the umbrella-sampling step after MD production and representative clustering.
 
-**Clean restart (2026-07-12):** legacy v1/v2/v3/v4 window dumps removed from git worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md`). This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty `remote_runs/` / `remote_results/` scaffolds.
+This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty scaffolds. Live work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`) on `lisper-epyc`. See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
 
-Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). **Host seeded without Jacky** (Mac lean MD → remote). See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
 
 ## Progress Display Rule
 
@@ -64,4 +63,4 @@ flowchart TD
 
 ## Current Rule
 
-Do **not** launch or finish dynamic-nearest `umbrella_sampling_binding_site_v2` for paired ranking. Reconstruct/validate bound starts against proposed locked chemical donors, mark manifests `VALIDATED_BOUND`, then run new locked-site umbrella. Bulky legacy window binaries stay on remote disk / local laptop and are gitignored.
+Launch only from `VALIDATED_BOUND` locked-site starts. Fat window binaries stay on remote disk / laptop and are gitignored.
