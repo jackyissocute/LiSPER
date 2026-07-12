@@ -44,11 +44,52 @@ def run(cmd, cwd=None):
 
 
 def count_res(gro: Path, name: str) -> int:
-    n = 0
+    """Count molecules (unique resnr) with this residue name — not atoms."""
+    seen = set()
     for line in gro.read_text(errors="ignore").splitlines()[2:]:
-        if len(line) >= 10 and line[5:10].strip() == name:
-            n += 1
-    return n
+        if len(line) < 10:
+            continue
+        if line[5:10].strip() != name:
+            continue
+        try:
+            resnr = int(line[:5])
+        except ValueError:
+            continue
+        seen.add(resnr)
+    return len(seen)
+
+
+def sync_topol_counts(top: Path, gro: Path) -> Path:
+    """Rewrite [ molecules ] ion/water counts to match gro (fixes CHARMM-GUI drift)."""
+    text = top.read_text(errors="replace")
+    if "[ molecules ]" not in text:
+        return top
+    head, _, rest = text.partition("[ molecules ]")
+    lines = rest.splitlines()
+    out = [head + "[ molecules ]"]
+    # keep header comment lines until first compound
+    i = 0
+    while i < len(lines) and (not lines[i].strip() or lines[i].strip().startswith(";")):
+        out.append(lines[i])
+        i += 1
+    compounds = []
+    while i < len(lines):
+        line = lines[i]
+        i += 1
+        if not line.strip() or line.strip().startswith(";"):
+            continue
+        parts = line.split()
+        if len(parts) >= 2:
+            compounds.append(parts[0])
+    counts = {name: count_res(gro, name) for name in compounds}
+    # PROA stays 1 even if naming differs
+    for name in compounds:
+        n = 1 if name == "PROA" else counts.get(name, 0)
+        out.append(f"{name} {n}")
+    synced = top.with_name(top.stem + "_boundprep.top")
+    # includes are relative to gmx_dir; write beside original
+    synced.write_text("\n".join(out) + "\n")
+    return synced
 
 
 def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
@@ -113,6 +154,7 @@ def prep_one(cand: str, ion: str) -> str:
         top = ensure_nacl_topol(gmx_dir, cand, gro_src) or top
     if not Path(top).exists():
         return f"{cand}/{ion}\tBLOCKED\tmissing_topol"
+    top = sync_topol_counts(Path(top), placed)
 
     bdir = umb / "bound_place_min"
     bdir.mkdir(exist_ok=True)
