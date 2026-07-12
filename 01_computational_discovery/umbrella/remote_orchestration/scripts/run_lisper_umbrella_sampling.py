@@ -34,6 +34,11 @@ PROD_DIR = GROMACS_DIR / "run_prod_20ns"
 CLUSTER_DIR = GROMACS_DIR / "cluster_20ns"
 UMB_DIR = GROMACS_DIR / os.environ.get("LISPER_UMB_SUBDIR", "umbrella_sampling")
 SUMMARY = UMB_DIR / "umbrella_summary.tsv"
+if "LISPER_GUARD_WINDOWS" in os.environ:
+    GUARD_WINDOWS = int(os.environ["LISPER_GUARD_WINDOWS"])
+else:
+    # Preserve already-generated campaigns; fresh campaigns get an endpoint buffer.
+    GUARD_WINDOWS = 0 if (UMB_DIR / "pull" / "pull_config.tsv").exists() else 3
 HOLD_FILES = [
     ROOT / "UMBRELLA_QC_HOLD",
     GROMACS_DIR / "UMBRELLA_QC_HOLD",
@@ -210,7 +215,7 @@ def min_box_vector_length(frame_gro):
     return min(lengths)
 
 
-def pbc_safe_extension(initial_distance, box_min_length):
+def pbc_safe_extensions(initial_distance, box_min_length):
     safe_max_distance = box_min_length * PBC_SAFE_FRACTION - PBC_MARGIN_NM
     max_extension = safe_max_distance - initial_distance
     if max_extension < WINDOW_SPACING_NM:
@@ -219,9 +224,15 @@ def pbc_safe_extension(initial_distance, box_min_length):
             f"initial={initial_distance:.4f} nm, safe_max={safe_max_distance:.4f} nm, "
             f"box_min_vector={box_min_length:.4f} nm"
         )
-    effective = min(WINDOW_EXTENSION_NM, max_extension)
-    effective = math.floor(effective / WINDOW_SPACING_NM) * WINDOW_SPACING_NM
-    return max(WINDOW_SPACING_NM, effective), safe_max_distance
+    analysis_extension = math.floor(min(WINDOW_EXTENSION_NM, max_extension) / WINDOW_SPACING_NM) * WINDOW_SPACING_NM
+    total_extension = analysis_extension + GUARD_WINDOWS * WINDOW_SPACING_NM
+    if total_extension > max_extension + 1e-9:
+        raise RuntimeError(
+            f"{GUARD_WINDOWS} guard windows exceed the PBC-safe range: "
+            f"requested_end={initial_distance + total_extension:.4f} nm, "
+            f"safe_max={safe_max_distance:.4f} nm"
+        )
+    return max(WINDOW_SPACING_NM, analysis_extension), max(WINDOW_SPACING_NM, total_extension), safe_max_distance
 
 
 def archive_superseded_windows(reason):
@@ -250,7 +261,7 @@ def pull_mdp_rate(pull_dir):
 
 
 def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms):
-    return (
+    config = (
         f"candidate_id\t{CANDIDATE}\n"
         f"ion_resname\t{ION_RESNAME}\n"
         "reaction_coordinate\tBINDING_SITE_to_TARGET_ION\n"
@@ -263,6 +274,9 @@ def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_l
         f"pbc_safe_fraction\t{PBC_SAFE_FRACTION:.4f}\n"
         f"pbc_margin_nm\t{PBC_MARGIN_NM:.4f}\n"
     )
+    if GUARD_WINDOWS:
+        config += f"guard_windows\t{GUARD_WINDOWS}\n"
+    return config
 
 
 def archive_incompatible_pull(pull_dir, expected_rate, expected_config):
@@ -370,7 +384,10 @@ def topology_candidates():
 
 def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
     tpr = window_dir / f"{deffnm}.tpr"
-    cpt_arg = f" -t {cpt}" if cpt and Path(cpt).exists() else ""
+    run_cpt = window_dir / f"{deffnm}.cpt"
+    input_cpt = run_cpt if run_cpt.exists() else cpt
+    cpt_arg = f" -t {input_cpt}" if input_cpt and Path(input_cpt).exists() else ""
+    resume_arg = f" -cpi {run_cpt} -append" if run_cpt.exists() else ""
     grompp_log = window_dir / f"{deffnm}.grompp.log"
     grompp_attempts = []
     for topology in topology_candidates():
@@ -386,7 +403,7 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
         return "grompp_failed"
     code = run_mdrun_with_global_limit(
         f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
-        f"gmx mdrun -deffnm {deffnm} -ntmpi 1 -ntomp {NTHREAD}",
+        f"gmx mdrun -deffnm {deffnm}{resume_arg} -ntmpi 1 -ntomp {NTHREAD}",
         cwd=window_dir,
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
     )
@@ -437,11 +454,11 @@ def main():
 
     target_atom, initial_distance, binding_atoms = write_index_with_target(full_rep, UMB_DIR / "umbrella_index.ndx")
     box_min_length = min_box_vector_length(full_rep)
-    effective_extension, safe_max_distance = pbc_safe_extension(initial_distance, box_min_length)
+    analysis_extension, effective_extension, safe_max_distance = pbc_safe_extensions(initial_distance, box_min_length)
     metadata = UMB_DIR / "umbrella_metadata.tsv"
     metadata.write_text(
-        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\treaction_coordinate\tbinding_site_atoms\tinitial_distance_nm\tpull_ns\twindow_eq_ns\twindow_ns\twindow_spacing_nm\trequested_window_extension_nm\teffective_window_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\tdonor_cutoff_nm\n"
-        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\tBINDING_SITE_to_TARGET_ION\t{','.join(str(a) for a in binding_atoms)}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_EQ_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\t{BINDING_DONOR_CUTOFF_NM:.3f}\n"
+        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\treaction_coordinate\tbinding_site_atoms\tinitial_distance_nm\tpull_ns\twindow_eq_ns\twindow_ns\twindow_spacing_nm\trequested_analysis_extension_nm\teffective_analysis_extension_nm\tguard_windows\teffective_total_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\tdonor_cutoff_nm\n"
+        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\tBINDING_SITE_to_TARGET_ION\t{','.join(str(a) for a in binding_atoms)}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_EQ_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{analysis_extension:.3f}\t{GUARD_WINDOWS}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\t{BINDING_DONOR_CUTOFF_NM:.3f}\n"
     )
 
     pull_dir = UMB_DIR / "pull"

@@ -220,7 +220,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl V2 25/27</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl V2 27/27</code> 🟢 🟢 🟢 🟢 ◆🟣</td>
+      <td><code>LiCl V3 25/30</code> 🟢 🟢 🟢 🔵 ▲🟥<br><code>NaCl V3 27/30</code> 🟢 🟢 🟢 🔵 ▲🟥</td>
       <td><img alt="PMF planned" src="https://img.shields.io/badge/planned-PMF-64748B"></td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~1-4 days first paired QC; ~2-5 days broader table</code></strong><br><sub>LiD3-Flex LiCl has two windows left; NaCl WHAM/bootstrap is in paired QC review. Repair risk still controls the range.</sub></td>
+      <td align="center"><strong><code>~2-5 days first paired QC; ~3-7 days broader table</code></strong><br><sub>LiD3-Flex V3 adds three endpoint guards per ion; NaCl is active and LiCl is queued behind two healthy base windows.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>
@@ -331,7 +331,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|
 | 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 `14/27`, production `014-015` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Refined LiCl `25/27`, windows `025-026` active; NaCl `27/27` WHAM/bootstrap complete with paired QC review pending |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | V3 paired guard repair: LiCl `25/30` with base `025-026` active and guards queued; NaCl `27/30` with guard `027` active |
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl V2 `2/27`, production `002`; NaCl V2 `4/27`, production `004-005` |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl V2 `5/27`, production `005, 026`; NaCl `V2 14/27`, production `014-015, 026` |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired V2 `27/27` windows complete; LiCl WHAM/bootstrap and NaCl WHAM both in QC review |

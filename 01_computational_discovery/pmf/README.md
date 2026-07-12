@@ -41,7 +41,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | `LiDA-1` | NaCl | V4 `25/25` | 🟣 numeric screen passed in PBC-safe region | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
 | `LiDS-1` | LiCl | V2 `27/27` | 🟣 `200/200` finite, `22` warning lines; QC review required | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
 | `LiDS-1` | NaCl | V2 `27/27` | 🟣 `200/200` finite, `2` poor-sampling warning hits | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
-| `LiD3-Flex` | NaCl | V2 `27/27` | 🟣 `200/200` finite, four poor-sampling outer-tail bins; paired review pending | <img alt="QC review" src="https://img.shields.io/badge/QC-review-A78BFA"> |
+| `LiD3-Flex` | paired | V3 `25/30` LiCl, `27/30` NaCl | 🔺 three endpoint guards per ion; NaCl guard repair active | <img alt="repair running" src="https://img.shields.io/badge/paired-guard%20repair-FB7185"> |
 
 <details>
 <summary><strong>PMF detail notes</strong></summary>
@@ -52,6 +52,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 - `LiDS-1` LiCl V2 WHAM/bootstrap completed under `pmf_wham_v2_20260703_0655/` and is synced under `remote_results/gcp_lids1_licl_v2_20260703/`: `200/200` finite points for b100/b250/b500/bootstrap, `0` nonfinite points, `22` warning lines with poor/empty far-tail bins near `z=2.48-2.53 nm`, and PMF span shift from `14.60-16.01 kJ/mol` across burn-in choices. Classification is QC review; no Delta G is promoted.
 - `LiDS-1` NaCl V2 has `profile_v2.xvg`, `histo_v2.xvg`, bootstrap, and time-slice outputs synced; Delta G remains preliminary until QC review.
 - `LiD3-Flex` NaCl V2 WHAM/bootstrap is synced under `remote_results/gcp_lid3flex_nacl_v2_20260712/`: all b100/b250/b500/bootstrap profiles have `200/200` finite points, the PMF-span burn-in variation is `0.34 kJ/mol`, and four poor-sampling bins remain at the outer tail (`z=2.221-2.255 nm`). Delta G remains withheld pending paired LiCl completion and manual bound/reference-region materiality review.
+- LiD3-Flex V3 keeps the 27 base windows and adds three sequential endpoint guards per ion. NaCl guards are active; LiCl guards are queued until base completion. The paired rerun will use a shared interior reference plateau, true independent time blocks, and uncertainty from the bootstrap `xydy` profile under `../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md`.
 
 </details>
 

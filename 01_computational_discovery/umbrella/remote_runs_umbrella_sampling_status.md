@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-12 08:08 CST
+Last updated: 2026-07-12 09:45 CST
 
 ## Launch Rule
 
@@ -12,7 +12,7 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 |---|---|---|---:|---|---|
 | `LiDA-1` | LiCl | GCP | V4 `27/27` | V4 WHAM/bootstrap complete; repair-focused QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟥` |
 | `LiDS-1` | LiCl | GCP | V2 `27/27` | WHAM/bootstrap complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
-| `LiD3-Flex` | LiCl | GCP | V2 `25/27` | windows `025-026` active | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟦` |
+| `LiD3-Flex` | LiCl | GCP | V3 `25/30` | base windows `025-026` active; guards `027-029` queued | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
 | `LiD3-Core` | LiCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiLC-1` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
 | `LiN3-Core` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
@@ -20,14 +20,16 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 | `LiND-Hybrid` | LiCl | GCP | V2 `2/27` | production window `002` active | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
 | `LiDA-1` | NaCl | GCP | V4 `25/25` | WHAM/QC complete; manual region review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
 | `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
-| `LiD3-Flex` | NaCl | GCP | V2 `27/27` | WHAM/bootstrap complete; paired QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
+| `LiD3-Flex` | NaCl | GCP | V3 `27/30` | guard window `027` active; `028-029` sequentially queued | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
 | `LiLC-1` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiA3-Ref` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiD3-Core` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiN3-Core` | NaCl | GCP | V2 `14/27` | equilibration windows `014-015`; production `026` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
 | `LiND-Hybrid` | NaCl | GCP | V2 `4/27` | production windows `004-005` active | `🟩🟩🟩🟩🟦⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. Complete-window counters here are audited from real completed `umbrella.gro` outputs, while active windows are listed separately. LiCl `LiDA-1` remains `REPAIR` after V4 outer-tail warnings and a `2.73 kJ/mol` burn-in sensitivity. `LiDS-1` remains in paired QC review with no promoted Delta G. This heartbeat advanced LiN3-Core NaCl to `14/27`; LiD3-Flex LiCl remains `25/27`. LiD3-Flex NaCl WHAM/bootstrap remains in paired QC review because four poor-sampling outer-tail bins require bound/reference-region materiality review after LiCl finishes. Old windows and repair outputs remain diagnostic/preliminary evidence.
+Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiD3-Flex moved to a research-specific V3 guard protocol: the original 27 windows remain the analysis set, while three sequential endpoint guards protect the reference plateau. NaCl guard `027` is active; LiCl guards are queued behind healthy base windows `025-026`. Final QC will separate burn-in sensitivity from independent time blocks, read bootstrap `xydy` uncertainty, and exclude guard-only edge bins from the declared paired analysis region. No Delta G is promoted.
+
+Repair launch, 2026-07-12 09:45 CST: LiD3-Flex NaCl V3 endpoint guards `027-029` were submitted sequentially with window `027` in equilibration. The node has `27` real one-thread `mdrun` jobs. LiCl was not disturbed; its matching guard sequence will launch only after base window `026` completes.
 
 Capacity/progress check, 2026-07-12 08:08 CST: GCP is healthy at `26` real one-thread `mdrun` jobs, load near `26`, and data disk at `29%` used. No extra job was submitted because active drivers already own ready windows and the current load preserves the required CPU headroom.
 
