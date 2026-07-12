@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** Locked-site **LiLC-1** pilot running on EPYC 9554P (128t). Both LiCl/NaCl in **pull** (~3%). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
+> **Live snapshot:** Locked-site **LiLC-1** pilot running on EPYC 9554P (128t). Both LiCl/NaCl in **pull** (~8%, ~3.0 ns/day each). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-pull_~3%25-38BDF8)
+> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-pull_~8%25-38BDF8)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
@@ -127,7 +127,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-12 20:30 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 20:55 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -154,9 +154,9 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
   <tbody>
     <tr>
       <td><strong>Compute</strong></td>
-      <td>Worker load</td>
-      <td><code>🔵 2/124 mdrun (LiLC-1 LiCl+NaCl pull)</code></td>
-      <td><img alt="pilot pull active" src="https://img.shields.io/badge/pilot_pull-active-38BDF8"></td>
+      <td>Worker slots in use</td>
+      <td><code>🔵 2 active / 124 capacity</code> <sub>occupancy, not completed</sub></td>
+      <td><img alt="2 mdrun active" src="https://img.shields.io/badge/2_active-of_124_slots-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -183,8 +183,8 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 locked pull ~3% (both ions)</code></td>
-      <td><img alt="locked pilot pull" src="https://img.shields.io/badge/LiLC--1_locked-pull-38BDF8"></td>
+      <td><code>🔵 LiLC-1 locked pull ~8% (both ions · ~3.0 ns/day)</code></td>
+      <td><img alt="locked pilot pull" src="https://img.shields.io/badge/LiLC--1_locked-pull_~8%25-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -234,7 +234,7 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked pull ~3%</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl locked pull ~3%</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><code>LiCl locked pull ~8%</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl locked pull ~8%</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
       <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
     </tr>
     <tr>
@@ -291,17 +291,17 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.5 day (LiLC-1 pilot)</code></strong><br><sub>Locked-site LiCl+NaCl pull running (~3%); then ~31 windows/ion.</sub></td>
+      <td align="center"><strong><code>~1.1 day (LiLC-1 pilot)</code></strong><br><sub>Live ~3.0 ns/day · pull rem ~7 h; then ~62 window jobs ≈ 3.1 win/h ≈ 0.8 d</sub></td>
       <td>Finish LiLC-1 pull → windows → WHAM → paired QC PASS before scaling other 7.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>after pilot windows</code></strong><br><sub>WHAM/bootstrap + region-aware QC on locked-site curves only</sub></td>
+      <td align="center"><strong><code>~hours after windows</code></strong><br><sub>WHAM/bootstrap + region-aware QC on locked-site curves only</sub></td>
       <td>Run WHAM/PMF analysis, inspect convergence, then extract ΔG for paired Li+/Na+ systems.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~1 day after pilot PASS</code></strong><br><sub>LiLC-1 first row; then scale remaining 7 under same site lock</sub></td>
+      <td align="center"><strong><code>~1.2 day (first row) · ~4.4 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
       <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
     </tr>
   </tbody>
