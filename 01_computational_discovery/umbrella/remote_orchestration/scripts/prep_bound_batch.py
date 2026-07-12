@@ -92,22 +92,65 @@ def sync_topol_counts(top: Path, gro: Path) -> Path:
     return synced
 
 
+SOD_ATOMTYPE_LINE = (
+    "     SOD    11    22.9898      1.000     A    2.51367073323e-01    1.962296e-01 "
+)
+
+
+def ensure_sod_atomtype(forcefield: Path) -> None:
+    """LiCl-derived forcefield.itp often lacks SOD; grompp then fails on SOD.itp."""
+    if not forcefield.exists():
+        return
+    text = forcefield.read_text(errors="replace")
+    if any(ln.split()[:1] == ["SOD"] for ln in text.splitlines()):
+        return
+    lines = text.splitlines()
+    out: list[str] = []
+    in_atomtypes = False
+    inserted = False
+    for ln in lines:
+        if ln.strip().startswith("["):
+            if "atomtypes" in ln:
+                in_atomtypes = True
+            elif in_atomtypes and not inserted:
+                out.append(SOD_ATOMTYPE_LINE)
+                inserted = True
+                in_atomtypes = False
+            else:
+                in_atomtypes = False
+        if in_atomtypes and ln.split()[:1] == ["LIT"] and not inserted:
+            out.append(ln)
+            out.append(SOD_ATOMTYPE_LINE)
+            inserted = True
+            continue
+        out.append(ln)
+    if not inserted:
+        out.append(SOD_ATOMTYPE_LINE)
+    forcefield.write_text("\n".join(out) + ("\n" if text.endswith("\n") else ""))
+
+
 def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
     top = gmx_dir / "topol.top"
+    toppar = gmx_dir / "toppar"
+    sod_itp = ROOT / "LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/toppar/SOD.itp"
     if top.exists():
+        # Prior auto-builds copied LiCl forcefield (LIT only) + SOD.itp → grompp Atomtype SOD missing.
+        ensure_sod_atomtype(toppar / "forcefield.itp")
+        if sod_itp.exists() and not (toppar / "SOD.itp").exists():
+            toppar.mkdir(exist_ok=True)
+            (toppar / "SOD.itp").write_bytes(sod_itp.read_bytes())
         return top
     licl = ROOT / "LiSPER_8cand_LiCl" / "systems" / cand / "gromacs"
     if not (licl / "toppar" / "PROA.itp").exists():
         return None
-    toppar = gmx_dir / "toppar"
     toppar.mkdir(exist_ok=True)
     for f in ["forcefield.itp", "PROA.itp", "TIP3.itp", "CLA.itp"]:
         src = licl / "toppar" / f
         if src.exists():
             (toppar / f).write_bytes(src.read_bytes())
-    sod = ROOT / "LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/toppar/SOD.itp"
-    if sod.exists():
-        (toppar / "SOD.itp").write_bytes(sod.read_bytes())
+    if sod_itp.exists():
+        (toppar / "SOD.itp").write_bytes(sod_itp.read_bytes())
+    ensure_sod_atomtype(toppar / "forcefield.itp")
     n_sod = count_res(gro, "SOD")
     n_cla = count_res(gro, "CLA")
     n_tip = count_res(gro, "TIP3")
