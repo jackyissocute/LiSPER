@@ -18,7 +18,12 @@ def prepare(umbrella: Path, out: Path) -> tuple[float, float]:
     windows = sorted(umbrella.glob("window_*"))
     if not windows:
         raise RuntimeError(f"No windows under {umbrella}")
-    missing = [window.name for window in windows if "Finished mdrun" not in (window / "umbrella.log").read_text(errors="replace")]
+    missing = [
+        window.name
+        for window in windows
+        if not (window / "umbrella.log").exists()
+        or "Finished mdrun" not in (window / "umbrella.log").read_text(errors="replace")
+    ]
     if missing:
         raise RuntimeError(f"Production incomplete for {len(missing)}/{len(windows)} windows: {','.join(missing[:5])}")
     tprs = [window / "umbrella.tpr" for window in windows]
