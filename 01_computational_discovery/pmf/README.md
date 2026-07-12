@@ -31,6 +31,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | Path | Purpose |
 |---|---|
 | `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
+| `paired_analysis_regions/` | Shared bound/reference regions committed before PMF inspection |
 | `remote_results/` | Empty scaffold — lean synced PMF products |
 | Cold fat | Jacky cold disk / compute host — see `../STORAGE_LAYOUT.md` |
 
