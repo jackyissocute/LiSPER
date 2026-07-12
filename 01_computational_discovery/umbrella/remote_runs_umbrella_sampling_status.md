@@ -1,6 +1,21 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-12 09:45 CST
+Last updated: 2026-07-12 11:11 CST
+
+## Paired site-lock audit
+
+All current dynamic-nearest-site campaigns are diagnostic. No locked-site rerun is authorized until its proposed manifest has a reconstructed and validated bound starting state.
+
+| Candidate | Current paired classification | Proposed locked site | Next action |
+|---|---|---|---|
+| `LiD3-Core` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | central Asp9 | reconstruct/validate both bound starts |
+| `LiD3-Flex` | `SITE_MISMATCH_RERUN_REQUIRED` | central Asp11 | stop promotion; reconstruct/validate both bound starts |
+| `LiND-Hybrid` | `SITE_MISMATCH_RERUN_REQUIRED` | central Asp11 | reconstruct/validate both bound starts |
+| `LiLC-1` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | terminal Asp14 | preferred first locked-site pilot |
+| `LiDS-1` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | central Asp7 | reconstruct/validate both bound starts |
+| `LiDA-1` | `SITE_MISMATCH_RERUN_REQUIRED` | central Asp7/Asp9 | reconstruct Na-bound central pocket |
+| `LiN3-Core` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | central Asn9 | reconstruct/validate both bound starts |
+| `LiA3-Ref` | `SITE_MISMATCH_RERUN_REQUIRED` | central Ala9 backbone | reconstruct low-donor control starts |
 
 ## Launch Rule
 

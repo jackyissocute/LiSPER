@@ -1,0 +1,2 @@
+candidate	site_id	donor_identities	selection_rationale	starting_state_status
+LiLC-1	terminal_Asp14	14:ASP:OD1,14:ASP:OD2,14:ASP:O,13:GLY:O,12:SER:O	Five-donor physical site already shared by both condition representatives.	PROPOSED_REQUIRES_RECONSTRUCTION

@@ -34,6 +34,9 @@ PROD_DIR = GROMACS_DIR / "run_prod_20ns"
 CLUSTER_DIR = GROMACS_DIR / "cluster_20ns"
 UMB_DIR = GROMACS_DIR / os.environ.get("LISPER_UMB_SUBDIR", "umbrella_sampling")
 SUMMARY = UMB_DIR / "umbrella_summary.tsv"
+SITE_MANIFEST = Path(
+    os.environ.get("LISPER_SITE_MANIFEST", ROOT.parent / "paired_binding_sites" / f"{CANDIDATE}.tsv")
+)
 if "LISPER_GUARD_WINDOWS" in os.environ:
     GUARD_WINDOWS = int(os.environ["LISPER_GUARD_WINDOWS"])
 else:
@@ -123,6 +126,35 @@ def centroid(coords):
     return tuple(sum(axis) / len(coords) for axis in zip(*coords))
 
 
+def box_vectors(frame_gro):
+    parts = [float(value) for value in Path(frame_gro).read_text(errors="replace").splitlines()[-1].split()]
+    if len(parts) == 3:
+        return ((parts[0], 0.0, 0.0), (0.0, parts[1], 0.0), (0.0, 0.0, parts[2]))
+    if len(parts) == 9:
+        return ((parts[0], parts[3], parts[4]), (parts[5], parts[1], parts[6]), (parts[7], parts[8], parts[2]))
+    raise RuntimeError(f"Could not parse box vector line from {frame_gro}: {parts}")
+
+
+def inverse(matrix):
+    a, b, c = matrix
+    det = a[0] * (b[1] * c[2] - b[2] * c[1]) - b[0] * (a[1] * c[2] - a[2] * c[1]) + c[0] * (a[1] * b[2] - a[2] * b[1])
+    return (
+        ((b[1] * c[2] - b[2] * c[1]) / det, (c[0] * b[2] - b[0] * c[2]) / det, (b[0] * c[1] - c[0] * b[1]) / det),
+        ((c[1] * a[2] - a[1] * c[2]) / det, (a[0] * c[2] - c[0] * a[2]) / det, (c[0] * a[1] - a[0] * c[1]) / det),
+        ((a[1] * b[2] - b[1] * a[2]) / det, (b[0] * a[2] - a[0] * b[2]) / det, (a[0] * b[1] - b[0] * a[1]) / det),
+    )
+
+
+def minimum_image_distance(a, b, vectors):
+    matrix = tuple(tuple(vectors[column][row] for column in range(3)) for row in range(3))
+    inv = inverse(matrix)
+    delta = tuple(a[i] - b[i] for i in range(3))
+    fractional = [sum(inv[row][i] * delta[i] for i in range(3)) for row in range(3)]
+    fractional = [value - round(value) for value in fractional]
+    cartesian = [sum(matrix[row][i] * fractional[i] for i in range(3)) for row in range(3)]
+    return math.sqrt(sum(value * value for value in cartesian))
+
+
 def donor_atom(resname, atomname):
     atomname = atomname.strip()
     if atomname in {"O", "OXT"}:
@@ -136,7 +168,24 @@ def donor_atom(resname, atomname):
     return False
 
 
-def write_index_with_target(frame_gro, out_ndx):
+def load_site_lock():
+    marker = UMB_DIR / "pull" / "pull_config.tsv"
+    if marker.exists() and "site_lock_id\t" not in marker.read_text(errors="replace"):
+        return None
+    if not SITE_MANIFEST.exists():
+        raise RuntimeError(f"Fresh umbrella campaigns require a paired binding-site manifest: {SITE_MANIFEST}")
+    record = next(csv.DictReader(SITE_MANIFEST.open(), delimiter="\t"))
+    if record["candidate"] != CANDIDATE:
+        raise RuntimeError(f"Site manifest candidate {record['candidate']} does not match {CANDIDATE}")
+    if record.get("starting_state_status") != "VALIDATED_BOUND":
+        raise RuntimeError(
+            f"Locked site {record['site_id']} has no validated bound starting state: "
+            f"{record.get('starting_state_status', 'missing')}"
+        )
+    return record
+
+
+def write_index_with_target(frame_gro, out_ndx, site_lock=None):
     lines = Path(frame_gro).read_text(errors="replace").splitlines()
     natoms = int(lines[1].strip())
     atom_lines = lines[2 : 2 + natoms]
@@ -146,13 +195,16 @@ def write_index_with_target(frame_gro, out_ndx):
     solu_coords = []
     ion_coords = []
     donor_atoms = []
+    atom_records = {}
     for idx, line in enumerate(atom_lines, start=1):
+        resnr = int(line[:5])
         resname = line[5:10].strip()
         atomname = line[10:15].strip()
         x = float(line[20:28])
         y = float(line[28:36])
         z = float(line[36:44])
         coord = (x, y, z)
+        atom_records[f"{resnr}:{resname}:{atomname}"] = (idx, coord)
         if resname in {"ASP", "ALA", "GLY", "PRO", "SER", "ASN"}:
             solu_atoms.append(idx)
             solu_coords.append(coord)
@@ -170,16 +222,27 @@ def write_index_with_target(frame_gro, out_ndx):
     if not ion_atoms:
         raise RuntimeError(f"No {ION_RESNAME} atoms found")
 
-    target = min(ion_coords, key=lambda ion: min(distance(ion[1], donor[1]) for donor in donor_atoms))
-    target_atom = target[0]
-    nearby = [donor for donor in donor_atoms if distance(target[1], donor[1]) <= BINDING_DONOR_CUTOFF_NM]
-    if len(nearby) < MIN_BINDING_DONORS:
-        nearby = sorted(donor_atoms, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+    vectors = box_vectors(frame_gro)
+    if site_lock:
+        locked_ids = site_lock["donor_identities"].split(",")
+        missing = [item for item in locked_ids if item not in atom_records]
+        if missing:
+            raise RuntimeError(f"Locked site atoms missing from {CANDIDATE}: {','.join(missing)}")
+        nearby = [atom_records[item] for item in locked_ids]
+        binding_center = centroid([coord for _, coord in nearby])
+        target = min(ion_coords, key=lambda ion: minimum_image_distance(ion[1], binding_center, vectors))
+        initial_distance = minimum_image_distance(target[1], binding_center, vectors)
     else:
-        nearby = sorted(nearby, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+        target = min(ion_coords, key=lambda ion: min(distance(ion[1], donor[1]) for donor in donor_atoms))
+        nearby = [donor for donor in donor_atoms if distance(target[1], donor[1]) <= BINDING_DONOR_CUTOFF_NM]
+        if len(nearby) < MIN_BINDING_DONORS:
+            nearby = sorted(donor_atoms, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+        else:
+            nearby = sorted(nearby, key=lambda donor: distance(target[1], donor[1]))[:MAX_BINDING_DONORS]
+        binding_center = centroid([coord for _, coord in nearby])
+        initial_distance = distance(target[1], binding_center)
+    target_atom = target[0]
     binding_atoms = [idx for idx, _ in nearby]
-    binding_center = centroid([coord for _, coord in nearby])
-    initial_distance = distance(target[1], binding_center)
 
     with Path(out_ndx).open("w") as handle:
         handle.write("[ SOLU ]\n")
@@ -200,17 +263,7 @@ def write_index_with_target(frame_gro, out_ndx):
 
 
 def min_box_vector_length(frame_gro):
-    parts = [float(x) for x in Path(frame_gro).read_text(errors="replace").splitlines()[-1].split()]
-    if len(parts) == 3:
-        vectors = [(parts[0], 0.0, 0.0), (0.0, parts[1], 0.0), (0.0, 0.0, parts[2])]
-    elif len(parts) == 9:
-        vectors = [
-            (parts[0], parts[3], parts[4]),
-            (parts[5], parts[1], parts[6]),
-            (parts[7], parts[8], parts[2]),
-        ]
-    else:
-        raise RuntimeError(f"Could not parse box vector line from {frame_gro}: {parts}")
+    vectors = box_vectors(frame_gro)
     lengths = [math.sqrt(x * x + y * y + z * z) for x, y, z in vectors]
     return min(lengths)
 
@@ -260,7 +313,7 @@ def pull_mdp_rate(pull_dir):
     return None
 
 
-def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms):
+def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms, site_lock=None):
     config = (
         f"candidate_id\t{CANDIDATE}\n"
         f"ion_resname\t{ION_RESNAME}\n"
@@ -276,6 +329,8 @@ def pull_config_text(initial_distance, effective_extension, pull_rate, box_min_l
     )
     if GUARD_WINDOWS:
         config += f"guard_windows\t{GUARD_WINDOWS}\n"
+    if site_lock:
+        config += f"site_lock_id\t{site_lock['site_id']}\nsite_lock_donors\t{site_lock['donor_identities']}\n"
     return config
 
 
@@ -452,20 +507,28 @@ def main():
         if code != 0:
             raise RuntimeError("Failed to extract full representative frame")
 
-    target_atom, initial_distance, binding_atoms = write_index_with_target(full_rep, UMB_DIR / "umbrella_index.ndx")
+    site_lock = load_site_lock()
+    target_atom, initial_distance, binding_atoms = write_index_with_target(
+        full_rep, UMB_DIR / "umbrella_index.ndx", site_lock
+    )
     box_min_length = min_box_vector_length(full_rep)
     analysis_extension, effective_extension, safe_max_distance = pbc_safe_extensions(initial_distance, box_min_length)
     metadata = UMB_DIR / "umbrella_metadata.tsv"
+    site_status = "SITE_LOCKED" if site_lock else "SITE_MISMATCH_DIAGNOSTIC_LEGACY"
+    site_id = site_lock["site_id"] if site_lock else "none"
+    site_donors = site_lock["donor_identities"] if site_lock else "dynamic_nearest"
     metadata.write_text(
-        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\treaction_coordinate\tbinding_site_atoms\tinitial_distance_nm\tpull_ns\twindow_eq_ns\twindow_ns\twindow_spacing_nm\trequested_analysis_extension_nm\teffective_analysis_extension_nm\tguard_windows\teffective_total_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\tdonor_cutoff_nm\n"
-        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\tBINDING_SITE_to_TARGET_ION\t{','.join(str(a) for a in binding_atoms)}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_EQ_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{analysis_extension:.3f}\t{GUARD_WINDOWS}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\t{BINDING_DONOR_CUTOFF_NM:.3f}\n"
+        "candidate_id\tion_resname\ttarget_atom\trepresentative_time_ps\treaction_coordinate\tbinding_site_atoms\tinitial_distance_nm\tpull_ns\twindow_eq_ns\twindow_ns\twindow_spacing_nm\trequested_analysis_extension_nm\teffective_analysis_extension_nm\tguard_windows\teffective_total_extension_nm\tbox_min_vector_nm\tpbc_safe_max_distance_nm\tpbc_safe_fraction\tpbc_margin_nm\tdonor_cutoff_nm\tsite_lock_status\tsite_lock_id\tsite_lock_donors\n"
+        f"{CANDIDATE}\t{ION_RESNAME}\t{target_atom}\t{rep_time:.3f}\tBINDING_SITE_to_TARGET_ION\t{','.join(str(a) for a in binding_atoms)}\t{initial_distance:.4f}\t{PULL_NS:.3f}\t{WINDOW_EQ_NS:.3f}\t{WINDOW_NS:.3f}\t{WINDOW_SPACING_NM:.3f}\t{WINDOW_EXTENSION_NM:.3f}\t{analysis_extension:.3f}\t{GUARD_WINDOWS}\t{effective_extension:.3f}\t{box_min_length:.4f}\t{safe_max_distance:.4f}\t{PBC_SAFE_FRACTION:.3f}\t{PBC_MARGIN_NM:.3f}\t{BINDING_DONOR_CUTOFF_NM:.3f}\t{site_status}\t{site_id}\t{site_donors}\n"
     )
 
     pull_dir = UMB_DIR / "pull"
     pull_mdp = pull_dir / "pull.mdp"
     pull_steps = int(PULL_NS * 500000)
     pull_rate = effective_extension / (PULL_NS * 1000.0)
-    pull_config = pull_config_text(initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms)
+    pull_config = pull_config_text(
+        initial_distance, effective_extension, pull_rate, box_min_length, safe_max_distance, binding_atoms, site_lock
+    )
     archive_incompatible_pull(pull_dir, pull_rate, pull_config)
     pull_dir.mkdir(exist_ok=True)
     pull_mdp.write_text(base_mdp(pull_steps, "no", pull_rate, initial_distance))

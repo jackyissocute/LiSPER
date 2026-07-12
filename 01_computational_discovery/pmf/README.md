@@ -4,6 +4,8 @@ This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selec
 
 Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
 
+**Promotion hold:** active. The paired site audit found `0/8` current campaigns with identical LiCl/NaCl donor identities. Existing PMFs remain diagnostic until locked-site reruns, declared regions, and the central estimator/QC evaluator exist.
+
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
 ## Selectivity Equation

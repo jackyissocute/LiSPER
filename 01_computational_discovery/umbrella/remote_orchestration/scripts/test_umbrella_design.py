@@ -26,6 +26,12 @@ def test_fresh_campaign_gets_three_pbc_safe_guards():
         assert abs(analysis - 1.95) < 1e-9
         assert abs(total - 2.175) < 1e-9
         assert 0.1083 + total < safe_max
+        try:
+            driver.load_site_lock()
+        except RuntimeError as error:
+            assert "require a paired binding-site manifest" in str(error)
+        else:
+            raise AssertionError("fresh campaign accepted without a paired site manifest")
 
 
 def test_existing_campaign_keeps_original_window_set():
@@ -38,8 +44,17 @@ def test_existing_campaign_keeps_original_window_set():
         analysis, total, _ = driver.pbc_safe_extensions(0.1083, 9.5727)
         assert driver.GUARD_WINDOWS == 0
         assert analysis == total
+        assert driver.load_site_lock() is None
+
+
+def test_minimum_image_distance_uses_box():
+    with tempfile.TemporaryDirectory() as tmp:
+        driver = load_driver(Path(tmp))
+        box = ((2.0, 0.0, 0.0), (0.0, 2.0, 0.0), (0.0, 0.0, 2.0))
+        assert abs(driver.minimum_image_distance((0.1, 0.0, 0.0), (1.9, 0.0, 0.0), box) - 0.2) < 1e-9
 
 
 if __name__ == "__main__":
     test_fresh_campaign_gets_three_pbc_safe_guards()
     test_existing_campaign_keeps_original_window_set()
+    test_minimum_image_distance_uses_box()

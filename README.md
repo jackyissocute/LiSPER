@@ -291,7 +291,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~2-5 days first paired QC; ~3-7 days broader table</code></strong><br><sub>LiD3-Flex V3 adds three endpoint guards per ion; NaCl is active and LiCl is queued behind two healthy base windows.</sub></td>
+      <td align="center"><strong><code>re-estimating after site lock</code></strong><br><sub>All current Li/Na pairs are site-mismatched diagnostics; no final Delta G promotion.</sub></td>
       <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
     </tr>
     <tr>

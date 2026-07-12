@@ -2,6 +2,13 @@
 
 This protocol estimates Li/Na selectivity for flexible peptide binding sites. Window count and analysis range are therefore determined from the observed reaction-coordinate distributions and a physically justified unbound plateau, not copied from a generic GROMACS example.
 
+## Current implementation boundary
+
+- Delta G promotion is frozen until paired binding-site identity, regions, and the estimator are machine-locked.
+- Existing V2/V3 campaigns chose donors independently and are diagnostic unless the paired audit explicitly rules them equivalent.
+- Fresh campaigns require `paired_site_manifests/<candidate>.tsv`; the driver maps residue number/name/atom name into each topology and refuses a missing or mismatched manifest.
+- Candidate-specific plateau selection and the central PASS evaluator are P2/P3 work. The current fixed 2.0 nm analysis extension must not be described as plateau-selected.
+
 ## Paired design
 
 - Treat each candidate as a paired LiCl/NaCl block.
