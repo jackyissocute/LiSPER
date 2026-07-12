@@ -1,9 +1,0 @@
-candidate_id	condition	archive_status	sequence_qc	gromacs_input	ion_check	state
-LiA3-Ref	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiD3-Core	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiD3-Flex	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiDA-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiDS-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiLC-1	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiN3-Core	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs
-LiND-Hybrid	LiCl	imported	pass	ready	LIT/CLA present	ready_for_gromacs

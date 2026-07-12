@@ -1,1 +1,0 @@
-attempt0:atom19899:remove_neighbor_water:160:H2:dist=0.0953;target=6674:H1:TIP3 22634->22633

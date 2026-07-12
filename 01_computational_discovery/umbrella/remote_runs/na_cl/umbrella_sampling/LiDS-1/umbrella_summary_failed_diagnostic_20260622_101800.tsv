@@ -1,2 +1,0 @@
-candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
-LiDS-1	SOD	138	1280.000	pull		grompp_failed	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDS-1/gromacs/umbrella_sampling/pull

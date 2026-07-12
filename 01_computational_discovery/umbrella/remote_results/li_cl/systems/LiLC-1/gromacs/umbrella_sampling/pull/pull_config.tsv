@@ -1,9 +1,0 @@
-candidate_id	LiLC-1
-ion_resname	LIT
-initial_distance_nm	1.0112
-effective_window_extension_nm	2.0000
-pull_rate_nm_per_ps	0.00400000
-box_min_vector_nm	8.2947
-pbc_safe_max_distance_nm	3.6826
-pbc_safe_fraction	0.4500
-pbc_margin_nm	0.0500

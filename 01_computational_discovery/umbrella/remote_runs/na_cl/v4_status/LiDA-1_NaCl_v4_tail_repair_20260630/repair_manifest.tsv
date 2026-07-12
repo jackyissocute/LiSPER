@@ -1,2 +1,0 @@
-candidate	condition	protocol	window_id	base_center_nm	action	reason
-LiDA-1	NaCl	v4_tail_extension	021	2.7529	extend_from_v3_checkpoint_2ns	V3 still has far-tail poor-sampling bins at z=2.92314-2.93281 nm and 1.67557 kJ/mol time-slice span shift; do not add >2.805 nm center because original PBC-safe pull limit is 2.8049 nm

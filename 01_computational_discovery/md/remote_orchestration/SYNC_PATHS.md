@@ -23,10 +23,12 @@ Canonical path reference for the revised 8-candidate LiSPER workflow.
 
 | Worker | SSH | CPU quota | Primary role |
 |---|---|---:|---|
-| **QuickPod (primary)** | `ssh quickpod-lisper` (`root@217.254.101.12 -p 63014`) | 126 threads | Locked-site rebuild host; legacy resume stopped |
-| GCP `lisper-runner-32v` | `ssh gcp-lisper` (`jackieeelin929@34.84.148.249`) | 32 vCPU | Soft-stopped 2026-07-12; keep disk as backup archive |
-| Worker A / AutoDL | `ssh -p 27815 root@connect.westc.seetacloud.com` | 18 cores | Backup/comparison only |
-| Worker B / AutoDL | `ssh -p 43418 root@connect.westd.seetacloud.com` | 12 cores | Backup/comparison only |
+| **Local Mac backup** | — | — | Canonical offline archive: `~/Documents/LiSPER_backups/gcp_LiSPER_remote_20260712/` (see `LOCAL_BACKUP_AND_PROVIDER_SWITCH.md`) |
+| Next CPU VM | TBD | prefer ~96–128 threads | Locked-site `VALIDATED_BOUND` rebuild host |
+| GCP `lisper-runner-32v` | `ssh gcp-lisper` | 32 vCPU | Safe to stop after local backup verified 2026-07-12 |
+| QuickPod | destroyed | — | Abandoned (unstable SSH) |
+| Worker A / AutoDL | backup only | 18 cores | Optional |
+| Worker B / AutoDL | backup only | 12 cores | Optional |
 
 ### QuickPod paths (use these)
 

@@ -1,2 +1,0 @@
-candidate_id	ion_resname	target_atom	representative_time_ps	reaction_coordinate	binding_site_atoms	initial_distance_nm	pull_ns	window_eq_ns	window_ns	window_spacing_nm	requested_window_extension_nm	effective_window_extension_nm	box_min_vector_nm	pbc_safe_max_distance_nm	pbc_safe_fraction	pbc_margin_nm	donor_cutoff_nm
-LiDA-1	SOD	133	18360.000	BINDING_SITE_to_TARGET_ION	12,11,24,14,36,33	1.1779	1.000	0.500	2.000	0.075	2.000	1.575	6.3443	2.8049	0.450	0.050	0.400

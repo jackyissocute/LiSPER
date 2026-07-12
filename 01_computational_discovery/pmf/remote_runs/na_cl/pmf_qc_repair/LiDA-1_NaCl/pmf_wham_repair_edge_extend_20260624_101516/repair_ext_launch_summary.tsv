@@ -1,6 +1,0 @@
-window_id	repair_window	grompp_status	pid	status
-000	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516/windows/window_000_1.32nm_extend	ok	60016	launched
-001	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516/windows/window_001_1.42nm_extend	ok	60024	launched
-002	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516/windows/window_002_1.52nm_extend	ok	60032	launched
-013	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516/windows/window_013_2.62nm_extend	ok	60040	launched
-014	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/pmf_wham_repair_edge_extend_20260624_101516/windows/window_014_2.72nm_extend	ok	60048	launched

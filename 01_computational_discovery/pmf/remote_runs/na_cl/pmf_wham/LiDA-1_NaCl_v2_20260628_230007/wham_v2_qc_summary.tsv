@@ -1,9 +1,0 @@
-metric	value
-profile_points	200
-finite_points	200
-nonfinite_profile_points	0
-warning_keyword_hits	3
-pmf_min_kj_mol	-4.38609
-pmf_max_kj_mol	4.80448
-pmf_span_kj_mol	9.19057
-status	preliminary_qc_review_required

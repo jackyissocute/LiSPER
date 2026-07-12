@@ -1,6 +1,0 @@
-  15 windows.dat
-  15 tpr-files.dat
-  15 pullf-files.dat
-  15 pullx-files.dat
-   0 missing_inputs.txt
-  60 total

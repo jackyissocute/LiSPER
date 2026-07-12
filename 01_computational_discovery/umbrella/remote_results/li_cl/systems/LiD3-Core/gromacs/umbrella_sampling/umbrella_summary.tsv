@@ -1,2 +1,0 @@
-candidate_id	ion_resname	target_atom	representative_time_ps	window_id	target_distance_nm	status	path
-LiD3-Core	LIT	186	16460.000	000	0.8448	complete	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiD3-Core/gromacs/umbrella_sampling/window_000_0.84nm

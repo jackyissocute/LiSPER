@@ -1,26 +1,25 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-12 14:10 CST
+Last updated: 2026-07-12 16:55 CST
 
 ## Decision (authoritative)
 
-**Stop legacy umbrella.** Dynamic-nearest v2/v3/v4 Li/Na campaigns are **diagnostic only** (`0/8` same chemical site). Do not finish them for ΔΔG ranking.
+**Clean restart.** All legacy umbrella v1/v2/v3/v4 data removed from this git worktree and archived to Jacky 1TB.
 
-Full evaluation: [`../pmf/LEGACY_DATA_EVALUATION.md`](../pmf/LEGACY_DATA_EVALUATION.md). Promotion hold: [`../pmf/DELTA_G_PROMOTION_HOLD.md`](../pmf/DELTA_G_PROMOTION_HOLD.md).
+Cold path: `/Volumes/Jacky 1TB/Research/LiSPER_cold/02_legacy_umbrella_unreliable/`
+
+Those campaigns remain **diagnostic only** (`0/8` same chemical site). Do **not** resume them for ΔΔG ranking.
 
 | Item | Value |
 |---|---|
-| Host | QuickPod `quickpod-lisper` (`root@217.254.101.12:63014`) |
-| Remote root | `/data/LiSPER_remote` |
+| Repo US workdirs | Empty scaffolds under `remote_runs/` / `remote_results/` |
 | Legacy resume / watchdog | **Obsolete — do not relaunch** |
 | Next authorized work | Reconstruct/validate bound starts → `VALIDATED_BOUND` → locked-site pilot **LiLC-1** |
-| GCP | Soft-stopped backup disk only |
+| Storage policy | Part A on GitHub/Mac; fat B+C on Jacky 1TB (`../STORAGE_LAYOUT.md`) |
 
-If QuickPod still runs legacy `gmx mdrun`, kill them (host may be too loaded for SSH banner — reboot from QuickPod UI if needed, then confirm `pgrep -af 'gmx mdrun'` is empty).
+## Paired site-lock audit (still required before launch)
 
-## Paired site-lock audit
-
-| Candidate | Current paired classification | Proposed locked site | Next action |
+| Candidate | Classification | Proposed locked site | Next action |
 |---|---|---|---|
 | `LiD3-Core` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | central Asp9 | reconstruct/validate both bound starts |
 | `LiD3-Flex` | `SITE_MISMATCH_RERUN_REQUIRED` | central Asp11 | reconstruct/validate both bound starts |
@@ -31,20 +30,17 @@ If QuickPod still runs legacy `gmx mdrun`, kill them (host may be too loaded for
 | `LiN3-Core` | `SITE_MISMATCH_PARTIAL_OVERLAP_REVIEW` | central Asn9 | reconstruct/validate both bound starts |
 | `LiA3-Ref` | `SITE_MISMATCH_RERUN_REQUIRED` | central Ala9 backbone | reconstruct low-donor control starts |
 
-## Legacy campaign archive (not ranking inputs)
+## Keep in this repo (Part A)
 
-Completed or partial mismatched-site windows remain on remote disk for forensics. Git keeps audit TSVs and QC summaries only; bulky `.gro`/`.xvg`/logs are gitignored.
+- `paired_site_manifests/*.tsv`
+- `paired_binding_site_audit.tsv` / `paired_binding_site_design.tsv`
+- `LISPER_UMBRELLA_QC_PROTOCOL.md`
+- `remote_orchestration/scripts/` (site-lock gated driver)
+- Empty `remote_runs/` / `remote_results/` for new campaigns
 
-| Candidate | Condition | Legacy set (approx) | Publishable paired ΔΔG? |
-|---|---|---|---|
-| `LiDA-1` | LiCl / NaCl | V4 complete + WHAM | No — site mismatch |
-| `LiDS-1` | LiCl / NaCl | V2 complete + WHAM | No — site mismatch |
-| `LiD3-Flex` | LiCl / NaCl | V3 partial + NaCl V2 WHAM | No — site mismatch |
-| Others | LiCl / NaCl | V2 incomplete | No — stop; do not finish for ranking |
+## Next science steps
 
-## Next science steps (only)
-
-1. Stop any remaining legacy mdrun on QuickPod.
-2. Reconstruct bound starts into proposed locked chemical donors for **LiLC-1** (both ions).
-3. Log site validation; set manifests to `VALIDATED_BOUND`.
-4. Launch new locked-site umbrella for LiLC-1 only; expand after pilot passes QC.
+1. Reconstruct LiLC-1 LiCl/NaCl bound starts on locked Asp14 donors.
+2. Flip manifests to `VALIDATED_BOUND`.
+3. Rent stable CPU host; launch **fresh** locked-site umbrella only.
+4. Sync fat outputs to Jacky 1TB `05_future_remote_sync/`; push QC + ΔΔG tables to GitHub.

@@ -1,10 +1,10 @@
 # Umbrella Sampling
 
-This folder owns the umbrella-sampling step after MD production and representative clustering. It contains umbrella drivers, v2 reaction-coordinate metadata, pull stages, window equilibration/production logs, synced window outputs, and retained diagnostics from superseded old-parameter runs.
+This folder owns the umbrella-sampling step after MD production and representative clustering.
 
-Latest umbrella snapshot: `2026-07-12 14:10 CST`.
+**Clean restart (2026-07-12):** legacy v1/v2/v3/v4 window dumps removed from git worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md`). This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty `remote_runs/` / `remote_results/` scaffolds.
 
-Legacy dynamic-nearest campaigns are **stopped** (diagnostic only). Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). See `../pmf/LEGACY_DATA_EVALUATION.md`.
+Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). See `remote_runs_umbrella_sampling_status.md` and `../pmf/LEGACY_DATA_EVALUATION.md`.
 
 ## Progress Display Rule
 

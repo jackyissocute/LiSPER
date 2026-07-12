@@ -1,4 +1,0 @@
-WARNING, no data point in bin 1 (z=1.01425) !
-WARNING, no data point in bin 1 (z=1.01425) !
-WARNING, no data point in bin 1 (z=1.01425) !
-WARNING, no data point in bin 2 (z=1.02375) !

@@ -1,4 +1,0 @@
-candidate	condition	repair	window_id	source_window	reason
-LiDA-1	NaCl	v3_tail_extension	020	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_020_2.68nm	poor_sampling_tail_bins_197_199_time_slice_shift
-LiDA-1	NaCl	v3_tail_extension	021	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_021_2.75nm	poor_sampling_tail_bins_197_199_time_slice_shift
-LiDA-1	NaCl	v3_tail_extension	019	/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling_binding_site_v2/window_019_2.60nm	queued_if_slot_opens

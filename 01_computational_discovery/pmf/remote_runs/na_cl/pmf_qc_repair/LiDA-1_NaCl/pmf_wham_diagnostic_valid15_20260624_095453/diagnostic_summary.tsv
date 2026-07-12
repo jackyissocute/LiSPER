@@ -1,7 +1,0 @@
-run	bins	empty_bins	weak_or_single_bins	profile_min_kjmol	outer_mean_kjmol	outer_minus_min_kjmol	weak_first	weak_last	warnings
-bins_100	100	0	14	0.000000	1.400253	1.400253	1.1463:1,1.1639:1,1.1815:1,1.1991:1,1.2167:1,1.2342:1,1.2518:1,2.7811:1	2.8866:1	Warning, poor sampling bin 99 (z=2.88659). Check your histograms!
-bins_75	75	0	10	0.000000	1.216446	1.216446	1.1493:1,1.1727:1,1.1961:1,1.2196:1,1.2430:1,2.7899:1,2.8133:1,2.8368:1	2.8837:1	Warning, poor sampling bin 74 (z=2.88366). Check your histograms!
-bins_50	50	0	6	0.000000	1.249727	1.249727	1.1551:1,1.1903:1,1.2254:1,2.8075:1,2.8426:1,2.8778:1	2.8778:1
-timeslice_b100	100	0	14	0.000000	1.400253	1.400253	1.1463:1,1.1639:1,1.1815:1,1.1991:1,1.2167:1,1.2342:1,1.2518:1,2.7811:1	2.8866:1	Warning, poor sampling bin 99 (z=2.88659). Check your histograms!
-timeslice_b250	100	0	14	-1.804426	-0.877947	0.926479	1.1463:1,1.1639:1,1.1815:1,1.1991:1,1.2167:1,1.2342:1,1.2518:1,2.7811:1	2.8866:1	Warning, poor sampling bin 99 (z=2.88659). Check your histograms!
-timeslice_b500	100	1	13	-0.505583	1.905658	2.411241	1.1658:1,1.1832:1,1.2006:1,1.2179:1,1.2353:1,1.2527:1,2.7824:1,2.7998:1	2.8867:0	WARNING, no data point in bin 99 (z=2.88668) !

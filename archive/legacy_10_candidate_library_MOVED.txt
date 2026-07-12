@@ -1,0 +1,5 @@
+Moved 2026-07-12 to Jacky 1TB cold archive:
+
+/Volumes/Jacky 1TB/Research/LiSPER_cold/06_repo_archive_legacy_10_candidate_library/
+
+Superseded 10-candidate library. Active program uses 8 candidates under 01_computational_discovery/.

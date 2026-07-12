@@ -1,9 +1,0 @@
-Warning, poor sampling bin 198 (z=2.92314). Check your histograms!
-Warning, poor sampling bin 199 (z=2.93281). Check your histograms!
-Warning, poor sampling bin 198 (z=2.92314). Check your histograms!
-Warning, poor sampling bin 199 (z=2.93281). Check your histograms!
-WARNING, no data point in bin 1 (z=1.01843) !
-Warning, poor sampling bin 198 (z=2.92314). Check your histograms!
-Warning, poor sampling bin 199 (z=2.93281). Check your histograms!
-Warning, poor sampling bin 198 (z=2.92314). Check your histograms!
-Warning, poor sampling bin 199 (z=2.93281). Check your histograms!

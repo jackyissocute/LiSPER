@@ -4,7 +4,9 @@ This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selec
 
 Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
 
-**Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs. Legacy WHAM under `remote_results/gcp_*` is **diagnostic only** — not ranking input. Bulky `.xvg`/logs gitignored; keep QC `*.tsv`. See `LEGACY_DATA_EVALUATION.md`. Next science: `VALIDATED_BOUND` locked-site pilot (LiLC-1), not finishing mismatched campaigns.
+**Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
+
+**Clean restart (2026-07-12):** legacy WHAM under `remote_results/gcp_*` removed from this worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md` → `03_legacy_pmf_diagnostic/`). Empty `remote_runs/` / `remote_results/` scaffolds await locked-site umbrella. Next science: `VALIDATED_BOUND` pilot (LiLC-1).
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
