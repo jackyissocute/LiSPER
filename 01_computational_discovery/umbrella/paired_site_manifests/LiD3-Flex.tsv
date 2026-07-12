@@ -1,2 +1,2 @@
 candidate	site_id	donor_identities	selection_rationale	starting_state_status
-LiD3-Flex	central_Asp11	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O	Central Asp repeat avoids condition-specific terminal pockets.	PROPOSED_REQUIRES_RECONSTRUCTION
+LiD3-Flex	central_Asp11	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O	Central Asp repeat avoids condition-specific terminal pockets.	VALIDATED_BOUND

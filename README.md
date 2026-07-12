@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull complete both ions; **window eq** running (~25%, 60/60 windows, 0 failed, ~3.0 ns/day). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
+> **Live snapshot:** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull complete both ions; **window eq** running (~37%, 60/60 windows, 0 failed, ~3.0 ns/day). Legacy mismatched-site umbrella stays diagnostic only. ΔG promotion hold remains until pilot QC PASS.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_eq_~25%25-38BDF8)
+> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_eq_~37%25-38BDF8)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
@@ -127,7 +127,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-12 22:32 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 23:02 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -183,8 +183,8 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 locked window-eq ~25% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
-      <td><img alt="locked pilot window eq" src="https://img.shields.io/badge/LiLC--1_locked-window_eq_~25%25-38BDF8"></td>
+      <td><code>🔵 LiLC-1 locked window-eq ~37% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
+      <td><img alt="locked pilot window eq" src="https://img.shields.io/badge/LiLC--1_locked-window_eq_~37%25-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -234,7 +234,7 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked window-eq ~25%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-eq ~25%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
+      <td><code>LiCl locked window-eq ~37%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-eq ~37%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
       <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.8 day (LiLC-1 pilot rem)</code></strong><br><sub>Live ~3.0 ns/day · ~124 ps/h · eq rem ~3 h; then 2.0 ns prod ≈ 16 h (60 parallel)</sub></td>
+      <td align="center"><strong><code>~0.8 day (LiLC-1 pilot rem)</code></strong><br><sub>Live ~3.0 ns/day · ~125 ps/h · eq rem ~2.5 h; then 2.0 ns prod ≈ 16 h (60 parallel)</sub></td>
       <td>Finish LiLC-1 window eq → prod → WHAM → paired QC PASS before scaling other 7.</td>
     </tr>
     <tr>
@@ -301,7 +301,7 @@ Active compute: locked-site umbrella on EPYC 9554P (`lisper-epyc`). Legacy Quick
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~0.9 day (first row) · ~4.1 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
+      <td align="center"><strong><code>~0.8 day (first row) · ~4.0 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
       <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
     </tr>
   </tbody>
