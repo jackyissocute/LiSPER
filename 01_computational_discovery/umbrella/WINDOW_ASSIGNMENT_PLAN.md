@@ -11,8 +11,9 @@ GROMACS: `/opt/gromacs/2026.0` (target), 1 thread per window
 | Threads | 128 |
 | Reserve (SSH / WHAM / rsync / OS) | 4 |
 | **Concurrent `gmx mdrun`** | **`LISPER_GLOBAL_MDRUN_LIMIT=124`** |
-| Per-window threads | `-ntmpi 1 -ntomp 1` |
-| Per-driver queue depth | `LISPER_JOBS=32` (multiple drivers share global lock) |
+| Pull threads (2 jobs only) | `LISPER_PULL_NTHREADS=60` each → use CPU while pull runs |
+| Per-window threads | `-ntmpi 1 -ntomp 1` (`LISPER_NTHREADS=1`) |
+| Per-driver queue depth | `LISPER_JOBS=124` (global lock caps at 124) |
 
 ## Protocol (fixed — do not change mid-campaign)
 
@@ -37,7 +38,7 @@ Typical windows/condition ≈ **31** (analysis + guards from ~0.45 nm bound star
 | A | `LiSPER_8cand_LiCl` | LI | ~31 | up to 31 |
 | B | `LiSPER_8cand_NaCl_prod_worker` | SOD | ~31 | up to 31 |
 
-**Assignment:** run both tracks after each finishes pull. Peak ≈ 62 of 124 slots. Idle capacity intentional (QC headroom).
+**Assignment:** after pull, fan both tracks into the global 124-slot pool. LiLC-1 alone ≈ 62 window jobs (fills what exists). After pilot PASS, launch more candidates so occupancy approaches **124/124**.
 
 Wall estimate @ ~4.6 ns/day/thread: **~0.5 day** (pull + windows).
 

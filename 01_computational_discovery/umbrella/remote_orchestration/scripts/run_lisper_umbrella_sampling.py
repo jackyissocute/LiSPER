@@ -12,7 +12,9 @@ import time
 ROOT = Path(os.environ["LISPER_WORKDIR"])
 CANDIDATE = os.environ.get("LISPER_CANDIDATE", "LiDA-1")
 ION_RESNAME = os.environ["LISPER_ION_RESNAME"]
-NTHREAD = 1
+# Windows pack many 1-thread mdruns. Pull is only 2 jobs — use many threads to finish faster.
+NTHREAD = int(os.environ.get("LISPER_NTHREADS", "1"))
+PULL_NTHREAD = int(os.environ.get("LISPER_PULL_NTHREADS", str(max(NTHREAD, 1))))
 NJOBS = int(os.environ.get("LISPER_JOBS", "4"))
 GLOBAL_MDRUN_LIMIT = int(os.environ.get("LISPER_GLOBAL_MDRUN_LIMIT", "28"))
 GLOBAL_MDRUN_LOCK = Path(os.environ.get("LISPER_GLOBAL_MDRUN_LOCK", "/tmp/lisper_gmx_mdrun.lock"))
@@ -437,7 +439,8 @@ def topology_candidates():
     return candidates
 
 
-def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
+def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
+    nt = NTHREAD if nthreads is None else int(nthreads)
     tpr = window_dir / f"{deffnm}.tpr"
     run_cpt = window_dir / f"{deffnm}.cpt"
     input_cpt = run_cpt if run_cpt.exists() else cpt
@@ -457,8 +460,8 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None):
     else:
         return "grompp_failed"
     code = run_mdrun_with_global_limit(
-        f"{GMX_ENV} && OMP_NUM_THREADS={NTHREAD} "
-        f"gmx mdrun -deffnm {deffnm}{resume_arg} -ntmpi 1 -ntomp {NTHREAD}",
+        f"{GMX_ENV} && OMP_NUM_THREADS={nt} "
+        f"gmx mdrun -deffnm {deffnm}{resume_arg} -ntmpi 1 -ntomp {nt}",
         cwd=window_dir,
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
     )
@@ -534,7 +537,7 @@ def main():
     pull_mdp.write_text(base_mdp(pull_steps, "no", pull_rate, initial_distance))
     pull_status = "complete"
     if not (pull_dir / "pull.log").exists() or "Finished mdrun" not in (pull_dir / "pull.log").read_text(errors="replace"):
-        pull_status = grompp_mdrun(pull_dir, pull_mdp, full_rep, "pull")
+        pull_status = grompp_mdrun(pull_dir, pull_mdp, full_rep, "pull", nthreads=PULL_NTHREAD)
     if pull_status != "complete":
         write_summary([
             {
