@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-12 23:55 CST
+Last updated: 2026-07-13 00:02 CST
 
 ## Decision (authoritative)
 
@@ -10,7 +10,7 @@ Locked-site umbrella campaign is live on `lisper-epyc`.
 |---|---|
 | Active host | EPYC 9554P 128t (`lisper-epyc`) |
 | Active campaign | **LiLC-1** locked-site pilot (LiCl + NaCl) |
-| Stage | Pull complete; window eq ~58% (≈292 ps / 500 ps; 30 windows/ion; 0 failed) |
+| Stage | Pull complete; window eq ~62% (≈311 ps / 500 ps; 30 windows/ion; 0 failed) |
 | Drivers | 2 alive; 60 `mdrun -deffnm umbrella_eq` (30 LiCl + 30 NaCl) |
 | Bound starts | **8/8** `VALIDATED_BOUND` |
 | Next after windows | Finish eq → umbrella prod (2.0 ns) → WHAM → `evaluate_paired_pmf_qc.py`; scale other 7 only on PASS |
@@ -20,7 +20,7 @@ Locked-site umbrella campaign is live on `lisper-epyc`.
 
 | Candidate | Classification | Locked site | Status |
 |---|---|---|---|
-| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window eq ~58% |
+| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window eq ~62% |
 | `LiD3-Core` | scale queue | central Asp9 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiD3-Flex` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiND-Hybrid` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
