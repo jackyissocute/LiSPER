@@ -1,26 +1,26 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-13 00:02 CST
+Last updated: 2026-07-13 01:10 CST
 
 ## Decision (authoritative)
 
-Locked-site umbrella campaign is live on `lisper-epyc`.
+Locked-site umbrella campaign is live on a remote EPYC 9554P worker.
 
 | Item | Value |
 |---|---|
-| Active host | EPYC 9554P 128t (`lisper-epyc`) |
+| Active host | EPYC 9554P 128t worker |
 | Active campaign | **LiLC-1** locked-site pilot (LiCl + NaCl) |
-| Stage | Pull complete; window eq ~62% (≈311 ps / 500 ps; 30 windows/ion; 0 failed) |
+| Stage | Pull complete; window eq ~91% (≈455 ps / 500 ps; 30 windows/ion; 0 failed) |
 | Drivers | 2 alive; 60 `mdrun -deffnm umbrella_eq` (30 LiCl + 30 NaCl) |
 | Bound starts | **8/8** `VALIDATED_BOUND` |
 | Next after windows | Finish eq → umbrella prod (2.0 ns) → WHAM → `evaluate_paired_pmf_qc.py`; scale other 7 only on PASS |
-| Storage policy | Part A on GitHub/Mac; fat B+C on Jacky 1TB (`../STORAGE_LAYOUT.md`) |
+| Capacity | 60/124 real one-thread `mdrun`; 64 slots idle because the pilot has no additional distinct ready windows |
 
 ## Paired site-lock status
 
 | Candidate | Classification | Locked site | Status |
 |---|---|---|---|
-| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window eq ~62% |
+| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window eq ~91% |
 | `LiD3-Core` | scale queue | central Asp9 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiD3-Flex` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiND-Hybrid` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
