@@ -114,20 +114,20 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** setup complete, GCP running, refined umbrella active, PMF in QC/repair.
+> **Live snapshot:** QuickPod primary (126 threads), unfinished umbrella windows resuming; GCP soft-stopped; PMF promotion on hold pending locked-site QC.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Compute running](https://img.shields.io/badge/GCP_CPU-25%2F32_mdrun_threads_running-38BDF8)
-> ![Umbrella running](https://img.shields.io/badge/umbrella-refined_tracks_running-38BDF8)
-> ![PMF QC review](https://img.shields.io/badge/PMF-QC_review-A78BFA)
+> ![Compute running](https://img.shields.io/badge/QuickPod-120%2F126_mdrun_1thread-38BDF8)
+> ![Umbrella running](https://img.shields.io/badge/umbrella-resume_on_QuickPod-38BDF8)
+> ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-09 21:33 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 13:50 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -136,7 +136,7 @@ Status: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC review, 🔺 repair/wa
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
-GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/source only.
+QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is soft-stopped backup. AutoDL is backup/source only.
 
 </details>
 
@@ -155,8 +155,8 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🔵 25/32 GCP threads</code></td>
-      <td><img alt="GCP running" src="https://img.shields.io/badge/GCP-running-38BDF8"></td>
+      <td><code>🔵 120/126 QuickPod 1-thread mdrun</code></td>
+      <td><img alt="QuickPod running" src="https://img.shields.io/badge/QuickPod-running-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -307,7 +307,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
   </tbody>
 </table>
 
-> Time estimates are based on the current GCP `27` real one-thread `mdrun` jobs and `26%` data-disk use. All 20 ns production and clustering gates are closed. The first likely paired Delta Delta G table is still contested between LiDA-1 repair review and LiDS-1 paired V2 QC review; no Delta G is promoted before QC passes.
+> Time estimates use QuickPod `120` real one-thread `mdrun` jobs under `/data/LiSPER_remote` (100 GB disk, xtc cleaned after finish). GCP soft-stopped after critical sync. Legacy v2 resumes are diagnostic; publishable paired ΔΔG still requires locked-site `VALIDATED_BOUND` campaigns. No Delta G is promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -315,7 +315,7 @@ GCP carries active production, umbrella, and PMF/QC work. AutoDL is backup/sourc
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
-- GCP is active with `27` real one-thread `mdrun` processes under the shared 28-job scheduler. Recent AutoDL checkpoint/log evidence was archived on the GCP data disk before shutdown planning, so the handoff does not depend on live AutoDL state.
+- QuickPod is primary with ~`120` authentic one-thread `gmx mdrun` processes (`-ntmpi 1 -ntomp 1`) under `/data/LiSPER_remote`. GCP was soft-stopped 2026-07-12 after critical recovery sync; keep GCP disk as backup.
 - LiCl and NaCl representatives are ready for all eight candidates.
 - Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, `LiN3-Core`, and `LiND-Hybrid` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
 - NaCl `LiDA-1` V4 WHAM completed from `25` input windows. The full-range profile remains preliminary because far-tail sampling warnings persist outside the PBC-safe material region, but the PBC-safe boundary diagnostic (`1.03-2.90 nm`) has `200/200` finite profile points, `0` scientific WHAM warnings, and a `0.56 kJ/mol` time-slice span shift. LiCl `LiDA-1` V4 repair/WHAM completed from `27` windows with `200/200` finite points, but retained `12` poor-sampling warning lines at the outer tail (`z=2.24551-2.25665 nm`) and a `2.73 kJ/mol` burn-in/time-slice span shift, so it remains in repair-focused QC review. `LiDS-1` now has paired V2 `27/27` windows complete; NaCl WHAM remains preliminary and LiCl WHAM/bootstrap is in QC review with far-tail warnings.

@@ -27,7 +27,7 @@ PULL_K = float(os.environ.get("LISPER_PULL_K", "1000"))
 BINDING_DONOR_CUTOFF_NM = float(os.environ.get("LISPER_BINDING_DONOR_CUTOFF_NM", "0.40"))
 MIN_BINDING_DONORS = int(os.environ.get("LISPER_MIN_BINDING_DONORS", "3"))
 MAX_BINDING_DONORS = int(os.environ.get("LISPER_MAX_BINDING_DONORS", "6"))
-GMX_ENV = "export PATH=$HOME/.local/bin:$PATH"
+GMX_ENV = "export PATH=/opt/gromacs/2026.0/bin:/usr/local/bin:$HOME/.local/bin:$PATH"
 
 GROMACS_DIR = ROOT / "systems" / CANDIDATE / "gromacs"
 PROD_DIR = GROMACS_DIR / "run_prod_20ns"

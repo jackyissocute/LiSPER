@@ -1,6 +1,22 @@
 # Umbrella Sampling Status
 
-Last updated: 2026-07-12 11:11 CST
+Last updated: 2026-07-12 13:50 CST
+
+## Primary compute: QuickPod
+
+| Item | Value |
+|---|---|
+| Host | QuickPod `quickpod-lisper` (`root@217.254.101.12:63014`) |
+| CPU | 126× AMD EPYC 7773X |
+| GROMACS | 2026.0 at `/opt/gromacs/2026.0/bin/gmx` |
+| Remote root | `/data/LiSPER_remote` (not `/mnt/lisper_data`) |
+| Scheduler | `resume_incomplete_windows_quickpod.py` + `watchdog_resume.sh` |
+| Layout | `-ntmpi 1 -ntomp 1`, cap `LISPER_GLOBAL_MDRUN_LIMIT=120` |
+| GCP | Soft-stopped 2026-07-12; critical recovery synced to QuickPod; keep disk as backup |
+
+Active launch (2026-07-12 ~13:45 CST): ~120 authentic `gmx mdrun` jobs under `/data/LiSPER_remote/LiSPER_8cand_*/.../umbrella_sampling_binding_site_v2/window_*`, primarily unfinished LiCl/NaCl windows (eq/prod). Watchdog refills the queue as slots free. Finished-window `.xtc` deleted to protect 100 GB disk.
+
+Scientific honesty: these resumes continue legacy dynamic-nearest binding-site v2 campaigns. They remain **diagnostic** for paired ΔΔG until locked-site `VALIDATED_BOUND` campaigns pass. `DELTA_G_PROMOTION_HOLD.md` stays active.
 
 ## Paired site-lock audit
 
@@ -25,24 +41,25 @@ Umbrella sampling is condition-specific. A candidate-condition can enter window 
 
 | Candidate | Condition | Worker | Complete / total | Active windows | Window meter |
 |---|---|---|---:|---|---|
-| `LiDA-1` | LiCl | GCP | V4 `27/27` | V4 WHAM/bootstrap complete; repair-focused QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟥` |
-| `LiDS-1` | LiCl | GCP | V2 `27/27` | WHAM/bootstrap complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
-| `LiD3-Flex` | LiCl | GCP | V3 `25/30` | base windows `025-026` active; guards `027-029` queued | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
-| `LiD3-Core` | LiCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiLC-1` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
-| `LiN3-Core` | LiCl | GCP | V2 `5/27` | production windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
-| `LiA3-Ref` | LiCl | GCP | V2 `5/27` | windows `005, 026` active | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
-| `LiND-Hybrid` | LiCl | GCP | V2 `2/27` | production window `002` active | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
-| `LiDA-1` | NaCl | GCP | V4 `25/25` | WHAM/QC complete; manual region review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
-| `LiDS-1` | NaCl | Worker B | V2 `27/27` | WHAM complete; QC review required | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
-| `LiD3-Flex` | NaCl | GCP | V3 `27/30` | guard window `027` active; `028-029` sequentially queued | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
-| `LiLC-1` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiA3-Ref` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiD3-Core` | NaCl | GCP | V2 `14/27` | production windows `014-015` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiN3-Core` | NaCl | GCP | V2 `14/27` | equilibration windows `014-015`; production `026` active | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
-| `LiND-Hybrid` | NaCl | GCP | V2 `4/27` | production windows `004-005` active | `🟩🟩🟩🟩🟦⬜⬜⬜⬜⬜` |
+| `LiDA-1` | LiCl | QuickPod archive | V4 `27/27` | WHAM done; diagnostic pending locked-site | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟥` |
+| `LiDS-1` | LiCl | QuickPod archive | V2 `27/27` | WHAM done; diagnostic pending locked-site | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟪` |
+| `LiD3-Flex` | LiCl | QuickPod | V3 `~25/30` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
+| `LiD3-Core` | LiCl | QuickPod | V2 `~15/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiLC-1` | LiCl | QuickPod | V2 `~5/27` | large unfinished block resuming (eq/prod) | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
+| `LiN3-Core` | LiCl | QuickPod | V2 `~5/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
+| `LiA3-Ref` | LiCl | QuickPod | V2 `~5/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟦⬜⬜⬜⬜` |
+| `LiND-Hybrid` | LiCl | QuickPod | V2 `~2/27` | unfinished windows resuming on QuickPod | `🟩🟩🟦⬜⬜⬜⬜⬜⬜⬜` |
+| `LiDA-1` | NaCl | QuickPod archive | V4 `25/25` | WHAM done; diagnostic pending locked-site | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟨` |
+| `LiDS-1` | NaCl | QuickPod archive | V2 `27/27` | WHAM done; diagnostic pending locked-site | `🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩` |
+| `LiD3-Flex` | NaCl | QuickPod | V3 `~27/30` | guard/base resume on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟩🟦🔺` |
+| `LiLC-1` | NaCl | QuickPod | V2 `~15/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiA3-Ref` | NaCl | QuickPod | V2 `~16/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiD3-Core` | NaCl | QuickPod | V2 `~14/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiN3-Core` | NaCl | QuickPod | V2 `~14/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟩🟩🟩🟦⬜⬜` |
+| `LiND-Hybrid` | NaCl | QuickPod | V2 `~5/27` | unfinished windows resuming on QuickPod | `🟩🟩🟩🟩🟦⬜⬜⬜⬜⬜` |
 
-Current umbrella progress: active compute is on the 32-core GCP runner. Paired refined windows are active without duplicate candidate-condition-stage jobs. LiD3-Flex moved to a research-specific V3 guard protocol: the original 27 windows remain the analysis set, while three sequential endpoint guards protect the reference plateau. NaCl guard `027` is active; LiCl guards are queued behind healthy base windows `025-026`. Final QC will separate burn-in sensitivity from independent time blocks, read bootstrap `xydy` uncertainty, and exclude guard-only edge bins from the declared paired analysis region. No Delta G is promoted.
+Current umbrella progress: primary compute moved to QuickPod `/data/LiSPER_remote`. GCP soft-stopped after critical sync. ~120 one-thread authentic GROMACS jobs active. No Delta G promoted.
+
 
 Repair launch, 2026-07-12 09:45 CST: LiD3-Flex NaCl V3 endpoint guards `027-029` were submitted sequentially with window `027` in equilibration. The node has `27` real one-thread `mdrun` jobs. LiCl was not disturbed; its matching guard sequence will launch only after base window `026` completes.
 

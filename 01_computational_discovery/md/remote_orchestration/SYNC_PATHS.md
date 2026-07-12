@@ -23,17 +23,28 @@ Canonical path reference for the revised 8-candidate LiSPER workflow.
 
 | Worker | SSH | CPU quota | Primary role |
 |---|---|---:|---|
-| Worker A / replacement | `ssh -p 27815 root@connect.westc.seetacloud.com` | 18 cores | LiCl production/clustering plus fitted LiCl umbrella and NaCl backfill |
-| Worker B / NaCl | `ssh -p 43418 root@connect.westd.seetacloud.com` | 12 cores | NaCl production/clustering plus fitted NaCl umbrella |
+| **QuickPod (primary)** | `ssh quickpod-lisper` (`root@217.254.101.12 -p 63014`) | 126 threads | Active umbrella resume/launch; GROMACS 2026.0 |
+| GCP `lisper-runner-32v` | `ssh gcp-lisper` (`jackieeelin929@34.84.148.249`) | 32 vCPU | Soft-stopped 2026-07-12; keep disk as backup archive |
+| Worker A / AutoDL | `ssh -p 27815 root@connect.westc.seetacloud.com` | 18 cores | Backup/comparison only |
+| Worker B / AutoDL | `ssh -p 43418 root@connect.westd.seetacloud.com` | 12 cores | Backup/comparison only |
+
+### QuickPod paths (use these)
 
 | Purpose | Path |
 |---|---|
-| Remote project root | `/root/LiSPER_remote` |
-| Active LiCl workdir | `/root/LiSPER_remote/LiSPER_8cand_LiCl` |
-| Active NaCl setup workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl` |
-| Active NaCl production workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
-| Active NaCl overflow workdir | `/root/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA` |
-| Legacy 10-candidate archive | `/root/LiSPER_remote/legacy_10_candidate_runs/` |
+| Remote project root | `/data/LiSPER_remote` |
+| Active LiCl workdir | `/data/LiSPER_remote/LiSPER_8cand_LiCl` |
+| Active NaCl production workdir | `/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker` |
+| Active NaCl overflow workdir | `/data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA` |
+| Scripts | `/data/LiSPER_remote/scripts` |
+| Paired site manifests | `/data/LiSPER_remote/paired_binding_sites` |
+
+### Legacy GCP paths (backup only; do not launch new jobs here)
+
+| Purpose | Path |
+|---|---|
+| GCP project root | `/mnt/lisper_data/LiSPER_remote` |
+| Legacy AutoDL roots | `/root/LiSPER_remote/LiSPER_8cand_*` |
 
 ## Rule
 
