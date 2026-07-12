@@ -81,9 +81,19 @@ Launch **one candidate, both ions**, locked-site driver only.
 After windows complete → WHAM →:
 
 ```bash
+python3 01_computational_discovery/pmf/remote_orchestration/scripts/run_wham_qc.py \
+  --umbrella-dir .../LiLC-1/gromacs/umbrella_sampling \
+  --out .../pmf/LiLC-1/LiCl
+
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_paired_pmf_qc.py \
   --candidate LiLC-1 \
   --li-profile ... --na-profile ... \
+  --li-bootstrap ... --na-bootstrap ... \
+  --li-half-early ... --li-half-late ... \
+  --na-half-early ... --na-half-late ... \
+  --li-burnin ... ... --na-burnin ... ... \
+  --li-histo ... --na-histo ... \
+  --wham-warning-files ... \
   --bound-min ... --bound-max ... --ref-min ... --ref-max ... \
   --out .../LiLC-1_paired_qc.tsv
 ```
@@ -95,7 +105,7 @@ python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_pai
 
 ### Phase E — Scale remaining 7 (only after pilot PASS)
 
-Same protocol, same spacing/eq/prod/guards, same shared regions rule. Fan out across 96 mdrun slots.
+Same protocol, same spacing/eq/prod/guards, same shared regions rule. Fan out across 124 mdrun slots.
 
 Fat sync → Jacky `ACTIVE/incoming/{umbrella,pmf}/`  
 Lean QC + ΔΔG table → Mac git / GitHub.

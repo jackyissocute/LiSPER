@@ -3,9 +3,10 @@
 
 Inputs are already-computed WHAM products for one candidate pair:
   --li-profile / --na-profile          xvg free-energy profiles (kJ/mol)
-  --li-bootstrap / --na-bootstrap      optional xydy bootstrap std profiles
-  --li-histo / --na-histo              optional histogram xvgs (overlap warnings)
-  --li-half-a --li-half-b ...          optional early/late half profiles
+  --li-bootstrap / --na-bootstrap      required xydy bootstrap std profiles
+  --li-half-early / --li-half-late ... required independent-half profiles
+  --li-burnin / --na-burnin            required predeclared burn-in profiles
+  --li-histo / --na-histo              required per-window histogram profiles
   --bound-min --bound-max              shared bound region (nm)
   --ref-min --ref-max                  shared reference plateau (nm)
 
@@ -27,7 +28,7 @@ def read_xvg(path: Path):
             continue
         parts = line.split()
         try:
-            rows.append(tuple(float(x) for x in parts[:3]))
+            rows.append(tuple(float(x) for x in parts))
         except ValueError:
             continue
     return rows
@@ -86,28 +87,40 @@ def bootstrap_unc(xy_dy, lo, hi):
     return math.sqrt(b * b + r * r)
 
 
+def histogram_coverage(rows, lo, hi):
+    supports = [sum(math.isfinite(value) and value > 0 for value in row[1:]) for row in rows if lo <= row[0] <= hi]
+    return (min(supports), sum(value < 2 for value in supports)) if supports else (0, 1)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--candidate", required=True)
     p.add_argument("--li-profile", type=Path, required=True)
     p.add_argument("--na-profile", type=Path, required=True)
-    p.add_argument("--li-bootstrap", type=Path)
-    p.add_argument("--na-bootstrap", type=Path)
-    p.add_argument("--li-half-early", type=Path)
-    p.add_argument("--li-half-late", type=Path)
-    p.add_argument("--na-half-early", type=Path)
-    p.add_argument("--na-half-late", type=Path)
+    p.add_argument("--li-bootstrap", type=Path, required=True)
+    p.add_argument("--na-bootstrap", type=Path, required=True)
+    p.add_argument("--li-half-early", type=Path, required=True)
+    p.add_argument("--li-half-late", type=Path, required=True)
+    p.add_argument("--na-half-early", type=Path, required=True)
+    p.add_argument("--na-half-late", type=Path, required=True)
+    p.add_argument("--li-burnin", type=Path, nargs="+", required=True)
+    p.add_argument("--na-burnin", type=Path, nargs="+", required=True)
+    p.add_argument("--li-histo", type=Path, required=True)
+    p.add_argument("--na-histo", type=Path, required=True)
     p.add_argument("--bound-min", type=float, required=True)
     p.add_argument("--bound-max", type=float, required=True)
     p.add_argument("--ref-min", type=float, required=True)
     p.add_argument("--ref-max", type=float, required=True)
     p.add_argument("--flat-max", type=float, default=1.0)
     p.add_argument("--half-max", type=float, default=1.0)
+    p.add_argument("--burnin-max", type=float, default=1.0)
     p.add_argument("--unc-max", type=float, default=1.0)
     p.add_argument("--unc-frac-of-ddg", type=float, default=0.25)
     p.add_argument("--out", type=Path, required=True)
-    p.add_argument("--wham-warning-files", type=Path, nargs="*", default=[])
+    p.add_argument("--wham-warning-files", type=Path, nargs="+", required=True)
     args = p.parse_args()
+    if len(args.li_burnin) < 2 or len(args.na_burnin) < 2:
+        p.error("at least two predeclared burn-in variants are required per ion")
 
     li = series_xy(read_xvg(args.li_profile))
     na = series_xy(read_xvg(args.na_profile))
@@ -122,25 +135,26 @@ def main():
     gates.append(("plateau_flat_li", flat_li <= args.flat_max, f"{flat_li:.3f}"))
     gates.append(("plateau_flat_na", flat_na <= args.flat_max, f"{flat_na:.3f}"))
 
-    if args.li_half_early and args.li_half_late:
-        e = delta_g(series_xy(read_xvg(args.li_half_early)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
-        late = delta_g(series_xy(read_xvg(args.li_half_late)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
-        gates.append(("half_agree_li", abs(e - late) <= args.half_max, f"{abs(e-late):.3f}"))
-    if args.na_half_early and args.na_half_late:
-        e = delta_g(series_xy(read_xvg(args.na_half_early)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
-        late = delta_g(series_xy(read_xvg(args.na_half_late)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
-        gates.append(("half_agree_na", abs(e - late) <= args.half_max, f"{abs(e-late):.3f}"))
+    for ion, early_path, late_path, full_dg, burnin_paths, histo_path in (
+        ("li", args.li_half_early, args.li_half_late, dg_li, args.li_burnin, args.li_histo),
+        ("na", args.na_half_early, args.na_half_late, dg_na, args.na_burnin, args.na_histo),
+    ):
+        early = delta_g(series_xy(read_xvg(early_path)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
+        late = delta_g(series_xy(read_xvg(late_path)), args.bound_min, args.bound_max, args.ref_min, args.ref_max)
+        gates.append((f"half_agree_{ion}", abs(early - late) <= args.half_max, f"{abs(early-late):.3f}"))
+        burnin_diffs = [
+            abs(full_dg - delta_g(series_xy(read_xvg(path)), args.bound_min, args.bound_max, args.ref_min, args.ref_max))
+            for path in burnin_paths
+        ]
+        gates.append((f"burnin_agree_{ion}", max(burnin_diffs) <= args.burnin_max, f"{max(burnin_diffs):.3f}"))
+        min_support, weak_bins = histogram_coverage(read_xvg(histo_path), args.bound_min, args.ref_max)
+        gates.append((f"histogram_overlap_{ion}", weak_bins == 0, f"min_support={min_support};weak_bins={weak_bins}"))
 
-    unc_li = unc_na = None
-    if args.li_bootstrap:
-        unc_li = bootstrap_unc(read_xvg(args.li_bootstrap), (args.bound_min, args.bound_max), (args.ref_min, args.ref_max))
-    if args.na_bootstrap:
-        unc_na = bootstrap_unc(read_xvg(args.na_bootstrap), (args.bound_min, args.bound_max), (args.ref_min, args.ref_max))
-    if unc_li is not None:
-        gates.append(("bootstrap_unc_li", unc_li <= args.unc_max, f"{unc_li:.3f}"))
-    if unc_na is not None:
-        gates.append(("bootstrap_unc_na", unc_na <= args.unc_max, f"{unc_na:.3f}"))
-    if unc_li is not None and unc_na is not None and abs(ddg) > 1e-9:
+    unc_li = bootstrap_unc(read_xvg(args.li_bootstrap), (args.bound_min, args.bound_max), (args.ref_min, args.ref_max))
+    unc_na = bootstrap_unc(read_xvg(args.na_bootstrap), (args.bound_min, args.bound_max), (args.ref_min, args.ref_max))
+    gates.append(("bootstrap_unc_li", unc_li is not None and unc_li <= args.unc_max, "missing" if unc_li is None else f"{unc_li:.3f}"))
+    gates.append(("bootstrap_unc_na", unc_na is not None and unc_na <= args.unc_max, "missing" if unc_na is None else f"{unc_na:.3f}"))
+    if unc_li is not None and unc_na is not None:
         comb = math.sqrt(unc_li**2 + unc_na**2)
         gates.append(
             (
@@ -150,14 +164,16 @@ def main():
             )
         )
 
-    interior_warn = False
+    wham_failed = False
     for path in args.wham_warning_files:
         text = path.read_text(errors="replace")
         for line in text.splitlines():
             low = line.lower()
-            if "warning" in low and ("empty" in low or "only one" in low or "single" in low):
-                interior_warn = True
-    gates.append(("no_interior_wham_warnings", not interior_warn, "warned" if interior_warn else "clean"))
+            if "fatal error" in low or "did not converge" in low or "not converged" in low:
+                wham_failed = True
+    # Bin support is checked directly over the declared analysis range above;
+    # guard-only WHAM warnings outside that range are diagnostic, not failures.
+    gates.append(("wham_completed", not wham_failed, "failed" if wham_failed else "complete"))
 
     failed = [name for name, ok, _ in gates if not ok]
     status = "PASS" if not failed else "REPAIR"
