@@ -23,7 +23,7 @@ Canonical path reference for the revised 8-candidate LiSPER workflow.
 
 | Worker | SSH | CPU quota | Primary role |
 |---|---|---:|---|
-| **QuickPod (primary)** | `ssh quickpod-lisper` (`root@217.254.101.12 -p 63014`) | 126 threads | Active umbrella resume/launch; GROMACS 2026.0 |
+| **QuickPod (primary)** | `ssh quickpod-lisper` (`root@217.254.101.12 -p 63014`) | 126 threads | Locked-site rebuild host; legacy resume stopped |
 | GCP `lisper-runner-32v` | `ssh gcp-lisper` (`jackieeelin929@34.84.148.249`) | 32 vCPU | Soft-stopped 2026-07-12; keep disk as backup archive |
 | Worker A / AutoDL | `ssh -p 27815 root@connect.westc.seetacloud.com` | 18 cores | Backup/comparison only |
 | Worker B / AutoDL | `ssh -p 43418 root@connect.westd.seetacloud.com` | 12 cores | Backup/comparison only |

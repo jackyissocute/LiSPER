@@ -18,5 +18,58 @@ __pycache__/
 # absolute remote paths; preserve locally or on remote storage instead.
 01_computational_discovery/umbrella/remote_results/**/gromacs/umbrella_sampling_binding_site_v2/
 
+# Legacy mismatched-site umbrella/PMF binaries and raw curves: remote disk only.
+# Keep machine-readable QC summaries (*.tsv) and docs in git; see pmf/LEGACY_DATA_EVALUATION.md.
+01_computational_discovery/umbrella/remote_runs/**/*.gro
+01_computational_discovery/umbrella/remote_runs/**/*.edr
+01_computational_discovery/umbrella/remote_runs/**/*.cpt
+01_computational_discovery/umbrella/remote_runs/**/*.tpr
+01_computational_discovery/umbrella/remote_runs/**/*.trr
+01_computational_discovery/umbrella/remote_runs/**/*.xtc
+01_computational_discovery/umbrella/remote_runs/**/*.log
+01_computational_discovery/umbrella/remote_runs/**/*.xvg
+01_computational_discovery/umbrella/remote_runs/**/*.mdp
+01_computational_discovery/umbrella/remote_runs/**/*.pid
+01_computational_discovery/umbrella/remote_runs/**/*.ndx
+01_computational_discovery/pmf/remote_runs/**/*.gro
+01_computational_discovery/pmf/remote_runs/**/*.edr
+01_computational_discovery/pmf/remote_runs/**/*.cpt
+01_computational_discovery/pmf/remote_runs/**/*.tpr
+01_computational_discovery/pmf/remote_runs/**/*.trr
+01_computational_discovery/pmf/remote_runs/**/*.xtc
+01_computational_discovery/pmf/remote_runs/**/*.log
+01_computational_discovery/pmf/remote_runs/**/*.xvg
+01_computational_discovery/pmf/remote_runs/**/*.mdp
+01_computational_discovery/pmf/remote_runs/**/*.pid
+01_computational_discovery/pmf/remote_runs/**/*.ndx
+01_computational_discovery/pmf/remote_runs/**/*.stdout
+01_computational_discovery/pmf/remote_results/**/*.gro
+01_computational_discovery/pmf/remote_results/**/*.edr
+01_computational_discovery/pmf/remote_results/**/*.cpt
+01_computational_discovery/pmf/remote_results/**/*.tpr
+01_computational_discovery/pmf/remote_results/**/*.trr
+01_computational_discovery/pmf/remote_results/**/*.xtc
+01_computational_discovery/pmf/remote_results/**/*.log
+01_computational_discovery/pmf/remote_results/**/*.xvg
+01_computational_discovery/pmf/remote_results/**/*.mdp
+01_computational_discovery/pmf/remote_results/**/*.pid
+01_computational_discovery/pmf/remote_results/**/*.ndx
+01_computational_discovery/pmf/remote_results/**/*.stdout
+01_computational_discovery/pmf/remote_results/**/*.dat
+01_computational_discovery/pmf/remote_results/**/*.sh
+
 # Large local safety snapshot made before remote cleanup; keep on laptop, not in GitHub.
 01_computational_discovery/md/remote_runs/legacy_10_candidate_runs_workerA_snapshot/
+
+# Legacy umbrella remote_results binaries/curves (diagnostic; not ranking inputs)
+01_computational_discovery/umbrella/remote_results/**/*.gro
+01_computational_discovery/umbrella/remote_results/**/*.edr
+01_computational_discovery/umbrella/remote_results/**/*.cpt
+01_computational_discovery/umbrella/remote_results/**/*.tpr
+01_computational_discovery/umbrella/remote_results/**/*.trr
+01_computational_discovery/umbrella/remote_results/**/*.xtc
+01_computational_discovery/umbrella/remote_results/**/*.log
+01_computational_discovery/umbrella/remote_results/**/*.xvg
+01_computational_discovery/umbrella/remote_results/**/*.mdp
+01_computational_discovery/umbrella/remote_results/**/*.pid
+01_computational_discovery/umbrella/remote_results/**/*.ndx

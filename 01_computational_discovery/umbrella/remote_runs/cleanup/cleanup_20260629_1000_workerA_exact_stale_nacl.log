@@ -1,8 +1,0 @@
-BEFORE
-Filesystem      Size  Used Avail Use% Mounted on
-overlay          30G   14G   17G  45% /
-1.3G	/root/LiSPER_remote/LiSPER_8cand_NaCl
-REMOVED stale exact target /root/LiSPER_remote/LiSPER_8cand_NaCl
-AFTER
-Filesystem      Size  Used Avail Use% Mounted on
-overlay          30G   13G   18G  41% /

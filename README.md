@@ -114,20 +114,20 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Live snapshot:** QuickPod primary (126 threads), unfinished umbrella windows resuming; GCP soft-stopped; PMF promotion on hold pending locked-site QC.
+> **Live snapshot:** Legacy mismatched-site umbrella **stopped**. Publishable ΔΔG needs locked-site `VALIDATED_BOUND` (pilot LiLC-1). Promotion hold active. See `01_computational_discovery/pmf/LEGACY_DATA_EVALUATION.md`.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Compute running](https://img.shields.io/badge/QuickPod-120%2F126_mdrun_1thread-38BDF8)
-> ![Umbrella running](https://img.shields.io/badge/umbrella-resume_on_QuickPod-38BDF8)
+> ![Compute stopped](https://img.shields.io/badge/legacy_umbrella-stopped-FB7185)
+> ![Next science](https://img.shields.io/badge/next-LiLC--1_VALIDATED_BOUND-38BDF8)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-12 13:50 CST`
+**Last synchronized monitor snapshot:** `2026-07-12 14:10 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -136,7 +136,7 @@ Status: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC review, 🔺 repair/wa
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
-QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is soft-stopped backup. AutoDL is backup/source only.
+QuickPod holds archived MD + legacy diagnostic umbrella under `/data/LiSPER_remote`. Legacy resume obsolete. GCP soft-stopped backup. AutoDL backup/source only.
 
 </details>
 
@@ -155,8 +155,8 @@ QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker load</td>
-      <td><code>🔵 120/126 QuickPod 1-thread mdrun</code></td>
-      <td><img alt="QuickPod running" src="https://img.shields.io/badge/QuickPod-running-38BDF8"></td>
+      <td><code>🛑 legacy mdrun stop; next = locked-site pilot</code></td>
+      <td><img alt="legacy stopped" src="https://img.shields.io/badge/legacy-stopped-FB7185"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -291,8 +291,8 @@ QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>re-estimating after site lock</code></strong><br><sub>All current Li/Na pairs are site-mismatched diagnostics; no final Delta G promotion.</sub></td>
-      <td>Finish active repair/window production, then rerun WHAM/bootstrap/time-slice QC.</td>
+      <td align="center"><strong><code>restart under site lock</code></strong><br><sub>Legacy campaigns stopped; reconstruct VALIDATED_BOUND starts (pilot LiLC-1).</sub></td>
+      <td>Do not finish mismatched-site windows. Validate locked donors, then new umbrella.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -301,13 +301,13 @@ QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~1-4 days, repair-risk limited</code></strong><br><sub>LiDA-1 NaCl V4 analysis completed; LiDA-1 LiCl V4 repair completed but still has outer-tail warnings and burn-in sensitivity before paired region review</sub></td>
-      <td>Complete paired PMFs, then compute ΔΔG = ΔG(Na+) - ΔG(Li+) and rank candidates.</td>
+      <td align="center"><strong><code>blocked until SITE_LOCKED + VALIDATED_BOUND</code></strong><br><sub>Existing WHAM is diagnostic only (0/8 same-site pairs)</sub></td>
+      <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
     </tr>
   </tbody>
 </table>
 
-> Time estimates use QuickPod `120` real one-thread `mdrun` jobs under `/data/LiSPER_remote` (100 GB disk, xtc cleaned after finish). GCP soft-stopped after critical sync. Legacy v2 resumes are diagnostic; publishable paired ΔΔG still requires locked-site `VALIDATED_BOUND` campaigns. No Delta G is promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
+> Legacy mismatched-site umbrella stopped (do not resume). Publishable paired ΔΔG requires locked-site `VALIDATED_BOUND` campaigns — see `LEGACY_DATA_EVALUATION.md`. No Delta G promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -315,10 +315,10 @@ QuickPod carries active umbrella resume work under `/data/LiSPER_remote`. GCP is
 - LiCl minimization and equilibration are complete for all eight candidates.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
-- QuickPod is primary with ~`120` authentic one-thread `gmx mdrun` processes (`-ntmpi 1 -ntomp 1`) under `/data/LiSPER_remote`. GCP was soft-stopped 2026-07-12 after critical recovery sync; keep GCP disk as backup.
+- QuickPod is primary archive/compute for **locked-site** work under `/data/LiSPER_remote`. Legacy mismatched-site `mdrun` must stay stopped. GCP soft-stopped 2026-07-12.
 - LiCl and NaCl representatives are ready for all eight candidates.
-- Umbrella sampling is condition-specific: refined tracks are active for `LiDA-1`, `LiDS-1`, `LiD3-Flex`, `LiD3-Core`, `LiLC-1`, `LiA3-Ref`, `LiN3-Core`, and `LiND-Hybrid` where representative inputs are ready. The refined tracks use the dominant-cluster representative frame, a donor/binding-site-to-ion reaction coordinate, explicit window equilibration, denser spacing, and longer window sampling.
-- NaCl `LiDA-1` V4 WHAM completed from `25` input windows. The full-range profile remains preliminary because far-tail sampling warnings persist outside the PBC-safe material region, but the PBC-safe boundary diagnostic (`1.03-2.90 nm`) has `200/200` finite profile points, `0` scientific WHAM warnings, and a `0.56 kJ/mol` time-slice span shift. LiCl `LiDA-1` V4 repair/WHAM completed from `27` windows with `200/200` finite points, but retained `12` poor-sampling warning lines at the outer tail (`z=2.24551-2.25665 nm`) and a `2.73 kJ/mol` burn-in/time-slice span shift, so it remains in repair-focused QC review. `LiDS-1` now has paired V2 `27/27` windows complete; NaCl WHAM remains preliminary and LiCl WHAM/bootstrap is in QC review with far-tail warnings.
+- **Do not** continue refined dynamic-nearest umbrella tracks for ranking. Reconstruct/validate locked-site bound starts first (pilot `LiLC-1`).
+- Existing LiDA-1 / LiDS-1 / LiD3-Flex WHAM products are diagnostic only under the promotion hold.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 - Active MD should continue only from final 8-candidate names and matched LiCl/NaCl systems.
 

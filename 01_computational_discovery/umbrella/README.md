@@ -2,7 +2,9 @@
 
 This folder owns the umbrella-sampling step after MD production and representative clustering. It contains umbrella drivers, v2 reaction-coordinate metadata, pull stages, window equilibration/production logs, synced window outputs, and retained diagnostics from superseded old-parameter runs.
 
-Latest umbrella snapshot: `2026-06-30 11:00 CST`.
+Latest umbrella snapshot: `2026-07-12 14:10 CST`.
+
+Legacy dynamic-nearest campaigns are **stopped** (diagnostic only). Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). See `../pmf/LEGACY_DATA_EVALUATION.md`.
 
 ## Progress Display Rule
 
@@ -61,4 +63,4 @@ flowchart TD
 
 ## Current Rule
 
-New umbrella work should use the audited v2 strategy: dominant-cluster full-system representative, local binding-site-to-target-ion coordinate, PBC-safe pull extension from actual box vectors, denser windows, explicit window equilibration, and longer production windows. Old/default windows are retained for diagnostics and are not final Delta G evidence.
+Do **not** launch or finish dynamic-nearest `umbrella_sampling_binding_site_v2` for paired ranking. Reconstruct/validate bound starts against proposed locked chemical donors, mark manifests `VALIDATED_BOUND`, then run new locked-site umbrella. Bulky legacy window binaries stay on remote disk / local laptop and are gitignored.
