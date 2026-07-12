@@ -42,7 +42,7 @@ def test_validate_bound_geometry():
             "--manifest",
             man.name,
             "--ion-resname",
-            "LI",
+            "LIT",
             "--max-bound-nm",
             "0.55",
             "--promote",

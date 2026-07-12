@@ -1,10 +1,15 @@
 # Compute provider
 
-**Chosen next host:** AMD **EPYC 9554P** — 128 threads, 384 GB RAM, 2×1 TB NVMe, 10 Gbps, ~$1.34/hr.
+**Live host:** AMD **EPYC 9554P** — `ssh lisper-epyc` (`root@84.32.71.226`)
 
-Launch env: `launch_locked_site.env.example`  
+| Item | Value |
+|---|---|
+| GROMACS | `/opt/gromacs/2026.0` (AVX_512) |
+| Data root | `/data/LiSPER_remote/` |
+| Window plan | `../WINDOW_ASSIGNMENT_PLAN.md` |
+| Launch env | `launch_locked_site.env.example` → remote `scripts/launch_locked_site.env` |
+
 Paths: `../md/remote_orchestration/SYNC_PATHS.md`  
 Preflight: `../PREFLIGHT_RUNBOOK.md`
 
-QuickPod / old resume scripts: archived on Jacky  
-`/Volumes/Jacky 1TB/Research/LiSPER_cold/ARCHIVE/legacy_ops_docs_20260712/umbrella_scripts/`
+Science gate: no umbrella until manifests `VALIDATED_BOUND`.

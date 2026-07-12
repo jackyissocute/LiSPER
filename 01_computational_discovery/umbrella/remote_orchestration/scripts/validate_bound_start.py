@@ -107,14 +107,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gro", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
-    parser.add_argument("--ion-resname", required=True, choices=("LI", "SOD", "LIT", "NA"))
+    parser.add_argument("--ion-resname", required=True, choices=("LIT", "SOD"))
     parser.add_argument("--max-bound-nm", type=float, default=0.55)
     parser.add_argument("--promote", action="store_true", help="Flip manifest to VALIDATED_BOUND on PASS")
     parser.add_argument("--log", type=Path, help="Validation log path")
     args = parser.parse_args()
 
-    # Normalize occasional CHARMM ion names
-    ion = {"LIT": "LI", "NA": "SOD"}.get(args.ion_resname, args.ion_resname)
+    # CHARMM-GUI LiCl uses LIT; NaCl uses SOD. Do not remap for .gro lookup.
+    ion = args.ion_resname
+    if ion in {"LI", "NA"}:
+        raise SystemExit(f"Use CHARMM residue name LIT or SOD, not {ion}")
 
     record = load_manifest(args.manifest)
     locked_ids = record["donor_identities"].split(",")

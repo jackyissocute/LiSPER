@@ -4,7 +4,7 @@ This folder owns the umbrella-sampling step after MD production and representati
 
 **Clean restart (2026-07-12):** legacy v1/v2/v3/v4 window dumps removed from git worktree and archived to Jacky 1TB (`../STORAGE_LAYOUT.md`). This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty `remote_runs/` / `remote_results/` scaffolds.
 
-Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). **Before renting CPU:** `PREFLIGHT_RUNBOOK.md`. Also `remote_runs_umbrella_sampling_status.md`, `../pmf/LEGACY_DATA_EVALUATION.md`.
+Next work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`). **Host seeded without Jacky** (Mac lean MD → remote). See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
 
 ## Progress Display Rule
 
@@ -55,8 +55,9 @@ flowchart TD
 | Path | Purpose |
 |---|---|
 | `PREFLIGHT_RUNBOOK.md` | Pre-rent checklist (Phase A–F). |
+| `WINDOW_ASSIGNMENT_PLAN.md` | 128-thread window / Phase D–E schedule. |
 | `remote_runs_umbrella_sampling_status.md` | Canonical campaign status. |
-| `remote_orchestration/PROVIDER.md` | Chosen CPU host (EPYC 9554P). |
+| `remote_orchestration/PROVIDER.md` | Live host `lisper-epyc` (EPYC 9554P). |
 | `remote_orchestration/launch_locked_site.env.example` | 128-thread launch env. |
 | `remote_runs/` / `remote_results/` | Empty scaffolds for new locked-site campaigns. |
 | `remote_orchestration/scripts/` | Site-lock gated drivers + preflight helpers. |
