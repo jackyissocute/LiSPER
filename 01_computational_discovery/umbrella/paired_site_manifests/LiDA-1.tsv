@@ -1,2 +1,2 @@
 candidate	site_id	donor_identities	selection_rationale	starting_state_status
-LiDA-1	central_Asp7_Asp9	7:ASP:OD1,7:ASP:OD2,9:ASP:OD1,9:ASP:OD2	Design-intended central paired-Asp pocket observed in the Li representative.	PROPOSED_REQUIRES_RECONSTRUCTION
+LiDA-1	central_Asp7_Asp9	7:ASP:OD1,7:ASP:OD2,9:ASP:OD1,9:ASP:OD2	Design-intended central paired-Asp pocket observed in the Li representative.	VALIDATED_BOUND

@@ -131,23 +131,15 @@ def ensure_sod_atomtype(forcefield: Path) -> None:
 
 def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
     top = gmx_dir / "topol.top"
-    toppar = gmx_dir / "toppar"
-    sod_itp = ROOT / "LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/toppar/SOD.itp"
-    if top.exists():
-        # Prior auto-builds copied LiCl forcefield (LIT only) + SOD.itp → grompp Atomtype SOD missing.
-        ensure_sod_atomtype(toppar / "forcefield.itp")
-        if sod_itp.exists() and not (toppar / "SOD.itp").exists():
-            toppar.mkdir(exist_ok=True)
-            (toppar / "SOD.itp").write_bytes(sod_itp.read_bytes())
-        return top
     licl = ROOT / "LiSPER_8cand_LiCl" / "systems" / cand / "gromacs"
-    if not (licl / "toppar" / "PROA.itp").exists():
-        return None
+    toppar = gmx_dir / "toppar"
     toppar.mkdir(exist_ok=True)
-    for f in ["forcefield.itp", "PROA.itp", "TIP3.itp", "CLA.itp"]:
-        src = licl / "toppar" / f
-        if src.exists():
-            (toppar / f).write_bytes(src.read_bytes())
+    sod_itp = ROOT / "LiSPER_8cand_NaCl_prod_worker/systems/LiLC-1/gromacs/toppar/SOD.itp"
+    if (licl / "toppar" / "PROA.itp").exists():
+        for f in ["forcefield.itp", "PROA.itp", "TIP3.itp", "CLA.itp"]:
+            src = licl / "toppar" / f
+            if src.exists() and (f == "forcefield.itp" or not (toppar / f).exists()):
+                (toppar / f).write_bytes(src.read_bytes())
     if sod_itp.exists():
         (toppar / "SOD.itp").write_bytes(sod_itp.read_bytes())
     ensure_sod_atomtype(toppar / "forcefield.itp")
@@ -155,7 +147,7 @@ def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
     n_cla = count_res(gro, "CLA")
     n_tip = count_res(gro, "TIP3")
     if n_sod == 0:
-        return None
+        return top if top.exists() else None
     top.write_text(
         f";; auto {cand} NaCl\n"
         '#include "toppar/forcefield.itp"\n'
@@ -169,14 +161,78 @@ def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
     return top
 
 
+def resolve_gro_src(gmx_dir: Path, cand: str, ion: str) -> Path | None:
+    """Prefer real NaCl prod; else eq; else LiCl→SOD identity swap for locked-site prep."""
+    seed_marker = gmx_dir / "run_prod_20ns" / "SEEDED_FROM_LICL.txt"
+    prod = gmx_dir / "run_prod_20ns" / "step5_production_20ns.gro"
+    eq = gmx_dir / "run_eq" / "step4.1_equilibration.gro"
+    for path in (prod, eq):
+        if not path.exists():
+            continue
+        if path == prod and seed_marker.exists():
+            continue  # regenerate seed below
+        try:
+            nat = int(path.read_text(errors="ignore").splitlines()[1])
+        except (IndexError, ValueError):
+            continue
+        if nat > 1000:
+            return path
+    if ion != "NaCl":
+        return None
+    licl = (
+        ROOT
+        / "LiSPER_8cand_LiCl"
+        / "systems"
+        / cand
+        / "gromacs"
+        / "run_prod_20ns"
+        / "step5_production_20ns.gro"
+    )
+    if not licl.exists():
+        return None
+    out = gmx_dir / "run_prod_20ns" / "step5_production_20ns.gro"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    lines = licl.read_text(errors="replace").splitlines()
+    nat = int(lines[1])
+    atoms = []
+    for line in lines[2 : 2 + nat]:
+        if len(line) >= 15 and line[5:10].strip() == "LIT":
+            line = line[:5] + f"{'SOD':<5}" + f"{'SOD':>5}" + line[15:]
+        atoms.append(line)
+    note = f"{lines[0]} | seeded_from_LiCl_LIT_to_SOD_for_bound_prep"
+    out.write_text(note + "\n" + f"{nat:5d}\n" + "\n".join(atoms) + "\n" + lines[2 + nat] + "\n")
+    seed_marker.write_text(
+        "NaCl prod gro missing on host; LIT→SOD copy of LiCl prod for locked-site place only.\n"
+        f"source={licl}\n"
+    )
+    return out
+
+
+def placed_ion_index(place_stdout: str) -> int | None:
+    for line in place_stdout.splitlines():
+        if line.startswith("ion_index\t"):
+            return int(line.split("\t", 1)[1])
+    return None
+
+
+def write_ion_posres(ndx_path: Path, itp_path: Path, ion_index: int) -> None:
+    ndx_path.write_text(f"[ placed_ion ]\n{ion_index}\n")
+    itp_path.write_text(
+        "; position restraints on placed ion during bound min\n"
+        "[ position_restraints ]\n"
+        ";  i funct       fcx        fcy        fcz\n"
+        "   1    1       4000       4000       4000\n"
+    )
+
+
 def prep_one(cand: str, ion: str) -> str:
     work, ion_res = ION_MAP[ion]
     gmx_dir = ROOT / work / "systems" / cand / "gromacs"
     man = ROOT / "paired_binding_sites" / f"{cand}.tsv"
     if not man.exists():
         return f"{cand}/{ion}\tBLOCKED\tno_manifest"
-    gro_src = gmx_dir / "run_prod_20ns" / "step5_production_20ns.gro"
-    if not gro_src.exists():
+    gro_src = resolve_gro_src(gmx_dir, cand, ion)
+    if gro_src is None:
         return f"{cand}/{ion}\tBLOCKED\tmissing_prod_gro"
     umb = gmx_dir / "umbrella_sampling"
     umb.mkdir(exist_ok=True)
@@ -194,16 +250,28 @@ def prep_one(cand: str, ion: str) -> str:
 
     top = gmx_dir / "topol.top"
     if ion == "NaCl":
-        top = ensure_nacl_topol(gmx_dir, cand, gro_src) or top
+        top = ensure_nacl_topol(gmx_dir, cand, placed) or top
     if not Path(top).exists():
         return f"{cand}/{ion}\tBLOCKED\tmissing_topol"
     top = sync_topol_counts(Path(top), placed)
 
     bdir = umb / "bound_place_min"
     bdir.mkdir(exist_ok=True)
-    (bdir / "min.mdp").write_text(MIN_MDP)
+    ion_idx = placed_ion_index(p.stdout)
+    mdp = MIN_MDP
+    gp_extra = ""
+    if ion_idx:
+        write_ion_posres(bdir / "ion.ndx", bdir / "posre_ion.itp", ion_idx)
+        mdp = MIN_MDP + (
+            f"\n; freeze placed ion index {ion_idx} during EM\n"
+            "freezegrps = placed_ion\n"
+            "freezedim = Y Y Y\n"
+        )
+        gp_extra = f" -n {bdir / 'ion.ndx'}"
+
+    (bdir / "min.mdp").write_text(mdp)
     gp = run(
-        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr -maxwarn 2",
+        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr -maxwarn 4{gp_extra}",
         cwd=bdir,
     )
     if gp.returncode != 0:
@@ -226,17 +294,78 @@ def prep_one(cand: str, ion: str) -> str:
         f"python3 {SCRIPTS}/validate_bound_start.py --gro {final} --manifest {man} "
         f"--ion-resname {ion_res}"
     )
-    out_log.write_text(v.stdout + v.stderr)
+    out_log.write_text(
+        f"gro_src\t{gro_src}\nion_index\t{ion_idx}\n" + v.stdout + v.stderr
+    )
     if v.returncode != 0:
+        # re-place on min output if EM drifted a different ion into "nearest"
+        placed2 = umb / "representative_full_system.replaced.gro"
+        p2 = run(
+            f"python3 {SCRIPTS}/place_ion_at_locked_site.py --gro {final} --manifest {man} "
+            f"--ion-resname {ion_res} --out {placed2}"
+        )
+        if p2.returncode == 0:
+            final.write_bytes(placed2.read_bytes())
+            v = run(
+                f"python3 {SCRIPTS}/validate_bound_start.py --gro {final} --manifest {man} "
+                f"--ion-resname {ion_res}"
+            )
+            out_log.write_text(out_log.read_text() + "\n## replace_after_min\n" + p2.stdout + v.stdout)
+            if v.returncode == 0:
+                return f"{cand}/{ion}\tPASS_ION\tdistance_ok_after_replace"
         return f"{cand}/{ion}\tFAIL_VALIDATE\t{(v.stdout or v.stderr).strip()[:160]}"
     return f"{cand}/{ion}\tPASS_ION\tdistance_ok"
 
 
+def promote_if_both(cand: str) -> str:
+    man = ROOT / "paired_binding_sites" / f"{cand}.tsv"
+    gro = (
+        ROOT
+        / "LiSPER_8cand_LiCl"
+        / "systems"
+        / cand
+        / "gromacs"
+        / "umbrella_sampling"
+        / "representative_full_system.gro"
+    )
+    gro_na = (
+        ROOT
+        / "LiSPER_8cand_NaCl_prod_worker"
+        / "systems"
+        / cand
+        / "gromacs"
+        / "umbrella_sampling"
+        / "representative_full_system.gro"
+    )
+    if not gro.exists() or not gro_na.exists():
+        return f"{cand}/BOTH\tHOLD\twait_both_ions"
+    v_li = run(
+        f"python3 {SCRIPTS}/validate_bound_start.py --gro {gro} --manifest {man} "
+        f"--ion-resname LIT"
+    )
+    v_na = run(
+        f"python3 {SCRIPTS}/validate_bound_start.py --gro {gro_na} --manifest {man} "
+        f"--ion-resname SOD"
+    )
+    if v_li.returncode == 0 and v_na.returncode == 0:
+        v_p = run(
+            f"python3 {SCRIPTS}/validate_bound_start.py --gro {gro} --manifest {man} "
+            f"--ion-resname LIT --promote"
+        )
+        return f"{cand}/BOTH\tPROMOTE\trc={v_p.returncode}\t{(v_p.stdout or '').strip()[:80]}"
+    return f"{cand}/BOTH\tHOLD\tli={v_li.returncode},na={v_na.returncode}"
+
+
 def main():
+    import sys
+
+    only = [a for a in sys.argv[1:] if not a.startswith("-")]
+    cands = only or CANDS
+    ions = ("NaCl",) if only else ("LiCl", "NaCl")
     rows = []
-    for cand in CANDS:
+    for cand in cands:
         ion_ok = {}
-        for ion in ("LiCl", "NaCl"):
+        for ion in ions:
             print(f"## {cand} {ion}", flush=True)
             try:
                 row = prep_one(cand, ion)
@@ -245,29 +374,14 @@ def main():
             print(row, flush=True)
             rows.append(row)
             ion_ok[ion] = row.split("\t")[1] == "PASS_ION"
-        if ion_ok.get("LiCl") and ion_ok.get("NaCl"):
-            man = ROOT / "paired_binding_sites" / f"{cand}.tsv"
-            gro = (
-                ROOT
-                / "LiSPER_8cand_LiCl"
-                / "systems"
-                / cand
-                / "gromacs"
-                / "umbrella_sampling"
-                / "representative_full_system.gro"
-            )
-            v = run(
-                f"python3 {SCRIPTS}/validate_bound_start.py --gro {gro} --manifest {man} "
-                f"--ion-resname LIT --promote"
-            )
-            row = f"{cand}/BOTH\tPROMOTE\trc={v.returncode}\t{(v.stdout or '').strip()[:80]}"
-        else:
-            row = f"{cand}/BOTH\tHOLD\twait_both_ions"
+        # if only NaCl retry, still check both sides for promote
+        row = promote_if_both(cand)
         print(row, flush=True)
         rows.append(row)
     summary = ROOT / "logs" / "bound_prep" / "summary.tsv"
     summary.parent.mkdir(parents=True, exist_ok=True)
-    summary.write_text("record\n" + "\n".join(rows) + "\n")
+    prev = summary.read_text() if summary.exists() else "record\n"
+    summary.write_text(prev.rstrip() + "\n# retry\n" + "\n".join(rows) + "\n")
     print("SUMMARY", summary, flush=True)
 
 

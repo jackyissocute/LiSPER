@@ -1,2 +1,2 @@
 candidate	site_id	donor_identities	selection_rationale	starting_state_status
-LiDS-1	central_Asp7	7:ASP:OD1,7:ASP:OD2,7:ASP:O,6:GLY:O,8:PRO:O	Central Asp pocket; prevents Li and Na selecting Asp7 versus Asp10.	PROPOSED_REQUIRES_RECONSTRUCTION
+LiDS-1	central_Asp7	7:ASP:OD1,7:ASP:OD2,7:ASP:O,6:GLY:O,8:PRO:O	Central Asp pocket; prevents Li and Na selecting Asp7 versus Asp10.	VALIDATED_BOUND
