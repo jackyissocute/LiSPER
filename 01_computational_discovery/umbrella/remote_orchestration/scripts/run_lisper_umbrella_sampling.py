@@ -344,7 +344,11 @@ def archive_incompatible_pull(pull_dir, expected_rate, expected_config):
     rate = pull_mdp_rate(pull_dir)
     finished = pull_log.exists() and "Finished mdrun" in pull_log.read_text(errors="replace")
     marker_matches = marker.exists() and marker.read_text(errors="replace") == expected_config
-    if finished and marker_matches and rate is not None and abs(rate - expected_rate) <= 1e-7:
+    rate_ok = rate is not None and abs(rate - expected_rate) <= 1e-7
+    # Keep same-protocol unfinished pulls so mdrun can resume from .cpt after steward restarts.
+    if not finished and (rate_ok or rate is None):
+        return None
+    if finished and marker_matches and rate_ok:
         return None
     reason = "failed" if not finished else "superseded"
     stamp = time.strftime("%Y%m%d_%H%M%S")
@@ -446,6 +450,8 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
     input_cpt = run_cpt if run_cpt.exists() else cpt
     cpt_arg = f" -t {input_cpt}" if input_cpt and Path(input_cpt).exists() else ""
     resume_arg = f" -cpi {run_cpt} -append" if run_cpt.exists() else ""
+    # GROMACS pull restart needs explicit -px/-pf with -deffnm (known quirk).
+    pull_out_arg = f" -px {deffnm}_pullx -pf {deffnm}_pullf" if resume_arg else ""
     grompp_log = window_dir / f"{deffnm}.grompp.log"
     grompp_attempts = []
     for topology in topology_candidates():
@@ -461,7 +467,7 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
         return "grompp_failed"
     code = run_mdrun_with_global_limit(
         f"{GMX_ENV} && OMP_NUM_THREADS={nt} "
-        f"gmx mdrun -deffnm {deffnm}{resume_arg} -ntmpi 1 -ntomp {nt}",
+        f"gmx mdrun -deffnm {deffnm}{resume_arg}{pull_out_arg} -ntmpi 1 -ntomp {nt}",
         cwd=window_dir,
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
     )
