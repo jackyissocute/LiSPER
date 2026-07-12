@@ -17,4 +17,4 @@ Legacy dynamic-nearest-site umbrella (`umbrella_sampling_binding_site_v2` and it
 
 Do not relaunch archived QuickPod resume/watchdog stubs (Jacky `ARCHIVE/legacy_ops_docs_20260712/umbrella_scripts/`) for mismatched-site windows.
 
-Next authorized compute: reconstruct/validate bound starts → mark `VALIDATED_BOUND` → locked-site umbrella pilot (**LiLC-1** first).
+Next authorized compute: locked-site umbrella pilot (**LiLC-1** first). Bound starts are **8/8 `VALIDATED_BOUND`**; do **not** fan remaining candidates until LiLC-1 paired WHAM QC = PASS.
