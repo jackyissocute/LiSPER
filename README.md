@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 00:26 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). LiDA-1 and LiDS-1 completed both pulls; 12 pulls plus 40 one-thread window-equilibration jobs now use 52 real `mdrun` processes and 124/124 computational threads. The 12 active pulls span 46.6–71.1%, all 52 sampled jobs advanced, and no current fatal/SETTLE/LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 00:37 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). LiDA-1 and LiDS-1 completed both pulls; 12 pulls plus 40 one-thread window-equilibration jobs use 52 real `mdrun` processes and 124/124 computational threads. The 12 active pulls span 52.3–79.7%, and no current fatal/SETTLE/LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 00:26 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 00:37 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -292,17 +292,17 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>running</code></strong><br><sub>12 pulls + 40 one-thread window equilibrations</sub></td>
-      <td>Complete pulls → 0.5 ns window equilibration → 2.0 ns production across all paired campaigns.</td>
+      <td align="center"><strong><code>~7.1 days</code></strong><br><sub>median measured-rate schedule</sub></td>
+      <td>Remaining pulls finish around 02:20 CST; 480 windows then complete 0.5 ns equilibration + 2.0 ns production under the shared 124-thread gate.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>hours after windows</code></strong><br><sub>WHAM + radial correction + numerical diagnostics</sub></td>
+      <td align="center"><strong><code>~4 h after windows</code></strong><br><sub>WHAM + diagnostics + publish</sub></td>
       <td>Generate each paired PMF estimate and report overlap, time sensitivity, and uncertainty without invented thresholds.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>after paired WHAM</code></strong><br><sub>all eight candidate pairs are already in the compute queue</sub></td>
+      <td align="center"><strong><code>2026-07-21 ~08:00 CST</code></strong><br><sub>planning band 01:00–11:00 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
