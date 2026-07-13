@@ -43,7 +43,7 @@ Track A is the direct molecular test of the computational predictions. Track B i
 
 | Track | Folder | Scientific question | Evidence type |
 |---|---|---|---|
-| **Track A: Ordered synthetic peptide binding** | [`track_A_purified_peptide/`](track_A_purified_peptide/) | Do the designed LiSPER peptides bind Li+ selectively over Na+, and do experiments agree with PMF ranking? | Molecular-recognition and computational-validation evidence |
+| **Track A: Ordered synthetic peptide binding** | [`track_A_purified_peptide/`](track_A_purified_peptide/) | Do the designed LiSPER peptides bind Li+ selectively over Na+, and do experiments agree with alchemical free-energy ranking? | Molecular-recognition and computational-validation evidence |
 | **Track B: Surface-display engineering** | [`track_B_surface_display/`](track_B_surface_display/) | Can top LiSPER peptides become a bacterial surface capture material for Li+ uptake, release, and reuse? | Biological-deployment and engineering evidence |
 
 Track A is essential for proving the peptide sequence itself has measurable Li/Na behavior. Track B is essential for testing whether that molecular behavior survives on a bacterial surface and can support lithium capture/recycling.
@@ -59,7 +59,7 @@ computationally ranked peptide
 -> ordered synthetic peptide
 -> direct Li/Na binding assay
 -> experimental ranking
--> comparison with PMF ranking
+-> comparison with alchemical free-energy ranking
 ```
 
 Track A starts from vendor-ordered synthetic LiSPER peptides. The goal is to generate direct binding statistics before committing months of work to surface-display plasmids and bacterial assays.
@@ -68,7 +68,7 @@ Track A starts from vendor-ordered synthetic LiSPER peptides. The goal is to gen
 
 - The LiSPER peptide sequence itself can bind Li+.
 - Li binding can exceed Na binding under controlled conditions.
-- Computational PMF rankings can be checked against direct experimental binding data.
+- Computational alchemical free-energy rankings can be checked against direct experimental binding data.
 
 ### What Track A Does Not Prove
 
@@ -169,8 +169,8 @@ Therefore Track B requires matched controls: non-displaying cells, empty eCPX sc
 | Publication value | High for validating the computational workflow | High for synthetic biology, biotechnology, and Bio-DLE translation |
 | Technical difficulty | Moderate if peptides are ordered and ICP/assay access is available | Moderate-high |
 | Cost drivers | Peptide synthesis (GenScript/China vendor), purity/QC, ICP or ion assay | Plasmids, antibodies, flow cytometry, ICP, cell controls |
-| Main risk | Weak signal, assay background, or poor correlation with PMF | Background cell/scaffold binding mistaken for LiSPER binding |
-| Reviewer acceptance | Strong if peptide identity, purity, controls, and PMF comparison are clear | Strong if display, scaffold, tag, cell, and regeneration controls are rigorous |
+| Main risk | Weak signal, assay background, or poor correlation with free-energy predictions | Background cell/scaffold binding mistaken for LiSPER binding |
+| Reviewer acceptance | Strong if peptide identity, purity, controls, and free-energy comparison are clear | Strong if display, scaffold, tag, cell, and regeneration controls are rigorous |
 | Best first subset | `LiA3-Ref` plus all ordered candidates or a top computational subset | Empty scaffold, `LiA3-Ref`, top 2-3 peptide hits |
 | Key readout | Li/Na binding and experimental-vs-computational ranking | Whole-cell Li/Na uptake normalized by biomass and display level |
 
@@ -180,8 +180,8 @@ Therefore Track B requires matched controls: non-displaying cells, empty eCPX sc
 
 | Evidence layer | Experiment | What it proves | What it does not prove |
 |---|---|---|---|
-| Computational evidence | ESMFold, MD, clustering, umbrella sampling, PMF | Candidates have rational Li/Na selectivity hypotheses and rankable predictions. | Real binding occurs experimentally. |
-| Track A evidence | Ordered synthetic peptide Li/Na assays compared with PMF ranking | Peptide sequence itself can recognize Li+ preferentially over Na+, and computation has experimental support. | Surface display or industrial deployment works. |
+| Computational evidence | ESMFold, MD, clustering, alchemical free-energy | Candidates have rational Li/Na selectivity hypotheses and rankable predictions. | Real binding occurs experimentally. |
+| Track A evidence | Ordered synthetic peptide Li/Na assays compared with alchemical free-energy ranking | Peptide sequence itself can recognize Li+ preferentially over Na+, and computation has experimental support. | Surface display or industrial deployment works. |
 | Track B evidence | eCPX display, surface verification, whole-cell Li/Na capture, optimization, reuse | LiSPER can function on a biological surface as a capture material. | Binding is solely peptide-intrinsic without scaffold/cell contribution. |
 | Future immobilized evidence | Peptide on beads/resin, packed-bed testing | LiSPER can become a reusable capture material. | Mechanism is identical to Track A or Track B. |
 
@@ -206,7 +206,7 @@ Track B addresses:
 Together:
 
 ```text
-Track A validates LiSPER as a molecular recognition element and tests whether PMF ranking is predictive.
+Track A validates LiSPER as a molecular recognition element and tests whether alchemical free-energy ranking is predictive.
 Track B validates LiSPER as a biological deployment interface and optimization platform.
 Together, they connect computational design to mechanism, assay evidence, and application.
 ```
@@ -217,7 +217,7 @@ Together, they connect computational design to mechanism, assay evidence, and ap
 
 | Gate | Advance if | Redirect if |
 |---|---|---|
-| Computational to Track A | Candidate has plausible structure/PMF behavior and can be ordered as a peptide. | Redesign sequence, reduce candidate set, or deprioritize. |
+| Computational to Track A | Candidate has plausible structure/free-energy behavior and can be ordered as a peptide. | Redesign sequence, reduce candidate set, or deprioritize. |
 | Track A to molecular claim | Ordered peptide identity/purity is acceptable and Li/Na selectivity exceeds controls. | Troubleshoot assay background, peptide solubility, or detection method. |
 | Track A to Track B | Synthetic peptide data identifies top candidates and controls for display. | Delay plasmid design until peptide statistics are interpretable. |
 | Track B to deployment research | Displayed cells show Li selectivity above scaffold/cell controls and retain function under useful conditions. | Revise tag/linker/scaffold, cell format, or assay conditions. |
@@ -230,7 +230,7 @@ Together, they connect computational design to mechanism, assay evidence, and ap
 A strong manuscript package would include:
 
 - computational candidate-design rationale,
-- MD/PMF ranking for Li+ vs Na+,
+- MD/alchemical free-energy ranking for Li+ vs Na+,
 - Track A ordered-peptide Li/Na data for candidates plus `LiA3-Ref`,
 - experimental-vs-computational ranking comparison,
 - Track B surface-display evidence for top peptide hits plus empty scaffold and `LiA3-Ref`,

@@ -5,7 +5,7 @@ Dated summaries of project progress, decision points, and reviewer-facing checkp
 Use this folder for short milestone notes such as:
 
 - candidate library freeze decisions,
-- MD or PMF completion summaries,
+- MD or alchemical free-energy completion summaries,
 - wet-lab validation readiness checkpoints,
 - manuscript or presentation submission snapshots.
 

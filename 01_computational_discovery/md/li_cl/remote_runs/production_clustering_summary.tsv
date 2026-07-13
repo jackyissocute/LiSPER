@@ -1,3 +1,0 @@
-candidate_id	production_status	cluster_status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	production_wall_s	production_ns_per_day	production_hour_per_ns	production_finished_at	production_dir	cluster_dir
-LiDA-1	produced	clustered	1	353	17.64	162909.747	10.607	2.263	Sat Jun 20 15:01:03 2026	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/run_prod_20ns	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDA-1/gromacs/cluster_20ns
-LiDS-1	produced	clustered	1	314	15.69	235370.534	7.342	3.269	Sun Jun 21 11:08:44 2026	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_prod_20ns	/root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/cluster_20ns

@@ -19,6 +19,6 @@ flowchart TD
     results --> validation
 ```
 
-Use this folder for publication-style organization. Keep raw analysis and trajectories in `../../01_computational_discovery/analysis/`, `../../01_computational_discovery/md/`, `../../01_computational_discovery/umbrella/`, and `../../01_computational_discovery/pmf/`.
+Use this folder for publication-style organization. Keep raw analysis and trajectories in `../../01_computational_discovery/analysis/`, `../../01_computational_discovery/md/`, and `../../01_computational_discovery/free_energy/`.
 
 Decks and milestone summaries belong one level up in `../presentations/` and `../milestones/`.

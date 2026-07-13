@@ -62,7 +62,7 @@ Negative evidence:
 
 ## Computational Comparison
 
-Build an experimental rank table and compare with PMF / ΔΔG rank. Useful outcomes:
+Build an experimental rank table and compare with alchemical ΔΔG rank. Useful outcomes:
 
 - strong agreement,
 - partial agreement with explainable outliers,

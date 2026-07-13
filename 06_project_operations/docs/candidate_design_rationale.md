@@ -61,7 +61,7 @@ More negative Delta Delta G values indicate stronger lithium preference.
 
 | Observation | Possible Meaning |
 |---|---|
-| Strong Li+ PMF, weak Na+ PMF | Desired lithium selectivity |
-| Strong Li+ and strong Na+ PMFs | Nonspecific ion binding risk |
-| Weak Li+ and weak Na+ PMFs | Poor binder or useful low-donor reference behavior |
+| More favorable Li+ binding free energy than Na+ | Desired lithium selectivity |
+| Favorable Li+ and Na+ binding free energies | Nonspecific ion binding risk |
+| Unfavorable Li+ and Na+ binding free energies | Poor binder or useful low-donor reference behavior |
 | Low top-cluster population | Highly disordered ensemble; may require multiple representatives |

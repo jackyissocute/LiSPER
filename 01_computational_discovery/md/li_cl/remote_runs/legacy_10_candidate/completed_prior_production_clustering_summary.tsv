@@ -1,7 +1,0 @@
-candidate_id	production_status	cluster_status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	production_wall_s	production_ns_per_day	production_hour_per_ns	production_finished_at	production_dir	cluster_dir
-LiD3-1	produced	trjconv_failed				90092.382	19.180	1.251	Mon Jun 15 04:48:55 2026		
-LiND-1	grompp_failed										
-IDP-Li-1	produced	trjconv_failed				49678.497	34.784	0.690	Mon Jun 15 18:36:57 2026		
-IDP-Li-2	grompp_failed										
-LowCharge-Li	grompp_failed										
-LiD2-IDP	grompp_failed										

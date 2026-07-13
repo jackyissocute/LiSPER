@@ -1,2 +1,0 @@
-candidate	site_lock_id	rule	status	bound_min_nm	bound_max_nm	ref_min_nm	ref_max_nm
-LiLC-1	terminal_Asp14	shared_start_to_bound_cutoff__final_shared_non_guard_reference	RETIRED_HEURISTIC_DO_NOT_USE	0.4442	0.5500	2.0724	2.3724

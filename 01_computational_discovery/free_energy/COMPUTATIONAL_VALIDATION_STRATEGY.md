@@ -1,7 +1,7 @@
 # LiSPER computational validation strategy
 
-Status: method redesign. Historical docking, PMF, and heuristic QC values are
-not evidence for the claims below.
+Status: active method definition. Only calculations tied to the declared
+estimands and provenance below can support the final table.
 
 ## Claims and estimands
 

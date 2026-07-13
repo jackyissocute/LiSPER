@@ -1,2 +1,0 @@
-candidate_id	production_status	cluster_status	top_cluster_id	top_cluster_frames	top_cluster_population_percent	production_wall_s	production_ns_per_day	production_hour_per_ns	production_finished_at	production_dir	cluster_dir
-LiN3-Core	produced	clustered	1	229	11.44	15096.854	2.714	8.843	Tue Jun 30 09:03:10 2026	/mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/run_prod_20ns	/mnt/lisper_data/LiSPER_remote/LiSPER_8cand_NaCl_overflow_workerA/systems/LiN3-Core/gromacs/cluster_20ns

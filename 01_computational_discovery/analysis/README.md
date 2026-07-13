@@ -1,32 +1,10 @@
 # Analysis
 
-Working area for notebooks, exploratory calculations, intermediate tables, and result interpretation.
+Final tables belong here only after the corresponding estimator is complete:
 
-## Analysis Flow
+- `binding_free_energy.tsv`: standard-state Li and Na binding free energies;
+- `selectivity.tsv`: `DeltaG_bind_Li - DeltaG_bind_Na` with uncertainty;
+- `mechanism.tsv`: coordination and state-population evidence, kept separate
+  from thermodynamic claims.
 
-```mermaid
-flowchart TD
-    accTitle: Analysis Evidence Flow
-    accDescr: Analysis starts from MD trajectories, summarizes structural clusters, selects representative structures, and supports Li over Na ranking.
-
-    trajectories["MD<br/>trajectories"]
-    clusters["Clustering<br/>summaries"]
-    representatives["Representative<br/>structures"]
-    pmf_outputs["Umbrella and<br/>PMF outputs"]
-    ranking["Li/Na<br/>ranking"]
-
-    trajectories --> clusters
-    clusters --> representatives
-    representatives --> pmf_outputs
-    pmf_outputs --> ranking
-```
-
-## Expected Contents
-
-| Type | Example |
-|---|---|
-| Notebooks | trajectory inspection, PMF convergence, ranking plots |
-| Intermediate tables | cluster populations, RMSD/RMSF, contact summaries |
-| Exploratory scripts | one-off analysis before promotion to `../../06_project_operations/scripts/` |
-
-Promote repeatable analysis code to `../../06_project_operations/scripts/` once the workflow stabilizes.
+There are currently no accepted peptide rows.

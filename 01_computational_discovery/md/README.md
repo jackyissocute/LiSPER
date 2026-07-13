@@ -1,23 +1,13 @@
-# Molecular Dynamics
+# Molecular-system inputs
 
-MD stage for the 8-candidate library: min → eq → 20 ns prod → clustering → representative handoff.
+This tree retains eight complete original CHARMM-GUI Solution Builder exports
+for the LiCl systems. The NaCl tree contains incomplete source fragments only;
+all eight NaCl exports must be restored before paired production.
 
-## Status (2026-07-12)
+The modeled peptides are free and uncapped: the N terminus is NH3+ and the C
+terminus is COO-. These terminal groups are part of the modeled chemical
+species and must match the synthetic peptide used in wet experiments.
 
-| Condition | State |
-|---|---|
-| LiCl | Complete — 8/8 production + reps |
-| NaCl | Clustering done; lean Mac sync (some topols restored from Jacky seeds) |
-| Free energy | Locked-site restart — see `../umbrella/PREFLIGHT_RUNBOOK.md` |
-
-Fat trajectories / rebuild seeds: Jacky `ACTIVE/seeds/` (`../STORAGE_LAYOUT.md`).  
-Paths / next CPU: `remote_orchestration/SYNC_PATHS.md` (**EPYC 9554P**).
-
-## Layout
-
-| Path | Role |
-|---|---|
-| `li_cl/` `na_cl/` | Per-ion remote_runs (logs) + remote_results (lean systems) |
-| `remote_orchestration/` | MD drivers + `SYNC_PATHS.md` |
-
-Umbrella / WHAM live in sibling folders `../umbrella/` and `../pmf/`.
+No derived trajectory or clustering result in this tree is an accepted
+binding or selectivity result. New calculations are owned by `../free_energy/`
+and must use a fully pinned topology and force-field provenance.

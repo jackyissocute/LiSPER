@@ -11,7 +11,7 @@ The updated wet-lab logic is:
 ```text
 ordered synthetic peptide binding assay
 ↓
-experimental Li/Na ranking and PMF comparison
+experimental Li/Na ranking and free-energy comparison
 ↓
 top 2-3 candidates plus controls
 ↓

@@ -1,9 +1,0 @@
-candidate_id	status	repairs	run_dir
-LiA3-Ref	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiA3-Ref/gromacs/run_min
-LiD3-Core	minimized	attempt0:atom850:remove_neighbor_water:14315:OH2:dist=0.0101;target=302:OH2:TIP3 14722->14721;attempt1:atom4754:remove_neighbor_water:10120:H1:dist=0.0926;target=1603:H1:TIP3 14721->14720	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiD3-Core/gromacs/run_min
-LiD3-Flex	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiD3-Flex/gromacs/run_min
-LiDA-1	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDA-1/gromacs/run_min
-LiDS-1	minimized	attempt0:atom26634:remove_neighbor_water:335:H1:dist=0.0728;target=8890:H1:TIP3 9681->9680	/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiDS-1/gromacs/run_min
-LiLC-1	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiLC-1/gromacs/run_min
-LiND-Hybrid	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl/systems/LiND-Hybrid/gromacs/run_min
-LiN3-Core	minimized		/root/LiSPER_remote/LiSPER_8cand_NaCl_addon_LiN3Core/systems/LiN3-Core/gromacs/run_min
