@@ -1,0 +1,9 @@
+candidate	site_id	donor_identities	rationale
+LiD3-Core	central_Asp9	9:ASP:OD1,9:ASP:OD2,9:ASP:O,8:GLY:O,10:PRO:O	Central GPGDP repeat; fixes the same Asp-centered pocket in both ions.
+LiD3-Flex	central_Asp11	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O	Central Asp repeat avoids condition-specific terminal pockets.
+LiND-Hybrid	central_Asp11	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O	Design-intended central acidic site in the mixed Asp/Asn sequence.
+LiLC-1	terminal_Asp14	14:ASP:OD1,14:ASP:OD2,14:ASP:O,13:GLY:O,12:SER:O	Five-donor physical site already shared by both condition representatives.
+LiDS-1	central_Asp7	7:ASP:OD1,7:ASP:OD2,7:ASP:O,6:GLY:O,8:PRO:O	Central Asp pocket; prevents Li and Na selecting Asp7 versus Asp10.
+LiDA-1	central_Asp7_Asp9	7:ASP:OD1,7:ASP:OD2,9:ASP:OD1,9:ASP:OD2	Design-intended central paired-Asp pocket observed in the Li representative.
+LiN3-Core	central_Asn9	9:ASN:OD1,9:ASN:O,8:GLY:O,10:PRO:O	Central GPGNP repeat; avoids ion-dependent terminal Asn selection.
+LiA3-Ref	central_Ala9_backbone	9:ALA:O,8:GLY:O,10:PRO:O	Central low-donor backbone control site with no side-chain oxygen.

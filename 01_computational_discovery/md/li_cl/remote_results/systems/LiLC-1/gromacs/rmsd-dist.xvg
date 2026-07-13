@@ -1,0 +1,118 @@
+# This file was created Tue Jun 23 06:30:55 2026
+# Created by:
+#               :-) GROMACS - gmx cluster, 2026.0-conda_forge (-:
+# 
+# Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+# Data prefix:  /root/miniconda3/envs/lisper-gmx
+# Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs
+# Command line:
+#   gmx cluster -s /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/final_solu_reference.gro -f /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/production_20ns_solu_centered.xtc -method gromos -cutoff 0.200 -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/clusters.xpm -g /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/cluster.log -sz /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/cluster_size.xvg -clid /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/cluster_id.xvg -cl /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/cluster_20ns/representative_top_cluster.pdb
+# gmx cluster is part of G R O M A C S:
+#
+# Gravel Rubs Often Many Awfully Cauterized Sores
+#
+@    title "RMS Distribution"
+@    xaxis  label "RMS (nm)"
+@    yaxis  label "counts"
+@TYPE xy
+         0           0
+  0.009803           0
+  0.019606           0
+  0.029409           0
+  0.039212           0
+  0.049015           0
+  0.058818           0
+  0.068621           2
+  0.078424          10
+  0.088227          44
+   0.09803          97
+  0.107833         204
+  0.117636         358
+  0.127439         542
+  0.137242         778
+  0.147045        1066
+  0.156848        1383
+  0.166651        1781
+  0.176454        2308
+  0.186257        3045
+   0.19606        3725
+  0.205863        4644
+  0.215666        5700
+  0.225469        7051
+  0.235272        8522
+  0.245075        9938
+  0.254878       11551
+  0.264681       13122
+  0.274484       15138
+  0.284287       17285
+   0.29409       19495
+  0.303893       21557
+  0.313696       24024
+  0.323499       26364
+  0.333302       28889
+  0.343105       31638
+  0.352908       34790
+  0.362711       37575
+  0.372514       41160
+  0.382317       45181
+   0.39212       48955
+  0.401923       53141
+  0.411726       56947
+  0.421529       61832
+  0.431332       65125
+  0.441135       69159
+  0.450938       72540
+  0.460741       75210
+  0.470544       77334
+  0.480347       78859
+   0.49015       78681
+  0.499953       77721
+  0.509756       76132
+  0.519559       72756
+  0.529362       68716
+  0.539165       64322
+  0.548968       58630
+  0.558771       53928
+  0.568574       48294
+  0.578377       42748
+   0.58818       37364
+  0.597983       32869
+  0.607786       28342
+  0.617589       24860
+  0.627392       21189
+  0.637195       18835
+  0.646998       15823
+  0.656801       13599
+  0.666604       11593
+  0.676407        9693
+   0.68621        8835
+  0.696013        7508
+  0.705816        6555
+  0.715619        5623
+  0.725422        5070
+  0.735225        4472
+  0.745028        4069
+  0.754831        3493
+  0.764634        3217
+  0.774437        2974
+   0.78424        2569
+  0.794043        2329
+  0.803846        1978
+  0.813649        1618
+  0.823452        1464
+  0.833255        1190
+  0.843058         952
+  0.852861         720
+  0.862664         576
+  0.872467         478
+   0.88227         357
+  0.892073         253
+  0.901876         167
+  0.911679         123
+  0.921482          85
+  0.931285          72
+  0.941088          35
+  0.950891          33
+  0.960694          13
+  0.970497           4
+    0.9803           4

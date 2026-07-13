@@ -11,7 +11,7 @@ No Track A plasmids. No bacterial culture or in-house peptide production.
 Track A has two connected goals:
 
 1. Test whether designed LiSPER peptides show measurable Li+/Na+ selectivity in solution.
-2. Test whether computational ranking from MD/alchemical free-energy predicts experimental binding and selectivity trends.
+2. Test whether computational ranking from MD/PMF predicts experimental binding and selectivity trends.
 
 This makes Track A both a molecular-recognition experiment and a validation test for the computational discovery pipeline.
 
@@ -29,7 +29,7 @@ flowchart TD
     na_assay["Na-only<br/>binding"]
     competition["Li+Na<br/>competition"]
     statistics["Binding and<br/>selectivity statistics"]
-    pmf_compare["Compare with<br/>alchemical free-energy ranking"]
+    pmf_compare["Compare with<br/>PMF ranking"]
     display_hits["Top candidates<br/>for surface display"]
 
     candidates --> vendor
@@ -95,7 +95,7 @@ Use `../ordering/vendor_peptide_order_checklist.md` as the order checklist. Key 
 | Na binding signal | nonspecific sodium binding risk |
 | Li/Na selectivity ratio | main experimental selectivity claim |
 | Experimental rank | observed peptide performance order |
-| Free-energy rank agreement | computational workflow reliability |
+| PMF rank agreement | computational workflow reliability |
 | Candidate advancement score | whether the peptide should enter Track B |
 
 ## Computational Validation Logic
@@ -109,12 +109,12 @@ Does any peptide bind Li+?
 The stronger question is:
 
 ```text
-Do experimentally measured Li/Na trends agree with computational alchemical free-energy ranking?
+Do experimentally measured Li/Na trends agree with computational PMF ranking?
 ```
 
 A useful result can be:
 
-- strong agreement between alchemical free-energy ranking and assay ranking,
+- strong agreement between PMF ranking and assay ranking,
 - partial agreement with explainable outliers,
 - failure of a specific design feature, which guides redesign.
 
@@ -142,7 +142,7 @@ optional positive LBP reference
 
 The final Track A output should include:
 
-| Candidate | free-energy prediction | Li binding | Na binding | Li/Na selectivity | Rank agreement | Track B decision |
+| Candidate | PMF prediction | Li binding | Na binding | Li/Na selectivity | Rank agreement | Track B decision |
 |---|---:|---:|---:|---:|---|---|
 | Candidate 1 | high | measured | measured | calculated | agree/disagree | advance/defer |
 | Candidate 2 | medium | measured | measured | calculated | agree/disagree | advance/defer |

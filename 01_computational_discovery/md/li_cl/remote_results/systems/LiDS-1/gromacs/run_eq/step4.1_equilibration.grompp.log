@@ -1,0 +1,63 @@
+                :-) GROMACS - gmx grompp, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs
+Command line:
+  gmx grompp -f step4.1_equilibration.mdp -o /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_eq/step4.1_equilibration.tpr -c /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_min/step4.0_minimization.gro -r /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_min/step3_input_cleaned.gro -p /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/topol.top -n /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiDS-1/gromacs/run_eq/index_clean.ndx -maxwarn 1
+
+Generating 1-4 interactions: fudge = 1
+Number of degrees of freedom in T-Coupling group SOLU is 292.00
+Number of degrees of freedom in T-Coupling group SOLV is 58251.00
+
+NOTE 1 [file step4.1_equilibration.mdp]:
+  Removing center of mass motion in the presence of position restraints
+  might cause artifacts. When you are using position restraints to
+  equilibrate a macro-molecule, the artifacts are usually negligible.
+
+
+There was 1 NOTE
+
+GROMACS reminds you: "gmx fellowship-writing -g grant_name -s protein_structure_involved -o output -m method_used -p list_of_pi" (Tanadet Pipatpolkai, while discussing new features for GROMACS)
+
+Setting the LD random seed to -2101313
+
+Generated 252 of the 253 non-bonded parameter combinations
+
+Generated 91 of the 253 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'PROA'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'LIT'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CLA'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'TIP3'
+
+turning H bonds into constraints...
+
+Setting gen_seed to -28835845
+
+Velocities were taken from a Maxwell distribution at 298.15 K
+
+The largest distance between excluded atoms is 0.392 nm between atom 102 and 105
+
+Determining Verlet buffer for a tolerance of 0.005 kJ/mol/ps at 298.15 K
+
+Calculated rlist for 1x1 atom pair-list as 1.238 nm, buffer size 0.038 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.200 nm, buffer size 0.000 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 64x64x64, spacing 0.116 0.116 0.116
+
+Estimate for the relative computational load of the PME mesh part: 0.20
+
+This run will generate roughly 6 Mb of data

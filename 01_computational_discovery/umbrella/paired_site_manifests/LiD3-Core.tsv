@@ -1,0 +1,2 @@
+candidate	site_id	donor_identities	selection_rationale	starting_state_status
+LiD3-Core	central_Asp9	9:ASP:OD1,9:ASP:OD2,9:ASP:O,8:GLY:O,10:PRO:O	Central GPGDP repeat; fixes the same Asp-centered pocket in both ions.	VALIDATED_BOUND

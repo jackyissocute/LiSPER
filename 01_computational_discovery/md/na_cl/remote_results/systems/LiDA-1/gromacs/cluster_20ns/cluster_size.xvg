@@ -1,0 +1,104 @@
+# This file was created Sun Jun 21 09:37:56 2026
+# Created by:
+#               :-) GROMACS - gmx cluster, 2026.0-conda_forge (-:
+# 
+# Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+# Data prefix:  /root/miniconda3/envs/lisper-gmx
+# Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs
+# Command line:
+#   gmx cluster -s /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/final_solu_reference.gro -f /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/production_20ns_solu_centered.xtc -method gromos -cutoff 0.2 -o /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/clusters.xpm -g /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster.log -cl /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/representative_top_cluster.pdb -clid /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster_id.xvg -sz /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster_size.xvg
+# gmx cluster is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "Cluster Sizes"
+@    xaxis  label "Cluster #"
+@    yaxis  label "# Structures"
+@TYPE xy
+@g0 type bar
+       1      359
+       2      136
+       3      106
+       4      100
+       5       99
+       6       83
+       7       73
+       8       71
+       9       69
+      10       68
+      11       48
+      12       46
+      13       42
+      14       42
+      15       39
+      16       32
+      17       31
+      18       28
+      19       28
+      20       27
+      21       25
+      22       24
+      23       23
+      24       22
+      25       22
+      26       21
+      27       19
+      28       18
+      29       16
+      30       15
+      31       14
+      32       13
+      33       13
+      34       11
+      35       11
+      36       10
+      37       10
+      38        9
+      39        9
+      40        8
+      41        8
+      42        8
+      43        8
+      44        8
+      45        7
+      46        7
+      47        7
+      48        6
+      49        6
+      50        6
+      51        5
+      52        5
+      53        5
+      54        5
+      55        5
+      56        4
+      57        4
+      58        4
+      59        4
+      60        4
+      61        4
+      62        3
+      63        3
+      64        3
+      65        3
+      66        2
+      67        2
+      68        2
+      69        2
+      70        2
+      71        2
+      72        2
+      73        2
+      74        1
+      75        1
+      76        1
+      77        1
+      78        1
+      79        1
+      80        1
+      81        1
+      82        1
+      83        1
+      84        1
+      85        1
+      86        1

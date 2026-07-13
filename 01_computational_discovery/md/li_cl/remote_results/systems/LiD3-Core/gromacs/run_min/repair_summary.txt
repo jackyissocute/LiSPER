@@ -1,0 +1,1 @@
+attempt0:atom4808:remove_neighbor_water:10110:H1:dist=0.0844;target=1621:H1:TIP3 14738->14737

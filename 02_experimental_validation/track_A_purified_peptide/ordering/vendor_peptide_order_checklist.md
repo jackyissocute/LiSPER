@@ -23,10 +23,10 @@ Track A peptides are purchased as finished synthetic peptides. Do not order plas
 If budget is limited:
 
 1. Always order `LiA3-Ref`.
-2. Order current top computational subset first (after alchemical free-energy ranking is ready).
+2. Order current top computational subset first (after PMF ranking is ready).
 3. Fill remaining candidates when funds allow.
 
-If budget allows, order all 8 candidates in one batch for a full experimental-versus-free-energy rank comparison.
+If budget allows, order all 8 candidates in one batch for a full experimental-vs-PMF rank comparison.
 
 ## Vendor Questions To Confirm In Writing
 

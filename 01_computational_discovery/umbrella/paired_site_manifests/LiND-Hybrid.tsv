@@ -1,0 +1,2 @@
+candidate	site_id	donor_identities	selection_rationale	starting_state_status
+LiND-Hybrid	central_Asp11	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O	Design-intended central acidic site in the mixed Asp/Asn sequence.	VALIDATED_BOUND

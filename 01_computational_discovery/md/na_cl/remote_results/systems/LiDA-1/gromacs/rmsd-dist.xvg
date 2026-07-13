@@ -1,0 +1,118 @@
+# This file was created Sun Jun 21 09:37:56 2026
+# Created by:
+#               :-) GROMACS - gmx cluster, 2026.0-conda_forge (-:
+# 
+# Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+# Data prefix:  /root/miniconda3/envs/lisper-gmx
+# Working dir:  /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs
+# Command line:
+#   gmx cluster -s /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/final_solu_reference.gro -f /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/production_20ns_solu_centered.xtc -method gromos -cutoff 0.2 -o /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/clusters.xpm -g /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster.log -cl /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/representative_top_cluster.pdb -clid /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster_id.xvg -sz /root/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/cluster_20ns/cluster_size.xvg
+# gmx cluster is part of G R O M A C S:
+#
+# Green Red Orange Magenta Azure Cyan Skyblue
+#
+@    title "RMS Distribution"
+@    xaxis  label "RMS (nm)"
+@    yaxis  label "counts"
+@TYPE xy
+         0           0
+0.00954307           0
+ 0.0190861           0
+ 0.0286292           0
+ 0.0381723           0
+ 0.0477153           2
+ 0.0572584          12
+ 0.0668015          31
+ 0.0763445          87
+ 0.0858876         179
+ 0.0954307         355
+  0.104974         660
+  0.114517        1133
+   0.12406        1835
+  0.133603        3009
+  0.143146        4587
+  0.152689        6760
+  0.162232        9228
+  0.171775       12187
+  0.181318       15408
+  0.190861       18505
+  0.200404       21315
+  0.209947       24293
+  0.219491       26734
+  0.229034       29610
+  0.238577       31264
+   0.24812       33712
+  0.257663       35561
+  0.267206       37292
+  0.276749       39087
+  0.286292       41194
+  0.295835       43025
+  0.305378       45568
+  0.314921       48207
+  0.324464       50953
+  0.334007       54125
+   0.34355       56750
+  0.353093       58428
+  0.362637       59562
+   0.37218       60151
+  0.381723       60305
+  0.391266       60102
+  0.400809       59995
+  0.410352       59104
+  0.419895       57515
+  0.429438       56192
+  0.438981       53572
+  0.448524       51407
+  0.458067       48282
+   0.46761       45072
+  0.477153       41777
+  0.486696       38614
+  0.496239       35273
+  0.505782       32858
+  0.515326       30058
+  0.524869       27822
+  0.534412       25425
+  0.543955       23454
+  0.553498       21580
+  0.563041       20064
+  0.572584       18473
+  0.582127       17104
+   0.59167       16322
+  0.601213       15635
+  0.610756       14621
+  0.620299       13981
+  0.629842       13498
+  0.639385       12707
+  0.648929       12163
+  0.658472       11766
+  0.668015       11017
+  0.677558       10539
+  0.687101        9916
+  0.696644        9116
+  0.706187        8388
+   0.71573        7735
+  0.725273        7074
+  0.734816        6339
+  0.744359        6035
+  0.753902        5587
+  0.763445        5303
+  0.772988        4947
+  0.782531        4711
+  0.792075        4446
+  0.801618        4532
+  0.811161        4343
+  0.820704        4063
+  0.830247        3709
+   0.83979        3371
+  0.849333        3247
+  0.858876        2919
+  0.868419        2487
+  0.877962        1924
+  0.887505        1487
+  0.897048        1000
+  0.906591         632
+  0.916134         336
+  0.925677         164
+   0.93522          66
+  0.944764          14
+  0.954307           3

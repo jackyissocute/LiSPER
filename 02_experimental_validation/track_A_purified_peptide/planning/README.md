@@ -11,12 +11,12 @@ No plasmid design and no bacterial peptide production in this track.
 ```mermaid
 flowchart TD
     accTitle: Ordered Peptide Validation
-    accDescr: Track A orders synthetic peptides, measures Li and Na binding, compares with alchemical free-energy ranking, and selects Track B candidates.
+    accDescr: Track A orders synthetic peptides, measures Li and Na binding, compares with PMF ranking, and selects Track B candidates.
 
     computational["Computational<br/>ranking"]
     order["Order peptides<br/>from vendor"]
     assay["Direct Li/Na<br/>binding assays"]
-    compare["Compare with<br/>alchemical free-energy ranking"]
+    compare["Compare with<br/>PMF ranking"]
     select["Select top<br/>display candidates"]
 
     computational --> order

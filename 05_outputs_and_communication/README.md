@@ -50,7 +50,7 @@ flowchart TD
 | Final or editable figure | Yes | `figures/` |
 | Progress-report deck | Yes | `presentations/` |
 | DKU reviewer or advisor summary | Yes | `milestones/` or `presentations/` |
-| Raw trajectory, structure, or free-energy data | No | `../01_computational_discovery/` |
+| Raw trajectory, structure, or PMF data | No | `../01_computational_discovery/` |
 | Wet-lab protocol or plasmid file | No | `../02_experimental_validation/` |
 | Industrial deployment research report | No | `../03_industrial_translation/` |
 | Literature PDFs | No | `../04_reference_library/` |

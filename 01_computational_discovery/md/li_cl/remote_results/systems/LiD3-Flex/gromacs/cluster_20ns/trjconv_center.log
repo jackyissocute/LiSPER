@@ -1,0 +1,39 @@
+               :-) GROMACS - gmx trjconv, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs
+Command line:
+  gmx trjconv -s /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.tpr -f /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.xtc -o /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/cluster_20ns/production_20ns_centered.xtc -n /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_eq/index_clean.ndx -pbc mol -center
+
+Will write xtc: Compressed trajectory (portable xdr format): xtc
+Reading file /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Reading file /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.tpr, VERSION 2026.0-conda_forge (single precision)
+Group     0 (           SOLU) has   201 elements
+Group     1 (           SOLV) has 68032 elements
+Group     2 (         SYSTEM) has 68234 elements
+Select a group: Group     0 (           SOLU) has   201 elements
+Group     1 (           SOLV) has 68032 elements
+Group     2 (         SYSTEM) has 68234 elements
+Select a group: 
+Reading frame       0 time    0.000   
+Precision of /root/LiSPER_remote/LiSPER_LiCl/systems/LiD3-1/gromacs/run_prod_20ns/step5_production_20ns.xtc is 0.001 (nm)
+Using output precision of 0.001 (nm)
+
+-------------------------------------------------------
+Program:     gmx trjconv, version 2026.0-conda_forge
+Source file: src/gromacs/tools/trjconv.cpp (line 1054)
+
+Fatal error:
+Index[68233] 68234 is larger than the number of atoms in the
+trajectory file (68233). There is a mismatch in the contents
+of your -f, -s and/or -n files.
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at https://manual.gromacs.org/current/user-guide/run-time-errors.html
+-------------------------------------------------------
+Note that major changes are planned in future for trjconv, to improve usability and utility.
+Select group for centering
+Selected 0: 'SOLU'
+Select group for output
+Selected 2: 'SYSTEM'

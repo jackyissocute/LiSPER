@@ -1,0 +1,50 @@
+                :-) GROMACS - gmx mdrun, 2026.0-conda_forge (-:
+
+Executable:   /root/miniconda3/envs/lisper-gmx/bin.AVX2_256/gmx
+Data prefix:  /root/miniconda3/envs/lisper-gmx
+Working dir:  /root/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_min
+Command line:
+  gmx mdrun -deffnm min_attempt1 -ntmpi 1 -ntomp 16
+
+Compiled SIMD is AVX2_256, but CPU also supports AVX_512 (see log).
+The current CPU can measure timings more accurately than the code in
+gmx mdrun was configured to use. This might affect your simulation
+speed as accurate timings are needed for load-balancing.
+Please consider rebuilding gmx mdrun with the GMX_USE_RDTSCP=ON CMake option.
+Reading file min_attempt1.tpr, VERSION 2026.0-conda_forge (single precision)
+
+Using 1 MPI thread
+Using 16 OpenMP threads 
+
+
+NOTE: OS CPU limit is lower than logical cpu count, thread pinning disabled.
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+03
+   Number of steps    =         5000
+
+step 35: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 40: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 45: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+step 50: One or more water molecules can not be settled.
+Check for bad contacts and/or reduce the timestep if appropriate.
+Wrote pdb files with previous and current coordinates
+
+writing lowest energy coordinates.
+
+Steepest Descents converged to Fmax < 1000 in 572 steps
+Potential Energy  = -7.3450212e+05
+Maximum force     =  9.9854865e+02 on atom 150
+Norm of force     =  2.4307786e+01
+
+GROMACS reminds you: "Protons give an atom its identity, electrons its personality." (Bill Bryson)
+

@@ -1,0 +1,2 @@
+candidate	site_id	donor_identities	selection_rationale	starting_state_status
+LiN3-Core	central_Asn9	9:ASN:OD1,9:ASN:O,8:GLY:O,10:PRO:O	Central GPGNP repeat; avoids ion-dependent terminal Asn selection.	VALIDATED_BOUND
