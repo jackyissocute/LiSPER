@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 20:33 CST.** The LiLC-1 pilot is stopped with checkpoints preserved (0/124 real `mdrun`). A live audit found that seven historical Na paths omitted published Na-carboxylate/Na-Cl NBFIX terms (LiDA-1 alone contains both) and that the five-donor-COM distance permits off-site peptide-oxygen rebinding. Affected Na results are unusable for claims; the current 1-D coordinate is rejected for a same-site dissociation claim. EPYC time is restricted to bounded method validation until a corrected protocol is documented and approved.
+> **Scientific steward snapshot: 2026-07-13 21:13 CST.** Formal peptide production remains stopped with checkpoints preserved. The primary redesign separates standard Li affinity (double-decoupling ABFE), Li-over-Na selectivity (matched site/bulk Li-to-Na alchemical cycles), and kinetics. Three refined 14-state bulk replicas completed all 42 windows without fatal/LINCS evidence and materially improved endpoint state support. Their finite-box LiCl-to-NaCl values and hydration structures are method evidence, not peptide selectivity results; Li first-shell coordination remains a force-field-model concern requiring sensitivity tests.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 20:33 CST`
+**Last synchronized monitor snapshot:** `2026-07-13 21:13 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -137,7 +137,7 @@ Status: 🟢 complete, 🔵 running, 🟡 held, 🟣 method review, 🔺 warning
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
-Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
+Active compute: bulk Li-to-Na alchemical method validation on a 128-thread EPYC 9554P worker; peptide production is stopped.
 
 </details>
 
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🟡 0 active / 124 capacity</code> <sub>pilot stopped; analysis/method tests only</sub></td>
-      <td><img alt="pilot stopped" src="https://img.shields.io/badge/0_active-method_correction-F97316"></td>
+      <td><code>🟡 0 active / 124 capacity</code> <sub>42 refined validation windows complete; next model tests being specified</sub></td>
+      <td><img alt="method review" src="https://img.shields.io/badge/0_active-method_review-F59E0B"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>METHOD CORRECTION</code></strong><br><sub>0 production jobs; checkpoints and diagnostic evidence preserved</sub></td>
-      <td>Choose and prove a coordinate/restraint design that preserves the declared site; rebuild Na with the corrected pinned topology.</td>
+      <td align="center"><strong><code>METHOD REVIEW</code></strong><br><sub>42 refined bulk windows complete; zero peptide production jobs</sub></td>
+      <td>Resolve Li hydration-model sensitivity, then test ion--acetate and ion--amide competition before any peptide-site calculation.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>

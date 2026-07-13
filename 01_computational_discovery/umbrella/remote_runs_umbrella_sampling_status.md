@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-13 20:33 CST
+Scientific steward snapshot: 2026-07-13 21:13 CST
 
 ## Decision (authoritative)
 
@@ -9,12 +9,12 @@ LiLC-1 umbrella production is stopped with checkpoints preserved. The former num
 | Item | Value |
 |---|---|
 | Active host | EPYC 9554P 128t worker |
-| Active campaign | **LiLC-1** locked-site pilot (LiCl + NaCl) |
+| Active campaign | Bulk Li-to-Na alchemical method validation; **LiLC-1** peptide pilot stopped |
 | Stage | **METHOD CORRECTION** — stopped at approximately 2.22 ns/window; 30 Li and 30 Na checkpoints preserved |
-| Drivers | 0 real `gmx mdrun` processes; analysis and bounded method tests may use the worker |
+| Drivers | 0 real `gmx mdrun`; three refined 14-state bulk Li-to-Na validation replicas completed all 42 windows; zero peptide-production jobs |
 | Geometry screen | **8/8** paired starts are within their declared distance screen; this does not validate binding or PMF reliability |
 | Promotion | **Frozen** while the estimand, autocorrelation-aware uncertainty, overlap evidence, physical state definitions, and independent-replica plan are reviewed |
-| Capacity | 0/124 real one-thread `mdrun`; idle because no scientifically valid production protocol is currently authorized, not to reduce fixed machine cost |
+| Capacity | 0/124 real one-thread `mdrun`; refined bulk jobs completed, while functional-group/polarizable-model inputs require evidence review before launch; formal peptide work remains unauthorized |
 
 ## Paired site-lock status
 

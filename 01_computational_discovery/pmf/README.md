@@ -6,7 +6,7 @@ Old/default PMFs are preliminary/diagnostic only. No script assigns scientific r
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-Worktree keeps Part A scaffolds only. Active science: **LiLC-1** force-field and reaction-coordinate correction; scale-up remains frozen pending evidence review and user approval.
+Worktree keeps Part A scaffolds only. Active science: bulk Li-to-Na alchemical feasibility and force-field validation, followed by **LiLC-1** bound-state/reaction-coordinate redesign. Scale-up remains frozen pending evidence review and user approval. See [`../free_energy/COMPUTATIONAL_VALIDATION_STRATEGY.md`](../free_energy/COMPUTATIONAL_VALIDATION_STRATEGY.md).
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
