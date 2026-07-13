@@ -63,4 +63,4 @@ flowchart TD
 
 ## Current Rule
 
-Launch only from `VALIDATED_BOUND` locked-site starts. Fat window binaries stay on remote disk / laptop and are gitignored.
+Launch only from locked-site starts recorded as `GEOMETRY_SCREENED_BOUND_START`. This is a geometry screen, not a binding or convergence verdict. Fat window binaries stay on remote disk / laptop and are gitignored.

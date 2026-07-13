@@ -39,6 +39,8 @@ SUMMARY = UMB_DIR / "umbrella_summary.tsv"
 SITE_MANIFEST = Path(
     os.environ.get("LISPER_SITE_MANIFEST", ROOT.parent / "paired_binding_sites" / f"{CANDIDATE}.tsv")
 )
+PILOT_CANDIDATE = os.environ.get("LISPER_PILOT_CANDIDATE", "LiLC-1")
+METHOD_REVIEW_RECORD = os.environ.get("LISPER_METHOD_REVIEW_RECORD")
 if "LISPER_GUARD_WINDOWS" in os.environ:
     GUARD_WINDOWS = int(os.environ["LISPER_GUARD_WINDOWS"])
 else:
@@ -57,6 +59,28 @@ def assert_not_on_hold(stage):
     for hold in HOLD_FILES:
         if hold.exists():
             raise RuntimeError(f"Umbrella launch is on QC hold at {stage}: {hold}")
+
+
+def assert_scale_up_authorized():
+    """Require a human-authored method-review record; never infer approval from QC numbers."""
+    if CANDIDATE == PILOT_CANDIDATE:
+        return
+    if not METHOD_REVIEW_RECORD:
+        raise RuntimeError(
+            f"Method review blocks non-pilot candidate {CANDIDATE}; set LISPER_METHOD_REVIEW_RECORD only after documented review"
+        )
+    path = Path(METHOD_REVIEW_RECORD)
+    if not path.is_file():
+        raise RuntimeError(f"Method-review record does not exist: {path}")
+    record = dict(
+        line.split("\t", 1)
+        for line in path.read_text(errors="replace").splitlines()
+        if "\t" in line
+    )
+    if record.get("scale_up_authorized") != "YES" or not record.get("claim_scope") or not record.get("reviewed_at"):
+        raise RuntimeError(
+            "Method-review record must declare scale_up_authorized=YES, claim_scope, and reviewed_at"
+        )
 
 
 def run_shell(cmd, cwd=GROMACS_DIR, log=None, stdin=None):
@@ -179,9 +203,9 @@ def load_site_lock():
     record = next(csv.DictReader(SITE_MANIFEST.open(), delimiter="\t"))
     if record["candidate"] != CANDIDATE:
         raise RuntimeError(f"Site manifest candidate {record['candidate']} does not match {CANDIDATE}")
-    if record.get("starting_state_status") != "VALIDATED_BOUND":
+    if record.get("starting_state_status") != "GEOMETRY_SCREENED_BOUND_START":
         raise RuntimeError(
-            f"Locked site {record['site_id']} has no validated bound starting state: "
+            f"Locked site {record['site_id']} has no geometry-screened bound starting state: "
             f"{record.get('starting_state_status', 'missing')}"
         )
     return record
@@ -502,6 +526,7 @@ def write_summary(rows):
 
 def main():
     UMB_DIR.mkdir(exist_ok=True)
+    assert_scale_up_authorized()
     assert_not_on_hold("start")
     rep_time = read_representative_time_ps()
     full_rep = UMB_DIR / "representative_full_system.gro"

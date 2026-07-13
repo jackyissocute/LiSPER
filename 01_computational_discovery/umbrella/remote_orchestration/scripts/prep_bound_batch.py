@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Place+min+validate locked-site bound starts for non-pilot candidates.
+"""Place, minimize, and geometry-screen locked-site starts for non-pilot candidates.
 
-Skip umbrella launch. Promote manifest to VALIDATED_BOUND only when BOTH ions PASS.
-LiLC-1 is excluded (already validated / running).
+Skip umbrella launch. Record the manifest only when both ions are within the
+declared distance screen. This does not validate binding or PMF reliability.
+LiLC-1 is excluded (already screened / running).
 """
 from __future__ import annotations
 
@@ -312,9 +313,9 @@ def prep_one(cand: str, ion: str) -> str:
             )
             out_log.write_text(out_log.read_text() + "\n## replace_after_min\n" + p2.stdout + v.stdout)
             if v.returncode == 0:
-                return f"{cand}/{ion}\tPASS_ION\tdistance_ok_after_replace"
-        return f"{cand}/{ion}\tFAIL_VALIDATE\t{(v.stdout or v.stderr).strip()[:160]}"
-    return f"{cand}/{ion}\tPASS_ION\tdistance_ok"
+                return f"{cand}/{ion}\tBOUND_DISTANCE_SCREENED\tdistance_ok_after_replace"
+        return f"{cand}/{ion}\tGEOMETRY_SCREEN_FAILED\t{(v.stdout or v.stderr).strip()[:160]}"
+    return f"{cand}/{ion}\tBOUND_DISTANCE_SCREENED\tdistance_ok"
 
 
 def promote_if_both(cand: str) -> str:
@@ -350,7 +351,7 @@ def promote_if_both(cand: str) -> str:
     if v_li.returncode == 0 and v_na.returncode == 0:
         v_p = run(
             f"python3 {SCRIPTS}/validate_bound_start.py --gro {gro} --manifest {man} "
-            f"--ion-resname LIT --promote"
+            f"--ion-resname LIT --record"
         )
         return f"{cand}/BOTH\tPROMOTE\trc={v_p.returncode}\t{(v_p.stdout or '').strip()[:80]}"
     return f"{cand}/BOTH\tHOLD\tli={v_li.returncode},na={v_na.returncode}"
@@ -373,7 +374,7 @@ def main():
                 row = f"{cand}/{ion}\tERROR\t{exc}"
             print(row, flush=True)
             rows.append(row)
-            ion_ok[ion] = row.split("\t")[1] == "PASS_ION"
+            ion_ok[ion] = row.split("\t")[1] == "BOUND_DISTANCE_SCREENED"
         # if only NaCl retry, still check both sides for promote
         row = promote_if_both(cand)
         print(row, flush=True)

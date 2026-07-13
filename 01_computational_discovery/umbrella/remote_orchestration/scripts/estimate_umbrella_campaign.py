@@ -62,7 +62,7 @@ def main():
     print(f"recommended_LISPER_JOBS_per_driver\t{min(usable, nwin)}")
     print()
     print("note\tEstimate ignores WHAM/QC time and overlap-repair windows.")
-    print("note\tDo not launch until VALIDATED_BOUND + readiness checker PASS.")
+    print("note\tDo not launch until GEOMETRY_SCREENED_BOUND_START + readiness inventory complete.")
 
 
 if __name__ == "__main__":

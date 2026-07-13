@@ -12,4 +12,4 @@
 Paths: `../md/remote_orchestration/SYNC_PATHS.md`  
 Preflight: `../PREFLIGHT_RUNBOOK.md`
 
-Science gate: no umbrella until manifests `VALIDATED_BOUND`.
+Operational prerequisite: no umbrella until manifests record `GEOMETRY_SCREENED_BOUND_START`; this does not validate binding.

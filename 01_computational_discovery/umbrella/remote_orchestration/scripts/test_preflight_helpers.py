@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import os
 import subprocess
 import sys
 import tempfile
@@ -45,15 +46,15 @@ def test_validate_bound_geometry():
             "LIT",
             "--max-bound-nm",
             "0.55",
-            "--promote",
+            "--record",
         ]
     )
     text = Path(man.name).read_text()
-    assert "VALIDATED_BOUND" in text
+    assert "GEOMETRY_SCREENED_BOUND_START" in text
 
 
-def test_qc_math_smoke():
-    # Synthetic flat profiles → PASS flatness + ΔΔG computable
+def test_evidence_summary_math_smoke():
+    # Synthetic profiles exercise the diagnostic estimator without a PASS gate.
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         li = tmp / "li.xvg"
@@ -63,21 +64,23 @@ def test_qc_math_smoke():
         lines_na = ["# na\n"] + [f"{x:.3f} { (0.0 if x < 1.0 else 5.0):.3f}\n" for x in [i * 0.1 for i in range(5, 26)]]
         li.write_text("".join(lines_li))
         na.write_text("".join(lines_na))
-        bootstrap = tmp / "bootstrap.xvg"
-        bootstrap.write_text("".join(f"{x:.3f} 0.0 0.2\n" for x in [i * 0.1 for i in range(5, 26)]))
+        bootstrap_li = tmp / "bootstrap_li.xvg"
+        bootstrap_na = tmp / "bootstrap_na.xvg"
+        bootstrap_li.write_text("".join(lines_li) + "&\n" + "".join(lines_li))
+        bootstrap_na.write_text("".join(lines_na) + "&\n" + "".join(lines_na))
         warnings = tmp / "wham.log"
         warnings.write_text("clean\n")
         histo = tmp / "histo.xvg"
         histo.write_text("".join(f"{x:.3f} 1.0 1.0 1.0\n" for x in [i * 0.1 for i in range(5, 26)]))
+        iact = tmp / "iact.xvg"
+        iact.write_text("#  WIN   tau(gr1)\n#   0    2.0\n#   1    3.0\n#   2    4.0\n")
         regions = tmp / "regions.tsv"
         regions.write_text(
             "candidate\tstatus\tbound_min_nm\tbound_max_nm\tref_min_nm\tref_max_nm\n"
-            "Toy\tLOCKED_PRE_PMF\t0.4\t0.6\t1.8\t2.2\n"
+            "Toy\tDECLARED_DIAGNOSTIC_REGIONS\t0.5\t0.7\t1.8\t2.2\n"
         )
-        out = tmp / "qc.tsv"
-        script = Path(__file__).resolve().parents[2] / "pmf/remote_orchestration/scripts/evaluate_paired_pmf_qc.py"
-        # fix path: this test lives under umbrella/.../scripts; pmf script is sibling stage
-        script = ROOT.parents[2] / "pmf" / "remote_orchestration" / "scripts" / "evaluate_paired_pmf_qc.py"
+        out = tmp / "evidence.tsv"
+        script = ROOT.parents[2] / "pmf" / "remote_orchestration" / "scripts" / "summarize_paired_pmf_evidence.py"
         subprocess.check_call(
             [
                 sys.executable,
@@ -88,29 +91,27 @@ def test_qc_math_smoke():
                 str(li),
                 "--na-profile",
                 str(na),
-                "--li-bootstrap",
-                str(bootstrap),
-                "--na-bootstrap",
-                str(bootstrap),
-                "--li-half-early",
-                str(li),
-                "--li-half-late",
-                str(li),
-                "--na-half-early",
-                str(na),
-                "--na-half-late",
-                str(na),
-                "--li-burnin",
+                "--li-bootstrap-profiles",
+                str(bootstrap_li),
+                "--na-bootstrap-profiles",
+                str(bootstrap_na),
+                "--li-time-profiles",
                 str(li),
                 str(li),
-                "--na-burnin",
+                "--na-time-profiles",
                 str(na),
                 str(na),
                 "--li-histo",
                 str(histo),
                 "--na-histo",
                 str(histo),
-                "--wham-warning-files",
+                "--li-iact",
+                str(iact),
+                "--na-iact",
+                str(iact),
+                "--bootstrap-method",
+                "traj_with_gmx_iact",
+                "--wham-log-files",
                 str(warnings),
                 "--regions",
                 str(regions),
@@ -119,8 +120,10 @@ def test_qc_math_smoke():
             ]
         )
         body = out.read_text()
-        assert "PASS" in body
-        assert "delta_delta_g_kjmol" in body
+        assert "\tPASS\t" not in body and "\tREPAIR\t" not in body
+        assert "EVIDENCE_SUMMARY_NO_BINARY_VERDICT" in body
+        assert "paired_contrast_li_minus_na_kjmol" in body
+        assert "absolute_binding_free_energy_supported" in body
         missing = subprocess.run(
             [sys.executable, str(script), "--candidate", "Toy", "--li-profile", str(li), "--na-profile", str(na)],
             text=True,
@@ -147,26 +150,66 @@ def test_wham_prepare_fails_closed_then_writes_inputs():
         assert "burnin_25\t1000.000\t2500.000" in (root / "out/analysis_times.tsv").read_text()
 
 
-def test_region_lock_uses_shared_non_guard_range():
+def test_analysis_plan_requires_explicit_regions():
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
         header = "candidate_id\tsite_lock_id\twindow_spacing_nm\twindow_eq_ns\twindow_ns\tguard_windows\tinitial_distance_nm\teffective_analysis_extension_nm\n"
         li, na, out = root / "li.tsv", root / "na.tsv", root / "regions.tsv"
         li.write_text(header + "Toy\tsite\t0.075\t0.500\t2.000\t3\t0.4400\t1.950\n")
         na.write_text(header + "Toy\tsite\t0.075\t0.500\t2.000\t3\t0.4200\t1.950\n")
-        script = ROOT.parents[2] / "pmf" / "remote_orchestration" / "scripts" / "lock_paired_regions.py"
-        subprocess.check_call([sys.executable, str(script), "--li-metadata", str(li), "--na-metadata", str(na), "--out", str(out)])
+        script = ROOT.parents[2] / "pmf" / "remote_orchestration" / "scripts" / "record_paired_analysis_plan.py"
+        subprocess.check_call(
+            [
+                sys.executable,
+                str(script),
+                "--li-metadata",
+                str(li),
+                "--na-metadata",
+                str(na),
+                "--bound-min",
+                "0.44",
+                "--bound-max",
+                "0.55",
+                "--ref-min",
+                "2.07",
+                "--ref-max",
+                "2.37",
+                "--bound-rationale",
+                "declared physical state definition",
+                "--reference-rationale",
+                "declared noninteracting-state evidence",
+                "--out",
+                str(out),
+            ]
+        )
         text = out.read_text()
-        assert "LOCKED_PRE_PMF" in text
+        assert "DECLARED_DIAGNOSTIC_REGIONS" in text
         assert "0.4400\t0.5500\t2.0700\t2.3700" in text
+
+
+def test_nonpilot_requires_documented_method_review():
+    with tempfile.TemporaryDirectory() as tmp:
+        script = ROOT / "run_lisper_umbrella_sampling.py"
+        code = (
+            "import importlib.util; "
+            f"s=importlib.util.spec_from_file_location('driver',{str(script)!r}); "
+            "m=importlib.util.module_from_spec(s); s.loader.exec_module(m); "
+            "m.assert_scale_up_authorized()"
+        )
+        env = os.environ.copy()
+        env.update(LISPER_WORKDIR=tmp, LISPER_ION_RESNAME="LIT", LISPER_CANDIDATE="Other")
+        result = subprocess.run([sys.executable, "-c", code], env=env, text=True, capture_output=True)
+        assert result.returncode != 0
+        assert "Method review blocks non-pilot candidate" in result.stderr
 
 
 if __name__ == "__main__":
     test_estimate_runs()
     test_validate_bound_geometry()
-    test_qc_math_smoke()
+    test_evidence_summary_math_smoke()
     test_wham_prepare_fails_closed_then_writes_inputs()
-    test_region_lock_uses_shared_non_guard_range()
+    test_analysis_plan_requires_explicit_regions()
+    test_nonpilot_requires_documented_method_review()
     # also keep existing driver unit checks
     subprocess.check_call([sys.executable, str(ROOT / "test_umbrella_design.py")])
     print("preflight_selfcheck_ok")

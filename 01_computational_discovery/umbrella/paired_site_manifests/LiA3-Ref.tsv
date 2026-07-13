@@ -1,2 +1,2 @@
 candidate	site_id	donor_identities	selection_rationale	starting_state_status
-LiA3-Ref	central_Ala9_backbone	9:ALA:O,8:GLY:O,10:PRO:O	Central low-donor backbone control site with no side-chain oxygen.	VALIDATED_BOUND
+LiA3-Ref	central_Ala9_backbone	9:ALA:O,8:GLY:O,10:PRO:O	Central low-donor backbone control site with no side-chain oxygen.	GEOMETRY_SCREENED_BOUND_START

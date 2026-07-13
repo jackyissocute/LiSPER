@@ -114,13 +114,13 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 18:12 CST.** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Initial 2.0 ns production and preregistered WHAM completed, but paired QC returned **REPAIR** for time stability/uncertainty. A matched 4.0 ns continuation is running (60/60 windows, 0 failed, 60/124 real one-thread jobs). 8/8 candidates remain `VALIDATED_BOUND`; ΔG promotion stays on hold until pilot QC PASS.
+> **Scientific steward snapshot: 2026-07-13 19:05 CST.** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). A matched continuation from 2.0 to 4.0 ns is running (60/60 windows, no fatal-log matches, 60/124 real one-thread jobs). The old numerical `PASS`/`REPAIR` evaluator and heuristic region lock are retired: 8/8 paired starts are geometry-screened only, and ΔG promotion is frozen during principle-based method review.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot repair](https://img.shields.io/badge/LiLC--1_locked_pilot-QC_REPAIR-F59E0B)
-> ![Bound starts](https://img.shields.io/badge/VALIDATED__BOUND-8%2F8-22C55E)
+> ![Pilot sampling](https://img.shields.io/badge/LiLC--1_locked_pilot-sampling-38BDF8)
+> ![Bound starts](https://img.shields.io/badge/geometry_screened-8%2F8-F59E0B)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
 
@@ -128,12 +128,12 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 18:12 CST`
+**Last synchronized monitor snapshot:** `2026-07-13 19:05 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
 
-Status: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC review, 🔺 repair/warning, ⚫ planned. Ion accents: LiCl `#818CF8`, NaCl `#2DD4BF`.
+Status: 🟢 complete, 🔵 running, 🟡 held, 🟣 method review, 🔺 warning, ⚫ planned. Ion accents: LiCl `#818CF8`, NaCl `#2DD4BF`.
 
 Umbrella stages: `Prep -> Pull -> Windows -> Umbrella MD -> QC`. Dot position = stage; color/shape = status. `◆` marks QC.
 
@@ -184,12 +184,12 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔺 LiLC-1 matched 4.0 ns repair running (60/60 · 0 fail · 60/124)</code></td>
-      <td><img alt="locked pilot repair" src="https://img.shields.io/badge/LiLC--1_locked-QC_REPAIR-F59E0B"></td>
+      <td><code>🔵 LiLC-1 matched continuation to 4.0 ns running (60/60 · 0 fatal-log matches · 60/124)</code></td>
+      <td><img alt="locked pilot sampling" src="https://img.shields.io/badge/LiLC--1_locked-sampling-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🔺 initial WHAM complete · paired QC REPAIR</code></td>
+      <td><code>🟣 old verdict retired · estimator/uncertainty/overlap/replica review</code></td>
       <td><img alt="PMF promotion hold" src="https://img.shields.io/badge/DeltaG-hold-A78BFA"></td>
     </tr>
   </tbody>
@@ -214,57 +214,57 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked 4.0 ns repair</code> 🟢 🟢 🟢 🔵 ◆🔺<br><code>NaCl locked 4.0 ns repair</code> 🟢 🟢 🟢 🔵 ◆🔺</td>
-      <td><img alt="pilot QC repair" src="https://img.shields.io/badge/pilot-QC_REPAIR-F59E0B"></td>
+      <td><code>LiCl locked continuation to 4.0 ns</code> 🟢 🟢 🟢 🔵 ◆🟣<br><code>NaCl locked continuation to 4.0 ns</code> 🟢 🟢 🟢 🔵 ◆🟣</td>
+      <td><img alt="pilot method review" src="https://img.shields.io/badge/pilot-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 15.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 14.59%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl geometry screened</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
+      <td><img alt="method held" src="https://img.shields.io/badge/held-method_review-A78BFA"></td>
     </tr>
   </tbody>
 </table>
@@ -292,23 +292,23 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.7 day to repair recheck</code></strong><br><sub>Matched 2.0 → 4.0 ns continuation; 60 parallel one-thread windows</sub></td>
-      <td>Finish LiLC-1 repair → rerun locked-region WHAM/QC → scale other 7 only on paired PASS.</td>
+      <td align="center"><strong><code>LiLC-1 running</code></strong><br><sub>Matched 2.0 → 4.0 ns continuation; 60 parallel one-thread windows</sub></td>
+      <td>Finish the continuation and analyze it as evidence; duration alone cannot establish convergence.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>REPAIR</code></strong><br><sub>Initial WHAM/bootstrap complete; time stability and Li uncertainty failed</sub></td>
-      <td>Rerun the same preregistered analysis after 4.0 ns; do not move regions or relax gates.</td>
+      <td align="center"><strong><code>METHOD REVIEW</code></strong><br><sub>Old numerical verdict and heuristic regions retired</sub></td>
+      <td>Use IACT-aware WHAM, explicit overlap evidence, physical state declarations, trajectory bootstrap, time blocks, and independent-replica variation.</td>
     </tr>
     <tr>
-      <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>≥0.7 day (first row) · ≥4 day (full 8)</code></strong><br><sub>Conditional on repair PASS; remaining 7 then fan out toward 124 slots</sub></td>
-      <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
+      <td><strong>First supported selectivity table</strong></td>
+      <td align="center"><strong><code>No defensible ETA yet</code></strong><br><sub>Claim scope and replica plan must be resolved before scale-up</sub></td>
+      <td>Publish only the estimand supported by the coordinate, restraints, state definitions, uncertainty, and replication evidence.</td>
     </tr>
   </tbody>
 </table>
 
-> Publishable paired ΔΔG requires locked-site `VALIDATED_BOUND` campaigns and QC PASS. No Delta G promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
+> No Delta G is promoted while `DELTA_G_PROMOTION_HOLD.md` is active. A script cannot release the hold; the estimand, state definitions, correlation/overlap evidence, uncertainty, sensitivity, and independent-replica evidence require documented review.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -317,8 +317,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 - NaCl setup is complete for all eight candidates.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
 - Active compute: remote 128-thread EPYC 9554P worker.
-- All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
-- LiLC-1 locked-site 4.0 ns continuation is the live QC repair; remaining candidates queue until pilot PASS.
+- All eight candidates passed a geometry-only start-distance screen; this is not binding validation.
+- LiLC-1 locked-site continuation to 4.0 ns is running; the remaining candidates are held during method review.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>

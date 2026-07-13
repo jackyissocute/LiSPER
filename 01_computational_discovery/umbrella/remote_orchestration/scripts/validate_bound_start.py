@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Validate a full-system .gro against the locked donor site; optionally promote manifest.
 
-Bound criterion (practical, predeclared):
+Geometry screen (practical, predeclared):
   nearest target ion to locked-donor centroid <= --max-bound-nm (default 0.55 nm)
 
 Does NOT invent geometry. If distance fails, exit 2 and leave manifest unchanged.
-Promotion writes:
+Recording writes:
   - validation log beside the gro
-  - starting_state_status=VALIDATED_BOUND in paired_site_manifests/<cand>.tsv
+  - starting_state_status=GEOMETRY_SCREENED_BOUND_START in paired_site_manifests/<cand>.tsv
 """
 from __future__ import annotations
 
@@ -109,7 +109,7 @@ def main():
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--ion-resname", required=True, choices=("LIT", "SOD"))
     parser.add_argument("--max-bound-nm", type=float, default=0.55)
-    parser.add_argument("--promote", action="store_true", help="Flip manifest to VALIDATED_BOUND on PASS")
+    parser.add_argument("--record", action="store_true", help="Record that the start is within the declared distance screen")
     parser.add_argument("--log", type=Path, help="Validation log path")
     args = parser.parse_args()
 
@@ -124,19 +124,19 @@ def main():
     by_id = {identity(atom): atom for atom in atoms}
     missing = [item for item in locked_ids if item not in by_id]
     if missing:
-        print(f"FAIL missing locked donors: {','.join(missing)}", file=sys.stderr)
+        print(f"INVALID_INPUT missing locked donors: {','.join(missing)}", file=sys.stderr)
         return 2
 
     donors = [by_id[item] for item in locked_ids]
     center = tuple(sum(atom["xyz"][axis] for atom in donors) / len(donors) for axis in range(3))
     ions = [atom for atom in atoms if atom["resname"] == ion]
     if not ions:
-        print(f"FAIL no {ion} ions in {args.gro}", file=sys.stderr)
+        print(f"INVALID_INPUT no {ion} ions in {args.gro}", file=sys.stderr)
         return 2
 
     target = min(ions, key=lambda atom: minimum_image_distance(center, atom["xyz"], vectors))
     dist = minimum_image_distance(center, target["xyz"], vectors)
-    passed = dist <= args.max_bound_nm
+    within_screen = dist <= args.max_bound_nm
     stamp = time.strftime("%Y-%m-%dT%H:%M:%S")
     lines = [
         f"timestamp\t{stamp}",
@@ -149,27 +149,28 @@ def main():
         f"target_ion_index\t{target['index']}",
         f"distance_nm\t{dist:.4f}",
         f"max_bound_nm\t{args.max_bound_nm:.4f}",
-        f"result\t{'PASS' if passed else 'FAIL'}",
+        f"result\t{'WITHIN_DECLARED_BOUND_DISTANCE' if within_screen else 'OUTSIDE_DECLARED_BOUND_DISTANCE'}",
+        "interpretation\tgeometry_screen_only_not_binding_validation",
     ]
     text = "\n".join(lines) + "\n"
     log_path = args.log or args.gro.with_suffix(".bound_validation.log")
     log_path.write_text(text)
     print(text, end="")
 
-    if not passed:
+    if not within_screen:
         print(
-            f"FAIL distance {dist:.4f} nm > {args.max_bound_nm:.4f} nm — reconstruct before promote",
+            f"OUTSIDE_DECLARED_BOUND_DISTANCE {dist:.4f} nm > {args.max_bound_nm:.4f} nm",
             file=sys.stderr,
         )
         return 2
 
-    if args.promote:
-        if record.get("starting_state_status") != "VALIDATED_BOUND":
-            record["starting_state_status"] = "VALIDATED_BOUND"
+    if args.record:
+        if record.get("starting_state_status") != "GEOMETRY_SCREENED_BOUND_START":
+            record["starting_state_status"] = "GEOMETRY_SCREENED_BOUND_START"
             write_manifest(args.manifest, record)
-            print(f"promoted\t{args.manifest}\tVALIDATED_BOUND")
+            print(f"recorded\t{args.manifest}\tGEOMETRY_SCREENED_BOUND_START")
         else:
-            print(f"already\t{args.manifest}\tVALIDATED_BOUND")
+            print(f"already\t{args.manifest}\tGEOMETRY_SCREENED_BOUND_START")
     return 0
 
 

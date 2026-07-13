@@ -2,11 +2,11 @@
 
 This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selectivity analysis after umbrella sampling.
 
-Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
+Old/default PMFs are preliminary/diagnostic only. No script assigns scientific reliability. Claims require a documented review of overlap, correlation, time dependence, replicas, estimator scope, and sensitivity.
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-Worktree keeps Part A scaffolds only. Active science: locked-site **LiLC-1** pilot repair, then scale only on paired PASS.
+Worktree keeps Part A scaffolds only. Active science: locked-site **LiLC-1** sampling extension plus method correction; scale-up remains frozen pending evidence review.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -22,8 +22,8 @@ More negative Delta Delta G indicates stronger Li+ preference.
 |---|---|
 | `pmf_li.tsv` | Li+ PMF curve |
 | `pmf_na.tsv` | Na+ PMF curve |
-| `delta_g_summary.tsv` | Per-condition free energies |
-| `selectivity_summary.tsv` | Delta Delta G candidate ranking |
+| `paired_evidence.tsv` | Diagnostic region contrasts, overlap, IACT, time-block, replica, and uncertainty evidence |
+| `selectivity_summary.tsv` | Only scientifically supported selectivity claims, with scope and limitations |
 | convergence plots | Check whether PMFs are reliable |
 
 ## Active Layout
@@ -31,7 +31,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | Path | Purpose |
 |---|---|
 | `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
-| `paired_analysis_regions/` | Shared bound/reference regions committed before PMF inspection |
+| `paired_analysis_regions/` | Region records and rationale; retired heuristic records remain marked unusable |
 | `remote_results/` | Empty scaffold — lean synced PMF products |
 | Cold fat | Jacky cold disk / compute host — see `../STORAGE_LAYOUT.md` |
 
@@ -39,12 +39,12 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiLC-1` | LiCl / NaCl | Initial 2.0 ns WHAM complete; **REPAIR** (plateau/time stability and Li uncertainty); matched 4.0 ns continuation running | **No** — wait pilot QC PASS |
-| Other 7 | LiCl / NaCl | queued | **No** — await pilot PASS then launch |
+| `LiLC-1` | LiCl / NaCl | Initial 2.0 ns WHAM is diagnostic under a retired heuristic evaluator; matched 4.0 ns continuation running | **No** — method/estimator review active |
+| Other 7 | LiCl / NaCl | queued | **No** — await documented pilot method review |
 
-## Reliability Gates
+## Evidence policy
 
-Do not label Delta G as final when WHAM/GROMACS reports empty bins, weak/single-window bins, poor overlap, unstable time slices, or large uncertainty. Repair steps should be scientifically justified: extend weak windows, add/interpolate windows where overlap is poor, rerun WHAM with bootstrap/error analysis, and compare time-sliced convergence.
+The former fixed numerical gates are retired. Follow [`../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md`](../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md) and the preregistered [`INDEPENDENT_REPLICA_PLAN.md`](INDEPENDENT_REPLICA_PLAN.md). Report measurements and uncertainty without manufacturing a binary verdict. The current distance-coordinate estimator is diagnostic and must not be described as an absolute or standard binding free energy.
 
 ```mermaid
 flowchart TD

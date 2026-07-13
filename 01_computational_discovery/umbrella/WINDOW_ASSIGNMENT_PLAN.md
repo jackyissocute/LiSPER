@@ -38,7 +38,7 @@ Typical windows/condition ≈ **31** (analysis + guards from ~0.45 nm bound star
 | A | `LiSPER_8cand_LiCl` | LI | ~31 | up to 31 |
 | B | `LiSPER_8cand_NaCl_prod_worker` | SOD | ~31 | up to 31 |
 
-**Assignment:** after pull, fan both tracks into the global 124-slot pool. LiLC-1 alone ≈ 62 window jobs (fills what exists). After pilot PASS, launch more candidates so occupancy approaches **124/124**.
+**Assignment:** after pull, fan both tracks into the global 124-slot pool. LiLC-1 alone ≈ 62 window jobs (fills what exists). Launch more candidates only after the pilot method review supports scale-up.
 
 Wall estimate @ ~4.6 ns/day/thread: **~0.5 day** (pull + windows).
 
@@ -54,7 +54,7 @@ export LISPER_WORKDIR=.../LiSPER_8cand_NaCl_prod_worker LISPER_CANDIDATE=LiLC-1 
 python3 /data/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py
 ```
 
-### Phase E — Scale (only after LiLC-1 paired QC PASS)
+### Phase E — Scale (only after documented LiLC-1 method review)
 
 8 candidates × 2 ions = **16 conditions** × ~31 windows = **~496 window jobs**.
 
@@ -63,7 +63,7 @@ python3 /data/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py
 | **Recommended** | Fan all incomplete windows into global 124-slot pool (multiple drivers) | 124 | ~2.4 days |
 | Conservative | 2 candidates at a time (4 conditions) | ≤124 | longer, safer ops |
 
-Do **not** start Phase E until Phase D WHAM QC = PASS.
+Do **not** start Phase E based on a script label. Require documented overlap, IACT, time-dependence, replica, estimator, and sensitivity evidence.
 
 ## WHAM / ΔG slotting
 
@@ -73,15 +73,15 @@ After a condition’s windows finish:
 2. Run `gmx wham` on **1–2 cores** (not 124) while other umbrella tracks continue.
 3. Reserve ~4 threads always free so WHAM + SSH never starve.
 
-Paired QC: `evaluate_paired_pmf_qc.py` on Mac or remote after both ions ready.
+Paired evidence: `summarize_paired_pmf_evidence.py` on Mac or remote after both ions are ready.
 
 ## Anti-thrash rules
 
 1. Never exceed `LISPER_GLOBAL_MDRUN_LIMIT=124`.
 2. Never use >1 thread per window on this host (benchmarked).
-3. Never launch without `VALIDATED_BOUND` manifest.
+3. Never launch without a `GEOMETRY_SCREENED_BOUND_START` manifest; this records geometry only.
 4. Use locked-site workdirs only (`umbrella_sampling` under current campaign roots).
-5. Pilot PASS before blasting remaining 7.
+5. Pilot method review before blasting remaining 7.
 
 ## Remote paths
 

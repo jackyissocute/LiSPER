@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Generate reproducible full, burn-in, half, histogram, and bootstrap WHAM products."""
+"""Generate WHAM evidence without declaring a binary scientific verdict."""
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 from pathlib import Path
 
@@ -14,7 +15,7 @@ def data_times(path: Path) -> tuple[float, float]:
     return times[0], times[-1]
 
 
-def prepare(umbrella: Path, out: Path) -> tuple[float, float]:
+def prepare(umbrella: Path, out: Path, threads: int) -> tuple[float, float]:
     windows = sorted(umbrella.glob("window_*"))
     if not windows:
         raise RuntimeError(f"No windows under {umbrella}")
@@ -46,17 +47,31 @@ def prepare(umbrella: Path, out: Path) -> tuple[float, float]:
         f"half_early\t{start:.3f}\t{start + 0.5 * (end-start):.3f}\n"
         f"half_late\t{start + 0.5 * (end-start):.3f}\t{end:.3f}\n"
     )
+    (out / "analysis_method.tsv").write_text(
+        "item\tvalue\n"
+        "wham_weighting\tgmx_wham_-ac_integrated_autocorrelation\n"
+        "bootstrap\ttrajectory_bootstrap_with_gmx_estimated_iact\n"
+        "interpretation\tdiagnostic_only_no_binary_scientific_verdict\n"
+        f"analysis_threads\t{threads}\n"
+        "limitation\tfinite_sampling_and_single_replica_per_window_can_underestimate_uncertainty\n"
+    )
     return start, end
 
 
-def run_wham(gmx: str, out: Path, name: str, begin: float, end: float, bootstrap: bool = False) -> None:
+def run_wham(gmx: str, out: Path, name: str, begin: float, end: float, threads: int, bootstrap: bool = False) -> None:
     cmd = [
         gmx, "wham", "-it", "tpr-files.dat", "-if", "pullf-files.dat", "-o", f"profile_{name}.xvg",
         "-hist", f"histo_{name}.xvg", "-unit", "kJ", "-b", str(begin), "-e", str(end), "-bins", "200",
+        "-ac", "-oiact", f"iact_{name}.xvg",
     ]
     if bootstrap:
-        cmd += ["-nBootstrap", "200", "-bs-method", "b-hist", "-bs-seed", "20260713", "-bsres", "bootstrap_std.xvg", "-bsprof", "bootstrap_profiles.xvg"]
-    result = subprocess.run(cmd, cwd=out, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        cmd += [
+            "-nBootstrap", "200", "-bs-method", "traj", "-bs-seed", "20260713",
+            "-bsres", "bootstrap_traj_std.xvg", "-bsprof", "bootstrap_traj_profiles.xvg",
+        ]
+    env = os.environ.copy()
+    env["OMP_NUM_THREADS"] = str(threads)
+    result = subprocess.run(cmd, cwd=out, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     (out / f"wham_{name}.log").write_text(result.stdout)
     if result.returncode:
         raise RuntimeError(f"WHAM {name} failed; see {out / f'wham_{name}.log'}")
@@ -67,9 +82,12 @@ def main() -> None:
     parser.add_argument("--umbrella-dir", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--gmx", default="gmx")
+    parser.add_argument("--threads", type=int, default=2, help="OpenMP cap for each sequential gmx wham invocation")
     parser.add_argument("--prepare-only", action="store_true")
     args = parser.parse_args()
-    start, end = prepare(args.umbrella_dir.resolve(), args.out.resolve())
+    if args.threads < 1:
+        parser.error("--threads must be positive")
+    start, end = prepare(args.umbrella_dir.resolve(), args.out.resolve(), args.threads)
     if args.prepare_only:
         return
     span = end - start
@@ -80,7 +98,7 @@ def main() -> None:
         ("half_early", start, start + 0.5 * span, False),
         ("half_late", start + 0.5 * span, end, False),
     ):
-        run_wham(args.gmx, args.out.resolve(), name, begin, finish, bootstrap)
+        run_wham(args.gmx, args.out.resolve(), name, begin, finish, args.threads, bootstrap)
 
 
 if __name__ == "__main__":

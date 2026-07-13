@@ -1,45 +1,90 @@
-# LiSPER-Specific Umbrella and PMF QC Protocol
+# LiSPER umbrella-sampling evidence protocol
 
-This protocol estimates Li/Na selectivity for flexible peptide binding sites. Window count and analysis range are therefore determined from the observed reaction-coordinate distributions and a physically justified unbound plateau, not copied from a generic GROMACS example.
+This protocol has **no automatic scientific PASS/FAIL gate**. The former fixed
+`1.0 kJ/mol` and `25% of |Delta Delta G|` rules were LiSPER heuristics, not
+GROMACS or umbrella-sampling theory, and are retired.
 
-## Current implementation boundary
+## Scientific scope
 
-- Delta G promotion is frozen until paired binding-site identity, regions, and the estimator are machine-locked.
-- Existing V2/V3 campaigns chose donors independently and are diagnostic unless the paired audit explicitly rules them equivalent.
-- Fresh campaigns require `paired_site_manifests/<candidate>.tsv`; the driver maps residue number/name/atom name into each topology and refuses a missing or mismatched manifest.
-- Candidate-specific plateau selection and the central PASS evaluator are P2/P3 work. The current fixed 2.0 nm analysis extension must not be described as plateau-selected.
+Umbrella sampling reconstructs a potential of mean force (PMF) along the chosen
+reaction coordinate. Reliability depends on equilibrium sampling within every
+window, connected overlap between windows, adequate sampling of slow coordinates,
+and an estimator consistent with the stated thermodynamic quantity. A smooth PMF
+or a small software-generated error bar alone does not establish reliability.
 
-## Paired design
+The current distance-coordinate profiles support **diagnostic paired state
+contrasts only**. They do not support claims of absolute or standard binding free
+energy until restraint, coordinate-measure/Jacobian, state-volume, and standard-
+state corrections are explicitly derived and validated.
 
-- Treat each candidate as a paired LiCl/NaCl block.
-- Keep reaction-coordinate definition, `0.075 nm` spacing, `0.5 ns` equilibration, `2.0 ns` production, guard-window count, WHAM binning, burn-in, time blocks, and bound/reference regions identical within a pair.
-- Do not compare protocols with different usable coordinate ranges. Extend the shorter condition to the shared range.
+## Evidence that must be reported
 
-## Window design
+1. **Reaction-coordinate and state definition**
+   - Use the same locked chemical site, pull geometry, force constant, coordinate
+     range, and analysis plan for LiCl and NaCl.
+   - Record bound/reference regions and their physical rationale explicitly. Do
+     not derive them automatically from a fixed cutoff or the last `0.30 nm`.
+   - Selectivity is not calculated from arithmetic means of PMF values. The
+     diagnostic estimator is the difference between Boltzmann-integrated region
+     probability contrasts, with its non-standard-state scope stated.
+2. **Histogram overlap**
+   - Publish the per-window histograms and report empty bins, support counts, and
+     any adjacent window pair with zero common support.
+   - Do not convert overlap into an invented universal numeric threshold.
+     GROMACS requires inspection of whether histograms sufficiently overlap.
+3. **Time correlation and uncertainty**
+   - Run `gmx wham -ac` and retain per-window integrated autocorrelation-time
+     estimates.
+   - Use the GROMACS trajectory bootstrap with those IACT estimates as one
+     conditional uncertainty diagnostic. State its limitation: finite sampling
+     can miss unsampled slow modes and underestimate uncertainty.
+   - Propagate bootstrap uncertainty through the declared state estimator by
+     evaluating every bootstrap PMF, not by averaging pointwise PMF standard
+     deviations.
+4. **Time dependence**
+   - Report cumulative and disjoint time-block PMFs/contrasts. Contiguous halves
+     are time blocks, not independent replicas.
+   - Do not assign a universal kJ/mol cutoff. Inspect whether estimates stabilize
+     with additional sampling and whether observed changes are compatible with
+     their uncertainty.
+5. **Independent sampling**
+   - Report the number of independent replicas per window and between-replica
+     variation. One trajectory per window cannot establish reproducibility or
+     reveal all orthogonal slow modes.
+   - Add independent replicas from independently equilibrated/seeded starts when
+     the existing data cannot characterize between-replica variation.
+6. **Sensitivity and limitations**
+   - Report sensitivity to bin count, analysis start time, region definition, and
+     bootstrap treatment.
+   - Report WHAM warnings, failed calculations, PBC limits, and any evidence that
+     the reaction coordinate omits important slow degrees of freedom.
 
-- Generate the analysis range from the candidate's representative bound distance to a candidate-specific unbound plateau.
-- Add three sequential guard windows beyond the intended reference endpoint. Guards stabilize endpoint overlap and are excluded from Delta G integration/region estimates.
-- Before full production, require neighboring-window overlap throughout the bound basin, transition, and reference plateau. Add a midpoint window where adjacent distributions do not overlap; do not globally reduce spacing unless failures are widespread.
-- Stop extending only when the reference region is flat in both ions and remains inside the PBC-safe limit.
+## Decisions
 
-## Reliability gate
+Analysis software writes measurements and limitations only. It exits non-zero for
+missing, malformed, mismatched, or mathematically invalid inputs—not because a
+scientific metric crossed a project-invented threshold.
 
-A paired result is `PASS` only when both ions satisfy all gates over the declared analysis range:
+The Delta G promotion hold remains active until a method review documents:
 
-1. No empty bins and no bins supported by only one window in the bound basin, transition, or reference plateau.
-2. Reference plateau slope is indistinguishable from a practically flat profile: absolute change no greater than `1.0 kJ/mol` across the declared plateau.
-3. Independent early/late production halves give bound-to-reference Delta G values within `1.0 kJ/mol`.
-4. Burn-in variants are reported separately and agree within `1.0 kJ/mol`; they are not called time slices.
-5. Bootstrap uncertainty is read from the `xydy` bootstrap profile. The conservative combined bound/reference uncertainty must be no more than `1.0 kJ/mol` and no more than 25% of the paired Li/Na effect once Delta Delta G is available.
-6. Bound and reference regions have physical interpretations and are identical for paired LiCl/NaCl analysis.
-7. Guard-only weak bins are documented but do not fail the result. Any warned bin inside the declared analysis range triggers `REPAIR`.
+- the exact estimand and claim scope;
+- physical state definitions and coordinate corrections;
+- connected overlap and correlation-aware analysis;
+- time-dependent and independent-replica evidence;
+- sensitivity analyses; and
+- a claim whose uncertainty is reported rather than converted to a fake verdict.
 
-Thresholds are predeclared practical-resolution targets for this LiSPER comparison. They may be tightened after replicate evidence, but must not be relaxed after seeing a desired selectivity result.
+Scale-up decisions use that documented evidence and scientific judgment. They are
+not unlocked by a script-generated label.
 
-## LiD3-Flex V3 guard repair
+The operational preregistration for independently initialized campaigns and
+sequential evidence-driven sampling is in
+[`../pmf/INDEPENDENT_REPLICA_PLAN.md`](../pmf/INDEPENDENT_REPLICA_PLAN.md).
 
-- Existing analysis endpoint: base window `026` (`2.0583 nm` NaCl; `2.20 nm` LiCl).
-- Add guard windows `027-029` at the same `0.075 nm` spacing, sequentially initialized from the preceding completed guard.
-- Keep the current base windows; do not restart or overwrite them.
-- After both guard sequences finish, define one shared paired analysis endpoint no farther than the smaller condition's last base-window center, then run full, burn-in, independent-half, histogram, and bootstrap QC.
-- The present NaCl warnings at `2.221-2.255 nm` are guard-edge diagnostics, not automatically acceptable: they become non-material only if they lie outside the shared declared reference region and all interior gates pass.
+## Primary and official sources
+
+- GROMACS, [`gmx wham` documentation](https://manual.gromacs.org/2024.5/onlinehelp/gmx-wham.html): histogram overlap, IACT weighting, bootstrap methods, and explicit warnings about underestimated errors.
+- Hub, de Groot & van der Spoel, [*J. Chem. Theory Comput.* 6, 3713-3720 (2010)](https://doi.org/10.1021/ct100494z): GROMACS WHAM implementation, autocorrelation, and bootstrap error analysis.
+- Kästner, [*WIREs Comput. Mol. Sci.* 1, 932-942 (2011)](https://doi.org/10.1002/wcms.66): umbrella-sampling theory and window overlap.
+- Woo & Roux, [*PNAS* 102, 6825-6830 (2005)](https://doi.org/10.1073/pnas.0409005102): PMF-based binding free energy with explicit restraint/state treatment.
+- Deng & Roux, [*J. Phys. Chem. B* 113, 2234-2246 (2009)](https://doi.org/10.1021/jp807701h): standard binding free-energy definitions and corrections.

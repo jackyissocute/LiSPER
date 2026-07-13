@@ -14,4 +14,4 @@ MD-stage drivers for the 8-candidate library. Umbrella → `../../umbrella/`. PM
 ## Rule
 
 Do not launch mismatched-site umbrella or archived QuickPod resume scripts.  
-Next compute: locked-site `VALIDATED_BOUND` only, on the host named in `SYNC_PATHS.md`.
+Next compute: locked-site, geometry-screened starts only, on the host named in `SYNC_PATHS.md`.

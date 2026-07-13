@@ -78,13 +78,13 @@ def assess(repo: Path, ion: str, candidate: str) -> dict:
 
     # READY for locked umbrella launch:
     # - topology
-    # - VALIDATED_BOUND manifest
-    # - full-system start gro (pre-validated) OR (rep pdb + prod xtc + tpr for extract)
+    # - geometry-screened bound-start manifest
+    # - full-system start gro OR (rep pdb + prod xtc + tpr for extract)
     has_extract_path = bool(rep and xtc and tpr and topol)
-    has_validated_gro = bool(full_rep and topol and status == "VALIDATED_BOUND")
-    if has_validated_gro:
+    has_screened_gro = bool(full_rep and topol and status == "GEOMETRY_SCREENED_BOUND_START")
+    if has_screened_gro:
         ready = "READY"
-    elif status != "VALIDATED_BOUND":
+    elif status != "GEOMETRY_SCREENED_BOUND_START":
         ready = "BLOCKED_SITE_LOCK"
     elif has_extract_path:
         ready = "READY_NEEDS_EXTRACT"

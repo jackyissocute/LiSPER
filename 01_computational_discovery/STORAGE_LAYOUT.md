@@ -44,7 +44,7 @@ LiSPER_cold/
 
 ## Fresh umbrella restart
 
-1. Reconstruct bound starts → mark `VALIDATED_BOUND` in `umbrella/paired_site_manifests/`.
+1. Reconstruct bound starts → record `GEOMETRY_SCREENED_BOUND_START` in `umbrella/paired_site_manifests/`; this is a geometry screen, not binding validation.
 2. Launch locked-site umbrella (pilot: **LiLC-1**).
 3. Sync new fat outputs to `ACTIVE/incoming/`; keep GitHub lean.
 

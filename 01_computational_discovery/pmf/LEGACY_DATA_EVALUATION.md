@@ -2,7 +2,7 @@
 
 Goal: publishable paired ΔΔG with **same chemical binding-site definition** for Li+ and Na+.
 
-Verdict: **stop legacy dynamic-nearest campaigns**. Do not finish them for ranking. Restart only under locked-site `VALIDATED_BOUND` manifests.
+Verdict: **stop legacy dynamic-nearest campaigns**. Do not finish them for ranking. Restart only under locked-site, geometry-screened manifests.
 
 ## Keep (needed for locked-site rebuild)
 
@@ -11,7 +11,7 @@ Verdict: **stop legacy dynamic-nearest campaigns**. Do not finish them for ranki
 | 20 ns LiCl/NaCl production + clustering + representatives | Inputs for reconstructing validated bound starts |
 | `umbrella/paired_binding_site_audit.tsv` | Evidence: `0/8 SITE_LOCKED`; mismatch classification |
 | `umbrella/paired_binding_site_design.tsv` + `paired_site_manifests/*.tsv` | Proposed locked donors (status still `PROPOSED_REQUIRES_RECONSTRUCTION`) |
-| `umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md` + drivers with site-lock gates | Method for next campaigns |
+| `umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md` + drivers with site-lock checks | Evidence protocol for next campaigns |
 | Compact QC summary TSVs / warning excerpts | Show why legacy WHAM is not promoted |
 
 ## Diagnostic only (not publishable paired selectivity)
@@ -33,9 +33,9 @@ Patterns: window `*.gro` / `*.edr` / `*.cpt` / `*.tpr` / `*.log` / `*.xvg` / `*.
 ## Required before any ΔG / ΔΔG table
 
 1. Reconstruct bound starts that sit in the **proposed locked chemical site** for both ions.
-2. Mark manifests `VALIDATED_BOUND` (logs of site check).
+2. Record manifests as `GEOMETRY_SCREENED_BOUND_START` with the measured geometry; do not call this binding validation.
 3. New umbrella + WHAM under that lock (pilot: **LiLC-1**).
-4. Release `DELTA_G_PROMOTION_HOLD.md` only after site lock + shared estimator/QC gates pass.
+4. Release `DELTA_G_PROMOTION_HOLD.md` only after site lock plus a documented, principle-based estimator and uncertainty review support the stated claim.
 
 ## Compute policy
 
