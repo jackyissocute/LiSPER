@@ -146,6 +146,20 @@ def test_wham_prepare_fails_closed_then_writes_inputs():
         assert (root / "out/tpr-files.dat").exists()
         assert "burnin_25\t1000.000\t2500.000" in (root / "out/analysis_times.tsv").read_text()
 
+        fake_gmx = root / "gmx"
+        fake_gmx.write_text(
+            "#!/bin/sh\n"
+            "printf '%s\\n' \"$*\" >> wham_calls.txt\n"
+            "touch hist_autocorr.xvg\n"
+        )
+        fake_gmx.chmod(0o755)
+        subprocess.check_call(cmd[:-1] + ["--gmx", str(fake_gmx)])
+        calls = (root / "out/wham_calls.txt").read_text().splitlines()
+        assert len(calls) == 5
+        assert all("-ac -oiact iact_" in call and " -v" in call for call in calls)
+        assert "-bs-method traj" in calls[0]
+        assert len(list((root / "out").glob("autocorr_*.xvg"))) == 5
+
 
 def test_region_lock_uses_shared_non_guard_range():
     with tempfile.TemporaryDirectory() as tmp:

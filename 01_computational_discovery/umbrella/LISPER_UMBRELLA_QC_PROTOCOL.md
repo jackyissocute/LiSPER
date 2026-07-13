@@ -30,7 +30,7 @@ The table is generated whenever all required GROMACS windows finish and `gmx wha
 2. endpoint-region PMF span;
 3. early/late difference;
 4. burn-in sensitivity;
-5. bootstrap uncertainty, explicitly labeled as conditional on the sampled histograms;
+5. per-window IACT/ACF evidence and autocorrelation-aware trajectory-bootstrap uncertainty, explicitly labeled as conditional on the sampled histograms;
 6. identical paired bound/reference regions and the sign convention.
 
 A GROMACS fatal error, missing window, or failed WHAM calculation is a computational blocker because no estimate exists. Large or inconsistent diagnostics do not erase the estimate; they are shown as warnings and limit how strongly it can be interpreted.

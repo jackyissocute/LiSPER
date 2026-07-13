@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 from pathlib import Path
 
@@ -53,11 +54,17 @@ def run_wham(gmx: str, out: Path, name: str, begin: float, end: float, bootstrap
     cmd = [
         gmx, "wham", "-it", "tpr-files.dat", "-if", "pullf-files.dat", "-o", f"profile_{name}.xvg",
         "-hist", f"histo_{name}.xvg", "-unit", "kJ", "-b", str(begin), "-e", str(end), "-bins", "200",
+        "-ac", "-oiact", f"iact_{name}.xvg", "-v",
     ]
     if bootstrap:
-        cmd += ["-nBootstrap", "200", "-bs-method", "b-hist", "-bs-seed", "20260713", "-bsres", "bootstrap_std.xvg", "-bsprof", "bootstrap_profiles.xvg"]
-    result = subprocess.run(cmd, cwd=out, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        cmd += ["-nBootstrap", "200", "-bs-method", "traj", "-bs-seed", "20260713", "-bsres", "bootstrap_std.xvg", "-bsprof", "bootstrap_profiles.xvg"]
+    env = os.environ.copy()
+    env.setdefault("OMP_NUM_THREADS", "1")
+    result = subprocess.run(cmd, cwd=out, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     (out / f"wham_{name}.log").write_text(result.stdout)
+    autocorr = out / "hist_autocorr.xvg"
+    if autocorr.exists():
+        autocorr.replace(out / f"autocorr_{name}.xvg")
     if result.returncode:
         raise RuntimeError(f"WHAM {name} failed; see {out / f'wham_{name}.log'}")
 

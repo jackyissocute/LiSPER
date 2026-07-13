@@ -4,7 +4,7 @@ This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selec
 
 The active estimator reports radially corrected, endpoint-referenced PMF binding differences for paired Li/Na simulations. These values can support a within-protocol selectivity comparison, but they are not labeled as 1 M standard binding free energies.
 
-No binary promotion hold is active. Histogram overlap, endpoint span, early/late differences, burn-in sensitivity, and bootstrap uncertainty are retained as diagnostics with their numerical values.
+No binary promotion hold is active. Histogram overlap, endpoint span, early/late differences, burn-in sensitivity, per-window IACT/ACF evidence, and autocorrelation-aware trajectory-bootstrap uncertainty are retained as diagnostics with their numerical values.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 

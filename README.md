@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 23:34 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). All 16 pull trajectories are advancing: 16 real `mdrun`, 112/124 computational threads, observed progress 21.7–70.9%, and no current fatal/SETTLE/LINCS errors. Pull completion automatically backfills one-thread windows toward 124/124.
+> **Scientific steward snapshot: 2026-07-14 00:19 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). LiDA-1 completed both pulls; 14 pulls plus 26 LiDA-1/LiCl window-equilibration jobs now use 40 real `mdrun` processes and 124/124 computational threads. The 14 active pulls span 41.9–97.4%, all sampled jobs are advancing, and no current fatal/SETTLE/LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/paired_campaigns-16%2F16_pull-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-14_pull_%2B_26_eq-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 23:34 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 00:19 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 16 pull mdrun · 112 / 124 threads</code> <sub>window backfill follows pull completion</sub></td>
-      <td><img alt="112 threads active" src="https://img.shields.io/badge/112_active-of_124_threads-38BDF8"></td>
+      <td><code>🔵 40 mdrun · 124 / 124 threads</code> <sub>14 pulls + 26 one-thread window equilibrations</sub></td>
+      <td><img alt="124 threads active" src="https://img.shields.io/badge/124_active-of_124_threads-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 16/16 paired-site pull trajectories running</code></td>
-      <td><img alt="all paired pulls running" src="https://img.shields.io/badge/paired_pulls-16%2F16-38BDF8"></td>
+      <td><code>🔵 14 pulls + 26 LiDA-1/LiCl window equilibrations running</code></td>
+      <td><img alt="paired pulls and windows running" src="https://img.shields.io/badge/active-14_pull_%2B_26_eq-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -249,8 +249,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
-      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
+      <td><code>LiCl pull complete; 26/30 eq active</code> 🟢 🟢 🔵 ⚫ ◆⚫<br><code>NaCl pull complete; 30 eq queued</code> 🟢 🟢 🟡 ⚫ ◆⚫</td>
+      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
@@ -292,7 +292,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>running</code></strong><br><sub>16 pulls now; automatic one-thread window fan-out next</sub></td>
+      <td align="center"><strong><code>running</code></strong><br><sub>14 pulls + 26 one-thread window equilibrations</sub></td>
       <td>Complete pulls → 0.5 ns window equilibration → 2.0 ns production across all paired campaigns.</td>
     </tr>
     <tr>
@@ -334,7 +334,7 @@ The active LiSPER library contains 8 candidates selected from the updated LBP, I
 | 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Paired LiCl/NaCl pull running |
 | 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Paired LiCl/NaCl pull running |
 | 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired LiCl/NaCl pull running |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | Paired LiCl/NaCl pull running |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | Paired pulls complete; window equilibration active |
 | 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | Paired LiCl/NaCl pull running |
 | 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | Paired LiCl/NaCl pull running |
 
