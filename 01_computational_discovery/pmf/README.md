@@ -6,7 +6,7 @@ Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only aft
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-Worktree keeps Part A scaffolds only. Next science: locked-site `VALIDATED_BOUND` pilot (**LiLC-1**), then scale.
+Worktree keeps Part A scaffolds only. Active science: locked-site **LiLC-1** pilot repair, then scale only on paired PASS.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -39,7 +39,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiLC-1` | LiCl / NaCl | pending (window production ~98%) | **No** — wait pilot QC PASS |
+| `LiLC-1` | LiCl / NaCl | Initial 2.0 ns WHAM complete; **REPAIR** (plateau/time stability and Li uncertainty); matched 4.0 ns continuation running | **No** — wait pilot QC PASS |
 | Other 7 | LiCl / NaCl | queued | **No** — await pilot PASS then launch |
 
 ## Reliability Gates

@@ -2,7 +2,7 @@
 
 This folder owns the umbrella-sampling step after MD production and representative clustering.
 
-This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty scaffolds. Live work: locked-site `VALIDATED_BOUND` pilot (`LiLC-1`) on `lisper-epyc`. See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
+This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty scaffolds. Live work: locked-site `LiLC-1` paired-QC repair after the initial 2.0 ns analysis. See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
 
 
 ## Progress Display Rule

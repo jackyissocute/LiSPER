@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-13 17:10 CST
+Scientific steward snapshot: 2026-07-13 18:12 CST
 
 ## Decision (authoritative)
 
@@ -10,17 +10,17 @@ Locked-site umbrella campaign is live on a remote EPYC 9554P worker.
 |---|---|
 | Active host | EPYC 9554P 128t worker |
 | Active campaign | **LiLC-1** locked-site pilot (LiCl + NaCl) |
-| Stage | Pull + 0.5 ns window eq complete; 2.0 ns window production ~98% (≈1,966 ps LiCl / 1,975 ps NaCl average; 30 windows/ion; 0 failed) |
-| Drivers | 2 alive; 60 `mdrun -deffnm umbrella` (30 LiCl + 30 NaCl) |
+| Stage | Pull + 0.5 ns window eq + initial 2.0 ns production complete; paired WHAM/QC returned **REPAIR**; matched 4.0 ns continuation running (30 windows/ion; 0 failed) |
+| Drivers | Repair launched directly; 60 real `mdrun -deffnm umbrella` (30 LiCl + 30 NaCl), one thread each |
 | Bound starts | **8/8** `VALIDATED_BOUND` |
-| Next after windows | Finish umbrella prod (2.0 ns) → WHAM → `evaluate_paired_pmf_qc.py`; scale other 7 only on PASS |
+| Next after windows | Finish 4.0 ns repair → rerun preregistered WHAM/QC with unchanged locked regions; scale other 7 only on PASS |
 | Capacity | 60/124 real one-thread `mdrun`; 64 slots idle because the pilot has no additional distinct ready windows |
 
 ## Paired site-lock status
 
 | Candidate | Classification | Locked site | Status |
 |---|---|---|---|
-| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window production ~98% |
+| `LiLC-1` | preferred pilot | terminal Asp14 | **REPAIR** — 4.0 ns matched continuation running after time-stability/uncertainty failures |
 | `LiD3-Core` | scale queue | central Asp9 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiD3-Flex` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
 | `LiND-Hybrid` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
@@ -39,8 +39,8 @@ Locked-site umbrella campaign is live on a remote EPYC 9554P worker.
 
 ## Next science steps
 
-1. Let LiLC-1 window production finish → WHAM.
-2. Run `evaluate_paired_pmf_qc.py`; promote only on PASS.
+1. Let the LiLC-1 4.0 ns repair continuation finish.
+2. Rerun preregistered WHAM and `evaluate_paired_pmf_qc.py`; promote only on PASS.
 3. Scale remaining 7 under same locked-site protocol toward 124/124.
 4. Write `selectivity_summary.tsv` (ΔΔG table).
 5. Sync fat → Jacky `ACTIVE/incoming/`; lean QC + ΔΔG → GitHub.
