@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 03:10 CST.** All 16 paired pulls are complete and all 480 windows exist. Twenty-six equilibrations are complete; 123 equilibrations plus the first production window use 124 real `mdrun` processes and 124/124 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 04:09 CST.** All 16 paired pulls are complete and all 480 windows exist. Thirty-four equilibrations are complete; 123 equilibrations plus the first production window use 124 real `mdrun` processes and 124/124 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 03:10 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 04:09 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -184,7 +184,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 26 EQ done · 123 EQ + 1 production running</code></td>
+      <td><code>🔵 34 EQ done · 123 EQ + 1 production running</code></td>
       <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-123_eq_%2B_1_prod-38BDF8"></td>
     </tr>
     <tr>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~7.17 days</code></strong><br><sub>full-pool measured-rate schedule</sub></td>
-      <td>All pulls are complete; 26 EQ are done and the first production window is active.</td>
+      <td align="center"><strong><code>~7.19 days</code></strong><br><sub>full-pool measured-rate schedule</sub></td>
+      <td>All pulls are complete; 34 EQ are done and the first production window is active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-21 ~11:10 CST</code></strong><br><sub>90% band 06:10–15:00 CST</sub></td>
+      <td align="center"><strong><code>2026-07-21 ~12:50 CST</code></strong><br><sub>90% band 08:10–16:40 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
