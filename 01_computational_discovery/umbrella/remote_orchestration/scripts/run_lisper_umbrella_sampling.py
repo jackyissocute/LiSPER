@@ -2,6 +2,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import csv
 import fcntl
+import hashlib
 import math
 import os
 import re
@@ -451,20 +452,15 @@ def closest_time(points, distance):
     return min(points, key=lambda item: abs(item[1] - distance))[0]
 
 
-def topology_candidates():
-    candidates = []
-    for cleaned in [
-        GROMACS_DIR / "topol_cleaned_for_prod.top",
-        GROMACS_DIR / "topol_clean_attempt2.top",
-        GROMACS_DIR / "topol_clean_attempt1.top",
-        GROMACS_DIR / "topol.top",
-        GROMACS_DIR / "run_min" / "topol_cleaned.top",
-    ]:
-        if cleaned.exists():
-            candidates.append(cleaned)
-    if not candidates:
-        raise FileNotFoundError(f"No usable topology found under {GROMACS_DIR}")
-    return candidates
+def resolve_topology() -> tuple[Path, str]:
+    """Require one reviewed topology; compilation success is not topology selection."""
+    raw = os.environ.get("LISPER_TOPOLOGY")
+    if not raw:
+        raise RuntimeError("Set LISPER_TOPOLOGY to one reviewed, manifest-pinned topology")
+    topology = Path(raw).resolve()
+    if not topology.is_file():
+        raise FileNotFoundError(f"Pinned topology does not exist: {topology}")
+    return topology, hashlib.sha256(topology.read_bytes()).hexdigest()
 
 
 def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
@@ -477,17 +473,13 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
     # GROMACS pull restart needs explicit -px/-pf with -deffnm (known quirk).
     pull_out_arg = f" -px {deffnm}_pullx -pf {deffnm}_pullf" if resume_arg else ""
     grompp_log = window_dir / f"{deffnm}.grompp.log"
-    grompp_attempts = []
-    for topology in topology_candidates():
-        code, stdout = run_shell(
-            f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology} "
-            f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg} -maxwarn 1",
-        )
-        grompp_attempts.append(f"### topology: {topology}\n{stdout}")
-        grompp_log.write_text("\n\n".join(grompp_attempts))
-        if code == 0:
-            break
-    else:
+    topology, topology_sha256 = resolve_topology()
+    code, stdout = run_shell(
+        f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology} "
+        f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg}",
+    )
+    grompp_log.write_text(f"### topology: {topology}\n### topology_sha256: {topology_sha256}\n{stdout}")
+    if code != 0:
         return "grompp_failed"
     code = run_mdrun_with_global_limit(
         f"{GMX_ENV} && OMP_NUM_THREADS={nt} "

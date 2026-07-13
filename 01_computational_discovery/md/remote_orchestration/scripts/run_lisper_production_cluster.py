@@ -146,7 +146,7 @@ def run_production_and_cluster(candidate):
 
     code, _ = run_shell(
         f"{GMX_ENV} && gmx grompp -f {mdp} -o {tpr} -c {coordinates} "
-        f"-p {topology} -n {index} -maxwarn 1",
+        f"-p {topology} -n {index}",
         cwd=gromacs_dir,
         log=prod_dir / "step5_production_20ns.grompp.log",
     )

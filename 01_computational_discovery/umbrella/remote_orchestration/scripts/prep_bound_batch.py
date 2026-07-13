@@ -96,38 +96,39 @@ def sync_topol_counts(top: Path, gro: Path) -> Path:
 SOD_ATOMTYPE_LINE = (
     "     SOD    11    22.9898      1.000     A    2.51367073323e-01    1.962296e-01 "
 )
+# CHARMM36 NBFIX converted by CHARMM-GUI and cross-checked against an independently
+# generated NaCl topology. SOD-OC: Venable et al., DOI 10.1021/jp401512z;
+# CLA-SOD: Savelyev & MacKerell, DOI 10.1021/acs.jpcb.5b00683.
+SOD_NBFIX_LINES = (
+    "    CLA     SOD     1  3.32394311738e-01  3.51037600000e-01 ",
+    "    SOD      OC     1  2.87760285959e-01  3.13883680000e-01 ",
+)
 
 
-def ensure_sod_atomtype(forcefield: Path) -> None:
-    """LiCl-derived forcefield.itp often lacks SOD; grompp then fails on SOD.itp."""
+def ensure_sod_parameters(forcefield: Path) -> None:
+    """Add the CHARMM-GUI SOD atom type and Na-Cl/Na-carboxylate NBFIX terms."""
     if not forcefield.exists():
         return
     text = forcefield.read_text(errors="replace")
-    if any(ln.split()[:1] == ["SOD"] for ln in text.splitlines()):
-        return
     lines = text.splitlines()
-    out: list[str] = []
-    in_atomtypes = False
-    inserted = False
-    for ln in lines:
-        if ln.strip().startswith("["):
-            if "atomtypes" in ln:
-                in_atomtypes = True
-            elif in_atomtypes and not inserted:
-                out.append(SOD_ATOMTYPE_LINE)
-                inserted = True
-                in_atomtypes = False
-            else:
-                in_atomtypes = False
-        if in_atomtypes and ln.split()[:1] == ["LIT"] and not inserted:
-            out.append(ln)
-            out.append(SOD_ATOMTYPE_LINE)
-            inserted = True
-            continue
-        out.append(ln)
-    if not inserted:
-        out.append(SOD_ATOMTYPE_LINE)
-    forcefield.write_text("\n".join(out) + ("\n" if text.endswith("\n") else ""))
+    if not any(ln.split()[:1] == ["SOD"] for ln in lines):
+        for i, ln in enumerate(lines):
+            if ln.split()[:1] == ["LIT"]:
+                lines.insert(i + 1, SOD_ATOMTYPE_LINE)
+                break
+        else:
+            raise RuntimeError(f"Cannot locate atomtypes insertion point in {forcefield}")
+
+    pairs = {frozenset(ln.split()[:2]) for ln in lines if len(ln.split()) >= 5}
+    missing = [ln for ln in SOD_NBFIX_LINES if frozenset(ln.split()[:2]) not in pairs]
+    if missing:
+        start = next((i for i, ln in enumerate(lines) if "nonbond_params" in ln), None)
+        if start is None:
+            lines.extend(["", "[ nonbond_params ]", "; i j func sigma epsilon", *missing])
+        else:
+            end = next((i for i in range(start + 1, len(lines)) if lines[i].strip().startswith("[")), len(lines))
+            lines[end:end] = missing
+    forcefield.write_text("\n".join(lines) + ("\n" if text.endswith("\n") else ""))
 
 
 def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
@@ -143,7 +144,7 @@ def ensure_nacl_topol(gmx_dir: Path, cand: str, gro: Path):
                 (toppar / f).write_bytes(src.read_bytes())
     if sod_itp.exists():
         (toppar / "SOD.itp").write_bytes(sod_itp.read_bytes())
-    ensure_sod_atomtype(toppar / "forcefield.itp")
+    ensure_sod_parameters(toppar / "forcefield.itp")
     n_sod = count_res(gro, "SOD")
     n_cla = count_res(gro, "CLA")
     n_tip = count_res(gro, "TIP3")
@@ -272,7 +273,7 @@ def prep_one(cand: str, ion: str) -> str:
 
     (bdir / "min.mdp").write_text(mdp)
     gp = run(
-        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr -maxwarn 4{gp_extra}",
+        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr{gp_extra}",
         cwd=bdir,
     )
     if gp.returncode != 0:

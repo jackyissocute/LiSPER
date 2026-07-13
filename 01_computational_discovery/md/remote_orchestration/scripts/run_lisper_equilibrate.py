@@ -87,8 +87,7 @@ for row in rows:
         f"-c {coordinates} "
         f"-r {restraints} "
         f"-p {topology} "
-        f"-n {index} "
-        f"-maxwarn 1"
+        f"-n {index}"
     )
     code, _ = run_shell(
         grompp,

@@ -6,7 +6,7 @@ Old/default PMFs are preliminary/diagnostic only. No script assigns scientific r
 
 **Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
 
-Worktree keeps Part A scaffolds only. Active science: locked-site **LiLC-1** sampling extension plus method correction; scale-up remains frozen pending evidence review.
+Worktree keeps Part A scaffolds only. Active science: **LiLC-1** force-field and reaction-coordinate correction; scale-up remains frozen pending evidence review and user approval.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -39,12 +39,12 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiLC-1` | LiCl / NaCl | Initial 2.0 ns WHAM is diagnostic under a retired heuristic evaluator; matched 4.0 ns continuation running | **No** — method/estimator review active |
+| `LiLC-1` | LiCl / NaCl | Diagnostic trajectories stopped near 2.22 ns/window; Na topology invalid and current coordinate permits off-site rebinding | **No** — rebuild and method proof required |
 | Other 7 | LiCl / NaCl | queued | **No** — await documented pilot method review |
 
 ## Evidence policy
 
-The former fixed numerical gates are retired. Follow [`../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md`](../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md) and the preregistered [`INDEPENDENT_REPLICA_PLAN.md`](INDEPENDENT_REPLICA_PLAN.md). Report measurements and uncertainty without manufacturing a binary verdict. The current distance-coordinate estimator is diagnostic and must not be described as an absolute or standard binding free energy.
+The former fixed numerical gates are retired. The active evidence and correction sequence is recorded in [`METHOD_VALIDATION_LEDGER.md`](METHOD_VALIDATION_LEDGER.md). Follow [`../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md`](../umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md) and the preregistered [`INDEPENDENT_REPLICA_PLAN.md`](INDEPENDENT_REPLICA_PLAN.md). Report measurements and uncertainty without manufacturing a binary verdict. The current distance-coordinate estimator is diagnostic and must not be described as an absolute or standard binding free energy.
 
 ```mermaid
 flowchart TD

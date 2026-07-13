@@ -7,9 +7,34 @@ import os
 import subprocess
 import sys
 import tempfile
+import importlib.util
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+
+
+def test_sod_parameters_include_required_nbfix():
+    script = ROOT / "prep_bound_batch.py"
+    spec = importlib.util.spec_from_file_location("prep_bound_batch", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    with tempfile.TemporaryDirectory() as tmp:
+        forcefield = Path(tmp) / "forcefield.itp"
+        forcefield.write_text(
+            "[ atomtypes ]\n"
+            "LIT 3 6.941 1.0 A 0.23 0.01\n"
+            "OC 8 15.999 -0.76 A 0.30 0.50\n"
+            "CLA 17 35.45 -1.0 A 0.40 0.62\n\n"
+            "[ nonbond_params ]\n"
+            "; i j func sigma epsilon\n"
+            "CLA LIT 1 0.32 0.07\n"
+        )
+        module.ensure_sod_parameters(forcefield)
+        module.ensure_sod_parameters(forcefield)
+        text = forcefield.read_text()
+        assert text.count("SOD    11") == 1
+        assert text.count("CLA     SOD") == 1
+        assert text.count("SOD      OC") == 1
 
 
 def test_estimate_runs():
@@ -204,6 +229,7 @@ def test_nonpilot_requires_documented_method_review():
 
 
 if __name__ == "__main__":
+    test_sod_parameters_include_required_nbfix()
     test_estimate_runs()
     test_validate_bound_geometry()
     test_evidence_summary_math_smoke()

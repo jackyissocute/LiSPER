@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 19:05 CST.** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). A matched continuation from 2.0 to 4.0 ns is running (60/60 windows, no fatal-log matches, 60/124 real one-thread jobs). The old numerical `PASS`/`REPAIR` evaluator and heuristic region lock are retired: 8/8 paired starts are geometry-screened only, and ΔG promotion is frozen during principle-based method review.
+> **Scientific steward snapshot: 2026-07-13 20:33 CST.** The LiLC-1 pilot is stopped with checkpoints preserved (0/124 real `mdrun`). A live audit found that seven historical Na paths omitted published Na-carboxylate/Na-Cl NBFIX terms (LiDA-1 alone contains both) and that the five-donor-COM distance permits off-site peptide-oxygen rebinding. Affected Na results are unusable for claims; the current 1-D coordinate is rejected for a same-site dissociation claim. EPYC time is restricted to bounded method validation until a corrected protocol is documented and approved.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot sampling](https://img.shields.io/badge/LiLC--1_locked_pilot-sampling-38BDF8)
+> ![Pilot sampling](https://img.shields.io/badge/LiLC--1_pilot-stopped_for_method_correction-F97316)
 > ![Bound starts](https://img.shields.io/badge/geometry_screened-8%2F8-F59E0B)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 19:05 CST`
+**Last synchronized monitor snapshot:** `2026-07-13 20:33 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 60 active / 124 capacity</code> <sub>occupancy, not completed</sub></td>
-      <td><img alt="60 mdrun active" src="https://img.shields.io/badge/60_active-of_124_slots-38BDF8"></td>
+      <td><code>🟡 0 active / 124 capacity</code> <sub>pilot stopped; analysis/method tests only</sub></td>
+      <td><img alt="pilot stopped" src="https://img.shields.io/badge/0_active-method_correction-F97316"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -173,19 +173,19 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>NaCl</strong></td>
       <td>20 ns production MD</td>
-      <td><code>🟢 8/8</code></td>
-      <td><img alt="NaCl production complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"></td>
+      <td><code>🔺 8/8 historical; 7/8 require rebuild</code></td>
+      <td><img alt="NaCl topology audit" src="https://img.shields.io/badge/NaCl-7_of_8_rebuild-F97316"></td>
     </tr>
     <tr>
       <td>Structural clustering</td>
-      <td><code>🟢 8/8 reps</code></td>
-      <td><img alt="NaCl clustering complete" src="https://img.shields.io/badge/clustered-8%2F8-22C55E"></td>
+      <td><code>🔺 8/8 historical reps; 7/8 unusable</code></td>
+      <td><img alt="NaCl representative audit" src="https://img.shields.io/badge/NaCl-7_of_8_invalid-F97316"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 matched continuation to 4.0 ns running (60/60 · 0 fatal-log matches · 60/124)</code></td>
-      <td><img alt="locked pilot sampling" src="https://img.shields.io/badge/LiLC--1_locked-sampling-38BDF8"></td>
+      <td><code>🔺 LiLC-1 stopped · Na topology invalid · reaction coordinate permits off-site rebinding</code></td>
+      <td><img alt="pilot method correction" src="https://img.shields.io/badge/LiLC--1-method_correction-F97316"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -235,7 +235,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked continuation to 4.0 ns</code> 🟢 🟢 🟢 🔵 ◆🟣<br><code>NaCl locked continuation to 4.0 ns</code> 🟢 🟢 🟢 🔵 ◆🟣</td>
+      <td><code>LiCl diagnostic stopped: off-site rebinding</code> 🟢 🟢 🟢 🔺 ◆🟣<br><code>NaCl invalid topology: rebuild required</code> 🔺 ⚫ ⚫ ⚫ ◆⚫</td>
       <td><img alt="pilot method review" src="https://img.shields.io/badge/pilot-method_review-A78BFA"></td>
     </tr>
     <tr>
@@ -282,18 +282,18 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
   <tbody>
     <tr>
       <td><strong>Setup QC completion</strong></td>
-      <td align="center"><strong><code>Complete</code></strong><br><sub>LiCl and NaCl setup gate is closed</sub></td>
-      <td>Setup gate is closed; continue production/clustering QC.</td>
+      <td align="center"><strong><code>AUDIT REOPENED</code></strong><br><sub>published Na NBFIX provenance is now enforced</sub></td>
+      <td>Regenerate and hash affected Na topologies; compile without suppressed warnings.</td>
     </tr>
     <tr>
       <td><strong>20 ns production + clustering</strong></td>
-      <td align="center"><strong><code>Complete</code></strong><br><sub>all LiCl/NaCl 20 ns production and clustering complete</sub></td>
-      <td>Gate is closed; final representative entered umbrella sampling.</td>
+      <td align="center"><strong><code>AUDIT REOPENED</code></strong><br><sub>7/8 Na trajectories and representatives require rebuild</sub></td>
+      <td>Rebuild the seven affected Na stages under corrected, pinned topologies; LiDA-1 contains both audited NBFIX terms.</td>
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>LiLC-1 running</code></strong><br><sub>Matched 2.0 → 4.0 ns continuation; 60 parallel one-thread windows</sub></td>
-      <td>Finish the continuation and analyze it as evidence; duration alone cannot establish convergence.</td>
+      <td align="center"><strong><code>METHOD CORRECTION</code></strong><br><sub>0 production jobs; checkpoints and diagnostic evidence preserved</sub></td>
+      <td>Choose and prove a coordinate/restraint design that preserves the declared site; rebuild Na with the corrected pinned topology.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -314,18 +314,18 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 <summary><strong>Current MD interpretation</strong></summary>
 
 - LiCl minimization and equilibration are complete for all eight candidates.
-- NaCl setup is complete for all eight candidates.
-- LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
+- Historical NaCl setup exists for all eight candidates; seven paths omitted the audited NBFIX terms and require rebuild, while LiDA-1 contains both terms.
+- LiCl production/clustering are preserved as diagnostics; seven affected Na production/clustering paths cannot support claims.
 - Active compute: remote 128-thread EPYC 9554P worker.
 - All eight candidates passed a geometry-only start-distance screen; this is not binding validation.
-- LiLC-1 locked-site continuation to 4.0 ns is running; the remaining candidates are held during method review.
+- LiLC-1 production is stopped: the Na force field must be rebuilt and the current reaction coordinate permits off-site rebinding; the remaining candidates are held during method review.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>
 
 ## 🧪 Candidate library
 
-The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Paired LiCl/NaCl systems are prepared for all eight candidates; production and clustering are complete, and active work is now umbrella sampling plus WHAM/PMF QC.
+The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Historical paired systems exist for all eight candidates, but the Na topology provenance and the umbrella reaction coordinate are under correction; no final production or PMF claim is currently authorized.
 
 | Rank | Candidate | Sequence | Design role | Current MD status |
 |---:|---|---|---|---|

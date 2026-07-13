@@ -5,6 +5,7 @@ import tempfile
 
 
 def load_driver(root):
+    os.environ.pop("LISPER_TOPOLOGY", None)
     os.environ.update(
         LISPER_WORKDIR=str(root),
         LISPER_ION_RESNAME="SOD",
@@ -54,7 +55,25 @@ def test_minimum_image_distance_uses_box():
         assert abs(driver.minimum_image_distance((0.1, 0.0, 0.0), (1.9, 0.0, 0.0), box) - 0.2) < 1e-9
 
 
+def test_topology_must_be_explicit_and_hashed():
+    with tempfile.TemporaryDirectory() as tmp:
+        driver = load_driver(Path(tmp))
+        try:
+            driver.resolve_topology()
+        except RuntimeError as error:
+            assert "LISPER_TOPOLOGY" in str(error)
+        else:
+            raise AssertionError("driver accepted an unpinned topology")
+        topology = Path(tmp) / "reviewed.top"
+        topology.write_text("reviewed topology\n")
+        os.environ["LISPER_TOPOLOGY"] = str(topology)
+        resolved, digest = driver.resolve_topology()
+        assert resolved == topology.resolve()
+        assert len(digest) == 64
+
+
 if __name__ == "__main__":
     test_fresh_campaign_gets_three_pbc_safe_guards()
     test_existing_campaign_keeps_original_window_set()
     test_minimum_image_distance_uses_box()
+    test_topology_must_be_explicit_and_hashed()

@@ -2,7 +2,7 @@
 
 This folder owns the umbrella-sampling step after MD production and representative clustering.
 
-This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty scaffolds. Live work: locked-site `LiLC-1` paired-QC repair after the initial 2.0 ns analysis. See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`.
+This tree keeps Part A only: drivers, site-lock manifests, QC protocol, empty scaffolds. Live work: `LiLC-1` method correction after the Na NBFIX and off-site-rebinding audit. Production is stopped; checkpoints are preserved. See `PREFLIGHT_RUNBOOK.md`, `WINDOW_ASSIGNMENT_PLAN.md`, `remote_runs_umbrella_sampling_status.md`, and [`../pmf/METHOD_VALIDATION_LEDGER.md`](../pmf/METHOD_VALIDATION_LEDGER.md).
 
 
 ## Progress Display Rule

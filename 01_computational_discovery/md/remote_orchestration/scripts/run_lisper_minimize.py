@@ -141,7 +141,7 @@ for cand in candidates:
         tpr = rundir / f"{prefix}.tpr"
         grompp_log = rundir / f"{prefix}.grompp.log"
         mdrun_log = rundir / f"{prefix}.mdrun.log"
-        cmd = f"{GMX_ENV} && gmx grompp -f step4.0_minimization.mdp -o {tpr} -c {current_gro} -r {current_gro} -p {current_top} -n index.ndx -maxwarn 1"
+        cmd = f"{GMX_ENV} && gmx grompp -f step4.0_minimization.mdp -o {tpr} -c {current_gro} -r {current_gro} -p {current_top} -n index.ndx"
         code, out = run_shell(cmd, cwd=gdir, log=grompp_log)
         if code != 0:
             status = "grompp_failed"
