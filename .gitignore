@@ -5,6 +5,9 @@
 __pycache__/
 *.py[cod]
 
+# Editor backup files
+**/#*#
+
 # Large CHARMM-GUI system bundles are kept locally and mirrored to remote storage,
 # but are not committed directly to GitHub.
 01_computational_discovery/charmm-gui/*/systems/
