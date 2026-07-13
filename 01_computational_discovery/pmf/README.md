@@ -39,7 +39,7 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiLC-1` | LiCl / NaCl | pending (window production ~54%) | **No** — wait pilot QC PASS |
+| `LiLC-1` | LiCl / NaCl | pending (window production ~67%) | **No** — wait pilot QC PASS |
 | Other 7 | LiCl / NaCl | queued | **No** — await pilot PASS then launch |
 
 ## Reliability Gates
