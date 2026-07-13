@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 22:58 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). All 16 pull trajectories are advancing: 16 real `mdrun`, 112/124 computational threads, no current fatal/SETTLE/LINCS errors. Pull completion automatically backfills one-thread windows toward 124/124.
+> **Scientific steward snapshot: 2026-07-13 23:34 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). All 16 pull trajectories are advancing: 16 real `mdrun`, 112/124 computational threads, observed progress 21.7–70.9%, and no current fatal/SETTLE/LINCS errors. Pull completion automatically backfills one-thread windows toward 124/124.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 22:58 CST`
+**Last synchronized monitor snapshot:** `2026-07-13 23:34 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -327,16 +327,16 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 
 The active LiSPER library contains 8 candidates selected from the updated LBP, IDP, and Li+ coordination design logic. Paired LiCl/NaCl systems are prepared for all eight candidates; production and clustering are complete, and active work is now umbrella sampling plus WHAM/PMF QC.
 
-| Rank | Candidate | Sequence | Design role | Current MD status |
+| Rank | Candidate | Sequence | Design role | Current umbrella state |
 |---:|---|---|---|---|
-| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Refined LiCl/NaCl V2 `14/27`, production `014-015` |
-| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | V3 paired guard repair: LiCl `25/30` with base `025-026` active and guards queued; NaCl `27/30` with guard `027` active |
-| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | LiCl V2 `2/27`, production `002`; NaCl V2 `4/27`, production `004-005` |
-| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | LiCl V2 `5/27`, production `005, 026`; NaCl `V2 14/27`, production `014-015, 026` |
-| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired V2 `27/27` windows complete; LiCl WHAM/bootstrap and NaCl WHAM both in QC review |
-| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | LiCl `V4 27/27`, V4 WHAM/bootstrap finite but still in repair-focused QC review; NaCl V4 safe-boundary PMF diagnostic numeric-screen pass, manual region review required |
-| 7 | **LiN3-Core** | `GPGNPGPGNPGNP` | GPGNP trimer benchmark | LiCl V2 `5/27`, production `005, 026`; NaCl `V2 14/27`, equilibration `014-015`, production `026` |
-| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | LiCl V2 `5/27`, windows `005, 026` active; NaCl `V2 14/27`, windows `014-015, 026` active |
+| 1 | **LiD3-Core** | `GPGDPGPGDPGPGDP` | Linker-free GPGDP trimer benchmark | Paired LiCl/NaCl pull running |
+| 2 | **LiD3-Flex** | `GPGDPGSGPGDPGSGPGDP` | Flexible GSG-spaced GPGDP trimer | Paired LiCl/NaCl pull running |
+| 3 | **LiND-Hybrid** | `GPGNPGSGPGDPGSGPGNP` | Mixed GPGNP/GPGDP donor environment | Paired LiCl/NaCl pull running |
+| 4 | **LiLC-1** | `GPGDPGSGNPGSGDP` | Lower-charge selectivity-control design | Paired LiCl/NaCl pull running |
+| 5 | **LiDS-1** | `DGDGPGDPGDG` | Asp/Gly Li+/Na+ geometry probe | Paired LiCl/NaCl pull running |
+| 6 | **LiDA-1** | `DADGPGDPDAG` | Ala-supported Asp pocket probe | Paired LiCl/NaCl pull running |
+| 7 | **LiN3-Core** | `GPGNPGPGNPGPGNP` | GPGNP trimer benchmark | Paired LiCl/NaCl pull running |
+| 8 | **LiA3-Ref** | `GPGAPGPGAPGPGAP` | Low-donor GPGAP reference | Paired LiCl/NaCl pull running |
 
 ## ⚙️ Computational workflow
 
@@ -489,8 +489,8 @@ flowchart TD
 - [Ordered synthetic peptide binding plan](02_experimental_validation/track_A_purified_peptide/planning/ordered_synthetic_peptide_binding_plan.md)
 - [Track A vendor peptide order checklist](02_experimental_validation/track_A_purified_peptide/ordering/vendor_peptide_order_checklist.md)
 - [Surface-display optimization plan](02_experimental_validation/track_B_surface_display/planning/integrated_surface_display_optimization_plan.md)
-- [LiCl MD status](01_computational_discovery/md/li_cl/remote_runs/remote_status.md)
-- [NaCl MD status](01_computational_discovery/md/na_cl/remote_runs/remote_status.md)
+- [LiCl MD status](01_computational_discovery/md/li_cl/README.md)
+- [NaCl MD status](01_computational_discovery/md/na_cl/README.md)
 - [Surface-display host selection report](02_experimental_validation/track_B_surface_display/research/surface_display_host_selection/reports/final_host_selection_report.md)
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
 - [Repository reorganization report](06_project_operations/docs/repository_reorganization_report.md)

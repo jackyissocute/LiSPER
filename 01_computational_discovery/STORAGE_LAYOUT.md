@@ -42,10 +42,10 @@ LiSPER_cold/
 | Disk plugged | Fat windows, trajectories, WHAM packs → `ACTIVE/incoming/{umbrella,pmf,md}/` |
 | Disk unplugged | Skip fat copy; queue until next mount |
 
-## Fresh umbrella restart
+## Active umbrella campaign
 
 1. Reconstruct bound starts → mark `VALIDATED_BOUND` in `umbrella/paired_site_manifests/`.
-2. Launch locked-site umbrella (pilot: **LiLC-1**).
+2. Launch each unique candidate × ion campaign from its validated start.
 3. Sync new fat outputs to `ACTIVE/incoming/`; keep GitHub lean.
 
 See `umbrella/remote_runs_umbrella_sampling_status.md` .

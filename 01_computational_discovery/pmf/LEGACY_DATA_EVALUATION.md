@@ -9,8 +9,8 @@ Verdict: **stop legacy dynamic-nearest campaigns**. Do not finish them for ranki
 | Asset | Why |
 |---|---|
 | 20 ns LiCl/NaCl production + clustering + representatives | Inputs for reconstructing validated bound starts |
-| `umbrella/paired_binding_site_audit.tsv` | Evidence: `0/8 SITE_LOCKED`; mismatch classification |
-| `umbrella/paired_binding_site_design.tsv` + `paired_site_manifests/*.tsv` | Proposed locked donors (status still `PROPOSED_REQUIRES_RECONSTRUCTION`) |
+| `archive/superseded_umbrella_preflight/paired_binding_site_audit_legacy_representatives_20260712.tsv` | Historical evidence: `0/8 SITE_LOCKED`; mismatch classification |
+| `umbrella/paired_binding_site_design.tsv` | Locked-donor design proposed during the legacy audit; current validated state is recorded separately in `paired_site_manifests/*.tsv` |
 | `umbrella/LISPER_UMBRELLA_QC_PROTOCOL.md` + drivers with site-lock gates | Method for next campaigns |
 | Compact QC summary TSVs / warning excerpts | Show why legacy WHAM is not promoted |
 

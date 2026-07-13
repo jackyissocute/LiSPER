@@ -4,7 +4,7 @@ This stage contains the in silico LiSPER discovery workflow: candidate sequences
 
 ## Current State
 
-Final **8-candidate** computational workflow: setup complete, umbrella running, PMF in QC/repair.
+Final **8-candidate** computational workflow: setup and representative clustering complete, paired umbrella pulls running, PMF pending completed windows.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned.
 

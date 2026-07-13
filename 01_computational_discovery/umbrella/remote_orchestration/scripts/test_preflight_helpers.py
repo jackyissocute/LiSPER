@@ -53,7 +53,7 @@ def test_validate_bound_geometry():
 
 
 def test_qc_math_smoke():
-    # Synthetic flat profiles → PASS flatness + ΔΔG computable
+    # Synthetic flat profiles → estimate ready + ΔΔG computable
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
         li = tmp / "li.xvg"
@@ -119,7 +119,7 @@ def test_qc_math_smoke():
             ]
         )
         body = out.read_text()
-        assert "PASS" in body
+        assert "ESTIMATE_READY" in body
         assert "delta_delta_g_kjmol" in body
         missing = subprocess.run(
             [sys.executable, str(script), "--candidate", "Toy", "--li-profile", str(li), "--na-profile", str(na)],

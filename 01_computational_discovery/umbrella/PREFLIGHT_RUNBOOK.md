@@ -11,24 +11,20 @@ Purpose: run paired Li/Na umbrella campaigns without duplicate work or hidden an
 |---|---|---|
 | Wrong estimand | Dynamic-nearest donors → Li/Na different pockets | Locked manifests + `VALIDATED_BOUND` only |
 | Unsafe parallelism | Process-count limiter ignored multi-thread pulls | Thread-aware 124-thread ceiling shared by all campaigns |
-| QC after burn | WHAM gates checked after days of windows | Predeclared gates + automated evaluator |
+| QC after burn | WHAM diagnostics checked after days of windows | Predeclare estimator/regions + automate diagnostics |
 | Thin local inputs | Mac lean sync; no prod `.xtc` | Restore seeds / re-produce before umbrella |
 | Thread ceiling | Driver default `GLOBAL_MDRUN_LIMIT=28` | Set `~threads−4` on 100-core host |
 
 ## Phases (do in order)
 
-### Phase A — Inventory (no rent)
+### Phase A — Inventory
 
 ```bash
 python3 01_computational_discovery/umbrella/remote_orchestration/scripts/check_campaign_readiness.py \
-  --pilot \
-  --out 01_computational_discovery/umbrella/preflight_readiness_pilot.tsv
-
-python3 01_computational_discovery/umbrella/remote_orchestration/scripts/check_campaign_readiness.py \
-  --out 01_computational_discovery/umbrella/preflight_readiness_all.tsv
+  --out /tmp/lisper_preflight_readiness_all.tsv
 ```
 
-Expect today: **not READY**. Typical blockers: `MISSING_XTC`, `MISSING_TOPOL`, `BLOCKED_SITE_LOCK`.
+Review the generated table from current files. Do not commit it as durable state; it becomes stale as inputs change. Missing inputs or invalid site locks block only the affected campaign.
 
 Also plug Jacky 1TB and confirm:
 
@@ -38,9 +34,9 @@ Also plug Jacky 1TB and confirm:
 | `ACTIVE/seeds/gcp_remote_backup_20260712/` | System trees (no xtc by design) |
 | Cold-disk seed archive | Optional hunt for prior `representative_full_system.gro` if rebuilding starts |
 
-### Phase B — Bound starts (still mostly local / short remote)
+### Phase B — Bound starts
 
-For each ion of **LiLC-1**:
+For every candidate and both ions:
 
 1. Obtain full-system start `representative_full_system.gro` at locked Asp14 pocket.
    - Preferred: extract cluster-rep frame from recovered/re-run prod `.xtc`.
@@ -50,12 +46,12 @@ For each ion of **LiLC-1**:
 ```bash
 python3 .../validate_bound_start.py \
   --gro /path/to/representative_full_system.gro \
-  --manifest 01_computational_discovery/umbrella/paired_site_manifests/LiLC-1.tsv \
+  --manifest 01_computational_discovery/umbrella/paired_site_manifests/<candidate>.tsv \
   --ion-resname LI \
   --promote
 ```
 
-Repeat for `SOD`. Only promote when **both** ions PASS (`distance ≤ 0.55 nm` default).
+Repeat for `SOD`. Validate both ions against the same named site before launch.
 
 Driver still refuses launch until `starting_state_status=VALIDATED_BOUND`.
 
@@ -82,14 +78,14 @@ Launch all eight candidates for both ions with the locked-site driver and the no
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/lock_paired_regions.py \
   --li-metadata .../LiCl/umbrella_metadata.tsv \
   --na-metadata .../NaCl/umbrella_metadata.tsv \
-  --out .../pmf/LiLC-1/paired_regions.tsv
+  --out .../pmf/<candidate>/paired_regions.tsv
 
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/run_wham_qc.py \
   --umbrella-dir .../LiLC-1/gromacs/umbrella_sampling \
-  --out .../pmf/LiLC-1/LiCl
+  --out .../pmf/<candidate>/LiCl
 
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_paired_pmf_qc.py \
-  --candidate LiLC-1 \
+  --candidate <candidate> \
   --li-profile ... --na-profile ... \
   --li-bootstrap ... --na-bootstrap ... \
   --li-half-early ... --li-half-late ... \
@@ -97,8 +93,8 @@ python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_pai
   --li-burnin ... ... --na-burnin ... ... \
   --li-histo ... --na-histo ... \
   --wham-warning-files ... \
-  --regions .../pmf/LiLC-1/paired_regions.tsv \
-  --out .../LiLC-1_paired_qc.tsv
+  --regions .../pmf/<candidate>/paired_regions.tsv \
+  --out .../<candidate>_paired_qc.tsv
 ```
 
 The evaluator writes `ESTIMATE_READY` or `ESTIMATE_WITH_WARNINGS`; both retain the numerical Delta G and Delta Delta G. Missing windows or a fatal WHAM error have no estimate and must be repaired.
@@ -128,9 +124,9 @@ After paired WHAM profiles exist:
 
 ## Confidence checklist before you pay for the VM
 
-- [ ] Readiness TSV reviewed (pilot blockers known)
+- [ ] Current readiness output reviewed; no stale tracked TSV used as truth
 - [ ] Jacky seeds confirmed mounted at least once
-- [ ] LiLC-1 both ions `VALIDATED_BOUND` + validation logs
+- [ ] Requested candidate pairs have both ions `VALIDATED_BOUND` + validation logs
 - [ ] Launch env uses `GLOBAL_MDRUN_LIMIT=124` on EPYC 9554P, 1 thread/window
 - [ ] WHAM estimator and diagnostic paths known
 - [ ] Sync plan: lean→git, fat→`ACTIVE/incoming/`

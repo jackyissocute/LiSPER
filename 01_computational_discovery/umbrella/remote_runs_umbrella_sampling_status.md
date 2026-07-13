@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-13 22:58 CST
+Scientific steward snapshot: 2026-07-13 23:34 CST
 
 ## Live state
 
@@ -8,7 +8,7 @@ Scientific steward snapshot: 2026-07-13 22:58 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pull trajectories running and advancing |
+| Stage | 16/16 pull trajectories running; observed progress 21.7–70.9% |
 | Real GROMACS work | 16 real `mdrun`; 112/124 computational threads |
 | Idle reason | 16 indivisible pulls × 7 threads = 112; first completed pull automatically backfills one-thread windows toward 124/124 |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
