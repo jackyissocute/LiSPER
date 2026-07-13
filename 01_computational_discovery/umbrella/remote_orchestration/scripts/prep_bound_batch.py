@@ -271,7 +271,7 @@ def prep_one(cand: str, ion: str) -> str:
 
     (bdir / "min.mdp").write_text(mdp)
     gp = run(
-        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr -maxwarn 4{gp_extra}",
+        f"{GMX} && gmx grompp -f min.mdp -c {placed} -p {top} -o min.tpr{gp_extra}",
         cwd=bdir,
     )
     if gp.returncode != 0:

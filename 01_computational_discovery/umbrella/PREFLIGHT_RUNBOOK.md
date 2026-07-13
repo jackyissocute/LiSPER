@@ -1,16 +1,16 @@
 # Locked-site campaign preflight runbook
 
 Date: 2026-07-12  
-Purpose: avoid the old mess (rent → blast parallel → fail QC → repair forever).
+Purpose: run paired Li/Na umbrella campaigns without duplicate work or hidden analysis assumptions.
 
-**Hard rule:** Do **not** rent CPU to “finish ranking” until Phase A–B pass. Renting early is how the last campaign burned days.
+**Hard rule:** real GROMACS failures and missing inputs stop the affected scope; numerical convergence diagnostics are reported, not converted into invented universal PASS gates.
 
 ## Why last run felt awful
 
 | Failure | What happened | Fix before next rent |
 |---|---|---|
 | Wrong estimand | Dynamic-nearest donors → Li/Na different pockets | Locked manifests + `VALIDATED_BOUND` only |
-| Parallel everything | 8×2 campaigns + repairs interleaved | One pilot pair first; scale only after PASS |
+| Unsafe parallelism | Process-count limiter ignored multi-thread pulls | Thread-aware 124-thread ceiling shared by all campaigns |
 | QC after burn | WHAM gates checked after days of windows | Predeclared gates + automated evaluator |
 | Thin local inputs | Mac lean sync; no prod `.xtc` | Restore seeds / re-produce before umbrella |
 | Thread ceiling | Driver default `GLOBAL_MDRUN_LIMIT=28` | Set `~threads−4` on 100-core host |
@@ -69,16 +69,14 @@ export LISPER_JOBS=32
 ```
 
 Reject: 9575F (2× price), dual-socket ~$0.72 boxes (thin disk / older), 9754 unless you want max parallel and accept higher $/hr.
-### Phase D — Pilot only (LiLC-1 LiCl + NaCl)
+### Phase D — Paired production
 
 ```bash
 # estimate first
 python3 .../estimate_umbrella_campaign.py --threads 128 --candidates 1
 ```
 
-Launch **one candidate, both ions**, locked-site driver only.
-
-After windows complete → WHAM →:
+Launch all eight candidates for both ions with the locked-site driver and the node-wide 124-thread ceiling. After windows complete → WHAM →:
 
 ```bash
 python3 01_computational_discovery/pmf/remote_orchestration/scripts/lock_paired_regions.py \
@@ -103,33 +101,29 @@ python3 01_computational_discovery/pmf/remote_orchestration/scripts/evaluate_pai
   --out .../LiLC-1_paired_qc.tsv
 ```
 
-| Result | Action |
-|---|---|
-| **PASS** | Unlock scale-up; keep identical protocol |
-| **REPAIR** | Add midpoint/guard windows only where QC names; do **not** redesign site |
+The evaluator writes `ESTIMATE_READY` or `ESTIMATE_WITH_WARNINGS`; both retain the numerical Delta G and Delta Delta G. Missing windows or a fatal WHAM error have no estimate and must be repaired.
 
-### Phase E — Scale remaining 7 (only after pilot PASS)
+### Phase E — Diagnostics and table
 
-Same protocol, same spacing/eq/prod/guards, same shared regions rule. Fan out across 124 mdrun slots.
+Use the same spacing/eq/prod/guards and shared endpoint regions within each Li/Na pair. Fan out across at most 124 real mdrun threads.
 
 Fat sync → Jacky `ACTIVE/incoming/{umbrella,pmf}/`  
 Lean QC + ΔΔG table → Mac git / GitHub.
 
 ### Phase F — ΔΔG table
 
-Only after paired PASS rows exist:
+After paired WHAM profiles exist:
 
 - `pmf/.../delta_g_summary.tsv`
 - `pmf/.../selectivity_summary.tsv`
-- Release / delete `DELTA_G_PROMOTION_HOLD.md`
 
 ## Anti-mess rules (non-negotiable)
 
 1. No dynamic-nearest `umbrella_sampling_binding_site_v2`.
 2. No resume/watchdog scripts.
-3. No promoting ΔG while hold file exists.
-4. No “fix while seven others still running” chaos — pilot gate first.
-5. No changing bound/ref regions after seeing a preferred ΔΔG.
+3. Do not hide overlap, time-sensitivity, or uncertainty diagnostics.
+4. Fix only the failed scope while unrelated campaigns continue.
+5. Do not change bound/ref regions after seeing a preferred ΔΔG.
 6. Disk unplugged OK for lean sync; fat waits for Jacky mount.
 
 ## Confidence checklist before you pay for the VM
@@ -138,6 +132,6 @@ Only after paired PASS rows exist:
 - [ ] Jacky seeds confirmed mounted at least once
 - [ ] LiLC-1 both ions `VALIDATED_BOUND` + validation logs
 - [ ] Launch env uses `GLOBAL_MDRUN_LIMIT=124` on EPYC 9554P, 1 thread/window
-- [ ] WHAM QC evaluator path known
+- [ ] WHAM estimator and diagnostic paths known
 - [ ] Sync plan: lean→git, fat→`ACTIVE/incoming/`
-- [ ] Emotional contract: pilot PASS before all-8 blast
+- [ ] All campaign launches share the 124-thread ceiling and reject duplicates

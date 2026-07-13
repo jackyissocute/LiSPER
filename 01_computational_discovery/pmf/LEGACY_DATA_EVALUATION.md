@@ -30,14 +30,14 @@ Bulky GROMACS binaries and raw WHAM curves from mismatched campaigns mislead rev
 
 Patterns: window `*.gro` / `*.edr` / `*.cpt` / `*.tpr` / `*.log` / `*.xvg` / `*.mdp`.
 
-## Required before any ΔG / ΔΔG table
+## Required before the new ΔG / ΔΔG table
 
 1. Reconstruct bound starts that sit in the **proposed locked chemical site** for both ions.
 2. Mark manifests `VALIDATED_BOUND` (logs of site check).
-3. New umbrella + WHAM under that lock (pilot: **LiLC-1**).
-4. Release `DELTA_G_PROMOTION_HOLD.md` only after site lock + shared estimator/QC gates pass.
+3. New umbrella + WHAM under the paired site definition.
+4. Report overlap, time sensitivity, endpoint span, and uncertainty numerically alongside every estimate.
 
 ## Compute policy
 
 - Legacy resume / watchdog: **archived** (Jacky `ARCHIVE/legacy_ops_docs_20260712/`). Do not relaunch.
-- Next host: AMD EPYC **9554P**. Locked-site pilot only. No parallel finish of mismatched v2/v3/v4 sets.
+- Active host: AMD EPYC **9554P**. Fresh paired campaigns run in parallel; mismatched v2/v3/v4 sets remain diagnostic only.

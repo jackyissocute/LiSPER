@@ -74,25 +74,39 @@ def run_shell(cmd, cwd=GROMACS_DIR, log=None, stdin=None):
     return proc.returncode, proc.stdout
 
 
-def count_active_mdruns(proc_root=Path("/proc")):
-    count = 0
+def active_mdrun_usage(proc_root=Path("/proc")):
+    processes = 0
+    threads = 0
     for proc_dir in proc_root.glob("[0-9]*"):
         try:
             comm = (proc_dir / "comm").read_text().strip()
             cmdline = (proc_dir / "cmdline").read_bytes().replace(b"\0", b" ").decode(errors="replace")
+            status = (proc_dir / "status").read_text(errors="replace")
         except (FileNotFoundError, PermissionError, ProcessLookupError):
             continue
         if comm.startswith("gmx") and "mdrun" in cmdline:
-            count += 1
-    return count
+            processes += 1
+            match = re.search(r"^Threads:\s+(\d+)$", status, re.MULTILINE)
+            threads += int(match.group(1)) if match else 1
+    return processes, threads
 
 
-def run_mdrun_with_global_limit(cmd, cwd, log):
+def count_active_mdruns(proc_root=Path("/proc")):
+    return active_mdrun_usage(proc_root)[0]
+
+
+def run_mdrun_with_global_limit(cmd, cwd, log, requested_threads=1):
+    if requested_threads < 1 or requested_threads > GLOBAL_MDRUN_LIMIT:
+        raise ValueError(f"Invalid mdrun thread request: {requested_threads}")
     GLOBAL_MDRUN_LOCK.parent.mkdir(parents=True, exist_ok=True)
     while True:
         with GLOBAL_MDRUN_LOCK.open("a+") as lock_handle:
             fcntl.flock(lock_handle, fcntl.LOCK_EX)
-            if count_active_mdruns() < GLOBAL_MDRUN_LIMIT:
+            active_processes, active_threads = active_mdrun_usage()
+            if (
+                active_processes < GLOBAL_MDRUN_LIMIT
+                and active_threads + requested_threads <= GLOBAL_MDRUN_LIMIT
+            ):
                 proc = subprocess.Popen(
                     f"bash -lc {cmd!r}",
                     shell=True,
@@ -457,7 +471,7 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
     for topology in topology_candidates():
         code, stdout = run_shell(
             f"{GMX_ENV} && gmx grompp -f {mdp} -c {gro} -p {topology} "
-            f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg} -maxwarn 1",
+            f"-n {UMB_DIR / 'umbrella_index.ndx'} -o {tpr}{cpt_arg}",
         )
         grompp_attempts.append(f"### topology: {topology}\n{stdout}")
         grompp_log.write_text("\n\n".join(grompp_attempts))
@@ -470,6 +484,7 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
         f"gmx mdrun -deffnm {deffnm}{resume_arg}{pull_out_arg} -ntmpi 1 -ntomp {nt}",
         cwd=window_dir,
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
+        requested_threads=nt,
     )
     if code != 0:
         return "mdrun_failed"

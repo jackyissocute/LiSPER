@@ -1,46 +1,24 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-13 17:10 CST
+Scientific steward snapshot: 2026-07-13 22:58 CST
 
-## Decision (authoritative)
-
-Locked-site umbrella campaign is live on a remote EPYC 9554P worker.
+## Live state
 
 | Item | Value |
 |---|---|
-| Active host | EPYC 9554P 128t worker |
-| Active campaign | **LiLC-1** locked-site pilot (LiCl + NaCl) |
-| Stage | Pull + 0.5 ns window eq complete; 2.0 ns window production ~98% (≈1,966 ps LiCl / 1,975 ps NaCl average; 30 windows/ion; 0 failed) |
-| Drivers | 2 alive; 60 `mdrun -deffnm umbrella` (30 LiCl + 30 NaCl) |
-| Bound starts | **8/8** `VALIDATED_BOUND` |
-| Next after windows | Finish umbrella prod (2.0 ns) → WHAM → `evaluate_paired_pmf_qc.py`; scale other 7 only on PASS |
-| Capacity | 60/124 real one-thread `mdrun`; 64 slots idle because the pilot has no additional distinct ready windows |
+| Active host | EPYC 9554P, 128 hardware threads |
+| Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
+| Stage | 16/16 pull trajectories running and advancing |
+| Real GROMACS work | 16 real `mdrun`; 112/124 computational threads |
+| Idle reason | 16 indivisible pulls × 7 threads = 112; first completed pull automatically backfills one-thread windows toward 124/124 |
+| Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
+| Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
+| Next | Pull completion → automatic window extraction/equilibration/production → paired WHAM |
 
-## Paired site-lock status
+LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. All 16 pulls now advance without fatal, SETTLE, or LINCS errors.
 
-| Candidate | Classification | Locked site | Status |
-|---|---|---|---|
-| `LiLC-1` | preferred pilot | terminal Asp14 | **VALIDATED_BOUND** — window production ~98% |
-| `LiD3-Core` | scale queue | central Asp9 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiD3-Flex` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiND-Hybrid` | scale queue | central Asp11 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiDS-1` | scale queue | central Asp7 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiDA-1` | scale queue | central Asp7/Asp9 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiN3-Core` | scale queue | central Asn9 | **VALIDATED_BOUND** — await pilot PASS |
-| `LiA3-Ref` | scale queue | central Ala9 backbone | **VALIDATED_BOUND** — await pilot PASS |
+## Analysis contract
 
-## Keep in this repo (Part A)
+`evaluate_paired_pmf_qc.py` now outputs the radially corrected, endpoint-referenced PMF binding differences and paired Delta Delta G whenever profiles exist. Negative Delta Delta G means Li preference. Histogram support, endpoint span, early/late difference, burn-in sensitivity, and bootstrap uncertainty are numerical diagnostics rather than invented universal PASS gates.
 
-- `paired_site_manifests/*.tsv`
-- `paired_binding_site_audit.tsv` / `paired_binding_site_design.tsv`
-- `LISPER_UMBRELLA_QC_PROTOCOL.md`
-- `remote_orchestration/scripts/` (site-lock gated driver)
-- Empty `remote_runs/` / `remote_results/` for new campaigns
-
-## Next science steps
-
-1. Let LiLC-1 window production finish → WHAM.
-2. Run `evaluate_paired_pmf_qc.py`; promote only on PASS.
-3. Scale remaining 7 under same locked-site protocol toward 124/124.
-4. Write `selectivity_summary.tsv` (ΔΔG table).
-5. Sync fat → Jacky `ACTIVE/incoming/`; lean QC + ΔΔG → GitHub.
+These PMF values support within-protocol Li/Na selectivity comparisons. They are not labeled as 1 M standard binding free energies.

@@ -114,21 +114,21 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-13 17:10 CST.** Locked-site **LiLC-1** pilot on EPYC 9554P (128t). Pull and 0.5 ns window eq complete both ions; **2.0 ns window production** ~98% (60/60 windows, 0 failed, ~3.0 ns/day). 8/8 candidates `VALIDATED_BOUND`. ΔG promotion hold until pilot QC PASS.
+> **Scientific steward snapshot: 2026-07-13 22:58 CST.** Fresh paired-site umbrella campaigns are active for **all 8 candidates × LiCl/NaCl** on EPYC 9554P (128t). All 16 pull trajectories are advancing: 16 real `mdrun`, 112/124 computational threads, no current fatal/SETTLE/LINCS errors. Pull completion automatically backfills one-thread windows toward 124/124.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Pilot running](https://img.shields.io/badge/LiLC--1_locked_pilot-window_prod_~98%25-38BDF8)
-> ![Bound starts](https://img.shields.io/badge/VALIDATED__BOUND-8%2F8-22C55E)
+> ![Campaigns running](https://img.shields.io/badge/paired_campaigns-16%2F16_pull-38BDF8)
+> ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
-> ![PMF hold](https://img.shields.io/badge/DeltaG-promotion_hold-A78BFA)
+> ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-13 17:10 CST`
+**Last synchronized monitor snapshot:** `2026-07-13 22:58 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 60 active / 124 capacity</code> <sub>occupancy, not completed</sub></td>
-      <td><img alt="60 mdrun active" src="https://img.shields.io/badge/60_active-of_124_slots-38BDF8"></td>
+      <td><code>🔵 16 pull mdrun · 112 / 124 threads</code> <sub>window backfill follows pull completion</sub></td>
+      <td><img alt="112 threads active" src="https://img.shields.io/badge/112_active-of_124_threads-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -184,13 +184,13 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 LiLC-1 locked window-prod ~98% (60/60 · 0 fail · ~3.0 ns/day)</code></td>
-      <td><img alt="locked pilot window production" src="https://img.shields.io/badge/LiLC--1_locked-window_prod_~98%25-38BDF8"></td>
+      <td><code>🔵 16/16 paired-site pull trajectories running</code></td>
+      <td><img alt="all paired pulls running" src="https://img.shields.io/badge/paired_pulls-16%2F16-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>⚫ wait pilot prod + QC</code></td>
-      <td><img alt="PMF promotion hold" src="https://img.shields.io/badge/DeltaG-hold-A78BFA"></td>
+      <td><code>⚫ runs after paired windows finish</code></td>
+      <td><img alt="PMF pending windows" src="https://img.shields.io/badge/DeltaG-pending_windows-A78BFA"></td>
     </tr>
   </tbody>
 </table>
@@ -214,57 +214,57 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl locked window-prod ~98%</code> 🟢 🟢 🟢 🔵 ◆⚫<br><code>NaCl locked window-prod ~99%</code> 🟢 🟢 🟢 🔵 ◆⚫</td>
-      <td><img alt="await pilot WHAM" src="https://img.shields.io/badge/await-pilot_WHAM-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 15.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 14.59%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>LiCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫<br><code>NaCl VALIDATED_BOUND</code> 🟢 ⚫ ⚫ ⚫ ◆⚫</td>
-      <td><img alt="queued after pilot" src="https://img.shields.io/badge/queued-after_pilot_PASS-38BDF8"></td>
+      <td><code>LiCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫<br><code>NaCl paired pull running</code> 🟢 🔵 ⚫ ⚫ ◆⚫</td>
+      <td><img alt="paired pull running" src="https://img.shields.io/badge/paired_pull-running-38BDF8"></td>
     </tr>
   </tbody>
 </table>
@@ -292,23 +292,23 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>&lt;0.1 day (LiLC-1 pilot rem)</code></strong><br><sub>Live ~3.0 ns/day · production ~98%; ≈0.8 h to slowest window (60 parallel)</sub></td>
-      <td>Finish LiLC-1 window production → WHAM → paired QC PASS before scaling other 7 (already VALIDATED_BOUND).</td>
+      <td align="center"><strong><code>running</code></strong><br><sub>16 pulls now; automatic one-thread window fan-out next</sub></td>
+      <td>Complete pulls → 0.5 ns window equilibration → 2.0 ns production across all paired campaigns.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>~hours after prod</code></strong><br><sub>WHAM/bootstrap + region-aware QC on locked-site curves only</sub></td>
-      <td>Run WHAM/PMF analysis, inspect convergence, then extract ΔG for paired Li+/Na+ systems.</td>
+      <td align="center"><strong><code>hours after windows</code></strong><br><sub>WHAM + radial correction + numerical diagnostics</sub></td>
+      <td>Generate each paired PMF estimate and report overlap, time sensitivity, and uncertainty without invented thresholds.</td>
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>~0.3 day (first row) · ~3.3 day (full 8)</code></strong><br><sub>From live EPYC rate; remaining 7 at 124-slot fan-out after pilot PASS</sub></td>
-      <td>After locked-site pilot passes, compute ΔΔG = ΔG(Li+) − ΔG(Na+) and rank.</td>
+      <td align="center"><strong><code>after paired WHAM</code></strong><br><sub>all eight candidate pairs are already in the compute queue</sub></td>
+      <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
 </table>
 
-> Publishable paired ΔΔG requires locked-site `VALIDATED_BOUND` campaigns and QC PASS. No Delta G promoted while `DELTA_G_PROMOTION_HOLD.md` is active.
+> Reported values are radially corrected, endpoint-referenced PMF binding differences for within-protocol Li/Na comparison. They are not labeled as 1 M standard binding free energies.
 
 <details>
 <summary><strong>Current MD interpretation</strong></summary>
@@ -318,7 +318,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
 - Active compute: remote 128-thread EPYC 9554P worker.
 - All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
-- LiLC-1 locked-site window production is the live pilot; remaining candidates queue until pilot QC PASS.
+- All 16 candidate×ion paired-site pull trajectories are live and feed the shared 124-thread window pool.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>

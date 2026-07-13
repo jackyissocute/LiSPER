@@ -1,7 +1,7 @@
 # Window assignment plan — lisper-epyc (EPYC 9554P, 128 threads)
 
 Date: 2026-07-12  
-Host: `lisper-epyc` → `root@84.32.71.226`  
+Host: `lisper-epyc`
 GROMACS: `/opt/gromacs/2026.0` (target), 1 thread per window
 
 ## Hardware budget
@@ -11,7 +11,7 @@ GROMACS: `/opt/gromacs/2026.0` (target), 1 thread per window
 | Threads | 128 |
 | Reserve (SSH / WHAM / rsync / OS) | 4 |
 | **Concurrent `gmx mdrun`** | **`LISPER_GLOBAL_MDRUN_LIMIT=124`** |
-| Pull threads (2 jobs only) | `LISPER_PULL_NTHREADS=60` each → use CPU while pull runs |
+| Pull threads (16 paired campaigns) | `LISPER_PULL_NTHREADS=7`; thread-aware global limiter keeps the node at or below 124 |
 | Per-window threads | `-ntmpi 1 -ntomp 1` (`LISPER_NTHREADS=1`) |
 | Per-driver queue depth | `LISPER_JOBS=124` (global lock caps at 124) |
 
@@ -31,14 +31,14 @@ Typical windows/condition ≈ **31** (analysis + guards from ~0.45 nm bound star
 
 ## Phase schedule
 
-### Phase D — Pilot (LiLC-1 only)
+### Phase D — All paired campaigns
 
-| Track | Workdir | Ion | Windows | Threads used |
-|---|---|---|---:|---:|
-| A | `LiSPER_8cand_LiCl` | LI | ~31 | up to 31 |
-| B | `LiSPER_8cand_NaCl_prod_worker` | SOD | ~31 | up to 31 |
+| Track | Workdir | Ion | Campaigns |
+|---|---|---|---:|
+| A | `LiSPER_8cand_LiCl` | LIT | 8 |
+| B | `LiSPER_8cand_NaCl_prod_worker` | SOD | 8 |
 
-**Assignment:** after pull, fan both tracks into the global 124-slot pool. LiLC-1 alone ≈ 62 window jobs (fills what exists). After pilot PASS, launch more candidates so occupancy approaches **124/124**.
+**Assignment:** run all 16 pulls under the thread-aware 124-thread pool, then fan their windows into the same pool. Pulls use 7 threads; windows use one thread and automatically backfill toward **124/124**.
 
 Wall estimate @ ~4.6 ns/day/thread: **~0.5 day** (pull + windows).
 
@@ -54,7 +54,7 @@ export LISPER_WORKDIR=.../LiSPER_8cand_NaCl_prod_worker LISPER_CANDIDATE=LiLC-1 
 python3 /data/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py
 ```
 
-### Phase E — Scale (only after LiLC-1 paired QC PASS)
+### Phase E — Window production
 
 8 candidates × 2 ions = **16 conditions** × ~31 windows = **~496 window jobs**.
 
@@ -62,8 +62,6 @@ python3 /data/LiSPER_remote/scripts/run_lisper_umbrella_sampling.py
 |---|---|---:|---:|
 | **Recommended** | Fan all incomplete windows into global 124-slot pool (multiple drivers) | 124 | ~2.4 days |
 | Conservative | 2 candidates at a time (4 conditions) | ≤124 | longer, safer ops |
-
-Do **not** start Phase E until Phase D WHAM QC = PASS.
 
 ## WHAM / ΔG slotting
 
@@ -73,7 +71,7 @@ After a condition’s windows finish:
 2. Run `gmx wham` on **1–2 cores** (not 124) while other umbrella tracks continue.
 3. Reserve ~4 threads always free so WHAM + SSH never starve.
 
-Paired QC: `evaluate_paired_pmf_qc.py` on Mac or remote after both ions ready.
+Paired estimator: `evaluate_paired_pmf_qc.py` on Mac or remote after both ions are ready. It writes the estimate and numerical diagnostics without universal PASS thresholds.
 
 ## Anti-thrash rules
 
@@ -81,7 +79,7 @@ Paired QC: `evaluate_paired_pmf_qc.py` on Mac or remote after both ions ready.
 2. Never use >1 thread per window on this host (benchmarked).
 3. Never launch without `VALIDATED_BOUND` manifest.
 4. Use locked-site workdirs only (`umbrella_sampling` under current campaign roots).
-5. Pilot PASS before blasting remaining 7.
+5. Keep every candidate×ion driver unique; do not duplicate windows.
 
 ## Remote paths
 

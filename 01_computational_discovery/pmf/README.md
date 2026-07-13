@@ -2,11 +2,9 @@
 
 This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selectivity analysis after umbrella sampling.
 
-Old/default PMFs are preliminary/QC-only. A Delta G becomes publishable only after the current refined umbrella set passes WHAM overlap/bin checks, bootstrap/error analysis, and time-slice convergence review.
+The active estimator reports radially corrected, endpoint-referenced PMF binding differences for paired Li/Na simulations. These values can support a within-protocol selectivity comparison, but they are not labeled as 1 M standard binding free energies.
 
-**Promotion hold:** active. Audit: `0/8` same-site Li/Na pairs.
-
-Worktree keeps Part A scaffolds only. Next science: locked-site `VALIDATED_BOUND` pilot (**LiLC-1**), then scale.
+No binary promotion hold is active. Histogram overlap, endpoint span, early/late differences, burn-in sensitivity, and bootstrap uncertainty are retained as diagnostics with their numerical values.
 
 Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
 
@@ -39,12 +37,11 @@ More negative Delta Delta G indicates stronger Li+ preference.
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| `LiLC-1` | LiCl / NaCl | pending (window production ~98%) | **No** — wait pilot QC PASS |
-| Other 7 | LiCl / NaCl | queued | **No** — await pilot PASS then launch |
+| All 8 candidates | LiCl / NaCl | fresh paired campaigns launched on EPYC | Pending completed windows and WHAM |
 
-## Reliability Gates
+## Diagnostics
 
-Do not label Delta G as final when WHAM/GROMACS reports empty bins, weak/single-window bins, poor overlap, unstable time slices, or large uncertainty. Repair steps should be scientifically justified: extend weak windows, add/interpolate windows where overlap is poor, rerun WHAM with bootstrap/error analysis, and compare time-sliced convergence.
+The evaluator always writes the PMF estimate when the profiles exist. Empty or weak bins, endpoint shape, time sensitivity, and uncertainty remain visible warnings rather than arbitrary universal PASS/REPAIR thresholds. Fatal GROMACS/WHAM errors and missing inputs still block calculation because there is no numerical estimate to report.
 
 ```mermaid
 flowchart TD

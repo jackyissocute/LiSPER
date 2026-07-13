@@ -54,7 +54,25 @@ def test_minimum_image_distance_uses_box():
         assert abs(driver.minimum_image_distance((0.1, 0.0, 0.0), (1.9, 0.0, 0.0), box) - 0.2) < 1e-9
 
 
+def test_mdrun_usage_counts_real_process_threads():
+    with tempfile.TemporaryDirectory() as tmp:
+        driver = load_driver(Path(tmp))
+        proc = Path(tmp) / "proc"
+        for pid, comm, cmdline, threads in [
+            ("1", "gmx", b"gmx\0mdrun\0-ntomp\07\0", 7),
+            ("2", "gmx_mpi", b"gmx_mpi\0mdrun\0-ntomp\01\0", 1),
+            ("3", "bash", b"bash\0driver.sh\0", 1),
+        ]:
+            path = proc / pid
+            path.mkdir(parents=True)
+            (path / "comm").write_text(comm + "\n")
+            (path / "cmdline").write_bytes(cmdline)
+            (path / "status").write_text(f"Name:\t{comm}\nThreads:\t{threads}\n")
+        assert driver.active_mdrun_usage(proc) == (2, 8)
+
+
 if __name__ == "__main__":
     test_fresh_campaign_gets_three_pbc_safe_guards()
     test_existing_campaign_keeps_original_window_set()
     test_minimum_image_distance_uses_box()
+    test_mdrun_usage_counts_real_process_threads()
