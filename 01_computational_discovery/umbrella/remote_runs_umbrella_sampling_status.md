@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-14 00:19 CST
+Scientific steward snapshot: 2026-07-14 00:26 CST
 
 ## Live state
 
@@ -8,14 +8,14 @@ Scientific steward snapshot: 2026-07-14 00:19 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | LiDA-1 pulls complete; 14 pulls at 41.9–97.4%; 26/30 LiDA-1/LiCl window equilibrations active; LiDA-1/NaCl windows queued |
-| Real GROMACS work | 40 real `mdrun`; 124/124 computational threads (14 × 7-thread pulls + 26 × 1-thread windows) |
+| Stage | LiDA-1 and LiDS-1 pulls complete; 12 pulls at 46.6–71.1%; 40 window equilibrations active across LiDA-1/LiCl, LiDA-1/NaCl, and LiDS-1/NaCl |
+| Real GROMACS work | 52 real `mdrun`; 124/124 computational threads (12 × 7-thread pulls + 40 × 1-thread windows) |
 | Idle reason | None; the four-thread safety reserve is preserved and queued distinct windows wait on the global gate |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
 | Next | Finish pulls; automatically backfill distinct window equilibration/production; run paired WHAM after both ion campaigns complete |
 
-LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. Both LiDA-1 pulls are now complete, their 30+30 windows are generated, and the scheduler is filling the global gate without fatal, SETTLE, or LINCS errors.
+LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. LiDA-1 and LiDS-1 now have 30+30 generated windows per pair, and the scheduler is filling the global gate without fatal, SETTLE, or LINCS errors.
 
 ## Analysis contract
 
