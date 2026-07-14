@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 22:08 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred fifty-seven equilibrations and thirteen production windows are complete; 49 equilibrations plus 77 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 23:08 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred sixty equilibrations and fourteen production windows are complete; 48 equilibrations plus 78 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-49_eq_%2B_77_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-48_eq_%2B_78_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 22:08 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 23:08 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -293,7 +293,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Umbrella sampling</strong></td>
       <td align="center"><strong><code>~6.43 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
-      <td>All pulls are complete; 257 EQ and 13 production windows are done; 77 production windows are active.</td>
+      <td>All pulls are complete; 260 EQ and 14 production windows are done; 78 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
