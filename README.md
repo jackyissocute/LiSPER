@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-15 05:07 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred eighty-eight equilibrations and twenty-seven production windows are complete; 45 equilibrations plus 81 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-15 06:06 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred eighty-eight equilibrations and thirty-one production windows are complete; 46 equilibrations plus 80 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-45_eq_%2B_81_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-46_eq_%2B_80_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-15 05:07 CST`
+**Last synchronized monitor snapshot:** `2026-07-15 06:06 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~6.19 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
-      <td>All pulls are complete; 288 EQ and 27 production windows are done; 81 production windows are active.</td>
+      <td align="center"><strong><code>~6.15 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
+      <td>All pulls are complete; 288 EQ and 31 production windows are done; 80 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
