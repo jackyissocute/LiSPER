@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 13:08 CST.** All 16 paired pulls are complete and all 480 windows exist. One hundred fifty-nine equilibrations are complete; 89 equilibrations plus 35 production windows use 124 real `mdrun` processes and 124/124 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 14:10 CST.** All 16 paired pulls are complete and all 480 windows exist. One hundred seventy-two equilibrations are complete; 83 equilibrations plus 41 production windows use 124 real `mdrun` processes and 124/124 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-89_eq_%2B_35_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-83_eq_%2B_41_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 13:08 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 14:10 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,7 +156,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 124 mdrun · 124 / 124 threads</code> <sub>89 equilibrations + 35 production</sub></td>
+      <td><code>🔵 124 mdrun · 124 / 124 threads</code> <sub>83 equilibrations + 41 production</sub></td>
       <td><img alt="124 threads active" src="https://img.shields.io/badge/124_active-of_124_threads-22C55E"></td>
     </tr>
     <tr>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 159 EQ done · 89 EQ + 35 production running</code></td>
-      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-89_eq_%2B_35_prod-38BDF8"></td>
+      <td><code>🔵 172 EQ done · 83 EQ + 41 production running</code></td>
+      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-83_eq_%2B_41_prod-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~6.89 days</code></strong><br><sub>full-pool measured-rate schedule</sub></td>
-      <td>All pulls are complete; 159 EQ are done and 35 production windows are active.</td>
+      <td align="center"><strong><code>~6.81 days</code></strong><br><sub>full-pool measured-rate schedule</sub></td>
+      <td>All pulls are complete; 172 EQ are done and 41 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-21 ~14:25 CST</code></strong><br><sub>90% band 11:05–16:45 CST</sub></td>
+      <td align="center"><strong><code>2026-07-21 ~13:35 CST</code></strong><br><sub>90% band 10:30–16:00 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
