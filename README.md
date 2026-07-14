@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 20:27 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred forty-two equilibrations and nine production windows are complete; 53 equilibrations plus 73 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 21:08 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred forty-nine equilibrations and nine production windows are complete; 50 equilibrations plus 76 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-53_eq_%2B_73_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-50_eq_%2B_76_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 20:27 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 21:08 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,7 +156,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 126 mdrun · 126 / 126 threads</code> <sub>53 equilibrations + 73 production</sub></td>
+      <td><code>🔵 126 mdrun · 126 / 126 threads</code> <sub>50 equilibrations + 76 production</sub></td>
       <td><img alt="126 threads active" src="https://img.shields.io/badge/126_active-of_126_threads-22C55E"></td>
     </tr>
     <tr>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 242 EQ + 9 PROD done · 53 EQ + 73 production running</code></td>
-      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-53_eq_%2B_73_prod-38BDF8"></td>
+      <td><code>🔵 249 EQ + 9 PROD done · 50 EQ + 76 production running</code></td>
+      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-50_eq_%2B_76_prod-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~6.57 days</code></strong><br><sub>126-thread schedule; recalibration pending</sub></td>
-      <td>All pulls are complete; 242 EQ and 9 production windows are done; 73 production windows are active.</td>
+      <td align="center"><strong><code>~6.47 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
+      <td>All pulls are complete; 249 EQ and 9 production windows are done; 76 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-21 ~14:10 CST</code></strong><br><sub>90% band 11:10–16:20 CST</sub></td>
+      <td align="center"><strong><code>2026-07-21 ~12:20 CST</code></strong><br><sub>90% band 09:20–14:50 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
