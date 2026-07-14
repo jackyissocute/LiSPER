@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-14 11:30 CST
+Scientific steward snapshot: 2026-07-14 13:08 CST
 
 ## Live state
 
@@ -8,12 +8,12 @@ Scientific steward snapshot: 2026-07-14 11:30 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 148 equilibrations complete; 92 equilibrations + 32 production active |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 159 equilibrations complete; 89 equilibrations + 35 production active |
 | Real GROMACS work | 124 real one-thread `mdrun`; 124/124 computational threads |
 | Idle reason | None; the four-thread safety reserve is preserved and queued distinct windows wait on the global gate |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
-| Measured horizon | Full-pool rate ≈74,696 atom·ns/day; window MD median ≈6.95 d; rendered table ≈2026-07-21 14:15 CST (90% band 10:35–16:25 CST) |
+| Measured horizon | Full-pool rate ≈74,643 atom·ns/day; window MD median ≈6.89 d; rendered table ≈2026-07-21 14:25 CST (90% band 11:05–16:45 CST) |
 | Next | Backfill distinct EQ/production work; recalibrate after the first production completion; run paired WHAM after both ion campaigns complete |
 
 LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. All current work is healthy and the global gate is full.
