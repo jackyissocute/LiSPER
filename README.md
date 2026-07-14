@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-14 20:07 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred thirty-six equilibrations and eight production windows are complete; 53 equilibrations plus 71 production windows use 124 real `mdrun` processes and 124/124 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-14 20:27 CST.** All 16 paired pulls are complete and all 480 windows exist. Two hundred forty-two equilibrations and nine production windows are complete; 53 equilibrations plus 73 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-53_eq_%2B_71_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-53_eq_%2B_73_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-14 20:07 CST`
+**Last synchronized monitor snapshot:** `2026-07-14 20:27 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 124 mdrun · 124 / 124 threads</code> <sub>53 equilibrations + 71 production</sub></td>
-      <td><img alt="124 threads active" src="https://img.shields.io/badge/124_active-of_124_threads-22C55E"></td>
+      <td><code>🔵 126 mdrun · 126 / 126 threads</code> <sub>53 equilibrations + 73 production</sub></td>
+      <td><img alt="126 threads active" src="https://img.shields.io/badge/126_active-of_126_threads-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Umbrella windows</td>
-      <td><code>🔵 236 EQ + 8 PROD done · 53 EQ + 71 production running</code></td>
-      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-53_eq_%2B_71_prod-38BDF8"></td>
+      <td><code>🔵 242 EQ + 9 PROD done · 53 EQ + 73 production running</code></td>
+      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-53_eq_%2B_73_prod-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~6.59 days</code></strong><br><sub>244 completed-stage rate schedule</sub></td>
-      <td>All pulls are complete; 236 EQ and 8 production windows are done; 71 production windows are active.</td>
+      <td align="center"><strong><code>~6.57 days</code></strong><br><sub>126-thread schedule; recalibration pending</sub></td>
+      <td>All pulls are complete; 242 EQ and 9 production windows are done; 73 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -318,7 +318,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
 - Active compute: remote 128-thread EPYC 9554P worker.
 - All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
-- All 16 candidate×ion paired-site pull trajectories are live and feed the shared 124-thread window pool.
+- All 16 candidate×ion paired-site pull trajectories feed the shared 126-thread window pool.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>

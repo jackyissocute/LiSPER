@@ -5,6 +5,7 @@ import tempfile
 
 
 def load_driver(root):
+    os.environ.pop("LISPER_GLOBAL_MDRUN_LIMIT", None)
     os.environ.update(
         LISPER_WORKDIR=str(root),
         LISPER_ION_RESNAME="SOD",
@@ -21,6 +22,7 @@ def load_driver(root):
 def test_fresh_campaign_gets_three_pbc_safe_guards():
     with tempfile.TemporaryDirectory() as tmp:
         driver = load_driver(Path(tmp))
+        assert driver.GLOBAL_MDRUN_LIMIT == 126
         analysis, total, safe_max = driver.pbc_safe_extensions(0.1083, 9.5727)
         assert driver.GUARD_WINDOWS == 3
         assert abs(analysis - 1.95) < 1e-9
