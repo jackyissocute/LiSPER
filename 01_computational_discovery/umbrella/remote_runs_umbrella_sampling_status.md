@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-16 03:24 CST
+Scientific steward snapshot: 2026-07-16 07:06 CST
 
 ## Live state
 
@@ -8,12 +8,12 @@ Scientific steward snapshot: 2026-07-16 03:24 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 353 equilibrations + 76 production complete; 6 equilibrations + 119 production active |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 355 equilibrations + 76 production complete; 4 equilibrations + 121 production active |
 | Real GROMACS work | 125 real one-thread `mdrun`; 125/126 computational threads |
 | Idle reason | One additional compute slot is idle because the live workers retain the old 124-slot environment; restarting healthy piped jobs is higher risk than preserving them |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
-| Measured horizon | 429-stage mean ≈73,734 atom·ns/day; the prior twenty-six-hour 126-thread aggregate was ≈9.17M atom·ns/day and the measured 124-thread baseline is ≈9.20M; table ≈2026-07-21 12:20 CST (90% band 09:20–14:50 CST), recalibrated as 1.566–3.788 ns/day production evidence grows |
+| Measured horizon | 431-stage mean ≈73,730 atom·ns/day; the prior twenty-six-hour 126-thread aggregate was ≈9.17M atom·ns/day and the measured 124-thread baseline is ≈9.20M; table ≈2026-07-21 12:20 CST (90% band 09:20–14:50 CST), recalibrated as 1.566–3.788 ns/day production evidence grows |
 | Next | Keep the healthy 126-thread pool full, continue slow-tail priority, and run paired WHAM only after both ion campaigns complete |
 
 LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. Slow LiD3-Flex/LiND-Hybrid allocation is 120 jobs. The live worker environments still carry the old 124-slot gate even though the on-disk default is 126; all current jobs are healthy, so they were not restarted.
