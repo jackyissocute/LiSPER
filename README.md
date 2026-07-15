@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-15 11:07 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eleven equilibrations and forty production windows are complete; 36 equilibrations plus 90 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-15 12:08 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred twenty-two equilibrations and forty-two production windows are complete; 27 equilibrations plus 99 production windows use 126 real `mdrun` processes and 126/126 computational threads. No current fatal, SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-15 11:07 CST`
+**Last synchronized monitor snapshot:** `2026-07-15 12:08 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~5.95 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
-      <td>All pulls are complete; 311 EQ and 40 production windows are done; 90 production windows are active.</td>
+      <td align="center"><strong><code>~5.91 days</code></strong><br><sub>126-thread measured-rate schedule</sub></td>
+      <td>All pulls are complete; 322 EQ and 42 production windows are done; 99 production windows are active.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
