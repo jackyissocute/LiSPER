@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-16 10:59 CST
+Scientific steward snapshot: 2026-07-16 13:16 CST
 
 ## Live state
 
@@ -8,15 +8,36 @@ Scientific steward snapshot: 2026-07-16 10:59 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 359 equilibrations + 76 production complete; 0 equilibrations + 126 production active |
-| Real GROMACS work | 126 real one-thread `mdrun`; 126/126 computational threads; two supplemental continuations run at nice 15 and idle I/O priority |
-| Idle reason | One additional compute slot is idle because the live workers retain the old 124-slot environment; restarting healthy piped jobs is higher risk than preserving them |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 359 equilibrations + 77 production complete; 1 equilibration + 125 production active |
+| Real GROMACS work | 126 unique one-thread `mdrun`; 126/126 umbrella-MD threads; three supplemental continuations run at nice 15 and idle I/O priority |
+| Reserved support | 0/2 persistent threads in use; both remain available for launch, verification, monitoring, and analysis |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
-| Measured horizon | 435 valid-stage mean ≈73,722 atom·ns/day; the measured core-pool aggregate is ≈9.20M atom·ns/day; table ≈2026-07-21 12:20 CST (90% band 09:20–14:50 CST), recalibrated as low-priority production evidence grows |
+| Measured horizon | 436 endpoint-valid stages average ≈73,721 atom·ns/day; 1,000 current-queue list-schedule resamples at 126 MD slots give table ≈2026-07-21 01:11 CST (90% band 00:29–01:40 CST), recalibrated as production evidence grows |
 | Next | Keep the healthy 126-thread pool full, continue slow-tail priority, and run paired WHAM only after both ion campaigns complete |
 
-LiDA-1/NaCl initially failed at step 0 because its peptide crossed the periodic boundary, making the GROMACS pull-group distance 3.055 nm despite a minimum-image site distance of 0.336 nm. Only that scope was stopped; the peptide was made whole and centered, the bound start was rebuilt, and the relaunched GROMACS distance is 0.354 nm. Slow LiD3-Flex/LiND-Hybrid allocation is 120 jobs. Two LiA3-Ref/NaCl continuations resumed from preserved checkpoints at low scheduler priority; all 126 jobs advance and three SSH probes complete in 1.80–1.82 seconds. Completion requires the configured final step plus the GROMACS finish marker.
+All 126 jobs advance in distinct window directories. Completion requires both the configured final step and the GROMACS finish marker; no active log tail contains a fatal, SETTLE, or LINCS error.
+
+## Candidate window counts
+
+| Candidate | Solution | EQ complete/30 | EQ left | EQ active | Production complete/30 | Production left | Production active |
+|---|---|---:|---:|---:|---:|---:|---:|
+| LiA3-Ref | LiCl | 21/30 | 9 | 0 | 3/30 | 27 | 1 |
+| LiA3-Ref | NaCl | 14/30 | 16 | 1 | 2/30 | 28 | 2 |
+| LiD3-Core | LiCl | 22/30 | 8 | 0 | 6/30 | 24 | 0 |
+| LiD3-Core | NaCl | 19/30 | 11 | 0 | 3/30 | 27 | 0 |
+| LiD3-Flex | LiCl | 30/30 | 0 | 0 | 0/30 | 30 | 30 |
+| LiD3-Flex | NaCl | 30/30 | 0 | 0 | 0/30 | 30 | 30 |
+| LiDA-1 | LiCl | 27/30 | 3 | 0 | 16/30 | 14 | 0 |
+| LiDA-1 | NaCl | 17/30 | 13 | 0 | 6/30 | 24 | 0 |
+| LiDS-1 | LiCl | 20/30 | 10 | 0 | 9/30 | 21 | 1 |
+| LiDS-1 | NaCl | 27/30 | 3 | 0 | 14/30 | 16 | 1 |
+| LiLC-1 | LiCl | 17/30 | 13 | 0 | 5/30 | 25 | 0 |
+| LiLC-1 | NaCl | 18/30 | 12 | 0 | 5/30 | 25 | 1 |
+| LiN3-Core | LiCl | 20/30 | 10 | 0 | 4/30 | 26 | 0 |
+| LiN3-Core | NaCl | 17/30 | 13 | 0 | 3/30 | 27 | 0 |
+| LiND-Hybrid | LiCl | 30/30 | 0 | 0 | 0/30 | 30 | 30 |
+| LiND-Hybrid | NaCl | 30/30 | 0 | 0 | 1/30 | 29 | 29 |
 
 ## Analysis contract
 
