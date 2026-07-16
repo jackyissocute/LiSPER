@@ -73,6 +73,24 @@ def test_mdrun_usage_counts_real_process_threads():
         assert driver.active_mdrun_usage(proc) == (2, 8)
 
 
+def test_active_mdrun_cwds_excludes_wrappers():
+    with tempfile.TemporaryDirectory() as tmp:
+        driver = load_driver(Path(tmp))
+        proc = Path(tmp) / "proc"
+        work = Path(tmp) / "window"
+        work.mkdir()
+        for pid, comm, cmdline in [
+            ("1", "gmx", b"gmx\0mdrun\0"),
+            ("2", "bash", b"bash\0-lc\0gmx mdrun\0"),
+        ]:
+            path = proc / pid
+            path.mkdir(parents=True)
+            (path / "comm").write_text(comm + "\n")
+            (path / "cmdline").write_bytes(cmdline)
+            (path / "cwd").symlink_to(work, target_is_directory=True)
+        assert driver.active_mdrun_cwds(proc) == {work.resolve()}
+
+
 def test_mdrun_finished_requires_target_step():
     with tempfile.TemporaryDirectory() as tmp:
         driver = load_driver(Path(tmp))
@@ -90,4 +108,5 @@ if __name__ == "__main__":
     test_existing_campaign_keeps_original_window_set()
     test_minimum_image_distance_uses_box()
     test_mdrun_usage_counts_real_process_threads()
+    test_active_mdrun_cwds_excludes_wrappers()
     test_mdrun_finished_requires_target_step()

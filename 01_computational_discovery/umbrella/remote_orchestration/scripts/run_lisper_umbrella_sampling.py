@@ -95,6 +95,20 @@ def count_active_mdruns(proc_root=Path("/proc")):
     return active_mdrun_usage(proc_root)[0]
 
 
+def active_mdrun_cwds(proc_root=Path("/proc")):
+    active = set()
+    for proc_dir in proc_root.glob("[0-9]*"):
+        try:
+            comm = (proc_dir / "comm").read_text().strip()
+            cmdline = (proc_dir / "cmdline").read_bytes().replace(b"\0", b" ").decode(errors="replace")
+            cwd = (proc_dir / "cwd").resolve()
+        except (FileNotFoundError, PermissionError, ProcessLookupError):
+            continue
+        if comm.startswith("gmx") and "mdrun" in cmdline:
+            active.add(cwd)
+    return active
+
+
 def mdrun_finished(log, mdp):
     try:
         text = Path(log).read_text(errors="replace")
@@ -113,6 +127,8 @@ def run_mdrun_with_global_limit(cmd, cwd, log, requested_threads=1):
     while True:
         with GLOBAL_MDRUN_LOCK.open("a+") as lock_handle:
             fcntl.flock(lock_handle, fcntl.LOCK_EX)
+            if Path(cwd).resolve() in active_mdrun_cwds():
+                return None
             active_processes, active_threads = active_mdrun_usage()
             if (
                 active_processes < GLOBAL_MDRUN_LIMIT
@@ -469,6 +485,11 @@ def topology_candidates():
 
 
 def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
+    while window_dir.resolve() in active_mdrun_cwds():
+        time.sleep(2.0)
+    if mdrun_finished(window_dir / f"{deffnm}.log", mdp):
+        return "complete"
+
     nt = NTHREAD if nthreads is None else int(nthreads)
     tpr = window_dir / f"{deffnm}.tpr"
     run_cpt = window_dir / f"{deffnm}.cpt"
@@ -497,6 +518,8 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
         log=window_dir / f"{deffnm}.mdrun.stdout.log",
         requested_threads=nt,
     )
+    if code is None:
+        return grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=cpt, nthreads=nthreads)
     if code != 0:
         return "mdrun_failed"
     log = window_dir / f"{deffnm}.log"
