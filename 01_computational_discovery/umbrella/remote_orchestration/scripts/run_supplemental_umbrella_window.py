@@ -3,11 +3,6 @@ from pathlib import Path
 import importlib.util
 import sys
 
-
-def log_finished(path):
-    return path.exists() and "Finished mdrun" in path.read_text(errors="replace")
-
-
 def main():
     if len(sys.argv) != 2:
         raise SystemExit("usage: run_supplemental_umbrella_window.py WINDOW_DIR")
@@ -20,7 +15,7 @@ def main():
 
     if window.parent != driver.UMB_DIR.resolve() or not window.name.startswith("window_"):
         raise SystemExit(f"window is outside the configured umbrella directory: {window}")
-    if log_finished(window / "umbrella.log"):
+    if driver.mdrun_finished(window / "umbrella.log", window / "umbrella.mdp"):
         print("already complete")
         return
 
@@ -29,7 +24,7 @@ def main():
     if missing:
         raise SystemExit(f"window is not prepared; missing: {', '.join(missing)}")
 
-    if not log_finished(window / "umbrella_eq.log"):
+    if not driver.mdrun_finished(window / "umbrella_eq.log", window / "umbrella_eq.mdp"):
         status = driver.grompp_mdrun(
             window, window / "umbrella_eq.mdp", window / "start.gro", "umbrella_eq"
         )

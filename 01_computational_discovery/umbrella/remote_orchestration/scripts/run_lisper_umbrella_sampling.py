@@ -95,6 +95,17 @@ def count_active_mdruns(proc_root=Path("/proc")):
     return active_mdrun_usage(proc_root)[0]
 
 
+def mdrun_finished(log, mdp):
+    try:
+        text = Path(log).read_text(errors="replace")
+        mdp_text = Path(mdp).read_text(errors="replace")
+    except FileNotFoundError:
+        return False
+    expected = re.search(r"^\s*nsteps\s*=\s*(\d+)", mdp_text, re.MULTILINE)
+    steps = re.findall(r"^\s*Step\s+Time\s*$\n\s*(\d+)\s+", text, re.MULTILINE)
+    return bool("Finished mdrun" in text and expected and steps and int(steps[-1]) >= int(expected.group(1)))
+
+
 def run_mdrun_with_global_limit(cmd, cwd, log, requested_threads=1):
     if requested_threads < 1 or requested_threads > GLOBAL_MDRUN_LIMIT:
         raise ValueError(f"Invalid mdrun thread request: {requested_threads}")
@@ -356,7 +367,7 @@ def archive_incompatible_pull(pull_dir, expected_rate, expected_config):
         return None
     marker = pull_dir / "pull_config.tsv"
     rate = pull_mdp_rate(pull_dir)
-    finished = pull_log.exists() and "Finished mdrun" in pull_log.read_text(errors="replace")
+    finished = mdrun_finished(pull_log, pull_dir / "pull.mdp")
     marker_matches = marker.exists() and marker.read_text(errors="replace") == expected_config
     rate_ok = rate is not None and abs(rate - expected_rate) <= 1e-7
     # Keep same-protocol unfinished pulls so mdrun can resume from .cpt after steward restarts.
@@ -489,7 +500,7 @@ def grompp_mdrun(window_dir, mdp, gro, deffnm, cpt=None, nthreads=None):
     if code != 0:
         return "mdrun_failed"
     log = window_dir / f"{deffnm}.log"
-    if not log.exists() or "Finished mdrun" not in log.read_text(errors="replace"):
+    if not mdrun_finished(log, mdp):
         return "incomplete"
     return "complete"
 
@@ -557,7 +568,7 @@ def main():
     pull_dir.mkdir(exist_ok=True)
     pull_mdp.write_text(base_mdp(pull_steps, "no", pull_rate, initial_distance))
     pull_status = "complete"
-    if not (pull_dir / "pull.log").exists() or "Finished mdrun" not in (pull_dir / "pull.log").read_text(errors="replace"):
+    if not mdrun_finished(pull_dir / "pull.log", pull_mdp):
         pull_status = grompp_mdrun(pull_dir, pull_mdp, full_rep, "pull", nthreads=PULL_NTHREAD)
     if pull_status != "complete":
         write_summary([
@@ -618,8 +629,8 @@ def main():
     def run_window(job):
         i, dist, win, eq_mdp, mdp, gro = job
         status = "complete"
-        if not (win / "umbrella.log").exists() or "Finished mdrun" not in (win / "umbrella.log").read_text(errors="replace"):
-            if not (win / "umbrella_eq.log").exists() or "Finished mdrun" not in (win / "umbrella_eq.log").read_text(errors="replace"):
+        if not mdrun_finished(win / "umbrella.log", mdp):
+            if not mdrun_finished(win / "umbrella_eq.log", eq_mdp):
                 status = grompp_mdrun(win, eq_mdp, gro, "umbrella_eq")
             if status == "complete":
                 status = grompp_mdrun(win, mdp, win / "umbrella_eq.gro", "umbrella", cpt=win / "umbrella_eq.cpt")

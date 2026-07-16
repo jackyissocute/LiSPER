@@ -73,8 +73,21 @@ def test_mdrun_usage_counts_real_process_threads():
         assert driver.active_mdrun_usage(proc) == (2, 8)
 
 
+def test_mdrun_finished_requires_target_step():
+    with tempfile.TemporaryDirectory() as tmp:
+        driver = load_driver(Path(tmp))
+        mdp = Path(tmp) / "run.mdp"
+        log = Path(tmp) / "run.log"
+        mdp.write_text("nsteps = 1000000\n")
+        log.write_text("Step           Time\n83360 166.72000\nFinished mdrun\n")
+        assert not driver.mdrun_finished(log, mdp)
+        log.write_text("Step           Time\n1000000 2000.00000\nFinished mdrun\n")
+        assert driver.mdrun_finished(log, mdp)
+
+
 if __name__ == "__main__":
     test_fresh_campaign_gets_three_pbc_safe_guards()
     test_existing_campaign_keeps_original_window_set()
     test_minimum_image_distance_uses_box()
     test_mdrun_usage_counts_real_process_threads()
+    test_mdrun_finished_requires_target_step()

@@ -5,11 +5,6 @@ import shutil
 
 import run_lisper_umbrella_sampling as driver
 
-
-def finished(path):
-    return path.exists() and "Finished mdrun" in path.read_text(errors="replace")
-
-
 def window_number(path):
     return int(re.match(r"window_(\d+)_", path.name).group(1))
 
@@ -20,7 +15,7 @@ def main():
     base_index = int(driver.WINDOW_EXTENSION_NM / driver.WINDOW_SPACING_NM)
     windows = {window_number(path): path for path in driver.UMB_DIR.glob("window_*")}
     previous = windows.get(base_index)
-    if previous is None or not finished(previous / "umbrella.log"):
+    if previous is None or not driver.mdrun_finished(previous / "umbrella.log", previous / "umbrella.mdp"):
         raise RuntimeError("The final base window must complete before endpoint guards start")
 
     first_guard = base_index + 1
@@ -38,9 +33,9 @@ def main():
         eq_mdp.write_text(driver.base_mdp(int(driver.WINDOW_EQ_NS * 500000), "no", 0.0, center))
         mdp.write_text(driver.base_mdp(int(driver.WINDOW_NS * 500000), "yes", 0.0, center))
         status = "complete"
-        if not finished(window / "umbrella_eq.log"):
+        if not driver.mdrun_finished(window / "umbrella_eq.log", eq_mdp):
             status = driver.grompp_mdrun(window, eq_mdp, start, "umbrella_eq")
-        if status == "complete" and not finished(window / "umbrella.log"):
+        if status == "complete" and not driver.mdrun_finished(window / "umbrella.log", mdp):
             status = driver.grompp_mdrun(
                 window, mdp, window / "umbrella_eq.gro", "umbrella", cpt=window / "umbrella_eq.cpt"
             )
