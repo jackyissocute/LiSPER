@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-17 16:52 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eighty-four equilibrations and 160 production windows are complete; 20 equilibration and 106 production windows use 126 unique one-thread `mdrun` processes. Two threads remain reserved for launch, verification, monitoring, and analysis; no current fatal, water-SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-17 18:52 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eighty-four equilibrations and 160 production windows are complete; 19 equilibration and 107 production windows use 126 unique one-thread `mdrun` processes. Two threads remain reserved for launch, verification, monitoring, and analysis; no current fatal, water-SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-20_eq_%2B_106_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-19_eq_%2B_107_prod-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
