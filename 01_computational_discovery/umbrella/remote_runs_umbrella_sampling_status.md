@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-17 20:50 CST
+Scientific steward snapshot: 2026-07-17 21:51 CST
 
 ## Live state
 
@@ -8,13 +8,13 @@ Scientific steward snapshot: 2026-07-17 20:50 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 384 equilibrations + 162 production complete; 22 equilibration + 104 production active |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 385 equilibrations + 162 production complete; 23 equilibration + 103 production active |
 | Real GROMACS work | 126 unique one-thread `mdrun`; 126/126 umbrella-MD threads; all use `-ntmpi 1 -ntomp 1` in distinct window directories |
 | Reserved support | 0/2 persistent threads in use; both remain available for launch, verification, monitoring, and analysis |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
 | Pre-WHAM gate | GROMACS 2026.0 `-ac` with retained `-oiact`/ACF evidence; production bootstrap is explicitly `-bs-method traj` |
-| Measured horizon | 546 endpoint-valid stages average ≈73,177 atom·ns/day (≈9.22M atom·ns/day at 126 jobs); 1,000 current-queue campaign-block resamples give median table ETA ≈2026-07-21 05:45 CST (90% band 05:16–06:22 CST), recalibrated as production evidence grows |
+| Measured horizon | 547 endpoint-valid stages average ≈73,057 atom·ns/day (≈9.21M atom·ns/day at 126 jobs); 1,000 current-queue campaign-block resamples give median table ETA ≈2026-07-21 06:50 CST (90% band 06:19–07:28 CST), recalibrated as production evidence grows |
 | Next | Keep the verified 126-job pool full and run paired WHAM only after both ion campaigns complete |
 
 All 126 jobs consumed CPU during a five-second `/proc` check and remain unique. Ready LiLC-1/NaCl owns the 126th-slot ceiling as the largest remaining progress-adjusted atom-weighted workload; LiN3-Core/LiCl returned to the lower ceiling after all 30 windows became active or complete. Only those two scheduler processes were replaced, with every healthy MD child preserved. The shared fast capacity check and duplicate-window guard remain active. Completion requires both the configured final step and the GROMACS finish marker; no active log tail contains a fatal, water-SETTLE failure, or LINCS warning.
@@ -24,20 +24,20 @@ All 126 jobs consumed CPU during a five-second `/proc` check and remain unique. 
 | Candidate | Solution | EQ complete/30 | EQ left | EQ active | Production complete/30 | Production left | Production active |
 |---|---|---:|---:|---:|---:|---:|---:|
 | LiA3-Ref | LiCl | 25/30 | 5 | 4 | 3/30 | 27 | 21 |
-| LiA3-Ref | NaCl | 21/30 | 9 | 9 | 5/30 | 25 | 16 |
+| LiA3-Ref | NaCl | 21/30 | 9 | 5 | 5/30 | 25 | 16 |
 | LiD3-Core | LiCl | 24/30 | 6 | 0 | 6/30 | 24 | 2 |
 | LiD3-Core | NaCl | 19/30 | 11 | 0 | 3/30 | 27 | 16 |
-| LiD3-Flex | LiCl | 30/30 | 0 | 0 | 21/30 | 9 | 4 |
+| LiD3-Flex | LiCl | 30/30 | 0 | 0 | 21/30 | 9 | 1 |
 | LiD3-Flex | NaCl | 30/30 | 0 | 0 | 24/30 | 6 | 1 |
 | LiDA-1 | LiCl | 27/30 | 3 | 0 | 17/30 | 13 | 0 |
 | LiDA-1 | NaCl | 19/30 | 11 | 0 | 7/30 | 23 | 0 |
 | LiDS-1 | LiCl | 23/30 | 7 | 0 | 10/30 | 20 | 0 |
 | LiDS-1 | NaCl | 28/30 | 2 | 0 | 15/30 | 15 | 1 |
 | LiLC-1 | LiCl | 19/30 | 11 | 0 | 5/30 | 25 | 3 |
-| LiLC-1 | NaCl | 21/30 | 9 | 0 | 6/30 | 24 | 0 |
+| LiLC-1 | NaCl | 22/30 | 8 | 5 | 6/30 | 24 | 7 |
 | LiN3-Core | LiCl | 21/30 | 9 | 9 | 4/30 | 26 | 17 |
 | LiN3-Core | NaCl | 17/30 | 13 | 0 | 4/30 | 26 | 12 |
-| LiND-Hybrid | LiCl | 30/30 | 0 | 0 | 13/30 | 17 | 6 |
+| LiND-Hybrid | LiCl | 30/30 | 0 | 0 | 13/30 | 17 | 1 |
 | LiND-Hybrid | NaCl | 30/30 | 0 | 0 | 19/30 | 11 | 5 |
 
 ## Analysis contract
