@@ -71,6 +71,9 @@ def test_mdrun_usage_counts_real_process_threads():
             (path / "cmdline").write_bytes(cmdline)
             (path / "status").write_text(f"Name:\t{comm}\nThreads:\t{threads}\n")
         assert driver.active_mdrun_usage(proc) == (2, 8)
+        assert driver.mdrun_slot_available(proc_root=proc)
+        driver.GLOBAL_MDRUN_LIMIT = 8
+        assert not driver.mdrun_slot_available(proc_root=proc)
 
 
 def test_active_mdrun_cwds_excludes_wrappers():

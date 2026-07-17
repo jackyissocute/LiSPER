@@ -95,6 +95,11 @@ def count_active_mdruns(proc_root=Path("/proc")):
     return active_mdrun_usage(proc_root)[0]
 
 
+def mdrun_slot_available(requested_threads=1, proc_root=Path("/proc")):
+    processes, threads = active_mdrun_usage(proc_root)
+    return processes < GLOBAL_MDRUN_LIMIT and threads + requested_threads <= GLOBAL_MDRUN_LIMIT
+
+
 def active_mdrun_cwds(proc_root=Path("/proc")):
     active = set()
     for proc_dir in proc_root.glob("[0-9]*"):
@@ -125,15 +130,14 @@ def run_mdrun_with_global_limit(cmd, cwd, log, requested_threads=1):
         raise ValueError(f"Invalid mdrun thread request: {requested_threads}")
     GLOBAL_MDRUN_LOCK.parent.mkdir(parents=True, exist_ok=True)
     while True:
+        if not mdrun_slot_available(requested_threads):
+            time.sleep(2.0)
+            continue
         with GLOBAL_MDRUN_LOCK.open("a+") as lock_handle:
             fcntl.flock(lock_handle, fcntl.LOCK_EX)
             if Path(cwd).resolve() in active_mdrun_cwds():
                 return None
-            active_processes, active_threads = active_mdrun_usage()
-            if (
-                active_processes < GLOBAL_MDRUN_LIMIT
-                and active_threads + requested_threads <= GLOBAL_MDRUN_LIMIT
-            ):
+            if mdrun_slot_available(requested_threads):
                 proc = subprocess.Popen(
                     f"bash -lc {cmd!r}",
                     shell=True,
