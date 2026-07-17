@@ -114,7 +114,7 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-17 18:52 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eighty-four equilibrations and 160 production windows are complete; 19 equilibration and 107 production windows use 126 unique one-thread `mdrun` processes. Two threads remain reserved for launch, verification, monitoring, and analysis; no current fatal, water-SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-17 19:50 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eighty-four equilibrations and 161 production windows are complete; 19 equilibration and 107 production windows use 126 unique one-thread `mdrun` processes. Two threads remain reserved for launch, verification, monitoring, and analysis; no current fatal, water-SETTLE, or LINCS error is present.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
