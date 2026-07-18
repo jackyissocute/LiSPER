@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-18 09:44 CST.** After the prior provider was destroyed, preserved conventional-MD inputs were checksum-verified on a replacement EPYC 9554P host and all 16 locked-site bound starts were regenerated and revalidated. All 16 paired pulls are active in distinct directories: 16 seven-thread `mdrun` processes use 112/126 MD threads, with no active fatal, water-SETTLE, or LINCS warning. Window EQ and production have restarted from 0/480.
+> **Scientific steward snapshot: 2026-07-18 11:07 CST.** Two paired pulls are complete and 14 remain active. Sixty windows now exist; 28 LiDA-1/LiCl EQ jobs are active. Live `/proc` verification found 42 unique, advancing `mdrun` processes using 126/126 MD threads in distinct directories, with no active fatal, water-SETTLE, or LINCS warning.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-16_pulls-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-14_pulls_%2B_28_EQ-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-18 09:44 CST`
+**Last synchronized monitor snapshot:** `2026-07-18 11:07 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 16 mdrun · 112 / 126 MD threads</code> <sub>16 distinct seven-thread pulls; 2 support threads reserved</sub></td>
-      <td><img alt="112 threads active" src="https://img.shields.io/badge/112_active-of_126_threads-38BDF8"></td>
+      <td><code>🔵 42 mdrun · 126 / 126 MD threads</code> <sub>14 seven-thread pulls + 28 one-thread EQ; 2 support threads reserved</sub></td>
+      <td><img alt="126 threads active" src="https://img.shields.io/badge/126_active-of_126_threads-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Pulls → umbrella windows</td>
-      <td><code>🔵 0/16 pulls done · 16 active; 0/480 EQ + 0/480 production</code></td>
-      <td><img alt="paired pulls running" src="https://img.shields.io/badge/active-16_pulls-38BDF8"></td>
+      <td><code>🔵 2/16 pulls done · 14 active; 0/480 EQ done + 28 active; 0/480 production</code></td>
+      <td><img alt="paired umbrella work running" src="https://img.shields.io/badge/active-14_pulls_%2B_28_EQ-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -249,7 +249,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 28 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
       <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~6.04 days</code></strong><br><sub>55.47M atom·ns fresh queue</sub></td>
-      <td>All 16 pulls are active; EQ and production are 0/480 after the replacement-host restart. New one-thread production throughput will recalibrate the forecast.</td>
+      <td align="center"><strong><code>~5.98 days</code></strong><br><sub>54.98M atom·ns progress-adjusted queue</sub></td>
+      <td>Two pulls are complete, 14 remain active, and 28 EQ windows are active. New one-thread production throughput will recalibrate the forecast.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-24 ~14:30 CST</code></strong><br><sub>±20% throughput band: Jul 23 14:30–Jul 26 03:00 CST</sub></td>
+      <td align="center"><strong><code>2026-07-24 ~14:40 CST</code></strong><br><sub>±20% throughput band: Jul 23 14:45–Jul 26 02:35 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>

@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-18 09:44 CST
+Scientific steward snapshot: 2026-07-18 11:07 CST
 
 ## Live state
 
@@ -8,16 +8,16 @@ Scientific steward snapshot: 2026-07-18 09:44 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | Replacement-host restart: 0/16 pulls complete, 16 active; 0/480 windows generated; 0 equilibrations and 0 production complete |
-| Real GROMACS work | 16 unique seven-thread pull `mdrun`; 112/126 umbrella-MD threads; all 16 distinct ready pulls are active |
-| Reserved support | 0/2 threads in use at the `/proc` sample; one support thread is used briefly for the 10-minute off-host sync |
+| Stage | 2/16 pulls complete, 14 active; 60/480 windows generated; 0 equilibrations complete, 28 active; 0 production complete |
+| Real GROMACS work | 42 unique `mdrun`: 14 seven-thread pulls + 28 one-thread EQ windows; 126/126 umbrella-MD threads in 42 distinct directories |
+| Reserved support | 2/2 threads used transiently for the off-host sync and live verification; both return after those checks |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
 | Pre-WHAM gate | GROMACS 2026.0 `-ac` with retained `-oiact`/ACF evidence; production bootstrap is explicitly `-bs-method traj` |
-| Measured horizon | Fresh queue = 55.47M atom·ns. The last verified same-host/protocol rate basis is ≈72,934 atom·ns/day/job (≈9.19M/day at 126 jobs), giving nominal table ETA 2026-07-24 14:30 CST; ±20% throughput sensitivity gives 2026-07-23 14:30 to 2026-07-26 03:00 CST |
-| Next | Verify all pulls continue, let completed pulls expose windows, and backfill the one-thread EQ/production pool toward 126/126 |
+| Measured horizon | Progress-adjusted queue = 54.98M atom·ns. The last verified same-host/protocol rate basis is ≈72,934 atom·ns/day/job (≈9.19M/day at 126 jobs), giving nominal table ETA 2026-07-24 14:40 CST; ±20% throughput sensitivity gives 2026-07-23 14:45 to 2026-07-26 02:35 CST |
+| Next | Preserve the healthy 126/126 pool; as pulls finish, give newly free slots to ready windows with the greatest remaining atom-weighted campaign work |
 
-The prior provider was destroyed and its uncommitted umbrella outputs were unrecoverable. The preserved conventional-MD structures, protocols, topologies, and locked-site manifests were checksum-verified on the replacement host; all 16 bound starts were regenerated, minimized, and revalidated. A LiDA-1/Na step-0 periodic-image failure was isolated, preserved, corrected with molecule-whole coordinates, and verified past step 4,500 after relaunch. A five-second `/proc` sample found 16/16 distinct pulls advancing with no duplicate working directory and no active fatal, water-SETTLE, or LINCS warning. New one-thread EQ/production evidence will recalibrate the forecast.
+A five-second `/proc` sample found all 42 real GROMACS executables advancing, with 126 actual MD threads and no duplicate working directory. LiDA-1 LiCl/NaCl pulls independently verified step 500,000 plus `Finished mdrun`; both generated 30 windows. LiDA-1/LiCl owns the 28 free one-thread slots while LiDA-1/NaCl remains queued behind the full pool. No active log contains a fatal, water-SETTLE, or LINCS warning. New one-thread EQ/production evidence will recalibrate the forecast.
 
 ## Candidate window counts
 
@@ -29,7 +29,7 @@ The prior provider was destroyed and its uncommitted umbrella outputs were unrec
 | LiD3-Core | NaCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
 | LiD3-Flex | LiCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
 | LiD3-Flex | NaCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
-| LiDA-1 | LiCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
+| LiDA-1 | LiCl | 0/30 | 30 | 28 | 0/30 | 30 | 0 |
 | LiDA-1 | NaCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
 | LiDS-1 | LiCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
 | LiDS-1 | NaCl | 0/30 | 30 | 0 | 0/30 | 30 | 0 |
