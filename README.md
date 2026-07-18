@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-18 03:57 CST.** All 16 paired pulls are complete and all 480 windows exist. Three hundred eighty-five equilibrations and 164 production windows are complete; 19 equilibration and 107 production windows use 126 unique one-thread `mdrun` processes. Two threads remain reserved for launch, verification, monitoring, and analysis; no current fatal, water-SETTLE, or LINCS error is present.
+> **Scientific steward snapshot: 2026-07-18 09:44 CST.** After the prior provider was destroyed, preserved conventional-MD inputs were checksum-verified on a replacement EPYC 9554P host and all 16 locked-site bound starts were regenerated and revalidated. All 16 paired pulls are active in distinct directories: 16 seven-thread `mdrun` processes use 112/126 MD threads, with no active fatal, water-SETTLE, or LINCS warning. Window EQ and production have restarted from 0/480.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-20_eq_%2B_106_prod-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-16_pulls-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-17 11:56 CST`
+**Last synchronized monitor snapshot:** `2026-07-18 09:44 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 126 mdrun · 126 / 126 MD threads</code> <sub>28 equilibration + 98 production; 2 support threads reserved</sub></td>
-      <td><img alt="126 threads active" src="https://img.shields.io/badge/126_active-of_126_threads-22C55E"></td>
+      <td><code>🔵 16 mdrun · 112 / 126 MD threads</code> <sub>16 distinct seven-thread pulls; 2 support threads reserved</sub></td>
+      <td><img alt="112 threads active" src="https://img.shields.io/badge/112_active-of_126_threads-38BDF8"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -183,9 +183,9 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
-      <td>Umbrella windows</td>
-      <td><code>🔵 381 EQ + 158 PROD done · 28 EQ + 98 production running</code></td>
-      <td><img alt="paired window MD running" src="https://img.shields.io/badge/active-28_eq_%2B_98_prod-38BDF8"></td>
+      <td>Pulls → umbrella windows</td>
+      <td><code>🔵 0/16 pulls done · 16 active; 0/480 EQ + 0/480 production</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/active-16_pulls-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -214,57 +214,57 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiD3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 10.34%</sub></td>
-      <td><code>LiCl EQ 24/30 · 6 left · 1 active; PROD 6/30 · 24 left · 2 active</code><br><code>NaCl EQ 19/30 · 11 left · 11 active; PROD 3/30 · 27 left · 14 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiD3-Flex</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.40%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 3.80%</sub></td>
-      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 21/30 · 9 left · 8 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 24/30 · 6 left · 6 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiND-Hybrid</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 12.89%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep ready</sub></td>
-      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 13/30 · 17 left · 17 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 19/30 · 11 left · 11 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiLC-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.15%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 1.95%</sub></td>
-      <td><code>LiCl EQ 19/30 · 11 left · 0 active; PROD 5/30 · 25 left · 3 active</code><br><code>NaCl EQ 21/30 · 9 left · 2 active; PROD 6/30 · 24 left · 0 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDS-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 15.69%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 14.59%</sub></td>
-      <td><code>LiCl EQ 23/30 · 7 left · 0 active; PROD 10/30 · 20 left · 1 active</code><br><code>NaCl EQ 28/30 · 2 left · 0 active; PROD 15/30 · 15 left · 2 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiDA-1</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.64%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 17.94%</sub></td>
-      <td><code>LiCl EQ 27/30 · 3 left · 0 active; PROD 17/30 · 13 left · 2 active</code><br><code>NaCl EQ 19/30 · 11 left · 0 active; PROD 7/30 · 23 left · 6 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>LiCl EQ 21/30 · 9 left · 0 active; PROD 4/30 · 26 left · 4 active</code><br><code>NaCl EQ 17/30 · 13 left · 11 active; PROD 3/30 · 27 left · 13 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>LiCl EQ 24/30 · 6 left · 1 active; PROD 3/30 · 27 left · 4 active</code><br><code>NaCl EQ 19/30 · 11 left · 2 active; PROD 2/30 · 28 left · 5 active</code></td>
-      <td><img alt="paired window equilibration" src="https://img.shields.io/badge/paired_windows-equilibrating-38BDF8"></td>
+      <td><code>LiCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code><br><code>NaCl EQ 0/30 · 30 left · 0 active; PROD 0/30 · 30 left · 0 active</code></td>
+      <td><img alt="paired pulls running" src="https://img.shields.io/badge/paired_pulls-running-38BDF8"></td>
     </tr>
   </tbody>
 </table>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~3.24 days</code></strong><br><sub>539-stage measured-rate schedule</sub></td>
-      <td>All pulls are complete; 381 EQ and 158 production windows are done; 28 EQ and 98 production windows are active. Production throughput continues to recalibrate the forecast.</td>
+      <td align="center"><strong><code>~6.04 days</code></strong><br><sub>55.47M atom·ns fresh queue</sub></td>
+      <td>All 16 pulls are active; EQ and production are 0/480 after the replacement-host restart. New one-thread production throughput will recalibrate the forecast.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-20 ~21:36 CST</code></strong><br><sub>90% band 21:16–21:53 CST</sub></td>
+      <td align="center"><strong><code>2026-07-24 ~14:30 CST</code></strong><br><sub>±20% throughput band: Jul 23 14:30–Jul 26 03:00 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
@@ -318,7 +318,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
 - LiCl and NaCl 20 ns production/clustering are complete for all eight candidates.
 - Active compute: remote 128-thread EPYC 9554P worker.
 - All eight candidates are `VALIDATED_BOUND` for locked-site umbrella.
-- All 16 candidate×ion paired-site pull trajectories feed the shared 126-thread window pool.
+- All 16 candidate×ion paired-site pulls are active and will feed the shared 126-thread window pool as each completes.
 - All eight LiCl and all eight NaCl CHARMM-GUI systems are GROMACS-ready.
 
 </details>
