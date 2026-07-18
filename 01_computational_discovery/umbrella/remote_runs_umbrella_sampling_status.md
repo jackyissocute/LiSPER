@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-18 20:00 CST
+Scientific steward snapshot: 2026-07-18 21:00 CST
 
 ## Live state
 
@@ -8,37 +8,37 @@ Scientific steward snapshot: 2026-07-18 20:00 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 107 equilibrations complete, 110 active; 0 production complete, 16 active |
-| Real GROMACS work | 126 unique one-thread `mdrun`: 110 EQ windows + 16 production windows; 126/126 umbrella-MD threads in 126 distinct directories |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 117 equilibrations complete, 109 active; 0 production complete, 17 active |
+| Real GROMACS work | 126 unique one-thread `mdrun`: 109 EQ windows + 17 production windows; 126/126 umbrella-MD threads in 126 distinct directories |
 | Reserved support | 2/2 threads used transiently for the off-host sync and live verification; both return after those checks |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
 | Pre-WHAM gate | GROMACS 2026.0 `-ac` with retained `-oiact`/ACF evidence; production bootstrap is explicitly `-bs-method traj` |
-| Measured horizon | Progress-adjusted queue = 51.87M atom·ns. The last verified same-host/protocol rate basis is ≈72,934 atom·ns/day/job (≈9.19M/day at 126 jobs), giving median table ETA 2026-07-24 15:27 CST; ±20% throughput sensitivity gives 2026-07-23 16:53 to 2026-07-26 01:19 CST |
+| Measured horizon | Progress-adjusted queue = 51.50M atom·ns. The last verified same-host/protocol rate basis is ≈72,934 atom·ns/day/job (≈9.19M/day at 126 jobs), giving median table ETA 2026-07-24 15:29 CST; ±20% throughput sensitivity gives 2026-07-23 17:04 to 2026-07-26 01:07 CST |
 | Next | Preserve the healthy 126/126 pool; give newly free slots to the four highest remaining atom-weighted campaigns, the paired LiD3-Flex and LiND-Hybrid runs, then recalculate |
 
-A five-second `/proc` sample found all 126 real GROMACS executables advancing, with 126 actual MD threads and no duplicate working directory. All 16 pulls independently verified configured step 500,000 plus `Finished mdrun`; each generated 30 windows. One hundred seven EQ windows verified their configured final step plus `Finished mdrun`, and 16 production windows are active. No active log contains a fatal, water-SETTLE, or LINCS warning. Production throughput will recalibrate the forecast.
+A five-second `/proc` sample found all 126 real GROMACS executables advancing, with 126 actual MD threads and no duplicate working directory. All 16 pulls independently verified configured step 500,000 plus `Finished mdrun`; each generated 30 windows. One hundred seventeen EQ windows verified their configured final step plus `Finished mdrun`, and 17 production windows are active. No active log contains a fatal, water-SETTLE, or LINCS warning. Production throughput will recalibrate the forecast.
 
 ## Candidate window counts
 
 | Candidate | Solution | EQ complete/30 | EQ left | EQ active | Production complete/30 | Production left | Production active |
 |---|---|---:|---:|---:|---:|---:|---:|
-| LiA3-Ref | LiCl | 0/30 | 30 | 6 | 0/30 | 30 | 0 |
-| LiA3-Ref | NaCl | 0/30 | 30 | 8 | 0/30 | 30 | 0 |
+| LiA3-Ref | LiCl | 1/30 | 29 | 5 | 0/30 | 30 | 0 |
+| LiA3-Ref | NaCl | 2/30 | 28 | 6 | 0/30 | 30 | 0 |
 | LiD3-Core | LiCl | 0/30 | 30 | 17 | 0/30 | 30 | 0 |
-| LiD3-Core | NaCl | 0/30 | 30 | 15 | 0/30 | 30 | 0 |
-| LiD3-Flex | LiCl | 0/30 | 30 | 3 | 0/30 | 30 | 0 |
+| LiD3-Core | NaCl | 1/30 | 29 | 14 | 0/30 | 30 | 0 |
+| LiD3-Flex | LiCl | 0/30 | 30 | 5 | 0/30 | 30 | 0 |
 | LiD3-Flex | NaCl | 0/30 | 30 | 7 | 0/30 | 30 | 0 |
 | LiDA-1 | LiCl | 30/30 | 0 | 0 | 0/30 | 30 | 11 |
-| LiDA-1 | NaCl | 22/30 | 8 | 2 | 0/30 | 30 | 5 |
-| LiDS-1 | LiCl | 24/30 | 6 | 1 | 0/30 | 30 | 0 |
-| LiDS-1 | NaCl | 19/30 | 11 | 0 | 0/30 | 30 | 0 |
+| LiDA-1 | NaCl | 24/30 | 6 | 1 | 0/30 | 30 | 5 |
+| LiDS-1 | LiCl | 25/30 | 5 | 0 | 0/30 | 30 | 0 |
+| LiDS-1 | NaCl | 19/30 | 11 | 2 | 0/30 | 30 | 1 |
 | LiLC-1 | LiCl | 10/30 | 20 | 6 | 0/30 | 30 | 0 |
-| LiLC-1 | NaCl | 0/30 | 30 | 12 | 0/30 | 30 | 0 |
+| LiLC-1 | NaCl | 1/30 | 29 | 11 | 0/30 | 30 | 0 |
 | LiN3-Core | LiCl | 0/30 | 30 | 8 | 0/30 | 30 | 0 |
-| LiN3-Core | NaCl | 2/30 | 28 | 6 | 0/30 | 30 | 0 |
-| LiND-Hybrid | LiCl | 0/30 | 30 | 7 | 0/30 | 30 | 0 |
-| LiND-Hybrid | NaCl | 0/30 | 30 | 12 | 0/30 | 30 | 0 |
+| LiN3-Core | NaCl | 4/30 | 26 | 4 | 0/30 | 30 | 0 |
+| LiND-Hybrid | LiCl | 0/30 | 30 | 9 | 0/30 | 30 | 0 |
+| LiND-Hybrid | NaCl | 0/30 | 30 | 14 | 0/30 | 30 | 0 |
 
 ## Analysis contract
 
