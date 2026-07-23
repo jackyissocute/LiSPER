@@ -1,6 +1,6 @@
 # Umbrella Sampling Status
 
-Scientific steward snapshot: 2026-07-24 00:57 CST
+Scientific steward snapshot: 2026-07-24 03:57 CST
 
 ## Live state
 
@@ -8,37 +8,37 @@ Scientific steward snapshot: 2026-07-24 00:57 CST
 |---|---|
 | Active host | EPYC 9554P, 128 hardware threads |
 | Campaigns | 8 candidates × LiCl/NaCl = 16 independent paired-site campaigns |
-| Stage | 16/16 pulls complete; 480/480 windows generated; 470 equilibrations complete, 9 active; 348 production complete, 117 active |
-| Real GROMACS work | 126 unique one-thread `mdrun`: 9 EQ windows + 117 production windows; 126/126 umbrella-MD threads in 126 distinct directories |
-| Reserved support | 2/2 threads used by the work-conserving admission guard and active off-host restart sync |
+| Stage | 16/16 pulls complete; 480/480 windows generated; 476 equilibrations complete, 4 active; 366 production complete, 110 active |
+| Real GROMACS work | 114 unique one-thread `mdrun`: 4 EQ windows + 110 production windows; 114/126 umbrella-MD threads in 114 distinct directories, with all currently ready windows active |
+| Reserved support | 0/2 threads active; all campaign drivers are resumed and the off-host restart sync is idle between successful passes |
 | Bound starts | 16/16 regenerated, minimized, and validated without `-maxwarn` |
 | Window protocol | 0.075 nm spacing; 0.5 ns equilibration; 2.0 ns production; 3 endpoint guards |
 | Pre-WHAM gate | GROMACS 2026.0 `-ac` with retained `-oiact`/ACF evidence; production bootstrap is explicitly `-bs-method traj` |
-| Measured horizon | Progress-adjusted queue = 6.26M atom·ns. The latest 156-minute same-host/protocol progress basis is ≈72,350 atom·ns/day/job (≈9.12M/day at 126 jobs), giving median table ETA 2026-07-24 17:25 CST; ±20% throughput sensitivity gives 2026-07-24 14:41 to 2026-07-24 21:32 CST |
-| Next | Preserve the healthy 126/126 pool; give newly free slots to LiA3-Ref/NaCl, LiLC-1/LiCl, LiD3-Core/NaCl, and LiA3-Ref/LiCl, then recalculate |
+| Measured horizon | Progress-adjusted queue = 5.11M atom·ns. The latest 175-minute same-host/protocol progress basis is ≈9.15M atom·ns/day aggregate, giving median table ETA 2026-07-24 17:22 CST; ±20% throughput sensitivity gives 2026-07-24 15:08 to 2026-07-24 20:43 CST |
+| Next | Keep every newly unblocked window running; the pool is now dependency-limited below 126, so production throughput will recalibrate |
 
-A five-second `/proc` sample found all 126 real GROMACS executables advancing, with 126 actual MD threads and no duplicate working directory. All 16 pulls independently verified configured step 500,000 plus `Finished mdrun`; each generated 30 windows. Four hundred seventy EQ windows and three hundred forty-eight production windows verified their configured final step plus `Finished mdrun`; 117 production windows are active. No active log contains a fatal, water-SETTLE, or LINCS warning. LiDA-1/NaCl remains at 30/30 production, but paired WHAM remains gated on LiDA-1/LiCl at 27/30; three windows are advancing. The off-host restart sync is active on its reserved thread; simulation MD is unaffected. Production throughput will recalibrate the forecast.
+A five-second `/proc` sample found all 114 real GROMACS executables advancing, with 114 actual MD threads and no duplicate working directory. All currently ready windows are active; 12 MD slots are unused only because four production windows remain blocked behind their active EQ stages. All 16 pulls independently verified configured step 500,000 plus `Finished mdrun`; each generated 30 windows. Four hundred seventy-six EQ windows and three hundred sixty-six production windows verified their configured final step plus `Finished mdrun`; 110 production windows are active. No active log contains a fatal, water-SETTLE, or LINCS warning. LiDA-1/NaCl remains at 30/30 production, but paired WHAM remains gated on LiDA-1/LiCl at 28/30; two windows are advancing. The off-host restart sync completed multiple successful passes after its last transient timeout and is idle between passes. Production throughput will recalibrate the forecast.
 
 ## Candidate window counts
 
 | Candidate | Solution | EQ complete/30 | EQ left | EQ active | Production complete/30 | Production left | Production active |
 |---|---|---:|---:|---:|---:|---:|---:|
-| LiA3-Ref | LiCl | 29/30 | 1 | 1 | 18/30 | 12 | 9 |
-| LiA3-Ref | NaCl | 28/30 | 2 | 2 | 10/30 | 20 | 17 |
+| LiA3-Ref | LiCl | 30/30 | 0 | 0 | 18/30 | 12 | 12 |
+| LiA3-Ref | NaCl | 29/30 | 1 | 1 | 10/30 | 20 | 19 |
 | LiD3-Core | LiCl | 30/30 | 0 | 0 | 26/30 | 4 | 4 |
 | LiD3-Core | NaCl | 30/30 | 0 | 0 | 15/30 | 15 | 15 |
-| LiD3-Flex | LiCl | 30/30 | 0 | 0 | 27/30 | 3 | 3 |
-| LiD3-Flex | NaCl | 30/30 | 0 | 0 | 27/30 | 3 | 3 |
-| LiDA-1 | LiCl | 30/30 | 0 | 0 | 27/30 | 3 | 3 |
+| LiD3-Flex | LiCl | 30/30 | 0 | 0 | 28/30 | 2 | 2 |
+| LiD3-Flex | NaCl | 30/30 | 0 | 0 | 28/30 | 2 | 2 |
+| LiDA-1 | LiCl | 30/30 | 0 | 0 | 28/30 | 2 | 2 |
 | LiDA-1 | NaCl | 30/30 | 0 | 0 | 30/30 | 0 | 0 |
-| LiDS-1 | LiCl | 29/30 | 1 | 0 | 22/30 | 8 | 7 |
-| LiDS-1 | NaCl | 28/30 | 2 | 2 | 25/30 | 5 | 2 |
-| LiLC-1 | LiCl | 28/30 | 2 | 2 | 13/30 | 17 | 14 |
-| LiLC-1 | NaCl | 30/30 | 0 | 0 | 17/30 | 13 | 13 |
-| LiN3-Core | LiCl | 28/30 | 2 | 2 | 22/30 | 8 | 6 |
+| LiDS-1 | LiCl | 29/30 | 1 | 1 | 24/30 | 6 | 5 |
+| LiDS-1 | NaCl | 30/30 | 0 | 0 | 26/30 | 4 | 4 |
+| LiLC-1 | LiCl | 29/30 | 1 | 1 | 14/30 | 16 | 15 |
+| LiLC-1 | NaCl | 30/30 | 0 | 0 | 21/30 | 9 | 9 |
+| LiN3-Core | LiCl | 29/30 | 1 | 1 | 23/30 | 7 | 6 |
 | LiN3-Core | NaCl | 30/30 | 0 | 0 | 24/30 | 6 | 6 |
-| LiND-Hybrid | LiCl | 30/30 | 0 | 0 | 16/30 | 14 | 14 |
-| LiND-Hybrid | NaCl | 30/30 | 0 | 0 | 29/30 | 1 | 1 |
+| LiND-Hybrid | LiCl | 30/30 | 0 | 0 | 21/30 | 9 | 9 |
+| LiND-Hybrid | NaCl | 30/30 | 0 | 0 | 30/30 | 0 | 0 |
 
 ## Analysis contract
 
