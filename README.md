@@ -114,12 +114,12 @@ flowchart TD
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-23 18:57 CST.** All 16 paired pulls are complete and all 480 windows exist; 460 EQ windows and 323 production windows are complete, 12 EQ jobs are active, and 114 production windows are active. Live `/proc` verification found 126 unique, advancing `mdrun` processes using 126/126 MD threads in distinct directories, with no active fatal, water-SETTLE, or LINCS warning.
+> **Scientific steward snapshot: 2026-07-23 21:57 CST.** All 16 paired pulls are complete and all 480 windows exist; 466 EQ windows and 335 production windows are complete, 9 EQ jobs are active, and 117 production windows are active. Live `/proc` verification found 126 unique, advancing `mdrun` processes using 126/126 MD threads in distinct directories, with no active fatal, water-SETTLE, or LINCS warning.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-12_EQ_%2B_114_PROD-38BDF8)
+> ![Campaigns running](https://img.shields.io/badge/active_work-9_EQ_%2B_117_PROD-38BDF8)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
 > ![PMF estimator](https://img.shields.io/badge/DeltaG-estimator_defined-A78BFA)
@@ -128,7 +128,7 @@ flowchart TD
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-23 18:57 CST`
+**Last synchronized monitor snapshot:** `2026-07-23 21:57 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,7 +156,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 126 mdrun · 126 / 126 MD threads</code> <sub>12 one-thread EQ + 114 one-thread production; 2 support threads reserved</sub></td>
+      <td><code>🔵 126 mdrun · 126 / 126 MD threads</code> <sub>9 one-thread EQ + 117 one-thread production; 2 support threads reserved</sub></td>
       <td><img alt="126 threads active" src="https://img.shields.io/badge/126_active-of_126_threads-22C55E"></td>
     </tr>
     <tr>
@@ -184,8 +184,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Pulls → umbrella windows</td>
-      <td><code>🔵 16/16 pulls done; 460/480 EQ done + 12 active; 323/480 production done + 114 active</code></td>
-      <td><img alt="paired umbrella work running" src="https://img.shields.io/badge/active-12_EQ_%2B_114_PROD-38BDF8"></td>
+      <td><code>🔵 16/16 pulls done; 466/480 EQ done + 9 active; 335/480 production done + 117 active</code></td>
+      <td><img alt="paired umbrella work running" src="https://img.shields.io/badge/active-9_EQ_%2B_117_PROD-38BDF8"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
@@ -292,8 +292,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.95 days</code></strong><br><sub>8.53M atom·ns progress-adjusted queue</sub></td>
-      <td>All pulls are complete, 460 EQ windows and 323 production windows are complete, 12 EQ windows are active, and 114 production windows are active. Latest 176-minute same-host/protocol progress basis: 8.99M atom·ns/day; production throughput will continue to recalibrate the forecast.</td>
+      <td align="center"><strong><code>~0.82 days</code></strong><br><sub>7.40M atom·ns progress-adjusted queue</sub></td>
+      <td>All pulls are complete, 466 EQ windows and 335 production windows are complete, 9 EQ windows are active, and 117 production windows are active. Latest 175-minute same-host/protocol progress basis: 9.07M atom·ns/day; production throughput will continue to recalibrate the forecast.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
@@ -302,7 +302,7 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>First ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-24 ~17:43 CST</code></strong><br><sub>±20% throughput band: Jul 24 13:55–Jul 24 23:25 CST</sub></td>
+      <td align="center"><strong><code>2026-07-24 ~17:31 CST</code></strong><br><sub>±20% throughput band: Jul 24 14:16–Jul 24 22:24 CST</sub></td>
       <td>Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate Li preference.</td>
     </tr>
   </tbody>
