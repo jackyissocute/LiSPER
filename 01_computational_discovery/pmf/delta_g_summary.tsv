@@ -1,3 +1,5 @@
 candidate	condition	delta_g_kjmol	bootstrap_unc_kjmol	endpoint_span_kjmol	early_late_difference_kjmol	burnin_max_shift_kjmol	histogram_min_support	histogram_weak_bins	iact_min_ps	iact_median_ps	iact_max_ps	status
 LiDA-1	LiCl	-18.023	1.571	0.361	6.641	3.518	2	0	0.768	1.247	201.518	ESTIMATE_READY
 LiDA-1	NaCl	1.317	3.286	0.440	2.131	0.321	3	0	0.809	1.315	12.622	ESTIMATE_READY
+LiDS-1	LiCl	-13.766	0.708	0.449	5.810	0.053	2	0	0.740	1.049	24.605	ESTIMATE_READY
+LiDS-1	NaCl	-6.151	7.251	0.946	2.377	1.043	3	0	0.872	1.335	69.534	ESTIMATE_READY

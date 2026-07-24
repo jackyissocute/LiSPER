@@ -38,7 +38,8 @@ More negative Delta Delta G indicates stronger Li+ preference.
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
 | LiDA-1 | LiCl / NaCl | complete; paired WHAM and diagnostics retained | Yes — `ESTIMATE_READY` |
-| Remaining 7 candidates | LiCl / NaCl | production active on EPYC | Pending completed windows and paired WHAM |
+| LiDS-1 | LiCl / NaCl | complete; paired WHAM and diagnostics retained | Yes — `ESTIMATE_READY` |
+| Remaining 6 candidates | LiCl / NaCl | production active on EPYC | Pending completed windows and paired WHAM |
 
 ## Diagnostics
 
