@@ -107,28 +107,28 @@ flowchart TD
 
 | Phase | Goal | Status | Near-term gate |
 |---|---|---|---|
-| **I. Computational discovery** | Rank LiSPER candidates by Li+/Na+ selectivity | Active | Finish production MD, clustering, umbrella sampling, PMF |
+| **I. Computational discovery** | Rank LiSPER candidates by Li+/Na+ selectivity | Complete | Eight paired within-protocol ΔΔG rows validated and published |
 | **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Order synthetic peptides, run Li/Na binding assays, then build surface-display constructs |
 | **III. Industrial translation** | Convert validated peptides into capture media | Concept stage | Select immobilization and column prototype strategy |
 
 ## 📊 Progress monitor dashboard
 
 > [!IMPORTANT]
-> **Scientific steward snapshot: 2026-07-24 23:19 CST.** All 16 paired pulls and all 480 EQ windows are complete; 478 production windows are complete and 2 are active. Live `/proc` verification found both currently ready `mdrun` processes advancing in distinct directories; unused MD slots are tail-limited rather than queued, with no active fatal, water-SETTLE, or LINCS warning. Six paired results are protocol-validated: LiDA-1 ΔΔG = −19.340 ± 3.642, LiDS-1 = −7.615 ± 7.286, LiD3-Core = −3.630 ± 6.337, LiD3-Flex = −1.360 ± 10.003, LiND-Hybrid = −8.975 ± 9.825, and LiLC-1 = −0.554 ± 6.093 kJ/mol. Uncertainty is retained explicitly and does not imply sign confidence when it spans zero.
+> **Scientific steward snapshot: 2026-07-25 00:15 CST.** All 16 paired pulls, all 480 EQ windows, and all 480 production windows are complete. All eight paired results are protocol-validated: LiDA-1 ΔΔG = −19.340 ± 3.642, LiDS-1 = −7.615 ± 7.286, LiD3-Core = −3.630 ± 6.337, LiD3-Flex = −1.360 ± 10.003, LiND-Hybrid = −8.975 ± 9.825, LiLC-1 = −0.554 ± 6.093, LiA3-Ref = −0.034 ± 5.878, and LiN3-Core = −0.815 ± 2.879 kJ/mol. These are radially corrected, endpoint-referenced within-protocol estimates—not 1 M standard binding free energies. Negative means nominal Li preference; uncertainty is retained explicitly and does not imply sign confidence when it spans zero.
 >
 > ![Setup QC complete](https://img.shields.io/badge/setup_QC-complete-22C55E)
 > ![LiCl identity](https://img.shields.io/badge/LiCl-accent-818CF8)
 > ![NaCl identity](https://img.shields.io/badge/NaCl-accent-2DD4BF)
-> ![Campaigns running](https://img.shields.io/badge/active_work-5_PROD-38BDF8)
+> ![Campaigns complete](https://img.shields.io/badge/umbrella_work-complete-22C55E)
 > ![Bound starts](https://img.shields.io/badge/bound_starts-16%2F16-22C55E)
 > ![Host](https://img.shields.io/badge/host-EPYC_9554P_128t-22C55E)
-> ![PMF table](https://img.shields.io/badge/DeltaDeltaG-6%2F8_validated-A78BFA)
+> ![PMF table](https://img.shields.io/badge/DeltaDeltaG-8%2F8_validated-22C55E)
 
 <p align="center">
   <a href="https://jackyissocute.github.io/LiSPER-Dashboard/"><strong>Open LiSPER Dashboard</strong></a>
 </p>
 
-**Last synchronized monitor snapshot:** `2026-07-24 23:19 CST`
+**Last synchronized monitor snapshot:** `2026-07-25 00:15 CST`
 
 <details>
 <summary><strong>Dashboard legend</strong></summary>
@@ -156,8 +156,8 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td><strong>Compute</strong></td>
       <td>Worker slots in use</td>
-      <td><code>🔵 2 mdrun · 2 / 126 MD threads</code> <sub>2 one-thread production windows; all currently ready windows active</sub></td>
-      <td><img alt="5 threads active" src="https://img.shields.io/badge/5_active-all_ready-22C55E"></td>
+      <td><code>🟢 0 mdrun · 0 / 126 MD threads</code> <sub>all umbrella production complete</sub></td>
+      <td><img alt="umbrella compute complete" src="https://img.shields.io/badge/compute-complete-22C55E"></td>
     </tr>
     <tr>
       <td rowspan="2"><strong>LiCl</strong></td>
@@ -184,13 +184,13 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     <tr>
       <td rowspan="2"><strong>Free energy</strong></td>
       <td>Pulls → umbrella windows</td>
-      <td><code>🔵 16/16 pulls done; 480/480 EQ done; 478/480 production done + 2 active</code></td>
-      <td><img alt="paired umbrella work running" src="https://img.shields.io/badge/active-5_PROD-38BDF8"></td>
+      <td><code>🟢 16/16 pulls done; 480/480 EQ done; 480/480 production done</code></td>
+      <td><img alt="paired umbrella work complete" src="https://img.shields.io/badge/complete-480%2F480-22C55E"></td>
     </tr>
     <tr>
       <td>WHAM / PMF / ΔG</td>
-      <td><code>🟣 6/8 protocol-validated · LiDA-1 −19.340 ± 3.642 · LiDS-1 −7.615 ± 7.286 · LiD3-Core −3.630 ± 6.337 · LiD3-Flex −1.360 ± 10.003 · LiND-Hybrid −8.975 ± 9.825 · LiLC-1 −0.554 ± 6.093 kJ/mol</code></td>
-      <td><img alt="six paired PMFs protocol-validated" src="https://img.shields.io/badge/DeltaDeltaG-6%2F8_validated-A78BFA"></td>
+      <td><code>🟢 8/8 protocol-validated · LiDA-1 −19.340 ± 3.642 · LiDS-1 −7.615 ± 7.286 · LiD3-Core −3.630 ± 6.337 · LiD3-Flex −1.360 ± 10.003 · LiND-Hybrid −8.975 ± 9.825 · LiLC-1 −0.554 ± 6.093 · LiA3-Ref −0.034 ± 5.878 · LiN3-Core −0.815 ± 2.879 kJ/mol</code></td>
+      <td><img alt="eight paired PMFs protocol-validated" src="https://img.shields.io/badge/DeltaDeltaG-8%2F8_validated-22C55E"></td>
     </tr>
   </tbody>
 </table>
@@ -256,15 +256,15 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
       <td><strong>LiN3-Core</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 4.65%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 11.44%</sub></td>
-      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 29/30 · 1 left · 1 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code></td>
-      <td><img alt="production running" src="https://img.shields.io/badge/PROD-running-A78BFA"></td>
+      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code></td>
+      <td><img alt="paired PMF validated" src="https://img.shields.io/badge/DeltaDeltaG--0.815_%C2%B1_2.879-A78BFA"></td>
     </tr>
     <tr>
       <td><strong>LiA3-Ref</strong></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 5.05%</sub></td>
       <td><code>20 ns</code> 🟢<br><sub>rep 7.35%</sub></td>
-      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 29/30 · 1 left · 1 active</code></td>
-      <td><img alt="production running" src="https://img.shields.io/badge/PROD-running-A78BFA"></td>
+      <td><code>LiCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code><br><code>NaCl EQ 30/30 · 0 left · 0 active; PROD 30/30 · 0 left · 0 active</code></td>
+      <td><img alt="paired PMF validated" src="https://img.shields.io/badge/DeltaDeltaG--0.034_%C2%B1_5.878-A78BFA"></td>
     </tr>
   </tbody>
 </table>
@@ -292,18 +292,18 @@ Active compute: locked-site umbrella on a 128-thread EPYC 9554P worker.
     </tr>
     <tr>
       <td><strong>Umbrella sampling</strong></td>
-      <td align="center"><strong><code>~0.03 days</code></strong><br><sub>0.010M atom·ns progress-adjusted queue</sub></td>
-      <td>All pulls and all 480 EQ windows are complete; 478 production windows are complete and 2 are active. Latest 72-minute low-concurrency tail progress basis: 0.36M atom·ns/day; the two-job tail will continue to recalibrate the forecast.</td>
+      <td align="center"><strong><code>Complete</code></strong><br><sub>0.000M atom·ns queue</sub></td>
+      <td>All pulls, all 480 EQ windows, and all 480 production windows are complete. The terminal queue is zero; throughput extrapolation and production recalibration are no longer applicable.</td>
     </tr>
     <tr>
       <td><strong>WHAM / PMF / ΔG extraction</strong></td>
-      <td align="center"><strong><code>~4 h after windows</code></strong><br><sub>WHAM + diagnostics + publish</sub></td>
-      <td>GROMACS 2026.0 gate verified: `-ac` with retained `-oiact`/ACF evidence and `-bs-method traj`; report diagnostics without invented thresholds.</td>
+      <td align="center"><strong><code>Complete</code></strong><br><sub>WHAM + diagnostics + publish</sub></td>
+      <td>GROMACS 2026.0 gate verified for all pairs: `-ac` with retained `-oiact`/ACF evidence and `-bs-method traj`; diagnostics are reported without invented thresholds.</td>
     </tr>
     <tr>
       <td><strong>Complete eight-row ΔΔG selectivity table</strong></td>
-      <td align="center"><strong><code>2026-07-24 ~23:58 CST</code></strong><br><sub>±20% throughput band: Jul 24 23:51–Jul 25 00:08 CST</sub></td>
-      <td>Five rows are protocol-validated. Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate nominal Li preference, while uncertainty controls sign confidence.</td>
+      <td align="center"><strong><code>Completed 2026-07-25 00:15 CST</code></strong><br><sub>actual terminal milestone; ETA band closed</sub></td>
+      <td>All eight rows are protocol-validated. Compute ΔΔG = ΔG(Li+) − ΔG(Na+); negative values indicate nominal Li preference, while uncertainty controls sign confidence.</td>
     </tr>
   </tbody>
 </table>

@@ -1,0 +1,2 @@
+candidate	site_lock_id	rule	status	bound_min_nm	bound_max_nm	ref_min_nm	ref_max_nm
+LiA3-Ref	central_Ala9_backbone	shared_start_to_bound_cutoff__final_shared_non_guard_reference	LOCKED_PRE_PMF	0.3606	0.5500	1.9873	2.2873
