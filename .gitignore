@@ -76,3 +76,9 @@ __pycache__/
 01_computational_discovery/umbrella/remote_results/**/*.mdp
 01_computational_discovery/umbrella/remote_results/**/*.pid
 01_computational_discovery/umbrella/remote_results/**/*.ndx
+
+# Local, analysis-ready archive of the completed paired umbrella campaigns.
+# Bulk simulation/WHAM data stay on this workstation; README and manifests remain tracked.
+01_computational_discovery/umbrella/analysis_archive_20260725/campaigns/
+01_computational_discovery/umbrella/analysis_archive_20260725/paired_pmf/
+01_computational_discovery/umbrella/analysis_archive_20260725/workflow/

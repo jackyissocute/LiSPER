@@ -1,0 +1,15 @@
+campaign	category	remote_count	remote_bytes	local_count	local_bytes	coverage
+LiCl	pull_xtc	8	1316115456	8	1316115456	complete
+LiCl	eq_xtc	240	19761478860	168	11948131780	partial
+LiCl	production_xtc	240	78927763200	29	2416613692	partial
+LiCl	other_xtc	0	0	0	0	complete
+LiCl	edr	532	407352544	213	74538880	partial
+LiCl	cpt	976	1070702056	709	767237192	partial
+LiCl	trr	8	4380504	8	4380504	complete
+NaCl	pull_xtc	8	1316173244	8	1316173244	complete
+NaCl	eq_xtc	240	19762130976	166	11630487732	partial
+NaCl	production_xtc	240	78929951384	34	2140960800	partial
+NaCl	other_xtc	1	70776	1	70776	complete
+NaCl	edr	505	396905680	218	68284712	partial
+NaCl	cpt	976	1070718112	696	760057464	partial
+NaCl	trr	9	4619856	9	4619856	complete
