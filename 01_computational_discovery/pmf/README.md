@@ -30,14 +30,15 @@ More negative Delta Delta G indicates stronger Li+ preference.
 |---|---|
 | `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
 | `paired_analysis_regions/` | Shared bound/reference regions committed before PMF inspection |
-| `remote_results/` | Empty scaffold — lean synced PMF products |
+| `remote_results/` | Lean synced PMF products for validated pairs |
 | Cold fat | Jacky cold disk / compute host — see `../STORAGE_LAYOUT.md` |
 
 ## Current PMF state
 
 | Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
 |---|---|---|---|
-| All 8 candidates | LiCl / NaCl | fresh paired campaigns launched on EPYC | Pending completed windows and WHAM |
+| LiDA-1 | LiCl / NaCl | complete; paired WHAM and diagnostics retained | Yes — `ESTIMATE_READY` |
+| Remaining 7 candidates | LiCl / NaCl | production active on EPYC | Pending completed windows and paired WHAM |
 
 ## Diagnostics
 

@@ -17,3 +17,6 @@ with tempfile.TemporaryDirectory() as tmp:
     corrected = module.corrected_profile(profile, 298.15)
     assert max(abs(y) for _, y in corrected) < 1e-12
     assert module.binding_delta_g([(0.5, -5.0), (2.0, 0.0)], 0.4, 0.6, 1.9, 2.1) == -5.0
+    iact = Path(tmp) / "iact.xvg"
+    iact.write_text("0.5 3\n1.0 1\n1.5 2\n")
+    assert module.iact_stats(iact) == (1.0, 2.0, 3.0)

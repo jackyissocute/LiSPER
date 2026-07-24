@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import math
+import statistics
 from pathlib import Path
 
 R_KJ_MOL_K = 0.00831446261815324
@@ -89,6 +90,13 @@ def histogram_coverage(path, lo, hi):
     return (min(supports), sum(value < 2 for value in supports)) if supports else (0, 1)
 
 
+def iact_stats(path):
+    values = [row[1] for row in read_xvg(path) if len(row) >= 2 and math.isfinite(row[1])]
+    if not values:
+        return None, None, None
+    return min(values), statistics.median(values), max(values)
+
+
 def optional_delta(path, regions, temperature):
     if path is None:
         return None
@@ -114,6 +122,8 @@ def main():
     parser.add_argument("--na-burnin", type=Path, nargs="*", default=[])
     parser.add_argument("--li-histo", type=Path)
     parser.add_argument("--na-histo", type=Path)
+    parser.add_argument("--li-iact", type=Path)
+    parser.add_argument("--na-iact", type=Path)
     parser.add_argument("--regions", type=Path, required=True)
     parser.add_argument("--temperature", type=float, default=298.15)
     parser.add_argument("--out", type=Path, required=True)
@@ -164,6 +174,11 @@ def main():
     diagnostics["bootstrap_unc_ddg_kjmol"] = fmt(
         None if unc_li is None or unc_na is None else math.sqrt(unc_li**2 + unc_na**2)
     )
+    for ion, path in (("li", args.li_iact), ("na", args.na_iact)):
+        minimum, median, maximum = (None, None, None) if path is None else iact_stats(path)
+        diagnostics[f"iact_min_{ion}_ps"] = fmt(minimum)
+        diagnostics[f"iact_median_{ion}_ps"] = fmt(median)
+        diagnostics[f"iact_max_{ion}_ps"] = fmt(maximum)
     for path in args.wham_warning_files:
         text = path.read_text(errors="replace").lower()
         if "fatal error" in text or "not converged" in text or "did not converge" in text:

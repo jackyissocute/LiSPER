@@ -1,0 +1,2 @@
+candidate	delta_delta_g_kjmol	bootstrap_unc_ddg_kjmol	preference	status	estimand	standard_state	sign_convention	bound_min_nm	bound_max_nm	ref_min_nm	ref_max_nm	diagnostic_warnings	limitations
+LiDA-1	-19.340	3.642	Li	ESTIMATE_READY	radially_corrected_endpoint_referenced_pmf_binding_difference	no	negative_delta_delta_g_means_Li_preference	0.4036	0.5500	1.8166	2.1166		within_protocol_not_1M_standard_state;endpoint_referenced;diagnostics_reported_without_universal_thresholds
