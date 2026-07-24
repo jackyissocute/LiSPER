@@ -1,0 +1,6 @@
+variant	begin_ps	end_ps
+full	0.000	2000.000
+burnin_12p5	250.000	2000.000
+burnin_25	500.000	2000.000
+half_early	0.000	1000.000
+half_late	1000.000	2000.000
