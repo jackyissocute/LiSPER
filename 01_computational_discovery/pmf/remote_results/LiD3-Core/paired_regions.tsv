@@ -1,0 +1,2 @@
+candidate	site_lock_id	rule	status	bound_min_nm	bound_max_nm	ref_min_nm	ref_max_nm
+LiD3-Core	central_Asp9	shared_start_to_bound_cutoff__final_shared_non_guard_reference	LOCKED_PRE_PMF	0.4136	0.5500	2.0438	2.3438
