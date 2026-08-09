@@ -1,0 +1,13 @@
+gro_src	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/run_prod_20ns/step5_production_20ns.gro
+ion_index	162
+timestamp	2026-07-18T01:31:48
+gro	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiLC-1/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiLC-1.tsv
+candidate	LiLC-1
+site_id	terminal_Asp14
+locked_donors	14:ASP:OD1,14:ASP:OD2,14:ASP:O,13:GLY:O,12:SER:O
+ion_resname	LIT
+target_ion_index	162
+distance_nm	0.3772
+max_bound_nm	0.5500
+result	PASS

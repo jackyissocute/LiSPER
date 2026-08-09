@@ -1,0 +1,31 @@
+gro_src	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/run_prod_20ns/step5_production_20ns.gro
+ion_index	134
+timestamp	2026-07-18T01:32:43
+gro	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiDA-1.tsv
+candidate	LiDA-1
+site_id	central_Asp7_Asp9
+locked_donors	7:ASP:OD1,7:ASP:OD2,9:ASP:OD1,9:ASP:OD2
+ion_resname	SOD
+target_ion_index	130
+distance_nm	1.8412
+max_bound_nm	0.5500
+result	FAIL
+FAIL distance 1.8412 nm > 0.5500 nm — reconstruct before promote
+
+## replace_after_min
+ion_index	130
+old_distance_nm	1.9143
+new_distance_nm	0.3500
+out	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/representative_full_system.replaced.gro
+timestamp	2026-07-18T01:32:43
+gro	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiDA-1/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiDA-1.tsv
+candidate	LiDA-1
+site_id	central_Asp7_Asp9
+locked_donors	7:ASP:OD1,7:ASP:OD2,9:ASP:OD1,9:ASP:OD2
+ion_resname	SOD
+target_ion_index	130
+distance_nm	0.3362
+max_bound_nm	0.5500
+result	PASS

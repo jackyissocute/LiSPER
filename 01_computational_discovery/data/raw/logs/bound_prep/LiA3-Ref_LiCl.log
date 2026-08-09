@@ -1,0 +1,13 @@
+gro_src	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/run_prod_20ns/step5_production_20ns.gro
+ion_index	166
+timestamp	2026-07-18T01:32:47
+gro	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiA3-Ref/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiA3-Ref.tsv
+candidate	LiA3-Ref
+site_id	central_Ala9_backbone
+locked_donors	9:ALA:O,8:GLY:O,10:PRO:O
+ion_resname	LIT
+target_ion_index	166
+distance_nm	0.3373
+max_bound_nm	0.5500
+result	PASS

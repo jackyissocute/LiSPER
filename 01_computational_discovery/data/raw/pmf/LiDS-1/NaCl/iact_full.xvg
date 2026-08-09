@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 09:12:50 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiDS-1/NaCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Gravel Rubs Often Many Awfully Cauterized Sores
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        9.54829
+#   1        69.5336
+#   2         48.279
+#   3        2.56312
+#   4        5.06943
+#   5        2.76095
+#   6        2.57597
+#   7        1.65424
+#   8        1.96511
+#   9        1.36994
+#  10        1.31132
+#  11        2.62105
+#  12        1.17497
+#  13        1.25273
+#  14        1.54457
+#  15        1.00388
+#  16        1.38231
+#  17        10.7247
+#  18        1.14342
+#  19        1.35948
+#  20       0.922181
+#  21       0.987034
+#  22       0.910651
+#  23       0.936778
+#  24         1.1068
+#  25       0.930944
+#  26       0.982944
+#  27       0.872333
+#  28       0.997893
+#  29       0.891665
+   0.473  9.54829
+   0.548  69.5336
+   0.623   48.279
+   0.698  2.56312
+   0.773  5.06943
+   0.848  2.76095
+   0.923  2.57597
+   0.998  1.65424
+   1.073  1.96511
+   1.148  1.36994
+   1.223  1.31132
+   1.298  2.62105
+   1.373  1.17497
+   1.448  1.25273
+   1.523  1.54457
+   1.598  1.00388
+   1.673  1.38231
+   1.748  10.7247
+   1.823  1.14342
+   1.898  1.35948
+   1.973 0.922181
+   2.048 0.987034
+   2.123 0.910651
+   2.198 0.936778
+   2.273   1.1068
+   2.348 0.930944
+   2.423 0.982944
+   2.498 0.872333
+   2.573 0.997893
+   2.648 0.891665

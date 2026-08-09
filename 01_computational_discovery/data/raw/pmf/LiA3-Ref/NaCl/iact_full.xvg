@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 16:06:35 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiA3-Ref/NaCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Gallium Rubidium Oxygen Manganese Argon Carbon Silicon
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        30.4259
+#   1        11.3072
+#   2         6.9209
+#   3        6.40562
+#   4        2.87813
+#   5        2.35421
+#   6        2.70129
+#   7        1.88895
+#   8        1.73408
+#   9        1.81672
+#  10        1.46864
+#  11        3.06349
+#  12        1.50742
+#  13        1.01064
+#  14        1.18019
+#  15        1.10555
+#  16        1.03703
+#  17        1.02892
+#  18       0.984936
+#  19        1.04618
+#  20       0.931871
+#  21        1.04385
+#  22        0.91139
+#  23       0.931677
+#  24       0.937832
+#  25        0.91841
+#  26       0.927335
+#  27        1.01634
+#  28       0.980849
+#  29       0.984213
+  0.3606  30.4259
+  0.4356  11.3072
+  0.5106   6.9209
+  0.5856  6.40562
+  0.6606  2.87813
+  0.7356  2.35421
+  0.8106  2.70129
+  0.8856  1.88895
+  0.9606  1.73408
+  1.0356  1.81672
+  1.1106  1.46864
+  1.1856  3.06349
+  1.2606  1.50742
+  1.3356  1.01064
+  1.4106  1.18019
+  1.4856  1.10555
+  1.5606  1.03703
+  1.6356  1.02892
+  1.7106 0.984936
+  1.7856  1.04618
+  1.8606 0.931871
+  1.9356  1.04385
+  2.0106  0.91139
+  2.0856 0.931677
+  2.1606 0.937832
+  2.2356  0.91841
+  2.3106 0.927335
+  2.3856  1.01634
+  2.4606 0.980849
+  2.5356 0.984213

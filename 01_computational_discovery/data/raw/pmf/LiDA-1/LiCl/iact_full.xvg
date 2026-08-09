@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 01:49:53 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiDA-1/LiCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Glycine aRginine prOline Methionine Alanine Cystine Serine
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        201.518
+#   1        16.3744
+#   2        12.2652
+#   3        24.4236
+#   4        7.76871
+#   5         55.508
+#   6        13.2997
+#   7        20.5719
+#   8        40.0049
+#   9        4.62513
+#  10        25.0835
+#  11        1.61554
+#  12        1.78866
+#  13        1.36477
+#  14        1.12969
+#  15        1.71772
+#  16       0.895401
+#  17        1.02235
+#  18       0.980827
+#  19        0.95127
+#  20         1.0111
+#  21       0.798129
+#  22       0.918169
+#  23       0.960291
+#  24       0.785946
+#  25       0.836205
+#  26       0.946607
+#  27       0.898851
+#  28       0.931506
+#  29       0.767983
+  0.1666  201.518
+  0.2416  16.3744
+  0.3166  12.2652
+  0.3916  24.4236
+  0.4666  7.76871
+  0.5416   55.508
+  0.6166  13.2997
+  0.6916  20.5719
+  0.7666  40.0049
+  0.8416  4.62513
+  0.9166  25.0835
+  0.9916  1.61554
+  1.0666  1.78866
+  1.1416  1.36477
+  1.2166  1.12969
+  1.2916  1.71772
+  1.3666 0.895401
+  1.4416  1.02235
+  1.5166 0.980827
+  1.5916  0.95127
+  1.6666   1.0111
+  1.7416 0.798129
+  1.8166 0.918169
+  1.8916 0.960291
+  1.9666 0.785946
+  2.0416 0.836205
+  2.1166 0.946607
+  2.1916 0.898851
+  2.2666 0.931506
+  2.3416 0.767983

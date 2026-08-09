@@ -1,9 +1,0 @@
-rank,candidate_id,sequence,length_aa,role,order_priority,notes
-1,LiD3-Core,GPGDPGPGDPGPGDP,15,primary_benchmark,high,Linker-free GPGDP trimer
-2,LiD3-Flex,GPGDPGSGPGDPGSGPGDP,19,primary_candidate,high,GSG-spaced GPGDP trimer
-3,LiND-Hybrid,GPGNPGSGPGDPGSGPGNP,19,primary_candidate,high,Mixed GPGNP/GPGDP
-4,LiLC-1,GPGDPGSGNPGSGDP,15,selectivity_control,medium,Lower-charge mixed donor
-5,LiDS-1,DGDGPGDPGDG,11,mechanistic_probe,medium,Asp/Gly geometry probe
-6,LiDA-1,DADGPGDPDAG,11,mechanistic_probe,medium,Ala-supported Asp pocket
-7,LiN3-Core,GPGNPGPGNPGPGNP,15,literature_benchmark,medium,GPGNP trimer benchmark
-8,LiA3-Ref,GPGAPGPGAPGPGAP,15,reference_control,required,Low-donor reference; always order

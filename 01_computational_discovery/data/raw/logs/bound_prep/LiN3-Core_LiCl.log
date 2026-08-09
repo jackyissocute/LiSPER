@@ -1,0 +1,13 @@
+gro_src	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/run_prod_20ns/step5_production_20ns.gro
+ion_index	192
+timestamp	2026-07-18T01:32:47
+gro	/data/LiSPER_remote/LiSPER_8cand_LiCl/systems/LiN3-Core/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiN3-Core.tsv
+candidate	LiN3-Core
+site_id	central_Asn9
+locked_donors	9:ASN:OD1,9:ASN:O,8:GLY:O,10:PRO:O
+ion_resname	LIT
+target_ion_index	192
+distance_nm	0.4054
+max_bound_nm	0.5500
+result	PASS

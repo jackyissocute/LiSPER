@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 13:30:22 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiND-Hybrid/NaCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Good gRace! Old Maple Actually Chews Slate
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        9.77744
+#   1        2.61357
+#   2        7.14689
+#   3        11.9984
+#   4        3.08811
+#   5        8.32382
+#   6        3.87459
+#   7        1.61483
+#   8        1.61716
+#   9        1.37571
+#  10        1.17615
+#  11        1.00996
+#  12        1.46558
+#  13        1.24136
+#  14        1.13893
+#  15        1.09957
+#  16       0.890942
+#  17       0.950938
+#  18       0.966671
+#  19        1.08589
+#  20        0.93247
+#  21       0.902129
+#  22        0.87585
+#  23        1.00605
+#  24       0.970069
+#  25       0.909576
+#  26       0.917407
+#  27       0.980856
+#  28        1.10621
+#  29        1.24734
+  0.3857  9.77744
+  0.4607  2.61357
+  0.5357  7.14689
+  0.6107  11.9984
+  0.6857  3.08811
+  0.7607  8.32382
+  0.8357  3.87459
+  0.9107  1.61483
+  0.9857  1.61716
+  1.0607  1.37571
+  1.1357  1.17615
+  1.2107  1.00996
+  1.2857  1.46558
+  1.3607  1.24136
+  1.4357  1.13893
+  1.5107  1.09957
+  1.5857 0.890942
+  1.6607 0.950938
+  1.7357 0.966671
+  1.8107  1.08589
+  1.8857  0.93247
+  1.9607 0.902129
+  2.0357  0.87585
+  2.1107  1.00605
+  2.1857 0.970069
+  2.2607 0.909576
+  2.3357 0.917407
+  2.4107 0.980856
+  2.4857  1.10621
+  2.5607  1.24734

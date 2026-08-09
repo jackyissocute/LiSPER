@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 15:16:59 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiLC-1/NaCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Giant Rising Ordinary Mutants for A Clerical Setup
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        9.43594
+#   1         12.178
+#   2        9.66755
+#   3        5.92437
+#   4        10.6178
+#   5        4.51929
+#   6        2.00847
+#   7        2.01039
+#   8        1.45752
+#   9        1.45964
+#  10        1.54425
+#  11         1.4827
+#  12        1.21587
+#  13        1.17734
+#  14        1.12822
+#  15        1.24995
+#  16        1.02037
+#  17       0.854682
+#  18        1.10939
+#  19        1.44366
+#  20          1.301
+#  21       0.966326
+#  22        1.12763
+#  23       0.953668
+#  24       0.948415
+#  25        1.01377
+#  26       0.772866
+#  27       0.963291
+#  28        0.86007
+#  29       0.834338
+  0.3691  9.43594
+  0.4441   12.178
+  0.5191  9.66755
+  0.5941  5.92437
+  0.6691  10.6178
+  0.7441  4.51929
+  0.8191  2.00847
+  0.8941  2.01039
+  0.9691  1.45752
+  1.0441  1.45964
+  1.1191  1.54425
+  1.1941   1.4827
+  1.2691  1.21587
+  1.3441  1.17734
+  1.4191  1.12822
+  1.4941  1.24995
+  1.5691  1.02037
+  1.6441 0.854682
+  1.7191  1.10939
+  1.7941  1.44366
+  1.8691    1.301
+  1.9441 0.966326
+  2.0191  1.12763
+  2.0941 0.953668
+  2.1691 0.948415
+  2.2441  1.01377
+  2.3191 0.772866
+  2.3941 0.963291
+  2.4691  0.86007
+  2.5441 0.834338

@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 12:15:10 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiD3-Core/LiCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Gromacs Runs One Microsecond At Cannonball Speeds
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        142.367
+#   1        4.94313
+#   2        8.44707
+#   3        8.75997
+#   4        6.09489
+#   5        3.14924
+#   6        1.56728
+#   7        2.22261
+#   8        1.71105
+#   9         3.5009
+#  10        1.23692
+#  11         1.2528
+#  12        1.16394
+#  13        1.60643
+#  14        1.29563
+#  15        1.07575
+#  16        11.0324
+#  17        1.07302
+#  18         5.5404
+#  19       0.946553
+#  20        1.02425
+#  21       0.932334
+#  22       0.931672
+#  23       0.883778
+#  24       0.847784
+#  25       0.953843
+#  26       0.845441
+#  27       0.948871
+#  28       0.834624
+#  29        0.83083
+  0.3938  142.367
+  0.4688  4.94313
+  0.5438  8.44707
+  0.6188  8.75997
+  0.6938  6.09489
+  0.7688  3.14924
+  0.8438  1.56728
+  0.9188  2.22261
+  0.9938  1.71105
+  1.0688   3.5009
+  1.1438  1.23692
+  1.2188   1.2528
+  1.2938  1.16394
+  1.3688  1.60643
+  1.4438  1.29563
+  1.5188  1.07575
+  1.5938  11.0324
+  1.6688  1.07302
+  1.7438   5.5404
+  1.8188 0.946553
+  1.8938  1.02425
+  1.9688 0.932334
+  2.0438 0.931672
+  2.1188 0.883778
+  2.1938 0.847784
+  2.2688 0.953843
+  2.3438 0.845441
+  2.4188 0.948871
+  2.4938 0.834624
+  2.5688  0.83083

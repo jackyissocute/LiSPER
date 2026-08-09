@@ -1,0 +1,13 @@
+gro_src	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/run_prod_20ns/step5_production_20ns.gro
+ion_index	207
+timestamp	2026-07-18T01:33:04
+gro	/data/LiSPER_remote/LiSPER_8cand_NaCl_prod_worker/systems/LiD3-Flex/gromacs/umbrella_sampling/representative_full_system.gro
+manifest	/data/LiSPER_remote/paired_binding_sites/LiD3-Flex.tsv
+candidate	LiD3-Flex
+site_id	central_Asp11
+locked_donors	11:ASP:OD1,11:ASP:OD2,11:ASP:O,10:GLY:O,12:PRO:O
+ion_resname	SOD
+target_ion_index	207
+distance_nm	0.3537
+max_bound_nm	0.5500
+result	PASS

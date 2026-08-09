@@ -1,0 +1,81 @@
+# This file was created Fri Jul 24 15:16:44 2026
+# Created by:
+#                       :-) GROMACS - gmx wham, 2026.0 (-:
+# 
+# Executable:   /opt/gromacs/2026.0/bin/gmx
+# Data prefix:  /opt/gromacs/2026.0
+# Working dir:  /data/LiSPER_remote/paired_pmf/LiLC-1/LiCl
+# Command line:
+#   gmx wham -it tpr-files.dat -if pullf-files.dat -o profile_full.xvg -hist histo_full.xvg -unit kJ -b 0.0 -e 2000.0 -bins 200 -ac -oiact iact_full.xvg -v -nBootstrap 200 -bs-method traj -bs-seed 20260713 -bsres bootstrap_std.xvg -bsprof bootstrap_profiles.xvg
+# gmx wham is part of G R O M A C S:
+#
+# Gyas ROwers Mature At Cryogenic Speed
+#
+@    title "Integrated autocorrelation times"
+@    xaxis  label "\xx\f{} (nm)"
+@    yaxis  label "IACT [ps]"
+@TYPE xy
+@    s0 symbol 1
+@    s0 symbol size 0.5
+@    s0 line linestyle 0
+#  WIN   tau(gr1)  tau(gr2) ...
+#   0        12.7536
+#   1        9.63833
+#   2        5.55545
+#   3        4.48271
+#   4        60.5893
+#   5        22.4145
+#   6        3.46149
+#   7        1.52606
+#   8        1.08128
+#   9        1.77803
+#  10        1.15079
+#  11         1.3653
+#  12        1.94253
+#  13       0.911424
+#  14       0.840402
+#  15        1.00984
+#  16        1.02715
+#  17       0.976946
+#  18       0.969052
+#  19       0.919261
+#  20       0.881729
+#  21        1.22923
+#  22       0.831927
+#  23       0.826485
+#  24       0.889654
+#  25       0.960502
+#  26       0.888745
+#  27       0.954791
+#  28       0.951497
+#  29       0.835544
+  0.3772  12.7536
+  0.4522  9.63833
+  0.5272  5.55545
+  0.6022  4.48271
+  0.6772  60.5893
+  0.7522  22.4145
+  0.8272  3.46149
+  0.9022  1.52606
+  0.9772  1.08128
+  1.0522  1.77803
+  1.1272  1.15079
+  1.2022   1.3653
+  1.2772  1.94253
+  1.3522 0.911424
+  1.4272 0.840402
+  1.5022  1.00984
+  1.5772  1.02715
+  1.6522 0.976946
+  1.7272 0.969052
+  1.8022 0.919261
+  1.8772 0.881729
+  1.9522  1.22923
+  2.0272 0.831927
+  2.1022 0.826485
+  2.1772 0.889654
+  2.2522 0.960502
+  2.3272 0.888745
+  2.4022 0.954791
+  2.4772 0.951497
+  2.5522 0.835544
