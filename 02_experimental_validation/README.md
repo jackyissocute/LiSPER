@@ -150,6 +150,7 @@ All biological work must follow the host laboratory's biosafety procedures, and 
 - [Li⁺ assay references](../04_reference_library/li_assay/)
 - [Peptide-processing references](../04_reference_library/peptide_processing/)
 - [Plasmid-design references](../04_reference_library/plasmid_design/)
+- [eCPX bacterial surface peptide display](../04_reference_library/plasmid_design/eCPX_bacterial_surface_peptide_display.md)
 - [Selectivity-assay references](../04_reference_library/selectivity_assay/)
 
 ---

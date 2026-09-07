@@ -37,6 +37,7 @@ flowchart TD
 | [`Track A_Peptide Assay/`](Track%20A_Peptide%20Assay/) | Ordered synthetic peptide Li⁺/Na⁺ assay literature (beads, dialysis, ICP, QC/TFA) | Designing Track A wet protocols and interpreting vendor-peptide experiments |
 | [`protein_design/IDP/`](protein_design/IDP/) | Intrinsically disordered proteins and flexible metal-binding regions | Explaining LiSPER flexibility, ensemble behavior, and IDP-inspired design choices |
 | [`protein_design/LBP/`](protein_design/LBP/) | Lithium-binding peptides, surface display, and lithium recovery | Motif precedent, Li-binding context, and comparison to published lithium-capture biology |
+| [`plasmid_design/`](plasmid_design/) | eCPX scaffold, cloning, and surface-display plasmid notes | Track B construct design and display-system literature |
 
 ## Boundary Rule
 
