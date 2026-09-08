@@ -35,7 +35,7 @@ In summary, the use of the eCPX gene for bacterial surface peptide expression in
 ## Related LiSPER documents
 
 - [Experimental validation plan](../../02_experimental_validation/README.md)
-- [Plasmid construction guide (pB33eCPX)](Perplexity_Surface%20Display%20Design%20Report.md)
+- [Current GenScript pET-28a(+) plasmid designs](../../02_experimental_validation/plasmids/README.md)
 
 ## References
 

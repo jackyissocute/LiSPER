@@ -7,7 +7,7 @@ LiSPER asks whether de novo designed, IDP-like peptides can selectively bind Li+
 ```mermaid
 flowchart TD
     accTitle: LiSPER Main Data Flow
-    accDescr: The main data flow moves from computational discovery to ordered synthetic peptide binding validation, then to surface-display engineering and industrial translation.
+    accDescr: The main data flow moves from computational discovery to GenScript plasmid construction, surface-display validation, binding assays and industrial translation.
 
     sequences["sequences/"]
     esmfold["esmfold/"]
@@ -16,7 +16,7 @@ flowchart TD
     umbrella["umbrella/"]
     pmf["pmf/"]
     ranking["candidate<br/>ranking"]
-    ordered_peptides["Track A<br/>ordered peptide assays"]
+    ordered_peptides["GenScript pET-28a(+)<br/>six-plasmid panel"]
     display["Track B<br/>surface display"]
     translation["03_industrial_translation/"]
 
@@ -69,7 +69,7 @@ Use this rule when placing new files:
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | Vendor-ordered synthetic peptide binding validation and surface-display engineering |
+| `02_experimental_validation/` | GenScript pET-28a(+) plasmid designs, surface-display validation and binding assays |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_reference_library/` | External sources, literature PDFs, citation exports, evidence notes, and source metadata |
 | `05_outputs_and_communication/` | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing outputs |

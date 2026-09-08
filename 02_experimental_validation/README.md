@@ -10,6 +10,8 @@ This phase tests whether the computationally selected peptides **LiDA-1** and **
 
 Direct free-peptide production, purification, and NHS-bead immobilization are deferred from this round because of the available equipment and budget.
 
+**Current construct package:** [six GenScript pET-28a(+) plasmids](plasmids/README.md): N-side and C-side fusions for each peptide, His-tagged eCPX-only control, and empty vector. The four-group assay outline below predates this expanded panel; its sample counts must be revised if all four candidate fusions are tested. Use empty-vector cells as the matched vector control.
+
 The plan answers four experimental questions:
 
 1. Does each candidate remove more Li⁺ from solution than the eCPX scaffold-only and host-only controls?
