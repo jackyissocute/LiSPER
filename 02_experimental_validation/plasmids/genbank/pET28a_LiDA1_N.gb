@@ -61,10 +61,6 @@ FEATURES             Location/Qualifiers
                      /note="Protein sequence: GSG"
      misc_feature    750..752
                      /label="synthetic stop TAA"
-     misc_feature    759..776
-                     /label="vector His6 DNA - untranslated"
-                     /note="Upstream synthetic stop prevents fusion to the
-                     native vector C-terminal tag."
      terminator      843..890
                      /note="transcription terminator for bacteriophage T7 RNA
                      polymerase"

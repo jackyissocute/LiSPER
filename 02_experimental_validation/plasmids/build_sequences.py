@@ -96,11 +96,10 @@ def main():
             if b <= start:
                 record.features.append(deepcopy(f))
             elif a >= end:
+                if f.qualifiers.get("label") == ["6xHis"]:
+                    continue
                 new = deepcopy(f)
                 new.location = f.location + delta
-                if f.qualifiers.get("label") == ["6xHis"]:
-                    new.type = "misc_feature"
-                    new.qualifiers = {"label": ["vector His6 DNA - untranslated"], "note": ["Upstream synthetic stop prevents fusion to the native vector C-terminal tag."]}
                 record.features.append(new)
         record.features.append(feature(start, start+len(dna), "display fusion ORF", "CDS",
                                        codon_start="1", transl_table="11", translation=protein,
