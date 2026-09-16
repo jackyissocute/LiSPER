@@ -1,6 +1,9 @@
 .DS_Store
 **/.DS_Store
 
+# SnapGene runtime locks
+.sglock/
+
 # Python bytecode
 __pycache__/
 *.py[cod]

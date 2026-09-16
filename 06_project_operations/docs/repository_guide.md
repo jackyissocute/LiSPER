@@ -16,7 +16,7 @@ flowchart TD
     umbrella["umbrella/"]
     pmf["pmf/"]
     ranking["candidate<br/>ranking"]
-    ordered_peptides["GenScript pET-28a(+)<br/>six-plasmid panel"]
+    ordered_peptides["GenScript pET-11a<br/>six-plasmid panel"]
     display["Track B<br/>surface display"]
     translation["03_industrial_translation/"]
 
@@ -69,7 +69,7 @@ Use this rule when placing new files:
 | Folder | Role |
 |---|---|
 | `01_computational_discovery/` | Candidate design, ESMFold, CHARMM-GUI, GROMACS, umbrella sampling, PMF, data, and analysis |
-| `02_experimental_validation/` | GenScript pET-28a(+) plasmid designs, surface-display validation and binding assays |
+| `02_experimental_validation/` | GenScript pET-11a plasmid designs, surface-display validation and binding assays |
 | `03_industrial_translation/` | Immobilized peptide architecture, packed-bed process design, and Bio-DLE studies |
 | `04_reference_library/` | External sources, literature PDFs, citation exports, evidence notes, and source metadata |
 | `05_outputs_and_communication/` | Manuscripts, figures, presentations, milestone summaries, and reviewer-facing outputs |

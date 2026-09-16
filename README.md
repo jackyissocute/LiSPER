@@ -36,7 +36,7 @@ The repository now follows a clear program model:
 |---|---|---|
 | Lithium-selective peptide library | Li+/Na+ separation is central to lithium recovery | Final 8-candidate intake |
 | Computational discovery engine | Prioritizes candidates before wet-lab cost | Full LiCl/NaCl MD setup gate |
-| Experimental validation program | Converts predictions into measurable assays | GenScript pET-28a(+) surface-display constructs and binding assays |
+| Experimental validation program | Converts predictions into measurable assays | GenScript pET-11a surface-display designs and binding assays |
 | Bio-DLE translation roadmap | Connects molecular recognition to process design | Immobilized peptide capture concepts |
 
 ## 🎯 Scientific thesis
@@ -108,7 +108,7 @@ flowchart TD
 | Phase | Goal | Status | Near-term gate |
 |---|---|---|---|
 | **I. Computational discovery** | Rank LiSPER candidates by Li+/Na+ selectivity | Complete | Eight paired within-protocol ΔΔG rows validated and published |
-| **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Build six pET-28a(+) constructs, validate surface display, then run Li/Na binding assays |
+| **II. Experimental validation** | Test whether designed peptides show measurable selectivity | Preparing | Build the pET-11a six-plasmid panel, validate surface display, then run Li/Na binding assays |
 | **III. Industrial translation** | Convert validated peptides into capture media | Concept stage | Select immobilization and column prototype strategy |
 
 ## 📊 Progress monitor dashboard
@@ -403,7 +403,7 @@ Phase II is designed to convert computational rankings into measurable biologica
 | **Track A: ordered synthetic peptide binding** | Intrinsic LiSPER binding behavior and computational validation | Li+ binding, Na+ competition, selectivity trend, PMF agreement |
 | **Track B: surface-display engineering** | LiSPER as biological capture interface | Display level, whole-cell Li capture, Na rejection, regeneration |
 
-The current wet-lab plan uses GenScript Nanjing pET-28a(+) constructs: N-side and C-side eCPX fusions for LiDA-1 and LiND-Hybrid, one His-tagged eCPX-only control, and one empty vector. See the [six-plasmid design package](02_experimental_validation/plasmids/README.md) for synthesis sequences, insertion boundaries, and validation requirements. Ordered free-peptide assays remain a separate possible comparison.
+The current surface-display design uses the GenScript pET-11a backbone: tag-free N-side and C-side eCPX fusions for LiDA-1 and LiND-Hybrid, one eCPX-only control, and one original empty vector. See the [six-plasmid design package](02_experimental_validation/plasmids/pET-11a/README.md) for NdeI/BamHI synthesis boundaries and validation requirements. This pET/eCPX combination is not experimentally validated and requires a T7-RNA-polymerase host such as BL21(DE3). Ordered free-peptide assays remain a separate possible comparison.
 
 ## 🏭 Industrial outlook
 
@@ -488,7 +488,7 @@ flowchart TD
 - [MD to PMF workflow](06_project_operations/docs/md_to_pmf_workflow.md)
 - [Ordered synthetic peptide binding plan](02_experimental_validation/track_A_purified_peptide/planning/ordered_synthetic_peptide_binding_plan.md)
 - [Track A vendor peptide order checklist](02_experimental_validation/track_A_purified_peptide/ordering/vendor_peptide_order_checklist.md)
-- [Current surface-display plasmid designs](02_experimental_validation/plasmids/README.md)
+- [Current surface-display plasmid designs](02_experimental_validation/plasmids/pET-11a/README.md)
 - [LiCl MD status](01_computational_discovery/md/li_cl/README.md)
 - [NaCl MD status](01_computational_discovery/md/na_cl/README.md)
 - [Deployment architecture report](03_industrial_translation/deployment_architecture/reports/final_deployment_architecture_report.md)
