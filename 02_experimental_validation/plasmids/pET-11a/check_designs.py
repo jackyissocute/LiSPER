@@ -1,4 +1,4 @@
-"""Reconstruct and check the six pET-11a designs; optional temporary GenBank export.
+"""Reconstruct and check the eight pET-11a designs; optional temporary GenBank export.
 
 Run with an installed Biopython Python: python check_designs.py [--export-dir DIR]
 """
@@ -39,21 +39,33 @@ def designs():
     assert peptides["LiND-Hybrid"] == "GPGNPGSGPGDPGSGPGNP"
     codons = {"D": "GAC", "A": "GCT", "G": "GGT", "P": "CCG", "N": "AAC", "S": "TCT"}
     result = []
-    for peptide_name, side in [("LiDA-1", "N"), ("LiDA-1", "C"), ("LiND-Hybrid", "N"), ("LiND-Hybrid", "C"), (None, None)]:
+    his = Seq("CATCACCATCACCATCAC")
+    assert str(his.translate()) == "HHHHHH"
+    for peptide_name, side, tag_side in [("LiDA-1", "N", "C"), ("LiDA-1", "C", "N"), ("LiND-Hybrid", "N", "C"), ("LiND-Hybrid", "C", "N"), (None, None, None), (None, None, "N"), (None, None, "C")]:
         name = f"pET11a_{peptide_name}_{side}" if side else "pET11a_Empty_eCPX"
+        if not side and tag_side:
+            name += f"_{tag_side}-His6"
         peptide = peptides[peptide_name] if peptide_name else ""
         peptide_dna = Seq("".join(codons[aa] for aa in peptide))
         modules = [("OmpX signal peptide", signal, "#E6B800"), ("N-display leader (GQSGQ)", leader, "#66CCCC")]
+        if tag_side == "N":
+            modules.append(("His6 (N-side)", his, "#0080FF"))
         if side == "N":
             modules.append((f"{peptide_name} N-display", peptide_dna, "#D95F59"))
         modules += [("N-display linker (GGQSGQ)", nlink, "#66CCCC"), ("eCPX core", core, "#63A35C"), ("C-display linker (GGS)", Seq("GGTGGTTCT"), "#66CCCC")]
         if side == "C":
             modules.append((f"{peptide_name} C-display", peptide_dna, "#D95F59"))
+        if tag_side == "C":
+            modules.append(("His6 (C-side)", his, "#0080FF"))
         modules.append(("Stop codon (TAA)", Seq("TAA"), "#888888"))
         cds = sum((dna for _, dna, _ in modules), Seq(""))
         protein = str(cds.translate(to_stop=True))
         assert str(cds.translate()).count("*") == 1 and cds[-3:] == "TAA"
-        assert "HHHHHH" not in protein
+        assert protein.count("HHHHHH") == int(bool(tag_side))
+        if tag_side == "N":
+            assert protein.startswith(str(signal.translate()) + "GQSGQHHHHHHGGQSGQ")
+        if tag_side == "C":
+            assert protein.endswith("GGSHHHHHH")
         if side == "C":
             assert protein.endswith("GGS" + peptide)
         if side == "N":
@@ -64,7 +76,7 @@ def designs():
         assert original[:107] + donor[2:len(donor)-5] + original[145:] == final
         assert NdeI.search(final, linear=False) == [108]
         assert BamHI.search(final, linear=False) == [len(cds) + 110]
-        record = SeqRecord(final, id=name, name=name, description=f"Tag-free eCPX {peptide_name or 'empty control'} {side or ''} display in pET-11a")
+        record = SeqRecord(final, id=name, name=name, description=f"eCPX {peptide_name or 'empty control'} {side or ''} display in pET-11a; {tag_side + '-side His6' if tag_side else 'tag-free'}")
         record.annotations = {"molecule_type": "DNA", "topology": "circular", "date": "16-SEP-2026", "comment": "GenScript pET-11a ID 47; unchanged bp-1 origin and forward T7 expression. NdeI/BamHI replace original bp 109-144, rebuilding boundary sites bp 106-150. Designed, not experimentally validated. BL21(DE3) or another T7-RNAP host required. eCPX geometry: Getz 2012; Kenrick 2009/2010. Backbone annotations from www.snapgene.com/resources."}
         delta = len(cds) - 36
         for feature in reference.features:
@@ -83,7 +95,7 @@ def designs():
                 qualifiers["note"] = [note]
             record.features.append(SeqFeature(SimpleLocation(a, b, strand=1), type=kind, qualifiers=qualifiers))
 
-        record.features.append(SeqFeature(SimpleLocation(108, 108 + len(cds), strand=1), type="CDS", qualifiers={"label": ["eCPX display CDS"], "codon_start": ["1"], "translation": [protein], "note": ["Signal peptide first; tag-free; stop before BamHI. N-display retains GQSGQ leader: not a free terminal peptide N-terminus."], "ApEinfo_fwdcolor": ["#800080"]}))
+        record.features.append(SeqFeature(SimpleLocation(108, 108 + len(cds), strand=1), type="CDS", qualifiers={"label": ["eCPX display CDS"], "codon_start": ["1"], "translation": [protein], "note": [f"Signal peptide first; {tag_side + '-side His6' if tag_side else 'tag-free'}; stop before BamHI. N-display retains GQSGQ leader: not a free terminal peptide N-terminus."], "ApEinfo_fwdcolor": ["#800080"]}))
         pos = 108
         for label, dna, color in modules:
             mark(pos, pos + len(dna), label, color, "sig_peptide" if label == "OmpX signal peptide" else "misc_feature", "Mature OmpX S54-F148 | GSKSRR | A1-S53; precursor A165L/G166S." if label == "eCPX core" else "")
@@ -119,19 +131,21 @@ def check_saved(items):
         sheet = ET.fromstring(z.read("xl/worksheets/sheet1.xml"))
         assert not sheet.findall(".//s:f", NS), "Workbook must contain literal values, not formulas"
         shared = ET.fromstring(z.read("xl/sharedStrings.xml")) if "xl/sharedStrings.xml" in z.namelist() else None
-        strings = ["".join(si.itertext()) for si in shared] if shared is not None else []
+        strings = ["".join(t.text or "" for t in si.findall(".//s:t", NS)) for si in shared] if shared is not None else []
         cells = {c.attrib["r"]: c for c in sheet.findall(".//s:c", NS)}
-        for row, (record, donor, _) in enumerate(items, 5):
-            c = cells[f"C{row}"]
+        def cell_text(c):
             if c.attrib.get("t") == "s":
-                value = strings[int(c.find("s:v", NS).text)]
+                return strings[int(c.find("s:v", NS).text)]
             elif c.attrib.get("t") == "inlineStr":
-                value = "".join(c.find("s:is", NS).itertext())
+                return "".join(t.text or "" for t in c.findall(".//s:t", NS))
             else:
                 assert c.attrib.get("t") == "str", "DNA insert must be stored as text"
-                value = c.find("s:v", NS).text
-            assert value == donor, (record.id, "Excel insert differs")
-    print("PASS six DNA files; GenScript reference unchanged; all five Excel insert sequences exact literals")
+                return c.find("s:v", NS).text
+        for record, donor, _ in items:
+            rows = [address[1:] for address, c in cells.items() if address.startswith("A") and cell_text(c) == record.id]
+            assert len(rows) == 1, (record.id, "Missing or duplicate Excel construct")
+            assert cell_text(cells[f"C{rows[0]}"]) == donor, (record.id, "Excel insert differs")
+    print("PASS eight DNA files; GenScript reference unchanged; all seven Excel insert sequences exact literals")
 
 
 if __name__ == "__main__":
@@ -147,6 +161,6 @@ if __name__ == "__main__":
             prefix, origin = path.read_text().split("ORIGIN")
             path.write_text(prefix + "ORIGIN" + origin.upper())
         (args.export_dir / "inserts.json").write_text(json.dumps([{ "name": r.id, "insert": donor, "protein": protein, "bp": len(r)} for r, donor, protein in items], indent=2))
-        print(f"PASS restriction ligation simulation and translation; exported five constructs to {args.export_dir}")
+        print(f"PASS restriction ligation simulation and translation; exported seven constructs to {args.export_dir}")
     else:
         check_saved(items)

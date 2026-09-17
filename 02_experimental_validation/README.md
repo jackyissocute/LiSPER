@@ -10,7 +10,7 @@ This phase tests whether the computationally selected peptides **LiDA-1** and **
 
 Direct free-peptide production, purification, and NHS-bead immobilization are deferred from this round because of the available equipment and budget.
 
-**Current construct package:** [six pET-11a plasmid designs](plasmids/pET-11a/README.md): tag-free N-side and C-side fusions for each peptide, eCPX-only control, and original empty vector. NdeI/BamHI cloning is sequence-checked; eCPX surface display in this backbone remains unvalidated and requires a T7-RNA-polymerase host such as BL21(DE3). The four-group assay outline below predates this expanded panel; its sample counts must be revised if all four candidate fusions are tested. Use empty-vector cells as the matched vector control.
+**Current construct package:** [eight pET-11a plasmid designs](plasmids/pET-11a/README.md): N-side and C-side fusions for each peptide with opposite-side His6 tags, three scaffold controls (tag-free, N-His6 and C-His6), and original empty vector. NdeI/BamHI cloning is sequence-checked; eCPX surface display in this backbone remains unvalidated and requires a T7-RNA-polymerase host such as BL21(DE3). The four-group assay outline below predates this expanded panel; its sample counts must be revised if the full panel is tested. Use empty-vector cells as the matched vector control and tagged scaffold controls to check tag-associated background.
 
 The plan answers four experimental questions:
 

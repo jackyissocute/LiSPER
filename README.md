@@ -403,7 +403,7 @@ Phase II is designed to convert computational rankings into measurable biologica
 | **Track A: ordered synthetic peptide binding** | Intrinsic LiSPER binding behavior and computational validation | Li+ binding, Na+ competition, selectivity trend, PMF agreement |
 | **Track B: surface-display engineering** | LiSPER as biological capture interface | Display level, whole-cell Li capture, Na rejection, regeneration |
 
-The current surface-display design uses the GenScript pET-11a backbone: tag-free N-side and C-side eCPX fusions for LiDA-1 and LiND-Hybrid, one eCPX-only control, and one original empty vector. See the [six-plasmid design package](02_experimental_validation/plasmids/pET-11a/README.md) for NdeI/BamHI synthesis boundaries and validation requirements. This pET/eCPX combination is not experimentally validated and requires a T7-RNA-polymerase host such as BL21(DE3). Ordered free-peptide assays remain a separate possible comparison.
+The current surface-display design uses the GenScript pET-11a backbone: N-side and C-side eCPX fusions for LiDA-1 and LiND-Hybrid with opposite-side His6 tags, three scaffold controls (tag-free, N-His6 and C-His6), and one original empty vector. See the [eight-plasmid design package](02_experimental_validation/plasmids/pET-11a/README.md) for NdeI/BamHI synthesis boundaries and validation requirements. This pET/eCPX combination is not experimentally validated and requires a T7-RNA-polymerase host such as BL21(DE3). Ordered free-peptide assays remain a separate possible comparison.
 
 ## 🏭 Industrial outlook
 
