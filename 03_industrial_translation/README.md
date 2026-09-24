@@ -1,28 +1,19 @@
-# 03 Industrial Translation
+# Industrial translation
 
-This stage contains LiSPER technology-translation studies: immobilized peptide deployment architecture, support-material analysis, packed-bed process design, and Bio-DLE reports.
+LiSPER's current product hypothesis is a **cell-produced, recoverable bioadsorbent**. Bacteria would make the peptide-bearing surface; after uptake is experimentally confirmed, inactivated display-cell material could be immobilized into a form that can be separated from treated liquid. Free cell suspension is an assay format, not the intended product.
+
+This is a research direction, not a demonstrated industrial process. The key gates are peptide-dependent Li⁺/Na⁺ uptake, retention after inactivation and immobilization, material recovery, possible reuse, and cost per amount of lithium recovered. Peptide-coated magnetic beads are a benchmark. A column or purified-peptide material is a possible later format only if measured performance and process economics support it.
 
 ```mermaid
-flowchart TD
-    accTitle: Industrial Translation Path
-    accDescr: Industrial translation starts from validated LiSPER peptides, evaluates deployment architecture, selects immobilization media, and moves toward packed-bed Bio-DLE.
+flowchart LR
+    accTitle: Cell-derived material development path
+    accDescr: Bacteria produce the peptide-bearing surface. After experimental validation, the team would test inactivation, immobilization, recovery, and process cost against a magnetic-bead benchmark.
 
-    peptide["Validated<br/>LiSPER peptide"]
-    architecture["Deployment<br/>architecture"]
-    immobilization["Immobilization<br/>strategy"]
-    media["Resin or bead<br/>capture media"]
-    column["Packed-bed<br/>Bio-DLE"]
-
-    peptide --> architecture
-    architecture --> immobilization
-    immobilization --> media
-    media --> column
+    cells["Grow display cells"] --> binding{"Confirm peptide-dependent uptake"}
+    binding -->|If supported| inactivate["Test inactivated biomass"]
+    inactivate --> immobilize["Test immobilized format"]
+    immobilize --> evaluate["Measure recovery, reuse and cost"]
+    beads["Peptide-coated magnetic beads"] -.->|Benchmark| evaluate
 ```
 
-## Contents
-
-| Folder | Purpose |
-|---|---|
-| `deployment_architecture/` | Immobilization, support-material, and process-architecture assessment. |
-
-The current translation hypothesis is that purified immobilized LiSPER peptide in a packed-bed column is the most realistic industrial endpoint, with inactivated display systems and magnetic beads as bridge technologies after validation.
+The [deployment architecture reports](deployment_architecture/) record earlier options, including purified-peptide columns. Read them as historical option studies; the current experimental plan is in [02_experimental_validation](../02_experimental_validation/README.md).

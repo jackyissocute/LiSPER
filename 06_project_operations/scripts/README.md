@@ -1,24 +1,5 @@
 # Scripts
 
-Reusable project scripts for preparation, conversion, analysis, plotting, and reporting.
+Reusable preparation, analysis, and reporting code. Keep inputs and outputs traceable to the source data.
 
-## Promotion Rule
-
-```mermaid
-flowchart TD
-    accTitle: Script Promotion Rule
-    accDescr: One-off analysis commands become reusable project scripts only after the workflow is repeated and documented.
-
-    command["One-off<br/>command"]
-    analysis["Discovery<br/>analysis"]
-    repeat["Repeated<br/>twice"]
-    scripts["Reusable<br/>script"]
-    protocol["Documented<br/>protocol"]
-
-    command --> analysis
-    analysis --> repeat
-    repeat --> scripts
-    scripts --> protocol
-```
-
-Keep scripts small, named by task, and parameterized enough to reuse across candidates and ion conditions.
+For PMF figures and selectivity summaries, use [analyze_selectivity.py](analyze_selectivity.py) and its source-validation workflow. Preserve the raw data, estimator, sign convention, units, bootstrap SD assumptions, and numerical diagnostics. One-off exploratory work belongs in the relevant analysis folder until it needs reuse.

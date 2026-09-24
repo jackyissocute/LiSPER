@@ -6,12 +6,12 @@ This folder defines the active 8-candidate LiSPER peptide library.
 
 | File / Folder | Purpose |
 |---|---|
-| `candidates.tsv` | Ranked 8-candidate metadata, design logic, and intake status |
+| `candidates.tsv` | Design-order metadata, sequence logic, and intake status; its order is not the final selectivity ranking |
 | `candidates.fasta` | FASTA input for ESMFold |
 | `reuse_map.tsv` | Internal exact-match traceability for completed upstream assets |
 | `candidates/` | Individual sequence records |
 
-## Active Library
+## Active library (design order)
 
 | Rank | Candidate | Role |
 |---:|---|---|
@@ -28,6 +28,6 @@ This folder defines the active 8-candidate LiSPER peptide library.
 
 `LiD3-Flex`, `LiND-Hybrid`, and `LiLC-1` already have upstream computational assets available under their final candidate names.
 
-The active project should read and operate as a final 8-candidate library. Superseded working materials are kept outside the active workflow under:
+The final computational ranking is in `../pmf/selectivity_summary.tsv`. Superseded working materials are kept outside the active workflow under:
 
 `archive/` (prior library snapshot)

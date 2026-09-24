@@ -2,16 +2,16 @@
 
 MD stage for the 8-candidate library: min → eq → 20 ns prod → clustering → representative handoff.
 
-## Status (2026-07-13)
+## Status
 
 | Condition | State |
 |---|---|
 | LiCl | Complete — 8/8 production + reps |
 | NaCl | Complete — 8/8 production + reps |
-| Free energy | Sixteen paired LiCl/NaCl pulls running — see `../umbrella/remote_runs_umbrella_sampling_status.md` |
+| Free energy | All 16 paired pulls and the eight paired PMF analyses complete; see `../pmf/` |
 
 Fat trajectories / rebuild seeds: Jacky `ACTIVE/seeds/` (`../STORAGE_LAYOUT.md`).  
-Paths / next CPU: `remote_orchestration/SYNC_PATHS.md` (**EPYC 9554P**).
+Historical paths and compute setup: `remote_orchestration/SYNC_PATHS.md`.
 
 ## Layout
 

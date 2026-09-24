@@ -1,24 +1,5 @@
 # Manuscript
 
-Drafts, outlines, tables, figure captions, and supplementary-material planning.
+Drafts, outlines, captions, tables, and supplement planning belong here. The current evidence supports a computational story; experimental expression, surface display, and lithium uptake remain planned.
 
-## Story Arc
-
-```mermaid
-flowchart TD
-    accTitle: Manuscript Story Arc
-    accDescr: The manuscript story moves from design rationale through simulation workflow and Li over Na selectivity results into experimental validation.
-
-    rationale["Design<br/>rationale"]
-    workflow["Simulation<br/>workflow"]
-    results["Li/Na<br/>results"]
-    validation["Experimental<br/>validation"]
-
-    rationale --> workflow
-    workflow --> results
-    results --> validation
-```
-
-Use this folder for publication-style organization. Keep raw analysis and trajectories in `../../01_computational_discovery/analysis/`, `../../01_computational_discovery/md/`, `../../01_computational_discovery/umbrella/`, and `../../01_computational_discovery/pmf/`.
-
-Decks and milestone summaries belong one level up in `../presentations/` and `../milestones/`.
+Keep simulation sources in [computational discovery](../../01_computational_discovery/) and wet-lab records in [experimental validation](../../02_experimental_validation/). Figures live in [figures](../figures/).

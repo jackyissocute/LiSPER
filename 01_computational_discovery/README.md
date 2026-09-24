@@ -1,52 +1,29 @@
-# 01 Computational Discovery
+# Computational discovery
 
-This stage contains the in silico LiSPER discovery workflow: candidate sequences, structure prediction, CHARMM-GUI system construction, GROMACS simulations, umbrella sampling, PMF analysis, data, and analysis outputs.
-
-## Current State
-
-Final **8-candidate** computational workflow: setup and representative clustering complete, paired umbrella pulls running, PMF pending completed windows.
-
-Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned.
+The eight-candidate LiSPER campaign has completed structure preparation, paired LiCl/NaCl MD, representative selection, umbrella sampling, and PMF analysis. The [selectivity summary](pmf/selectivity_summary.tsv) contains eight paired estimates. These are computational, within-protocol comparisons; experimental binding and uptake remain untested.
 
 ```mermaid
-flowchart TD
-    accTitle: Computational Discovery Folders
-    accDescr: The computational discovery folder moves from candidate sequences through structure prediction, system setup, molecular dynamics, umbrella sampling, PMF analysis, and final interpretation.
+flowchart LR
+    accTitle: Paired ion comparison workflow
+    accDescr: The same candidate library feeds matched lithium and sodium simulations. Their PMF estimates are combined into a within-protocol selectivity comparison.
 
-    sequences["sequences/"]
-    esmfold["esmfold/"]
-    charmm_gui["charmm-gui/"]
-    md["md/"]
-    umbrella["umbrella/"]
-    pmf["pmf/"]
-    analysis["analysis/"]
-
-    sequences --> esmfold
-    esmfold --> charmm_gui
-    charmm_gui --> md
-    md --> umbrella
-    umbrella --> pmf
-    pmf --> analysis
-
-    classDef planned fill:#0F172A,stroke:#64748B,stroke-width:2px,color:#E2E8F0
-    classDef running fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
-    classDef qc fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
-    classDef complete fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
-    class sequences,esmfold,charmm_gui,md complete
-    class umbrella running
-    class pmf qc
-    class analysis planned
+    sequences["Candidate sequences"] --> structures["Starting structures"]
+    structures --> lithium_md["LiCl MD"]
+    structures --> sodium_md["NaCl MD"]
+    lithium_md --> lithium_pmf["LiCl umbrella and PMF"]
+    sodium_md --> sodium_pmf["NaCl umbrella and PMF"]
+    lithium_pmf --> comparison["Delta Delta G comparison"]
+    sodium_pmf --> comparison
 ```
 
-## Contents
-
 | Folder | Purpose |
-|---|---|
-| `sequences/` | Candidate peptide sequences and metadata. |
-| `esmfold/` | ESMFold predictions and CHARMM-GUI-ready PDBs. |
-| `charmm-gui/` | LiCl and NaCl system-builder outputs. |
-| `md/` | GROMACS minimization, equilibration, 20 ns production, structural clustering, representative extraction, and MD-stage remote logs. |
-| `umbrella/` | Umbrella sampling drivers, v2 reaction-coordinate setup, pull stages, window equilibration/production, synced window outputs, and umbrella diagnostics. |
-| `pmf/` | WHAM, PMF QC, bootstrap/time-slice checks, Delta G estimates, and paired Delta Delta G analysis. |
-| `analysis/` | Cross-stage computational interpretation and ranking work. |
-| `data/` | Raw and processed computational data not tied to one workflow folder. |
+| --- | --- |
+| [sequences](sequences/) | Candidate sequences and design roles |
+| [esmfold](esmfold/) | Starting structures and intake provenance |
+| [MD](md/) | Paired production simulations and representative structures |
+| [umbrella](umbrella/) | Completed paired umbrella campaigns and archive |
+| [PMF](pmf/) | Free-energy estimates, uncertainty, and diagnostics |
+| [analysis](analysis/) | Cross-stage interpretation |
+| [data](data/) | Curated raw and processed data |
+
+The reported quantity is `ΔΔG = ΔG(Li⁺) − ΔG(Na⁺)`; a negative value indicates nominal Li⁺ preference. The estimates are radially corrected and endpoint-referenced, **not 1 M standard-state binding free energies**. Bootstrap SD and sampling diagnostics must accompany any ranking. Candidate trajectories, umbrella windows, and bootstrap draws are not independent biological replicates. Use the [source-validation workflow](../06_project_operations/scripts/analyze_selectivity.py) before publishing a numerical figure or table.

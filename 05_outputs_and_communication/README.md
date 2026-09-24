@@ -1,59 +1,12 @@
-# 05 Outputs and Communication
+# Outputs and communication
 
-This folder is for **materials intended to communicate LiSPER outward**: manuscripts, figures, presentations, milestone updates, and reviewer-facing summaries.
+Reader-facing material belongs here. Each result figure or claim should link back to its source data and preserve the scientific limits recorded in the [computational analysis](../01_computational_discovery/pmf/README.md) or [experimental plan](../02_experimental_validation/README.md).
 
-It should contain polished or semi-polished outputs derived from the research folders. Raw simulation data, wet-lab records, and literature PDFs should stay in their source folders.
+| Folder | Contents |
+| --- | --- |
+| [Figures](figures/) | Plots, schematics, and editable figure sources |
+| [Manuscript](manuscript/) | Drafts, outlines, captions, and supplement planning |
+| [Presentations](presentations/) | Progress and pitch decks |
+| [Milestones](milestones/) | Dated summaries and decisions |
 
-```mermaid
-flowchart TD
-    accTitle: Outputs And Communication
-    accDescr: Evidence from the research pipeline is translated into figures, manuscripts, presentations, and milestone summaries for external communication.
-
-    evidence["Research evidence<br/>01-03"]
-    figures["Figures"]
-    manuscript["Manuscript"]
-    presentations["Presentations"]
-    milestones["Milestones"]
-    communication["External<br/>communication"]
-
-    evidence --> figures
-    evidence --> manuscript
-    evidence --> presentations
-    evidence --> milestones
-    figures --> communication
-    manuscript --> communication
-    presentations --> communication
-    milestones --> communication
-
-    classDef evidence fill:#0F172A,stroke:#38BDF8,stroke-width:2px,color:#E2E8F0
-    classDef output fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
-    classDef final fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
-    class evidence evidence
-    class figures,manuscript,presentations,milestones output
-    class communication final
-```
-
-## Folder Map
-
-| Folder | Purpose |
-|---|---|
-| [`manuscript/`](manuscript/) | Publication-style drafts, outlines, figure captions, tables, and supplement planning |
-| [`figures/`](figures/) | Exported figures, editable figure sources, visual summaries, and manuscript-ready images |
-| [`presentations/`](presentations/) | Slide decks for progress reports, faculty updates, pitch reviews, and team communication |
-| [`milestones/`](milestones/) | Milestone summaries, dated progress snapshots, and decision-point communication |
-
-## Boundary Rule
-
-| Material | Put It Here? | Better Location |
-|---|---:|---|
-| Manuscript outline or draft | Yes | `manuscript/` |
-| Final or editable figure | Yes | `figures/` |
-| Progress-report deck | Yes | `presentations/` |
-| DKU reviewer or advisor summary | Yes | `milestones/` or `presentations/` |
-| Raw trajectory, structure, or PMF data | No | `../01_computational_discovery/` |
-| Wet-lab protocol or plasmid file | No | `../02_experimental_validation/` |
-| Industrial deployment research report | No | `../03_industrial_translation/` |
-| Literature PDFs | No | `../04_reference_library/` |
-| Reusable scripts or repository guides | No | `../06_project_operations/` |
-
-This is the place where LiSPER becomes understandable to people outside the day-to-day research workflow.
+Keep raw trajectories, plasmid files, and literature PDFs in their source folders. The Dii application draft is maintained outside this repository.

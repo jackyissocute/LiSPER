@@ -1,74 +1,9 @@
-# PMF Analysis
+# PMF and selectivity analysis
 
-This folder owns WHAM, PMF QC, Delta G estimates, and paired Delta Delta G selectivity analysis after umbrella sampling.
+All eight candidates have completed paired LiCl/NaCl PMF estimates. The authoritative values are in [selectivity_summary.tsv](selectivity_summary.tsv); [delta_g_summary.tsv](delta_g_summary.tsv) holds the 16 ion-level estimates. The [completed archive](../umbrella/analysis_archive_20260725/README.md) retains profiles, histograms, ACF/IACT evidence, bootstrap outputs, sensitivity variants, and logs.
 
-The active estimator reports radially corrected, endpoint-referenced PMF binding differences for paired Li/Na simulations. These values can support a within-protocol selectivity comparison, but they are not labeled as 1 M standard binding free energies.
+`ΔΔG = ΔG(Li⁺) − ΔG(Na⁺)`. A negative estimate indicates nominal Li⁺ preference. These are **radially corrected, endpoint-referenced, within-protocol PMF binding differences**, not 1 M standard-state binding free energies and not measured adsorption capacities.
 
-No binary promotion hold is active. Histogram overlap, endpoint span, early/late differences, burn-in sensitivity, per-window IACT/ACF evidence, and autocorrelation-aware trajectory-bootstrap uncertainty are retained as diagnostics with their numerical values.
+The paired uncertainty is propagated from the ion-level bootstrap SDs under the analysis workflow's assumptions. It is not a confidence interval or a biological-replicate estimate. Keep histogram overlap, endpoint span, time sensitivity, burn-in sensitivity, and autocorrelation diagnostics visible; do not convert them into an unsupported binary quality label. Some estimates have SD large enough that their sign remains uncertain.
 
-Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, ⚫ planned. LiCl/NaCl colors are identity accents only.
-
-## Selectivity Equation
-
-`Delta Delta G = Delta G(Li+) - Delta G(Na+)`
-
-More negative Delta Delta G indicates stronger Li+ preference.
-
-## Expected Outputs
-
-| Output | Purpose |
-|---|---|
-| `pmf_li.tsv` | Li+ PMF curve |
-| `pmf_na.tsv` | Na+ PMF curve |
-| `delta_g_summary.tsv` | Per-condition free energies |
-| `selectivity_summary.tsv` | Delta Delta G candidate ranking |
-| convergence plots | Check whether PMFs are reliable |
-
-## Active Layout
-
-| Path | Purpose |
-|---|---|
-| `remote_runs/` | Empty scaffold — new locked-site WHAM/QC runs land here |
-| `paired_analysis_regions/` | Shared bound/reference regions committed before PMF inspection |
-| `remote_results/` | Lean synced PMF products for validated pairs |
-| Cold fat | Jacky cold disk / compute host — see `../STORAGE_LAYOUT.md` |
-
-## Current PMF state
-
-| Candidate | Condition | Locked-site WHAM | Publishable paired ΔΔG? |
-|---|---|---|---|
-| LiDA-1 | LiCl / NaCl | complete; paired WHAM and diagnostics retained | Yes — `ESTIMATE_READY` |
-| LiDS-1 | LiCl / NaCl | complete; paired WHAM and diagnostics retained | Yes — `ESTIMATE_READY` |
-| Remaining 6 candidates | LiCl / NaCl | production active on EPYC | Pending completed windows and paired WHAM |
-
-## Diagnostics
-
-The evaluator always writes the PMF estimate when the profiles exist. Empty or weak bins, endpoint shape, time sensitivity, and uncertainty remain visible warnings rather than arbitrary universal PASS/REPAIR thresholds. Fatal GROMACS/WHAM errors and missing inputs still block calculation because there is no numerical estimate to report.
-
-```mermaid
-flowchart TD
-    accTitle: PMF Ranking Logic
-    accDescr: PMF analysis compares Li and Na umbrella-sampling free energies to compute selectivity and rank candidate peptides.
-
-    li_umbrella["Li+ umbrella<br/>sampling"]
-    na_umbrella["Na+ umbrella<br/>sampling"]
-    li_delta_g["Delta G<br/>Li+"]
-    na_delta_g["Delta G<br/>Na+"]
-    selectivity["Delta Delta G<br/>selectivity"]
-    ranking["Candidate<br/>ranking"]
-
-    li_umbrella --> li_delta_g
-    na_umbrella --> na_delta_g
-    li_delta_g --> selectivity
-    na_delta_g --> selectivity
-    selectivity --> ranking
-
-    classDef ionLi fill:#0F172A,stroke:#818CF8,stroke-width:2px,color:#E2E8F0
-    classDef ionNa fill:#0F172A,stroke:#2DD4BF,stroke-width:2px,color:#E2E8F0
-    classDef qc fill:#0F172A,stroke:#A78BFA,stroke-width:2px,color:#E2E8F0
-    classDef complete fill:#0F172A,stroke:#22C55E,stroke-width:2px,color:#E2E8F0
-    class li_umbrella,li_delta_g ionLi
-    class na_umbrella,na_delta_g ionNa
-    class selectivity qc
-    class ranking complete
-```
+Use [analyze_selectivity.py](../../06_project_operations/scripts/analyze_selectivity.py) and its source-validation workflow for figures or downstream summaries. Do not change raw profiles, numerical transformations, source references, or estimators for presentation.

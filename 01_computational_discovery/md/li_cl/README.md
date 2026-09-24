@@ -14,19 +14,19 @@ Legend: 🟢 complete, 🔵 running, 🟡 queued, 🟣 QC, 🔺 repair/warning, 
 | Equilibration | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> equilibrated |
 | 20 ns production | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> |
 | Structural clustering | <img alt="complete" src="https://img.shields.io/badge/complete-8%2F8-22C55E"> new top clusters: `LiD3-Flex` `4.40%`, `LiND-Hybrid` `12.89%` |
-| Free-energy handoff | <img alt="running" src="https://img.shields.io/badge/paired_umbrella-running-38BDF8"> all eight LiCl pulls active; PMF waits in `../../pmf/` |
+| Free-energy handoff | Complete for all eight candidates; paired estimates are in `../../pmf/` |
 
 ## Candidate Notes
 
 | Candidate | LiCl production state |
 |---|---|
-| `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `12.69%`; paired pull active |
-| `LiD3-Flex` | `20.00 ns / 20 ns`; representative ready; top cluster `4.40%`; paired pull active |
-| `LiND-Hybrid` | `20.00 ns / 20 ns`; representative ready; top cluster `12.89%`; paired pull active |
-| `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `4.15%`; paired pull active |
-| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `15.69%`; paired pull active |
-| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.64%`; paired pull active |
-| `LiN3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `4.65%`; paired pull active |
-| `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `5.05%`; paired pull active |
+| `LiD3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `12.69%` |
+| `LiD3-Flex` | `20.00 ns / 20 ns`; representative ready; top cluster `4.40%` |
+| `LiND-Hybrid` | `20.00 ns / 20 ns`; representative ready; top cluster `12.89%` |
+| `LiLC-1` | `20.00 ns / 20 ns`; representative ready; top cluster `4.15%` |
+| `LiDS-1` | `20.00 ns / 20 ns`; representative ready; top cluster `15.69%` |
+| `LiDA-1` | `20.00 ns / 20 ns`; representative ready; top cluster `17.64%` |
+| `LiN3-Core` | `20.00 ns / 20 ns`; representative ready; top cluster `4.65%` |
+| `LiA3-Ref` | `20.00 ns / 20 ns`; representative ready; top cluster `5.05%` |
 
-Live MD run summaries are kept in `remote_runs/`. Umbrella sampling status is in `../../umbrella/remote_runs_umbrella_sampling_status.md`; WHAM/PMF QC is in `../../pmf/`. Prior library snapshots, if any, live under cold storage — see `../remote_orchestration/SYNC_PATHS.md`.
+MD run records are in `remote_runs/`; completed umbrella evidence and WHAM/PMF QC are in `../../umbrella/` and `../../pmf/`.

@@ -28,9 +28,7 @@ Current ESMFold intake state:
 | `completed_assets_manifest.tsv` | Quiet provenance for candidates with completed upstream assets |
 | `reuse_map.tsv` | Internal exact-match traceability |
 
-## Next Step
-
-Next, use the safe `LiN3-Core` PDB to complete the one remaining LiCl CHARMM-GUI system.
+The LiN3-Core replacement passed sequence QC; all eight LiCl and NaCl systems have since completed the downstream MD and PMF workflow. These models were starting structures, not claims of a single stable peptide conformation.
 
 ## Duplication Policy
 

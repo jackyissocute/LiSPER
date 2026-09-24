@@ -1,6 +1,6 @@
 # pET-11a surface-display plasmids
 
-Eight native SnapGene files, updated 2026-09-17. All retain the GenScript forward strand and bp-1 origin (`AGATCT…`), use uppercase DNA, and have annotated backbone, expression and display features. The display CDS starts at bp 109 in every engineered construct. Reverse-strand backbone genes retain their biological orientation. The full display CDS is purple; the eCPX core remains green.
+Final design package: eight native SnapGene files. The project lead reports that the ordered plasmids are in transit. The current files pass `check_designs.py`, including sequence, translation, vector-boundary, and synthesis-workbook checks. This is design verification, not a wet-lab result. All files retain the GenScript forward strand and bp-1 origin (`AGATCT…`); the engineered display CDS begins at bp 109.
 
 | File | Plasmid length | Display |
 | --- | ---: | --- |
@@ -34,6 +34,8 @@ The native 23-aa OmpX secretion signal remains first. The 154-aa circularly perm
 His6 is on the opposite display side from each candidate peptide. Anti-His Western blot can support fusion-expression detection; intact-cell anti-His accessibility does not directly prove exposure or function of the peptide on the opposite side. Tag effects on folding, display and ion binding need experimental checks. The three scaffold controls separate scaffold and tag-associated backgrounds; they do not establish successful display by themselves.
 
 These are sequence-checked designs, **not experimentally validated surface-display or lithium-binding constructs**. Kenrick and Getz use pBAD33/MC1061, not pET-11a/BL21. Van Bloois reviews bacterial display and does not validate this particular combination. Moving eCPX into a T7 backbone is an extrapolation; secretion, accessible surface display, cell fitness and lithium-binding specificity remain to be demonstrated. Use BL21(DE3) or another T7-RNA-polymerase host, not ordinary BL21 without a T7-polymerase source. See the [Novagen host documentation](https://b2b.sigmaaldrich.com/US/en/product/mm/69450m).
+
+Planned validation is staged: first assess the expected eCPX fusion band by gel and anti-His immunoblot; then assess intact-cell anti-His accessibility by microscopy, including a surface-protease comparison and suitable cell-integrity controls. A weaker post-treatment signal would support external access to the **tagged side**. It would not independently prove exposure of the opposite-side candidate peptide or lithium binding. Controlled Li⁺/Na⁺ measurements follow only after expression and accessibility checks.
 
 ## Sources and verification
 
