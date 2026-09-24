@@ -1,6 +1,6 @@
 # Computational discovery
 
-The eight-candidate LiSPER campaign has completed structure preparation, paired LiCl/NaCl MD, representative selection, umbrella sampling, and PMF analysis. The [selectivity summary](pmf/selectivity_summary.tsv) contains eight paired estimates. These are computational, within-protocol comparisons; experimental binding and uptake remain untested.
+I have completed structure preparation, paired LiCl/NaCl MD, representative selection, umbrella sampling, and PMF analysis for all eight candidates. The [selectivity summary](pmf/selectivity_summary.tsv) contains eight paired estimates. These are computational, within-protocol comparisons; experimental binding and uptake remain untested.
 
 ```mermaid
 flowchart LR

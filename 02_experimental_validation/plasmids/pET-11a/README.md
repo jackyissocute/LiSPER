@@ -1,6 +1,6 @@
 # pET-11a surface-display plasmids
 
-Final design package: eight native SnapGene files. The project lead has submitted the designs to the vendor. The current files pass `check_designs.py`, including sequence, translation, vector-boundary, and synthesis-workbook checks. This is design verification, not a wet-lab result. All files retain the GenScript forward strand and bp-1 origin (`AGATCT…`); the engineered display CDS begins at bp 109.
+This is my final design package: eight native SnapGene files submitted to the vendor. The files pass `check_designs.py`, including sequence, translation, vector-boundary, and synthesis-workbook checks. These checks verify the designs; the constructs have not yet been tested in the lab. All files retain the GenScript forward strand and bp-1 origin (`AGATCT…`); the engineered display CDS begins at bp 109.
 
 | File | Plasmid length | Display |
 | --- | ---: | --- |

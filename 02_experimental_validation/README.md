@@ -1,6 +1,6 @@
 # Experimental validation
 
-The immediate goal is to test whether LiSPER's computationally prioritized peptides produce measurable Li⁺ uptake and Li⁺/Na⁺ selectivity when displayed on bacterial cells. **No expression, surface-display, or ion-capture result has been reported yet.** The project lead has submitted the final pET-11a designs to the vendor; experimental work awaits the constructs.
+My next step is to test whether the peptides I prioritized computationally capture Li⁺ over Na⁺ when displayed on bacterial cells. I have sent the final pET-11a designs to the vendor and am waiting for the constructs. **Expression, surface display, and ion capture have not yet been tested.**
 
 ## Constructs and controls
 
