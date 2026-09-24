@@ -25,7 +25,7 @@ flowchart LR
 | Stage | Current evidence | Next decision |
 | --- | --- | --- |
 | Computational discovery | Eight peptides have paired LiCl/NaCl simulations and completed umbrella/PMF analysis. | Test whether predicted preferences appear in measured ion uptake. |
-| Surface-display design | The final [pET-11a design package](02_experimental_validation/plasmids/pET-11a/README.md) contains four peptide fusions, three scaffold controls, and the reference backbone. The project lead reports that the plasmids are in transit. | Verify fusion expression and accessible display after the constructs arrive. |
+| Surface-display design | The final [pET-11a design package](02_experimental_validation/plasmids/pET-11a/README.md) contains four peptide fusions, three scaffold controls, and the reference backbone. The project lead has submitted the designs to the vendor. | Verify fusion expression and accessible display after the constructs arrive. |
 | Lithium capture | No experimental Li⁺ uptake or Li⁺/Na⁺ selectivity result yet. | Compare candidate cells with matched controls in Li-only, Na-only, and mixed-ion solutions. |
 | Recoverable material | Concept stage. | If capture is confirmed, test whether inactivated, immobilized cell material retains performance and can be separated. |
 

@@ -1,6 +1,6 @@
 # pET-11a surface-display plasmids
 
-Final design package: eight native SnapGene files. The project lead reports that the ordered plasmids are in transit. The current files pass `check_designs.py`, including sequence, translation, vector-boundary, and synthesis-workbook checks. This is design verification, not a wet-lab result. All files retain the GenScript forward strand and bp-1 origin (`AGATCT…`); the engineered display CDS begins at bp 109.
+Final design package: eight native SnapGene files. The project lead has submitted the designs to the vendor. The current files pass `check_designs.py`, including sequence, translation, vector-boundary, and synthesis-workbook checks. This is design verification, not a wet-lab result. All files retain the GenScript forward strand and bp-1 origin (`AGATCT…`); the engineered display CDS begins at bp 109.
 
 | File | Plasmid length | Display |
 | --- | ---: | --- |
@@ -8,7 +8,7 @@ Final design package: eight native SnapGene files. The project lead reports that
 | pET11a_LiDA-1_C.dna | 6,268 bp | C-side DADGPGDPDAG; N-side His6 |
 | pET11a_LiND-Hybrid_N.dna | 6,292 bp | N-side GPGNPGSGPGDPGSGPGNP; C-side His6 |
 | pET11a_LiND-Hybrid_C.dna | 6,292 bp | C-side GPGNPGSGPGDPGSGPGNP; N-side His6 |
-| pET11a_Empty_eCPX.dna | 6,217 bp | Tag-free scaffold control, byte-unchanged |
+| pET11a_Empty_eCPX.dna | 6,217 bp | Tag-free scaffold control |
 | pET11a_Empty_eCPX_N-His6.dna | 6,235 bp | Scaffold-only N-side His6 control |
 | pET11a_Empty_eCPX_C-His6.dna | 6,235 bp | Scaffold-only C-side His6 control |
 | pET-11a.dna | 5,677 bp | Original GenScript backbone, unchanged sequence |

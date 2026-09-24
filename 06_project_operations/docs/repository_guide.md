@@ -16,7 +16,7 @@ flowchart TD
     umbrella["umbrella/"]
     pmf["pmf/"]
     ranking["candidate<br/>ranking"]
-    ordered_peptides["GenScript pET-11a<br/>six-plasmid panel"]
+    ordered_peptides["Final pET-11a<br/>eight-file package"]
     display["Track B<br/>surface display"]
     translation["03_industrial_translation/"]
 
